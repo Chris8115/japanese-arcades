@@ -1,0 +1,14 @@
+.gradle/
+build/
+runs/
+libs/*.jar
+dev.local.json
+.vscode/settings.json
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+bin/
+out/
+src/generated/**/.cache/

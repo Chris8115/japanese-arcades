@@ -1,0 +1,86 @@
+# Fun pack mod development
+
+This workspace is for our own mods for **Minecraft 1.21.1 / NeoForge 21.1.252**.
+The starter mod is **Fun Pack Custom**, id `funpackcustom`, version `0.1.0`.
+It registers `/funpackdev`, a small command to confirm that the mod is loaded.
+
+## Start here
+
+Open this folder in VS Code. The Java and Gradle extensions are already installed.
+Use **Terminal > Run Task** for the `Fun:` tasks, or open a terminal here:
+
+```powershell
+.\dev.cmd Build
+.\dev.cmd Client
+.\dev.cmd PackClient
+```
+
+- `Build` creates `build/libs/funpackcustom-0.1.0.jar` and a separate sources jar.
+- `Client` launches a small Minecraft test instance with just NeoForge and our mod.
+- `PackClient` launches a separate development copy of the full Fun pack with our mod loaded from source.
+- `SyncPack` refreshes the copied mods, configs, resource packs, and pack scripts from the live pack.
+- `Prepare` downloads game assets and prepares client/server launch files.
+- `Server` launches a small dedicated server for checking server compatibility.
+- `Data` runs our data generators once we add them.
+
+The script selects Java 21 locally. Your default Java installation remains available to other projects.
+`dev.local.json` stores this computer's JDK and pack paths; it is excluded from Git.
+On another computer, copy `dev.local.example.json` and fill in the actual paths.
+
+## Write a feature
+
+Start in `src/main/java/local/funpack/custom/FunPackCustom.java`.
+Java code belongs under `src/main/java`; assets and recipes belong under `src/main/resources`.
+Mod metadata is in `src/main/templates/META-INF/neoforge.mods.toml`.
+Names, versions, and loader versions are in `gradle.properties`.
+
+After editing, build and run the small client. Create a disposable world and type `/funpackdev`.
+Then test the same feature with `PackClient` to check interactions with the pack's other mods.
+Game runs use `runs/client`, `runs/pack-client`, and `runs/server` respectively.
+The original pack and its saved worlds are separate from all of these directories.
+
+`SyncPack` overwrites files that exist in the source pack's configuration. Close the development
+game before syncing, and keep permanent custom content in source control rather than only in `runs/`.
+Removed mod jars from the previous snapshot are removed only from the development copy.
+The snapshot records copied mod filenames and SHA-256 hashes.
+
+To use another mod's Java API, add its documented Maven repository and `compileOnly` dependency
+in `build.gradle`, and declare any required runtime dependency in the mod metadata.
+Only the pack test client discovers the copied pack mods. The small client stays fast to start.
+
+## Install a finished build
+
+Run `Build`, then copy the **regular jar** (not `-sources.jar`) into the target instance's `mods`
+folder while Minecraft is closed. Replace previous versions of our jar so only one remains.
+For features needed on both sides, install the same jar on the client and server.
+Nothing in the development commands installs a jar into your existing playable instance.
+
+## Server and debugging
+
+The development server uses NeoForge's development launch mode. The helper binds it to
+**127.0.0.1:25575** and uses offline mode so the development client can join locally.
+The helper reapplies those connection settings each time. This server is for local tests;
+the full pack client and the small server have different mod sets, so use `Client` to join it.
+Type `stop` in the server terminal to shut it down cleanly.
+
+Attach VS Code's Java debugger to a development game by running
+`.\dev.cmd DebugClient`, then using the checked-in **Attach to Minecraft** configuration.
+The JVM waits for the debugger on port 5005 before starting the game.
+For the full pack use `.\dev.cmd DebugPackClient`.
+
+## Project origin and references
+
+The Gradle wrapper is from the official
+[NeoForge 1.21.1 ModDevGradle MDK](https://github.com/NeoForgeMDKs/MDK-1.21.1-ModDevGradle),
+commit `7819b902a351b03fe71db00754d103b5a31c4ebf`.
+Its template license is retained in `TEMPLATE_LICENSE.txt`.
+Our mod starts with the All Rights Reserved metadata setting; choose a license before publishing.
+
+Setup verified on 2026-10-05: the release jar built with Java 21 bytecode; the full pack
+client loaded our mod and completed startup; the small server started on 127.0.0.1:25575,
+executed `funpackdev`, and saved its test world on shutdown. The Java debugger also reached
+its waiting state on port 5005. Gameplay compatibility of future features needs testing as we add them.
+
+- [NeoForge 1.21.1 getting started](https://docs.neoforged.net/docs/1.21.1/gettingstarted/)
+- [NeoForge 1.21.1 concepts](https://docs.neoforged.net/docs/1.21.1/concepts/)
+- [ModDevGradle configuration](https://docs.neoforged.net/toolchain/docs/plugins/mdg/)

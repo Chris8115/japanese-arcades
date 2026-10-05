@@ -1,0 +1,97 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.148'
+    id 'idea'
+}
+
+version = mod_version
+group = mod_group_id
+base { archivesName = mod_id }
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+sourceSets.main.resources {
+    srcDir 'src/generated/resources'
+    exclude '**/*.bbmodel', '**/.cache/**'
+}
+
+repositories {
+    // Add official mod Maven repositories here when writing an integration.
+}
+
+neoForge {
+    version = project.neo_version
+    parchment {
+        minecraftVersion = project.parchment_minecraft_version
+        mappingsVersion = project.parchment_mappings_version
+    }
+    runs {
+        client {
+            client()
+            gameDirectory = project.file('runs/client')
+            jvmArgument '-Xmx4G'
+        }
+        packClient {
+            client()
+            gameDirectory = project.file('runs/pack-client')
+            jvmArgument '-Xmx10G'
+        }
+        server {
+            server()
+            gameDirectory = project.file('runs/server')
+            programArgument '--nogui'
+            jvmArgument '-Xmx4G'
+        }
+        data {
+            data()
+            gameDirectory = project.file('runs/data')
+            programArguments.addAll '--mod', project.mod_id, '--all', '--output',
+                file('src/generated/resources').absolutePath, '--existing',
+                file('src/main/resources').absolutePath
+        }
+        configureEach {
+            logLevel = org.slf4j.event.Level.INFO
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+    }
+    mods {
+        "${mod_id}" { sourceSet sourceSets.main }
+    }
+}
+
+configurations { runtimeClasspath.extendsFrom localRuntime }
+
+dependencies {
+    // Optional development dependencies: localRuntime 'group:mod:version'
+    // Compile against a mod API: compileOnly 'group:mod-api:version'
+    // Local mod API jars can go in libs/: compileOnly files('libs/mod.jar')
+    // Pack mods are discovered from runs/pack-client/mods by NeoForge.
+}
+
+def generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
+    def propertiesToExpand = [
+        minecraft_version_range: minecraft_version_range,
+        neo_version: neo_version,
+        loader_version_range: loader_version_range,
+        mod_id: mod_id,
+        mod_name: mod_name,
+        mod_license: mod_license,
+        mod_version: mod_version
+    ]
+    inputs.properties propertiesToExpand
+    expand propertiesToExpand
+    from 'src/main/templates'
+    into 'build/generated/sources/modMetadata'
+}
+sourceSets.main.resources.srcDir generateModMetadata
+neoForge.ideSyncTask generateModMetadata
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 21
+}
+
+// Forward terminal commands (including "stop") to the development server.
+tasks.named('runServer') { standardInput = System.in }
+
+java { withSourcesJar() }
+idea { module { downloadSources = true; downloadJavadoc = true } }
