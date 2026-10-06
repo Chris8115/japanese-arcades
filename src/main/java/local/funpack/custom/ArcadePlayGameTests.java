@@ -138,8 +138,8 @@ public final class ArcadePlayGameTests {
         helper.assertFalse(ArcadePlayInteraction.play(player,helper.absolutePos(BASE),InteractionHand.MAIN_HAND),"Play passed through a wall");
         helper.setBlock(BASE.west().above(),Blocks.AIR);
         helper.getLevel().destroyBlock(helper.absolutePos(BASE),false);
-        helper.setBlock(BASE,FunPackCustom.MINI_ARCADE_CABINET.get());
-        helper.assertFalse(ArcadePlayInteraction.play(player,helper.absolutePos(BASE),InteractionHand.MAIN_HAND),"Miniature decoration gave points");
+        helper.setBlock(BASE,FunPackCustom.HATSUNE_MIKU_FIGURE.get());
+        helper.assertFalse(ArcadePlayInteraction.play(player,helper.absolutePos(BASE),InteractionHand.MAIN_HAND),"Collectible figure gave points");
         helper.assertTrue(before.equals(ArcadePassItem.data(pass)),"Rejected play changed pass");
         helper.succeed();
     }

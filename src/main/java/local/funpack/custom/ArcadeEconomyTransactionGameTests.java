@@ -261,6 +261,9 @@ public final class ArcadeEconomyTransactionGameTests {
     public static void arcadeEveryConfiguredPrizeChargesOnlyItsPointPrice(GameTestHelper helper) {
         ServerPlayer player = createPlayer(helper, "PassPrizes", GameType.SURVIVAL);
         ArcadeKioskMenu menu = setup(helper, player);
+        helper.assertTrue(ArcadePrizeCatalog.entries().size() == 2
+            && ArcadePrizeCatalog.find(id("hatsune_miku_figure")).isPresent()
+            && ArcadePrizeCatalog.find(id("kasane_teto_figure")).isPresent(), "The shop must offer both collectible figures");
         for (var entry : ArcadePrizeCatalog.entries()) {
             player.getInventory().clearContent();
             int price = ArcadeEconomyConfig.prizePrice(entry.id());
@@ -279,6 +282,26 @@ public final class ArcadeEconomyTransactionGameTests {
         target(menu, pass(1000, 1000));
         ArcadeKioskNetwork.handlePrize(player, prize(menu, player, id("initial_d")));
         helper.assertTrue(targetData(menu).prizePoints() == 1000, "A machine forged as a prize charged points");
+        helper.succeed();
+    }
+
+    @GameTest(template = "nostalgia_test")
+    public static void arcadeRemovedPrizesCannotBeOrderedWithAnOldClientRequest(GameTestHelper helper) {
+        ServerPlayer player = createPlayer(helper, "OldPrizes", GameType.SURVIVAL);
+        ArcadeKioskMenu menu = setup(helper, player);
+        target(menu, pass(1500, 1_000_000));
+        ItemStack before = menu.getTargetPass().copy();
+        for (String removed : List.of("arcade_poster", "arcade_cat_plush", "rhythm_star_trophy", "mini_arcade_cabinet")) {
+            var removedId = id(removed);
+            ArcadeKioskNetwork.handlePrize(player, prize(menu, player, removedId));
+            helper.assertTrue(menu.getStatus() == ArcadeKioskMenu.STATUS_UNAVAILABLE
+                && ItemStack.matches(before, menu.getTargetPass()), "Removed prize request changed its pass: " + removed);
+            helper.assertTrue(ArcadePrizeCatalog.find(removedId).isEmpty() && ArcadeEconomyConfig.prizePrice(removedId) == -1
+                && !BuiltInRegistries.ITEM.containsKey(removedId) && !BuiltInRegistries.BLOCK.containsKey(removedId),
+                "Removed prize remains registered or purchasable: " + removed);
+        }
+        helper.assertTrue(player.getInventory().isEmpty(), "Removed prize request delivered an item");
+        noDrops(helper, 0);
         helper.succeed();
     }
 
@@ -371,16 +394,16 @@ public final class ArcadeEconomyTransactionGameTests {
         ServerPlayer player = createPlayer(helper, "PassConfig", GameType.SURVIVAL);
         ArcadeKioskMenu menu = setup(helper, player);
         ModConfigSpec.IntValue iron = ArcadeEconomyConfig.SPEC.getValues().get("exchange.iron");
-        ModConfigSpec.IntValue poster = ArcadeEconomyConfig.SPEC.getValues().get("prizes.arcade_poster");
+        ModConfigSpec.IntValue miku = ArcadeEconomyConfig.SPEC.getValues().get("prizes.hatsune_miku_figure");
         ModConfigSpec.IntValue defaultCost = ArcadeEconomyConfig.SPEC.getValues().get("play.defaultCreditCost");
         ModConfigSpec.ConfigValue<List<? extends String>> ranks = ArcadeEconomyConfig.SPEC.getValues().get("play.rankProfiles");
         ModConfigSpec.ConfigValue<List<? extends String>> machines = ArcadeEconomyConfig.SPEC.getValues().get("play.machineOverrides");
-        int oldIron = iron.get(), oldPoster = poster.get(), oldCost = defaultCost.get();
+        int oldIron = iron.get(), oldMiku = miku.get(), oldCost = defaultCost.get();
         List<? extends String> oldRanks = List.copyOf(ranks.get()), oldMachines = List.copyOf(machines.get());
         try {
             // Synchronous on the server thread. Restore in finally before any
             // delayed test or another player's action can see this test config.
-            iron.set(37); poster.set(73); defaultCost.set(19);
+            iron.set(37); miku.set(73); defaultCost.set(19);
             ranks.set(List.of("standard|Config C|1|29", "test_config|Config S|1|83"));
             machines.set(List.of("funpackcustom:initial_d|23|test_config"));
             target(menu, pass(0, 500));
@@ -388,8 +411,8 @@ public final class ArcadeEconomyTransactionGameTests {
             ArcadeKioskNetwork.handleExchange(player, exchange(menu, player, 0, BuiltInRegistries.ITEM.getKey(Items.IRON_INGOT)));
             helper.assertTrue(targetData(menu).credits() == 37 && player.getInventory().getItem(1).getCount() == 2,
                 "A changed server exchange rate was ignored by a real kiosk transaction");
-            ArcadeKioskNetwork.handlePrize(player, prize(menu, player, id("arcade_poster")));
-            var prize = ArcadePrizeCatalog.find(id("arcade_poster")).orElseThrow();
+            ArcadeKioskNetwork.handlePrize(player, prize(menu, player, id("hatsune_miku_figure")));
+            var prize = ArcadePrizeCatalog.find(id("hatsune_miku_figure")).orElseThrow();
             helper.assertTrue(targetData(menu).prizePoints() == 427 && targetData(menu).credits() == 37
                 && ArcadeOrderCatalog.count(player, prize.item().get()) == 1, "A changed server prize price was not charged exactly");
             var standard = ArcadeEconomyConfig.profile(id("nostalgia_op3"));
@@ -401,10 +424,10 @@ public final class ArcadeEconomyTransactionGameTests {
                 && ArcadeEconomyConfig.roll(override, RandomSource.create(17)).points() == 83,
                 "A machine-specific cost/profile override did not select its configured single-rank reward");
         } finally {
-            iron.set(oldIron); poster.set(oldPoster); defaultCost.set(oldCost); ranks.set(oldRanks); machines.set(oldMachines);
+            iron.set(oldIron); miku.set(oldMiku); defaultCost.set(oldCost); ranks.set(oldRanks); machines.set(oldMachines);
         }
         helper.assertTrue(ArcadeEconomyConfig.exchangeRates().stream().filter(rate -> rate.material() == Items.IRON_INGOT).findFirst().orElseThrow().credits() == oldIron
-            && ArcadeEconomyConfig.prizePrice(id("arcade_poster")) == oldPoster
+            && ArcadeEconomyConfig.prizePrice(id("hatsune_miku_figure")) == oldMiku
             && defaultCost.get() == oldCost && ranks.get().equals(oldRanks) && machines.get().equals(oldMachines),
             "Config test failed to restore the server's original economy");
         helper.succeed();

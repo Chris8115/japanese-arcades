@@ -40,10 +40,8 @@ public final class ArcadeEconomyConfig {
                 "Example: funpackcustom:initial_d|15|standard")
             .defineListAllowEmpty("machineOverrides", List.of(), ArcadeEconomyConfig::validMachine);
         builder.pop().comment("Prize Point costs; ordinary material recipes are intentionally absent.").push("prizes");
-        PRICES.put("arcade_poster", builder.defineInRange("arcade_poster", 150, 1, 1_000_000));
-        PRICES.put("arcade_cat_plush", builder.defineInRange("arcade_cat_plush", 500, 1, 1_000_000));
-        PRICES.put("rhythm_star_trophy", builder.defineInRange("rhythm_star_trophy", 750, 1, 1_000_000));
-        PRICES.put("mini_arcade_cabinet", builder.defineInRange("mini_arcade_cabinet", 1200, 1, 1_000_000));
+        PRICES.put("hatsune_miku_figure", builder.defineInRange("hatsune_miku_figure", 2500, 1, 1_000_000));
+        PRICES.put("kasane_teto_figure", builder.defineInRange("kasane_teto_figure", 2500, 1, 1_000_000));
         builder.pop();
         SPEC = builder.build();
     }

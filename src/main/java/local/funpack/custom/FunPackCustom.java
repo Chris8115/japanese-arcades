@@ -47,14 +47,10 @@ public final class FunPackCustom {
             .persistent(ArcadePassData.CODEC).networkSynchronized(ArcadePassData.STREAM_CODEC).build());
     public static final DeferredItem<ArcadePassItem> ARCADE_PASS = ITEMS.registerItem("arcade_pass", ArcadePassItem::new,
         new Item.Properties().stacksTo(1));
-    public static final DeferredBlock<ArcadePrizeBlock> ARCADE_CAT_PLUSH = prizeBlock("arcade_cat_plush");
-    public static final DeferredBlock<ArcadePrizeBlock> RHYTHM_STAR_TROPHY = prizeBlock("rhythm_star_trophy");
-    public static final DeferredBlock<ArcadePrizeBlock> MINI_ARCADE_CABINET = prizeBlock("mini_arcade_cabinet");
-    public static final DeferredBlock<ArcadePrizeBlock> ARCADE_POSTER = prizeBlock("arcade_poster");
-    public static final DeferredItem<?> ARCADE_CAT_PLUSH_ITEM = ITEMS.registerSimpleBlockItem("arcade_cat_plush", ARCADE_CAT_PLUSH);
-    public static final DeferredItem<?> RHYTHM_STAR_TROPHY_ITEM = ITEMS.registerSimpleBlockItem("rhythm_star_trophy", RHYTHM_STAR_TROPHY);
-    public static final DeferredItem<?> MINI_ARCADE_CABINET_ITEM = ITEMS.registerSimpleBlockItem("mini_arcade_cabinet", MINI_ARCADE_CABINET);
-    public static final DeferredItem<?> ARCADE_POSTER_ITEM = ITEMS.registerSimpleBlockItem("arcade_poster", ARCADE_POSTER);
+    public static final DeferredBlock<ArcadePrizeBlock> HATSUNE_MIKU_FIGURE = prizeBlock("hatsune_miku_figure");
+    public static final DeferredBlock<ArcadePrizeBlock> KASANE_TETO_FIGURE = prizeBlock("kasane_teto_figure");
+    public static final DeferredItem<?> HATSUNE_MIKU_FIGURE_ITEM = ITEMS.registerSimpleBlockItem("hatsune_miku_figure", HATSUNE_MIKU_FIGURE);
+    public static final DeferredItem<?> KASANE_TETO_FIGURE_ITEM = ITEMS.registerSimpleBlockItem("kasane_teto_figure", KASANE_TETO_FIGURE);
 
     private static DeferredBlock<ArcadePrizeBlock> prizeBlock(String name) {
         return BLOCKS.registerBlock(name, ArcadePrizeBlock::new, BlockBehaviour.Properties.of()
@@ -205,10 +201,8 @@ public final class FunPackCustom {
                 output.accept(GACHAPON_ITEM.get());
                 output.accept(ARCADE_KIOSK_ITEM.get());
                 output.accept(ARCADE_PASS.get());
-                output.accept(ARCADE_CAT_PLUSH_ITEM.get());
-                output.accept(RHYTHM_STAR_TROPHY_ITEM.get());
-                output.accept(MINI_ARCADE_CABINET_ITEM.get());
-                output.accept(ARCADE_POSTER_ITEM.get());
+                output.accept(HATSUNE_MIKU_FIGURE_ITEM.get());
+                output.accept(KASANE_TETO_FIGURE_ITEM.get());
             })
             .build());
 

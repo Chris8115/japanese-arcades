@@ -16,10 +16,8 @@ public final class ArcadePrizeCatalog {
     }
 
     private static final List<Entry> ENTRIES = List.of(
-        new Entry(id("arcade_poster"), FunPackCustom.ARCADE_POSTER_ITEM),
-        new Entry(id("arcade_cat_plush"), FunPackCustom.ARCADE_CAT_PLUSH_ITEM),
-        new Entry(id("rhythm_star_trophy"), FunPackCustom.RHYTHM_STAR_TROPHY_ITEM),
-        new Entry(id("mini_arcade_cabinet"), FunPackCustom.MINI_ARCADE_CABINET_ITEM));
+        new Entry(id("hatsune_miku_figure"), FunPackCustom.HATSUNE_MIKU_FIGURE_ITEM),
+        new Entry(id("kasane_teto_figure"), FunPackCustom.KASANE_TETO_FIGURE_ITEM));
 
     private ArcadePrizeCatalog() {}
     private static ResourceLocation id(String path) { return ResourceLocation.fromNamespaceAndPath(FunPackCustom.MOD_ID, path); }

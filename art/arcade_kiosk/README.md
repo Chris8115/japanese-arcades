@@ -42,7 +42,7 @@ The **Passes** tab issues an Arcade Pass, trades iron/gold/emeralds/diamonds for
 Credits on a card placed in its **To** slot, and transfers all Credits and
 Prize Points from the physical **From** slot into **To** while keeping both
 cards. Cards return to the player when the kiosk closes. The **Prizes** tab
-sells four placeable collectibles for the inserted **To** pass's Prize Points. See the
+sells placeable Miku and Teto figures for the inserted **To** pass's Prize Points. See the
 [Arcade Pass economy guide](../arcade_economy/README.md) for configurable prices
 and the complete play/reward loop. Empty gachapon capsules are not sold:
 filled capsules still come from stocked gachapon machines.
@@ -111,7 +111,7 @@ source faces. Split faces are clipped rather than duplicated across blocks.
 
 ## Verification
 
-The Java 21 release build and all **100 dedicated-server GameTests** passed on
+The Java 21 release build and all **103 dedicated-server GameTests** passed on
 2026-10-06. Nine kiosk tests cover both block halves in all directions, support
 and obstruction handling, every catalog purchase, split/offhand payments,
 invalid or stale requests, survival/creative overflow, canceled or substituted

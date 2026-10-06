@@ -17,8 +17,8 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 /** Small collectible decorations. They never behave as playable arcade machines. */
 public final class ArcadePrizeBlock extends HorizontalDirectionalBlock {
     public static final MapCodec<ArcadePrizeBlock> CODEC = simpleCodec(ArcadePrizeBlock::new);
-    private static final VoxelShape NORTH_SOUTH = Block.box(2, 0, 3, 14, 14, 13);
-    private static final VoxelShape EAST_WEST = Block.box(3, 0, 2, 13, 14, 14);
+    private static final VoxelShape NORTH_SOUTH = Block.box(2, 0, 3, 14, 15, 13);
+    private static final VoxelShape EAST_WEST = Block.box(3, 0, 2, 13, 15, 14);
 
     public ArcadePrizeBlock(Properties properties) {
         super(properties);

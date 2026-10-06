@@ -31,7 +31,7 @@ delivery if necessary. Switching tabs retains the inserted cards; the
 **Machines** tab does not insert passes into hidden slots.
 
 Gachapon keeps its separate operator-stocked currency/reward system. The kiosk
-and prize miniatures do not award play points. Creative players pay the same
+and prize figures do not award play points. Creative players pay the same
 prices when using this loop. Cards are transferable bearer items, so their
 balances travel with them when dropped, gifted or stored.
 
@@ -119,38 +119,40 @@ aspect-preserving downsampling, with the source alpha retained and no redrawing.
 This cosmetic update retains the existing `funpackcustom:default` design ID
 and all pass functionality. The [artwork notes](arcade-pass-artwork.md) retain
 the reference provenance and final image-generation prompt.
-The four small placeable prizes retain their original illustrated artwork.
-The pass is an inventory item; the four prizes are decorations.
+The two small placeable prizes follow the user's Miku and Teto figure references.
+The pass is an inventory item; the figures are three-dimensional decorations.
 
-| Prize ID | Display name | Default points | Source mesh faces |
-| --- | --- | ---: | ---: |
-| `arcade_poster` | Arcade Poster Stand | 150 | 439 |
-| `arcade_cat_plush` | Arcade Cat Plush | 500 | 1,489 |
-| `rhythm_star_trophy` | Rhythm Star Trophy | 750 | 445 |
-| `mini_arcade_cabinet` | Mini Arcade Cabinet | 1,200 | 553 |
+| Prize ID | Display name | Default points |
+| --- | --- | ---: |
+| `hatsune_miku_figure` | Hatsune Miku Figure | 2,500 |
+| `kasane_teto_figure` | Kasane Teto Figure | 2,500 |
 
 Point prices are owned by the arcade economy configuration, not embedded in
 the models or `ArcadePrizeCatalog`. Prizes have no crafting recipes. Each drops
-one copy of its own item when normally broken. The miniature has a decorative
-illuminated star screen and marquee, without a block entity, playable game,
-music inventory, or reward interaction.
+one copy of its own item when normally broken. Figures have no block entity,
+playable game, music inventory, or reward interaction.
 
-All four models fit inside one block, below Y14/16. The block class uses a
-shared compact X2–14, Y0–14, Z3–13 collision/selection envelope and horizontal
-facing. The poster is explicitly a floor-standing acrylic plaque on a weighted
-base; it does not claim wall attachment behavior. The cat has rounded teal
-body, cream muzzle/tummy, pink inner ears, a star tag, and a curled tail. The
-trophy has a raised gold star, teal/pink ribbons, and a musical-note medal.
+Both models fit inside one block, below Y15/16. The block class uses a shared
+compact X2–14, Y0–15, Z3–13 collision/selection envelope and horizontal facing.
+Each chibi figure has a layered outfit, pixel eyes, sculpted hair, boots, a
+dark display base with teal trim, and a named plaque. Miku has long teal
+twin-tails and a black/pink headset. Teto has pink drill curls and white bows.
+
+The initial poster, cat plush, trophy, and miniature cabinet were removed at
+the user's request, including their registry entries and runtime assets.
+Existing copies of those retired items/blocks are not migrated to the figures.
 
 ## Files and rebuild
 
-- `scripts/make_arcade_prizes.py` generates original prize textures, native OBJ/MTL,
+- `scripts/miku_figure_geometry.py` and `scripts/teto_figure_geometry.py` author
+  the two figures, using the palette mesh helpers in `scripts/figure_geometry.py`.
+- `scripts/make_arcade_prizes.py` generates palette/nameplate textures, native OBJ/MTL,
   model wrappers, blockstates, inventory models, normal loot tables, source
   geometry, embedded-texture Blockbench files, and `art-lang.json`.
 - `scripts/render_arcade_prizes.py` renders those source meshes directly and
   saves `arcade_prizes.blend`, with packed artwork and editable prize meshes.
 - Each prize has `<id>.geometry.json`, `<id>.bbmodel`, and `<id>.png` here.
-- `arcade-prizes.png` shows the four prizes side by side at their actual scale.
+- `arcade-prizes.png` shows the two figures side by side at their actual scale.
 - `arcade-pass-source.png` is the immutable authored card artwork, based on the
   user's red-and-white e-amusement reference. `scripts/prepare_arcade_pass.py`
   copies it byte for byte to the `arcade-pass.png` preview. For the runtime
@@ -165,78 +167,45 @@ trophy has a raised gold star, teal/pink ribbons, and a musical-note medal.
 From the repository root, run `python scripts/make_arcade_prizes.py`, followed
 by `blender --background --python scripts/render_arcade_prizes.py`. These
 scripts do not regenerate or modify any existing arcade cabinet assets.
-Keep `arcade-pass-source.png` present when rebuilding; the generator reads this
-authored source and never overwrites it.
+The figure generator leaves the pass artwork unchanged.
 To update only the card preview and runtime texture, run
 `python scripts/prepare_arcade_pass.py`. This standalone command does not
 regenerate prizes, models, blockstates, or loot tables.
 
-## Model verification
+## Verification
 
-The 2,926 source faces passed the isolated NeoForge 21.1.252 OBJ parse/bake
-audit: **14,630 baked quads**, covering all four facings of all four blocks and
-each inventory model. The audit checks unchanged face counts, finite positions,
-UV coordinates, texture V orientation, and screen/marquee fullbright lighting.
-The machine-local audit report is
-`build/verification/arcade-prizes-obj-bake-audit.json`.
+On 2026-10-06, the Java 21 Build and all **103 dedicated-server GameTests**
+passed. The suite includes exact figure purchases with configurable prices,
+rejection of the four retired prize IDs, actual BlockItem placement in all four
+facings, oriented collision, independent adjacent figures, and exactly one
+self-drop from survival removal. The existing pass, transfer, credit-loading,
+simulated-play, and machine tests also passed.
 
-The studio renders were inspected for silhouette, readable miniature artwork,
-correct texture direction, and joined plush limbs.
+The models are generated from editable geometry, exported as NeoForge OBJ
+meshes and Blockbench files, and rendered directly for the previews. Facial
+features use flat pixel art to match the references, with compact chibi bodies,
+large heads, layered hair, and small display bases.
 
-## Gameplay verification
+The source meshes contain 1,651 Miku faces and 1,294 Teto faces. An isolated
+NeoForge OBJ bake verified all four placed facings and both item models:
+14,725 baked quads with finite coordinates, the expected UVs and ordinary
+world lighting. The final JAR matches every source resource, contains 107
+Java 21 classes, excludes retired assets and verification helpers, and leaves
+the pass artwork byte-identical to the previous version.
 
-The current kiosk screenshots show real **From** and **To** slots and the
-red-and-white pass artwork. The earlier placed-prize screenshots remain valid;
-the prize models and machine idle appearance have not changed.
+The small native client verified real 2,500-point purchases of both figures,
+insufficient funds, physical pass-slot return, purchased-item placement,
+survival recovery, opposite facings, cabinet play, and the minimum GUI size.
+The rear camera was corrected and rerun after the final Miku bob adjustment.
 
-On 2026-10-06, the Java 21 release Build and **all 100 dedicated-server
-GameTests** passed. The original 16 economy tests cover persistent/network card
-data, exact payments, transfers preserving both designs and names, revision
-checks, overflow delivery, canceled/substituted spawns, callback reentrancy,
-cross-player requests, live configuration changes, all twelve paid cabinets,
-rank weighting, cooldowns, invalid clicks, and unchanged idle/disc state.
+![Prizes in the kiosk](prize-shop-in-game.png)
 
-Four additional tests exercise native pass insertion, invalid items and hidden
-tabs, shift-clicks, remove/reinsert stale requests, separate viewers, safe returns
-after close/kiosk removal/logout/death, full creative inventories, canceled
-return spawns, repeated closes and card replacement during prize delivery.
+![Placed figures in Minecraft](earned-prizes-in-game.png)
 
-The final packaged JAR matches every source resource. Its 106 classes target
-Java 21, all 216 pre-existing model/texture/blockstate resources are unchanged,
-and all 76 pre-existing translations remain present. It contains no test
-worlds, probe mod, authoring files or copied third-party dependencies.
+![Figures from behind in Minecraft](figures-rear-in-game.png)
 
-The initial economy implementation's disposable small client completed the actual
-networked loop at the minimum
-**320 × 240** logical GUI size: pass issuance, all four exchanges, both-balance
-transfer between different design IDs, billion-sized balance display, native
-main/offhand machine clicks without double debit, all four point purchases
-and actual prize placement, and the existing material-based machine order.
-The short transfer-status wording was rebuilt and visually checked afterward.
+![Miku and Teto prize figures](arcade-prizes.png)
 
-That complete loop also passed in a fresh copied-pack world with **all 218
-third-party mod JARs**, including its renderer and JEI. Both clients shut down
-cleanly. The ignored pack fixture used a 10 GB heap, eight active processors
-and disabled Distant Horizons background generation to fit the verification
-workload; original instance files and saves were untouched. See the actual
-[Passes tab in the pack](passes-in-pack.png),
-[prize shop in the pack](prize-shop-in-pack.png), and
-[redeemed prizes placed in the pack](earned-prizes-in-pack.png).
+![Hatsune Miku figure](hatsune_miku_figure.png)
 
-The physical-slot revision passed a fresh small-client check at **320 × 240**:
-actual mouse insertion, rejection of non-pass items, shift-click insertion and
-retrieval, hidden-slot protection on Machines, exact transfer of both balances
-with a third inventory card untouched, confirmation cancellation after removing
-and reinserting either initialized or raw cards, To-only credit loading and prize
-payment, and return of all cards on close. The returned pass also completed a
-paid cabinet play. The same slot sequence passed in a new copied-pack world
-with all 218 third-party mod JARs. Both clients exited cleanly, and the Passes
-and Prizes screenshots below and linked above were refreshed from these runs.
-
-![Loading Credits onto a pass](passes-in-game.png)
-
-![Confirming a transfer between passes](pass-transfer-in-game.png)
-
-![Prize shop](prize-shop-in-game.png)
-
-![The four purchased prizes placed in Minecraft](earned-prizes-in-game.png)
+![Kasane Teto figure](kasane_teto_figure.png)

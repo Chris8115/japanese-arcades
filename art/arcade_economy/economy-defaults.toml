@@ -30,15 +30,9 @@
 
 #Prize Point costs; ordinary material recipes are intentionally absent.
 [prizes]
-	# Default: 150
+	# Default: 2500
 	# Range: 1 ~ 1000000
-	arcade_poster = 150
-	# Default: 500
+	hatsune_miku_figure = 2500
+	# Default: 2500
 	# Range: 1 ~ 1000000
-	arcade_cat_plush = 500
-	# Default: 750
-	# Range: 1 ~ 1000000
-	rhythm_star_trophy = 750
-	# Default: 1200
-	# Range: 1 ~ 1000000
-	mini_arcade_cabinet = 1200
+	kasane_teto_figure = 2500

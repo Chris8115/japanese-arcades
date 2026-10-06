@@ -76,10 +76,6 @@
   "kiosk.gui.need": "%s required",
   "kiosk.gui.have": "You have %s",
   "item.funpackcustom.arcade_pass": "Arcade Pass",
-  "block.funpackcustom.arcade_cat_plush": "Arcade Cat Plush",
-  "block.funpackcustom.rhythm_star_trophy": "Rhythm Star Trophy",
-  "block.funpackcustom.mini_arcade_cabinet": "Mini Arcade Cabinet",
-  "block.funpackcustom.arcade_poster": "Arcade Poster Stand",
   "pass.design.funpackcustom.default": "Arcade Original",
   "arcade.pass.balance": "%s Credits | %s Prize Points",
   "arcade.pass.credits": "Credits: %s",
@@ -124,5 +120,7 @@
   "kiosk.pass.to_label": "To · active pass",
   "kiosk.pass.insert": "Insert a pass",
   "kiosk.pass.insert_both": "Insert both passes to transfer.",
-  "kiosk.pass.new_hint": "New passes start empty."
+  "kiosk.pass.new_hint": "New passes start empty.",
+  "block.funpackcustom.hatsune_miku_figure": "Hatsune Miku Figure",
+  "block.funpackcustom.kasane_teto_figure": "Kasane Teto Figure"
 }

@@ -1,5 +1,6 @@
 """Render exported prize meshes directly, including editable packed studio scene."""
 import json
+import sys
 from pathlib import Path
 import bpy
 from mathutils import Vector
@@ -7,25 +8,27 @@ from mathutils import Vector
 ROOT=Path(__file__).resolve().parents[1];ART=ROOT/'art/arcade_economy';TEX=ROOT/'src/main/resources/assets/funpackcustom/textures/block'
 bpy.context.preferences.filepaths.save_version=0
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
-scene=bpy.context.scene;scene.render.engine='CYCLES';scene.cycles.samples=32;scene.cycles.use_denoising=True
+scene=bpy.context.scene;scene.render.engine='CYCLES';scene.cycles.samples=24;scene.cycles.use_denoising=True
+scene.render.threads_mode='FIXED';scene.render.threads=8
 scene.render.resolution_x=1000;scene.render.resolution_y=1000;scene.render.resolution_percentage=100
-scene.render.image_settings.file_format='PNG';scene.view_settings.view_transform='AgX';scene.view_settings.exposure=-.25;scene.world.color=(.24,.24,.24)
+scene.render.image_settings.file_format='PNG';scene.view_settings.view_transform='Standard';scene.view_settings.exposure=-.65;scene.world.color=(.24,.24,.24)
 materials={};objects=[]
-names=('arcade_cat_plush','rhythm_star_trophy','mini_arcade_cabinet','arcade_poster')
-def material(key,glow):
-    if (key,glow) in materials:return materials[key,glow]
-    mat=bpy.data.materials.new(key+('_lit' if glow else ''));mat.use_nodes=True
-    bsdf=mat.node_tree.nodes.get('Principled BSDF');bsdf.inputs['Roughness'].default_value=.48
-    tex=mat.node_tree.nodes.new('ShaderNodeTexImage');tex.image=bpy.data.images.load(str(TEX/('arcade_prize_'+key+'.png')),check_existing=True);tex.interpolation='Closest'
+names=('hatsune_miku_figure','kasane_teto_figure')
+def material(key,glow,paths):
+    filename=paths[key].split('/')[-1]+'.png'
+    if (filename,glow) in materials:return materials[filename,glow]
+    mat=bpy.data.materials.new(filename+('_lit' if glow else ''));mat.use_nodes=True
+    bsdf=mat.node_tree.nodes.get('Principled BSDF');bsdf.inputs['Roughness'].default_value=.82
+    tex=mat.node_tree.nodes.new('ShaderNodeTexImage');tex.image=bpy.data.images.load(str(TEX/filename),check_existing=True);tex.interpolation='Closest'
     mat.node_tree.links.new(tex.outputs['Color'],bsdf.inputs['Base Color'])
     if glow:mat.node_tree.links.new(tex.outputs['Color'],bsdf.inputs['Emission Color']);bsdf.inputs['Emission Strength'].default_value=.45
-    materials[key,glow]=mat;return mat
+    materials[filename,glow]=mat;return mat
 for name in names:
     data=json.loads((ART/(name+'.geometry.json')).read_text(encoding='utf-8'))
     verts=[];polys=[];uvs=[];mats=[];indices=[]
     for f in data['meshes']:
         start=len(verts);verts.extend(((8-p[0])/16,(p[2]-8)/16,p[1]/16) for p in f['vertices']);polys.append(list(range(start,len(verts))));uvs.append(f['uv'])
-        mat=material(f['texture'][1:],f['glow'])
+        mat=material(f['texture'][1:],f['glow'],data['textures'])
         if mat not in mats:mats.append(mat)
         indices.append(mats.index(mat))
     mesh=bpy.data.meshes.new(name);mesh.from_pydata(verts,[],polys);mesh.update()
@@ -36,7 +39,7 @@ for name in names:
         poly.material_index=index
         for loop,(u,v) in zip(poly.loop_indices,uv):layer.data[loop].uv=(u/16,1-v/16)
 bpy.ops.mesh.primitive_plane_add(size=200,location=(0,0,-.01));floor=bpy.context.object;floor.name='Studio floor'
-mat=bpy.data.materials.new('Neutral studio floor');mat.use_nodes=True;mat.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value=(.09,.125,.15,1);floor.data.materials.append(mat)
+mat=bpy.data.materials.new('Neutral studio floor');mat.use_nodes=True;mat.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value=(.035,.055,.075,1);floor.data.materials.append(mat)
 def area(name,loc,power,color,size):
     light=bpy.data.lights.new(name,'AREA');light.energy=power;light.color=color;light.shape='DISK';light.size=size
     obj=bpy.data.objects.new(name,light);bpy.context.collection.objects.link(obj);obj.location=loc
@@ -46,11 +49,14 @@ cam=bpy.data.cameras.new('Prize camera');camera=bpy.data.objects.new('Prize came
 def render(filename,loc,target,scale):
     camera.location=loc;camera.rotation_euler=(Vector(target)-camera.location).to_track_quat('-Z','Y').to_euler();cam.ortho_scale=scale
     scene.render.filepath=str(ART/filename);bpy.ops.render.render(write_still=True)
-for current in objects:
-    for obj in objects:obj.hide_render=obj!=current
-    render(current.name+'.png',(2.1,-5,2.55),(0,0,.45),1.20)
-for i,obj in enumerate(objects):obj.hide_render=False;obj.location.x=(i-1.5)*1.12
-scene.render.resolution_x=2000;scene.render.resolution_y=700
-render('arcade-prizes.png',(1.6,-10,4.0),(0,0,.43),4.65)
+if '--pair-only' not in sys.argv:
+    for current in objects:
+        for obj in objects:obj.hide_render=obj!=current
+        render(current.name+'.png',(1.9,-5,2.15),(0,0,.46),1.19)
+        render(current.name+'-front.png',(0,-5,1.45),(0,0,.46),1.16)
+        render(current.name+'-back.png',(-1.7,5,2),(0,0,.46),1.19)
+for i,obj in enumerate(objects):obj.hide_render=False;obj.location.x=(i-.5)*1.0
+scene.render.resolution_x=1800;scene.render.resolution_y=1050
+render('arcade-prizes.png',(1.0,-8,2.7),(0,0,.46),2.12)
 bpy.ops.file.pack_all();bpy.ops.wm.save_as_mainfile(filepath=str(ART/'arcade_prizes.blend'))
 print('Arcade prize previews and packed editable Blender scene complete.')

@@ -1,0 +1,16 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "neoforge:obj",
+  "model": "funpackcustom:models/block/hatsune_miku_figure.obj",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "emissive_ambient": true,
+  "ambientocclusion": true,
+  "render_type": "minecraft:cutout_mipped_all",
+  "textures": {
+    "materials": "funpackcustom:block/hatsune_miku_figure_materials",
+    "nameplate": "funpackcustom:block/hatsune_miku_figure_nameplate",
+    "particle": "funpackcustom:block/hatsune_miku_figure_materials"
+  }
+}
