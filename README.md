@@ -3,7 +3,7 @@
 This workspace is for our own mods for **Minecraft 1.21.1 / NeoForge 21.1.252**.
 The starter mod is **Fun Pack Custom**, id `funpackcustom`, version `0.1.0`.
 It registers `/funpackdev`, a small command to confirm that the mod is loaded.
-The **Japanese Arcades** creative tab includes nine cabinets with music-disc playback:
+The **Japanese Arcades** creative tab includes ten cabinets with music-disc playback:
 
 - [Nostalgia Op.3 Arcade Cabinet](art/nostalgia-op3/README.md)
 - [Sound Voltex Valkyrie Arcade Cabinet](art/sound-voltex-valkyrie/README.md)
@@ -14,10 +14,13 @@ The **Japanese Arcades** creative tab includes nine cabinets with music-disc pla
 - [Project DIVA Arcade Future Tone Cabinet](art/project_diva/README.md)
 - [Chrono Circle Arcade Cabinet](art/chrono_circle/README.md)
 - [maimai DX Twin Arcade Cabinet](art/maimai/README.md)
+- [DDR SuperNOVA Arcade Cabinet](art/ddr_supernova/README.md)
 
 Their model notes include editable files, previews, and use instructions. All are
 three blocks high. maimai uses **two connected columns** and requires a supported,
-clear **two-by-three-block** space; the other cabinets occupy one vertical column.
+clear **two-by-three-block** space. DDR SuperNOVA uses a **two-wide, three-deep**
+supported footprint, including a real two-by-two dance stage and open handrails.
+The other cabinets occupy one vertical column.
 Allow additional clearance for the visible decks, wings, mats, and enclosures.
 Each model's notes describe its dimensions.
 
@@ -38,7 +41,7 @@ Use **Terminal > Run Task** for the `Fun:` tasks, or open a terminal here:
 - `SyncPack` refreshes the copied mods, configs, resource packs, and pack scripts from the live pack.
 - `Prepare` downloads game assets and prepares client/server launch files.
 - `Server` launches a small dedicated server for checking server compatibility.
-- `GameTest` runs forty cabinet integration tests in a disposable test world and exits.
+- `GameTest` runs forty-seven cabinet integration tests in a disposable test world and exits.
 - `Data` runs our data generators once we add them.
 
 The script selects Java 21 locally. Your default Java installation remains available to other projects.
@@ -73,7 +76,10 @@ Chrono Circle checks its clock/hood overhangs, low floor platform, and clear
 disc ejection in every facing. maimai adds six-cell placement and cross-column
 interaction, every break point in all four facings, adjacent-pair isolation,
 saved playback, obstruction checks, and teardown after either support is lost.
-All forty passed on 2026-10-06.
+DDR SuperNOVA adds twelve-cell placement/removal, every floor support and blocked
+section, shared playback, adjacent-cabinet isolation, and physical standing,
+step-on access, open dance space, and handrail collision in every facing.
+All forty-seven passed on 2026-10-06.
 Visual checks and full-pack compatibility remain separate from these server tests.
 
 `SyncPack` overwrites files that exist in the source pack's configuration. Close the development

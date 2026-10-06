@@ -1,4 +1,15 @@
 {
   "replace": false,
-  "values": ["funpackcustom:nostalgia_op3", "funpackcustom:sound_voltex_valkyrie", "funpackcustom:wacca", "funpackcustom:chunithm", "funpackcustom:groove_coaster", "funpackcustom:museca", "funpackcustom:project_diva", "funpackcustom:chrono_circle", "funpackcustom:maimai"]
+  "values": [
+    "funpackcustom:nostalgia_op3",
+    "funpackcustom:sound_voltex_valkyrie",
+    "funpackcustom:wacca",
+    "funpackcustom:chunithm",
+    "funpackcustom:groove_coaster",
+    "funpackcustom:museca",
+    "funpackcustom:project_diva",
+    "funpackcustom:chrono_circle",
+    "funpackcustom:maimai",
+    "funpackcustom:ddr_supernova"
+  ]
 }

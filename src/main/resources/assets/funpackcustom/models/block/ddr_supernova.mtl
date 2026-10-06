@@ -1,0 +1,29 @@
+newmtl details_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #details
+
+newmtl details_lit
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #details
+
+newmtl display_lit
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #display
+
+newmtl header_lit
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #header
+
+newmtl materials_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #materials
+
+newmtl materials_lit
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #materials

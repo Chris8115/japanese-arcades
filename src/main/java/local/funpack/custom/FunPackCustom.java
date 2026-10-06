@@ -81,11 +81,19 @@ public final class FunPackCustom {
         BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(2.0F, 6.0F)
             .sound(SoundType.METAL).noOcclusion().lightLevel(state ->
                 state.getValue(NostalgiaCabinetBlock.PART) == NostalgiaCabinetBlock.Part.BASE ? 4 : 13));
+    public static final DeferredBlock<DdrCabinetBlock> DDR_SUPERNOVA = BLOCKS.registerBlock(
+        "ddr_supernova", DdrCabinetBlock::new,
+        BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).strength(2.0F, 6.0F)
+            .sound(SoundType.METAL).noOcclusion().lightLevel(state -> switch (state.getValue(DdrCabinetBlock.SECTION)) {
+                case CABINET_CONSOLE, CABINET_MARQUEE -> 12;
+                case STAGE_REAR, STAGE_FRONT -> 4;
+                default -> 0;
+            }));
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<NostalgiaJukeboxBlockEntity>> NOSTALGIA_JUKEBOX =
         BLOCK_ENTITIES.register("nostalgia_jukebox", () -> BlockEntityType.Builder.of(
             NostalgiaJukeboxBlockEntity::new, NOSTALGIA_OP3.get(), SOUND_VOLTEX_VALKYRIE.get(),
             WACCA.get(), CHUNITHM.get(), GROOVE_COASTER.get(), MUSECA.get(), PROJECT_DIVA.get(),
-            CHRONO_CIRCLE.get(), MAIMAI.get()).build(null));
+            CHRONO_CIRCLE.get(), MAIMAI.get(), DDR_SUPERNOVA.get()).build(null));
     public static final DeferredItem<?> NOSTALGIA_OP3_ITEM =
         ITEMS.registerSimpleBlockItem("nostalgia_op3", NOSTALGIA_OP3, new Item.Properties());
     public static final DeferredItem<?> SOUND_VOLTEX_VALKYRIE_ITEM =
@@ -104,6 +112,8 @@ public final class FunPackCustom {
         ITEMS.registerSimpleBlockItem("chrono_circle", CHRONO_CIRCLE, new Item.Properties());
     public static final DeferredItem<?> MAIMAI_ITEM =
         ITEMS.registerSimpleBlockItem("maimai", MAIMAI, new Item.Properties());
+    public static final DeferredItem<?> DDR_SUPERNOVA_ITEM =
+        ITEMS.registerSimpleBlockItem("ddr_supernova", DDR_SUPERNOVA, new Item.Properties());
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> JAPANESE_ARCADES =
         TABS.register("japanese_arcades", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.funpackcustom.japanese_arcades"))
@@ -118,6 +128,7 @@ public final class FunPackCustom {
                 output.accept(PROJECT_DIVA_ITEM.get());
                 output.accept(CHRONO_CIRCLE_ITEM.get());
                 output.accept(MAIMAI_ITEM.get());
+                output.accept(DDR_SUPERNOVA_ITEM.get());
             })
             .build());
 
