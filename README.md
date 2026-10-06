@@ -24,6 +24,13 @@ The other cabinets occupy one vertical column.
 Allow additional clearance for the visible decks, wings, mats, and enclosures.
 Each model's notes describe its dimensions.
 
+[Stackable Gachapon Machines](art/gachapon/README.md) are also available in the
+Japanese Arcades tab. Each independent unit fits one block, with owner/password
+operator access, nine prize slots, a currency price and a separate payment box.
+Hold right-click to crank and receive one capsule containing the entire selected
+reward amount. Walking away pauses the crank and resets it after five seconds
+without payment. The price and prize item icons update on the machine itself.
+
 ## Start here
 
 Open this folder in VS Code. The Java and Gradle extensions are already installed.
@@ -41,7 +48,7 @@ Use **Terminal > Run Task** for the `Fun:` tasks, or open a terminal here:
 - `SyncPack` refreshes the copied mods, configs, resource packs, and pack scripts from the live pack.
 - `Prepare` downloads game assets and prepares client/server launch files.
 - `Server` launches a small dedicated server for checking server compatibility.
-- `GameTest` runs forty-seven cabinet integration tests in a disposable test world and exits.
+- `GameTest` runs fifty-eight cabinet and gachapon integration tests in a disposable test world and exits.
 - `Data` runs our data generators once we add them.
 
 The script selects Java 21 locally. Your default Java installation remains available to other projects.
@@ -79,7 +86,10 @@ saved playback, obstruction checks, and teardown after either support is lost.
 DDR SuperNOVA adds twelve-cell placement/removal, every floor support and blocked
 section, shared playback, adjacent-cabinet isolation, and physical standing,
 step-on access, open dance space, and handrail collision in every facing.
-All forty-seven passed on 2026-10-06.
+Gachapon adds placement/setup, owner and password access, password-session revocation,
+private save data, protected extraction, capsule contents and overflow, exact-item
+payments, failed transaction rollback, concurrent buyers and the five-second crank
+reset. All fifty-eight passed on 2026-10-06.
 Visual checks and full-pack compatibility remain separate from these server tests.
 
 `SyncPack` overwrites files that exist in the source pack's configuration. Close the development

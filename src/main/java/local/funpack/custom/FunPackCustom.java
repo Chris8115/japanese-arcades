@@ -6,6 +6,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -14,6 +15,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
+import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -32,6 +34,7 @@ public final class FunPackCustom {
         DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MOD_ID);
     private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
         DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, MOD_ID);
+    private static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, MOD_ID);
 
     public static final DeferredBlock<NostalgiaCabinetBlock> NOSTALGIA_OP3 = BLOCKS.registerBlock(
         "nostalgia_op3", NostalgiaCabinetBlock::new,
@@ -114,6 +117,19 @@ public final class FunPackCustom {
         ITEMS.registerSimpleBlockItem("maimai", MAIMAI, new Item.Properties());
     public static final DeferredItem<?> DDR_SUPERNOVA_ITEM =
         ITEMS.registerSimpleBlockItem("ddr_supernova", DDR_SUPERNOVA, new Item.Properties());
+    public static final DeferredBlock<GachaponBlock> GACHAPON = BLOCKS.registerBlock(
+        "gachapon", GachaponBlock::new,
+        BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(2.5F, 1200.0F)
+            .sound(SoundType.METAL).noOcclusion());
+    public static final DeferredItem<?> GACHAPON_ITEM = ITEMS.registerSimpleBlockItem("gachapon", GACHAPON, new Item.Properties());
+    public static final DeferredItem<CapsuleItem> GACHAPON_CAPSULE = ITEMS.registerItem(
+        "gachapon_capsule", CapsuleItem::new, new Item.Properties().stacksTo(16));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GachaponBlockEntity>> GACHAPON_ENTITY =
+        BLOCK_ENTITIES.register("gachapon", () -> BlockEntityType.Builder.of(GachaponBlockEntity::new, GACHAPON.get()).build(null));
+    public static final DeferredHolder<MenuType<?>, MenuType<GachaponMenu>> GACHAPON_MENU =
+        MENUS.register("gachapon", () -> IMenuTypeExtension.create(GachaponMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<GachaponAccessMenu>> GACHAPON_ACCESS_MENU =
+        MENUS.register("gachapon_access", () -> IMenuTypeExtension.create(GachaponAccessMenu::new));
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> JAPANESE_ARCADES =
         TABS.register("japanese_arcades", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.funpackcustom.japanese_arcades"))
@@ -129,6 +145,7 @@ public final class FunPackCustom {
                 output.accept(CHRONO_CIRCLE_ITEM.get());
                 output.accept(MAIMAI_ITEM.get());
                 output.accept(DDR_SUPERNOVA_ITEM.get());
+                output.accept(GACHAPON_ITEM.get());
             })
             .build());
 
@@ -137,6 +154,9 @@ public final class FunPackCustom {
         ITEMS.register(modEventBus);
         TABS.register(modEventBus);
         BLOCK_ENTITIES.register(modEventBus);
+        MENUS.register(modEventBus);
+        modEventBus.addListener(GachaponNetwork::register);
+        NeoForge.EVENT_BUS.register(GachaponProtection.class);
         NeoForge.EVENT_BUS.addListener(FunPackCustom::registerCommands);
         LOGGER.info("Fun Pack Custom loaded. Development environment is ready.");
     }

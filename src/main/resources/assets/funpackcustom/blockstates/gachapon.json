@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "funpackcustom:block/gachapon"
+    },
+    "facing=east": {
+      "model": "funpackcustom:block/gachapon",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "funpackcustom:block/gachapon",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "funpackcustom:block/gachapon",
+      "y": 270
+    }
+  }
+}
