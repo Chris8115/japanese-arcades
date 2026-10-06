@@ -203,9 +203,9 @@ meshes and Blockbench files, and rendered directly for the previews. Facial
 features use flat pixel art to match the references, with compact chibi bodies,
 large heads, layered hair, and small display bases.
 
-The source meshes contain 4,422 Miku faces and 9,935 Teto faces. An isolated
+The source meshes contain 4,230 Miku faces and 9,935 Teto faces. An isolated
 NeoForge OBJ bake verified all four placed facings and both item models:
-71,785 baked quads with finite coordinates, the expected UVs and ordinary
+70,825 baked quads with finite coordinates, the expected UVs and ordinary
 world lighting. The final JAR matches every source resource, contains 107
 Java 21 classes, excludes retired assets and verification helpers, and leaves
 the pass artwork byte-identical to the previous version.
@@ -218,8 +218,8 @@ the bangs by one hair cell and the inner side locks to the cheek line; its
 face pixels, headset, twin tails and body remain identical.
 The final eye layout uses one inner blue iris column, eye white outside it,
 and face color at the outer edge, with all geometry preserved.
-The upper crown was then shortened by two whole hair-cube courses, lowering
-its top from Y12.75 to Y12.0. Upper clips and tail roots follow that reduction;
+The upper crown was then shortened by four whole hair-cube courses, lowering
+its top from Y12.75 to Y11.25. Upper clips and tail roots follow that reduction;
 the painted face, lower fringe tips, cheek locks, earphones and body stay put.
 
 The small native client verified real 2,500-point purchases of both figures,

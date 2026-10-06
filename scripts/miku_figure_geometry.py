@@ -138,10 +138,10 @@ def _crown():
     block((5,11,6),(7,12,9),'hair')
     block((7,10,3),(9,11,6),'hair_soft')
     block((7,11,8),(9,12,11),'hair_light')
-    # Shorten above the painted face by two whole courses, preserving cube
+    # Shorten above the painted face by four whole courses, preserving cube
     # proportions and the existing fringe tips and cheek locks below them.
-    hair.cells = {(x, y if y < 7 else y-2, z): color
-                  for (x,y,z),color in hair.cells.items() if y not in (7,8)}
+    hair.cells = {(x, y if y < 7 else y-4, z): color
+                  for (x,y,z),color in hair.cells.items() if y not in (7,8,9,10)}
     return hair
 
 
@@ -180,8 +180,8 @@ def _tail(side):
         hair.grid_box(lo,hi,color)
     # Lower only the roots with the shorter crown; keep the long tails and
     # their bottom tips fixed instead of scaling the whole hairstyle.
-    hair.cells = {(x, y if y < 24 else y-2, z): color
-                  for (x,y,z),color in hair.cells.items() if y not in (24,25)}
+    hair.cells = {(x, y if y < 22 else y-4, z): color
+                  for (x,y,z),color in hair.cells.items() if y not in (22,23,24,25)}
     if side<0:
         hair.cells={(-x-1,y,z):color for (x,y,z),color in hair.cells.items()}
         hair.origin=(8.125,1.75,6.875)
@@ -315,7 +315,7 @@ def build():
     g.group = 'Flat Minecraft pixel face'
     # Keep the painted face just in front of the crown core at z5.75;
     # coplanar skin/hair layers self-shadowed into black forehead strips.
-    g.box('flat square head skin', (6.00,8.00,5.74),(10.00,10.875,9.50),'face_base')
+    g.box('flat square head skin', (6.00,8.00,5.74),(10.00,10.872,9.50),'face_base')
     _paint_face(g)
 
     g.group = 'Chunky cubic crown and fringe'
@@ -342,5 +342,5 @@ def build():
         if narrow:
             face['vertices'] = [[8+(x-8)*.82,y,z] for x,y,z in face['vertices']]
         if 'hair clip' in face['name']:
-            face['vertices'] = [[x,y-.75,z] for x,y,z in face['vertices']]
+            face['vertices'] = [[x,y-1.5,z] for x,y,z in face['vertices']]
     return g
