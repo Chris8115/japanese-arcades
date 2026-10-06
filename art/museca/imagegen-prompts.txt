@@ -1,0 +1,45 @@
+MÚSECA source artwork
+Mode: built-in image_gen generation; fresh original images guided by visually reviewed user photos.
+Skill: local-source/SKILL.md
+References:
+local-source/source-image.png
+local-source/source-image.png
+local-source/source-image.png
+local-source/source-image.png
+The first two guide character art; the latter two guide separately authored native hardware textures.
+
+DISPLAY PROMPT (transparent_background=false)
+Use case: stylized-concept
+Asset type: original production portrait display texture for a Minecraft MÚSECA arcade cabinet.
+Primary request: Recreate the composition and recognizable character styling of the supplied real MÚSECA attract-screen photographs as crisp Minecraft-compatible pixel art. Create only the complete flat screen artwork, opaque, straight-on, 9:16 portrait.
+Composition: the upper half is quiet warm ivory/white negative space. Center a large but delicate, very thin angular polygon-line wordmark "MÚSECA" around one quarter of the image height. The wordmark must be made of fine straight broken geometric strokes like the photographed logo, in muted crimson; no heavy block letters. Spell M Ú S E C A accurately, including the small accent over U. Small subtle "KONAMI" at upper left.
+The lower half contains the faithful white/silver-haired red-eyed anime young woman from the photographs, facing forward with a calm small smile. Her face is pale and slender with pointed chin, fine red eyes and soft asymmetric silver bangs. Short tousled silver-white hair rises in pointed swept tufts, a soft grey crown area and two fuller curled/loosely braided locks coming down over the front of her shoulders. Red-and-white faceted ornaments sit at her temples, with thin open triangular origami-like head decorations rising beside her hair. Preserve her distinctive compact face, hair silhouette and quiet expression; do not substitute a generic broad-faced anime mascot.
+She wears a high crimson-red scarf/collar around her neck and a fully clothed white-and-black faceted geometric costume with angular origami-like white shoulder panels and dark seams. Her head begins around the middle of the canvas; her upper torso reaches the bottom. Behind her, a dark burgundy and vivid crimson angular triangular backdrop rises at both sides into the ivory field. Use flat geometric facets and restrained thin triangular wire outlines. No unrelated people or decorations.
+At the bottom place a narrow translucent-looking dark burgundy UI bar, drawn opaque as part of the image, containing small neat "TOUCH TO START" and a tiny "CREDIT 0" lower-right.
+Style: intentional hand-crafted pixel art with coherent square pixel clusters and stepped contours, approximately a 240x426 pixel design presented at higher native resolution. Delicate readable facial detail, clean limited-color cel shading, crisp blocky white/silver hair, sharp geometric red background. No blur, no smooth vector illustration, no painted noise, no simulated screen glare. Match the photograph's actual white/silver/red/black art rather than the purple arcade lighting cast.
+Text (verbatim): "MÚSECA", "KONAMI", "TOUCH TO START", "CREDIT 0".
+Constraints: fully opaque rectangular 9:16 portrait art. No cabinet, bezel, room, hardware, real photograph, perspective, watermark, extra title or extra character. The top-half ivory space and lower-half faithful character layout are essential.
+
+MARQUEE PROMPT (transparent_background=false)
+Use case: stylized-concept
+Asset type: original printed character marquee illustration for the sculpted top backing of a Minecraft MÚSECA arcade cabinet.
+Primary request: Create a flat, matte, opaque rectangular landscape artwork, aspect about 1.7:1, faithfully inspired by the original MÚSECA character art visible above the real machine in the supplied photographs. The game wordmark will be on a separate physical sign, so this artwork contains NO LOGO AND NO TEXT.
+Composition: large close-up of the same pale silver/white-haired, red-eyed anime young woman on the RIGHT half, her hair and upper face filling the upper-right, neck and crimson scarf toward lower-right. Keep her eyes and recognizable facial features fully within the middle-right area, not on the extreme edge; some outer hair and shoulder detail can naturally extend toward the right/bottom edge. On the LEFT half, airy ivory/white space with fine crimson, charcoal and pale-grey origami triangle wirework, folded-paper silhouettes and scattered sparse crimson angular facets. The entire image will later be mapped onto sculpted polygon backing, so build a strong readable character and geometric composition that tolerates corner trimming.
+Character fidelity: calm faint smile, slender pale face with delicate red eyes, short asymmetric tousled white/silver hair with pointed swept tufts and soft grey crown shading. Two thick curled/loosely braided silver locks come forward over her shoulders. Red-and-white faceted temple ornaments and thin triangular origami-like decorations beside the head. High crimson scarf/collar, fully clothed black-and-white faceted costume and angular white origami shoulder pieces. No generic different-haired mascot, no wide exaggerated smile.
+Style: deliberate Minecraft-compatible pixel art with crisp square pixel clusters and stepped contour lines, approximately a 408x240 pixel art design presented at larger native resolution. Preserve fine intentional face and hair detail using clean limited-color cel shading. Warm ivory, cool white, silver grey, charcoal, crimson and deep burgundy. The real illustration's palette without the purple arcade-lighting cast.
+Constraints: entire canvas opaque; no transparent background. Perfectly front-facing flat print, no cabinet, mounting hardware, room, photo, perspective, 3D rendering, text, lettering, watermark or logos. No border framing the rectangular image.
+
+DISPLAY COMPOSITION EDIT (transparent_background=false)
+Edit target: local-source/exec-8c6d9e19-ba3d-49a9-8a7c-6c43c691228d.png
+Use case: precise-object-edit
+Edit target: the generated MÚSECA portrait attract-screen artwork.
+Make only a composition correction to match the real screen. Preserve this exact character identity, face, hair, eyes, costume, pixel-art technique, colors, fine angular MÚSECA wordmark and HUD wording.
+The upper half must be mostly open ivory. Uniformly shrink the entire character illustration AND its burgundy/crimson triangular background as a group, anchored above the existing bottom UI bar, so that the highest hair tuft begins at about 46 percent of the full canvas height, the face is centered around 70 percent height, and the shoulders/upper torso reach 93 percent height. Keep the full face and all essential head decorations visible. Extend clean ivory to fill the new space above the character. Do not enlarge or crop the face again.
+Position the existing fine crimson MÚSECA wordmark centered around 26 percent of canvas height, still broad and delicate. Keep small KONAMI at the upper-left and the TOUCH TO START / CREDIT 0 bottom bar. Preserve all exact lettering, fully opaque 9:16 format, crisp pixel art, and the original quiet expression. No added objects, no new characters, no cabinet. This is strictly a layout/scale adjustment of the existing artwork.
+
+SELECTED OUTPUTS AND PROVENANCE
+display-artwork-source.png: unmodified byte-for-byte copy of local-source/exec-98236036-3a88-449a-bc22-8c641e072449.png
+Display: 940x1672 RGB, approximately 9:16, fully opaque.
+marquee-artwork-source.png: unmodified byte-for-byte copy of local-source/exec-9c86d686-5497-42af-83bd-13ee231ff0ed.png
+Marquee: 1635x962 RGB, approximately 1.7:1, fully opaque.
+Validation: Visually checked characteristic silver hair, red eyes, crimson scarf, angular costume and origami motifs. Final display leaves a quiet ivory upper half and has the fine angular MÚSECA wordmark with its accent, plus the requested bottom UI. Marquee intentionally contains no lettering. No resizing, cropping or recoloring after generation. Built-in image_gen used for both original sources and the targeted display layout edit; no CLI.
