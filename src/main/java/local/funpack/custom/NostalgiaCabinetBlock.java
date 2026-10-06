@@ -106,7 +106,8 @@ public class NostalgiaCabinetBlock extends HorizontalDirectionalBlock implements
         return state.is(this) && state.getValue(PART) == part && state.getValue(FACING) == facing;
     }
 
-    private BlockPos basePosition(BlockPos pos, BlockState state) { return pos.below(state.getValue(PART).ordinal()); }
+    /** Resolve the one saved inventory anchor; wider cabinets may span multiple columns. */
+    protected BlockPos basePosition(BlockPos pos, BlockState state) { return pos.below(state.getValue(PART).ordinal()); }
 
     /** The default location is unchanged; wider cabinets may provide a clear point in their footwell. */
     protected Vec3 discEjectionPosition(BlockPos pos, BlockState state) {

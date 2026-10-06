@@ -1,0 +1,23 @@
+Built-in image generation mode. Fresh LCD artwork inspired by the supplied official maimai DX cabinet references. Generated originals are preserved unchanged; texture padding/UV masking handled separately.
+
+MAIN CIRCULAR LCD
+Original: local-source/exec-1b430b5a-ce83-4f09-9a58-632806f2aac0.png
+Saved: art/maimai/display-artwork-source.png
+Prompt:
+Use case: stylized-concept.
+Asset type: square attract-screen artwork for the circular LCD of a maimai DX arcade cabinet in a Minecraft game.
+Primary request: match the official first-generation maimai DX cabinet's cheerful blue screen and rainbow logo. Clean pale sky-blue background with tiny pixel stars, a few soft white cloud puffs along the bottom, faint horizontal white musical staff lines. Center a very large friendly authentic-looking logo: lowercase "maimai" in chunky rounded rainbow letters, below it large colorful Japanese hiragana "でらっくす", with a small bold "DX" badge at lower right. The logo has white outlines and a thin dark gray outer keyline; colors yellow, turquoise, coral red, blue, pink and green. A rainbow sweeps in an arc behind the logo, beginning left of it and ending right of it, with soft white cloud ends.
+Composition: the central logo occupies60percent of image width, all essential content sits safely inside a centered circle of80percent image diameter. Rainbow is in upper half, blue surrounds it. Bottom-center a short thin white rounded capsule says "TOUCH TO START" in small dark teal pixel letters and a tiny line "CREDIT 0" beneath. Keep colorful decoration restrained: this is a clear arcade title display, not a crowded poster.
+Style: polished fine pixel art, crisp coherent2px-to4px clusters, rounded logo shapes interpreted with delicate staircase edges; playful clean Japanese arcade design. Flat luminous screen image, not a physical sign.
+Constraints: no characters, no cabinet, no monitor bezel, no physical ring or buttons, no perspective, no giant text outside the safe circle, no watermarks. Square1:1 image fills all edges with pale blue.
+
+UPPER LCD
+Original: local-source/exec-8e66f73c-2a25-491d-b507-33b168a86a03.png
+Saved: art/maimai/upper-artwork-source.png
+Prompt:
+Use case: stylized-concept.
+Asset type: flat wide landscape upper information LCD artwork for a maimai DX arcade cabinet. Aspect ratio exactly3:1.
+Primary request: coordinated title display matching the original maimai DX machine: clear cheerful sky-blue field, one broad six-color pastel rainbow arch spanning the middle of the image, small puffy white clouds at both sides, white sparkle pixels and a few yellow star pixels. Centered below the arch is a compact, friendly lowercase "maimai" rainbow-colored bubble logo above colorful Japanese hiragana "でらっくす", with a tiny blue/yellow "DX" at lower right. White logo outlines with thin charcoal keyline.
+Composition: all design elements fit a very wide short screen; rainbow is centered with endpoints near20percent and80percent of width. Keep the logo smaller than on the large round gameplay display, occupying around35percent of width and45percent of height. Small subtle white musical lines toward both outer sides. No call-to-action needed.
+Style: high quality clean fine pixel art, coherent crisp pixel clusters, slightly stepped rounded letters/clouds, exact bright original DX palette of sky cyan, yellow, coral red, pink, blue and green. Flat luminous UI art.
+Constraints: no physical cabinet, no screen border or bezel, no characters, no perspective, no extra words, no subtitle other than specifiedlogo, no watermark. Full edge-to-edge blue rectangle.

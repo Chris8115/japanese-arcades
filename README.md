@@ -3,7 +3,7 @@
 This workspace is for our own mods for **Minecraft 1.21.1 / NeoForge 21.1.252**.
 The starter mod is **Fun Pack Custom**, id `funpackcustom`, version `0.1.0`.
 It registers `/funpackdev`, a small command to confirm that the mod is loaded.
-The **Japanese Arcades** creative tab includes eight cabinets with music-disc playback:
+The **Japanese Arcades** creative tab includes nine cabinets with music-disc playback:
 
 - [Nostalgia Op.3 Arcade Cabinet](art/nostalgia-op3/README.md)
 - [Sound Voltex Valkyrie Arcade Cabinet](art/sound-voltex-valkyrie/README.md)
@@ -13,10 +13,13 @@ The **Japanese Arcades** creative tab includes eight cabinets with music-disc pl
 - [MÚSECA Arcade Cabinet](art/museca/README.md)
 - [Project DIVA Arcade Future Tone Cabinet](art/project_diva/README.md)
 - [Chrono Circle Arcade Cabinet](art/chrono_circle/README.md)
+- [maimai DX Twin Arcade Cabinet](art/maimai/README.md)
 
-Their model notes include editable files, previews, and use instructions. All occupy
-three vertical blocks. Allow side clearance for the wider decks, wings, and enclosures;
-each model's notes describe its dimensions.
+Their model notes include editable files, previews, and use instructions. All are
+three blocks high. maimai uses **two connected columns** and requires a supported,
+clear **two-by-three-block** space; the other cabinets occupy one vertical column.
+Allow additional clearance for the visible decks, wings, mats, and enclosures.
+Each model's notes describe its dimensions.
 
 ## Start here
 
@@ -35,7 +38,7 @@ Use **Terminal > Run Task** for the `Fun:` tasks, or open a terminal here:
 - `SyncPack` refreshes the copied mods, configs, resource packs, and pack scripts from the live pack.
 - `Prepare` downloads game assets and prepares client/server launch files.
 - `Server` launches a small dedicated server for checking server compatibility.
-- `GameTest` runs thirty-four cabinet integration tests in a disposable test world and exits.
+- `GameTest` runs forty cabinet integration tests in a disposable test world and exits.
 - `Data` runs our data generators once we add them.
 
 The script selects Java 21 locally. Your default Java installation remains available to other projects.
@@ -67,7 +70,10 @@ rotated deck/marquee selection, the narrow projecting pedal's collision, and
 unobstructed disc ejection beside its deeper base. Project DIVA checks its wide
 button deck and topper selection and clear disc ejection in every facing.
 Chrono Circle checks its clock/hood overhangs, low floor platform, and clear
-disc ejection in every facing. All thirty-four passed on 2026-10-06.
+disc ejection in every facing. maimai adds six-cell placement and cross-column
+interaction, every break point in all four facings, adjacent-pair isolation,
+saved playback, obstruction checks, and teardown after either support is lost.
+All forty passed on 2026-10-06.
 Visual checks and full-pack compatibility remain separate from these server tests.
 
 `SyncPack` overwrites files that exist in the source pack's configuration. Close the development
