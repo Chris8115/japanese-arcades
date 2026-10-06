@@ -211,7 +211,7 @@ def _paint_face(g):
     # A single Minecraft-scale face grid follows the reference's dark upper
     # eyes, turquoise lower iris, warm pink skin and soft lower cheek pixels.
     rows = ('SSSSSSSS', 'SSSSSSSS', 'SSSSSSSS', 'HDDSSDDH',
-            'WPISSIPW', 'WILSSLIW', 'BSSMMSSB')
+            'WPWSSWPW', 'WIWSSWIW', 'BSSMMSSB')
     colors = {'S':'face_base', 'H':'face_edge', 'D':'face_lash',
               'W':'face_sclera', 'P':'face_pupil', 'I':'face_iris',
               'L':'face_iris_light', 'B':'face_cheek', 'M':'face_mouth'}

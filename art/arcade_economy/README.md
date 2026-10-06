@@ -216,14 +216,17 @@ blush adjustment changed only 24 face-pixel palette assignments: every vertex
 and all other materials stayed identical. The last fringe adjustment extends
 the bangs by one hair cell and the inner side locks to the cheek line; its
 face pixels, headset, twin tails and body remain identical.
+Finally, four lighter iris pixels were changed to eye white, leaving one blue
+column per eye with all geometry preserved.
 
 The small native client verified real 2,500-point purchases of both figures,
 insufficient funds, physical pass-slot return, purchased-item placement,
 survival recovery, opposite facings, cabinet play, and the minimum GUI size.
-The native views below include the larger hair cubes and corrected face pixels,
-captured just before the last bang/side-lock extension. That final small hair
-change passed Build, OBJ baking and direct model render checks; the studio
-views show it. The earlier full copied-pack check passed with the same gameplay
+The native views below include the larger hair cubes and lowered face pixels,
+captured before the last bang/side-lock extension and single-column iris edit.
+The hair change passed Build, OBJ baking and direct model render checks; the
+iris edit passed Build and a color-only mesh comparison. The studio views show
+both changes. The earlier full copied-pack check passed with the same gameplay
 code and the pre-voxel assets; its saved image is kept with that rollback.
 
 ![Prizes in the kiosk](prize-shop-in-game.png)
