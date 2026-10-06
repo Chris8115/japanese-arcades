@@ -1,7 +1,9 @@
-"""Hatsune Miku shelf figure, authored as small layered solid meshes.
+"""Box-built Hatsune Miku shelf figure.
 
-The north-facing sculpt has an oversized head, deliberately stepped fringe,
-long separate twin tails and a tailored outfit. Coordinates are model units.
+The reference is a little Minecraft sculpture: chunky isotropic hair voxels,
+stepped rectangular clothes, and a tiny painted pixel face. Every surface in
+this authoring file belongs to a cuboid or a flat square color patch. There
+are deliberately no lofts, rounded outlines, tubes or tapered mesh panels.
 """
 import math
 
@@ -9,203 +11,195 @@ from figure_geometry import FigureGeometry
 
 
 COLORS = {
-    'base': '#222936', 'base_edge': '#141c27', 'base_top': '#37434b',
-    'base_teal': '#128e99', 'base_shine': '#40bdc2',
-    'hair': '#24aeb4', 'hair_light': '#3cc3c3', 'hair_high': '#60d2cb',
-    'hair_mid': '#199aa5', 'hair_shadow': '#117e90', 'hair_deep': '#116779',
-    'skin': '#f2d7cb', 'skin_light': '#ffe6d8', 'skin_shadow': '#dfbcba',
-    'blush': '#efb7bd', 'mouth': '#c48a95',
-    'white': '#fcf5e7', 'eye_white': '#f4eeec', 'lash': '#2d3846',
-    'iris_dark': '#226d83', 'iris': '#35a9b7', 'iris_light': '#80e0d7',
-    'pupil': '#244b60',
-    'shirt': '#b8bcc6', 'shirt_light': '#d1d0d4', 'shirt_mid': '#a0a6b4',
-    'shirt_shadow': '#808b9e',
-    'tie': '#38c9c7', 'tie_dark': '#158f9f', 'tie_light': '#70e1d7',
-    'cloth': '#282e3a', 'cloth_light': '#3d4351', 'cloth_mid': '#323946',
-    'cloth_dark': '#1b2330', 'boot': '#25303b', 'boot_light': '#3b4653',
-    'sole': '#16212c', 'teal_trim': '#33c6c7', 'trim_dark': '#158897',
-    'headset': '#292837', 'headset_light': '#414053',
-    'pink': '#d24b86', 'pink_light': '#ec77a9', 'pink_dark': '#922e62',
-    'gold': '#e9c66e', 'gold_dark': '#947145', 'red_mark': '#c9777f',
+    'base': '#252b35', 'base_dark': '#19212b', 'base_top': '#39434c',
+    'base_teal': '#218d96',
+    'hair': '#22b0b4', 'hair_light': '#39bfc0', 'hair_pale': '#4cc9c6',
+    'hair_mid': '#21a4ad', 'hair_shadow': '#198e9b', 'hair_deep': '#137d8c',
+    'hair_soft': '#2bb6b8', 'hair_cool': '#279ea8',
+    'skin': '#f0d2c6', 'skin_light': '#f8dbce', 'skin_shade': '#dfbcb4',
+    'blush': '#e8b2b6', 'cheek_pale': '#f0c6c0', 'eye_dark': '#294c5a', 'eye_teal': '#3c919e',
+    'eye_light': '#81c5c5', 'eye_pale': '#d7e0d9',
+    'shirt': '#b8bac4', 'shirt_light': '#c9cbd1', 'shirt_shade': '#969da9',
+    'shirt_dark': '#7e8798',
+    'tie': '#2fbabd', 'tie_light': '#51ceca', 'tie_dark': '#19929f',
+    'cloth': '#262c37', 'cloth_light': '#3b414d', 'cloth_mid': '#303744',
+    'cloth_dark': '#1a2230', 'boot': '#242d38', 'boot_light': '#35424d',
+    'teal': '#38c4c5', 'teal_shade': '#238d9c', 'sole': '#161e28',
+    'headset': '#262736', 'headset_light': '#363545',
+    'pink': '#cf4282', 'pink_light': '#e26a9e', 'pink_dark': '#90305f',
+    'gold': '#d8bd70', 'meter': '#318e9c',
+    'face_base': '#edc5cc', 'face_edge': '#526171', 'face_lash': '#253240',
+    'face_pupil': '#245c70', 'face_iris': '#3696a5', 'face_iris_light': '#77c2c7',
+    'face_sclera': '#c2b9c3', 'face_cheek': '#e5aebe', 'face_mouth': '#dfa4b8',
 }
 
 
-def _octagon(x0, x1, z0, z1, bevel):
-    return [(x0 + bevel, z0), (x1 - bevel, z0), (x1, z0 + bevel),
-            (x1, z1 - bevel), (x1 - bevel, z1), (x0 + bevel, z1),
-            (x0, z1 - bevel), (x0, z0 + bevel)]
+class _Cubes:
+    """Union of equal-sided cubes; emit only exposed square surfaces."""
+    STEP = .25
+
+    def __init__(self, step=.25, origin=(0,0,0)):
+        self.STEP = step
+        self.origin = origin
+        self.cells = {}
+
+    def box(self, lo, hi, color):
+        bounds = []
+        for low, high, origin in zip(lo, hi, self.origin):
+            a, b = round((low-origin) / self.STEP), round((high-origin) / self.STEP)
+            assert abs(origin+a*self.STEP-low) < 1e-7, (low, high)
+            assert abs(origin+b*self.STEP-high) < 1e-7, (low, high)
+            bounds.append(range(a, b))
+        for x in bounds[0]:
+            for y in bounds[1]:
+                for z in bounds[2]:
+                    self.cells[x, y, z] = color
+
+    def grid_box(self, lo, hi, color):
+        for x in range(lo[0],hi[0]):
+            for y in range(lo[1],hi[1]):
+                for z in range(lo[2],hi[2]):
+                    self.cells[x,y,z] = color
+
+    def emit(self, g, name):
+        faces = {
+            'north': ((0, 0, -1), ((0,1,0), (1,1,0), (1,0,0), (0,0,0))),
+            'south': ((0, 0, 1), ((0,0,1), (1,0,1), (1,1,1), (0,1,1))),
+            'west': ((-1, 0, 0), ((0,0,0), (0,0,1), (0,1,1), (0,1,0))),
+            'east': ((1, 0, 0), ((1,0,1), (1,0,0), (1,1,0), (1,1,1))),
+            'up': ((0, 1, 0), ((0,1,0), (0,1,1), (1,1,1), (1,1,0))),
+            'down': ((0, -1, 0), ((0,0,0), (1,0,0), (1,0,1), (0,0,1))),
+        }
+        for (x, y, z), color in sorted(self.cells.items()):
+            for side, (normal, offsets) in faces.items():
+                neighbor = (x + normal[0], y + normal[1], z + normal[2])
+                if neighbor in self.cells:
+                    continue
+                ox,oy,oz=self.origin
+                points = [(ox+(x+dx)*self.STEP,oy+(y+dy)*self.STEP,
+                           oz+(z+dz)*self.STEP) for dx,dy,dz in offsets]
+                g.face(f'{name} cube {x} {y} {z} {side}', points, color)
 
 
-def _loft(g, name, rings, material, side_materials=None):
-    """Closed eight-sided cross sections: (y,x0,x1,z0,z1,bevel)."""
-    layers = [[(x, y, z) for x, z in _octagon(x0, x1, z0, z1, b)]
-              for y, x0, x1, z0, z1, b in rings]
-    for k, (lower, upper) in enumerate(zip(layers, layers[1:])):
-        for i in range(8):
-            j = (i + 1) % 8
-            mat = side_materials[i] if side_materials else material
-            g.face(f'{name} side {k} {i}',
-                   [lower[i], upper[i], upper[j], lower[j]], mat)
-    for label, layer, reverse in [('bottom', layers[0], False),
-                                   ('top', layers[-1], True)]:
-        center = tuple(sum(p[i] for p in layer) / len(layer) for i in range(3))
-        for i in range(8):
-            edge = [layer[i], layer[(i + 1) % 8]]
-            if reverse:
-                edge.reverse()
-            g.face(f'{name} {label} {i}', [center, *edge], material)
+def _square(g, name, x, y, z, size, color):
+    g.face(name, [(x,y+size,z), (x+size,y+size,z),
+                  (x+size,y,z), (x,y,z)], color)
 
 
-def _plate(g, name, x0, y0, x1, y1, z, material):
-    g.face(name, [(x0, y1, z), (x1, y1, z), (x1, y0, z), (x0, y0, z)], material)
+def _crown():
+    # Twelve true cubes span the already-narrowed head. Nothing squeezes
+    # these .375-unit cells afterward; each exposed pixel stays square.
+    hair = _Cubes(step=.375, origin=(5.75,8.25,5.0))
+    block = hair.grid_box
+    for lo,hi,color in [
+        ((0,6,2),(12,9,13),'hair'),
+        ((1,9,2),(11,10,13),'hair_soft'),
+        ((2,10,3),(10,11,12),'hair_light'),
+        ((3,11,4),(9,12,11),'hair_soft'),
+    ]:
+        block(lo,hi,color)
+
+    # Five broad coherent fringe groups replace the crowded narrow ribs.
+    # The fringe ends one hair pixel lower, with small side locks extending
+    # to the cheek line. The crown, tails and painted face stay in place.
+    block((0,2,2),(1,9,4),'hair_mid')
+    block((1,3,2),(2,10,4),'hair')
+    block((1,0,1),(2,10,4),'hair')
+    block((0,7,2),(2,9,7),'hair')
+    block((2,5,0),(3,8,4),'hair_light')
+    block((3,4,0),(5,8,4),'hair_soft')
+    block((2,8,1),(5,10,5),'hair_light')
+    block((3,10,2),(5,11,6),'hair_soft')
+    block((5,3,0),(6,8,4),'hair')
+    block((6,4,0),(7,8,4),'hair_soft')
+    block((5,8,1),(7,11,5),'hair')
+    block((7,4,1),(8,8,4),'hair_light')
+    block((8,5,1),(9,8,4),'hair_light')
+    block((9,4,1),(10,8,4),'hair_soft')
+    block((7,8,1),(10,10,5),'hair_light')
+    block((7,10,3),(9,11,6),'hair_soft')
+    block((10,3,2),(11,10,5),'hair')
+    block((10,0,1),(11,10,5),'hair')
+    block((11,2,2),(12,9,4),'hair_mid')
+    block((10,7,2),(12,9,7),'hair')
+
+    # The side and back layers are broad connected clumps, with just one
+    # cube of height/depth offset at their ends, rather than stripe noise.
+    block((0,1,4),(2,9,10),'hair_mid')
+    block((0,2,10),(2,9,13),'hair')
+    block((10,1,4),(12,9,10),'hair_mid')
+    block((10,2,10),(12,9,13),'hair')
+    block((0,2,11),(3,9,14),'hair_mid')
+    block((3,0,11),(6,10,14),'hair')
+    block((6,1,11),(9,10,14),'hair_soft')
+    block((9,2,11),(12,9,14),'hair_mid')
+    # A handful of square crown accents continue the fringe directions.
+    block((3,11,4),(5,12,7),'hair_light')
+    block((5,11,6),(7,12,9),'hair')
+    block((7,10,3),(9,11,6),'hair_soft')
+    block((7,11,8),(9,12,11),'hair_light')
+    return hair
 
 
-def _hair_lock(g, name, outline, front, back, color, edge=None):
-    # Ear clipping preserves the concave pixel steps along the fringe/tips;
-    # a center triangle fan would incorrectly fill those small notches.
-    outline = list(outline)
-    area = sum(p[0] * q[1] - q[0] * p[1]
-               for p, q in zip(outline, outline[1:] + outline[:1]))
-    if area < 0:
-        outline.reverse()
-    def cross(a, b, c):
-        return (b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0])
-    indices = list(range(len(outline)))
-    triangles = []
-    while len(indices) > 3:
-        for k, current in enumerate(indices):
-            prev, nxt = indices[k - 1], indices[(k + 1) % len(indices)]
-            a, b, c = outline[prev], outline[current], outline[nxt]
-            if cross(a, b, c) <= 1e-8:
-                continue
-            if any(cross(a, b, outline[j]) >= -1e-8 and
-                   cross(b, c, outline[j]) >= -1e-8 and
-                   cross(c, a, outline[j]) >= -1e-8
-                   for j in indices if j not in (prev, current, nxt)):
-                continue
-            triangles.append((prev, current, nxt))
-            indices.pop(k)
-            break
-        else:
-            raise ValueError('Cannot triangulate ' + name)
-    triangles.append(tuple(indices))
-    for i, triangle in enumerate(triangles):
-        points = [outline[j] for j in triangle]
-        g.face(f'{name} front {i}', [(*p, front) for p in reversed(points)], color)
-        g.face(f'{name} back {i}', [(*p, back) for p in points], color)
-    for i, p in enumerate(outline):
-        q = outline[(i + 1) % len(outline)]
-        g.face(f'{name} edge {i}', [(*p, front), (*q, front), (*q, back), (*p, back)], edge or color)
-
-
-def _tail(g, side):
-    name = 'left twin tail' if side > 0 else 'right twin tail'
-    start = len(g.faces)
-    _loft(g, name + ' core', [
-        (2.05, 11.55, 12.65, 7.82, 9.14, .20),
-        (2.75, 11.60, 13.00, 7.30, 9.50, .24),
-        (5.25, 11.25, 13.20, 7.08, 9.66, .30),
-        (8.10, 10.94, 13.02, 6.98, 9.55, .28),
-        (10.7, 10.54, 12.58, 7.03, 9.35, .26),
-        (12.55, 10.38, 12.08, 7.12, 9.25, .24),
-        (13.30, 10.34, 11.62, 7.35, 9.05, .22),
-    ], 'hair', ['hair_light', 'hair_mid', 'hair_mid', 'hair_shadow',
-                'hair_shadow', 'hair_deep', 'hair_mid', 'hair'])
-    # Front locks follow the same flow as the core with unequal staggered tips.
-    _hair_lock(g, name + ' outer ribbon', [
-        (11.54, 12.90), (12.03, 12.90), (12.03, 10.45),
-        (12.42, 10.45), (12.42, 7.45), (12.75, 7.45),
-        (12.75, 3.15), (12.36, 3.15), (12.36, 2.55),
-        (11.93, 2.55), (11.93, 6.40), (11.66, 6.40),
-        (11.66, 9.50), (11.54, 9.50),
-    ], 6.93, 7.24, 'hair_light', 'hair_mid')
-    _hair_lock(g, name + ' inner ribbon', [
-        (10.53, 12.32), (11.10, 12.32), (11.10, 9.48),
-        (11.42, 9.48), (11.42, 7.14), (11.78, 7.14),
-        (11.78, 3.02), (11.33, 3.02), (11.33, 3.70),
-        (10.98, 3.70), (10.98, 7.76), (10.64, 7.76),
-        (10.64, 10.15), (10.53, 10.15),
-    ], 6.79, 7.17, 'hair', 'hair_shadow')
-    _hair_lock(g, name + ' narrow sheen', [
-        (11.34, 12.18), (11.60, 12.18), (11.60, 10.16),
-        (11.89, 10.16), (11.89, 7.97), (11.63, 7.97),
-        (11.63, 9.73), (11.34, 9.73),
-    ], 6.86, 7.04, 'hair_high')
-    # A darker back strand makes the ponytail have volume from rear views too.
-    _hair_lock(g, name + ' back layer', [
-        (11.28, 12.35), (11.80, 12.35), (11.80, 10.18),
-        (12.19, 10.18), (12.19, 7.45), (12.55, 7.45),
-        (12.55, 3.46), (12.01, 3.46), (12.01, 6.61),
-        (11.63, 6.61), (11.63, 9.24), (11.28, 9.24),
-    ], 9.22, 9.73, 'hair_mid')
-    if side < 0:
-        g.transform(start, lambda x, y, z: (16 - x, y, z))
-        for face in g.faces[start:]:
-            face['vertices'].reverse()
-            face['uv'].reverse()
-
-
-def _eye(g, center, name):
-    # A coplanar pixel mosaic: no white rectangular foundation, stacked eye
-    # layers, protruding pupils or lower rim. The cream sliver and tiny glint
-    # sit beside the teal pixels rather than on raised plaques.
-    pixels = [
-        ' LLLLL ',
-        ' WDDDD ',
-        ' WHDDD ',
-        ' WDPID ',
-        ' WDPID ',
-        ' WIiii ',
-        '  iii  ',
+def _tail(side):
+    # Wider long clumps use the same isotropic cells as the head. Each broad
+    # band is connected, with quiet color regions and no tiny surface holes.
+    hair = _Cubes(step=.375, origin=(7.875,1.75,6.875))
+    bands = [
+        (26,28,6,9,1,6),
+        (23,26,7,11,0,8),
+        (20,23,8,12,0,8),
+        (16,20,9,13,0,9),
+        (12,16,9,14,0,9),
+        (7,12,10,15,0,9),
+        (4,7,10,15,0,8),
+        (2,4,10,14,1,8),
+        (1,2,11,14,2,7),
+        (0,1,11,13,3,6),
     ]
-    palette = {'L': 'lash', 'W': 'eye_white', 'D': 'iris_dark',
-               'H': 'white', 'P': 'pupil', 'I': 'iris', 'i': 'iris_light'}
-    size_x, size_y = .18, .20
-    for row, line in enumerate(pixels):
-        for column, pixel in enumerate(line):
-            if pixel == ' ':
-                continue
-            x0 = center + (column - 3.5) * size_x
-            y1 = 11.51 - row * size_y
-            _plate(g, f'{name} painted pixel {row} {column}',
-                   x0, y1 - size_y, x0 + size_x, y1, 5.059, palette[pixel])
+    for y0,y1,x0,x1,z0,z1 in bands:
+        for x in range(x0,x1):
+            relative=x-x0
+            front=z0+(1 if relative==0 else 0)
+            back=z1-(1 if x==x1-1 else 0)
+            color=('hair','hair','hair_soft','hair_soft','hair_mid')[min(relative,4)]
+            hair.grid_box((x,y0,front),(x+1,y1,back),color)
+    for lo,hi,color in [
+        ((9,16,0),(11,21,3),'hair_light'),
+        ((9,11,-1),(11,17,2),'hair_soft'),
+        ((10,6,-1),(12,12,2),'hair'),
+        ((10,3,0),(12,7,3),'hair_soft'),
+        ((11,1,2),(13,4,5),'hair'),
+        ((13,2,4),(14,5,7),'hair_mid'),
+        ((7,24,1),(9,27,4),'hair_light'),
+    ]:
+        hair.grid_box(lo,hi,color)
+    if side<0:
+        hair.cells={(-x-1,y,z):color for (x,y,z),color in hair.cells.items()}
+        hair.origin=(8.125,1.75,6.875)
+    return hair
 
 
 def _arm(g, side):
     name = 'left arm' if side > 0 else 'right arm'
     start = len(g.faces)
-    _loft(g, name + ' bare shoulder', [
-        (7.60, 9.45, 10.35, 6.32, 7.86, .10),
-        (8.45, 9.44, 10.25, 6.35, 7.89, .13),
-        (8.70, 9.45, 10.02, 6.46, 7.83, .14),
-    ], 'skin', ['skin_light', 'skin', 'skin', 'skin_shadow',
-                'skin_shadow', 'skin_shadow', 'skin', 'skin_light'])
-    _loft(g, name + ' detached sleeve', [
-        (5.75, 9.18, 10.58, 5.94, 7.98, .12),
-        (6.14, 9.25, 10.53, 6.01, 7.97, .13),
-        (7.75, 9.42, 10.35, 6.23, 7.88, .10),
-    ], 'cloth', ['cloth_mid', 'cloth', 'cloth_dark', 'cloth_dark',
-                'cloth_dark', 'cloth_dark', 'cloth_light', 'cloth_mid'])
-    _loft(g, name + ' cuff teal edging', [
-        (5.69, 9.18, 10.59, 5.94, 7.98, .12),
-        (5.87, 9.18, 10.59, 5.94, 7.98, .12),
-    ], 'teal_trim')
-    _loft(g, name + ' hand', [
-        (5.21, 9.49, 10.35, 6.34, 7.51, .14),
-        (5.70, 9.38, 10.29, 6.24, 7.59, .12),
-    ], 'skin', ['skin_light', 'skin', 'skin_shadow', 'skin_shadow',
-                'skin_shadow', 'skin_shadow', 'skin', 'skin_light'])
-    g.box(name + ' thumb', (9.22, 5.37, 6.31), (9.47, 5.73, 6.81), 'skin')
-    _plate(g, name + ' sleeve control inset', 9.65, 7.06, 10.21, 7.55, 6.175, 'cloth_dark')
-    _plate(g, name + ' sleeve gold meter', 9.73, 7.27, 9.90, 7.48, 6.162, 'gold')
-    _plate(g, name + ' sleeve teal meter', 9.97, 7.14, 10.14, 7.48, 6.161, 'trim_dark')
-    _plate(g, name + ' sleeve lower seam', 9.46, 6.11, 9.61, 6.63, 6.002, 'cloth_light')
-    angle = math.radians(18 if side > 0 else 23)
-    c, s = math.cos(angle), math.sin(angle)
+    g.box(name+' bare upper arm', (9.30,6.45,6.50), (10.15,7.65,7.85), 'skin')
+    g.box(name+' shoulder light', (9.30,6.72,6.485), (9.78,7.48,6.50), 'skin_light')
+    g.box(name+' sleeve upper', (9.28,5.65,6.42), (10.23,6.53,7.88), 'cloth')
+    g.box(name+' sleeve middle', (9.18,4.95,6.30), (10.33,5.65,7.98), 'cloth_mid')
+    g.box(name+' sleeve lower', (9.08,4.45,6.20), (10.43,4.95,8.08), 'cloth')
+    g.box(name+' cuff teal', (9.08,4.24,6.20), (10.43,4.45,8.08), 'teal')
+    g.box(name+' small square hand', (9.48,3.94,6.53), (10.13,4.24,7.58), 'skin_light')
+    _square(g,name+' gold display pixel',9.60,6.08,6.419,.23,'gold')
+    _square(g,name+' cyan display pixel',9.87,6.08,6.419,.23,'meter')
+    _square(g,name+' dark sleeve stitch',9.28,5.19,6.299,.25,'cloth_light')
+    _square(g,name+' small sleeve stitch',9.77,4.59,6.199,.22,'cloth_light')
+    angle = math.radians(17 if side > 0 else 29)
+    cosine, sine = math.cos(angle), math.sin(angle)
     def pose(x, y, z):
-        x, y = x - 9.64, y - 8.48
-        x, y = c * x - s * y + 9.64, s * x + c * y + 8.48
-        return (x if side > 0 else 16 - x, y, z)
+        x, y = x-9.58, y-7.50
+        x, y = cosine*x-sine*y+9.58, sine*x+cosine*y+7.50
+        return (x if side > 0 else 16-x, y, z)
     g.transform(start, pose)
     if side < 0:
         for face in g.faces[start:]:
@@ -213,225 +207,130 @@ def _arm(g, side):
             face['uv'].reverse()
 
 
+def _paint_face(g):
+    # A single Minecraft-scale face grid follows the reference's dark upper
+    # eyes, turquoise lower iris, warm pink skin and soft lower cheek pixels.
+    rows = ('SSSSSSSS', 'SSSSSSSS', 'SSSSSSSS', 'HDDSSDDH',
+            'WPISSIPW', 'WILSSLIW', 'BSSMMSSB')
+    colors = {'S':'face_base', 'H':'face_edge', 'D':'face_lash',
+              'W':'face_sclera', 'P':'face_pupil', 'I':'face_iris',
+              'L':'face_iris_light', 'B':'face_cheek', 'M':'face_mouth'}
+    step = 3.28 / 8
+    for row, cells in enumerate(rows):
+        for column, color in enumerate(cells):
+            _square(g, f'reference face pixel {row} {column}',
+                    6.36+column*step, 8+(6-row)*step, 5.739, step, colors[color])
+
+
 def build():
     g = FigureGeometry(COLORS)
-    g.group = 'Beveled display plinth'
-    _loft(g, 'display base', [
-        (0.00, 2.75, 13.25, 3.75, 12.25, .26),
-        (.18, 2.50, 13.50, 3.50, 12.50, .30),
-        (.90, 2.50, 13.50, 3.50, 12.50, .30),
-        (1.08, 2.72, 13.28, 3.72, 12.28, .28),
-    ], 'base', ['base', 'base', 'base_edge', 'base_edge',
-                'base_edge', 'base_edge', 'base', 'base'])
-    _loft(g, 'display base teal inlay', [
-        (.88, 2.51, 13.49, 3.51, 12.49, .30),
-        (1.015, 2.67, 13.33, 3.67, 12.33, .28),
-    ], 'base_teal')
-    g.box('display base top pad', (3.10, 1.075, 4.15), (12.90, 1.13, 11.85), 'base_top')
+    g.group = 'Square display base'
+    g.box('square dark display base', (2.50,0,3.50), (13.50,.80,12.50), 'base')
+    g.box('square teal base inlay', (2.50,.80,3.50), (13.50,.92,12.50), 'base_teal')
+    g.box('square base top', (2.65,.92,3.65), (13.35,1.00,12.35), 'base_top')
 
-    g.group = 'Long layered turquoise twin tails'
-    _tail(g, 1)
-    _tail(g, -1)
+    g.group = 'Voxel twin tails'
+    _tail(1).emit(g,'left twin tail')
+    _tail(-1).emit(g,'right twin tail')
 
-    g.group = 'Thigh boots and legs'
-    for side in (-1, 1):
-        name = 'left boot' if side > 0 else 'right boot'
-        center = 8 + side * 1.03
-        _loft(g, name + ' sole', [
-            (1.13, center - .65, center + .65, 5.42, 8.46, .17),
-            (1.35, center - .67, center + .67, 5.38, 8.49, .18),
-        ], 'sole')
-        _loft(g, name + ' foot', [
-            (1.35, center - .65, center + .65, 5.44, 8.45, .17),
-            (1.76, center - .64, center + .64, 5.44, 8.40, .18),
-            (2.08, center - .50, center + .50, 6.10, 8.31, .13),
-        ], 'boot', ['boot_light', 'boot', 'boot', 'cloth_dark',
-                    'cloth_dark', 'cloth_dark', 'boot', 'boot_light'])
-        _loft(g, name + ' shaft', [
-            (1.75, center - .48, center + .48, 6.17, 8.28, .10),
-            (3.30, center - .58, center + .58, 6.23, 8.30, .10),
-            (4.16, center - .62, center + .62, 6.20, 8.33, .11),
-        ], 'boot', ['boot_light', 'boot', 'cloth_dark', 'cloth_dark',
-                    'cloth_dark', 'cloth_dark', 'boot', 'boot_light'])
-        _loft(g, name + ' teal thigh edging', [
-            (4.04, center - .62, center + .62, 6.19, 8.34, .11),
-            (4.17, center - .62, center + .62, 6.19, 8.34, .11),
-        ], 'trim_dark')
-        _loft(g, name + ' exposed thigh', [
-            (4.17, center - .55, center + .55, 6.31, 8.22, .10),
-            (5.46, center - .59, center + .59, 6.36, 8.29, .10),
-        ], 'skin', ['skin_light', 'skin', 'skin', 'skin_shadow',
-                    'skin_shadow', 'skin_shadow', 'skin', 'skin_light'])
-        _plate(g, name + ' toe accent', center - .23, 1.40, center + .19, 1.69, 5.425, 'teal_trim')
-        _plate(g, name + ' shin accent', center - .35, 3.29, center - .09, 3.85, 6.178, 'trim_dark')
-        _plate(g, name + ' shin shine', center - .30, 3.60, center - .11, 3.85, 6.167, 'teal_trim')
+    g.group = 'Square boots stockings and thighs'
+    for side in (-1,1):
+        name = 'left leg' if side > 0 else 'right leg'
+        x = 8 + side*.95
+        g.box(name+' sole', (x-.56,1.00,5.75), (x+.56,1.20,8.25), 'sole')
+        g.box(name+' square toe', (x-.55,1.20,5.78), (x+.55,1.57,8.23), 'boot')
+        g.box(name+' foot upper step', (x-.50,1.57,6.00), (x+.50,1.83,8.18), 'boot_light')
+        g.box(name+' ankle', (x-.47,1.83,6.50), (x+.47,2.15,8.15), 'boot')
+        g.box(name+' lower stocking', (x-.50,2.15,6.50), (x+.50,2.85,8.15), 'cloth_dark')
+        g.box(name+' upper stocking', (x-.54,2.85,6.47), (x+.54,3.62,8.18), 'boot')
+        g.box(name+' teal stocking edge', (x-.54,3.62,6.47), (x+.54,3.77,8.18), 'teal_shade')
+        g.box(name+' bare thigh', (x-.48,3.77,6.56), (x+.48,4.48,8.13), 'skin_light')
+        _square(g,name+' toe teal square',x-.12,1.24,5.779,.28,'teal')
+        _square(g,name+' shin teal square',x-.23,3.05,6.469,.27,'teal_shade')
+        _square(g,name+' lower shin square',x-.09,2.44,6.499,.23,'teal_shade')
 
-    g.group = 'Pleated skirt and sleeveless tunic'
-    # Sixteen tailored panels alternate subtly shaded, broad folds.
-    for i in range(16):
-        a, b = math.tau * i / 16, math.tau * (i + 1) / 16
-        def point(t, y, rx, rz):
-            return (8 + rx * math.cos(t), y, 7.42 + rz * math.sin(t))
-        top = [point(a, 6.35, 1.39, 1.19), point(b, 6.35, 1.39, 1.19)]
-        bottom = [point(a, 5.04, 2.13, 1.87), point(b, 5.04, 2.13, 1.87)]
-        g.face(f'skirt pleat {i}', [bottom[0], top[0], top[1], bottom[1]],
-               ('cloth', 'cloth_light', 'cloth_mid', 'cloth_dark')[i % 4])
-        hem = [point(a, 4.87, 2.13, 1.87), point(b, 4.87, 2.13, 1.87)]
-        g.face(f'skirt teal hem {i}', [hem[0], bottom[0], bottom[1], hem[1]],
-               'teal_trim' if i % 2 else 'trim_dark')
-        inner = [point(a, 4.87, 1.94, 1.69), point(b, 4.87, 1.94, 1.69)]
-        g.face(f'skirt underside {i}', [hem[0], hem[1], inner[1], inner[0]], 'cloth_dark')
-    _loft(g, 'tunic fitted body', [
-        (6.04, 6.41, 9.59, 5.98, 8.91, .15),
-        (7.07, 6.62, 9.38, 6.06, 8.70, .17),
-        (8.38, 6.47, 9.53, 6.04, 8.72, .16),
-        (8.79, 6.76, 9.24, 6.38, 8.52, .18),
-    ], 'shirt', ['shirt_light', 'shirt', 'shirt_mid', 'shirt_shadow',
-                'shirt_mid', 'shirt_shadow', 'shirt_mid', 'shirt'])
-    # Pointed split vest hems overlap the skirt in front.
-    _hair_lock(g, 'left pointed vest hem', [(6.43, 6.32), (7.65, 6.32),
-            (7.67, 5.61), (7.12, 5.31), (6.35, 5.55)], 5.90, 6.08, 'shirt')
-    _hair_lock(g, 'right pointed vest hem', [(8.35, 6.32), (9.57, 6.32),
-            (9.65, 5.55), (8.88, 5.31), (8.33, 5.61)], 5.90, 6.08, 'shirt_light')
-    g.box('neck', (7.39, 8.65, 6.68), (8.61, 9.58, 8.26), 'skin')
-    _hair_lock(g, 'left collar', [(6.99, 8.65), (7.88, 8.70), (7.77, 8.10), (7.31, 8.30)],
-            6.006, 6.35, 'shirt_light')
-    _hair_lock(g, 'right collar', [(8.12, 8.70), (9.01, 8.65), (8.69, 8.30), (8.23, 8.10)],
-            6.006, 6.35, 'shirt_light')
-    _hair_lock(g, 'tie knot', [(7.71, 8.56), (8.29, 8.56), (8.24, 8.14), (7.76, 8.14)],
-            5.933, 6.15, 'tie_dark')
-    _hair_lock(g, 'long turquoise tie', [(7.80, 8.17), (8.20, 8.17), (8.42, 6.05),
-            (8.00, 5.72), (7.58, 6.05)], 5.905, 6.16, 'tie')
-    _plate(g, 'tie slim highlight', 7.82, 6.42, 7.98, 7.98, 5.891, 'tie_light')
-    _plate(g, 'tunic lapel gold pin', 8.92, 8.10, 9.17, 8.33, 6.015, 'gold')
-    _plate(g, 'tunic side teal piping left', 6.52, 6.39, 6.64, 7.74, 5.958, 'trim_dark')
-    _plate(g, 'tunic side teal piping right', 9.36, 6.39, 9.48, 7.74, 5.958, 'trim_dark')
-    _plate(g, 'tunic back center seam', 7.91, 6.26, 8.09, 8.47, 8.917, 'shirt_shadow')
-    g.faces[-1]['vertices'].reverse()
-    g.faces[-1]['uv'].reverse()
+    g.group = 'Box pleated skirt'
+    skirt = _Cubes()
+    skirt.box((6.75,4.75,6.50),(9.25,5.25,8.50),'cloth_dark')
+    skirt.box((6.50,4.50,6.25),(9.50,4.75,8.75),'cloth')
+    skirt.box((6.25,4.25,6.00),(9.75,4.50,9.00),'cloth_mid')
+    skirt.box((6.25,4.00,6.00),(9.75,4.25,9.00),'teal_shade')
+    for index in range(7):
+        x = 6.25 + index*.50
+        shade = 'cloth_light' if index%2==0 else 'cloth'
+        skirt.box((x,4.25,5.75),(x+.25,4.75,6.50),shade)
+        skirt.box((x,4.00,5.75),(x+.25,4.25,6.25),'teal')
+        skirt.box((x,4.25,8.50),(x+.25,4.75,9.25),shade)
+        skirt.box((x,4.00,8.75),(x+.25,4.25,9.25),'teal')
+    for index in range(5):
+        z=6.25+index*.50
+        for side in (-1,1):
+            x0,x1=(6.00,6.50) if side<0 else (9.50,10.00)
+            skirt.box((x0,4.25,z),(x1,4.75,z+.25),'cloth')
+            skirt.box((x0,4.00,z),(x1,4.25,z+.25),'teal')
+    skirt.emit(g,'skirt pleat')
 
-    g.group = 'Detached sleeves and small hands'
-    _arm(g, 1)
-    _arm(g, -1)
+    g.group = 'Stepped gray tunic and turquoise tie'
+    shirt = _Cubes()
+    shirt.box((6.75,5.00,6.25),(9.25,6.00,8.50),'shirt')
+    shirt.box((7.00,6.00,6.25),(9.00,7.00,8.50),'shirt')
+    shirt.box((6.75,7.00,6.50),(9.25,7.50,8.50),'shirt_light')
+    shirt.box((7.00,7.50,6.75),(9.00,7.75,8.25),'shirt')
+    shirt.box((6.75,5.25,6.25),(7.00,5.75,6.50),'shirt_shade')
+    shirt.box((8.75,5.50,6.25),(9.25,6.00,6.50),'shirt_light')
+    shirt.box((7.00,6.25,8.25),(7.25,7.00,8.50),'shirt_shade')
+    shirt.box((8.50,5.25,8.25),(9.00,6.25,8.50),'shirt_shade')
+    for side in (-1,1):
+        x0,x1=(6.50,7.50) if side<0 else (8.50,9.50)
+        shirt.box((x0,4.75,6.00),(x1,5.25,6.50),'shirt_light')
+        x0,x1=(6.75,7.50) if side<0 else (8.50,9.25)
+        shirt.box((x0,4.50,6.00),(x1,4.75,6.50),'shirt')
+        x0,x1=(7.00,7.25) if side<0 else (8.75,9.00)
+        shirt.box((x0,4.25,6.00),(x1,4.50,6.50),'shirt_light')
+    shirt.emit(g,'tunic cloth')
+    g.box('neck', (7.40,7.45,6.85), (8.60,8.35,8.18), 'skin')
+    g.box('left collar upper', (7.00,7.30,6.48),(7.70,7.55,6.72),'shirt_light')
+    g.box('left collar point', (7.35,7.05,6.23),(7.70,7.30,6.50),'shirt_light')
+    g.box('right collar upper',(8.30,7.30,6.48),(9.00,7.55,6.72),'shirt_light')
+    g.box('right collar point',(8.30,7.05,6.23),(8.65,7.30,6.50),'shirt_light')
+    g.box('tie square knot',(7.75,7.12,6.19),(8.25,7.50,6.45),'tie_dark')
+    g.box('tie upper narrow length',(7.82,6.20,6.19),(8.18,7.12,6.40),'tie')
+    g.box('tie lower step',(7.72,5.45,6.16),(8.28,6.20,6.40),'tie')
+    g.box('tie square flared end',(7.58,5.08,5.93),(8.42,5.45,6.20),'tie')
+    g.box('tie end tip',(7.82,4.84,5.93),(8.18,5.08,6.20),'tie_light')
+    _square(g,'small tunic badge',8.60,6.87,6.499,.18,'gold')
 
-    g.group = 'Chibi face and expression'
-    # The face remains a broad flat drawing plane; the perimeter takes just
-    # a few softened steps into the cheeks and short chin.
-    _loft(g, 'head skin', [
-        (9.03, 6.36, 9.64, 5.45, 9.50, .40),
-        (9.20, 5.88, 10.12, 5.21, 9.71, .40),
-        (9.47, 5.56, 10.44, 5.06, 9.85, .37),
-        (10.31, 5.38, 10.62, 5.06, 9.91, .35),
-        (12.53, 5.38, 10.62, 5.06, 9.91, .35),
-        (13.04, 5.83, 10.17, 5.31, 9.72, .30),
-    ], 'skin', ['skin_light', 'skin', 'skin', 'skin_shadow',
-                'skin_shadow', 'skin_shadow', 'skin', 'skin'])
-    _eye(g, 6.83, 'left teal eye')
-    _eye(g, 9.17, 'right teal eye')
-    _plate(g, 'left soft blush', 5.99, 9.86, 6.49, 10.01, 5.059, 'blush')
-    _plate(g, 'right soft blush', 9.51, 9.86, 10.01, 10.01, 5.059, 'blush')
-    _plate(g, 'tiny smiling mouth', 7.88, 9.66, 8.12, 9.71, 5.059, 'mouth')
+    g.group = 'Angled cuboid sleeves'
+    _arm(g,1)
+    _arm(g,-1)
 
-    g.group = 'Stepped crown and layered bangs'
-    _loft(g, 'crown core', [
-        (11.94, 5.22, 10.78, 5.18, 10.14, .25),
-        (13.38, 5.12, 10.88, 5.04, 10.28, .26),
-        (13.83, 5.51, 10.49, 5.30, 10.08, .26),
-        (14.08, 6.18, 9.82, 5.70, 9.76, .25),
-    ], 'hair', ['hair', 'hair_light', 'hair_mid', 'hair_shadow',
-                'hair_mid', 'hair_shadow', 'hair_light', 'hair_light'])
-    # Crown terraces form a small coherent sweep instead of random noise.
-    g.box('crown top center terrace', (6.78, 14.08, 6.23), (9.44, 14.28, 8.94), 'hair_light')
-    g.box('crown front sheen terrace', (6.09, 13.84, 5.37), (8.81, 14.07, 6.38), 'hair_high')
-    g.box('crown side terrace', (9.69, 13.35, 6.00), (10.98, 13.70, 8.18), 'hair')
-    _hair_lock(g, 'left outer face framing lock', [
-        (5.29, 13.29), (6.16, 13.29), (6.16, 11.63), (6.42, 11.63),
-        (6.42, 10.10), (6.13, 10.10), (6.13, 9.56), (5.49, 9.56),
-        (5.49, 10.14), (5.21, 10.14),
-    ], 4.78, 5.50, 'hair', 'hair_mid')
-    _hair_lock(g, 'right outer face framing lock', [
-        (9.80, 13.40), (10.67, 13.40), (10.67, 11.35), (10.87, 11.35),
-        (10.87, 10.08), (10.57, 10.08), (10.57, 9.66), (10.01, 9.66),
-        (10.01, 10.36), (9.76, 10.36),
-    ], 4.80, 5.49, 'hair_mid', 'hair_shadow')
-    _hair_lock(g, 'left brow sweep', [
-        (6.10, 13.51), (7.17, 13.51), (7.17, 12.31), (7.48, 12.31),
-        (7.48, 11.52), (7.20, 11.52), (7.20, 11.24), (6.73, 11.24),
-        (6.73, 11.74), (6.32, 11.74), (6.32, 12.28), (6.10, 12.28),
-    ], 4.64, 5.22, 'hair_light', 'hair')
-    _hair_lock(g, 'central long pointed bang', [
-        (7.14, 13.69), (8.29, 13.69), (8.29, 12.01), (8.55, 12.01),
-        (8.55, 11.18), (8.22, 11.18), (8.22, 10.80), (7.82, 10.80),
-        (7.82, 11.34), (7.42, 11.34), (7.42, 12.17), (7.14, 12.17),
-    ], 4.49, 5.22, 'hair', 'hair_mid')
-    _hair_lock(g, 'right parted bang', [
-        (8.26, 13.58), (9.79, 13.58), (9.79, 12.54), (10.04, 12.54),
-        (10.04, 11.72), (9.58, 11.72), (9.58, 11.99), (9.07, 11.99),
-        (9.07, 11.55), (8.68, 11.55), (8.68, 12.47), (8.26, 12.47),
-    ], 4.61, 5.28, 'hair_light', 'hair')
-    _plate(g, 'left fringe slim highlight', 6.32, 12.36, 6.60, 13.19, 4.639, 'hair_high')
-    _plate(g, 'central fringe highlight', 7.40, 12.07, 7.70, 13.33, 4.489, 'hair_light')
-    _plate(g, 'right fringe high edge', 9.42, 12.62, 9.68, 13.25, 4.609, 'hair_high')
-    # A continuous bob covers the back of the head beneath the stepped locks.
-    _hair_lock(g, 'back bob underlayer', [
-        (5.24, 12.15), (10.76, 12.15), (10.76, 9.50), (10.28, 9.50),
-        (10.28, 9.18), (5.72, 9.18), (5.72, 9.50), (5.24, 9.50),
-    ], 9.48, 10.16, 'hair_mid', 'hair_shadow')
-    # Four overlapping ribbons soften the lower edge around the neck.
-    for i, (x0, x1, end, color) in enumerate([
-        (5.24, 6.85, 9.03, 'hair_mid'), (6.70, 8.39, 8.98, 'hair'),
-        (8.22, 9.77, 9.07, 'hair_light'), (9.65, 10.76, 9.22, 'hair_mid'),
-    ]):
-        _hair_lock(g, f'back bob ribbon {i}', [(x0, 13.35), (x1, 13.35),
-            (x1, end + .45), (x1 - .23, end + .45), (x1 - .23, end),
-            (x0 + .24, end), (x0 + .24, end + .34), (x0, end + .34)],
-            9.63, 10.38 + (i % 2) * .12, color)
+    g.group = 'Flat Minecraft pixel face'
+    # Keep the painted face just in front of the crown core at z5.75;
+    # coplanar skin/hair layers self-shadowed into black forehead strips.
+    g.box('flat square head skin', (6.00,8.00,5.74),(10.00,11.50,9.50),'face_base')
+    _paint_face(g)
 
-    g.group = 'Headset and magenta hair clips'
-    for side in (-1, 1):
-        name = 'left headset' if side > 0 else 'right headset'
-        center = 8 + side * 2.89
-        g.box(name + ' dark ear shell', (center - .39, 10.60, 5.81),
-              (center + .39, 12.55, 7.51), 'headset')
-        g.box(name + ' ear front cushion', (center - .44, 10.88, 5.71),
-              (center + .44, 12.24, 6.05), 'headset_light')
-        g.box(name + ' pink narrow accent', (center - .16, 10.94, 5.67),
-              (center + .16, 12.18, 5.79), 'pink')
-        g.box(name + ' accent light', (center - .14, 11.86, 5.65),
-              (center + .14, 12.18, 5.73), 'pink_light')
-        clipx = 8 + side * 2.16
-        g.box(name + ' hair ribbon dark body', (clipx - .28, 12.96, 6.24),
-              (clipx + .28, 14.39, 7.39), 'headset')
-        g.box(name + ' ribbon magenta front', (clipx - .11, 13.17, 6.219),
-              (clipx + .11, 14.35, 6.26), 'pink')
-        g.box(name + ' ribbon pink top', (clipx - .11, 14.35, 6.25),
-              (clipx + .11, 14.40, 7.31), 'pink_dark')
+    g.group = 'Chunky cubic crown and fringe'
+    _crown().emit(g,'head hair')
 
-    # A compact body and a wider head follow the reference's shelf-chibi
-    # proportions. The plinth remains identical, while tails blend between
-    # the two scales so their roots meet the hair and tips reach the boots.
-    anchor, body_scale, head_scale = 9.03, .82, 1.10
-    head_bottom = 1.13 + (anchor - 1.13) * body_scale
-    head_groups = {'Chibi face and expression', 'Stepped crown and layered bangs',
-                   'Headset and magenta hair clips'}
+    g.group = 'Block headset and magenta hair ties'
+    for side in (-1,1):
+        name='left headset' if side>0 else 'right headset'
+        def box(label,lo,hi,color):
+            if side<0:
+                lo,hi=(16-hi[0],lo[1],lo[2]),(16-lo[0],hi[1],hi[2])
+            g.box(name+' '+label,lo,hi,color)
+        box('square earpiece',(10.30,9.12,5.70),(10.85,11.07,7.18),'headset')
+        box('earpiece front step',(10.23,9.42,5.48),(10.80,10.86,5.73),'headset_light')
+        box('earpiece magenta pixel',(10.39,9.75,5.43),(10.64,10.48,5.50),'pink')
+        box('earpiece top pink square',(10.39,10.55,5.43),(10.64,10.80,5.50),'pink_dark')
+        box('upper hair clip upright',(9.96,11.75,6.35),(10.42,13.45,6.88),'headset')
+        box('upper hair clip top corner',(9.96,13.20,6.35),(10.42,13.45,7.45),'headset')
+        box('hair clip magenta line',(10.09,12.13,6.30),(10.29,13.34,6.37),'pink')
+        box('hair clip bright cap',(10.09,13.22,6.30),(10.29,13.45,6.37),'pink_light')
     for face in g.faces:
-        group = face['group']
-        if group == 'Beveled display plinth':
-            continue
-        points = []
-        for x, y, z in face['vertices']:
-            if group == 'Stepped crown and layered bangs' and z < 5.06:
-                z = 5.06 + (z - 5.06) * .30
-            if group in head_groups:
-                x = 8 + (x - 8) * head_scale
-                y = head_bottom + (y - anchor) * head_scale
-            elif group == 'Long layered turquoise twin tails':
-                x = 8 + (x - 8) * 1.10
-                y = (1.13 + (y - 1.13) * body_scale if y <= anchor else
-                     head_bottom + (y - anchor) * head_scale)
-            else:
-                x = 8 + (x - 8) * .95
-                y = 1.13 + (y - 1.13) * body_scale
-            points.append([x, y, z])
-        face['vertices'] = points
+        narrow = face['group'] == 'Block headset and magenta hair ties'
+        narrow |= face['name'].startswith('flat square head skin ')
+        if narrow:
+            face['vertices'] = [[8+(x-8)*.82,y,z] for x,y,z in face['vertices']]
     return g

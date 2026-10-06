@@ -49,12 +49,20 @@ cam=bpy.data.cameras.new('Prize camera');camera=bpy.data.objects.new('Prize came
 def render(filename,loc,target,scale):
     camera.location=loc;camera.rotation_euler=(Vector(target)-camera.location).to_track_quat('-Z','Y').to_euler();cam.ortho_scale=scale
     scene.render.filepath=str(ART/filename);bpy.ops.render.render(write_still=True)
+if '--miku-face-only' in sys.argv:
+    objects[1].hide_render=True
+    render('miku-face-detail.png',(0,-5,.625),(0,-.12,.625),.46)
+    render('hatsune_miku_figure-front.png',(0,-5,1.45),(0,0,.46),1.16)
+    sys.exit(0)
 if '--pair-only' not in sys.argv:
     for current in objects:
+        if '--miku-only' in sys.argv and current.name != 'hatsune_miku_figure':continue
         for obj in objects:obj.hide_render=obj!=current
         render(current.name+'.png',(1.9,-5,2.15),(0,0,.46),1.19)
         render(current.name+'-front.png',(0,-5,1.45),(0,0,.46),1.16)
         render(current.name+'-back.png',(-1.7,5,2),(0,0,.46),1.19)
+        if current.name == 'hatsune_miku_figure':
+            render('miku-face-detail.png',(0,-5,.625),(0,-.12,.625),.46)
 for i,obj in enumerate(objects):obj.hide_render=False;obj.location.x=(i-.5)*1.0
 scene.render.resolution_x=1800;scene.render.resolution_y=1050
 render('arcade-prizes.png',(1.0,-8,2.7),(0,0,.46),2.12)

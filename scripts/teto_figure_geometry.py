@@ -1,230 +1,261 @@
-"""Kasane Teto shelf figure: stepped chibi hair, spiral drills and gray/pink dress."""
+"""Hard-edged quarter-unit voxel Kasane Teto collectible, rebuilt from reference."""
 import math
-
 from figure_geometry import FigureGeometry
 
-
 COLORS = {
-    'white': '#fff4e5', 'base': '#202933', 'base_edge': '#37434a',
-    'teal': '#358c99', 'skin': '#f4ccb6', 'skin_light': '#ffe2ca',
-    'skin_shadow': '#dfa392', 'blush': '#efb2b7',
-    'hair': '#ce4165', 'hair_light': '#e56380', 'hair_bright': '#ef788d',
-    'hair_red': '#b72e52', 'hair_shadow': '#8c2646', 'hair_deep': '#64273f',
-    'eye_dark': '#603342', 'eye_red': '#d65378', 'eye_pink': '#f898b1',
-    'eye_white': '#fff8ee', 'mouth': '#b57c84',
-    'cloth': '#b4acac', 'cloth_light': '#d2c5c0', 'cloth_shadow': '#827e86',
-    'pink': '#f05c88', 'pink_light': '#ff8aaa', 'pink_dark': '#b33360',
-    'black': '#242430', 'black_light': '#383641', 'black_shadow': '#181b27',
-    'silver': '#dbd2ce', 'bow_shadow': '#d5c5c4',
+    'white':'#fff0e4', 'bow_shadow':'#dcc5c0',
+    'base':'#26303b', 'base_side':'#1c2430', 'base_top':'#39434b',
+    'teal':'#378491', 'teal_dark':'#286473',
+    'skin':'#f4c7b4', 'skin_light':'#ffdcc7', 'skin_shadow':'#dfa697', 'cheek':'#f1b8b1', 'cheek_pale':'#f7c9b9',
+    'hair':'#d34870', 'hair_light':'#e65c7f', 'hair_top':'#ed708d',
+    'hair_dark':'#b93560', 'hair_shadow':'#94294d', 'hair_groove':'#a42d53',
+    'lash':'#653441', 'eye_red':'#cf5276', 'eye_pink':'#ee94ad', 'eye_glint':'#ffe2d8',
+    'gray':'#b2a7ab', 'gray_light':'#cfbdbe', 'gray_dark':'#8d8290',
+    'pink':'#ed638e', 'pink_light':'#ff91af', 'pink_dark':'#b93b68',
+    'black':'#292733', 'black_light':'#3c3442', 'black_dark':'#1d202b',
 }
 
 
+class _Voxels:
+    """Union of quarter-unit cuboids exporting only exterior square faces."""
+    def __init__(self,name):
+        self.name=name
+        self.cells={}
+
+    def block(self,lo,hi,color):
+        a=tuple(round(v*4) for v in lo)
+        b=tuple(round(v*4) for v in hi)
+        assert all(abs(v*4-round(v*4))<1e-7 for v in (*lo,*hi))
+        for x in range(a[0],b[0]):
+            for y in range(a[1],b[1]):
+                for z in range(a[2],b[2]):
+                    self.cells[x,y,z]=color
+
+    def emit(self,g):
+        sides={
+            'north':((0,0,-1),(3,2,1,0)), 'south':((0,0,1),(4,5,6,7)),
+            'west':((-1,0,0),(0,4,7,3)), 'east':((1,0,0),(1,2,6,5)),
+            'up':((0,1,0),(3,7,6,2)), 'down':((0,-1,0),(0,1,5,4)),
+        }
+        for (i,j,k),color in sorted(self.cells.items()):
+            x,y,z=i/4,j/4,k/4
+            X,Y,Z=x+.25,y+.25,z+.25
+            vertices=[(x,y,z),(X,y,z),(X,Y,z),(x,Y,z),
+                      (x,y,Z),(X,y,Z),(X,Y,Z),(x,Y,Z)]
+            for side,(offset,indices) in sides.items():
+                neighbor=(i+offset[0],j+offset[1],k+offset[2])
+                if neighbor not in self.cells:
+                    g.face('%s voxel %d %d %d %s'%(self.name,i,j,k,side),
+                           [vertices[n] for n in indices],color)
+
+
+def _pixel(g,name,x,y,width,height,material,z=5.498):
+    g.face(name,[(x,y+height,z),(x+width,y+height,z),
+                (x+width,y,z),(x,y,z)],material)
+
+
+def _square_curl(g,side,center,handedness):
+    """A dense tapered helix sampled as occupied quarter-unit cuboids."""
+    v=_Voxels('Teto '+side+' square curl')
+    cz=8.25
+    # A narrow pink recessed spine, with roughly one-voxel spaces between
+    # the thick turns. Trigonometry only locates cubes; every edge is square.
+    v.block((center-.25,8,cz-.25),(center+.25,12.25,cz+.25),'hair_groove')
+    for step in range(161):
+        t=step/160
+        angle=handedness*math.tau*4.25*t+.35
+        radius=(1-t)**.65
+        x=round((center+(.90*radius+.08)*math.cos(angle))*4)/4
+        z=round((cz+(.68*radius+.06)*math.sin(angle))*4)/4
+        y=round((12.10-4.35*t)*4)/4
+        color=('hair_light' if math.sin(angle)<-.25 else
+               'hair_dark' if math.sin(angle)>.35 else 'hair')
+        v.block((x-.25,y-.25,z-.25),(x+.25,y+.5,z+.25),color)
+    v.block((center,7.5,cz-.25),(center+.25,8,cz),'hair_dark')
+    x0,x1=(center,5.5) if center<8 else (10.5,center)
+    v.block((x0,11.5,7.5),(x1,12.25,8.75),'hair_dark')
+    v.block((center-.5,12,7.75),(center,12.5,8.5),'hair')
+    v.block((center,12,8),(center+.5,12.5,8.75),'hair_light')
+    v.emit(g)
+
+
 def build():
-    g = FigureGeometry(COLORS)
-    box, prism, face = g.box, g.prism, g.face
+    g=FigureGeometry(COLORS)
+    g.group='Teto square display base'
+    g.box('Teto base square lower block',(2.5,0,3.5),(13.5,.75,12.5),'base_side')
+    g.box('Teto base square top step',(2.75,.75,3.75),(13.25,1,12.25),'base_top')
+    g.box('Teto base front teal line',(2.75,.75,3.49),(13.25,.875,3.75),'teal')
+    g.box('Teto base left teal line',(2.74,.75,3.75),(2.875,.875,12.25),'teal_dark')
+    g.box('Teto base right teal line',(13.125,.75,3.75),(13.26,.875,12.25),'teal_dark')
+    g.decal('Teto nameplate',(5,.25,11,.75),3.48,'nameplate')
 
-    g.group = 'Teto stepped display base'
-    box('Teto plinth lower step', (2.5, 0, 3.5), (13.5, .73, 12.5), 'base')
-    box('Teto plinth beveled-looking upper step', (2.75, .73, 3.75), (13.25, .96, 12.25), 'base_edge')
-    box('Teto plinth teal front stripe', (2.73, .74, 3.475), (13.27, .91, 3.755), 'teal')
-    box('Teto plinth teal left stripe', (2.725, .74, 3.76), (2.91, .91, 12.24), 'teal')
-    box('Teto plinth teal right stripe', (13.09, .74, 3.76), (13.275, .91, 12.24), 'teal')
-    g.decal('Teto nameplate', (5, .25, 11, .75), 3.48, 'nameplate')
+    g.group='Teto voxel tall boots and thighs'
+    for n,cx in enumerate((6.75,9.25)):
+        v=_Voxels('Teto boot and thigh %d'%n)
+        v.block((cx-.5,1,6),(cx+.5,1.25,8.75),'black_dark')
+        v.block((cx-.5,1.25,6.25),(cx+.5,1.75,8.5),'black')
+        v.block((cx-.5,1.75,6.75),(cx+.5,3.5,8.5),'black')
+        v.block((cx-.5,3.5,6.75),(cx+.5,3.75,8.5),'pink_dark')
+        v.block((cx-.25,3.75,7),(cx+.5,4.5,8.25),'skin')
+        v.block((cx-.25,3.75,7),(cx+.25,4.5,7.25),'skin_light')
+        v.block((cx-.25,3.5,6.75),(cx+.5,3.75,7),'pink')
+        v.block((cx-.5,1.75,7),(cx-.25,3.25,8.5),'black_light')
+        v.block((cx+.25,1.25,6.25),(cx+.5,1.5,6.5),'pink_dark')
+        v.block((cx,2.75,6.5),(cx+.25,3.25,6.75),'pink_dark')
+        v.block((cx-.25,3.25,6.5),(cx+.25,3.5,6.75),'gray')
+        v.emit(g)
 
-    g.group = 'Teto boots and small legs'
-    for i, x in enumerate((6.03, 8.69)):
-        side = 'viewer right' if i == 0 else 'viewer left'
-        box('Teto bare thigh ' + side, (x+.20, 3.11, 7.0), (x+1.10, 4.78, 8.41), 'skin')
-        box('Teto thigh highlight ' + side, (x+.20, 3.50, 6.986), (x+.66, 4.46, 7.02), 'skin_light')
-        box('Teto boot upright ' + side, (x+.09, 1.32, 6.75), (x+1.23, 3.41, 8.73), 'black')
-        box('Teto boot outer panel ' + side, (x+.08, 1.51, 6.98), (x+.28, 3.05, 8.55), 'black_light')
-        box('Teto thigh boot pink band ' + side, (x+.07, 3.16, 6.73), (x+1.25, 3.43, 8.75), 'pink_dark')
-        box('Teto boot pink band face ' + side, (x+.12, 3.21, 6.704), (x+1.20, 3.39, 6.744), 'pink')
-        box('Teto square boot toe ' + side, (x, 1.10, 5.96), (x+1.32, 1.91, 8.74), 'black_shadow')
-        box('Teto toe upper leather ' + side, (x+.10, 1.89, 6.08), (x+1.20, 2.10, 7.30), 'black')
-        box('Teto boot sole ' + side, (x-.05, .98, 5.91), (x+1.37, 1.15, 8.80), 'black_shadow')
-        box('Teto pink toe inset ' + side, (x+.77, 1.18, 5.89), (x+1.17, 1.51, 5.968), 'pink_dark')
-        box('Teto boot pink shin detail ' + side, (x+.46, 2.33, 6.716), (x+.77, 2.87, 6.757), 'pink')
-        box('Teto boot silver tab ' + side, (x+.40, 2.85, 6.699), (x+.84, 3.02, 6.76), 'silver')
+    g.group='Teto voxel pleated skirt and gray tunic'
+    v=_Voxels('Teto stepped outfit')
+    # Nested square tiers and alternating rectangular front/back pleats.
+    v.block((6.25,5,6.75),(9.75,5.75,9.25),'black')
+    v.block((6,4.5,6.5),(10,5,9.5),'black')
+    v.block((5.75,4.25,6.5),(10.25,4.5,9.5),'pink_dark')
+    for i in range(9):
+        x=5.75+i*.5
+        low=4.25 if i%2 else 4
+        front=6.25 if i%2 else 6.5
+        back=9.75 if i%2 else 9.5
+        v.block((x,low,front),(x+.5,4.75,back),'black_light' if i%2 else 'black')
+        v.block((x,low,front),(x+.5,low+.25,back),'pink')
+    # Narrow waist, block shoulders and small split gray tunic tails.
+    v.block((6.5,7.5,6.75),(9.5,8.25,9),'gray_dark')
+    v.block((6.75,6.5,6.5),(9.25,7.5,8.75),'gray')
+    v.block((6.5,5.75,6.5),(9.5,6.5,9),'gray')
+    v.block((6.25,5.25,6.5),(9.75,5.75,9),'gray_light')
+    v.block((6.25,5,6.25),(7.75,5.5,6.5),'gray_light')
+    v.block((8.25,5,6.25),(9.75,5.5,6.5),'gray_light')
+    v.block((6.5,5.5,6.25),(9.5,6.5,6.5),'gray')
+    v.block((6.75,6.5,6.25),(9.25,7.5,6.5),'gray')
+    v.block((6.75,7.5,6.5),(9.25,8,6.75),'gray_light')
+    for x in (7,8.75):
+        v.block((x,5.25,6.25),(x+.25,7.25,6.5),'pink_dark')
+        for y in (5.5,6.25,7):
+            v.block((x,y,6),(x+.25,y+.25,6.25),'pink')
+    for y in (5.75,6.25,6.75,7.25):
+        v.block((7.75,y,6.25),(8,y+.25,6.5),'pink_light')
+    v.block((7.25,8,7.25),(8.75,8.75,8.5),'skin_shadow')
+    v.block((7,7.75,6.5),(7.75,8.25,6.75),'gray_light')
+    v.block((8.25,7.75,6.5),(9,8.25,6.75),'gray_light')
+    v.block((7.5,7.5,6.25),(7.75,7.75,6.5),'gray_light')
+    v.block((8.25,7.5,6.25),(8.5,7.75,6.5),'gray_light')
+    v.block((7.75,7.75,6.25),(8.25,8,6.5),'pink_dark')
+    v.block((7.75,5.5,8.75),(8,7.25,9),'pink_dark')
+    v.block((7.25,7.75,9),(8.75,8,9.25),'gray_light')
+    for x in (7.5,8,8.5):
+        v.block((x,7.75,9),(x+.25,8,9.25),'pink_dark')
+    v.emit(g)
 
-    g.group = 'Teto pleated skirt'
-    count = 12
-    for i in range(count):
-        a, b = i*math.tau/count, (i+1)*math.tau/count
-        # Broad alternating facets make deliberate pleats rather than voxel noise.
-        def point(angle, y, rx, rz):
-            return (8+rx*math.cos(angle), y, 7.95+rz*math.sin(angle))
-        y = 4.37 - (.10 if i % 2 else 0)
-        upper = [point(a, 5.89, 1.89, 1.12), point(b, 5.89, 1.89, 1.12)]
-        lower = [point(a, y, 2.58, 1.72), point(b, y, 2.58, 1.72)]
-        face('Teto skirt pleat %02d' % i, [upper[0], upper[1], lower[1], lower[0]], 'black' if i % 2 else 'black_light')
-        hem_top = [point(a, y+.22, 2.51, 1.68), point(b, y+.22, 2.51, 1.68)]
-        face('Teto skirt pink hem %02d' % i, [hem_top[0], hem_top[1], lower[1], lower[0]], 'pink')
-        face('Teto skirt underside %02d' % i, [(8, 4.28, 7.95), lower[0], lower[1]], 'black_shadow')
-    box('Teto skirt waistband', (6.05, 5.60, 6.72), (9.95, 6.02, 9.13), 'black_shadow')
-
-    g.group = 'Teto gray pink trimmed tunic'
-    prism('Teto flared gray tunic body', [(5.88, 5.63), (10.12, 5.63), (9.51, 8.89), (6.49, 8.89)], 6.48, 9.22, 'cloth_shadow')
-    prism('Teto light gray front tunic', [(5.98, 5.49), (7.34, 5.38), (8, 5.61), (8.66, 5.38), (10.02, 5.49),
-          (9.34, 8.65), (8.52, 9.01), (7.48, 9.01), (6.66, 8.65)], 6.43, 6.55, 'cloth')
-    prism('Teto tunic left front tail', [(6.06, 5.33), (7.31, 5.18), (7.45, 6.55), (6.43, 6.80)], 6.373, 6.48, 'cloth_light')
-    prism('Teto tunic right front tail', [(8.69, 5.18), (9.94, 5.33), (9.57, 6.80), (8.55, 6.55)], 6.373, 6.48, 'cloth_light')
-    box('Teto central pink button placket', (7.83, 5.58, 6.346), (8.17, 8.60, 6.454), 'pink_dark')
-    for i in range(5):
-        y = 5.99 + i*.46
-        box('Teto front button %d' % i, (7.905, y, 6.30), (8.095, y+.17, 6.367), 'pink_light')
-    for i, x in enumerate((7.10, 8.68)):
-        box('Teto vertical dress pink piping %d' % i, (x, 5.64, 6.354), (x+.18, 8.38, 6.462), 'pink')
-        box('Teto waist short pocket %d' % i, (x-.23, 6.73, 6.307), (x+.45, 6.92, 6.386), 'cloth_shadow')
-    box('Teto neck', (7.26, 8.76, 7.10), (8.74, 9.79, 8.53), 'skin')
-    prism('Teto left collar', [(6.90, 8.73), (7.40, 8.37), (7.98, 8.70), (7.29, 9.06)], 6.39, 6.51, 'cloth_light')
-    prism('Teto right collar', [(8.02, 8.70), (8.60, 8.37), (9.10, 8.73), (8.71, 9.06)], 6.39, 6.51, 'cloth_light')
-    box('Teto high collar pink knot', (7.82, 8.50, 6.297), (8.18, 8.91, 6.442), 'pink')
-    box('Teto back center seam', (7.88, 5.91, 9.218), (8.12, 8.65, 9.262), 'pink_dark')
-    box('Teto back small collar panel', (7.26, 8.10, 9.236), (8.74, 8.78, 9.28), 'cloth_light')
-    for i in range(3):box('Teto back collar tiny mark %d' % i, (7.48+i*.32, 8.40, 9.279), (7.64+i*.32, 8.61, 9.306), 'pink')
-
-    g.group = 'Teto outstretched detached sleeves'
-    for sign, side in ((-1, 'model left'), (1, 'model right')):
-        start = len(g.faces)
-        x0 = 8+sign*1.98
-        box('Teto bare upper arm '+side, (-.42, -1.40, 7.04), (.42, -.04, 8.31), 'skin')
-        box('Teto arm skin light '+side, (-.40, -1.24, 7.00), (.08, -.15, 7.075), 'skin_light')
-        prism('Teto flared detached black sleeve '+side, [(-.73, -3.02), (.73, -3.02), (.53, -1.25), (-.53, -1.25)], 6.79, 8.47, 'black')
-        box('Teto sleeve pink upper band '+side, (-.56, -1.58, 6.767), (.56, -1.31, 8.49), 'pink_dark')
-        box('Teto sleeve pink upper face '+side, (-.54, -1.51, 6.735), (.54, -1.32, 6.792), 'pink')
-        box('Teto sleeve broad pink cuff '+side, (-.75, -3.08, 6.752), (.75, -2.81, 8.50), 'pink')
-        box('Teto sleeve front black inset '+side, (-.42, -2.70, 6.765), (.43, -1.71, 6.805), 'black_shadow')
-        box('Teto sleeve narrow gray stitched stripe '+side, (-.31, -2.62, 6.732), (-.19, -1.83, 6.779), 'black_light')
-        box('Teto little uncovered hand '+side, (-.40, -3.37, 6.97), (.43, -3.02, 8.19), 'skin_light')
-        a = math.radians(sign*23)
-        g.transform(start, lambda x,y,z,a=a,x0=x0: (x0+x*math.cos(a)-y*math.sin(a), 8.65+x*math.sin(a)+y*math.cos(a), z))
-
-    g.group = 'Teto oversized pixel head'
-    box('Teto main skin head', (5.32, 9.52, 5.26), (10.68, 12.70, 9.89), 'skin')
-    face('Teto flat pale face', [(5.32,12.70,5.258),(10.68,12.70,5.258),
-         (10.68,9.52,5.258),(5.32,9.52,5.258)], 'skin_light')
-    box('Teto chin step', (5.72, 9.37, 5.39), (10.28, 9.66, 9.36), 'skin')
-    box('Teto hair rear mass', (5.08, 9.66, 8.87), (10.92, 13.49, 10.60), 'hair_red')
-    box('Teto hair crown volume', (5.08, 12.30, 5.17), (10.92, 13.63, 10.38), 'hair')
-    box('Teto raised crown tier', (5.52, 13.55, 5.61), (10.48, 13.91, 10.10), 'hair_light')
-    box('Teto upper crown step', (6.09, 13.86, 6.09), (9.91, 14.09, 9.74), 'hair')
-    # A continuous backing and abutting front locks avoid coplanar overlaps,
-    # which appear as black rectangles in the native/studio render.
-    box('Teto continuous forehead hair backing', (5.09,11.75,5.035), (10.91,13.64,5.39), 'hair')
-    bangs = ((5.09,10.18,13.20,'hair_red'), (5.65,11.41,13.53,'hair'),
-            (6.30,11.78,13.77,'hair_light'), (7.02,11.28,13.88,'hair'),
-            (7.73,10.98,13.97,'hair_light'), (8.46,11.77,13.85,'hair_bright'),
-            (9.18,11.39,13.68,'hair'), (9.88,10.12,13.37,'hair_red'))
-    for i, (x, low, high, mat) in enumerate(bangs):
-        edge = bangs[i+1][0] if i+1<len(bangs) else 10.91
-        box('Teto deliberate stepped bang %d' % i, (x,low,4.987), (edge,high,5.42), mat)
-    box('Teto left cheek length hair', (4.96, 9.73, 5.43), (5.46, 12.69, 8.92), 'hair_red')
-    box('Teto right cheek length hair', (10.54, 9.73, 5.43), (11.04, 12.69, 8.92), 'hair_red')
-    for i, x in enumerate((5.62, 6.51, 7.40, 8.29, 9.18)):
-        box('Teto back grouped hair lock %d' % i, (x,9.60+(i%2)*.16,10.572), (x+.87,13.34-(i%2)*.24,10.77), 'hair' if i%2 else 'hair_light')
-    box('Teto lower back hair rim', (5.51, 9.49, 8.92), (10.49, 9.73, 10.50), 'hair_shadow')
-
-    g.group = 'Teto readable pixel face'
-    def painted_pixel(name, x0, y0, x1, y1, material):
-        # All expression pixels share one drawing plane, a hair's breadth
-        # above the skin. No raised frames, lips, nose or stacked pupils.
-        face(name, [(x0,y1,5.255),(x1,y1,5.255),
-             (x1,y0,5.255),(x0,y0,5.255)], material)
-
-    pixels = [' LLLLL ', ' WRRRR ', ' WHDDR ', ' WRDDR ',
-              ' WRRII ', ' WIIII ', '  III  ']
-    palette = {'L':'eye_dark', 'W':'eye_white', 'H':'eye_white',
-               'R':'eye_red', 'D':'eye_dark', 'I':'eye_pink'}
-    for i, center in enumerate((6.66,9.34)):
-        for row, line in enumerate(pixels):
-            for column, pixel in enumerate(line):
-                if pixel == ' ':continue
-                x0 = center+(column-3.5)*.18
-                y1 = 11.53-row*.20
-                painted_pixel('Teto eye %d painted pixel %d %d'%(i,row,column),
-                              x0,y1-.20,x0+.18,y1,palette[pixel])
-    for i, x in enumerate((5.70,9.83)):
-        painted_pixel('Teto subtle painted cheek %d'%i,x,9.96,x+.47,10.10,'blush')
-    painted_pixel('Teto tiny painted mouth',7.86,9.81,8.14,9.88,'mouth')
-
-    g.group = 'Teto true spiral drill twin tails'
-    for side, cx, chirality in (('left',3.68,1),('right',12.32,-1)):
-        # A filled pink octagonal hair mass supports chunky descending curls.
-        # Short shoulders in the taper give the drill a deliberate tiered shape;
-        # exposed material between turns is a shallow groove, never an opening.
-        tiers = [(13.31,1.06),(12.82,1.02),(12.29,.94),(12.15,.88),
-                 (11.36,.78),(11.20,.70),(10.38,.61),(10.20,.53),
-                 (9.38,.39),(9.20,.31),(8.31,.13)]
-        for tier, ((y0,r0),(y1,r1)) in enumerate(zip(tiers,tiers[1:])):
-            for i in range(8):
-                a,b=i*math.tau/8,(i+1)*math.tau/8
-                face('Teto %s drill solid stepped hair core %d %d'%(side,tier,i),[(cx+r0*math.cos(a),y0,8.76+r0*math.sin(a)),
-                     (cx+r0*math.cos(b),y0,8.76+r0*math.sin(b)),(cx+r1*math.cos(b),y1,8.76+r1*math.sin(b)),
-                     (cx+r1*math.cos(a),y1,8.76+r1*math.sin(a))], 'hair' if i in (4,5,6) else 'hair_red')
-        for end, (y,r), upward in (('top',tiers[0],True),('tip',tiers[-1],False)):
-            for i in range(8):
-                a,b=i*math.tau/8,(i+1)*math.tau/8
-                points=[(cx,y,8.76),(cx+r*math.cos(b),y,8.76+r*math.sin(b)),(cx+r*math.cos(a),y,8.76+r*math.sin(a))]
-                if not upward:points.reverse()
-                face('Teto %s drill filled %s cap %d'%(side,end,i),points,'hair_light' if upward else 'hair_red')
-        sections=[];steps=32
-        for i in range(steps+1):
-            t=i/steps;a=chirality*(i*math.pi/4)+.22
-            r=1.03*(1-t)+.21*t;y=12.87-4.37*t
-            halfwidth=.24*(1-t)+.11*t;halfheight=.44*(1-t)+.24*t
-            # Cross section is outer-bottom, inner-bottom, inner-top, outer-top.
-            sections.append([(cx+(r+dr)*math.cos(a),y+dy,8.76+(r+dr)*math.sin(a))
-                             for dr,dy in ((halfwidth,-halfheight),(-halfwidth,-halfheight),(-halfwidth,halfheight),(halfwidth,halfheight))])
-        for i in range(steps):
-            a,b=sections[i],sections[i+1]
-            front=math.sin(chirality*(i+.5)*math.pi/4+.22)<-.15
-            for j in range(4):
-                points=[a[j],b[j],b[(j+1)%4],a[(j+1)%4]]
-                if chirality<0:points.reverse()
-                mat='hair_light' if j==2 else ('hair' if front else 'hair_red')
-                if j==0:mat='hair_red'
-                face('Teto %s continuous drill turn %02d surface %d'%(side,i,j),points,mat)
-        first,last=sections[0],list(reversed(sections[-1]))
-        if chirality<0:first=list(reversed(first));last=list(reversed(last))
-        face('Teto '+side+' drill top end cap',first,'hair')
-        face('Teto '+side+' drill tapered tip cap',last,'hair_red')
-        # Connector is behind the temple, joining the drill to the head.
-        xlo,xhi=(4.33,5.40) if side=='left' else (10.60,11.67)
-        box('Teto '+side+' tied hair root',(xlo,12.15,7.82),(xhi,13.29,9.31),'hair_red')
-
-    g.group = 'Teto cream white hair bows'
-    for side, cx in (('left',4.64),('right',11.36)):
+    g.group='Teto cuboid detached sleeves'
+    for sign,side in ((-1,'left'),(1,'right')):
         start=len(g.faces)
-        prism('Teto '+side+' bow left folded wing',[(-1.0,13.56),(-.14,13.75),(-.14,14.07),(-.86,14.58)],7.07,7.48,'white')
-        prism('Teto '+side+' bow right folded wing',[(.14,13.75),(1.0,13.56),(.86,14.58),(.14,14.07)],7.07,7.48,'white')
-        box('Teto '+side+' bow central knot',(-.21,13.66,6.984),(.21,14.21,7.55),'bow_shadow')
-        box('Teto '+side+' bow bright knot face',(-.15,13.72,6.954),(.15,14.14,7.014),'white')
-        prism('Teto '+side+' bow ribbon end',[(-.07,13.87),(.26,13.60),(.37,13.12),(.00,13.28)],7.05,7.40,'white')
-        g.transform(start,lambda x,y,z,cx=cx:(x+cx,y,z))
+        v=_Voxels('Teto '+side+' block arm')
+        v.block((-.5,-1,7),(.5,0,8.25),'skin')
+        v.block((-.25,-1,6.75),(.5,0,7),'skin_light')
+        v.block((-.5,-2.25,6.75),(.5,-1,8.25),'black')
+        v.block((-.75,-2.75,6.5),(.75,-2.25,8.5),'black')
+        v.block((-.5,-1.25,6.75),(.5,-1,8.25),'pink_dark')
+        v.block((-.5,-1.25,6.5),(.5,-1,6.75),'pink')
+        v.block((-.75,-2.75,6.5),(.75,-2.5,8.5),'pink')
+        v.block((-.5,-3,6.75),(.5,-2.75,8.25),'skin_light')
+        v.block((-.25,-2,6.5),(0,-1.5,6.75),'black_light')
+        v.block((.25,-1.75,6.5),(.5,-1.5,6.75),'pink_dark')
+        v.emit(g)
+        angle=math.radians(sign*20)
+        root=8+sign*1.75
+        g.transform(start,lambda x,y,z,a=angle,r=root:
+                    (r+x*math.cos(a)-y*math.sin(a),8+x*math.sin(a)+y*math.cos(a),z))
 
-    # A compact reference-style chibi silhouette. Keep the display base and
-    # drill width fixed while making the face larger relative to the body.
-    anchor, body_scale, head_scale = 9.37, .82, 1.10
-    head_bottom = .96+(anchor-.96)*body_scale
-    head_groups = {'Teto oversized pixel head', 'Teto readable pixel face',
-                   'Teto cream white hair bows'}
-    for mesh_face in g.faces:
-        group = mesh_face['group']
-        if group == 'Teto stepped display base':continue
-        points = []
-        for x,y,z in mesh_face['vertices']:
-            if group == 'Teto oversized pixel head' and z < 5.26:
-                z = 5.26+(z-5.26)*.30
-            if group in head_groups:
-                x = 8+(x-8)*head_scale
-                y = head_bottom+(y-anchor)*head_scale
-            elif group == 'Teto true spiral drill twin tails':
-                y = head_bottom+(y-anchor)*head_scale
-            else:
-                x = 8+(x-8)*.95
-                y = .96+(y-.96)*body_scale
-            points.append([x,y,z])
-        mesh_face['vertices'] = points
+    g.group='Teto square skin head'
+    v=_Voxels('Teto cuboid skin head')
+    v.block((5.5,8.5,5.5),(10.5,11.5,9.75),'skin')
+    v.block((5.75,8.5,5.5),(10.25,11.25,5.75),'skin_light')
+    v.emit(g)
 
+    g.group='Teto dense stepped pink voxel hair'
+    v=_Voxels('Teto stepped hair cap')
+    # Color tracks coherent strands; all crown transitions are little steps.
+    v.block((5.25,8.75,9.5),(10.75,11.75,10.5),'hair_dark')
+    v.block((5,9.25,8.75),(11,11.75,10.25),'hair')
+    # Short staggered crown clumps replace the former broad roof plates.
+    # A quantized height field makes only square voxel stairs, and the slow
+    # lock offsets break up concentric ledges without random speckles.
+    for ix in range(24):
+        x=5+ix*.25
+        for iz in range(21):
+            z=5.25+iz*.25
+            dx,dz=(x+.125-8)/3.1,(z+.125-7.875)/2.8
+            dome=math.sqrt(max(0,1-dx*dx-dz*dz))
+            lock=.12*math.cos((ix//2)*1.6)+.10*math.sin((iz//2)*1.8+(ix//3)*.7)
+            top=min(13,round((11.15+1.65*dome+lock)*4)/4)
+            color=('hair_top' if top>=12.75 and ix//2 in (3,4,7,8) else
+                   'hair_light' if ix//2 in (1,3,5,8,10) else 'hair')
+            v.block((x,10.75,z),(x+.25,top,z+.25),color)
+    for i in range(10):
+        x=5.5+i*.5
+        bottom=8.5+(.25 if i in (0,3,6,9) else 0)
+        depth=10.5 if i%3 else 10.75
+        v.block((x,bottom,10),(x+.5,12-(.25 if i%3 else 0),depth),
+                ('hair','hair_light','hair_dark')[i%3])
+    lows=[9.25,9,8.75,8.5,8.75,9.25,10,10.25,
+          10.5,10.25,10,9.75,9.5,9.75,10.25,10.5,
+          10.5,10.25,10,9.5,9.25,8.75,9,9.25]
+    for i,low in enumerate(lows):
+        x=5+i*.25
+        low+=.75 if 6<=i<=18 else .5
+        front=4.75 if i in (3,4,10,11,12,17,18,21) else 5
+        color=('hair_dark' if i<3 or i>21 else
+               'hair_light' if i in (5,6,7,12,13,14,18,19) else 'hair')
+        v.block((x,low,front),(x+.25,11.75,5.75),color)
+    for first,last,low,high,front,color in (
+            (0,3,11,11.75,5,'hair_dark'),(3,6,11.5,12.25,4.75,'hair'),
+            (6,9,11.25,12,5,'hair_light'),(9,12,11.75,12.5,4.75,'hair'),
+            (12,14,11.25,12.25,4.75,'hair_light'),(14,18,11.5,12.25,5,'hair'),
+            (18,21,11.25,12,4.75,'hair_light'),(21,24,11,11.75,5,'hair_dark')):
+        v.block((5+first*.25,low,front),(5+last*.25,high,5.75),color)
+    for side,x in (('left',5),('right',10.5)):
+        for j in range(12):
+            z=5.75+j*.25
+            bottom=8.5+(0 if j<4 else .25 if j<8 else .5)
+            edge=.25 if j%4 in (1,2) else 0
+            v.block((x-edge,bottom,z),(x+.5,11.5,z+.25),'hair_dark' if j<4 else 'hair')
+    v.emit(g)
+
+    g.group='Teto flat Minecraft pixel expression'
+    for eye,old_x in enumerate((6.5,8.75)):
+        # Move whole eyes inward with the narrower head, retaining square
+        # quarter-unit artwork pixels rather than compressing the expression.
+        cx=8+(old_x+.375-8)*.84-.375
+        pattern=['DDD','HRR','RPP','PPP','PPP']
+        palette={'D':'lash','H':'eye_glint','R':'eye_red','P':'eye_pink'}
+        for row,line in enumerate(pattern):
+            if eye:line=line[::-1]
+            for column,color in enumerate(line):
+                _pixel(g,'Teto eye %d flat pixel %d %d'%(eye,row,column),
+                       cx+column*.25,10.5-row*.25,.25,.25,palette[color])
+    for side, old_x in (('left',6.5),('right',9.5)):
+        x=8+(old_x-8)*.84-.25
+        _pixel(g,'Teto '+side+' quiet cheek',x,9.25,.5,.25,'cheek')
+        _pixel(g,'Teto '+side+' lower soft cheek',x+(.25 if side=='right' else 0),9,.25,.25,'cheek_pale')
+
+    g.group='Teto square stepped drill twin tails'
+    _square_curl(g,'left',3.75,1)
+    _square_curl(g,'right',12.25,-1)
+
+    g.group='Teto tiny white voxel bows'
+    for side,cx in (('left',5),('right',11)):
+        v=_Voxels('Teto '+side+' pixel bow')
+        v.block((cx-.25,12.25,7.25),(cx+.25,12.75,7.75),'bow_shadow')
+        v.block((cx-.25,12.5,7),(cx+.25,12.75,7.25),'white')
+        v.block((cx-.75,12.75,7.25),(cx-.25,13,7.75),'white')
+        v.block((cx-.75,13,7.25),(cx-.5,13.5,7.5),'white')
+        v.block((cx+.25,12.5,7.25),(cx+.75,12.75,7.75),'white')
+        v.block((cx+.5,12.75,7.25),(cx+1,13,7.5),'white')
+        v.block((cx,12,7.25),(cx+.25,12.5,7.5),'white')
+        v.emit(g)
+    narrow_groups={'Teto square skin head','Teto dense stepped pink voxel hair',
+                   'Teto square stepped drill twin tails','Teto tiny white voxel bows'}
+    for face in g.faces:
+        if face['group'] in narrow_groups:
+            face['vertices']=[[8+(x-8)*.84,y,z] for x,y,z in face['vertices']]
     return g

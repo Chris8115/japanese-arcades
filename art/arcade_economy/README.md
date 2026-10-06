@@ -134,13 +134,26 @@ playable game, music inventory, or reward interaction.
 
 Both models fit inside one block, below Y15/16. The block class uses a shared
 compact X2–14, Y0–15, Z3–13 collision/selection envelope and horizontal facing.
-Each chibi figure has a layered outfit, pixel eyes, sculpted hair, boots, a
+Each chibi figure has a layered outfit, pixel eyes, stepped voxel hair, boots, a
 dark display base with teal trim, and a named plaque. Miku has long teal
 twin-tails and a black/pink headset. Teto has pink drill curls and white bows.
 
 The initial poster, cat plush, trophy, and miniature cabinet were removed at
 the user's request, including their registry entries and runtime assets.
 Existing copies of those retired items/blocks are not migrated to the figures.
+
+The current figures are built from cuboids, with interior voxel faces removed.
+Miku's hair uses equal-sided 0.375-unit cubes at its final head width, with
+broader clumps and fewer surface stripes. It is not compressed horizontally
+after construction. Finer clothing details and Teto's hair use a quarter-unit
+grid. Hair, tunic hems, skirt pleats and boots have square steps; cuboid sleeves
+are posed at angles. Face pixels stay flat and square. See the
+[reference construction notes](figure-reference-notes.md) for the supplied
+sheets and the visual details used during the rebuild.
+
+The prior model version is retained under Git tag
+`figures-before-voxel-rebuild-2026-10-06`. Its [saved preview and restore notes](rollback/pre-voxel/README.md)
+allow a later appearance rollback without undoing unrelated gameplay work.
 
 ## Files and rebuild
 
@@ -153,6 +166,10 @@ Existing copies of those retired items/blocks are not migrated to the figures.
   saves `arcade_prizes.blend`, with packed artwork and editable prize meshes.
 - Each prize has `<id>.geometry.json`, `<id>.bbmodel`, and `<id>.png` here.
 - `arcade-prizes.png` shows the two figures side by side at their actual scale.
+- `miku-face-detail.png` shows the exported face and hair closely; regenerate
+  just this view and Miku's front view with the renderer's `--miku-face-only`
+  option. `--miku-only` refreshes all Miku views, the pair and packed scene;
+  a full render also refreshes Teto's views.
 - `arcade-pass-source.png` is the immutable authored card artwork, based on the
   user's red-and-white e-amusement reference. `scripts/prepare_arcade_pass.py`
   copies it byte for byte to the `arcade-pass.png` preview. For the runtime
@@ -186,23 +203,36 @@ meshes and Blockbench files, and rendered directly for the previews. Facial
 features use flat pixel art to match the references, with compact chibi bodies,
 large heads, layered hair, and small display bases.
 
-The source meshes contain 1,651 Miku faces and 1,294 Teto faces. An isolated
+The source meshes contain 4,620 Miku faces and 9,935 Teto faces. An isolated
 NeoForge OBJ bake verified all four placed facings and both item models:
-14,725 baked quads with finite coordinates, the expected UVs and ordinary
+72,775 baked quads with finite coordinates, the expected UVs and ordinary
 world lighting. The final JAR matches every source resource, contains 107
 Java 21 classes, excludes retired assets and verification helpers, and leaves
 the pass artwork byte-identical to the previous version.
 
+Every exported figure surface is rectangular, including the posed sleeves.
+Miku's final hair surfaces have equal 0.375-unit edges. The subsequent eye and
+blush adjustment changed only 24 face-pixel palette assignments: every vertex
+and all other materials stayed identical. The last fringe adjustment extends
+the bangs by one hair cell and the inner side locks to the cheek line; its
+face pixels, headset, twin tails and body remain identical.
+
 The small native client verified real 2,500-point purchases of both figures,
 insufficient funds, physical pass-slot return, purchased-item placement,
 survival recovery, opposite facings, cabinet play, and the minimum GUI size.
-The rear camera was corrected and rerun after the final Miku bob adjustment.
+The native views below include the larger hair cubes and corrected face pixels,
+captured just before the last bang/side-lock extension. That final small hair
+change passed Build, OBJ baking and direct model render checks; the studio
+views show it. The earlier full copied-pack check passed with the same gameplay
+code and the pre-voxel assets; its saved image is kept with that rollback.
 
 ![Prizes in the kiosk](prize-shop-in-game.png)
 
 ![Placed figures in Minecraft](earned-prizes-in-game.png)
 
 ![Figures from behind in Minecraft](figures-rear-in-game.png)
+
+![Miku hair and face in Minecraft](miku-hair-face-in-game.png)
 
 ![Miku and Teto prize figures](arcade-prizes.png)
 
