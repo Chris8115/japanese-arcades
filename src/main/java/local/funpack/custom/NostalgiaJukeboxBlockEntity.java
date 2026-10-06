@@ -68,10 +68,10 @@ public final class NostalgiaJukeboxBlockEntity extends BlockEntity implements Co
 
     public void ejectDisc() {
         if (level == null || level.isClientSide || disc.isEmpty()) { return; }
-        var facing = getBlockState().getValue(NostalgiaCabinetBlock.FACING);
         ItemStack ejected = removeTheItem();
         // Eject in front of the footwell rather than inside the console above it.
-        Vec3 point = Vec3.atCenterOf(worldPosition).add(facing.getStepX() * .9, .35, facing.getStepZ() * .9);
+        var state = getBlockState();
+        Vec3 point = ((NostalgiaCabinetBlock)state.getBlock()).discEjectionPosition(worldPosition, state);
         ItemEntity entity = new ItemEntity(level, point.x, point.y, point.z, ejected);
         entity.setDefaultPickUpDelay();
         level.addFreshEntity(entity);

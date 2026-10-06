@@ -34,6 +34,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -106,6 +107,12 @@ public class NostalgiaCabinetBlock extends HorizontalDirectionalBlock implements
     }
 
     private BlockPos basePosition(BlockPos pos, BlockState state) { return pos.below(state.getValue(PART).ordinal()); }
+
+    /** The default location is unchanged; wider cabinets may provide a clear point in their footwell. */
+    protected Vec3 discEjectionPosition(BlockPos pos, BlockState state) {
+        Direction facing = state.getValue(FACING);
+        return Vec3.atCenterOf(pos).add(facing.getStepX() * .9, .35, facing.getStepZ() * .9);
+    }
 
     @Nullable
     private NostalgiaJukeboxBlockEntity jukebox(Level level, BlockPos pos, BlockState state) {

@@ -1,0 +1,22 @@
+Groove Coaster gameplay screen artwork
+Mode: built-in image_gen generation; fresh original pixel art.
+Skill: local-source/SKILL.md
+Reference images (visually inspected, guidance only):
+local-source/source-image.png (gameplay and cabinet proportions)
+local-source/source-image.png (cabinet screen and palette)
+
+DISPLAY PROMPT (transparent_background=false)
+Use case: stylized-concept
+Asset type: production portrait gameplay-screen texture for a Minecraft Groove Coaster arcade cabinet.
+Primary request: Create a faithful reference-inspired Groove Coaster gameplay moment as crisp original pixel art. This is a flat, fully opaque 9:16 portrait screen image, not a poster or cabinet rendering. The real-game visual language is a thin luminous rail flowing through abstract geometric space, small circular note targets and compact score feedback.
+Scene/backdrop: deep navy, electric blue, indigo and lavender geometric cosmic space. Layered broad blue polygons and a few oversized four-point star shapes, faint orbital wire circles and sparse tiny stars give depth while retaining dark quiet areas. Do not fill the scene with random neon noise.
+Gameplay: one continuous slender white/cyan meandering rail begins at the lower center, travels upward into a bright cyan/pink impact point a little below the image center, bends toward the upper-left and then snakes toward the far upper-middle as if receding into space. Keep this single playable route unmistakable against the dark background. A series of small outlined circular targets and occasional tiny geometric note icons follows that same rail. Near the impact point include delicate concentric cyan rings, a small pink-white luminous starburst and a few carefully placed square particles. The rest of the screen is mostly clear geometric space.
+HUD: compact pale-cyan "GROOVE COASTER" near the upper-left, small "SIMPLE" near the upper-right. A thin horizontal score/progress bar with restrained yellow-green fill immediately beneath this small top HUD. At the upper-middle right, modest pale-lime "GREAT", and below it smaller "16 CHAIN". Along the bottom, a narrow dark-blue strip with small "DEMO PLAY". These are secondary gameplay labels, not huge title text. Keep all lettering comfortably inside the edges.
+Style/medium: polished Minecraft-compatible pixel art, coherent square pixel clusters, visibly stepped diagonals and stepped glow bands, limited palette, intentional 240 by 426 pixel-scale design presented at high native resolution. Crisp and luminous, with fine clean rails and readable notes. No photographic screen reflections, no blurry gradients, no antialiased vector smoothness.
+Text (verbatim): "GROOVE COASTER", "SIMPLE", "GREAT", "16 CHAIN", "DEMO PLAY".
+Constraints: exact 9:16 portrait aspect or as close as supported; full opaque rectangular screen artwork. No people, anime characters, hands, cabinet, bezel, room, camera perspective, advertisements, oversized title logo, extra text, watermark or border outside the screen. Preserve the impression of actual Groove Coaster gameplay rather than a promotional title poster.
+
+SELECTED OUTPUT AND PROVENANCE
+display-artwork-source.png: unmodified byte-for-byte copy of local-source/exec-42564c65-9373-4b24-8765-46c7c2ff4fa9.png
+Dimensions: 941x1672 RGB, fully opaque; aspect 0.562799043 (~9:16).
+Validation: Visually checked portrait gameplay composition, continuous cyan rail and circular note targets, central impact rings/starburst, all five requested HUD phrases and dark geometric blue/purple palette. No resizing, recoloring, cropping or other source-pixel changes after generation. Built-in image_gen used; no CLI.
