@@ -3,9 +3,13 @@
 This workspace is for our own mods for **Minecraft 1.21.1 / NeoForge 21.1.252**.
 The starter mod is **Fun Pack Custom**, id `funpackcustom`, version `0.1.0`.
 It registers `/funpackdev`, a small command to confirm that the mod is loaded.
-It also includes a **Nostalgia Op.3 Arcade Cabinet** with music-disc playback in the
-**Japanese Arcades** creative tab. See [the model notes](art/nostalgia-op3/README.md)
-for editable files, previews, and how to use the cabinet.
+The **Japanese Arcades** creative tab includes two cabinets with music-disc playback:
+
+- [Nostalgia Op.3 Arcade Cabinet](art/nostalgia-op3/README.md)
+- [Sound Voltex Valkyrie Arcade Cabinet](art/sound-voltex-valkyrie/README.md)
+
+Their model notes include editable files, previews, and use instructions. Both occupy
+three vertical blocks; Valkyrie's wider deck and upper wings need some side clearance.
 
 ## Start here
 
@@ -24,7 +28,7 @@ Use **Terminal > Run Task** for the `Fun:` tasks, or open a terminal here:
 - `SyncPack` refreshes the copied mods, configs, resource packs, and pack scripts from the live pack.
 - `Prepare` downloads game assets and prepares client/server launch files.
 - `Server` launches a small dedicated server for checking server compatibility.
-- `GameTest` runs the cabinet's six integration tests in a disposable test world and exits.
+- `GameTest` runs ten cabinet integration tests in a disposable test world and exits.
 - `Data` runs our data generators once we add them.
 
 The script selects Java 21 locally. Your default Java installation remains available to other projects.
@@ -43,6 +47,11 @@ Then test the same feature with `PackClient` to check interactions with the pack
 Game runs use `runs/client`, `runs/pack-client`, and `runs/server` respectively;
 automated integration tests use `runs/gametest`.
 The original pack and its saved worlds are separate from all of these directories.
+
+The tests cover placement, disc insertion/ejection, native playback ticks, saved disc
+and song progress, removal without duplicate drops, creative removal, and isolation
+between neighboring Nostalgia and Valkyrie cabinets. All ten passed on 2026-10-05;
+visual checks and full-pack compatibility remain separate from these server tests.
 
 `SyncPack` overwrites files that exist in the source pack's configuration. Close the development
 game before syncing, and keep permanent custom content in source control rather than only in `runs/`.

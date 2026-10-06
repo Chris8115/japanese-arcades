@@ -37,8 +37,8 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-/** Three-block-tall arcade model with jukebox playback stored in its base. */
-public final class NostalgiaCabinetBlock extends HorizontalDirectionalBlock implements EntityBlock {
+/** Shared three-block-tall arcade behavior; the original class name is retained for compatibility. */
+public class NostalgiaCabinetBlock extends HorizontalDirectionalBlock implements EntityBlock {
     public static final MapCodec<NostalgiaCabinetBlock> CODEC = simpleCodec(NostalgiaCabinetBlock::new);
     public static final EnumProperty<Part> PART = EnumProperty.create("part", Part.class);
     public static final BooleanProperty HAS_RECORD = BlockStateProperties.HAS_RECORD;
@@ -205,7 +205,11 @@ public final class NostalgiaCabinetBlock extends HorizontalDirectionalBlock impl
         double minZ = part == Part.BASE ? 4 : part == Part.CONSOLE ? 0 : 5.2;
         double maxX = part == Part.CONSOLE ? 16 : 15;
         double maxZ = 15;
-        return switch (state.getValue(FACING)) {
+        return rotatedBox(state.getValue(FACING), minX, minZ, maxX, maxZ);
+    }
+
+    protected static VoxelShape rotatedBox(Direction facing, double minX, double minZ, double maxX, double maxZ) {
+        return switch (facing) {
             case EAST -> Block.box(16 - maxZ, 0, minX, 16 - minZ, 16, maxX);
             case SOUTH -> Block.box(16 - maxX, 0, 16 - maxZ, 16 - minX, 16, 16 - minZ);
             case WEST -> Block.box(minZ, 0, 16 - maxX, maxZ, 16, 16 - minX);

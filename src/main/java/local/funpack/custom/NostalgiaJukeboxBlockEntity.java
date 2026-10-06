@@ -43,7 +43,7 @@ public final class NostalgiaJukeboxBlockEntity extends BlockEntity implements Co
         disc = stack.isEmpty() ? ItemStack.EMPTY : stack.copyWithCount(1);
         if (level != null) {
             BlockState current = level.getBlockState(worldPosition);
-            if (current.is(FunPackCustom.NOSTALGIA_OP3.get())
+            if (current.getBlock() instanceof NostalgiaCabinetBlock
                     && current.getValue(NostalgiaCabinetBlock.PART) == NostalgiaCabinetBlock.Part.BASE) {
                 level.setBlock(worldPosition, current.setValue(NostalgiaCabinetBlock.HAS_RECORD, !disc.isEmpty()), 2);
                 level.gameEvent(GameEvent.BLOCK_CHANGE, worldPosition, GameEvent.Context.of(current));

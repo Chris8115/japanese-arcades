@@ -1,0 +1,27 @@
+Sound Voltex Valkyrie source artwork
+Mode: built-in image_gen; generate; no edit inputs; references are user-supplied cabinet photographs reviewed visually.
+Sources are retained unmodified. Imported to the cabinet texture atlas by the model generator.
+Generated display source: local-source/exec-4f51f46f-883e-4861-b0c8-57a27ba1ab42.png
+Generated marquee source: local-source/exec-cb8f6ca1-d6de-4e64-a84e-f2e8c2973825.png
+Saved project copies: display-artwork-source.png; marquee-artwork-source.png
+
+DISPLAY ARTWORK PROMPT
+Use case: stylized-concept
+Asset type: production portrait arcade monitor texture for a Minecraft Sound Voltex Valkyrie cabinet, straight-on flat unframed full-bleed artwork.
+Primary request: Reimagine the Sound Voltex EXCEED GEAR attract-screen artwork as beautiful crisp hand-crafted pixel art that remains recognizable and coherent in Minecraft. A tall portrait canvas, aspect ratio approximately 9:16, ideally 1024 x 1792.
+Scene/backdrop: luminous cyan and teal sci-fi tunnel with diagonal white energy streaks, magenta geometric accents, sparse hexagonal circuitry, layered dark navy shapes to preserve contrast.
+Subject: TWO young ADULT pink-haired anime women, cheerful futuristic rhythm-game performers/pilots, fully clothed in white, black and magenta technical jackets and fitted sci-fi uniforms. One taller long-haired woman is upper left/middle, one short-haired woman foreground right/lower middle, faces friendly and distinct. Their composition should resemble a stylish Japanese arcade game promotional display. No weapons, no sexualized posing.
+Style/medium: deliberate game-ready PIXEL ART, obvious consistent square pixel clusters and stepped edges, about 144 pixels of detail across the whole width with larger clusters for hair and fabric shading. Limited cohesive palette, no antialiased curves, no noisy dithering, no fake pixel filter over photographic art. Rich and polished, readable at a distance.
+Composition/framing: illustration fills upper 75 percent; bold readable stacked title logo overlaps lower 25 percent. Keep heads and hands away from crop edges.
+Text (verbatim): "SOUND" above "VOLTEX", and smaller "EXCEED GEAR" immediately beneath. Large angular italic white letters outlined very dark navy, split cyan-left and magenta-right lightning motifs. Bottommost dark strip carries the tiny gold words "PRESS START".
+Constraints: This is ONLY the rectangular screen texture. No cabinet, no frame, no monitors, no perspective, no reflections, no white border, no environment, no watermark. Fully opaque artwork. Readable exact English title. Bright illustrated pixels rather than physically glowing blur.
+
+MARQUEE ARTWORK PROMPT
+Use case: logo-brand
+Asset type: production wide flat arcade marquee texture for a Minecraft Sound Voltex Valkyrie cabinet.
+Primary request: Create a polished pixel-art interpretation of the Sound Voltex EXCEED GEAR marquee branding. Wide full-bleed rectangular canvas, aspect ratio 3:1, ideally 1536 x 512.
+Scene/backdrop: graphite black and charcoal angular technical layers with a faint regular hexagonal grid. Cyan angular lightning paths extend from the left and magenta angular lightning paths from the right, meeting behind the central title like a sharp split-color X. Thin white stepped circuit paths fan outward horizontally.
+Text (verbatim): "SOUND" on first line, "VOLTEX" on second line, "EXCEED GEAR" on smaller third line. Centered, very large bold angular futuristic italic white lettering, dark gray extruded strokes and a crisp white outline. The title fills most of the center width and remains immediately readable.
+Style/medium: carefully authored 2D PIXEL ART, square pixel clusters, a consistent grid about 288 logical pixels wide, crisp staircase diagonals. Match Minecraft's pixel texture aesthetic, retain the real machine's striking cyan/white/magenta cyber design. Strong thoughtful graphic design, balanced shape spacing.
+Composition/framing: title centered in full rectangular art; small cyan trapezoid accents near both upper outer corners and along lower sides. All decoration remains inside a 4 percent safe margin. High contrast letters against near-black background.
+Constraints: This is ONLY printed marquee face art, not a product rendering. Absolutely no cabinet, speakers, monitor, perspective, 3D object, room, frame around the image, crop marks, watermark or additional words. Opaque black background covers the entire rectangle. Exact title spelling; no photographic gloss or blurred bloom.

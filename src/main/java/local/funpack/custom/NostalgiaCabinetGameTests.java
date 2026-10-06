@@ -8,6 +8,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -23,9 +24,9 @@ import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 @GameTestHolder(FunPackCustom.MOD_ID)
 @PrefixGameTestTemplate(false)
 public final class NostalgiaCabinetGameTests {
-    private static final BlockPos BASE = new BlockPos(3, 1, 3);
+    static final BlockPos BASE = new BlockPos(3, 1, 3);
 
-    private static Player player(GameTestHelper helper, GameType mode) {
+    static Player player(GameTestHelper helper, GameType mode) {
         Player player = helper.makeMockPlayer(mode);
         player.getAbilities().instabuild = mode.isCreative();
         BlockPos abs = helper.absolutePos(BASE);
@@ -34,19 +35,26 @@ public final class NostalgiaCabinetGameTests {
         return player;
     }
 
-    private static boolean place(GameTestHelper helper, Player player) {
-        BlockPos floor = helper.absolutePos(BASE.below());
-        helper.setBlock(BASE.below(), Blocks.STONE);
+    static boolean place(GameTestHelper helper, Player player) { return place(helper, player, BASE); }
+
+    static boolean place(GameTestHelper helper, Player player, BlockPos base) {
+        BlockPos floor = helper.absolutePos(base.below());
+        helper.setBlock(base.below(), Blocks.STONE);
         BlockHitResult hit = new BlockHitResult(Vec3.atCenterOf(floor).add(0,.5,0), Direction.UP, floor, false);
         var context = new BlockPlaceContext(player, InteractionHand.MAIN_HAND, player.getMainHandItem(), hit);
-        return ((BlockItem)FunPackCustom.NOSTALGIA_OP3_ITEM.get()).place(context).consumesAction();
+        return ((BlockItem)player.getMainHandItem().getItem()).place(context).consumesAction();
     }
 
-    private static Player cabinet(GameTestHelper helper, GameType mode) {
+    static Player cabinet(GameTestHelper helper, GameType mode) {
+        return cabinet(helper, mode, FunPackCustom.NOSTALGIA_OP3_ITEM.get());
+    }
+
+    static Player cabinet(GameTestHelper helper, GameType mode, Item item) {
         Player player = player(helper, mode);
-        player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(FunPackCustom.NOSTALGIA_OP3_ITEM.get()));
+        player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(item));
         helper.assertTrue(place(helper, player), "Cabinet placement failed");
         for (int i=0; i<3; i++) {
+            helper.assertBlockPresent(((BlockItem)item).getBlock(), BASE.above(i));
             helper.assertBlockProperty(BASE.above(i), NostalgiaCabinetBlock.PART, NostalgiaCabinetBlock.Part.values()[i]);
             helper.assertBlockProperty(BASE.above(i), NostalgiaCabinetBlock.FACING, Direction.NORTH);
         }
@@ -55,11 +63,11 @@ public final class NostalgiaCabinetGameTests {
         return player;
     }
 
-    private static NostalgiaJukeboxBlockEntity entity(GameTestHelper helper) {
+    static NostalgiaJukeboxBlockEntity entity(GameTestHelper helper) {
         return (NostalgiaJukeboxBlockEntity)helper.getBlockEntity(BASE);
     }
 
-    private static void insert(GameTestHelper helper, Player player, BlockPos section) {
+    static void insert(GameTestHelper helper, Player player, BlockPos section) {
         player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.MUSIC_DISC_13, 2));
         helper.useBlock(section, player);
         helper.assertTrue(entity(helper).getTheItem().is(Items.MUSIC_DISC_13), "Inserted disc was not stored in the base");
