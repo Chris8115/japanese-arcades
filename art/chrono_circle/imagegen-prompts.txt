@@ -1,0 +1,23 @@
+Built-in image generation mode. Fresh artwork from supplied cabinet reference descriptions. Generated source PNGs are preserved unchanged; runtime padding/circular UV masking is separate.
+
+DISPLAY ARTWORK
+Original: local-source/exec-d90b79f7-9aab-4a56-a56e-05dfdcbc9967.png
+Saved: art/chrono_circle/display-artwork-source.png
+Prompt:
+Use case: stylized-concept.
+Asset type: flat square digital display artwork for a CHRONO CIRCLE rhythm arcade cabinet, safe for a circular crop centered in the image.
+Primary request: authentic-looking colorful anime arcade attract screen. Main subject is a young adult female witch, wearing an enormous dramatic purple pointed witch hat with a sweeping wide brim and gold trim, pale lavender long hair, purple eyes, fully clothed elegant purple-and-white magical costume with white ruffles, gold ornaments, dark tights and purple boots. She has a confident playful expression and is posed dynamically in the center. This specific silhouette and purple witch palette follow the Chrono Circle arcade reference.
+Composition: all important artwork within central80percent circle. Cream-white and pale cyan background decorated with faint fine clockwork circles, sparse pastel geometric confetti, long diagonal yellow and magenta slashes. Witch hat tip nearupperquarter andbootsnearlowerquarter; do notcropface. Large accurate stacked logo across center-lower torso reading exactly "CHRONO" over "CIRCLE" in bold white geometric letters with thin dark outlines and rainbow highlights. Stylize the O as concentric clock circles. Bottom insidecircle small magenta "INSERT COIN" and tiny "CREDIT 0".
+Style: professional colorful anime game illustration translated to fine crisp pixel art for a detailed Minecraft model. Coherent 2px-to-4px pixel clusters, clear silhouette, clean facial features, not a blurry photograph. Bright but restrained and mostly white UI background.
+Constraints: no physical cabinet, no monitor bezel, no ring controller, no 3D render, no watermark, no extra characters. Entire square must be filled, no transparent background. Text only specified logo and small UI labels.
+
+HEADER ARTWORK
+Original: local-source/exec-1d3ff055-6a53-4848-8bac-47aad17fb937.png
+Saved: art/chrono_circle/header-artwork-source.png
+Prompt:
+Use case: stylized-concept.
+Asset type: flat printed anime ensemble backboard illustration for a CHRONO CIRCLE arcade cabinet; landscape4:3 rectangle.
+Primary request: faithful character-poster spirit of Chrono Circle's illuminated backdrop: seven distinct anime young adult heroes gathered in a central triangular ensemble against pale icy blue and white clock magic. Front-center tall blonde-haired woman in an elegant white-and-gold futuristic dress/coat, white leggings and gold boots, with blue accents and long flowing hair. At her front-left a black-haired female music-school hero in a dark jacket, red tie and red plaid skirt. Front-right a short dark/green-haired girl in a dark-teal dress and white stockings. Behind them center is the recognizable pale-lavender-haired witch with a huge purple pointed hat and gold trim, purple-and-white costume. Back-left dark-teal-haired young man in a green-black coat with red tie; back-right red-haired young man with red/black clothes; far-right a silver-haired athletic young man in futuristic gray-white armor. All fully clothed, dynamic but calm promotional poses, faces clearly readable, seven characters total.
+Composition: ensemble concentrated in center60percentwidth, largest full-body blonde character nearest front and reaching nearloweredge, heads beginning upperquarter. Keep outer20percenteachsidemostlypale blue whitespace and thinclockdiagramlines because speakers coverlowercorners. Behind the ensemble is a large thin circular magic clock graphic with restrained Roman numerals and small ornamental geometric triangles.
+Style: polished anime game art translated into fine crisp pixel art with clean coherent clusters, rich but controlled jewel colors and strong character silhouettes. Bright high-key pale-blue background and absolutely no black voids.
+Constraints: only rectangular flat poster artwork, no typography, no logo, no cabinet, no screen border, no speakers, no perspective, no watermarks, no cropped faces. No random crowd; seven detailed distinct characters.

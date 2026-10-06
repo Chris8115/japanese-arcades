@@ -3,7 +3,7 @@
 This workspace is for our own mods for **Minecraft 1.21.1 / NeoForge 21.1.252**.
 The starter mod is **Fun Pack Custom**, id `funpackcustom`, version `0.1.0`.
 It registers `/funpackdev`, a small command to confirm that the mod is loaded.
-The **Japanese Arcades** creative tab includes seven cabinets with music-disc playback:
+The **Japanese Arcades** creative tab includes eight cabinets with music-disc playback:
 
 - [Nostalgia Op.3 Arcade Cabinet](art/nostalgia-op3/README.md)
 - [Sound Voltex Valkyrie Arcade Cabinet](art/sound-voltex-valkyrie/README.md)
@@ -12,6 +12,7 @@ The **Japanese Arcades** creative tab includes seven cabinets with music-disc pl
 - [Groove Coaster Arcade Cabinet](art/groove_coaster/README.md)
 - [MÚSECA Arcade Cabinet](art/museca/README.md)
 - [Project DIVA Arcade Future Tone Cabinet](art/project_diva/README.md)
+- [Chrono Circle Arcade Cabinet](art/chrono_circle/README.md)
 
 Their model notes include editable files, previews, and use instructions. All occupy
 three vertical blocks. Allow side clearance for the wider decks, wings, and enclosures;
@@ -34,7 +35,7 @@ Use **Terminal > Run Task** for the `Fun:` tasks, or open a terminal here:
 - `SyncPack` refreshes the copied mods, configs, resource packs, and pack scripts from the live pack.
 - `Prepare` downloads game assets and prepares client/server launch files.
 - `Server` launches a small dedicated server for checking server compatibility.
-- `GameTest` runs thirty cabinet integration tests in a disposable test world and exits.
+- `GameTest` runs thirty-four cabinet integration tests in a disposable test world and exits.
 - `Data` runs our data generators once we add them.
 
 The script selects Java 21 locally. Your default Java installation remains available to other projects.
@@ -56,7 +57,8 @@ The original pack and its saved worlds are separate from all of these directorie
 
 The tests cover placement, disc insertion/ejection, native playback ticks, saved disc
 and song progress, removal without duplicate drops, creative removal, and isolation
-between neighboring cabinets. The WACCA, Chunithm, Groove Coaster, MÚSECA, and Project DIVA tests include
+between neighboring cabinets. The WACCA, Chunithm, Groove Coaster, MÚSECA,
+Project DIVA, and Chrono Circle tests include
 saved-disc placement and playback restoration alongside insertion/ejection through
 all three sections. Selection tests check Chunithm's acrylic overhang and Groove
 Coaster's broad console and marquee in all four facings. Groove Coaster also checks
@@ -64,7 +66,8 @@ open footwell collision and unobstructed disc ejection in every facing. MÚSECA 
 rotated deck/marquee selection, the narrow projecting pedal's collision, and
 unobstructed disc ejection beside its deeper base. Project DIVA checks its wide
 button deck and topper selection and clear disc ejection in every facing.
-All thirty passed on 2026-10-06.
+Chrono Circle checks its clock/hood overhangs, low floor platform, and clear
+disc ejection in every facing. All thirty-four passed on 2026-10-06.
 Visual checks and full-pack compatibility remain separate from these server tests.
 
 `SyncPack` overwrites files that exist in the source pack's configuration. Close the development
