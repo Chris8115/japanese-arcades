@@ -1,0 +1,42 @@
+CHUNITHM Paradise Lost project texture artwork
+Mode: built-in image_gen generation (fresh artwork, reference images visually reviewed).
+Skill: local-source/SKILL.md
+User reference images:
+local-source/source-image.png
+local-source/source-image.png
+local-source/source-image.png
+
+DISPLAY PROMPT (transparent_background=false)
+Use case: stylized-concept
+Asset type: production pixel-art texture for the landscape display of a Minecraft CHUNITHM PARADISE LOST arcade cabinet.
+Primary request: Create an original, polished pixel-art interpretation of the CHUNITHM PARADISE LOST attract-screen title, guided by the supplied real cabinet photographs. This is the entire flat screen artwork alone.
+Composition: wide 16:9 landscape, opaque rectangular image, perfectly straight-on with no perspective. Pale luminous mint and turquoise illustrated map/doodle background over the entire canvas. Fine dark navy angular cartographic geometry, energetic hand-drawn arrows, small organic and tropical leaf shapes, scattered magenta accent marks. The background has quieter contrast than the title.
+Title: centered, enormous, energetic angular rhythm-game logo occupying the middle 75% of width and middle 60% of height. Small stylized dark navy "CHUNITHM" above the main title. Render "PARADISE" on the first line and "LOST" on the second, exactly spelled. Cream and very pale yellow letter faces, bold deep teal/navy outlines and stepped shadow, strong yellow accents, light turquoise inner highlights, sharp slanted letter corners and long energetic swashes, a magenta flourish on the upper-right. This should feel faithful to the Paradise Lost title in the photographs, not a generic game logo. Keep every letter complete and readily legible. Small neat "TOUCH TO START" centered near the bottom, in a dark teal strip or unobtrusive frame.
+Style: deliberately hand-crafted Minecraft-compatible pixel art. Crisp square pixel clusters, clear stepped diagonals and limited-color cel shading, approximately a 384 by 216 pixel art design presented at higher native resolution. No soft blur, no photorealism, no vector-smooth edges. Energetic mint, ivory, lemon yellow, navy and a little hot pink.
+Text (verbatim): "CHUNITHM"; "PARADISE"; "LOST"; "TOUCH TO START".
+Constraints: fullscreen 16:9 image, fully opaque. No cabinet, screen bezel, reflection, perspective, people, hardware, watermark, photograph border, extra labels or invented words. Do not render the SEGA boot screen.
+
+MARQUEE PROMPT (transparent_background=true)
+Use case: stylized-concept
+Asset type: production transparent die-cut pixel-art marquee texture for a Minecraft CHUNITHM arcade cabinet.
+Primary request: Create the colorful sculptural CHUNITHM marquee artwork seen above the cabinet in the supplied Paradise Lost photographs. This is a standalone irregular die-cut sign graphic, fully straight-on, no hardware.
+Composition: wide 3:1 horizontal transparent PNG canvas. Keep at least 8 percent completely clear transparent margin on every side, all artwork fully contained. A very large single-line "CHUNITHM" logo through the middle; spell C H U N I T H M exactly, all eight letters complete and very legible. Cream chunky playful slightly bubbly uppercase letter faces with thick black/navy outlines and warm pale-yellow offset shadows, varied but aligned letter heights matching the cheerful original arcade sign.
+Behind and around the letters form a cohesive irregular comic splash silhouette: bright cyan and turquoise splash extending left, a lemon-yellow burst above the left-center, hot magenta and red accents to the right and a little lime-green. Several small expressive stylized chibi mascot heads peek over and behind the word like the real marquee: pale light-haired cheerful face at the left, a tiny light-haired face at top-center, a red-haired face at the right, and a small white-and-green mascot-like face near the far upper-right. These are decorative head portraits, occupying much less visual weight than the central CHUNITHM word. Include a few small blocky musical/comic accent shapes in the splash, preserving the dense lively layered silhouette.
+Style: polished, charming Minecraft-compatible pixel art, square pixel clusters, crisp stepped contour edges, limited-color cel shading, approximately a 384 by 128 pixel art design presented at larger native resolution. Use clear blocks rather than smooth antialiased illustration. Keep bright cheerful color and fine intentional character details at pixel scale.
+Text (verbatim): "CHUNITHM".
+Constraints: actual transparent background outside the irregular connected die-cut silhouette, preserve real alpha. No colored rectangular backdrop, no checkerboard drawn into the image, no glow haze filling the transparent margin. No cabinet, mounting hardware, environment, photo, 3D perspective, watermark, PARADISE LOST subtitle, Japanese banners or additional writing. All outer edges and all letters fully inside the transparent margins.
+
+MARQUEE MARGIN CLEANUP EDIT (transparent_background=true)
+Edit target: local-source/exec-a4e251d2-346b-4bc5-aa5a-9108aaee6c57.png
+Use case: precise-object-edit
+Edit target: the attached generated transparent CHUNITHM marquee.
+Make one targeted production cleanup: keep the same complete CHUNITHM lettering, all four chibi mascot faces, cyan/yellow/magenta/lime splash artwork, palette, crisp pixel-art style and relative arrangement. Scale the entire connected foreground artwork uniformly smaller within the same 3:1 canvas so that the complete sign has at least 8% of the canvas width as empty transparent margin on both left and right, and at least 8% of canvas height as transparent margin on top and bottom. Center the complete artwork. Do not crop or change any letter or mascot. Preserve the composition and details inside the sign.
+Clean away every stray faint pixel, fragment, halo or color fringe outside the connected sign silhouette; outside it must be exactly zero alpha, especially the clear outer margins. Keep all text exactly "CHUNITHM" and fully legible. Preserve actual transparency, no backdrop, no checkerboard, no black canvas. This is the same artwork with corrected clear margins and clean alpha.
+
+SELECTED OUTPUTS AND PROVENANCE
+display-artwork-source.png: unmodified byte-for-byte copy of local-source/exec-442c4bb8-12d9-46c0-bb67-060a485ec745.png
+Display: 1672x941 RGB, aspect 1.776833156 (~16:9), fully opaque.
+marquee-artwork-source.png: unmodified byte-for-byte copy of local-source/exec-640a281e-bef5-4790-8ad3-dd3deac7989e.png
+Marquee: 2172x724 RGBA, exact 3:1, alpha range 0..255. At alpha >=128, content bounds [299,137,1867,594] (right and bottom exclusive). Generated PNG contains faint sub-threshold edge pixels beyond this connected silhouette; use an appropriate cutout threshold when deriving the geometry. Native source remains unmodified.
+Previous marquee generation (not selected): local-source/exec-a4e251d2-346b-4bc5-aa5a-9108aaee6c57.png
+Validation: Visually checked all four requested phrases, intact centered marquee lettering, four decorative heads, and intended palette/style. No source pixels resized or recolored after image generation. Generation and targeted margin edit both used built-in image_gen; no CLI.
