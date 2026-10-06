@@ -2,7 +2,6 @@ package local.funpack.custom.client;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 import java.text.NumberFormat;
 import local.funpack.custom.ArcadeKioskMenu;
 import local.funpack.custom.ArcadeKioskNetwork;
@@ -34,17 +33,15 @@ public final class ArcadeKioskScreen extends AbstractContainerScreen<ArcadeKiosk
     private static final int ROWS = 5;
     private static final int ROW_HEIGHT = 19;
     private static final ResourceLocation PASSES = ResourceLocation.fromNamespaceAndPath("funpackcustom", "passes");
-    private static final UUID ZERO_ID = new UUID(0, 0);
     private static final NumberFormat NUMBERS = NumberFormat.getIntegerInstance(java.util.Locale.US);
     private final List<EntryButton> entryButtons = new ArrayList<>();
     private ResourceLocation category;
     private List<ArcadeOrderCatalog.Entry> entries = List.of();
     private List<ArcadePrizeCatalog.Entry> prizes = List.of();
-    private List<PassRef> passes = List.of();
     private final List<Button> exchangeButtons = new ArrayList<>();
-    private Button targetSelector, sourceSelector, transfer, issue;
-    private int targetSlot = -1, sourceSlot = -1, statusRevision;
-    private UUID targetId, sourceId;
+    private Button transfer, issue;
+    private int statusRevision, observedStateId;
+    private ItemStack observedSource = ItemStack.EMPTY, observedTarget = ItemStack.EMPTY;
     private boolean confirmTransfer;
     private boolean hasAnyPass;
     private int selected;
@@ -83,21 +80,17 @@ public final class ArcadeKioskScreen extends AbstractContainerScreen<ArcadeKiosk
         }
         order = addRenderableWidget(Button.builder(Component.translatable("kiosk.gui.order"), button -> orderSelected())
             .bounds(leftPos + 142, topPos + 124, 62, 17).build());
-        targetSelector = addRenderableWidget(Button.builder(Component.empty(), button -> cyclePass(false))
-            .bounds(leftPos + 11, topPos + 45, 145, 17).build());
-        sourceSelector = addRenderableWidget(Button.builder(Component.empty(), button -> cyclePass(true))
-            .bounds(leftPos + 164, topPos + 45, 145, 17).build());
         transfer = addRenderableWidget(Button.builder(Component.translatable("kiosk.pass.transfer"), button -> transferSelected())
-            .bounds(leftPos + 167, topPos + 104, 138, 17).build());
+            .bounds(leftPos + 14, topPos + 104, 138, 17).build());
         issue = addRenderableWidget(Button.builder(Component.translatable("kiosk.pass.issue"), button -> {
             PacketDistributor.sendToServer(new ArcadeKioskNetwork.IssuePassPayload(menu.containerId));
             sentAction();
-        }).bounds(leftPos + 95, topPos + 108, 130, 20).build());
+        }).bounds(leftPos + 14, topPos + 104, 138, 17).build());
         List<ArcadeEconomyConfig.Exchange> rates = ArcadeEconomyConfig.exchangeRates();
         for (int i = 0; i < rates.size(); i++) {
             int index = i;
             exchangeButtons.add(addRenderableWidget(Button.builder(Component.empty(), button -> exchange(index))
-                .bounds(leftPos + 110, topPos + 86 + i * 13, 43, 12).build()));
+                .bounds(leftPos + 265, topPos + 90 + i * 13, 41, 12).build()));
         }
         statusRevision = menu.getStatusRevision();
         refreshPasses();
@@ -113,6 +106,7 @@ public final class ArcadeKioskScreen extends AbstractContainerScreen<ArcadeKiosk
         scroll = 0;
         suppressStatus = true;
         confirmTransfer = false;
+        minecraft.gameMode.handleInventoryButtonClick(menu.containerId, isPassTab() ? 2 : isPrizeTab() ? 1 : 0);
         refreshRows();
         updateOrderButton();
     }
@@ -187,6 +181,15 @@ public final class ArcadeKioskScreen extends AbstractContainerScreen<ArcadeKiosk
     }
 
     @Override
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        if ((isPassTab() && isHovering(16, 47, 18, 18, mouseX, mouseY))
+            || ((isPassTab() || isPrizeTab()) && isHovering(170, 47, 18, 18, mouseX, mouseY))) {
+            confirmTransfer = false;
+        }
+        return super.mouseClicked(mouseX, mouseY, button);
+    }
+
+    @Override
     public boolean mouseScrolled(double mouseX, double mouseY, double horizontal, double vertical) {
         if (!isPassTab() && isHovering(10, 43, 128, 98, mouseX, mouseY) && entryCount() > ROWS) {
             scroll = Mth.clamp(scroll - (int) Math.signum(vertical), 0, entryCount() - ROWS);
@@ -232,7 +235,7 @@ public final class ArcadeKioskScreen extends AbstractContainerScreen<ArcadeKiosk
             int offset = (95 - length) * scroll / (entryCount() - ROWS);
             graphics.fill(leftPos + 133, topPos + 44 + offset, leftPos + 135, topPos + 44 + offset + length, 0xFF4D7A83);
         }
-        menu.slots.forEach(slot -> drawSlot(graphics, leftPos + slot.x, topPos + slot.y));
+        menu.slots.stream().filter(slot -> slot.isActive()).forEach(slot -> drawSlot(graphics, leftPos + slot.x, topPos + slot.y));
     }
 
     @Override
@@ -265,7 +268,7 @@ public final class ArcadeKioskScreen extends AbstractContainerScreen<ArcadeKiosk
         }
         graphics.drawString(font, Component.translatable("kiosk.gui.status"), 12, 158, INK, false);
         int status = suppressStatus ? 0 : menu.getStatus();
-        String idle = isPassTab() ? passes.isEmpty() ? "kiosk.pass.no_pass" : "kiosk.pass.ready"
+        String idle = isPassTab() ? target() == null ? "kiosk.pass.no_pass" : "kiosk.pass.ready"
             : isPrizeTab() ? target() == null ? "kiosk.pass.no_pass" : prizeAffordable() ? "kiosk.gui.ready" : "kiosk.prize.missing"
             : entry == null ? "kiosk.gui.empty" : ArcadeOrderCatalog.canAfford(minecraft.player, entry) ? "kiosk.gui.ready" : "kiosk.gui.missing";
         Component statusMessage = Component.translatable(status == 0 ? idle : "kiosk.gui.status." + status);
@@ -280,14 +283,14 @@ public final class ArcadeKioskScreen extends AbstractContainerScreen<ArcadeKiosk
         super.render(graphics, mouseX, mouseY, partialTick);
         renderTooltip(graphics, mouseX, mouseY);
         if (isPassTab()) {
-            if (target() != null && isHovering(11, 63, 145, 22, mouseX, mouseY))
-                graphics.renderComponentTooltip(font, passTooltip(target(), false), mouseX, mouseY);
-            if (source() != null && isHovering(164, 63, 145, 22, mouseX, mouseY))
+            if (source() != null && isHovering(37, 46, 117, 41, mouseX, mouseY))
                 graphics.renderComponentTooltip(font, passTooltip(source(), true), mouseX, mouseY);
+            if (target() != null && isHovering(191, 46, 117, 41, mouseX, mouseY))
+                graphics.renderComponentTooltip(font, passTooltip(target(), false), mouseX, mouseY);
         } else if (isPrizeTab() && !prizes.isEmpty()) {
-            if (isHovering(144, 46, 162, 18, mouseX, mouseY))
+            if (isHovering(144, 68, 162, 12, mouseX, mouseY))
                 graphics.renderTooltip(font, prizes.get(selected).title(), mouseX, mouseY);
-            if (target() != null && isHovering(210, 86, 96, 37, mouseX, mouseY))
+            if (target() != null && (isHovering(191, 46, 117, 19, mouseX, mouseY) || isHovering(210, 86, 96, 37, mouseX, mouseY)))
                 graphics.renderComponentTooltip(font, passTooltip(target(), false), mouseX, mouseY);
         }
         ArcadeOrderCatalog.Entry entry = selectedEntry();
@@ -317,89 +320,43 @@ public final class ArcadeKioskScreen extends AbstractContainerScreen<ArcadeKiosk
 
     private record PassRef(int slot, ItemStack stack, ArcadePassData data) {}
 
-    private PassRef target() { return passes.stream().filter(pass -> pass.slot() == targetSlot).findFirst().orElse(null); }
-    private PassRef source() { return passes.stream().filter(pass -> pass.slot() == sourceSlot && pass.slot() != targetSlot).findFirst().orElse(null); }
-
-    private int resolvePass(int slot, UUID id, int avoid) {
-        for (PassRef pass : passes) if (pass.slot() == slot && pass.slot() != avoid
-            && (pass.data().id().equals(id) || ZERO_ID.equals(id))) return slot;
-        if (id != null && !id.equals(ZERO_ID)) for (PassRef pass : passes)
-            if (pass.slot() != avoid && pass.data().id().equals(id)) return pass.slot();
-        return passes.stream().filter(pass -> pass.slot() != avoid).mapToInt(PassRef::slot).findFirst().orElse(-1);
+    private PassRef target() { return passRef(ArcadeKioskMenu.TARGET_PASS_SLOT, menu.getTargetPass()); }
+    private PassRef source() { return passRef(ArcadeKioskMenu.SOURCE_PASS_SLOT, menu.getSourcePass()); }
+    private PassRef passRef(int slot, ItemStack stack) {
+        ArcadePassData data = ArcadePassItem.data(stack);
+        return data == null ? null : new PassRef(slot, stack, data);
     }
 
     private void refreshPasses() {
         if (minecraft.player == null) return;
-        List<PassRef> current = new ArrayList<>();
         hasAnyPass = minecraft.player.getOffhandItem().getItem() instanceof ArcadePassItem
             || menu.getCarried().getItem() instanceof ArcadePassItem
-            || minecraft.player.inventoryMenu.getCarried().getItem() instanceof ArcadePassItem;
+            || minecraft.player.inventoryMenu.getCarried().getItem() instanceof ArcadePassItem
+            || menu.getSourcePass().getItem() instanceof ArcadePassItem
+            || menu.getTargetPass().getItem() instanceof ArcadePassItem;
         for (int slot = 0; slot < 36; slot++) {
             ItemStack stack = minecraft.player.getInventory().getItem(slot);
             if (stack.getItem() instanceof ArcadePassItem) hasAnyPass = true;
-            ArcadePassData data = ArcadePassItem.data(stack);
-            if (ArcadePassItem.isPass(stack) && data != null) current.add(new PassRef(slot, stack, data));
         }
-        passes = current;
-        int previousTarget = targetSlot, previousSource = sourceSlot;
-        targetSlot = resolvePass(targetSlot, targetId, -1);
-        sourceSlot = resolvePass(sourceSlot, sourceId, targetSlot);
-        UUID nextTarget = target() == null ? null : target().data().id();
-        UUID nextSource = source() == null ? null : source().data().id();
-        if (previousTarget != targetSlot || previousSource != sourceSlot
-                || !java.util.Objects.equals(targetId, nextTarget) || !java.util.Objects.equals(sourceId, nextSource)) confirmTransfer = false;
-        targetId = nextTarget; sourceId = nextSource;
-    }
-
-    private void cyclePass(boolean chooseSource) {
-        List<PassRef> choices = passes.stream().filter(pass -> !chooseSource || pass.slot() != targetSlot).toList();
-        if (choices.isEmpty()) return;
-        int slot = chooseSource ? sourceSlot : targetSlot;
-        int index = 0;
-        for (int i = 0; i < choices.size(); i++) if (choices.get(i).slot() == slot) index = (i + 1) % choices.size();
-        PassRef chosen = choices.get(index);
-        if (chooseSource) { sourceSlot = chosen.slot(); sourceId = chosen.data().id(); }
-        else { targetSlot = chosen.slot(); targetId = chosen.data().id(); }
-        confirmTransfer = false;
-        refreshPasses(); updatePassWidgets();
+        if (!ItemStack.matches(observedSource, menu.getSourcePass()) || !ItemStack.matches(observedTarget, menu.getTargetPass())
+            || observedStateId != menu.getStateId()) confirmTransfer = false;
+        observedSource = menu.getSourcePass().copy(); observedTarget = menu.getTargetPass().copy();
+        observedStateId = menu.getStateId();
     }
 
     private List<Component> passTooltip(PassRef pass, boolean source) {
         return List.of(Component.translatable(source ? "kiosk.pass.source" : "kiosk.pass.target"), pass.stack().getHoverName(),
             ArcadePassItem.designName(pass.data()), Component.translatable("kiosk.pass.id", pass.data().id().toString()),
-            Component.translatable("kiosk.pass.slot", pass.slot() + 1),
             Component.translatable("kiosk.pass.credits", NUMBERS.format(pass.data().credits())),
             Component.translatable("kiosk.pass.points", NUMBERS.format(pass.data().prizePoints())));
     }
 
-    private void selector(Button button, PassRef pass, boolean source) {
-        String value = pass == null ? Component.translatable("kiosk.pass.none").getString()
-            : "#" + (pass.slot() + 1) + " " + pass.data().id().toString().substring(0, 6) + " · " + pass.stack().getHoverName().getString();
-        String prefix = source ? "B: " : "A: ";
-        int room = button.getWidth() - 12 - font.width(prefix);
-        if (font.width(value) > room) value = font.plainSubstrByWidth(value, room - font.width("…")) + "…";
-        button.setMessage(Component.literal(prefix + value));
-        button.setTooltip(pass == null ? Tooltip.create(Component.translatable("kiosk.pass.no_pass"))
-            : Tooltip.create(Component.translatable(source ? "kiosk.pass.source" : "kiosk.pass.target")
-                .append("\n").append(pass.stack().getHoverName()).append("\n").append(ArcadePassItem.designName(pass.data()))
-                .append("\n").append(Component.translatable("kiosk.pass.id", pass.data().id().toString().substring(0, 8)))
-                .append("\n").append(Component.translatable("kiosk.pass.slot", pass.slot() + 1))));
-    }
-
     private void updatePassWidgets() {
-        if (targetSelector == null) return;
-        boolean tab = isPassTab(), hasPass = !passes.isEmpty();
-        targetSelector.visible = (tab && hasPass) || isPrizeTab();
-        targetSelector.setPosition(leftPos + (tab ? 11 : 142), topPos + (tab ? 45 : 65));
-        targetSelector.setWidth(tab ? 145 : 163);
-        targetSelector.active = passes.size() > 1 && cooldown == 0;
-        selector(targetSelector, target(), false);
-        sourceSelector.visible = tab && hasPass;
-        sourceSelector.active = passes.size() > 2 && cooldown == 0;
-        selector(sourceSelector, source(), true);
-        issue.visible = tab && !hasPass; issue.active = cooldown == 0 && !hasAnyPass;
-        issue.setTooltip(hasAnyPass ? Tooltip.create(Component.translatable("kiosk.pass.move_to_inventory")) : null);
-        transfer.visible = tab && hasPass;
+        if (transfer == null) return;
+        boolean tab = isPassTab();
+        menu.setPassSlotVisibility(tab, tab || isPrizeTab());
+        issue.visible = tab && !hasAnyPass && menu.getTargetPass().isEmpty(); issue.active = cooldown == 0;
+        transfer.visible = tab && !issue.visible;
         PassRef from = source(), to = target();
         transfer.active = cooldown == 0 && from != null && to != null
             && (from.data().credits() > 0 || from.data().prizePoints() > 0);
@@ -408,7 +365,7 @@ public final class ArcadeKioskScreen extends AbstractContainerScreen<ArcadeKiosk
         List<ArcadeEconomyConfig.Exchange> rates = ArcadeEconomyConfig.exchangeRates();
         for (int i = 0; i < exchangeButtons.size(); i++) {
             var button = exchangeButtons.get(i); var rate = rates.get(i);
-            button.visible = tab && hasPass;
+            button.visible = tab;
             button.active = to != null && cooldown == 0 && ArcadeOrderCatalog.count(minecraft.player, rate.material()) > 0;
             String rateText = "+" + NUMBERS.format(rate.credits());
             if (font.width(rateText) > button.getWidth() - 8) {
@@ -453,36 +410,39 @@ public final class ArcadeKioskScreen extends AbstractContainerScreen<ArcadeKiosk
     }
 
     private void balances(GuiGraphics graphics, PassRef pass, int x) {
-        if (pass == null) return;
-        fit(graphics, Component.translatable("kiosk.pass.credits", NUMBERS.format(pass.data().credits())), x, 65, 139, INK);
-        fit(graphics, Component.translatable("kiosk.pass.points", NUMBERS.format(pass.data().prizePoints())), x, 76, 139, TEAL);
+        fit(graphics, Component.translatable("kiosk.pass.credits", pass == null ? "—" : NUMBERS.format(pass.data().credits())), x, 70, 139, INK);
+        fit(graphics, Component.translatable("kiosk.pass.points", pass == null ? "—" : NUMBERS.format(pass.data().prizePoints())), x, 80, 139, TEAL);
+    }
+
+    private void passHeading(GuiGraphics graphics, PassRef pass, boolean source, int x) {
+        graphics.drawString(font, Component.translatable(source ? "kiosk.pass.from_label" : "kiosk.pass.to_label"), x, 48, INK, false);
+        Component label = pass == null ? Component.translatable("kiosk.pass.insert")
+            : Component.literal(pass.data().id().toString().substring(0, 6) + " · ").append(pass.stack().getHoverName());
+        String shown = label.getString();
+        if (font.width(shown) > 112) shown = font.plainSubstrByWidth(shown, 106) + "…";
+        graphics.drawString(font, shown, x, 58, MUTED, false);
     }
 
     private void renderPasses(GuiGraphics graphics) {
-        if (passes.isEmpty()) {
-            graphics.drawWordWrap(font, Component.translatable(hasAnyPass ? "kiosk.pass.move_to_inventory" : "kiosk.pass.welcome"), 27, 56, 269, INK);
-            return;
-        }
-        balances(graphics, target(), 14); balances(graphics, source(), 166);
+        passHeading(graphics, source(), true, 38); passHeading(graphics, target(), false, 192);
+        balances(graphics, source(), 14); balances(graphics, target(), 166);
         var rates = ArcadeEconomyConfig.exchangeRates();
         for (int i = 0; i < rates.size(); i++) {
-            var rate = rates.get(i); int y = 86 + i * 13;
-            item(graphics, new ItemStack(rate.material()), 15, y, 12);
+            var rate = rates.get(i); int y = 90 + i * 13;
+            item(graphics, new ItemStack(rate.material()), 169, y, 12);
             int owned = ArcadeOrderCatalog.count(minecraft.player, rate.material());
-            fit(graphics, Component.translatable("kiosk.pass.trade_count", owned), 32, y + 2, 73, owned > 0 ? MUTED : ERROR);
+            fit(graphics, Component.translatable("kiosk.pass.trade_count", owned), 186, y + 2, 73, owned > 0 ? MUTED : ERROR);
         }
-        if (source() == null) {
-            graphics.drawWordWrap(font, Component.translatable("kiosk.pass.need_source"), 166, 68, 138, MUTED);
-        } else {
-            fit(graphics, Component.translatable("kiosk.pass.direction", sourceSlot + 1, targetSlot + 1), 166, 91, 139, TEAL);
-        }
-        graphics.drawWordWrap(font, Component.translatable(confirmTransfer ? "kiosk.pass.confirm_hint" : "kiosk.pass.transfer_hint"), 166, 124, 139, MUTED);
+        graphics.drawString(font, Component.translatable("kiosk.pass.direction"), 14, 92, TEAL, false);
+        String hint = issue.visible ? "kiosk.pass.new_hint" : source() == null || target() == null ? "kiosk.pass.insert_both"
+            : confirmTransfer ? "kiosk.pass.confirm_hint" : "kiosk.pass.transfer_hint";
+        graphics.drawWordWrap(font, Component.translatable(hint), 14, 124, 139, MUTED);
     }
 
     private void renderPrize(GuiGraphics graphics) {
         var prize = prizes.get(selected);
-        List<FormattedCharSequence> name = font.split(prize.title(), 162);
-        for (int i = 0; i < Math.min(2, name.size()); i++) graphics.drawString(font, name.get(i), 144, 46 + i * 9, INK, false);
+        passHeading(graphics, target(), false, 192);
+        fit(graphics, prize.title(), 144, 70, 162, INK);
         item(graphics, prize.output(), 153, 84, 38);
         int cost = ArcadeEconomyConfig.prizePrice(prize.id());
         graphics.drawString(font, Component.translatable("kiosk.prize.cost"), 211, 86, MUTED, false);

@@ -3,22 +3,32 @@
 ## Playing the loop
 
 1. Open the existing Arcade Ordering Kiosk and choose **Passes**. **Get an Arcade
-   Pass** issues a free blank card if you are not already carrying a pass. Put
-   an offhand or cursor-held pass into the main inventory to manage it here.
-2. Choose **A**, the card that should receive Credits. Each material button
+   Pass** issues a free blank card into the **To** slot if you do not have one.
+   Otherwise, put the actual card you want to use into **To**.
+2. Each material button
    trades **one** item from your inventory or offhand and adds the displayed
-   amount to A. Each card's slot and short ID identify it; hover for the name,
-   design and full balances. Credits and Prize Points are different balances.
-3. To combine cards, choose source **B**, then **Transfer all B → A** and confirm.
-   All Credits and Prize Points move together. B becomes empty, but both cards,
+   amount to the inserted **To** card. The card's name and balances appear
+   beside its slot; hover the item for its design and identity. Credits and
+   Prize Points are different balances.
+3. To combine cards, insert the card to drain into **From**, and the card to
+   keep using into **To**, then transfer and confirm. All Credits and Prize
+   Points move together. **From** becomes empty of funds, but both cards,
    their names, designs and identities remain available to keep or trade.
+   Replacing either card cancels the confirmation. Cards in the rest of your
+   inventory are not selected for the transfer.
 4. Hold a pass and right-click any of the twelve full-size arcade cabinets.
    An offhand pass works when the main hand is empty. A successful play spends
    Credits and awards a randomized rank and Prize Points, with a result message,
    note-block chime/bell and particles. The existing idle geometry, textures,
    lights, disc playback and empty-hand seat/drum interactions are preserved.
-5. Return to **Prizes**, choose the card to pay with, and order a collectible.
+5. Return to **Prizes**, insert the card to pay with into **To**, and order a collectible.
    Delivery goes into your inventory or safely onto the ground if full.
+
+The two slots hold real items for your own kiosk session. Shift-click a pass
+to insert it into **To** first, then **From**; shift-click an inserted card to
+take it back. Closing the kiosk returns both cards to you, with overflow
+delivery if necessary. Switching tabs retains the inserted cards; the
+**Machines** tab does not insert passes into hidden slots.
 
 Gachapon keeps its separate operator-stocked currency/reward system. The kiosk
 and prize miniatures do not award play points. Creative players pay the same
@@ -91,12 +101,12 @@ for testing a found card is:
 /give @s funpackcustom:arcade_pass[funpackcustom:arcade_pass={credits:75L,design:"funpackcustom:default"}]
 ```
 
-Its ID is assigned on the first balance mutation. Gameplay requests identify
-the chosen inventory slot, card ID and revision; they never supply a price,
+Its ID is assigned on its first kiosk insertion or balance mutation. Gameplay requests identify
+the fixed kiosk pass slot, card ID and revision; they never supply a price,
 reward amount, resulting stack, or trusted balance. The server validates the
 nearby bound kiosk, player, card and available funds, then commits snapshots
 atomically. Failed/stale requests, canceled item spawns and recursive spawn
-callbacks cannot duplicate a purchase or erase payment. Transfers keep B as
+callbacks cannot duplicate a purchase or erase payment. Transfers keep **From** as
 a real empty collectible instead of consuming it.
 
 ## Collectible art
@@ -175,33 +185,36 @@ correct texture direction, and joined plush limbs.
 
 ## Gameplay verification
 
-The in-game screenshots below predate the red-and-white pass artwork update
-and therefore show the earlier teal card. That update changes only the card
-image; the verified economy behavior and persistent design ID are unchanged.
-For the cosmetic update, the release Build passed, the new 512 × 512 RGBA
-texture was visually inspected, transparency and aspect-preserving packing
-were checked, and its packaged bytes were verified against the source texture.
+The current kiosk screenshots show real **From** and **To** slots and the
+red-and-white pass artwork. The earlier placed-prize screenshots remain valid;
+the prize models and machine idle appearance have not changed.
 
-On 2026-10-06, the Java 21 release Build and **all 96 dedicated-server
-GameTests** passed. The 16 new economy tests cover persistent/network card
+On 2026-10-06, the Java 21 release Build and **all 100 dedicated-server
+GameTests** passed. The original 16 economy tests cover persistent/network card
 data, exact payments, transfers preserving both designs and names, revision
 checks, overflow delivery, canceled/substituted spawns, callback reentrancy,
 cross-player requests, live configuration changes, all twelve paid cabinets,
 rank weighting, cooldowns, invalid clicks, and unchanged idle/disc state.
 
-The final packaged JAR matches every source resource. Its 105 classes target
+Four additional tests exercise native pass insertion, invalid items and hidden
+tabs, shift-clicks, remove/reinsert stale requests, separate viewers, safe returns
+after close/kiosk removal/logout/death, full creative inventories, canceled
+return spawns, repeated closes and card replacement during prize delivery.
+
+The final packaged JAR matches every source resource. Its 106 classes target
 Java 21, all 216 pre-existing model/texture/blockstate resources are unchanged,
 and all 76 pre-existing translations remain present. It contains no test
 worlds, probe mod, authoring files or copied third-party dependencies.
 
-A disposable small client completed the actual networked loop at the minimum
+The initial economy implementation's disposable small client completed the actual
+networked loop at the minimum
 **320 × 240** logical GUI size: pass issuance, all four exchanges, both-balance
 transfer between different design IDs, billion-sized balance display, native
 main/offhand machine clicks without double debit, all four point purchases
 and actual prize placement, and the existing material-based machine order.
 The short transfer-status wording was rebuilt and visually checked afterward.
 
-The same complete loop passed in a fresh copied-pack world with **all 218
+That complete loop also passed in a fresh copied-pack world with **all 218
 third-party mod JARs**, including its renderer and JEI. Both clients shut down
 cleanly. The ignored pack fixture used a 10 GB heap, eight active processors
 and disabled Distant Horizons background generation to fit the verification
@@ -209,6 +222,16 @@ workload; original instance files and saves were untouched. See the actual
 [Passes tab in the pack](passes-in-pack.png),
 [prize shop in the pack](prize-shop-in-pack.png), and
 [redeemed prizes placed in the pack](earned-prizes-in-pack.png).
+
+The physical-slot revision passed a fresh small-client check at **320 × 240**:
+actual mouse insertion, rejection of non-pass items, shift-click insertion and
+retrieval, hidden-slot protection on Machines, exact transfer of both balances
+with a third inventory card untouched, confirmation cancellation after removing
+and reinserting either initialized or raw cards, To-only credit loading and prize
+payment, and return of all cards on close. The returned pass also completed a
+paid cabinet play. The same slot sequence passed in a new copied-pack world
+with all 218 third-party mod JARs. Both clients exited cleanly, and the Passes
+and Prizes screenshots below and linked above were refreshed from these runs.
 
 ![Loading Credits onto a pass](passes-in-game.png)
 

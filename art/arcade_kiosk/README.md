@@ -39,9 +39,10 @@ Ground purchases wait for inventory space even in creative mode, where vanilla
 pickup would otherwise discard an item that cannot fit.
 
 The **Passes** tab issues an Arcade Pass, trades iron/gold/emeralds/diamonds for
-Credits on a selected card, and transfers all Credits and Prize Points from B
-into A while keeping both cards. The **Prizes** tab sells four placeable
-collectibles for the selected pass's Prize Points. See the
+Credits on a card placed in its **To** slot, and transfers all Credits and
+Prize Points from the physical **From** slot into **To** while keeping both
+cards. Cards return to the player when the kiosk closes. The **Prizes** tab
+sells four placeable collectibles for the inserted **To** pass's Prize Points. See the
 [Arcade Pass economy guide](../arcade_economy/README.md) for configurable prices
 and the complete play/reward loop. Empty gachapon capsules are not sold:
 filled capsules still come from stocked gachapon machines.
@@ -110,14 +111,17 @@ source faces. Split faces are clipped rather than duplicated across blocks.
 
 ## Verification
 
-The Java 21 release build and all **96 dedicated-server GameTests** passed on
+The Java 21 release build and all **100 dedicated-server GameTests** passed on
 2026-10-06. Nine kiosk tests cover both block halves in all directions, support
 and obstruction handling, every catalog purchase, split/offhand payments,
 invalid or stale requests, survival/creative overflow, canceled or substituted
 drop events, delayed pickup after save/reload, and the loaded shaped recipe.
 Ten additional kiosk economy tests cover pass issuance, exchanges, transfers,
 prize purchases, card persistence, transaction isolation and live rebalancing;
-six paid-play tests cover the cabinets and pass data. Current economy UI
+six paid-play tests cover the cabinets and pass data. Four more tests cover real
+pass-slot interactions, stale reinsertion, viewer isolation, safe returns on
+close/removal/logout/death, canceled overflow recovery and mid-delivery card swaps.
+Current economy UI
 screenshots and checks are in the [economy guide](../arcade_economy/README.md).
 
 The packaged JAR was checked against all 16 relevant source resources, including

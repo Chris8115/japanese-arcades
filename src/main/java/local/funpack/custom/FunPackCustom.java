@@ -227,6 +227,7 @@ public final class FunPackCustom {
         NeoForge.EVENT_BUS.register(TaikoDrumInteraction.class);
         NeoForge.EVENT_BUS.register(InitialDSeatEntity.class);
         NeoForge.EVENT_BUS.register(ArcadePlayInteraction.class);
+        NeoForge.EVENT_BUS.register(ArcadeKioskMenu.class);
         NeoForge.EVENT_BUS.addListener(ArcadeKioskMenu::protectOverflowPickup);
         NeoForge.EVENT_BUS.addListener(FunPackCustom::registerCommands);
         LOGGER.info("Fun Pack Custom loaded. Development environment is ready.");

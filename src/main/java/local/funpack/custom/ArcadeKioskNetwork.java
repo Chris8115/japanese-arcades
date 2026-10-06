@@ -63,7 +63,7 @@ public final class ArcadeKioskNetwork {
     private static ResourceLocation id(String path) { return ResourceLocation.fromNamespaceAndPath(FunPackCustom.MOD_ID, path); }
 
     public static void register(RegisterPayloadHandlersEvent event) {
-        var registrar = event.registrar("arcade-kiosk-2");
+        var registrar = event.registrar("arcade-kiosk-3");
         registrar.playToServer(OrderPayload.TYPE, OrderPayload.CODEC, (payload, context) -> {
             if (context.player() instanceof ServerPlayer player) { handleOrder(player, payload); }
         });

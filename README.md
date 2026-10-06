@@ -49,7 +49,8 @@ select a machine to see its material costs. The **Order** button exchanges those
 materials for the selected machine, putting it into the player's inventory or
 dropping it nearby if full. The **Machines** and **Prizes** tabs can be extended as
 new content is added. The **Passes** tab issues Arcade Passes, loads Credits from
-iron, gold, emeralds or diamonds, and combines balances between cards. Use a pass
+iron, gold, emeralds or diamonds, and combines balances between cards placed in
+real **From** and **To** slots. Both cards return when the kiosk closes. Use a pass
 on a full-size arcade cabinet to spend Credits and earn randomized Prize Points,
 then redeem them in **Prizes** for four placeable collectibles. Prices, rank
 weights and machine profiles are server-configurable. See the
@@ -73,7 +74,7 @@ Use **Terminal > Run Task** for the `Fun:` tasks, or open a terminal here:
 - `SyncPack` refreshes the copied mods, configs, resource packs, and pack scripts from the live pack.
 - `Prepare` downloads game assets and prepares client/server launch files.
 - `Server` launches a small dedicated server for checking server compatibility.
-- `GameTest` runs 96 cabinet, gachapon, ordering and Arcade Pass economy integration tests in a disposable test world and exits.
+- `GameTest` runs 100 cabinet, gachapon, ordering and Arcade Pass economy integration tests in a disposable test world and exits.
 - `Data` runs our data generators once we add them.
 
 The script selects Java 21 locally. Your default Java installation remains available to other projects.
@@ -127,7 +128,10 @@ versioned save/network data, all four exchanges, balance transfers, stale and
 cross-player requests, atomic prize delivery, spawn-event reentrancy, live
 configuration changes, all twelve paid cabinets, weighted rewards, cooldowns,
 invalid interaction rejection, and preservation of idle state and disc playback.
-All 96 passed on 2026-10-06.
+Physical pass-slot tests cover native insertion and shift-clicks, tab restrictions,
+reinserted-card stale requests, separate viewer inventories, close/break/logout/death
+returns, canceled overflow recovery, creative pickup, and swaps during delivery.
+All 100 passed on 2026-10-06.
 Visual checks and full-pack compatibility remain separate from these server tests.
 
 `SyncPack` overwrites files that exist in the source pack's configuration. Close the development
