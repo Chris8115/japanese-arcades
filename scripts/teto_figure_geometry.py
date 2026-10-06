@@ -13,6 +13,9 @@ COLORS = {
     'gray':'#b2a7ab', 'gray_light':'#cfbdbe', 'gray_dark':'#8d8290',
     'pink':'#ed638e', 'pink_light':'#ff91af', 'pink_dark':'#b93b68',
     'black':'#292733', 'black_light':'#3c3442', 'black_dark':'#1d202b',
+    'face_base':'#edc5cc', 'face_lash':'#352936',
+    'face_pupil':'#8c385c', 'face_iris':'#cf5276', 'face_sclera':'#c2b9c3',
+    'face_cheek':'#e5aebe', 'face_mouth':'#dfa4b8',
 }
 
 
@@ -52,6 +55,20 @@ class _Voxels:
 def _pixel(g,name,x,y,width,height,material,z=5.498):
     g.face(name,[(x,y+height,z),(x+width,y+height,z),
                 (x+width,y,z),(x,y,z)],material)
+
+
+def _paint_face(g):
+    # Miku's accepted square-pixel layout, with rose irises for Teto:
+    # inner iris, outer eye white, then skin at the outside of each eye.
+    rows=('SSSSSSSS','SSSSSSSS','SSSSSSSS','SDDSSDDS',
+          'SWPSSPWS','SWISSIWS','BSSMMSSB')
+    colors={'S':'face_base','D':'face_lash','W':'face_sclera',
+            'P':'face_pupil','I':'face_iris','B':'face_cheek','M':'face_mouth'}
+    step=3.28/8
+    for row,cells in enumerate(rows):
+        for column,color in enumerate(cells):
+            _pixel(g,'Teto reference face pixel %d %d'%(row,column),
+                   6.36+column*step,8.5+(6-row)*step,step,step,colors[color])
 
 
 def _square_curl(g,side,center,handedness):
@@ -168,8 +185,8 @@ def build():
 
     g.group='Teto square skin head'
     v=_Voxels('Teto cuboid skin head')
-    v.block((5.5,8.5,5.5),(10.5,11.5,9.75),'skin')
-    v.block((5.75,8.5,5.5),(10.25,11.25,5.75),'skin_light')
+    v.block((5.5,8.5,5.5),(10.5,11.5,9.75),'face_base')
+    v.block((5.75,8.5,5.5),(10.25,11.25,5.75),'face_base')
     v.emit(g)
 
     g.group='Teto dense stepped pink voxel hair'
@@ -222,21 +239,7 @@ def build():
     v.emit(g)
 
     g.group='Teto flat Minecraft pixel expression'
-    for eye,old_x in enumerate((6.5,8.75)):
-        # Move whole eyes inward with the narrower head, retaining square
-        # quarter-unit artwork pixels rather than compressing the expression.
-        cx=8+(old_x+.375-8)*.84-.375
-        pattern=['DDD','HRR','RPP','PPP','PPP']
-        palette={'D':'lash','H':'eye_glint','R':'eye_red','P':'eye_pink'}
-        for row,line in enumerate(pattern):
-            if eye:line=line[::-1]
-            for column,color in enumerate(line):
-                _pixel(g,'Teto eye %d flat pixel %d %d'%(eye,row,column),
-                       cx+column*.25,10.5-row*.25,.25,.25,palette[color])
-    for side, old_x in (('left',6.5),('right',9.5)):
-        x=8+(old_x-8)*.84-.25
-        _pixel(g,'Teto '+side+' quiet cheek',x,9.25,.5,.25,'cheek')
-        _pixel(g,'Teto '+side+' lower soft cheek',x+(.25 if side=='right' else 0),9,.25,.25,'cheek_pale')
+    _paint_face(g)
 
     g.group='Teto square stepped drill twin tails'
     _square_curl(g,'left',3.75,1)

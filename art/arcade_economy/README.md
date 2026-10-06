@@ -166,10 +166,10 @@ allow a later appearance rollback without undoing unrelated gameplay work.
   saves `arcade_prizes.blend`, with packed artwork and editable prize meshes.
 - Each prize has `<id>.geometry.json`, `<id>.bbmodel`, and `<id>.png` here.
 - `arcade-prizes.png` shows the two figures side by side at their actual scale.
-- `miku-face-detail.png` shows the exported face and hair closely; regenerate
-  just this view and Miku's front view with the renderer's `--miku-face-only`
-  option. `--miku-only` refreshes all Miku views, the pair and packed scene;
-  a full render also refreshes Teto's views.
+- `miku-face-detail.png` and `teto-face-detail.png` show the exported faces
+  closely. `--miku-face-only` or `--teto-face-only` refreshes the corresponding
+  detail and front views. `--miku-only` or `--teto-only` refreshes that figure's
+  views, the pair and packed scene; a full render refreshes both figures.
 - `arcade-pass-source.png` is the immutable authored card artwork, based on the
   user's red-and-white e-amusement reference. `scripts/prepare_arcade_pass.py`
   copies it byte for byte to the `arcade-pass.png` preview. For the runtime
@@ -203,9 +203,9 @@ meshes and Blockbench files, and rendered directly for the previews. Facial
 features use flat pixel art to match the references, with compact chibi bodies,
 large heads, layered hair, and small display bases.
 
-The source meshes contain 4,230 Miku faces and 9,935 Teto faces. An isolated
+The source meshes contain 4,230 Miku faces and 9,957 Teto faces. An isolated
 NeoForge OBJ bake verified all four placed facings and both item models:
-70,825 baked quads with finite coordinates, the expected UVs and ordinary
+70,935 baked quads with finite coordinates, the expected UVs and ordinary
 world lighting. The final JAR matches every source resource, contains 107
 Java 21 classes, excludes retired assets and verification helpers, and leaves
 the pass artwork byte-identical to the previous version.
@@ -221,16 +221,20 @@ and face color at the outer edge, with all geometry preserved.
 The upper crown was then shortened by four whole hair-cube courses, lowering
 its top from Y12.75 to Y11.25. Upper clips and tail roots follow that reduction;
 the painted face, lower fringe tips, cheek locks, earphones and body stay put.
+Teto now uses the same square-pixel face layout as Miku, with rose irises,
+outer eye whites, skin at the edges and one blush pixel per cheek. Her head
+skin matches the face palette; hair, head shape, body and outfit are preserved.
 
 The small native client verified real 2,500-point purchases of both figures,
 insufficient funds, physical pass-slot return, purchased-item placement,
 survival recovery, opposite facings, cabinet play, and the minimum GUI size.
 The native views below include the larger hair cubes and lowered face pixels,
 captured before the last bang/side-lock extension and single-column iris edit.
-They also precede the shorter upper crown. The hair changes passed Build, OBJ
+They also precede the shorter upper crown and Teto's matching face update.
+The hair and Teto face changes passed Build, OBJ
 baking and direct model render checks; the
-iris edit passed Build and a color-only mesh comparison. The studio views show
-both changes. The earlier full copied-pack check passed with the same gameplay
+Miku iris edit passed Build and a color-only mesh comparison. The studio views
+show the current models. The earlier full copied-pack check passed with the same gameplay
 code and the pre-voxel assets; its saved image is kept with that rollback.
 
 ![Prizes in the kiosk](prize-shop-in-game.png)
