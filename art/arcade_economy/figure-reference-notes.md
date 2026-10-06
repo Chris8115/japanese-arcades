@@ -12,6 +12,7 @@ These observations describe the user-supplied reference sheets. Byte-identical c
 - **Final Miku pixel correction:** after the hair rebuild, move the accepted eye pattern down one face pixel and use one blush pixel at each lower outer cheek corner. This is a palette/UV update on the existing face grid; preserve all head, hair and body vertices.
 - The subsequent fringe adjustment extends the bangs down one hair-grid cell and brings the small side locks to the cheek line. It preserves that corrected eye/blush pattern, the crown, twin tails, headset and body.
 - Each Miku eye has one blue iris column toward the nose, eye white outside that, and face color at the outer edge. Keep the dark upper eye pixels above the blue/white area and preserve all pixel positions.
+- Shorten Miku's tall upper crown by two complete 0.375-unit courses. Lower the upper hair clips and tail roots with it, preserve the painted face and lower fringe/cheek locks, and retain full-sized cubes rather than flattening them.
 
 ## Voxel construction
 

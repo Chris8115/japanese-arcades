@@ -101,7 +101,7 @@ def _crown():
 
     # Five broad coherent fringe groups replace the crowded narrow ribs.
     # The fringe ends one hair pixel lower, with small side locks extending
-    # to the cheek line. The crown, tails and painted face stay in place.
+    # to the cheek line. These ends stay fixed when trimming the upper crown.
     block((0,2,2),(1,9,4),'hair_mid')
     block((1,3,2),(2,10,4),'hair')
     block((1,0,1),(2,10,4),'hair')
@@ -138,6 +138,10 @@ def _crown():
     block((5,11,6),(7,12,9),'hair')
     block((7,10,3),(9,11,6),'hair_soft')
     block((7,11,8),(9,12,11),'hair_light')
+    # Shorten above the painted face by two whole courses, preserving cube
+    # proportions and the existing fringe tips and cheek locks below them.
+    hair.cells = {(x, y if y < 7 else y-2, z): color
+                  for (x,y,z),color in hair.cells.items() if y not in (7,8)}
     return hair
 
 
@@ -174,6 +178,10 @@ def _tail(side):
         ((7,24,1),(9,27,4),'hair_light'),
     ]:
         hair.grid_box(lo,hi,color)
+    # Lower only the roots with the shorter crown; keep the long tails and
+    # their bottom tips fixed instead of scaling the whole hairstyle.
+    hair.cells = {(x, y if y < 24 else y-2, z): color
+                  for (x,y,z),color in hair.cells.items() if y not in (24,25)}
     if side<0:
         hair.cells={(-x-1,y,z):color for (x,y,z),color in hair.cells.items()}
         hair.origin=(8.125,1.75,6.875)
@@ -307,7 +315,7 @@ def build():
     g.group = 'Flat Minecraft pixel face'
     # Keep the painted face just in front of the crown core at z5.75;
     # coplanar skin/hair layers self-shadowed into black forehead strips.
-    g.box('flat square head skin', (6.00,8.00,5.74),(10.00,11.50,9.50),'face_base')
+    g.box('flat square head skin', (6.00,8.00,5.74),(10.00,10.875,9.50),'face_base')
     _paint_face(g)
 
     g.group = 'Chunky cubic crown and fringe'
@@ -333,4 +341,6 @@ def build():
         narrow |= face['name'].startswith('flat square head skin ')
         if narrow:
             face['vertices'] = [[8+(x-8)*.82,y,z] for x,y,z in face['vertices']]
+        if 'hair clip' in face['name']:
+            face['vertices'] = [[x,y-.75,z] for x,y,z in face['vertices']]
     return g
