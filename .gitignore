@@ -14,3 +14,4 @@ out/
 src/generated/**/.cache/
 *.blend1
 *.blend2
+__pycache__/

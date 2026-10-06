@@ -15,6 +15,11 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 
+from nostalgia_cabinet_geometry import build_cabinet
+from nostalgia_console_geometry import build_console
+from nostalgia_marquee_geometry import build_marquee
+from nostalgia_surface_art import build_surface_art
+
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / 'src/main/resources/assets/funpackcustom'
 ART = ROOT / 'art/nostalgia-op3'
@@ -38,7 +43,7 @@ packed_art.save(TEXTURES / 'nostalgia_artwork.png')
 ART_UV_SCALE = source_art.width / art_size
 
 # Preserve the generated cutout alpha when packing the marquee sprite atlas.
-marquee_source = Image.open(ART / 'marquee-artwork-source.png').convert('RGBA')
+marquee_source = Image.open(ART / 'marquee-artwork-v2.png').convert('RGBA')
 assert marquee_source.getextrema()[3][0] == 0, 'Marquee sprites need a transparent background'
 marquee_size = tuple(1 << (n-1).bit_length() for n in marquee_source.size)
 marquee_atlas = Image.new('RGBA', marquee_size, (0,0,0,0))
@@ -70,10 +75,12 @@ def tile_image(name):
     color = PALETTE[name]
     im = Image.new('RGB', (TILE, TILE), color)
     p = im.load()
-    for y in range(TILE):
-        for x in range(TILE):
-            noise = rng.choice([-2, -1, 0, 0, 1, 2])
-            p[x, y] = tuple(max(0, min(255, c + noise)) for c in color)
+    for y in range(0,TILE,4):
+        for x in range(0,TILE,4):
+            noise = rng.choice([-3, -2, 0, 0, 2, 3])
+            for dy in range(4):
+                for dx in range(4):
+                    p[x+dx, y+dy] = tuple(max(0, min(255, c + noise)) for c in color)
     d = ImageDraw.Draw(im)
     if name == 'ivory':
         for _ in range(18):
@@ -94,10 +101,17 @@ def tile_image(name):
         for x, y in ((3,3), (59,3), (3,59), (59,59)):
             d.rectangle((x, y, x+1, y+1), fill=(82, 86, 92))
     elif name == 'triangle':
-        d.polygon([(32, 5), (4, 58), (60, 58)], fill=(66, 67, 75), outline=(166, 164, 169), width=1)
-        d.line([(32,10),(10,55),(54,55),(32,10)], fill=(110,110,119), width=1)
-        for radius in (9, 12, 16):
-            d.ellipse((32-radius,38-radius,32+radius,38+radius), outline=(150,146,155), width=1)
+        d.polygon([(32, 5), (4, 58), (60, 58)], fill=(38,40,46), outline=(147,144,139), width=1)
+        d.line([(32,10),(10,55),(54,55),(32,10)], fill=(90,91,96), width=1)
+        for radius in (9, 11, 15, 17):
+            d.ellipse((32-radius,38-radius,32+radius,38+radius), outline=(115,113,119), width=1)
+        for n in range(24):
+            angle=n*math.pi/12
+            x,y=round(32+19*math.cos(angle)),round(38+19*math.sin(angle))
+            if y<55 and abs(x-32)<(y-5)*.51:
+                d.point((x,y),fill=(193,183,165))
+        for x,y in ((27,23),(37,23),(19,45),(46,46),(32,52),(24,50),(39,51)):
+            d.polygon([(x,y-1),(x-1,y+1),(x+1,y+1)],fill=(144,139,143))
         for x,y in ((32,14),(14,51),(50,51)):
             d.rectangle((x-1,y-1,x+1,y+1), fill=(175,171,179))
     elif name == 'rhythm':
@@ -137,32 +151,8 @@ for i, name in enumerate(KEYS):
     ATLAS.paste(tile_image(name), ((i % 4)*TILE, (i//4)*TILE))
 ATLAS.save(TEXTURES / 'nostalgia_materials.png')
 
-# A dedicated tall side graphic keeps lettering proportionate on the narrow panel.
-side_texture=Image.new('RGB',(128,512),PALETTE['ivory'])
-side_draw=ImageDraw.Draw(side_texture)
-side_draw.rectangle((7,7,120,504),outline=(187,153,87),width=2)
-for y in range(22,495,38):
-    for x in (18,110):
-        side_draw.line([(x-6,y),(x,y-7),(x+6,y),(x,y+7),(x-6,y)],fill=(188,155,87),width=2)
-centered(side_draw,(64,245),'NOSTALGIA',15,(77,58,44),True)
-centered(side_draw,(64,272),'Op.3',19,(103,68,48),True)
-for y in (190,322):
-    side_draw.line([(26,y),(102,y)],fill=(186,153,87),width=2)
-    side_draw.polygon([(64,y-7),(71,y),(64,y+7),(57,y)],outline=(186,153,87))
-side_texture.save(TEXTURES/'nostalgia_side.png')
-
-trim_texture=Image.new('RGB',(512,64),PALETTE['ivory'])
-trim_draw=ImageDraw.Draw(trim_texture)
-trim_draw.rectangle((2,2,509,61),outline=(184,151,85),width=2)
-trim_draw.line([(8,8),(503,8)],fill=(241,228,201),width=2)
-for center in range(42,500,86):
-    ink=(194,164,106)
-    trim_draw.arc((center-26,16,center+26,48),10,170,fill=ink,width=2)
-    trim_draw.arc((center-18,21,center+18,43),190,350,fill=ink,width=2)
-    trim_draw.line([(center-25,32),(center-8,32),(center,22),(center+8,32),(center+25,32)],fill=ink,width=2)
-    for x,y in ((center-20,32),(center+20,32),(center,46)):
-        trim_draw.rectangle((x-2,y-2,x+2,y+2),fill=ink)
-trim_texture.save(TEXTURES/'nostalgia_marquee_trim.png')
+# Native printed surfaces share a restrained pixel palette.
+build_surface_art(TEXTURES, PALETTE, font)
 
 def uv(name):
     i = KEYS.index(name)
@@ -171,10 +161,12 @@ def uv(name):
 elements = []
 
 def cube(name, start, end, material='black', *, north=None, east=None, west=None,
+         south=None, up=None, down=None,
          rotation=None, glow=False, group='Cabinet'):
     faces = {direction: {'uv': uv(material), 'texture': '#materials'}
              for direction in ('north','east','south','west','up','down')}
-    for direction, override in (('north',north),('east',east),('west',west)):
+    for direction, override in (('north',north),('east',east),('west',west),
+                                ('south',south),('up',up),('down',down)):
         if override:
             texture, tex_uv = override
             coordinates = [v*ART_UV_SCALE for v in tex_uv] if texture == 'artwork' else tex_uv
@@ -189,7 +181,7 @@ def cube(name, start, end, material='black', *, north=None, east=None, west=None
         if glow is True: element['shade'] = False
         for direction,face in faces.items():
             if glow is True or direction in glow:
-                face['neoforge_data'] = {'block_light':15, 'sky_light':15}
+                face['neoforge_data'] = {'block_light':15, 'sky_light':15, 'ambient_occlusion':False}
     element['_group'] = group
     elements.append(element)
 
@@ -208,8 +200,9 @@ def cutout_sprite(name, cell, start, end, material, *, rotation=None, glow=False
     bbox=sprite_alpha.point(lambda alpha: 255 if alpha >= 128 else 0).getbbox()
     assert bbox, 'Missing marquee sprite '+name
     px0,py0,px1,py1=bbox
-    cols=24
+    cols=20
     rows=max(12,round(cols*(py1-py0)/(px1-px0)*(end[0]-start[0])/(end[1]-start[1])))
+    mask=[]
     for iy in range(rows):
         active=[]
         for ix in range(cols):
@@ -220,215 +213,49 @@ def cutout_sprite(name, cell, start, end, material, *, rotation=None, glow=False
             opaque=sum(histogram[128:])
             radius=math.hypot((ix+.5)/cols*2-1,(iy+.5)/rows*2-1)
             depth_level=2 if radius<.30 else 1 if radius<.78 else 0
-            active.append(depth_level if opaque >= region.width*region.height*.35 else -1)
+            active.append((depth_level if relief else 0) if opaque >= region.width*region.height*.35 else -1)
+        mask.append(active)
+    # Greedy rectangles retain stepped silhouettes/UVs, while avoiding six faces
+    # for every pixel row inside a solid book page or flower petal.
+    for iy in range(rows):
         ix=0
         while ix<cols:
-            if active[ix]<0:
+            if mask[iy][ix]<0:
                 ix+=1
                 continue
             first=ix
-            depth_level=active[ix] if relief else 0
-            while ix<cols and active[ix]>=0 and (not relief or active[ix]==depth_level): ix+=1
+            depth_level=mask[iy][ix]
+            while ix<cols and mask[iy][ix]==depth_level: ix+=1
+            bottom=iy+1
+            while bottom<rows and all(mask[bottom][x]==depth_level for x in range(first,ix)):
+                bottom+=1
+            for y in range(iy,bottom):
+                for x in range(first,ix): mask[y][x]=-1
             x0=start[0]+(end[0]-start[0])*first/cols
             x1=start[0]+(end[0]-start[0])*ix/cols
-            y0=end[1]-(end[1]-start[1])*(iy+1)/rows
+            y0=end[1]-(end[1]-start[1])*bottom/rows
             y1=end[1]-(end[1]-start[1])*iy/rows
             u0=(cx0+px0+(px1-px0)*first/cols)/sw*16
             u1=(cx0+px0+(px1-px0)*ix/cols)/sw*16
             v0=(cy0+py0+(py1-py0)*iy/rows)/sh*16
-            v1=(cy0+py0+(py1-py0)*(iy+1)/rows)/sh*16
+            v1=(cy0+py0+(py1-py0)*bottom/rows)/sh*16
             front=start[2]-relief*depth_level/2
             cube(name+' row %02d run %02d'%(iy,first),(x0,y0,front),(x1,y1,end[2]),
                  material,north=('marquee',[u0,v0,u1,v1]) if printed else None,
                  rotation=rotation,glow=glow,group=group)
 
-# Three stacked body segments keep the world model within vanilla JSON bounds.
-for y0,y1,label in ((1.4,16,'Base'),(16,32,'Console'),(32,39.4,'Display')):
-    cube(label+' back shell',(1.2,y0,8.8),(14.8,y1,15.1), group='Back cabinet')
-cube('Left footwell wall',(1.2,1.4,4.3),(2.1,16,9.0),group='Recessed footwell')
-cube('Right footwell wall',(13.9,1.4,4.3),(14.8,16,9.0),group='Recessed footwell')
-cube('Footwell floor',(2.1,1.45,4.5),(13.9,2.15,9.1),'black_key',group='Recessed footwell')
-cube('Inset service door',(3.0,9.8,8.60),(13.5,15.8,8.87),group='Recessed footwell')
-cube('Footwell top return',(2.0,15.4,4.3),(14.0,16,9.0),group='Recessed footwell')
-cube('Kick panel',(0.8,0.7,3.8),(15.2,2,15.1),'silver',group='Lower cabinet')
-for x in (1.7,13.7):
-    for z in (4.7,13.5):
-        cube('Cabinet foot',(x,0,z),(x+0.8,0.9,z+0.8),'black_key',group='Lower cabinet')
-# A stepped triangular plate leans back into the open footwell. The artwork's
-# continuous UVs are clipped to each strip, so this is real inset geometry.
-triangle_tilt=('x',22.5,(8,3.15,5.4))
-for i in range(14):
-    y0=3.15+i*6.5/14
-    y1=3.15+(i+1)*6.5/14
-    half=3.7*(1-i/14)
-    u0,u1=32-half/3.7*28,32+half/3.7*28
-    v0,v1=58-(i+1)/14*53,58-i/14*53
-    triangle_uv=[12+u0/16,8+v0/16,12+u1/16,8+v1/16]
-    cube('Recessed triangle strip %02d'%i,(8-half,y0,5.4),(8+half,y1,5.62),
-         'silver',north=('materials',triangle_uv),rotation=triangle_tilt,group='Recessed footwell')
-cube('Inset door split',(9.9,10,8.53),(10.0,15.2,8.72),'black_key',group='Recessed footwell')
-cube('Inset door lock',(12.5,10.8,8.5),(12.8,11.5,8.68),'silver',group='Recessed footwell')
-for side,x in (('left',1.25),('right',14.25)):
-    cube(side+' lower ornamental border',(x,2.1,4.05),(x+0.5,15.9,4.22),'silver',group='Lower cabinet')
-    for i in range(12):
-        y=2.6+i*1.05
-        cube(side+' diamond '+str(i),(x-0.06,y,3.97),(x+0.34,y+0.4,4.07),
-             'ivory' if i%3 else 'lavender',rotation=('z',45,(x+0.14,y+0.2,4.02)),group='Lower cabinet')
-for side,x in (('left',1.10),('right',14.78)):
-    cube(side+' side vent',(x,4.5,10.2),(x+0.12,11.5,14.2),east=('materials',uv('vent')),
-         west=('materials',uv('vent')),group='Back cabinet')
-    cube(side+' ivory side panel',(x,17.0,10.1),(x+0.14,37.9,14.9),'ivory',
-         east=('side',[0,0,16,16]),west=('side',[0,0,16,16]),group='Back cabinet')
+build_cabinet(cube, uv)
+build_console(cube, uv)
 
-# Keyboard and slanted touchscreen. The panel leans back 22.5 degrees.
-cube('Console support',(0.7,16,3.3),(15.3,18.4,14.8),group='Keyboard')
-# The real cabinet has a solid enclosure behind the inclined monitor. Horizontal
-# courses fill its wedge back to the rear shell; their small front steps sit
-# inside the thick monitor backing and are hidden by its continuous sloped face.
-housing_bottom, housing_top = 18.4, 26.3
-housing_courses = 24
-for i in range(housing_courses):
-    y0 = housing_bottom + (housing_top-housing_bottom)*i/housing_courses
-    y1 = housing_bottom + (housing_top-housing_bottom)*(i+1)/housing_courses
-    front = 2.8 + math.tan(math.radians(22.5))*(y0-19.1) + 0.72/math.cos(math.radians(22.5))
-    cube('Solid touchscreen housing course %02d'%i,(1.2,y0,front),(14.8,y1,8.95),
-         group='Touchscreen enclosure')
-cube('Keyboard shelf',(0.3,17.8,0),(15.7,18.5,9.1),'ivory',group='Keyboard')
-cube('Front keyboard trim',(0.3,17.65,-0.02),(15.7,18.08,0.22),'gold',group='Keyboard')
-cube('Keyboard light strip',(0.75,18.36,0.17),(15.25,18.5,0.35),'teal',glow=True,group='Keyboard')
-for x in (0.3,15.05):
-    cube('Keyboard cheek',(x,18.25,0.1),(x+0.65,18.95,4.5),'ivory',group='Keyboard')
-white_count = 24
-key_width = 13.7/white_count
-for i in range(white_count):
-    x=1.15+i*key_width
-    cube('White piano key %02d'%i,(x,18.51,0.65),(x+key_width-0.035,18.89,3.75),'white_key',group='Piano keys')
-    if i%7 not in (2,6) and i<white_count-1:
-        cube('Black piano key %02d'%i,(x+key_width-0.20,18.89,2.04),
-             (x+key_width+0.15,19.20,3.75),'black_key',group='Piano keys')
-tilt = ('x',22.5,(8,19.1,2.8))
-cube('Angled screen backing',(0.8,19.1,2.8),(15.2,26.8,3.7),'ivory',rotation=tilt,group='Touchscreen')
-cube('Angled dark bezel',(1.45,19.5,2.7),(14.55,26.35,2.83),'black_key',rotation=tilt,group='Touchscreen')
-cube('Rhythm screen',(1.78,19.79,2.66),(14.22,26.04,2.71),
-     north=('materials',uv('rhythm')),rotation=tilt,glow=True,group='Touchscreen')
-for x in (0.9,14.65):
-    cube('Gold touchscreen rail',(x,19.16,2.6),(x+0.42,26.75,2.79),'gold',rotation=tilt,group='Touchscreen')
-    cube('Illuminated touchscreen rail',(x+0.12,19.5,2.56),(x+0.24,26.4,2.63),'white_key',
-         rotation=tilt,glow=True,group='Touchscreen')
-
-# The central fascia leans back into the upper monitor. Each speaker wing also
-# toes inward: its outer edge projects forward. Thin horizontal courses preserve
-# the vertical lean while their Y rotation supplies the inward-facing normal,
-# using vanilla cuboids' single-axis rotation and the concept's stepped style.
-speaker_tilt=('x',22.5,(8,26.0,6.45))
-cube('Slanted central speaker fascia',(4.10,26.0,6.45),(11.90,29.8,9.2),'ivory',
-     rotation=speaker_tilt,group='Speakers and sign')
-lean_sin,lean_cos=math.sin(math.radians(22.5)),math.cos(math.radians(22.5))
-def speaker_courses(name,x0,x1,y0,y1,offset,depth,hinge,angle,material,count):
-    tile=uv(material)
-    for i in range(count):
-        low=y0+(y1-y0)*i/count
-        high=y0+(y1-y0)*(i+1)/count
-        z=6.45+((low+high)/2-26)*lean_sin+offset*lean_cos
-        bottom=26+(low-26)*lean_cos-offset*lean_sin
-        top=26+(high-26)*lean_cos-offset*lean_sin
-        tex_uv=[tile[0],tile[1]+(y1-high)/(y1-y0)*(tile[3]-tile[1]),
-                tile[2],tile[1]+(y1-low)/(y1-y0)*(tile[3]-tile[1])]
-        cube(name+' course %02d'%i,(x0,bottom,z),(x1,top,z+depth),'ivory',
-             north=('materials',tex_uv),rotation=('y',angle,(hinge,26,z)),group='Speakers and sign')
-for side,x0,x1,hinge,angle in (('Left',.75,4.40,4.20,-22.5),('Right',11.60,15.25,11.80,22.5)):
-    speaker_courses(side+' inward speaker housing',x0,x1,26.0,29.8,0,1.35,hinge,angle,'ivory',32)
-    speaker_courses(side+' inward speaker grille',x0+.20,x1-.20,26.30,29.50,-.18,.18,hinge,angle,'speaker',24)
-    for y in (26.14,29.55):
-        speaker_courses(side+' speaker raised rim '+str(y),x0+.13,x1-.13,y,y+.13,-.23,.24,
-                        hinge,angle,'white_key',1)
-cube('Gold title surround',(4.34,26.49,6.22),(11.66,29.23,6.55),'gold',
-     rotation=speaker_tilt,group='Speakers and sign')
-cube('Nostalgia title plaque',(4.53,26.65,6.16),(11.47,29.07,6.27),'black_key',
-     north=('artwork',[8,0,16,8]),rotation=speaker_tilt,glow=True,group='Speakers and sign')
-
-# Upper screen, ivory trim, and gold edge decoration.
-cube('Upper screen housing',(0.75,29.5,7.85),(15.25,39.45,9.50),'ivory',group='Upper monitor')
-cube('Upper screen gold bevel',(1.19,29.78,7.72),(14.81,39.00,7.93),'gold',group='Upper monitor')
-cube('Upper screen dark border',(1.43,30.05,7.65),(14.57,38.73,7.80),'black_key',group='Upper monitor')
-cube('Nostalgia Op.3 screen',(1.68,30.29,7.59),(14.32,38.49,7.70),'black_key',
-     north=('artwork',[0,0,8,8]),glow=True,group='Upper monitor')
-for x in (1.56,14.38):
-    cube('Upper screen light edge '+str(x),(x,30.22,7.54),(x+.055,38.56,7.60),
-         'lavender',glow=True,group='Upper monitor lights')
-cube('Upper screen lower light edge',(1.56,30.19,7.53),(14.435,30.25,7.60),
-     'blue',glow=True,group='Upper monitor lights')
-cube('Ivory marquee ledge',(0.55,39.20,7.30),(15.45,39.85,10.35),'ivory',group='Marquee')
-cube('Marquee gold ribbon',(0.70,39.63,7.18),(15.30,39.83,7.37),'gold',group='Marquee')
-cube('Ornate cascading marquee fascia',(.30,38.98,6.25),(15.8,40.25,7.53),'ivory',
-     north=('trim',[0,0,16,16]),group='Marquee fascia')
-cube('Marquee fascia upper gold edge',(.30,40.15,6.17),(15.8,40.31,6.32),'gold',group='Marquee fascia')
-cube('Cabinet number badge',(.57,39.10,6.10),(1.56,40.15,6.29),'ivory',
-     north=('materials',uv('label')),group='Marquee fascia')
-for x in (0.94,14.83):
-    for y in (29.75,39.02):
-        cube('Monitor frame rivet',(x,y,7.72),(x+0.21,y+0.21,7.86),'silver',group='Upper monitor')
-
-# Separate stepped book pages form an open book, with the taller cat page on
-# the right. Their printed fronts follow the new reference-inspired artwork.
-for x in (6.8,8.5):
-    cube('Book mounting bracket '+str(x),(x,39.65,8.90),(x+0.50,41.05,9.55),
-         'gold',group='Book marquee')
-# Thick stepped gold covers, ivory page stacks, and the printed front leaf form
-# three separate depth layers on each half of the open book.
-for name,cell,x0,x1,top,angle,hinge in (
-        ('Left music',(0,1),1.25,7.95,45.7,22.5,7.95),
-        ('Right cat',(1,1),7.90,14.85,47.3,-22.5,7.90)):
-    rotation=('y',angle,(hinge,40.55,8.8))
-    cutout_sprite(name+' gold cover',cell,(x0-.12,40.40,9.08),(x1+.12,top+.15,9.88),
-                  'gold',rotation=rotation,printed=False,group='Book covers')
-    cutout_sprite(name+' ivory page stack',cell,(x0-.04,40.48,8.94),(x1+.04,top+.05,9.48),
-                  'white_key',rotation=rotation,printed=False,group='Book page layers')
-cutout_sprite('Left music page',(0,1),(1.25,40.55,8.8),(7.95,45.7,9.3),'gold',
-              rotation=('y',22.5,(7.95,40.55,8.8)),group='Book marquee')
-cutout_sprite('Right cat page',(1,1),(7.90,40.55,8.8),(14.85,47.3,9.3),'gold',
-              rotation=('y',-22.5,(7.90,40.55,8.8)),group='Book marquee')
-cube('Book center spine',(7.72,40.6,8.65),(8.12,45.1,9.1),'gold',group='Book marquee')
-for y in (41.15,42.25,43.35,44.45):
-    cube('Raised book spine band '+str(y),(7.62,y,8.52),(8.22,y+.20,9.24),
-         'gold',group='Book marquee')
-for i in range(11):
-    x=0.90+i*1.28
-    y=38.15+0.32*i
-    rotation=('z',-22.5,(8,40.4,8))
-    height=2.65+(0,.35,.65,.15,.45,.85,.20,.60,.30,.70,.40)[i]
-    front=(6.70,6.55,6.74)[i%3]
-    cube('Marquee white piano key '+str(i),(x,y,front),(x+1.12,y+height,8.80),
-         'white_key',rotation=rotation,group='Piano marquee')
-    cube('Marquee key colored heel '+str(i),(x,y,front-.10),(x+1.12,y+0.60,front+.10),
-         ('blue','lavender','pink')[i%3],rotation=rotation,group='Piano marquee')
-    if i%7 not in (2,6):
-        cube('Marquee red key '+str(i),(x+0.76,y+1.02,front-.28),(x+1.20,y+height+.18,front+.15),
-             'red_key',rotation=rotation,group='Piano marquee')
-    if i in (1,4,8):
-        cube('Marquee key light '+str(i),(x+.12,y+.64,front-.12),(x+.99,y+.78,front-.04),
-             'teal',rotation=rotation,glow=('north',),group='Piano marquee')
-for i,(x,y,material) in enumerate(((0.35,40.05,'blue'),(5.75,39.45,'lavender'),(11.65,38.70,'pink'))):
-    rotation=('z',-22.5,(x+1.875,y+1.925,6.3))
-    cutout_sprite('Rosette colored backing '+str(i),(i,0),(x-.13,y-.13,6.19),(x+3.88,y+3.98,7.32),
-                  material,rotation=rotation,printed=False,group='Rosette back layers')
-    cutout_sprite('Floral rosette '+str(i),(i,0),(x,y,5.95),(x+3.75,y+3.85,6.72),
-                  'ivory',rotation=rotation,glow=('north',),relief=.46)
-# Smaller flower cutouts spill down the monitor edge, as in the concept.
-for name,cell,x,y,width,material in (
-        ('Pink',(2,0),14.25,34.8,2.40,'pink'),
-        ('Lavender',(1,0),14.40,32.2,2.10,'lavender'),
-        ('Blue',(0,0),14.45,30.3,1.65,'blue')):
-    cutout_sprite(name+' monitor flower backing',cell,(x-.08,y-.08,7.47),(x+width+.08,y+width+.13,7.90),
-                  material,printed=False,group='Monitor flowers')
-    cutout_sprite(name+' monitor flower',cell,(x,y,7.23),(x+width,y+width+.05,7.57),
-                  'ivory',glow=('north',),relief=.24,group='Monitor flowers')
+build_marquee(cube, cutout_sprite)
 
 texture_paths = {'materials':'funpackcustom:block/nostalgia_materials',
                  'artwork':'funpackcustom:block/nostalgia_artwork',
                  'marquee':'funpackcustom:block/nostalgia_marquee',
-                 'trim':'funpackcustom:block/nostalgia_marquee_trim',
-                 'side':'funpackcustom:block/nostalgia_side',
+                 'trim':'funpackcustom:block/nostalgia_trim_v2',
+                 'rhythm':'funpackcustom:block/nostalgia_rhythm',
+                 'controls':'funpackcustom:block/nostalgia_controls',
+                 'side':'funpackcustom:block/nostalgia_side_v2',
                  'particle':'funpackcustom:block/nostalgia_materials'}
 
 # Minecraft's north-facing UVs run from +X to -X when viewed from the front.
@@ -461,7 +288,7 @@ for source in elements:
     parts[part_names[index]].append(e)
 for part in part_names:
     write_json(MODEL / ('nostalgia_op3_'+part+'.json'),
-               {'parent':'minecraft:block/block','ambientocclusion':False,'render_type':'minecraft:cutout',
+               {'parent':'minecraft:block/block','ambientocclusion':True,'render_type':'minecraft:cutout',
                 'textures':texture_paths,'elements':parts[part]})
 variants={}
 for facing,rotation in (('north',0),('east',90),('south',180),('west',270)):
@@ -495,6 +322,9 @@ im=Image.open(artwork)
 assert im.width == im.height and im.width & (im.width-1) == 0, 'Artwork must be a square power-of-two sheet'
 
 # Blockbench's free format preserves the complete cabinet and named groups.
+texture_specs = [(key,TEXTURES/(value.split('/')[-1]+'.png')) for key,value in texture_paths.items() if key!='particle']
+texture_indices = {'#'+key:i for i,(key,path) in enumerate(texture_specs)}
+texture_sizes = [Image.open(path).size for key,path in texture_specs]
 bb_elements=[]
 groups={}
 for source in elements:
@@ -507,8 +337,8 @@ for source in elements:
         rotation['xyz'.index(rot['axis'])]=rot['angle'];origin=rot['origin']
     bbfaces={}
     for direction,face in e['faces'].items():
-        index={'#materials':0,'#artwork':1,'#side':2,'#marquee':3,'#trim':4}[face['texture']]
-        width,height=((256,256),(im.width,im.height),(128,512),marquee_size,(512,64))[index]
+        index=texture_indices[face['texture']]
+        width,height=texture_sizes[index]
         bbfaces[direction]={'uv':[v*(width if i%2==0 else height)/16 for i,v in enumerate(face['uv'])], 'texture':index}
     bb_elements.append({'name':e['name'],'type':'cube','uuid':uid,'from':e['from'],'to':e['to'],
                         'origin':origin,'rotation':rotation,'faces':bbfaces,'box_uv':False,
@@ -516,10 +346,7 @@ for source in elements:
                         'shade':e.get('shade',True)})
     groups.setdefault(source['_group'],[]).append(uid)
 bbtextures=[]
-for i,(path,identifier) in enumerate(((TEXTURES/'nostalgia_materials.png','materials'),(artwork,'artwork'),
-                                     (TEXTURES/'nostalgia_side.png','side'),
-                                     (TEXTURES/'nostalgia_marquee.png','marquee'),
-                                     (TEXTURES/'nostalgia_marquee_trim.png','trim'))):
+for i,(identifier,path) in enumerate(texture_specs):
     texture=Image.open(path)
     bbtextures.append({'path':str(path),'name':path.name,'folder':'block','namespace':'funpackcustom',
                        'id':str(i),'uuid':str(uuid.uuid5(uuid.NAMESPACE_URL,'nostalgia/'+identifier)),

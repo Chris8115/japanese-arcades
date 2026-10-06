@@ -4,6 +4,22 @@ Arcade cabinet with jukebox playback for the Japanese Arcades creative tab. It h
 and occupies three vertical blocks. The shape and detail are adapted from the supplied
 photos and Minecraft concept; dimensions are artistic estimates rather than manufacturer measurements.
 
+The fidelity pass retains a Minecraft cuboid silhouette while bringing the casing,
+keyboard deck, speaker wings, and marquee closer to the supplied cabinet photos.
+The wider triangle sits against a rising metal threshold inside the footwell; small
+triangular motifs replace the former diamond border. The predominantly black shell
+has recessed service doors, transport grips, vents, fasteners, and adjustable feet.
+The keyboard has clipped corners, 28 ivory keys, shallow black accents, printed
+instructions, and a small inset slot. Both displays have matching ornamental detail.
+The central Nostalgia plaque selects a wide band of its artwork so the lettering
+keeps its height rather than compressing a square illustration into the fascia.
+The open book folds forward around its recessed spine, with a taller burgundy-cat
+page and layered page edges. Twelve staggered keys and three saturated rosettes
+cascade forward/down across the upper fascia. Geometry remains deliberately stepped.
+Greedy rectangle merging reduces the complete model from 1,315 to 858 cuboids while
+preserving the artwork silhouettes. Cabinet surfaces use ambient occlusion; lit
+screen faces explicitly disable it to retain their brightness in dark corners.
+
 The lower triangle is a **physical triangular plate leaning into an open recessed footwell**.
 The sloped touchscreen has a solid black enclosure joining it to the rear cabinet,
 so the side profile is filled behind the screen as in the real cabinet photos.
@@ -32,17 +48,29 @@ not add a bloom effect.
 - `nostalgia-op3.blend`: Blender preview scene with packed textures; studio lights and floor are preview-only.
 - `nostalgia-op3-front.png` / `nostalgia-op3-back.png` / `nostalgia-op3-side.png`: renders of the exported game geometry and UVs.
 - `nostalgia-op3-marquee.png`: close-up of the layered top decoration.
+- `nostalgia-op3-controls.png`: close-up of the angled speakers, lower display, and keyboard deck.
 - `geometry.json`: complete cabinet cuboids used by the renderer.
 - `artwork-source.png`: original, unchanged artwork generated with the built-in imagegen tool.
 - `imagegen-prompt.txt`: the exact artwork generation prompt.
 - `marquee-artwork-source.png`: original transparent marquee atlas made with the built-in imagegen tool.
 - `marquee-imagegen-prompt.txt`: the exact reference-guided marquee artwork prompt.
+- `marquee-artwork-v2.png`: current saturated blue/purple/pink rosettes and gold book pages, with preserved transparency.
+- `marquee-imagegen-prompt-v2.txt`: exact built-in imagegen prompts and provenance for the current atlas.
 
-The deterministic model source is `scripts/make_nostalgia_model.py`. It writes the three
+The deterministic entry point is `scripts/make_nostalgia_model.py`. Cabinet,
+console, and marquee geometry are separated into `nostalgia_cabinet_geometry.py`,
+`nostalgia_console_geometry.py`, and `nostalgia_marquee_geometry.py` beside it.
+`nostalgia_surface_art.py` draws the native pixel artwork for the rhythm display,
+keyboard labels, side insert, and trim. The entry point writes the three
 Minecraft section models, blockstate variants, inventory model, textures, and Blockbench project.
 `scripts/render_nostalgia_model.py` reads those same cuboids and UVs and renders them with Blender.
 Running the generator replaces generated model files, so preserve manual Blockbench edits separately
 or apply the changes to the generator when keeping it as the canonical source.
+Open `nostalgia-op3.bbmodel` in Blockbench to edit the complete grouped cabinet.
+It is a Generic Model because the cabinet spans three blocks; the generator supplies
+the separate bounded Java block models used by the mod. Embedded textures make the
+project portable. The preview renderer uses the same geometry and UVs as the game,
+with studio lighting; Minecraft lighting and shader settings can look different.
 
 The builder needs Python with Pillow; the renderer runs inside Blender 5.0.
 On this machine the bundled Python is available at
@@ -79,6 +107,10 @@ disc and playback progress persistence followed by removal, creative removal,
 blocked placement, and placing/ejecting a cabinet with saved disc data.
 All six passed on 2026-10-05. The structure template can be regenerated with
 `scripts/make_gametest_template.py`.
+The subsequent visual-only fidelity pass passes the build and an export audit:
+all 858 cuboids have valid dimensions and vanilla rotation/bounds, all 12 facing/part
+variants resolve, seven textures and their UVs agree with Blockbench, section-local
+coordinates reconstruct the complete model, and regeneration is deterministic.
 
 Minecraft resources are in `src/main/resources/assets/funpackcustom`, and the block's
 placement and interaction implementation is `NostalgiaCabinetBlock.java`.

@@ -116,6 +116,8 @@ if '--detail-only' not in sys.argv:
     render('nostalgia-op3-front.png',(3,-6,3.35))
     render('nostalgia-op3-back.png',(-3,6,3.6))
     render('nostalgia-op3-side.png',(6,.02,1.46))
+    scene.render.resolution_y=1100
+    render('nostalgia-op3-controls.png',(2,-5,3.4),target=(0,-.17,1.52),scale=1.65)
 scene.render.resolution_y=1100
 render('nostalgia-op3-marquee.png',(2.5,-6,3.65),target=(0,.05,2.64),scale=1.60)
 scene.render.resolution_y=1500
