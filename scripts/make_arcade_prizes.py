@@ -1,4 +1,4 @@
-"""Original compact arcade prizes and utility-card artwork; native OBJ export."""
+"""Original compact arcade prizes and authored pass artwork; native OBJ export."""
 import base64
 import json
 import math
@@ -7,6 +7,7 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 from initial_d_geometry import Geometry
+from prepare_arcade_pass import prepare_arcade_pass
 
 ROOT=Path(__file__).resolve().parents[1]
 ASSETS=ROOT/'src/main/resources/assets/funpackcustom'
@@ -48,19 +49,8 @@ d.arc((300,390,340,423),0,180,fill=COLORS['navy'],width=7)
 label(im,(320,649),'PLAY TOGETHER',44,COLORS['white']);label(im,(320,707),'GOOD GAMES. GOOD FRIENDS.',22,COLORS['navy']);im.save(TEX/'arcade_prize_poster.png')
 im=Image.new('RGB',(512,96),COLORS['navy']);label(im,(256,48),'RHYTHM STAR',48,COLORS['lightgold']);im.save(TEX/'arcade_prize_trophy_label.png')
 
-# Contactless pass silhouette: original white/teal/magenta design, no real issuer logo.
-im=Image.new('RGBA',(1024,640),(0,0,0,0));d=ImageDraw.Draw(im)
-d.rounded_rectangle((14,14,1010,626),58,fill=COLORS['white'],outline=COLORS['silver'],width=12)
-d.rounded_rectangle((34,34,990,606),42,outline='#dde7e2',width=4)
-d.polygon([(36,59),(973,59),(987,114),(36,342)],fill=COLORS['teal'])
-d.polygon([(600,605),(989,387),(989,568),(959,605)],fill=COLORS['pink'])
-d.polygon(star(121,123,49),fill=COLORS['white']);label(im,(226,122),'ARCADE',57,COLORS['white'],'lm')
-label(im,(89,377),'ARCADE PASS',94,COLORS['navy'],'lm');label(im,(93,457),'PLAY  /  COLLECT  /  REDEEM',27,COLORS['teal_dark'],'lm')
-label(im,(91,556),'MEMBER CARD',23,COLORS['navy'],'lm')
-for radius in (30,51,72):d.arc((849-radius,270-radius,849+radius,270+radius),-58,58,fill=COLORS['teal_dark'],width=10)
-d.ellipse((844,263,858,277),fill=COLORS['teal_dark'])
-im.save(ART/'arcade-pass.png')
-icon=Image.new('RGBA',(512,512),(0,0,0,0));small=im.resize((496,310),Image.Resampling.LANCZOS);icon.alpha_composite(small,(8,101));icon.save(ITEMTEX/'arcade_pass.png')
+# Preserve authored red/white reference art; fit the runtime card without stretch.
+prepare_arcade_pass(ART/'arcade-pass-source.png',ART/'arcade-pass.png',ITEMTEX/'arcade_pass.png')
 (ASSETS/'models/item/arcade_pass.json').write_text(json.dumps({'parent':'minecraft:item/generated','textures':{'layer0':'funpackcustom:item/arcade_pass'}},indent=2)+'\n')
 
 def ellipsoid(g,name,center,radii,mat,segments=16,rings=8):

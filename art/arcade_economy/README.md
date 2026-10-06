@@ -101,9 +101,16 @@ a real empty collectible instead of consuming it.
 
 ## Collectible art
 
-Original white/teal/magenta Arcade Pass artwork and four small placeable prizes
-for the arcade economy. No commercial card branding or source-photo pixels
-are included. The pass is an inventory item; the four prizes are decorations.
+The Arcade Pass uses reference-based red-and-white e-amusement artwork,
+following the user's supplied KONAMI card reference. The authored transparent
+PNG is retained unchanged as `arcade-pass-source.png`, and the preview is a
+byte-identical copy. The runtime item receives technical square padding and
+aspect-preserving downsampling, with the source alpha retained and no redrawing.
+This cosmetic update retains the existing `funpackcustom:default` design ID
+and all pass functionality. The [artwork notes](arcade-pass-artwork.md) retain
+the reference provenance and final image-generation prompt.
+The four small placeable prizes retain their original illustrated artwork.
+The pass is an inventory item; the four prizes are decorations.
 
 | Prize ID | Display name | Default points | Source mesh faces |
 | --- | --- | ---: | ---: |
@@ -127,22 +134,32 @@ trophy has a raised gold star, teal/pink ribbons, and a musical-note medal.
 
 ## Files and rebuild
 
-- `scripts/make_arcade_prizes.py` generates original textures, native OBJ/MTL,
+- `scripts/make_arcade_prizes.py` generates original prize textures, native OBJ/MTL,
   model wrappers, blockstates, inventory models, normal loot tables, source
   geometry, embedded-texture Blockbench files, and `art-lang.json`.
 - `scripts/render_arcade_prizes.py` renders those source meshes directly and
   saves `arcade_prizes.blend`, with packed artwork and editable prize meshes.
 - Each prize has `<id>.geometry.json`, `<id>.bbmodel`, and `<id>.png` here.
 - `arcade-prizes.png` shows the four prizes side by side at their actual scale.
-- `arcade-pass.png` is the card artwork preview. Runtime inventory texture is
-  `assets/funpackcustom/textures/item/arcade_pass.png` on a transparent square
-  canvas, used by the vanilla generated-item model.
+- `arcade-pass-source.png` is the immutable authored card artwork, based on the
+  user's red-and-white e-amusement reference. `scripts/prepare_arcade_pass.py`
+  copies it byte for byte to the `arcade-pass.png` preview. For the runtime
+  `assets/funpackcustom/textures/item/arcade_pass.png`, it crops only exterior
+  empty padding using the alpha channel's nonzero bounding box, fits the card
+  within 496 × 310 pixels with LANCZOS while preserving aspect ratio, then
+  centers it on a transparent 512 × 512 canvas. Alpha is resampled with the
+  image, never thresholded or painted; the generated-item model is unchanged.
 - `art-lang.json` supplies display-name translation entries for integration
   into the shared language file. It is not loaded by Minecraft itself.
 
 From the repository root, run `python scripts/make_arcade_prizes.py`, followed
 by `blender --background --python scripts/render_arcade_prizes.py`. These
 scripts do not regenerate or modify any existing arcade cabinet assets.
+Keep `arcade-pass-source.png` present when rebuilding; the generator reads this
+authored source and never overwrites it.
+To update only the card preview and runtime texture, run
+`python scripts/prepare_arcade_pass.py`. This standalone command does not
+regenerate prizes, models, blockstates, or loot tables.
 
 ## Model verification
 
@@ -157,6 +174,13 @@ The studio renders were inspected for silhouette, readable miniature artwork,
 correct texture direction, and joined plush limbs.
 
 ## Gameplay verification
+
+The in-game screenshots below predate the red-and-white pass artwork update
+and therefore show the earlier teal card. That update changes only the card
+image; the verified economy behavior and persistent design ID are unchanged.
+For the cosmetic update, the release Build passed, the new 512 × 512 RGBA
+texture was visually inspected, transparency and aspect-preserving packing
+were checked, and its packaged bytes were verified against the source texture.
 
 On 2026-10-06, the Java 21 release Build and **all 96 dedicated-server
 GameTests** passed. The 16 new economy tests cover persistent/network card
