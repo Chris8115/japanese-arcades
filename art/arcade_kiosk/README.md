@@ -22,7 +22,7 @@ Iron       Iron       Iron
 This uses **4 iron ingots, 2 glass blocks, 2 redstone dust and 1 gold ingot** and
 produces one kiosk. Obtaining iron unlocks its recipe-book entry.
 
-The **Machines** tab lists all eleven existing arcade/gachapon machines. Click
+The **Machines** tab lists all twelve existing arcade/gachapon machines. Click
 an entry to see its preview and **Need / Have** material counts. Green counts
 indicate enough of that ingredient; red counts identify shortages. **Order** is
 enabled when the player can afford the complete price. Browse by scrolling the
@@ -52,6 +52,7 @@ gachapon machines. New categories and entries can be added in
 | WACCA | 16 | 4 | 1 | 8 | 6 |
 | Chrono Circle | 18 | 4 | 1 | 8 | 8 |
 | maimai DX, DDR SuperNOVA | 24 | 6 | 2 | 8 | 8 |
+| Taiko no Tatsujin | 20 | 4 | 1 | 6 | 6 |
 | Gachapon | 8 | 2 | 0 | 4 | 2 |
 
 Iron and gold quantities are ingots; glass is full glass blocks. Prices are
@@ -105,7 +106,7 @@ source faces. Split faces are clipped rather than duplicated across blocks.
 
 ## Verification
 
-The Java 21 release build and all **67 dedicated-server GameTests** passed on
+The Java 21 release build and all **73 dedicated-server GameTests** passed on
 2026-10-06. Nine kiosk tests cover both block halves in all directions, support
 and obstruction handling, every catalog purchase, split/offhand payments,
 invalid or stale requests, survival/creative overflow, canceled or substituted

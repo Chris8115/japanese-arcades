@@ -92,11 +92,18 @@ public final class FunPackCustom {
                 case STAGE_REAR, STAGE_FRONT -> 4;
                 default -> 0;
             }));
+    public static final DeferredBlock<TaikoCabinetBlock> TAIKO = BLOCKS.registerBlock(
+        "taiko", TaikoCabinetBlock::new,
+        BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(2.0F, 6.0F)
+            .sound(SoundType.METAL).noOcclusion().lightLevel(state -> switch (state.getValue(TaikoCabinetBlock.SECTION)) {
+                case REAR_CONSOLE, REAR_MARQUEE -> 12;
+                default -> 0;
+            }));
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<NostalgiaJukeboxBlockEntity>> NOSTALGIA_JUKEBOX =
         BLOCK_ENTITIES.register("nostalgia_jukebox", () -> BlockEntityType.Builder.of(
             NostalgiaJukeboxBlockEntity::new, NOSTALGIA_OP3.get(), SOUND_VOLTEX_VALKYRIE.get(),
             WACCA.get(), CHUNITHM.get(), GROOVE_COASTER.get(), MUSECA.get(), PROJECT_DIVA.get(),
-            CHRONO_CIRCLE.get(), MAIMAI.get(), DDR_SUPERNOVA.get()).build(null));
+            CHRONO_CIRCLE.get(), MAIMAI.get(), DDR_SUPERNOVA.get(), TAIKO.get()).build(null));
     public static final DeferredItem<?> NOSTALGIA_OP3_ITEM =
         ITEMS.registerSimpleBlockItem("nostalgia_op3", NOSTALGIA_OP3, new Item.Properties());
     public static final DeferredItem<?> SOUND_VOLTEX_VALKYRIE_ITEM =
@@ -117,6 +124,8 @@ public final class FunPackCustom {
         ITEMS.registerSimpleBlockItem("maimai", MAIMAI, new Item.Properties());
     public static final DeferredItem<?> DDR_SUPERNOVA_ITEM =
         ITEMS.registerSimpleBlockItem("ddr_supernova", DDR_SUPERNOVA, new Item.Properties());
+    public static final DeferredItem<?> TAIKO_ITEM =
+        ITEMS.registerSimpleBlockItem("taiko", TAIKO, new Item.Properties());
     public static final DeferredBlock<GachaponBlock> GACHAPON = BLOCKS.registerBlock(
         "gachapon", GachaponBlock::new,
         BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(2.5F, 1200.0F)
@@ -153,6 +162,7 @@ public final class FunPackCustom {
                 output.accept(CHRONO_CIRCLE_ITEM.get());
                 output.accept(MAIMAI_ITEM.get());
                 output.accept(DDR_SUPERNOVA_ITEM.get());
+                output.accept(TAIKO_ITEM.get());
                 output.accept(GACHAPON_ITEM.get());
                 output.accept(ARCADE_KIOSK_ITEM.get());
             })
@@ -167,6 +177,7 @@ public final class FunPackCustom {
         modEventBus.addListener(GachaponNetwork::register);
         modEventBus.addListener(ArcadeKioskNetwork::register);
         NeoForge.EVENT_BUS.register(GachaponProtection.class);
+        NeoForge.EVENT_BUS.register(TaikoDrumInteraction.class);
         NeoForge.EVENT_BUS.addListener(ArcadeKioskMenu::protectOverflowPickup);
         NeoForge.EVENT_BUS.addListener(FunPackCustom::registerCommands);
         LOGGER.info("Fun Pack Custom loaded. Development environment is ready.");

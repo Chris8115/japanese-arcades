@@ -1,0 +1,44 @@
+newmtl front_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #front
+
+newmtl instructions_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #instructions
+
+newmtl lantern_lit
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #lantern
+
+newmtl marquee_lit
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #marquee
+
+newmtl materials_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #materials
+
+newmtl materials_lit
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #materials
+
+newmtl podium_side_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #podium_side
+
+newmtl screen_lit
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #screen
+
+newmtl side_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #side

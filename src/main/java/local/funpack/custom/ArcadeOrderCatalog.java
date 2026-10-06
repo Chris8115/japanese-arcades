@@ -49,6 +49,7 @@ public final class ArcadeOrderCatalog {
         machine("chrono_circle", FunPackCustom.CHRONO_CIRCLE_ITEM, 18, 4, 1, 8, 8),
         machine("maimai", FunPackCustom.MAIMAI_ITEM, 24, 6, 2, 8, 8),
         machine("ddr_supernova", FunPackCustom.DDR_SUPERNOVA_ITEM, 24, 6, 2, 8, 8),
+        machine("taiko", FunPackCustom.TAIKO_ITEM, 20, 4, 1, 6, 6),
         new Entry(id("gachapon"), MACHINES, FunPackCustom.GACHAPON_ITEM, List.of(
             new Cost(Items.IRON_INGOT, 8), new Cost(Items.GOLD_INGOT, 2),
             new Cost(Items.GLASS, 4), new Cost(Items.REDSTONE, 2))));

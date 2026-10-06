@@ -1,0 +1,95 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "neoforge:obj",
+  "model": "funpackcustom:models/item/taiko.obj",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "emissive_ambient": true,
+  "ambientocclusion": false,
+  "render_type": "minecraft:cutout_mipped_all",
+  "textures": {
+    "materials": "funpackcustom:block/taiko_materials",
+    "marquee": "funpackcustom:block/taiko_marquee",
+    "screen": "funpackcustom:block/taiko_screen",
+    "front": "funpackcustom:block/taiko_front",
+    "instructions": "funpackcustom:block/taiko_instructions",
+    "side": "funpackcustom:block/taiko_side",
+    "lantern": "funpackcustom:block/taiko_lantern",
+    "podium_side": "funpackcustom:block/taiko_podium_side",
+    "particle": "funpackcustom:block/taiko_materials"
+  },
+  "gui_light": "front",
+  "display": {
+    "gui": {
+      "rotation": [
+        15,
+        225,
+        0
+      ],
+      "scale": [
+        0.95,
+        0.95,
+        0.95
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        75,
+        45,
+        0
+      ],
+      "translation": [
+        0,
+        3,
+        0
+      ],
+      "scale": [
+        0.45,
+        0.45,
+        0.45
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        45,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  }
+}
