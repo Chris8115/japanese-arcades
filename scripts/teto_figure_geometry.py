@@ -1,4 +1,4 @@
-"""Hard-edged quarter-unit voxel Kasane Teto collectible, rebuilt from reference."""
+"""Kasane Teto collectible with a compact head and chunky cubic pink hair."""
 import math
 from figure_geometry import FigureGeometry
 
@@ -20,18 +20,25 @@ COLORS = {
 
 
 class _Voxels:
-    """Union of quarter-unit cuboids exporting only exterior square faces."""
-    def __init__(self,name):
+    """Union of equal cubes, with quarter-unit defaults for the outfit."""
+    def __init__(self,name,step=.25,origin=(0,0,0)):
         self.name=name
+        self.step=step
+        self.origin=origin
         self.cells={}
 
     def block(self,lo,hi,color):
-        a=tuple(round(v*4) for v in lo)
-        b=tuple(round(v*4) for v in hi)
-        assert all(abs(v*4-round(v*4))<1e-7 for v in (*lo,*hi))
-        for x in range(a[0],b[0]):
-            for y in range(a[1],b[1]):
-                for z in range(a[2],b[2]):
+        a=tuple(round((v-o)/self.step) for v,o in zip(lo,self.origin))
+        b=tuple(round((v-o)/self.step) for v,o in zip(hi,self.origin))
+        assert all(abs(v-(o+i*self.step))<1e-7
+                   for bounds,indices in ((lo,a),(hi,b))
+                   for v,o,i in zip(bounds,self.origin,indices))
+        self.grid_block(a,b,color)
+
+    def grid_block(self,lo,hi,color):
+        for x in range(lo[0],hi[0]):
+            for y in range(lo[1],hi[1]):
+                for z in range(lo[2],hi[2]):
                     self.cells[x,y,z]=color
 
     def emit(self,g):
@@ -41,8 +48,8 @@ class _Voxels:
             'up':((0,1,0),(3,7,6,2)), 'down':((0,-1,0),(0,1,5,4)),
         }
         for (i,j,k),color in sorted(self.cells.items()):
-            x,y,z=i/4,j/4,k/4
-            X,Y,Z=x+.25,y+.25,z+.25
+            x,y,z=(o+n*self.step for o,n in zip(self.origin,(i,j,k)))
+            X,Y,Z=x+self.step,y+self.step,z+self.step
             vertices=[(x,y,z),(X,y,z),(X,Y,z),(x,Y,z),
                       (x,y,Z),(X,y,Z),(X,Y,Z),(x,Y,Z)]
             for side,(offset,indices) in sides.items():
@@ -71,28 +78,57 @@ def _paint_face(g):
                    6.36+column*step,8.5+(6-row)*step,step,step,colors[color])
 
 
+def _crown(g):
+    # Same 12-cube width and eight-cube height as Miku. Teto's neck and
+    # accepted face sit half a unit higher; the hair follows that placement.
+    v=_Voxels('Teto compact hair cap',.375,(5.75,8.75,4.75))
+    block=v.grid_block
+    block((0,5,2),(12,7,13),'hair')
+    block((2,7,3),(5,8,11),'hair_light')
+    block((5,7,4),(7,8,12),'hair')
+    block((7,7,5),(10,8,11),'hair_light')
+    block((3,7,4),(5,8,7),'hair_top')
+    block((6,7,7),(8,8,11),'hair')
+    # Broad, stepped fringe locks frame the existing square pixel eyes.
+    block((0,1,2),(2,7,5),'hair_dark')
+    block((1,0,1),(2,7,4),'hair')
+    block((2,4,0),(3,7,4),'hair_light')
+    block((3,4,0),(5,7,4),'hair')
+    block((5,3,0),(6,7,4),'hair')
+    block((6,4,0),(7,7,4),'hair_light')
+    block((7,5,1),(9,7,4),'hair_light')
+    block((9,4,1),(10,7,4),'hair')
+    block((10,0,1),(11,7,4),'hair')
+    block((11,1,2),(12,7,4),'hair_dark')
+    # Connected side and rear clumps cover the nape without tiny stripes.
+    block((0,1,4),(2,7,10),'hair_dark')
+    block((10,1,4),(12,7,10),'hair_dark')
+    block((1,-1,11),(11,7,13),'hair_dark')
+    block((0,2,10),(3,7,14),'hair')
+    block((3,0,11),(6,7,14),'hair')
+    block((6,1,11),(9,7,14),'hair_light')
+    block((9,2,10),(12,7,14),'hair')
+    v.emit(g)
+
+
 def _square_curl(g,side,center,handedness):
-    """A dense tapered helix sampled as occupied quarter-unit cuboids."""
-    v=_Voxels('Teto '+side+' square curl')
-    cz=8.25
-    # A narrow pink recessed spine, with roughly one-voxel spaces between
-    # the thick turns. Trigonometry only locates cubes; every edge is square.
-    v.block((center-.25,8,cz-.25),(center+.25,12.25,cz+.25),'hair_groove')
-    for step in range(161):
-        t=step/160
-        angle=handedness*math.tau*4.25*t+.35
+    """Three short stepped turns made from full-sized .375-unit cubes."""
+    v=_Voxels('Teto '+side+' square curl',.375,(center-.1875,7.625,7.8125))
+    v.grid_block((0,0,0),(1,11,1),'hair_groove')
+    for step in range(145):
+        t=step/144
+        angle=handedness*math.tau*3*t+.35
         radius=(1-t)**.65
-        x=round((center+(.90*radius+.08)*math.cos(angle))*4)/4
-        z=round((cz+(.68*radius+.06)*math.sin(angle))*4)/4
-        y=round((12.10-4.35*t)*4)/4
+        x=round(2.5*radius*math.cos(angle))
+        z=round(2*radius*math.sin(angle))
+        y=round(9*(1-t))
         color=('hair_light' if math.sin(angle)<-.25 else
                'hair_dark' if math.sin(angle)>.35 else 'hair')
-        v.block((x-.25,y-.25,z-.25),(x+.25,y+.5,z+.25),color)
-    v.block((center,7.5,cz-.25),(center+.25,8,cz),'hair_dark')
-    x0,x1=(center,5.5) if center<8 else (10.5,center)
-    v.block((x0,11.5,7.5),(x1,12.25,8.75),'hair_dark')
-    v.block((center-.5,12,7.75),(center,12.5,8.5),'hair')
-    v.block((center,12,8),(center+.5,12.5,8.75),'hair_light')
+        v.grid_block((x,y,z),(x+1,y+2,z+1),color)
+    # A compact root joins the curl to the cap beneath its white bow.
+    v.grid_block((-1,9,-1),(2,11,2),'hair')
+    v.grid_block((1 if center<8 else -3,9,-1),
+                 (4 if center<8 else 0,11,2),'hair_dark')
     v.emit(g)
 
 
@@ -184,66 +220,17 @@ def build():
                     (r+x*math.cos(a)-y*math.sin(a),8+x*math.sin(a)+y*math.cos(a),z))
 
     g.group='Teto square skin head'
-    v=_Voxels('Teto cuboid skin head')
-    v.block((5.5,8.5,5.5),(10.5,11.5,9.75),'face_base')
-    v.block((5.75,8.5,5.5),(10.25,11.25,5.75),'face_base')
-    v.emit(g)
+    g.box('Teto compact square head',(6.36,8.5,5.5),(9.64,11.372,9.26),'face_base')
 
     g.group='Teto dense stepped pink voxel hair'
-    v=_Voxels('Teto stepped hair cap')
-    # Color tracks coherent strands; all crown transitions are little steps.
-    v.block((5.25,8.75,9.5),(10.75,11.75,10.5),'hair_dark')
-    v.block((5,9.25,8.75),(11,11.75,10.25),'hair')
-    # Short staggered crown clumps replace the former broad roof plates.
-    # A quantized height field makes only square voxel stairs, and the slow
-    # lock offsets break up concentric ledges without random speckles.
-    for ix in range(24):
-        x=5+ix*.25
-        for iz in range(21):
-            z=5.25+iz*.25
-            dx,dz=(x+.125-8)/3.1,(z+.125-7.875)/2.8
-            dome=math.sqrt(max(0,1-dx*dx-dz*dz))
-            lock=.12*math.cos((ix//2)*1.6)+.10*math.sin((iz//2)*1.8+(ix//3)*.7)
-            top=min(13,round((11.15+1.65*dome+lock)*4)/4)
-            color=('hair_top' if top>=12.75 and ix//2 in (3,4,7,8) else
-                   'hair_light' if ix//2 in (1,3,5,8,10) else 'hair')
-            v.block((x,10.75,z),(x+.25,top,z+.25),color)
-    for i in range(10):
-        x=5.5+i*.5
-        bottom=8.5+(.25 if i in (0,3,6,9) else 0)
-        depth=10.5 if i%3 else 10.75
-        v.block((x,bottom,10),(x+.5,12-(.25 if i%3 else 0),depth),
-                ('hair','hair_light','hair_dark')[i%3])
-    lows=[9.25,9,8.75,8.5,8.75,9.25,10,10.25,
-          10.5,10.25,10,9.75,9.5,9.75,10.25,10.5,
-          10.5,10.25,10,9.5,9.25,8.75,9,9.25]
-    for i,low in enumerate(lows):
-        x=5+i*.25
-        low+=.75 if 6<=i<=18 else .5
-        front=4.75 if i in (3,4,10,11,12,17,18,21) else 5
-        color=('hair_dark' if i<3 or i>21 else
-               'hair_light' if i in (5,6,7,12,13,14,18,19) else 'hair')
-        v.block((x,low,front),(x+.25,11.75,5.75),color)
-    for first,last,low,high,front,color in (
-            (0,3,11,11.75,5,'hair_dark'),(3,6,11.5,12.25,4.75,'hair'),
-            (6,9,11.25,12,5,'hair_light'),(9,12,11.75,12.5,4.75,'hair'),
-            (12,14,11.25,12.25,4.75,'hair_light'),(14,18,11.5,12.25,5,'hair'),
-            (18,21,11.25,12,4.75,'hair_light'),(21,24,11,11.75,5,'hair_dark')):
-        v.block((5+first*.25,low,front),(5+last*.25,high,5.75),color)
-    for side,x in (('left',5),('right',10.5)):
-        for j in range(12):
-            z=5.75+j*.25
-            bottom=8.5+(0 if j<4 else .25 if j<8 else .5)
-            edge=.25 if j%4 in (1,2) else 0
-            v.block((x-edge,bottom,z),(x+.5,11.5,z+.25),'hair_dark' if j<4 else 'hair')
-    v.emit(g)
+    _crown(g)
 
     g.group='Teto flat Minecraft pixel expression'
     _paint_face(g)
 
     g.group='Teto square stepped drill twin tails'
-    _square_curl(g,'left',3.75,1)
-    _square_curl(g,'right',12.25,-1)
+    _square_curl(g,'left',4.625,1)
+    _square_curl(g,'right',11.375,-1)
 
     g.group='Teto tiny white voxel bows'
     for side,cx in (('left',5),('right',11)):
@@ -256,9 +243,8 @@ def build():
         v.block((cx+.5,12.75,7.25),(cx+1,13,7.5),'white')
         v.block((cx,12,7.25),(cx+.25,12.5,7.5),'white')
         v.emit(g)
-    narrow_groups={'Teto square skin head','Teto dense stepped pink voxel hair',
-                   'Teto square stepped drill twin tails','Teto tiny white voxel bows'}
+    # Lower the bows onto the shortened curl roots, preserving square blocks.
     for face in g.faces:
-        if face['group'] in narrow_groups:
-            face['vertices']=[[8+(x-8)*.84,y,z] for x,y,z in face['vertices']]
+        if face['group']=='Teto tiny white voxel bows':
+            face['vertices']=[[x,y-1,z] for x,y,z in face['vertices']]
     return g

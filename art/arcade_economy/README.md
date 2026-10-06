@@ -143,9 +143,9 @@ the user's request, including their registry entries and runtime assets.
 Existing copies of those retired items/blocks are not migrated to the figures.
 
 The current figures are built from cuboids, with interior voxel faces removed.
-Miku's hair uses equal-sided 0.375-unit cubes at its final head width, with
+Both figures' hair uses equal-sided 0.375-unit cubes at its final head width, with
 broader clumps and fewer surface stripes. It is not compressed horizontally
-after construction. Finer clothing details and Teto's hair use a quarter-unit
+after construction. Finer clothing details and Teto's bows use a quarter-unit
 grid. Hair, tunic hems, skirt pleats and boots have square steps; cuboid sleeves
 are posed at angles. Face pixels stay flat and square. See the
 [reference construction notes](figure-reference-notes.md) for the supplied
@@ -203,9 +203,9 @@ meshes and Blockbench files, and rendered directly for the previews. Facial
 features use flat pixel art to match the references, with compact chibi bodies,
 large heads, layered hair, and small display bases.
 
-The source meshes contain 4,230 Miku faces and 9,957 Teto faces. An isolated
+The source meshes contain 4,230 Miku faces and 4,765 Teto faces. An isolated
 NeoForge OBJ bake verified all four placed facings and both item models:
-70,935 baked quads with finite coordinates, the expected UVs and ordinary
+44,975 baked quads with finite coordinates, the expected UVs and ordinary
 world lighting. The final JAR matches every source resource, contains 107
 Java 21 classes, excludes retired assets and verification helpers, and leaves
 the pass artwork byte-identical to the previous version.
@@ -223,7 +223,10 @@ its top from Y12.75 to Y11.25. Upper clips and tail roots follow that reduction;
 the painted face, lower fringe tips, cheek locks, earphones and body stay put.
 Teto now uses the same square-pixel face layout as Miku, with rose irises,
 outer eye whites, skin at the edges and one blush pixel per cheek. Her head
-skin matches the face palette; hair, head shape, body and outfit are preserved.
+skin matches the face palette. Her subsequent head revision matches Miku's
+skin width and height, narrows and shortens the cap, and rebuilds the curls
+from full-sized 0.375-unit cubes. Curl roots and bows sit lower, the rear hair
+covers the nape, and the painted face, body and outfit remain identical.
 
 The small native client verified real 2,500-point purchases of both figures,
 insufficient funds, physical pass-slot return, purchased-item placement,
@@ -231,7 +234,8 @@ survival recovery, opposite facings, cabinet play, and the minimum GUI size.
 The native views below include the larger hair cubes and lowered face pixels,
 captured before the last bang/side-lock extension and single-column iris edit.
 They also precede the shorter upper crown and Teto's matching face update.
-The hair and Teto face changes passed Build, OBJ
+Teto's compact head and larger hair cubes also postdate these native captures.
+The hair and Teto head/face changes passed Build, OBJ
 baking and direct model render checks; the
 Miku iris edit passed Build and a color-only mesh comparison. The studio views
 show the current models. The earlier full copied-pack check passed with the same gameplay

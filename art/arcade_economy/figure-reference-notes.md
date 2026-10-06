@@ -30,7 +30,8 @@ These observations describe the user-supplied reference sheets. Byte-identical c
 
 ## Teto
 
-- Match the accepted Miku face's square-pixel layout: rose irises toward the nose, eye white outside them, then skin at each outer edge. Use one blush pixel per cheek and the same subtle mouth. Preserve Teto's head shape, bangs, curls, bows and body.
+- Match the accepted Miku face's square-pixel layout: rose irises toward the nose, eye white outside them, then skin at each outer edge. Use one blush pixel per cheek and the same subtle mouth.
+- **Head proportion correction:** narrow the skin core to Miku's 3.28-unit width and 2.872-unit height. Keep Teto's accepted face pixels and body fixed. Rebuild the cap to Miku's 4.5-unit width and 5.25-unit depth, with its crown 3.25 units above the chin. Use true 0.375-unit hair cubes, broad fringe locks and a covered nape. Lower the curl roots and bows with the shortened cap; retain three compact stepped curl turns. The bows keep their small quarter-unit cubes.
 - Drill tails are broken voxel spirals, with dark recesses and visible gaps between successive turns. Roots are wide and high beside the head; turns shrink toward points just below the chin/shoulder. Avoid a solid tapered cone or uniformly stacked horizontal rings.
 - White bows are small clusters of cubes at the drill roots. The rear hair remains a compact layered cap.
 - Retain the gray vest's magenta center details, tiered dark skirt, multiple narrow magenta cuff/hem bands, tall black boots, and the labeled display base.
