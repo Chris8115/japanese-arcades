@@ -1039,1014 +1039,6 @@
       }
     },
     {
-      "name": "Left side illuminated shard segment 00",
-      "from": [
-        16.25,
-        1.69697,
-        3.12
-      ],
-      "to": [
-        16.75,
-        2.19091,
-        3.43
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials",
-          "neoforge_data": {
-            "block_light": 15,
-            "sky_light": 15,
-            "ambient_occlusion": false
-          }
-        },
-        "south": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "up": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "down": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "west": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "east": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        }
-      },
-      "rotation": {
-        "axis": "x",
-        "angle": 22.5,
-        "origin": [
-          8,
-          -12,
-          3.6
-        ],
-        "rescale": false
-      }
-    },
-    {
-      "name": "Left side illuminated shard segment 01",
-      "from": [
-        16.0,
-        2.19091,
-        3.12
-      ],
-      "to": [
-        16.75,
-        4.41364,
-        3.43
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials",
-          "neoforge_data": {
-            "block_light": 15,
-            "sky_light": 15,
-            "ambient_occlusion": false
-          }
-        },
-        "south": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "up": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "down": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "west": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "east": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        }
-      },
-      "rotation": {
-        "axis": "x",
-        "angle": 22.5,
-        "origin": [
-          8,
-          -12,
-          3.6
-        ],
-        "rescale": false
-      }
-    },
-    {
-      "name": "Left side illuminated shard segment 02",
-      "from": [
-        15.75,
-        4.41364,
-        3.12
-      ],
-      "to": [
-        16.75,
-        6.88333,
-        3.43
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials",
-          "neoforge_data": {
-            "block_light": 15,
-            "sky_light": 15,
-            "ambient_occlusion": false
-          }
-        },
-        "south": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "up": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "down": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "west": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "east": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        }
-      },
-      "rotation": {
-        "axis": "x",
-        "angle": 22.5,
-        "origin": [
-          8,
-          -12,
-          3.6
-        ],
-        "rescale": false
-      }
-    },
-    {
-      "name": "Left side illuminated shard segment 03",
-      "from": [
-        15.55,
-        6.88333,
-        3.12
-      ],
-      "to": [
-        16.75,
-        7.62424,
-        3.43
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials",
-          "neoforge_data": {
-            "block_light": 15,
-            "sky_light": 15,
-            "ambient_occlusion": false
-          }
-        },
-        "south": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "up": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "down": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "west": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "east": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        }
-      },
-      "rotation": {
-        "axis": "x",
-        "angle": 22.5,
-        "origin": [
-          8,
-          -12,
-          3.6
-        ],
-        "rescale": false
-      }
-    },
-    {
-      "name": "Left side illuminated shard segment 04",
-      "from": [
-        15.75,
-        7.62424,
-        3.12
-      ],
-      "to": [
-        16.75,
-        8.11818,
-        3.43
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials",
-          "neoforge_data": {
-            "block_light": 15,
-            "sky_light": 15,
-            "ambient_occlusion": false
-          }
-        },
-        "south": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "up": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "down": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "west": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "east": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        }
-      },
-      "rotation": {
-        "axis": "x",
-        "angle": 22.5,
-        "origin": [
-          8,
-          -12,
-          3.6
-        ],
-        "rescale": false
-      }
-    },
-    {
-      "name": "Left side illuminated shard segment 05",
-      "from": [
-        16.0,
-        8.11818,
-        3.12
-      ],
-      "to": [
-        16.75,
-        8.61212,
-        3.43
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials",
-          "neoforge_data": {
-            "block_light": 15,
-            "sky_light": 15,
-            "ambient_occlusion": false
-          }
-        },
-        "south": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "up": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "down": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "west": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "east": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        }
-      },
-      "rotation": {
-        "axis": "x",
-        "angle": 22.5,
-        "origin": [
-          8,
-          -12,
-          3.6
-        ],
-        "rescale": false
-      }
-    },
-    {
-      "name": "Left side illuminated shard segment 06",
-      "from": [
-        16.25,
-        8.61212,
-        3.12
-      ],
-      "to": [
-        16.75,
-        9.10606,
-        3.43
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials",
-          "neoforge_data": {
-            "block_light": 15,
-            "sky_light": 15,
-            "ambient_occlusion": false
-          }
-        },
-        "south": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "up": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "down": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "west": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "east": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        }
-      },
-      "rotation": {
-        "axis": "x",
-        "angle": 22.5,
-        "origin": [
-          8,
-          -12,
-          3.6
-        ],
-        "rescale": false
-      }
-    },
-    {
-      "name": "Left side illuminated shard segment 07",
-      "from": [
-        16.5,
-        9.10606,
-        3.12
-      ],
-      "to": [
-        16.75,
-        9.6,
-        3.43
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials",
-          "neoforge_data": {
-            "block_light": 15,
-            "sky_light": 15,
-            "ambient_occlusion": false
-          }
-        },
-        "south": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "up": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "down": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "west": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "east": {
-          "uv": [
-            12.5,
-            8.5,
-            15.5,
-            11.5
-          ],
-          "texture": "#materials"
-        }
-      },
-      "rotation": {
-        "axis": "x",
-        "angle": 22.5,
-        "origin": [
-          8,
-          -12,
-          3.6
-        ],
-        "rescale": false
-      }
-    },
-    {
-      "name": "Side light ivory seam segment 00",
-      "from": [
-        16.5,
-        2.13,
-        3.065
-      ],
-      "to": [
-        16.73,
-        2.85273,
-        3.145
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials",
-          "neoforge_data": {
-            "block_light": 15,
-            "sky_light": 15,
-            "ambient_occlusion": false
-          }
-        },
-        "south": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "up": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "down": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "west": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "east": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        }
-      },
-      "rotation": {
-        "axis": "x",
-        "angle": 22.5,
-        "origin": [
-          8,
-          -12,
-          3.6
-        ],
-        "rescale": false
-      }
-    },
-    {
-      "name": "Side light ivory seam segment 01",
-      "from": [
-        16.25,
-        3.33455,
-        3.065
-      ],
-      "to": [
-        16.5,
-        4.29818,
-        3.145
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials",
-          "neoforge_data": {
-            "block_light": 15,
-            "sky_light": 15,
-            "ambient_occlusion": false
-          }
-        },
-        "south": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "up": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "down": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "west": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "east": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        }
-      },
-      "rotation": {
-        "axis": "x",
-        "angle": 22.5,
-        "origin": [
-          8,
-          -12,
-          3.6
-        ],
-        "rescale": false
-      }
-    },
-    {
-      "name": "Side light ivory seam segment 02",
-      "from": [
-        16.0,
-        4.78,
-        3.065
-      ],
-      "to": [
-        16.25,
-        5.98455,
-        3.145
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials",
-          "neoforge_data": {
-            "block_light": 15,
-            "sky_light": 15,
-            "ambient_occlusion": false
-          }
-        },
-        "south": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "up": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "down": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "west": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "east": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        }
-      },
-      "rotation": {
-        "axis": "x",
-        "angle": 22.5,
-        "origin": [
-          8,
-          -12,
-          3.6
-        ],
-        "rescale": false
-      }
-    },
-    {
-      "name": "Side light ivory seam segment 03",
-      "from": [
-        15.75,
-        6.46636,
-        3.065
-      ],
-      "to": [
-        16.0,
-        7.43,
-        3.145
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials",
-          "neoforge_data": {
-            "block_light": 15,
-            "sky_light": 15,
-            "ambient_occlusion": false
-          }
-        },
-        "south": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "up": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "down": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "west": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "east": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        }
-      },
-      "rotation": {
-        "axis": "x",
-        "angle": 22.5,
-        "origin": [
-          8,
-          -12,
-          3.6
-        ],
-        "rescale": false
-      }
-    },
-    {
       "name": "Monitor rear tapered spine course 14",
       "from": [
         1.3499999999999996,
@@ -5761,13 +4753,13 @@
     {
       "name": "Left red folded marquee reverse segment 00",
       "from": [
-        17.25,
-        10.0,
+        15.0,
+        8.35,
         10.9
       ],
       "to": [
-        17.5,
-        10.24091,
+        16.5,
+        8.59821,
         11.35
       ],
       "faces": {
@@ -5840,13 +4832,13 @@
     {
       "name": "Left red folded marquee reverse segment 01",
       "from": [
-        16.75,
-        10.24091,
+        15.0,
+        8.59821,
         10.9
       ],
       "to": [
         17.5,
-        10.48182,
+        9.34286,
         11.35
       ],
       "faces": {
@@ -5919,13 +4911,13 @@
     {
       "name": "Left red folded marquee reverse segment 02",
       "from": [
-        16.25,
-        10.48182,
+        14.75,
+        9.34286,
         10.9
       ],
       "to": [
         17.5,
-        10.72273,
+        9.83929,
         11.35
       ],
       "faces": {
@@ -5998,13 +4990,13 @@
     {
       "name": "Left red folded marquee reverse segment 03",
       "from": [
-        15.75,
-        10.72273,
+        14.75,
+        9.83929,
         10.9
       ],
       "to": [
-        17.5,
-        10.96364,
+        17.75,
+        10.33571,
         11.35
       ],
       "faces": {
@@ -6077,13 +5069,13 @@
     {
       "name": "Left red folded marquee reverse segment 04",
       "from": [
-        15.5,
-        10.96364,
+        14.5,
+        10.33571,
         10.9
       ],
       "to": [
         17.75,
-        11.20455,
+        11.32857,
         11.35
       ],
       "faces": {
@@ -6156,13 +5148,13 @@
     {
       "name": "Left red folded marquee reverse segment 05",
       "from": [
-        15.0,
-        11.20455,
+        14.32,
+        11.32857,
         10.9
       ],
       "to": [
         17.75,
-        11.44545,
+        11.57679,
         11.35
       ],
       "faces": {
@@ -6235,13 +5227,13 @@
     {
       "name": "Left red folded marquee reverse segment 06",
       "from": [
-        14.5,
-        11.44545,
+        14.32,
+        11.57679,
         10.9
       ],
       "to": [
-        17.75,
-        11.92727,
+        18.0,
+        11.825,
         11.35
       ],
       "faces": {
@@ -6315,12 +5307,12 @@
       "name": "Left red folded marquee reverse segment 07",
       "from": [
         14.5,
-        11.92727,
+        11.825,
         10.9
       ],
       "to": [
         18.0,
-        12.16818,
+        12.32143,
         11.35
       ],
       "faces": {
@@ -6394,12 +5386,12 @@
       "name": "Left red folded marquee reverse segment 08",
       "from": [
         14.75,
-        12.16818,
+        12.32143,
         10.9
       ],
       "to": [
         18.0,
-        12.65,
+        12.56964,
         11.35
       ],
       "faces": {
@@ -6473,12 +5465,12 @@
       "name": "Left red folded marquee reverse segment 09",
       "from": [
         15.0,
-        12.65,
+        12.56964,
         10.9
       ],
       "to": [
         17.75,
-        13.13182,
+        13.06607,
         11.35
       ],
       "faces": {
@@ -6552,12 +5544,12 @@
       "name": "Left red folded marquee reverse segment 10",
       "from": [
         15.25,
-        13.13182,
+        13.06607,
         10.9
       ],
       "to": [
         17.5,
-        13.61364,
+        13.5625,
         11.35
       ],
       "faces": {
@@ -6631,12 +5623,12 @@
       "name": "Left red folded marquee reverse segment 11",
       "from": [
         15.5,
-        13.61364,
+        13.5625,
         10.9
       ],
       "to": [
         17.25,
-        13.85455,
+        14.05893,
         11.35
       ],
       "faces": {
@@ -6709,13 +5701,13 @@
     {
       "name": "Left red folded marquee reverse segment 12",
       "from": [
-        15.5,
-        13.85455,
+        15.75,
+        14.05893,
         10.9
       ],
       "to": [
         17.0,
-        14.09545,
+        14.30714,
         11.35
       ],
       "faces": {
@@ -6789,12 +5781,12 @@
       "name": "Left red folded marquee reverse segment 13",
       "from": [
         15.75,
-        14.09545,
+        14.30714,
         10.9
       ],
       "to": [
-        17.0,
-        14.33636,
+        16.75,
+        14.55536,
         11.35
       ],
       "faces": {
@@ -6868,12 +5860,12 @@
       "name": "Left red folded marquee reverse segment 14",
       "from": [
         16.0,
-        14.33636,
+        14.55536,
         10.9
       ],
       "to": [
         16.75,
-        14.81818,
+        14.80357,
         11.35
       ],
       "faces": {
@@ -6947,7 +5939,7 @@
       "name": "Left red folded marquee reverse segment 15",
       "from": [
         16.25,
-        14.81818,
+        14.80357,
         10.9
       ],
       "to": [
@@ -7023,227 +6015,780 @@
       }
     },
     {
-      "name": "Left white folded paper plane segment 00",
+      "name": "Left red pointed crown facet segment 00",
       "from": [
-        15.75,
-        10.55,
-        10.53
+        14.25,
+        12.45,
+        10.25
       ],
       "to": [
-        16.0,
-        10.79556,
-        10.77
+        17.25,
+        12.6875,
+        10.49
       ],
       "faces": {
         "north": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "south": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "up": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "down": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "west": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "east": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         }
       },
       "rotation": {
         "axis": "y",
-        "angle": -22.5,
+        "angle": 22.5,
         "origin": [
           15.85,
-          12.700000000000003,
-          10.65
+          13.5,
+          10.37
         ],
         "rescale": false
       }
     },
     {
-      "name": "Left white folded paper plane segment 01",
+      "name": "Left red pointed crown facet segment 01",
+      "from": [
+        14.5,
+        12.6875,
+        10.25
+      ],
+      "to": [
+        17.25,
+        12.925,
+        10.49
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "down": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": 22.5,
+        "origin": [
+          15.85,
+          13.5,
+          10.37
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "Left red pointed crown facet segment 02",
+      "from": [
+        14.75,
+        12.925,
+        10.25
+      ],
+      "to": [
+        17.25,
+        13.1625,
+        10.49
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "down": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": 22.5,
+        "origin": [
+          15.85,
+          13.5,
+          10.37
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "Left red pointed crown facet segment 03",
+      "from": [
+        14.75,
+        13.1625,
+        10.25
+      ],
+      "to": [
+        17.0,
+        13.4,
+        10.49
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "down": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": 22.5,
+        "origin": [
+          15.85,
+          13.5,
+          10.37
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "Left red pointed crown facet segment 04",
+      "from": [
+        15.0,
+        13.4,
+        10.25
+      ],
+      "to": [
+        17.0,
+        13.6375,
+        10.49
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "down": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": 22.5,
+        "origin": [
+          15.85,
+          13.5,
+          10.37
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "Left red pointed crown facet segment 05",
+      "from": [
+        15.25,
+        13.6375,
+        10.25
+      ],
+      "to": [
+        16.75,
+        14.1125,
+        10.49
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "down": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": 22.5,
+        "origin": [
+          15.85,
+          13.5,
+          10.37
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "Left red pointed crown facet segment 06",
       "from": [
         15.5,
-        10.79556,
-        10.53
+        14.1125,
+        10.25
+      ],
+      "to": [
+        16.75,
+        14.35,
+        10.49
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "down": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": 22.5,
+        "origin": [
+          15.85,
+          13.5,
+          10.37
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "Left red pointed crown facet segment 07",
+      "from": [
+        15.75,
+        14.35,
+        10.25
+      ],
+      "to": [
+        16.5,
+        14.825,
+        10.49
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "down": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": 22.5,
+        "origin": [
+          15.85,
+          13.5,
+          10.37
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "Left red pointed crown facet segment 08",
+      "from": [
+        16.0,
+        14.825,
+        10.25
       ],
       "to": [
         16.25,
-        11.04111,
-        10.77
+        15.3,
+        10.49
       ],
       "faces": {
         "north": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "south": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "up": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "down": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "west": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "east": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         }
       },
       "rotation": {
         "axis": "y",
-        "angle": -22.5,
+        "angle": 22.5,
         "origin": [
           15.85,
-          12.700000000000003,
-          10.65
+          13.5,
+          10.37
         ],
         "rescale": false
       }
     },
     {
-      "name": "Left white folded paper plane segment 02",
+      "name": "Left red broad folded front facet segment 00",
       "from": [
-        15.25,
-        11.04111,
+        16.25,
+        8.02,
         10.53
       ],
       "to": [
         16.5,
-        11.28667,
+        8.26087,
         10.77
       ],
       "faces": {
         "north": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "south": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "up": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "down": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "west": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "east": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         }
@@ -7260,69 +6805,69 @@
       }
     },
     {
-      "name": "Left white folded paper plane segment 03",
+      "name": "Left red broad folded front facet segment 01",
       "from": [
-        15.25,
-        11.28667,
+        16.0,
+        8.26087,
         10.53
       ],
       "to": [
         16.75,
-        11.53222,
+        8.50174,
         10.77
       ],
       "faces": {
         "north": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "south": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "up": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "down": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "west": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "east": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         }
@@ -7339,69 +6884,148 @@
       }
     },
     {
-      "name": "Left white folded paper plane segment 04",
+      "name": "Left red broad folded front facet segment 02",
       "from": [
-        15.0,
-        11.53222,
+        15.75,
+        8.50174,
+        10.53
+      ],
+      "to": [
+        16.75,
+        8.74261,
+        10.77
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "down": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -22.5,
+        "origin": [
+          15.85,
+          12.700000000000003,
+          10.65
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "Left red broad folded front facet segment 03",
+      "from": [
+        15.25,
+        8.74261,
         10.53
       ],
       "to": [
         17.0,
-        11.77778,
+        8.98348,
         10.77
       ],
       "faces": {
         "north": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "south": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "up": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "down": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "west": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "east": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         }
@@ -7418,69 +7042,148 @@
       }
     },
     {
-      "name": "Left white folded paper plane segment 05",
+      "name": "Left red broad folded front facet segment 04",
       "from": [
-        14.75,
-        11.77778,
+        15.0,
+        8.98348,
+        10.53
+      ],
+      "to": [
+        17.0,
+        9.46522,
+        10.77
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "down": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -22.5,
+        "origin": [
+          15.85,
+          12.700000000000003,
+          10.65
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "Left red broad folded front facet segment 05",
+      "from": [
+        15.0,
+        9.46522,
         10.53
       ],
       "to": [
         17.25,
-        12.02333,
+        9.94696,
         10.77
       ],
       "faces": {
         "north": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "south": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "up": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "down": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "west": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "east": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         }
@@ -7497,148 +7200,69 @@
       }
     },
     {
-      "name": "Left white folded paper plane segment 06",
+      "name": "Left red broad folded front facet segment 06",
       "from": [
-        14.5,
-        12.02333,
-        10.53
-      ],
-      "to": [
-        17.75,
-        12.51444,
-        10.77
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "south": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "up": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "down": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "west": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "east": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        }
-      },
-      "rotation": {
-        "axis": "y",
-        "angle": -22.5,
-        "origin": [
-          15.85,
-          12.700000000000003,
-          10.65
-        ],
-        "rescale": false
-      }
-    },
-    {
-      "name": "Left white folded paper plane segment 07",
-      "from": [
-        14.25,
-        12.51444,
+        15.0,
+        9.94696,
         10.53
       ],
       "to": [
         17.5,
-        12.76,
+        10.4287,
         10.77
       ],
       "faces": {
         "north": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "south": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "up": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "down": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "west": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "east": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         }
@@ -7655,621 +7279,621 @@
       }
     },
     {
-      "name": "Left white folded paper plane segment 08",
-      "from": [
-        14.0,
-        12.76,
-        10.53
-      ],
-      "to": [
-        17.25,
-        13.00556,
-        10.77
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "south": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "up": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "down": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "west": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "east": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        }
-      },
-      "rotation": {
-        "axis": "y",
-        "angle": -22.5,
-        "origin": [
-          15.85,
-          12.700000000000003,
-          10.65
-        ],
-        "rescale": false
-      }
-    },
-    {
-      "name": "Left white folded paper plane segment 09",
-      "from": [
-        13.75,
-        13.00556,
-        10.53
-      ],
-      "to": [
-        17.25,
-        13.25111,
-        10.77
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "south": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "up": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "down": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "west": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "east": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        }
-      },
-      "rotation": {
-        "axis": "y",
-        "angle": -22.5,
-        "origin": [
-          15.85,
-          12.700000000000003,
-          10.65
-        ],
-        "rescale": false
-      }
-    },
-    {
-      "name": "Left white folded paper plane segment 10",
-      "from": [
-        13.75,
-        13.25111,
-        10.53
-      ],
-      "to": [
-        17.0,
-        13.49667,
-        10.77
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "south": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "up": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "down": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "west": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "east": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        }
-      },
-      "rotation": {
-        "axis": "y",
-        "angle": -22.5,
-        "origin": [
-          15.85,
-          12.700000000000003,
-          10.65
-        ],
-        "rescale": false
-      }
-    },
-    {
-      "name": "Left white folded paper plane segment 11",
-      "from": [
-        14.0,
-        13.49667,
-        10.53
-      ],
-      "to": [
-        16.75,
-        13.74222,
-        10.77
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "south": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "up": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "down": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "west": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "east": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        }
-      },
-      "rotation": {
-        "axis": "y",
-        "angle": -22.5,
-        "origin": [
-          15.85,
-          12.700000000000003,
-          10.65
-        ],
-        "rescale": false
-      }
-    },
-    {
-      "name": "Left white folded paper plane segment 12",
-      "from": [
-        14.25,
-        13.74222,
-        10.53
-      ],
-      "to": [
-        16.5,
-        13.98778,
-        10.77
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "south": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "up": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "down": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "west": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "east": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        }
-      },
-      "rotation": {
-        "axis": "y",
-        "angle": -22.5,
-        "origin": [
-          15.85,
-          12.700000000000003,
-          10.65
-        ],
-        "rescale": false
-      }
-    },
-    {
-      "name": "Left white folded paper plane segment 13",
-      "from": [
-        14.5,
-        13.98778,
-        10.53
-      ],
-      "to": [
-        16.25,
-        14.23333,
-        10.77
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "south": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "up": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "down": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "west": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "east": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        }
-      },
-      "rotation": {
-        "axis": "y",
-        "angle": -22.5,
-        "origin": [
-          15.85,
-          12.700000000000003,
-          10.65
-        ],
-        "rescale": false
-      }
-    },
-    {
-      "name": "Left white folded paper plane segment 14",
-      "from": [
-        14.75,
-        14.23333,
-        10.53
-      ],
-      "to": [
-        16.0,
-        14.47889,
-        10.77
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "south": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "up": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "down": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "west": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        },
-        "east": {
-          "uv": [
-            8.5,
-            0.5,
-            11.5,
-            3.5
-          ],
-          "texture": "#materials"
-        }
-      },
-      "rotation": {
-        "axis": "y",
-        "angle": -22.5,
-        "origin": [
-          15.85,
-          12.700000000000003,
-          10.65
-        ],
-        "rescale": false
-      }
-    },
-    {
-      "name": "Left white folded paper plane segment 15",
+      "name": "Left red broad folded front facet segment 07",
       "from": [
         15.0,
-        14.47889,
+        10.4287,
         10.53
+      ],
+      "to": [
+        17.75,
+        10.66957,
+        10.77
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "down": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -22.5,
+        "origin": [
+          15.85,
+          12.700000000000003,
+          10.65
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "Left red broad folded front facet segment 08",
+      "from": [
+        15.25,
+        10.66957,
+        10.53
+      ],
+      "to": [
+        17.75,
+        11.87391,
+        10.77
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "down": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -22.5,
+        "origin": [
+          15.85,
+          12.700000000000003,
+          10.65
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "Left red broad folded front facet segment 09",
+      "from": [
+        15.5,
+        11.87391,
+        10.53
+      ],
+      "to": [
+        17.75,
+        12.11478,
+        10.77
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "down": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -22.5,
+        "origin": [
+          15.85,
+          12.700000000000003,
+          10.65
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "Left red broad folded front facet segment 10",
+      "from": [
+        15.5,
+        12.11478,
+        10.53
+      ],
+      "to": [
+        17.5,
+        12.83739,
+        10.77
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "down": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -22.5,
+        "origin": [
+          15.85,
+          12.700000000000003,
+          10.65
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "Left red broad folded front facet segment 11",
+      "from": [
+        16.0,
+        12.83739,
+        10.53
+      ],
+      "to": [
+        17.5,
+        13.07826,
+        10.77
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "down": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -22.5,
+        "origin": [
+          15.85,
+          12.700000000000003,
+          10.65
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "Left red broad folded front facet segment 12",
+      "from": [
+        16.5,
+        13.07826,
+        10.53
+      ],
+      "to": [
+        17.25,
+        13.31913,
+        10.77
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "down": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -22.5,
+        "origin": [
+          15.85,
+          12.700000000000003,
+          10.65
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "Left red broad folded front facet segment 13",
+      "from": [
+        17.0,
+        13.31913,
+        10.53
+      ],
+      "to": [
+        17.25,
+        13.56,
+        10.77
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "down": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -22.5,
+        "origin": [
+          15.85,
+          12.700000000000003,
+          10.65
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "Left paper fold narrow white crease segment 00",
+      "from": [
+        15.55,
+        12.73,
+        10.49
       ],
       "to": [
         15.75,
-        14.72444,
-        10.77
+        12.85286,
+        10.525
       ],
       "faces": {
         "north": {
           "uv": [
-            8.5,
+            12.5,
             0.5,
-            11.5,
+            15.5,
             3.5
           ],
           "texture": "#materials"
         },
         "south": {
           "uv": [
-            8.5,
+            12.5,
             0.5,
-            11.5,
+            15.5,
             3.5
           ],
           "texture": "#materials"
         },
         "up": {
           "uv": [
-            8.5,
+            12.5,
             0.5,
-            11.5,
+            15.5,
             3.5
           ],
           "texture": "#materials"
         },
         "down": {
           "uv": [
-            8.5,
+            12.5,
             0.5,
-            11.5,
+            15.5,
             3.5
           ],
           "texture": "#materials"
         },
         "west": {
           "uv": [
-            8.5,
+            12.5,
             0.5,
-            11.5,
+            15.5,
             3.5
           ],
           "texture": "#materials"
         },
         "east": {
           "uv": [
-            8.5,
+            12.5,
             0.5,
-            11.5,
+            15.5,
             3.5
           ],
           "texture": "#materials"
@@ -8287,68 +7911,463 @@
       }
     },
     {
-      "name": "Left white folded paper plane segment 16",
+      "name": "Left paper fold narrow white crease segment 01",
       "from": [
-        15.25,
-        14.72444,
-        10.53
+        15.75,
+        12.85286,
+        10.49
       ],
       "to": [
-        15.5,
-        14.97,
-        10.77
+        16.0,
+        12.97571,
+        10.525
       ],
       "faces": {
         "north": {
           "uv": [
-            8.5,
+            12.5,
             0.5,
-            11.5,
+            15.5,
             3.5
           ],
           "texture": "#materials"
         },
         "south": {
           "uv": [
-            8.5,
+            12.5,
             0.5,
-            11.5,
+            15.5,
             3.5
           ],
           "texture": "#materials"
         },
         "up": {
           "uv": [
-            8.5,
+            12.5,
             0.5,
-            11.5,
+            15.5,
             3.5
           ],
           "texture": "#materials"
         },
         "down": {
           "uv": [
-            8.5,
+            12.5,
             0.5,
-            11.5,
+            15.5,
             3.5
           ],
           "texture": "#materials"
         },
         "west": {
           "uv": [
-            8.5,
+            12.5,
             0.5,
-            11.5,
+            15.5,
             3.5
           ],
           "texture": "#materials"
         },
         "east": {
           "uv": [
-            8.5,
+            12.5,
             0.5,
-            11.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -22.5,
+        "origin": [
+          15.85,
+          12.700000000000003,
+          10.65
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "Left paper fold narrow white crease segment 02",
+      "from": [
+        16.0,
+        12.97571,
+        10.49
+      ],
+      "to": [
+        16.25,
+        13.09857,
+        10.525
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "down": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -22.5,
+        "origin": [
+          15.85,
+          12.700000000000003,
+          10.65
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "Left paper fold narrow white crease segment 03",
+      "from": [
+        16.25,
+        13.09857,
+        10.49
+      ],
+      "to": [
+        16.5,
+        13.22143,
+        10.525
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "down": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -22.5,
+        "origin": [
+          15.85,
+          12.700000000000003,
+          10.65
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "Left paper fold narrow white crease segment 04",
+      "from": [
+        16.5,
+        13.22143,
+        10.49
+      ],
+      "to": [
+        16.875,
+        13.34429,
+        10.525
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "down": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -22.5,
+        "origin": [
+          15.85,
+          12.700000000000003,
+          10.65
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "Left paper fold narrow white crease segment 05",
+      "from": [
+        16.875,
+        13.34429,
+        10.49
+      ],
+      "to": [
+        17.125,
+        13.46714,
+        10.525
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "down": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      },
+      "rotation": {
+        "axis": "y",
+        "angle": -22.5,
+        "origin": [
+          15.85,
+          12.700000000000003,
+          10.65
+        ],
+        "rescale": false
+      }
+    },
+    {
+      "name": "Left paper fold narrow white crease segment 06",
+      "from": [
+        17.125,
+        13.46714,
+        10.49
+      ],
+      "to": [
+        17.25,
+        13.59,
+        10.525
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "down": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            12.5,
+            0.5,
+            15.5,
             3.5
           ],
           "texture": "#materials"
@@ -13911,54 +13930,123 @@
         "north": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "south": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "up": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "down": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "west": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
           ],
           "texture": "#materials"
         },
         "east": {
           "uv": [
             8.5,
-            0.5,
+            12.5,
             11.5,
-            3.5
+            15.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left lower red folded return",
+      "from": [
+        15.3,
+        8.82,
+        10.55
+      ],
+      "to": [
+        15.9,
+        9.04,
+        12.85
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "down": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            8.5,
+            12.5,
+            11.5,
+            15.5
           ],
           "texture": "#materials"
         }

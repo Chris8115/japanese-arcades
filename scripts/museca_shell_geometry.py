@@ -83,7 +83,7 @@ def build_shell(cube, polygon):
             vertices=[(8-width/2,zfront),(8+width/2,zfront),(8,zfront+depth)]
         else:
             vertices=[(8,zfront),(8-width/2,zfront+depth),(8+width/2,zfront+depth)]
-        material=('amber' if tier<4 else 'pink' if tier%2 else 'magenta')
+        material='red'
         for level,y in (('lower',y0),('upper',y1)):
             for edge,(a,b) in enumerate(zip(vertices,vertices[1:]+vertices[:1])):
                 horizontal_wire('Prism %02d %s triangle edge %d'%(tier,level,edge),a,b,y,material)

@@ -42,14 +42,6 @@ def build_upper(cube, polygon, art_dir):
     cube('Small screen lower warning plate',(6.53,20.64,3.39),(9.47,20.83,3.55),
          'ivory',rotation=recline,group='Monitor fasteners')
 
-    # A narrow prismatic indicator on the left is separate from the LCD bezel.
-    polygon('Left side illuminated shard', [(-.87,34.0),(-.20,33.45),
-            (.45,39.54),(-.63,41.60)], 3.12,3.43,'amber',
-            rotation=recline,glow=('north',),group='Monitor side light',step=.25)
-    polygon('Side light ivory seam', [(-.73,34.25),(-.57,34.13),
-            (.29,39.38),(.12,39.43)],3.065,3.145,'white',
-            rotation=recline,glow=('north',),group='Monitor side light',step=.25)
-
     # Compact square speaker boxes sit outside the lower display shoulders.
     for side, x0, x1 in (('Left',-2.40,.92),('Right',15.08,18.40)):
         rot=('y', -22.5 if side=='Left' else 22.5, ((x0+x1)/2,21.83,3.03))
@@ -122,12 +114,20 @@ def build_upper(cube, polygon, art_dir):
          glow=('north',),group='MUSECA wordmark board')
 
     # These are independently tilted, thick paper facets, not a flat topper.
-    polygon('Left red folded marquee reverse',[(-1.42,42.0),(-2.0,44.45),
-            (-.35,47.30),(1.68,43.68)],10.9,11.35,'red',
+    # The production cabinet has a red folded-paper cluster on this corner,
+    # descending beside the wordmark, rather than a long amber light bar.
+    polygon('Left red folded marquee reverse',[(-1.42,40.55),(-2.0,44.45),
+            (-.35,47.30),(1.68,43.68),(.88,40.35)],10.9,11.35,'red',
             rotation=('y',-22.5,(-.2,44.8,11.1)),group='Origami folds',step=.25)
-    polygon('Left white folded paper plane',[(-1.87,44.35),(.58,46.97),
-            (2.39,45.35),(.14,42.55)],10.53,10.77,'white',
+    polygon('Left red pointed crown facet',[(-1.40,44.48),(-.20,47.30),
+            (1.75,44.45)],10.25,10.49,'red',
+            rotation=('y',-22.5,(.15,45.5,10.37)),group='Origami folds',step=.25)
+    polygon('Left red broad folded front facet',[(-1.87,43.10),(-1.24,45.56),
+            (.43,44.80),(1.16,41.14),(-.55,40.02)],10.53,10.77,'red',
             rotation=('y',22.5,(.15,44.7,10.65)),group='Origami folds',step=.25)
+    polygon('Left paper fold narrow white crease',[(-1.25,45.59),(.43,44.85),
+            (.45,44.73),(-1.28,45.47)],10.49,10.525,'ivory',
+            rotation=('y',22.5,(.15,44.7,10.65)),group='Origami folds',step=.125)
     polygon('Right large silver paper facet',[(14.68,43.0),(18.91,45.40),
             (17.40,47.39),(14.70,46.88),(13.69,44.70)],11.43,11.72,'ivory',
             rotation=('y',-22.5,(15.4,45.1,11.55)),group='Origami folds',step=.25)
@@ -146,7 +146,9 @@ def build_upper(cube, polygon, art_dir):
     # Fold returns connect the projecting origami faces back to the frame.
     # They are visible as thin paper planes from the side, not floating cutouts.
     cube('Left paper folded return',(.10,44.35,10.40),(1.05,44.62,13.26),
-         'white',group='Origami folded returns')
+         'red',group='Origami folded returns')
+    cube('Left lower red folded return',(.10,40.82,10.55),(.70,41.04,12.85),
+         'red',group='Origami folded returns')
     cube('Right paper folded return',(13.35,44.15,10.10),(16.10,44.46,13.70),
          'white',group='Origami folded returns')
     cube('Lower trailing paper folded return',(15.05,39.85,8.53),(15.41,40.20,12.47),
@@ -215,7 +217,7 @@ def build_upper(cube, polygon, art_dir):
         stem='Spinner %d '%i
         drum(stem+'thin graphite gasket',x,z,1.96,.01,.16,'steel')
         drum(stem+'white outer bevel',x,z,1.91,.16,.35,'ivory')
-        drum(stem+'opal illuminated body',x,z,1.76,.35,.71,'pink' if i in (3,5) else 'white',True)
+        drum(stem+'opal illuminated body',x,z,1.76,.35,.71,'white',True)
         drum(stem+'white upper shoulder',x,z,1.56,.71,.88,'white',True)
         drum(stem+'frosted top face',x,z,1.36,.88,.98,'ivory')
         # Centre geometric diamond, with intersecting triangles visible from above.

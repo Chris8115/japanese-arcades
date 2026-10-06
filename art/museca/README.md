@@ -48,6 +48,9 @@ The cabinet combines a recessed portrait display, five staggered luminous spinne
 rings with separate hubs, a faceted illuminated front column, an angled card
 reader, a metal pedal, and overlapping geometric marquee pieces. The layered
 character print and separate thin MÚSECA wordmark follow the supplied photographs.
+The upper-left decoration uses three overlapping red paper facets. All five
+spinner bodies stay neutral white, and the seven lower prism lights are red,
+matching the supplied white-background product reference.
 
 | File | Purpose |
 | --- | --- |
@@ -58,7 +61,7 @@ character print and separate thin MÚSECA wordmark follow the supplied photograp
 | [display-artwork-source.png](display-artwork-source.png) | Original portrait display illustration |
 | [marquee-artwork-source.png](marquee-artwork-source.png) | Original character marquee illustration |
 
-The current export has **8,232 elements and 10,150 rendered faces**, split across
+The current export has **8,234 elements and 10,162 rendered faces**, split across
 three block models with five shared textures. The surface optimizer removes
 hidden faces and clips overlapping opaque surfaces; exported elements may hold
 only a portion of a cuboid's original faces, so their count is not a polygon
@@ -129,3 +132,9 @@ The small development client successfully loaded the final resources on
 2026-10-06 and created its texture atlases with no model or texture errors.
 The startup log is `build/verification/museca-client.log`. In-world appearance
 and full-pack client compatibility have not been checked for this cabinet.
+
+The subsequent reference-color correction rebuilt successfully; its log is
+`build/verification/museca-reference-colors-build.log`. The studio previews and
+editable models were regenerated with the red paper cluster, red lower lights,
+and white spinners. Press F3+T in an already-open development client to load
+these updated model resources.
