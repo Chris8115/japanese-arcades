@@ -25,6 +25,12 @@ faces previously competed at the same depth. World and inventory models use soli
 rendering so Minecraft can apply mipmaps to their opaque textures. The coarser
 surface steps also reduce tiny edges that can shimmer while the camera moves.
 
+Material UVs stay eight pixels inside their 64-pixel palette tiles, which provides
+a half-texel margin at mip level 4. The white ring's horizontal ledges use ordinary
+two-dimensional material patches. They previously sampled a zero-height row at
+the texture atlas boundary, allowing neighboring dark textures to appear as
+speckles even after the overlapping geometry had been removed.
+
 The base is approximately **1.1 blocks wide** (17.7 model units); the touch enclosure
 reaches **1.375 blocks** (22 units). The highest point is approximately **2.81 blocks**
 (44.96 units), while placement occupies one column of **three vertical blocks**.
@@ -130,6 +136,8 @@ an independent exterior-area calculation. Its optional model audit checks positi
 dimensions, unique element names, and absence of same-facing coplanar overlaps
 in the saved export. These checks target the geometry defect separately from the
 jukebox tests.
+The model audit also checks every material UV against its mip-level-4 tile margin
+and confirms that all white-ring ledges have a two-dimensional texture footprint.
 
 The runtime implementation built successfully, and all **13 native integration
 tests passed on 2026-10-05** using `dev.cmd GameTest` in a disposable world. Three

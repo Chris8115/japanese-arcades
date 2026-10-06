@@ -7,6 +7,7 @@ import importlib.util
 import itertools
 import json
 import random
+import struct
 import time
 import sys
 from pathlib import Path
@@ -124,6 +125,42 @@ if '--model' in sys.argv:
                 offset = 0 if axis == 1 else 5.2
                 item_span = round(e['to'][axis]*.35+offset, 5)-round(e['from'][axis]*.35+offset, 5)
                 assert item_span/16 > 1e-5, ('Inventory winding tolerance', e['name'], direction, item_span)
+    # A collapsed UV row at a palette/sprite boundary bypasses FaceBakery's
+    # inward UV shrink. At mip level four, the nearest sample can then come
+    # from the neighbouring black tile or an unrelated Minecraft atlas sprite.
+    # Check the sampling footprint, including clipped faces, rather than just
+    # checking that the nominal UVs lie within the overall 0..16 sprite range.
+    namespace, texture_path = model['textures']['materials'].split(':', 1)
+    palette_path = ROOT/'src/main/resources/assets'/namespace/'textures'/(texture_path+'.png')
+    palette_bytes = palette_path.read_bytes()
+    assert palette_bytes[:8] == b'\x89PNG\r\n\x1a\n'
+    palette_size = struct.unpack('>II', palette_bytes[16:24])
+    mip_level = 4
+    half_texel_guard = (1 << mip_level)/2
+    palette_faces = white_ledges = 0
+    for e in result:
+        for direction, face in e['faces'].items():
+            if face['texture'] != '#materials':
+                continue
+            palette_faces += 1
+            for axis, dimension in enumerate(palette_size):
+                tile_size = dimension/4
+                endpoints = [face['uv'][axis]*dimension/16,
+                             face['uv'][axis+2]*dimension/16]
+                low, high = min(endpoints), max(endpoints)
+                tile = int(((low+high)/2)//tile_size)
+                assert 0 <= tile < 4, ('Palette tile out of range', e['name'], direction, face['uv'])
+                assert low >= tile*tile_size+half_texel_guard-1e-6, (
+                    'Palette UV lacks mip-4 edge guard', e['name'], direction, axis, low, high)
+                assert high <= (tile+1)*tile_size-half_texel_guard+1e-6, (
+                    'Palette UV lacks mip-4 edge guard', e['name'], direction, axis, low, high)
+            if e['_group'] == 'White outer ring' and direction in ('up', 'down'):
+                white_ledges += 1
+                assert abs(face['uv'][2]-face['uv'][0]) > 1e-8 and abs(face['uv'][3]-face['uv'][1]) > 1e-8, (
+                    'White rim ledge must use a two-dimensional interior UV patch', e['name'], direction, face['uv'])
+    assert palette_faces and white_ledges, 'Palette/white-ledge regression checks must exercise visible faces'
+    print({'palette_faces_with_mip4_guard': palette_faces,
+           'white_ledges_with_2d_uvs': white_ledges, 'guard_source_pixels': half_texel_guard})
     print({'model_elements': len(result), 'model_faces': sum(len(e['faces']) for e in result)},
           'audit_seconds', round(time.monotonic()-start, 2))
     print('Current full WACCA model: no same-direction coplanar overlap remains.')

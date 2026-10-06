@@ -110,7 +110,10 @@ for key,source_name,target_name in (
 
 def uv(name):
     i=KEYS.index(name)
-    return [(i%4)*4,(i//4)*4,(i%4)*4+4,(i//4)*4+4]
+    # Eight native pixels keep sampling inside this 64px material tile through
+    # mip level 4. Exact tile/sprite boundaries can pick up neighboring colours.
+    inset=.5
+    return [(i%4)*4+inset,(i//4)*4+inset,(i%4)*4+4-inset,(i//4)*4+4-inset]
 
 
 elements=[]
@@ -233,11 +236,14 @@ for e in ring_elements:
             u0,v0,u1,v1=e['faces'][direction]['uv']
             part['faces'][direction]['uv']=[u0,v0+(top-y1)/(top-bottom)*(v1-v0),
                                             u1,v0+(top-y0)/(top-bottom)*(v1-v0)]
-        # At a display/rim course boundary carry the print over the tiny ledge.
+        # Only the screen needs its printed row carried over a tiny ledge.
+        # Solid materials retain a 2D patch inside their tile: a collapsed UV at
+        # the sprite's V=0 edge bypasses FaceBakery's shrink and samples its neighbour.
         front=part['faces']['north'];u0,v0,u1,v1=front['uv']
-        for direction,v in (('up',v0),('down',v1)):
-            part['faces'][direction]=copy.deepcopy(front)
-            part['faces'][direction]['uv']=[u0,v,u1,v]
+        if front['texture']=='#display':
+            for direction,v in (('up',v0),('down',v1)):
+                part['faces'][direction]=copy.deepcopy(front)
+                part['faces'][direction]['uv']=[u0,v,u1,v]
         elements.append(part)
 
 # The fine bowl already includes its lean in the quantized depth. A continuous
