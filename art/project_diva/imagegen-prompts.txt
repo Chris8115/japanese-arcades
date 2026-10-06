@@ -1,0 +1,24 @@
+Built-in image generation mode. New artwork generated from cabinet reference descriptions; no source photos edited. Original generated PNGs are preserved unchanged.
+
+DISPLAY ARTWORK
+Generated source: local-source/exec-35bb2052-11a6-4bcb-a45a-709e341d1fe6.png
+Saved: art/project_diva/display-artwork-source.png
+Prompt:
+Use case: stylized-concept.
+Asset type: landscape 16:9 flat screen texture for a Minecraft Project DIVA Arcade Future Tone cabinet.
+Primary request: a faithful Hatsune Miku concert/attract screenshot-inspired illustration. Hatsune Miku has very long vivid turquoise twin tails tied high with small black and pink headset bands, turquoise eyes, gray sleeveless collared top, turquoise necktie, dark detached sleeves and black skirt. Chest-up 3/4 view with her cheerful face at the center-left and one open hand lifted near the right side, as in an arcade performance close-up.
+Scene: softly glowing teal, blue and lavender futuristic stage, a few abstract geometric luminous panels and distant concert light dots. Fine compact rhythm HUD only at the edges: small white outlined triangle square cross circle symbols in a row near lower edge, a tiny score at upper right, subtle cyan horizontal gauge at the top. Do not cover the face with text. Keep the portrait the unmistakable focal point.
+Style: polished anime illustration carefully translated to fine pixel art; crisp coherent 2px to 4px pixel clusters, rich controlled shading, readable face and cyan hair. Bright display colors but natural gray and black clothing. Composition fills all the landscape frame.
+Constraints: new artwork, flat straight-on digital screen image only; no cabinet, no monitor border, no perspective, no physical buttons, no additional people, no large logo, no thick black frame, no watermark. Aspect ratio exactly 16:9.
+
+HEADER ARTWORK
+Generated source: local-source/exec-60a0f361-641f-4118-a524-fc37a462bee4.png
+Saved: art/project_diva/header-artwork-source.png
+Prompt:
+Use case: stylized-concept.
+Asset type: flat printed backboard artwork for a Project DIVA Arcade Future Tone cabinet in Minecraft. Landscape rectangle exactly16:9, no perspective. This is only the printed white board above the speakers, not the entire cabinet.
+Primary request: faithfully interpret the iconic real cabinet's broad decorative backboard: white-silver base, bold slashing diagonal yellow and deep pink/magenta bands rising from lower left toward upper middle, narrower white silver and deep blue slashing bands alongside them. Center-right is a large unmistakable FLAT SOLID TEAL silhouette of Hatsune Miku, standing calmly facing left in three-quarter profile, with extremely long twin tails and short skirt, cropped near upper thighs by the bottom edge. This silhouette should fill most of the height and be readable as ONE flat turquoise ink shape, with white cut-out gaps between hair and torso.
+Right field: white and very pale mint gray faceted triangles with a few large thin teal hexagon outlines; keep sparse. Much smaller scattered teal hexagons near upper left are welcome. White background fills the rectangle with no alpha. 
+Style: clean printed arcade cabinet artwork rendered in fine crisp pixel art suitable for a Minecraft texture. Flat screenprint colors with restrained silver faceting, precise geometry. No material realism or shadows.
+Constraints: NO typography, NO words, NO logos, NO buttons, NO speaker grille, NO cabinet render, NO thick frame, NO giant photographic portrait, NO full-color anime girl. The girl is strictly flat monochrome teal silhouette. Main silhouette positioned around62percent across frame. Left40percent contains colored diagonal bands. The lowerquarter may be partially hidden by separate cabinet hardware, so make head and twin tail silhouette strongest in upperthreequarters. Straight rectangular texture, all content reaches edges.
+
