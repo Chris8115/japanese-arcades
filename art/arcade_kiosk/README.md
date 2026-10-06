@@ -38,10 +38,13 @@ material transaction. Failed or unavailable orders leave ingredients untouched.
 Ground purchases wait for inventory space even in creative mode, where vanilla
 pickup would otherwise discard an item that cannot fit.
 
-The **Prizes** tab is present and currently empty, ready for future prize items.
-Empty gachapon capsules are not sold: filled capsules are obtained from stocked
-gachapon machines. New categories and entries can be added in
-`ArcadeOrderCatalog` without adding new screen or packet types.
+The **Passes** tab issues an Arcade Pass, trades iron/gold/emeralds/diamonds for
+Credits on a selected card, and transfers all Credits and Prize Points from B
+into A while keeping both cards. The **Prizes** tab sells four placeable
+collectibles for the selected pass's Prize Points. See the
+[Arcade Pass economy guide](../arcade_economy/README.md) for configurable prices
+and the complete play/reward loop. Empty gachapon capsules are not sold:
+filled capsules still come from stocked gachapon machines.
 
 ## Material prices
 
@@ -107,17 +110,22 @@ source faces. Split faces are clipped rather than duplicated across blocks.
 
 ## Verification
 
-The Java 21 release build and all **80 dedicated-server GameTests** passed on
+The Java 21 release build and all **96 dedicated-server GameTests** passed on
 2026-10-06. Nine kiosk tests cover both block halves in all directions, support
 and obstruction handling, every catalog purchase, split/offhand payments,
 invalid or stale requests, survival/creative overflow, canceled or substituted
 drop events, delayed pickup after save/reload, and the loaded shaped recipe.
+Ten additional kiosk economy tests cover pass issuance, exchanges, transfers,
+prize purchases, card persistence, transaction isolation and live rebalancing;
+six paid-play tests cover the cabinets and pass data. Current economy UI
+screenshots and checks are in the [economy guide](../arcade_economy/README.md).
 
 The packaged JAR was checked against all 16 relevant source resources, including
 models, textures, crafting/loot/advancement JSON, translations, and the pickaxe
 tag. Existing translations were preserved. All kiosk classes target Java 21.
 
-A disposable small-client world verified `/funpackdev`, the actual kiosk model
+The original kiosk implementation's disposable small-client world verified
+`/funpackdev`, the actual kiosk model
 and screens, a disabled unaffordable order, a paid purchase with exact ingredient
 deductions, list scrolling and long titles, the empty Prizes tab, safe creative
 overflow followed by pickup after freeing a slot, and the minimum logical
@@ -130,7 +138,8 @@ files or saves were changed. The full-pack images are
 [the placed kiosk](kiosk-in-pack.png) and
 [ordering alongside JEI](kiosk-ordering-in-pack.png).
 
-These are actual Minecraft screenshots:
+These are actual Minecraft screenshots from the original kiosk implementation,
+before the Passes tab and collectible prize shop were added:
 
 ![Kiosk in Minecraft](kiosk-in-game.png)
 

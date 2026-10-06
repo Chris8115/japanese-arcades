@@ -35,9 +35,11 @@ public final class ArcadeOrderCatalog {
 
     public static final ResourceLocation MACHINES = id("machines");
     public static final ResourceLocation PRIZES = id("prizes");
+    public static final ResourceLocation PASSES = id("passes");
     private static final List<Category> CATEGORIES = List.of(
         new Category(MACHINES, Component.translatable("kiosk.category.machines")),
-        new Category(PRIZES, Component.translatable("kiosk.category.prizes")));
+        new Category(PRIZES, Component.translatable("kiosk.category.prizes")),
+        new Category(PASSES, Component.translatable("kiosk.category.passes")));
     private static final List<Entry> ENTRIES = List.of(
         machine("nostalgia_op3", FunPackCustom.NOSTALGIA_OP3_ITEM, 16, 4, 1, 6, 6),
         machine("sound_voltex_valkyrie", FunPackCustom.SOUND_VOLTEX_VALKYRIE_ITEM, 18, 4, 1, 6, 8),

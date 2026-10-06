@@ -3,6 +3,7 @@ package local.funpack.custom;
 import com.mojang.logging.LogUtils;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.core.component.DataComponentType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -15,6 +16,8 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
@@ -38,6 +41,25 @@ public final class FunPackCustom {
         DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, MOD_ID);
     private static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, MOD_ID);
     private static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(Registries.ENTITY_TYPE, MOD_ID);
+    private static final DeferredRegister<DataComponentType<?>> COMPONENTS = DeferredRegister.create(Registries.DATA_COMPONENT_TYPE, MOD_ID);
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<ArcadePassData>> PASS_DATA =
+        COMPONENTS.register("arcade_pass", () -> DataComponentType.<ArcadePassData>builder()
+            .persistent(ArcadePassData.CODEC).networkSynchronized(ArcadePassData.STREAM_CODEC).build());
+    public static final DeferredItem<ArcadePassItem> ARCADE_PASS = ITEMS.registerItem("arcade_pass", ArcadePassItem::new,
+        new Item.Properties().stacksTo(1));
+    public static final DeferredBlock<ArcadePrizeBlock> ARCADE_CAT_PLUSH = prizeBlock("arcade_cat_plush");
+    public static final DeferredBlock<ArcadePrizeBlock> RHYTHM_STAR_TROPHY = prizeBlock("rhythm_star_trophy");
+    public static final DeferredBlock<ArcadePrizeBlock> MINI_ARCADE_CABINET = prizeBlock("mini_arcade_cabinet");
+    public static final DeferredBlock<ArcadePrizeBlock> ARCADE_POSTER = prizeBlock("arcade_poster");
+    public static final DeferredItem<?> ARCADE_CAT_PLUSH_ITEM = ITEMS.registerSimpleBlockItem("arcade_cat_plush", ARCADE_CAT_PLUSH);
+    public static final DeferredItem<?> RHYTHM_STAR_TROPHY_ITEM = ITEMS.registerSimpleBlockItem("rhythm_star_trophy", RHYTHM_STAR_TROPHY);
+    public static final DeferredItem<?> MINI_ARCADE_CABINET_ITEM = ITEMS.registerSimpleBlockItem("mini_arcade_cabinet", MINI_ARCADE_CABINET);
+    public static final DeferredItem<?> ARCADE_POSTER_ITEM = ITEMS.registerSimpleBlockItem("arcade_poster", ARCADE_POSTER);
+
+    private static DeferredBlock<ArcadePrizeBlock> prizeBlock(String name) {
+        return BLOCKS.registerBlock(name, ArcadePrizeBlock::new, BlockBehaviour.Properties.of()
+            .mapColor(MapColor.COLOR_CYAN).strength(.5F).sound(SoundType.WOOD).noOcclusion());
+    }
 
     public static final DeferredBlock<NostalgiaCabinetBlock> NOSTALGIA_OP3 = BLOCKS.registerBlock(
         "nostalgia_op3", NostalgiaCabinetBlock::new,
@@ -182,21 +204,29 @@ public final class FunPackCustom {
                 output.accept(INITIAL_D_ITEM.get());
                 output.accept(GACHAPON_ITEM.get());
                 output.accept(ARCADE_KIOSK_ITEM.get());
+                output.accept(ARCADE_PASS.get());
+                output.accept(ARCADE_CAT_PLUSH_ITEM.get());
+                output.accept(RHYTHM_STAR_TROPHY_ITEM.get());
+                output.accept(MINI_ARCADE_CABINET_ITEM.get());
+                output.accept(ARCADE_POSTER_ITEM.get());
             })
             .build());
 
-    public FunPackCustom(IEventBus modEventBus) {
+    public FunPackCustom(IEventBus modEventBus, ModContainer modContainer) {
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);
         TABS.register(modEventBus);
         BLOCK_ENTITIES.register(modEventBus);
         MENUS.register(modEventBus);
         ENTITIES.register(modEventBus);
+        COMPONENTS.register(modEventBus);
+        modContainer.registerConfig(ModConfig.Type.SERVER, ArcadeEconomyConfig.SPEC, "funpackcustom-arcade-economy.toml");
         modEventBus.addListener(GachaponNetwork::register);
         modEventBus.addListener(ArcadeKioskNetwork::register);
         NeoForge.EVENT_BUS.register(GachaponProtection.class);
         NeoForge.EVENT_BUS.register(TaikoDrumInteraction.class);
         NeoForge.EVENT_BUS.register(InitialDSeatEntity.class);
+        NeoForge.EVENT_BUS.register(ArcadePlayInteraction.class);
         NeoForge.EVENT_BUS.addListener(ArcadeKioskMenu::protectOverflowPickup);
         NeoForge.EVENT_BUS.addListener(FunPackCustom::registerCommands);
         LOGGER.info("Fun Pack Custom loaded. Development environment is ready.");

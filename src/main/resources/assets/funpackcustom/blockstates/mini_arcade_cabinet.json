@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "funpackcustom:block/mini_arcade_cabinet"
+    },
+    "facing=east": {
+      "model": "funpackcustom:block/mini_arcade_cabinet",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "funpackcustom:block/mini_arcade_cabinet",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "funpackcustom:block/mini_arcade_cabinet",
+      "y": 270
+    }
+  }
+}

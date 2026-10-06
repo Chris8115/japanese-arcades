@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "funpackcustom:block/arcade_poster"
+    },
+    "facing=east": {
+      "model": "funpackcustom:block/arcade_poster",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "funpackcustom:block/arcade_poster",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "funpackcustom:block/arcade_poster",
+      "y": 270
+    }
+  }
+}

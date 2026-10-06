@@ -172,7 +172,10 @@ public final class ArcadeKioskGameTests {
             helper.assertTrue(menu.getStatus() == ArcadeKioskMenu.STATUS_MISSING_MATERIALS
                 && ArcadeOrderCatalog.count(player, entry.result().get()) == 1, "Repeated packet produced a free second machine");
         }
-        helper.assertTrue(ArcadeOrderCatalog.entries(ArcadeOrderCatalog.PRIZES).isEmpty(), "Unimplemented prizes must not sell empty capsules");
+        helper.assertTrue(ArcadeOrderCatalog.entries(ArcadeOrderCatalog.PRIZES).isEmpty()
+            && !ArcadePrizeCatalog.entries().isEmpty()
+            && ArcadePrizeCatalog.entries().stream().allMatch(entry -> ArcadeOrderCatalog.find(entry.id()).isEmpty()),
+            "Point prizes must remain separate from ordinary material orders");
         helper.succeed();
     }
 

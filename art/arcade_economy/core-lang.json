@@ -1,0 +1,14 @@
+{
+  "pass.design.funpackcustom.default": "Arcade Original",
+  "arcade.pass.balance": "%s Credits | %s Prize Points",
+  "arcade.pass.credits": "Credits: %s",
+  "arcade.pass.points": "Prize Points: %s",
+  "arcade.pass.id": "Pass ID: %s",
+  "arcade.pass.hint": "Use on an arcade machine. Manage at an Arcade Kiosk.",
+  "arcade.pass.invalid": "This Arcade Pass cannot be used.",
+  "arcade.play.cooldown": "Next play ready in %ss.",
+  "arcade.play.unavailable": "This machine's reward profile is unavailable.",
+  "arcade.play.insufficient": "Play costs %s Credits. This pass has %s.",
+  "arcade.play.full": "Spend or transfer Prize Points before playing again.",
+  "arcade.play.result": "Arcade result: %s | +%s Prize Points | -%s Credits"
+}

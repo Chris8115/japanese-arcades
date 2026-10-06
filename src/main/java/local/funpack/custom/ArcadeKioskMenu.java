@@ -2,8 +2,11 @@ package local.funpack.custom;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -29,10 +32,20 @@ public final class ArcadeKioskMenu extends AbstractContainerMenu {
     public static final int STATUS_ORDERED = 1;
     public static final int STATUS_MISSING_MATERIALS = 2;
     public static final int STATUS_UNAVAILABLE = 3;
+    public static final int STATUS_PASS_ISSUED = 4;
+    public static final int STATUS_EXCHANGED = 5;
+    public static final int STATUS_TRANSFERRED = 6;
+    public static final int STATUS_STALE_PASS = 7;
+    public static final int STATUS_PASS_EXISTS = 8;
+    public static final int STATUS_BALANCE_LIMIT = 9;
+    public static final int STATUS_MISSING_POINTS = 10;
+    // Shared across menus: callbacks cannot reopen a kiosk and reenter a buyer's
+    // unfinished delivery through a second container instance.
+    private static final Set<UUID> TRANSACTING = new HashSet<>();
     private final BlockPos blockPos;
     private final Level level;
     private final UUID viewer;
-    private final ContainerData data = new SimpleContainerData(1);
+    private final ContainerData data = new SimpleContainerData(2);
 
     public ArcadeKioskMenu(int id, Inventory inventory, RegistryFriendlyByteBuf buffer) {
         this(id, inventory, buffer.readBlockPos());
@@ -54,6 +67,7 @@ public final class ArcadeKioskMenu extends AbstractContainerMenu {
 
     public BlockPos getBlockPos() { return blockPos; }
     public int getStatus() { return data.get(0); }
+    public int getStatusRevision() { return data.get(1); }
 
     @Override public boolean stillValid(Player player) {
         if (!viewer.equals(player.getUUID()) || !player.isAlive() || player.isSpectator() || player.level() != level) { return false; }
@@ -79,42 +93,135 @@ public final class ArcadeKioskMenu extends AbstractContainerMenu {
     }
 
     public void order(ServerPlayer player, ResourceLocation entryId) {
-        if (level.isClientSide || player.containerMenu != this || !stillValid(player)) { return; }
-        var optional = ArcadeOrderCatalog.find(entryId);
-        if (optional.isEmpty()) { setStatus(STATUS_UNAVAILABLE); return; }
-        var entry = optional.get();
-        List<ItemStack> before = snapshot(player.getInventory());
-        List<ItemStack> after = before.stream().map(ItemStack::copy).collect(java.util.stream.Collectors.toCollection(ArrayList::new));
-        // Consume a working copy first. No material moves unless every cost can
-        // be paid; both packet retries and simultaneous buyers remain ordinary
-        // independent, fully paid transactions on the main server thread.
-        for (var cost : entry.costs()) {
-            int remaining = cost.count();
-            for (ItemStack stack : after) {
-                if (stack.is(cost.item())) {
-                    int taken = Math.min(remaining, stack.getCount());
-                    stack.shrink(taken);
-                    remaining -= taken;
-                    if (remaining == 0) { break; }
+        if (!begin(player)) { return; }
+        try {
+            var optional = ArcadeOrderCatalog.find(entryId);
+            if (optional.isEmpty()) { setStatus(STATUS_UNAVAILABLE); return; }
+            var entry = optional.get();
+            List<ItemStack> before = snapshot(player.getInventory());
+            List<ItemStack> after = copy(before);
+            for (var cost : entry.costs()) {
+                int remaining = cost.count();
+                for (ItemStack stack : after) {
+                    if (stack.is(cost.item())) {
+                        int taken = Math.min(remaining, stack.getCount());
+                        stack.shrink(taken);
+                        remaining -= taken;
+                        if (remaining == 0) { break; }
+                    }
                 }
+                if (remaining != 0) { setStatus(STATUS_MISSING_MATERIALS); return; }
             }
-            if (remaining != 0) { setStatus(STATUS_MISSING_MATERIALS); return; }
-        }
-        ItemStack output = entry.output();
+            commit(player, before, after, entry.output(), STATUS_ORDERED);
+        } finally { end(player); }
+    }
+
+    public void issuePass(ServerPlayer player) {
+        if (!begin(player)) { return; }
+        try {
+            List<ItemStack> before = snapshot(player.getInventory());
+            if (before.stream().anyMatch(stack -> stack.getItem() instanceof ArcadePassItem)
+                    || getCarried().getItem() instanceof ArcadePassItem
+                    || player.inventoryMenu.getCarried().getItem() instanceof ArcadePassItem) {
+                setStatus(STATUS_PASS_EXISTS); return;
+            }
+            commit(player, before, copy(before), ArcadePassItem.createPass(), STATUS_PASS_ISSUED);
+        } finally { end(player); }
+    }
+
+    public void exchange(ServerPlayer player, int passSlot, UUID passId, long revision, ResourceLocation materialId) {
+        if (!begin(player)) { return; }
+        try {
+            List<ItemStack> before = snapshot(player.getInventory());
+            ArcadePassData pass = selectedPass(before, passSlot, passId, revision);
+            if (pass == null) { setStatus(STATUS_STALE_PASS); return; }
+            var rate = ArcadeEconomyConfig.exchangeRates().stream()
+                .filter(value -> BuiltInRegistries.ITEM.getKey(value.material()).equals(materialId)).findFirst();
+            if (rate.isEmpty() || rate.get().credits() <= 0) { setStatus(STATUS_UNAVAILABLE); return; }
+            if (pass.credits() > ArcadePassData.MAX_BALANCE - rate.get().credits()) { setStatus(STATUS_BALANCE_LIMIT); return; }
+            List<ItemStack> after = copy(before);
+            boolean paid = false;
+            for (ItemStack stack : after) {
+                if (stack.is(rate.get().material())) { stack.shrink(1); paid = true; break; }
+            }
+            if (!paid) { setStatus(STATUS_MISSING_MATERIALS); return; }
+            ArcadePassItem.setData(after.get(passSlot), pass.withBalances(pass.credits()+rate.get().credits(), pass.prizePoints()));
+            commit(player, before, after, ItemStack.EMPTY, STATUS_EXCHANGED);
+        } finally { end(player); }
+    }
+
+    public void transfer(ServerPlayer player, int sourceSlot, UUID sourceId, long sourceRevision,
+            int targetSlot, UUID targetId, long targetRevision) {
+        if (!begin(player)) { return; }
+        try {
+            List<ItemStack> before = snapshot(player.getInventory());
+            ArcadePassData source = selectedPass(before, sourceSlot, sourceId, sourceRevision);
+            ArcadePassData target = selectedPass(before, targetSlot, targetId, targetRevision);
+            if (source == null || target == null || sourceSlot == targetSlot
+                    || (source.id().equals(target.id()) && !source.id().equals(ArcadePassData.UNASSIGNED))) {
+                setStatus(STATUS_STALE_PASS); return;
+            }
+            if (source.credits() == 0 && source.prizePoints() == 0) { setStatus(STATUS_UNAVAILABLE); return; }
+            if (source.credits() > ArcadePassData.MAX_BALANCE-target.credits()
+                    || source.prizePoints() > ArcadePassData.MAX_BALANCE-target.prizePoints()) {
+                setStatus(STATUS_BALANCE_LIMIT); return;
+            }
+            List<ItemStack> after = copy(before);
+            ArcadePassItem.setData(after.get(sourceSlot), source.withBalances(0, 0));
+            ArcadePassItem.setData(after.get(targetSlot), target.withBalances(target.credits()+source.credits(), target.prizePoints()+source.prizePoints()));
+            commit(player, before, after, ItemStack.EMPTY, STATUS_TRANSFERRED);
+        } finally { end(player); }
+    }
+
+    public void orderPrize(ServerPlayer player, ResourceLocation prizeId, int passSlot, UUID passId, long revision) {
+        if (!begin(player)) { return; }
+        try {
+            List<ItemStack> before = snapshot(player.getInventory());
+            ArcadePassData pass = selectedPass(before, passSlot, passId, revision);
+            if (pass == null) { setStatus(STATUS_STALE_PASS); return; }
+            var prize = ArcadePrizeCatalog.entries().stream().filter(entry -> entry.id().equals(prizeId)).findFirst();
+            int price = ArcadeEconomyConfig.prizePrice(prizeId);
+            if (prize.isEmpty() || price <= 0) { setStatus(STATUS_UNAVAILABLE); return; }
+            if (pass.prizePoints() < price) { setStatus(STATUS_MISSING_POINTS); return; }
+            List<ItemStack> after = copy(before);
+            ArcadePassItem.setData(after.get(passSlot), pass.withBalances(pass.credits(), pass.prizePoints()-price));
+            commit(player, before, after, prize.get().output(), STATUS_ORDERED);
+        } finally { end(player); }
+    }
+
+    private boolean begin(ServerPlayer player) {
+        return !level.isClientSide && player.containerMenu == this && stillValid(player) && TRANSACTING.add(player.getUUID());
+    }
+    private static void end(ServerPlayer player) { TRANSACTING.remove(player.getUUID()); }
+    private static List<ItemStack> copy(List<ItemStack> stacks) {
+        return stacks.stream().map(ItemStack::copy).collect(java.util.stream.Collectors.toCollection(ArrayList::new));
+    }
+    private static ArcadePassData selectedPass(List<ItemStack> inventory, int slot, UUID id, long revision) {
+        if (slot < 0 || slot >= 36 || revision < 0 || revision == Long.MAX_VALUE) { return null; }
+        ArcadePassData pass = ArcadePassItem.data(inventory.get(slot));
+        return pass != null && pass.id().equals(id) && pass.revision() == revision ? pass : null;
+    }
+
+    /** Plan all mutations first; an overflow veto or callback cannot charge or duplicate an order. */
+    private void commit(ServerPlayer player, List<ItemStack> before, List<ItemStack> after, ItemStack result, int status) {
+        ItemStack carriedBefore = getCarried().copy();
+        ItemStack output = result.copy();
         insertOutput(after, output);
         ItemEntity dropped = null;
+        ItemStack expectedDrop = output.copy();
         if (!output.isEmpty()) {
             dropped = new ItemEntity(level, player.getX(), player.getY() + .4, player.getZ(), output);
             dropped.getPersistentData().putBoolean(OVERFLOW_MARKER, true);
             dropped.setTarget(player.getUUID());
             dropped.setDefaultPickUpDelay();
             // An item-spawn veto must not charge a player for a lost purchase.
-            if (!level.addFreshEntity(dropped)) { setStatus(STATUS_UNAVAILABLE); return; }
+            if (!level.addFreshEntity(dropped)) { dropped.discard(); setStatus(STATUS_UNAVAILABLE); return; }
         }
         // A spawn event can call other mods, so recheck the bound menu and all
         // source stacks before committing its inventory snapshot.
         if (player.containerMenu != this || !stillValid(player) || !sameInventory(player.getInventory(), before)
-                || (dropped != null && (dropped.isRemoved() || !ItemStack.matches(dropped.getItem(), entry.output())))) {
+                || !ItemStack.matches(getCarried(), carriedBefore)
+                || (dropped != null && (dropped.isRemoved() || !ItemStack.matches(dropped.getItem(), expectedDrop)))) {
             if (dropped != null) { dropped.discard(); }
             setStatus(STATUS_UNAVAILABLE);
             return;
@@ -122,12 +229,12 @@ public final class ArcadeKioskMenu extends AbstractContainerMenu {
         for (int index = 0; index < 36; index++) { player.getInventory().setItem(index, after.get(index)); }
         player.getInventory().setItem(40, after.get(36));
         player.getInventory().setChanged();
-        setStatus(STATUS_ORDERED);
+        setStatus(status);
         level.playSound(null, blockPos, SoundEvents.NOTE_BLOCK_CHIME.value(), SoundSource.BLOCKS, .55F, 1.35F);
         player.inventoryMenu.broadcastChanges();
     }
 
-    private void setStatus(int status) { data.set(0, status); broadcastChanges(); }
+    private void setStatus(int status) { data.set(0, status); data.set(1, (data.get(1)+1)&32767); broadcastChanges(); }
 
     private static List<ItemStack> snapshot(Inventory inventory) {
         List<ItemStack> snapshot = new ArrayList<>(37);

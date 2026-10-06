@@ -48,7 +48,13 @@ machines. Craft the two-block-tall kiosk with iron, glass, gold and redstone, th
 select a machine to see its material costs. The **Order** button exchanges those
 materials for the selected machine, putting it into the player's inventory or
 dropping it nearby if full. The **Machines** and **Prizes** tabs can be extended as
-new content is added; Prizes is ready for future reward items.
+new content is added. The **Passes** tab issues Arcade Passes, loads Credits from
+iron, gold, emeralds or diamonds, and combines balances between cards. Use a pass
+on a full-size arcade cabinet to spend Credits and earn randomized Prize Points,
+then redeem them in **Prizes** for four placeable collectibles. Prices, rank
+weights and machine profiles are server-configurable. See the
+[Arcade Pass economy guide](art/arcade_economy/README.md) for controls, defaults,
+configuration, transferable-card data and future loot support.
 
 ## Start here
 
@@ -67,7 +73,7 @@ Use **Terminal > Run Task** for the `Fun:` tasks, or open a terminal here:
 - `SyncPack` refreshes the copied mods, configs, resource packs, and pack scripts from the live pack.
 - `Prepare` downloads game assets and prepares client/server launch files.
 - `Server` launches a small dedicated server for checking server compatibility.
-- `GameTest` runs eighty cabinet, gachapon and ordering integration tests in a disposable test world and exits.
+- `GameTest` runs 96 cabinet, gachapon, ordering and Arcade Pass economy integration tests in a disposable test world and exits.
 - `Data` runs our data generators once we add them.
 
 The script selects Java 21 locally. Your default Java installation remains available to other projects.
@@ -116,8 +122,12 @@ playback, head/rim sound events, both mouse buttons and hands, cooldowns, and
 rejection of invalid tools, blocked rays, and out-of-reach hits. Initial D adds
 single-column placement/removal, exclusive seating in every direction, safe rear
 aisle exits from a full row, blocked interactions/headroom, logout/removal cleanup,
-and uninterrupted saved-disc playback while seated. All eighty passed on
-2026-10-06.
+and uninterrupted saved-disc playback while seated. Arcade Pass tests cover
+versioned save/network data, all four exchanges, balance transfers, stale and
+cross-player requests, atomic prize delivery, spawn-event reentrancy, live
+configuration changes, all twelve paid cabinets, weighted rewards, cooldowns,
+invalid interaction rejection, and preservation of idle state and disc playback.
+All 96 passed on 2026-10-06.
 Visual checks and full-pack compatibility remain separate from these server tests.
 
 `SyncPack` overwrites files that exist in the source pack's configuration. Close the development

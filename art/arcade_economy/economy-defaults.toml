@@ -1,0 +1,44 @@
+#Credits received for ONE material. Values are server authoritative.
+[exchange]
+	# Default: 20
+	# Range: 1 ~ 1000000
+	iron = 20
+	# Default: 60
+	# Range: 1 ~ 1000000
+	gold = 60
+	# Default: 120
+	# Range: 1 ~ 1000000
+	emerald = 120
+	# Default: 240
+	# Range: 1 ~ 1000000
+	diamond = 240
+
+[play]
+	# Default: 10
+	# Range: 1 ~ 1000000
+	defaultCreditCost = 10
+	#Minimum ticks between paid plays by one player, across all machines.
+	# Default: 60
+	# Range: 10 ~ 1200
+	cooldownTicks = 60
+	#Rows: profile|rank label|weight|prize points. Add new profiles and assign them below.
+	#Each weight is relative to other rows in that profile. The standard profile must exist.
+	rankProfiles = ["standard|C|45|10", "standard|B|30|20", "standard|A|18|40", "standard|S|6|80", "standard|SS / Perfect|1|150"]
+	#Optional overrides: namespace:machine|credit cost|profile. Empty uses default cost and standard ranks.
+	#Example: funpackcustom:initial_d|15|standard
+	machineOverrides = []
+
+#Prize Point costs; ordinary material recipes are intentionally absent.
+[prizes]
+	# Default: 150
+	# Range: 1 ~ 1000000
+	arcade_poster = 150
+	# Default: 500
+	# Range: 1 ~ 1000000
+	arcade_cat_plush = 500
+	# Default: 750
+	# Range: 1 ~ 1000000
+	rhythm_star_trophy = 750
+	# Default: 1200
+	# Range: 1 ~ 1000000
+	mini_arcade_cabinet = 1200
