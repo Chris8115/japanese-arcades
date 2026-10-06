@@ -57,7 +57,7 @@ changes only.
 | --- | --- |
 | [maimai.bbmodel](maimai.bbmodel) | Complete editable Blockbench model with embedded textures |
 | [maimai.blend](maimai.blend) | Packed Blender studio preview scene |
-| [geometry.json](geometry.json) | Complete exported geometry and surface-pass statistics |
+| [geometry.json](geometry.json) | Complete exported surface mesh and processing statistics |
 | [maimai-front.png](maimai-front.png) | Overall three-quarter studio preview |
 | [display-artwork-source.png](display-artwork-source.png) | Original circular-screen maimai DX title artwork |
 | [upper-artwork-source.png](upper-artwork-source.png) | Original wide upper information-screen artwork |
@@ -80,19 +80,28 @@ trim, and individual speaker grilles follow the references. Flat graphics and
 hardware use texture detail while the button rims and enclosure contours have
 separate geometry.
 
+The circular housings lean rearward by **eight degrees**, with a rounded
+transition into the upright lower enclosure. `scripts/maimai_profile_geometry.py`
+blends the profile between model heights 13 and 19 and preserves the vertical
+rear service wall. Shared mesh edges keep the screen, buttons, trim, and their
+UVs continuous across the transition. NeoForge's built-in OBJ loader renders
+the inclined surfaces directly, without a custom Java renderer or another mod.
+
 The complete model is divided into six runtime section models:
 `maimai_primary_{base,console,marquee}` and
 `maimai_secondary_{base,console,marquee}`. Each section is positioned within its
 own block cell. The blockstate file contains 24 combinations of facing, side,
 and vertical part; record presence does not change the model.
 
-The authoring model contains **20,615 surface elements and 21,131 faces**.
-Splitting surfaces at the seam between columns yields **20,785 runtime elements
-and 21,313 faces** across the six sections. Five shared texture atlases cover materials, hardware,
-branding, circular displays, and the upper displays. Internal surfaces are
-removed before the section split, with no positive-area coplanar overlaps found
-in the geometry audit. Native element bounds, UVs, volume, and rotation angles
-pass the export audit.
+Each runtime section has a JSON wrapper pointing to its OBJ mesh. A separate
+scaled OBJ supplies the item model. All seven meshes share `models/block/maimai.mtl`
+and five texture atlases for materials, hardware, branding, circular displays,
+and upper displays. The MTL ambient channels retain full brightness on the lit
+surfaces; the cutout render type preserves the DX badge's transparent outline.
+Internal surfaces are removed before the continuous profile and section split.
+The complete authoring mesh and item contain **35,953 faces**. Clipping at the
+boundaries of the six block cells yields **36,492 section faces**. Adjacent
+surfaces share transition vertices, avoiding coplanar overlap and visible seams.
 
 Regenerate the canonical model with Python and Pillow:
 
@@ -141,17 +150,31 @@ Six maimai integration tests exercise actual six-cell placement and interaction:
 - Removing either support in every facing removes the pair and drops its item
   and disc once.
 
-The final build succeeded and **all 40 native integration tests passed on
-2026-10-06**, including the existing thirty-four, after the final collision bounds
-were applied. Logs are `build/verification/maimai-final-build.log` and
+**All 40 native integration tests passed on 2026-10-06**, including the existing
+thirty-four, after the collision bounds were applied. The leaning profile fits
+those same bounds, so the functional Java code and collision shapes did not
+change. Logs are `build/verification/maimai-final-build.log` and
 `build/verification/maimai-final-gametest.log`.
 
-The final jar audit confirms that all **109 runtime resources** and **30 compiled
+The OBJ jar audit confirms that all **117 runtime resources** and **30 compiled
 Java 21 classes** match their source/build files. maimai's 24 blockstate variants,
 six section models, five texture atlases, language entry, pickaxe tag, and
 primary-base-only loot are present. No authoring files or nested jars are included.
-The report is `build/verification/maimai-package-audit.json`; geometry results are
-in `build/verification/maimai-geometry-audit.json`.
+The report is `build/verification/maimai-profile-package-audit.json`.
+
+The final leaning-profile build passed; its log is
+`build/verification/maimai-profile-build.log`. The final mesh audit found no
+positive-area overlaps among 3,223 coplanar candidates and checked section
+reconstruction, winding, UVs, and the exact eight-degree face angle. Results are
+in `build/verification/maimai-mesh-audit.json`.
+
+A headless harness also exercised NeoForge 21.1.252's actual OBJ/MTL parsers and
+quad baker on all seven meshes, with all four rotations for each block section.
+All **181,921 baked quads** retained their expected face counts, finite positions,
+UVs, V-axis flip, and full-brightness values. The harness uses a unit sprite and
+supplies material bindings directly; it does not exercise client resource-manager
+startup or texture-atlas upload. Its report is
+`build/verification/maimai-obj-bake-audit.json`.
 
 The rendered preview was checked against the supplied references. In-game visual
 inspection and full-pack compatibility are separate checks and were not run for

@@ -2,10 +2,10 @@
 
 Run with Blender --background --python scripts/render_maimai_model.py.
 Append -- --front-only for a quick front preview or -- --detail-only for the
-controls, screen and marquee. Every mode saves a packed editable .blend scene.
+controls, screen and marquee. --profile-only renders front and side views.
+Every mode saves a packed editable .blend scene.
 """
 import json
-import math
 import sys
 from pathlib import Path
 
@@ -65,53 +65,22 @@ def texture_material(tex, glowing):
     return material
 
 
-face_indices = {'north':(2,1,0,3), 'east':(6,5,1,2), 'south':(7,4,5,6),
-                'west':(3,0,4,7), 'up':(3,7,6,2), 'down':(4,0,1,5)}
-
-
 def world(v):
     return ((16-v[0])/16, (v[2]-8)/16, v[1]/16)
 
 
-for e in data['elements']:
-    a, b = e['from'], e['to']
-    verts = [[a[0],a[1],a[2]], [b[0],a[1],a[2]], [b[0],b[1],a[2]], [a[0],b[1],a[2]],
-             [a[0],a[1],b[2]], [b[0],a[1],b[2]], [b[0],b[1],b[2]], [a[0],b[1],b[2]]]
-    if 'rotation' in e:
-        r = e['rotation']
-        o = r['origin']
-        angle = math.radians(r['angle'])
-        c, s = math.cos(angle), math.sin(angle)
-        axis = r['axis']
-        for i, v in enumerate(verts):
-            x, y, z = [v[j]-o[j] for j in range(3)]
-            if axis == 'x':
-                n = [x, y*c-z*s, y*s+z*c]
-            elif axis == 'y':
-                n = [x*c+z*s, y, -x*s+z*c]
-            else:
-                n = [x*c-y*s, x*s+y*c, z]
-            verts[i] = [n[j]+o[j] for j in range(3)]
-    mesh = bpy.data.meshes.new(e['name'])
-    names = [direction for direction in face_indices if direction in e['faces']]
-    mesh.from_pydata([world(v) for v in verts], [], [face_indices[name] for name in names])
+for surface in data['meshes']:
+    mesh = bpy.data.meshes.new(surface['name'])
+    vertices = [world(v) for v in surface['vertices']]
+    mesh.from_pydata(vertices, [], [list(range(len(vertices)))])
     mesh.update()
-    obj = bpy.data.objects.new(e['name'], mesh)
+    obj = bpy.data.objects.new(surface['name'], mesh)
     bpy.context.collection.objects.link(obj)
+    mesh.materials.append(texture_material(surface['texture'][1:], surface['glow']))
     uv_layer = mesh.uv_layers.new(name='Cabinet UV')
-    for poly, direction in zip(mesh.polygons, names):
-        face = e['faces'][direction]
-        tex = face['texture'][1:]
-        mat = texture_material(tex, 'neoforge_data' in face)
-        if mat.name not in obj.data.materials:
-            obj.data.materials.append(mat)
-        poly.material_index = list(obj.data.materials).index(mat)
-        u0, v0, u1, v1 = [v/16 for v in face['uv']]
-        uvs = [(u0,1-v0), (u0,1-v1), (u1,1-v1), (u1,1-v0)]
-        turns = face.get('rotation', 0)//90
-        uvs = uvs[turns:]+uvs[:turns]
-        for loop, tex_uv in zip(poly.loop_indices, uvs):
-            uv_layer.data[loop].uv = tex_uv
+    for loop, (u, v) in zip(mesh.polygons[0].loop_indices, surface['uv']):
+        uv_layer.data[loop].uv = (u/16, 1-v/16)
+
 
 # Studio objects are separate from the exported cabinet model.
 bpy.ops.mesh.primitive_plane_add(size=200, location=(0,0,-.015))
@@ -161,6 +130,9 @@ front_location = (3,-7,3.5)
 front_target = (0,-.15,1.48)
 if '--front-only' in sys.argv:
     render('maimai-front.png', front_location, target=front_target)
+elif '--profile-only' in sys.argv:
+    render('maimai-front.png', front_location, target=front_target)
+    render('maimai-side.png', (6,-.1,1.48), target=(0,-.1,1.48))
 else:
     if '--detail-only' not in sys.argv:
         render('maimai-front.png', front_location, target=front_target)

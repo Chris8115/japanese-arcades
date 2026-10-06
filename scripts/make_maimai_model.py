@@ -1,21 +1,20 @@
-"""Build the maimai DX cabinet with native Java cuboids.
+"""Build maimai DX from cuboids, then export its smoothly reclining exterior.
 
 Source illustrations are packed unchanged and mapped using their native aspect.
 The paired eight-button rings, two displays and shared wide canopy follow the
 supplied maimai DX references. The cabinet occupies two columns by three rows.
 """
 from __future__ import annotations
-import base64
 import copy
 import json
 import math
-import uuid
 from pathlib import Path
 from PIL import Image
 from maimai_shell_geometry import build_shell
 from maimai_upper_geometry import build_upper
 from maimai_textures import build_textures
-from wacca_surface_geometry import optimize_surfaces, _crop_uv, FACE_AXES
+from wacca_surface_geometry import optimize_surfaces
+from maimai_mesh_export import export_mesh_assets
 
 ROOT=Path(__file__).resolve().parents[1]
 ART=ROOT/'art/maimai'
@@ -153,132 +152,6 @@ elements.extend(marquee)
 surface_details['alpha_elements']=len(marquee)
 surface_details['total_exported_faces']=sum(len(e['faces']) for e in elements)
 
-def strip_element(element):
-    return {k:copy.deepcopy(v) for k,v in element.items() if not k.startswith('_')}
-
-def write_json(path, data):
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8')
-
-part_names = ['base','console','marquee']
-side_names = ['primary','secondary']
-parts = {side+'_'+part:[] for side in side_names for part in part_names}
-
-def split_columns(source):
-    """Split at the two occupied cells, keeping UVs continuous across the seam."""
-    a,b=source['from'],source['to']
-    if a[0]>=16 or b[0]<=16:
-        return [source]
-    assert source.get('rotation',{}).get('axis','x')=='x', source['name']
-    result=[]
-    for col,(x0,x1) in enumerate(((a[0],16),(16,b[0]))):
-        e=copy.deepcopy(source)
-        e['name']+=' column '+str(col)
-        e['from'][0],e['to'][0]=x0,x1
-        e['faces'].pop('east' if col==0 else 'west',None)
-        for side,face in list(e['faces'].items()):
-            axis,sign,u_axis,v_axis,u_sign,v_sign=FACE_AXES[side]
-            if axis==0:continue
-            before=(a[u_axis],b[u_axis],a[v_axis],b[v_axis])
-            after=(e['from'][u_axis],e['to'][u_axis],e['from'][v_axis],e['to'][v_axis])
-            e['faces'][side]=_crop_uv(face,before,after,u_sign,v_sign)
-        if e['faces']:result.append(e)
-    return result
-
-partitioned=[piece for source in elements for piece in split_columns(source)]
-for source in partitioned:
-    e=strip_element(source)
-    center=(e['from'][1]+e['to'][1])/2
-    index=min(2,max(0,int(center//16)))
-    column=0 if (e['from'][0]+e['to'][0])/2<16 else 1
-    for key in ('from','to'):
-        e[key][0]=round(e[key][0]-column*16,5)
-        e[key][1]=round(e[key][1]-index*16,5)
-    if 'rotation' in e:
-        e['rotation']['origin'][0]-=column*16
-        e['rotation']['origin'][1]-=index*16
-    for coords in (e['from'],e['to']):
-        assert all(-16 <= v <= 32 for v in coords), (e['name'],coords)
-    parts[side_names[column]+'_'+part_names[index]].append(e)
-for part in parts:
-    write_json(MODEL / ('maimai_'+part+'.json'),
-               {'parent':'minecraft:block/block','ambientocclusion':True,'render_type':'minecraft:cutout_mipped_all',
-                'textures':texture_paths,'elements':parts[part]})
-variants={}
-for facing,rotation in (('north',0),('east',90),('south',180),('west',270)):
-    for side in side_names:
-        for part in part_names:
-            variant={'model':'funpackcustom:block/maimai_'+side+'_'+part}
-            if rotation: variant['y']=rotation
-            variants['facing='+facing+',part='+part+',side='+side]=variant
-write_json(ASSETS / 'blockstates/maimai.json', {'variants':variants})
-
-# An explicitly scaled complete model for inventory rendering (vanilla element bounds).
-item_elements=[]
-for source in elements:
-    e=strip_element(source)
-    for key in ('from','to'):
-        e[key]=[round((e[key][0]-16)*0.33+8,5),round(e[key][1]*0.33,5),round((e[key][2]-1)*0.33+8,5)]
-    if 'rotation' in e:
-        o=e['rotation']['origin'];e['rotation']['origin']=[(o[0]-16)*.33+8,o[1]*.33,(o[2]-1)*.33+8]
-    item_elements.append(e)
-write_json(ASSETS / 'models/item/maimai.json',
-           {'ambientocclusion':False,'gui_light':'front','render_type':'minecraft:cutout_mipped_all','textures':texture_paths,'elements':item_elements,
-            'display':{'gui':{'rotation':[15,225,0],'translation':[0,0,0],'scale':[.95,.95,.95]},
-                       'ground':{'translation':[0,2,0],'scale':[.6,.6,.6]},
-                       'fixed':{'rotation':[0,180,0],'scale':[1,1,1]},
-                       'thirdperson_righthand':{'rotation':[75,45,0],'translation':[0,3,0],'scale':[.45,.45,.45]},
-                       'firstperson_righthand':{'rotation':[0,45,0],'translation':[0,2,0],'scale':[.5,.5,.5]}}})
-
-artwork=TEXTURES / 'maimai_display.png'
-if not artwork.exists():
-    raise SystemExit('Missing original artwork sheet: '+str(artwork))
-im=Image.open(artwork)
-assert all(n & (n-1) == 0 for n in im.size), 'Artwork must have power-of-two dimensions'
-
-# Blockbench's free format preserves the complete cabinet and named groups.
-texture_specs = [(key,TEXTURES/(value.split('/')[-1]+'.png')) for key,value in texture_paths.items() if key!='particle']
-texture_indices = {'#'+key:i for i,(key,path) in enumerate(texture_specs)}
-texture_sizes = [Image.open(path).size for key,path in texture_specs]
-bb_elements=[]
-groups={}
-for source in elements:
-    e=strip_element(source)
-    uid=str(uuid.uuid5(uuid.NAMESPACE_URL,'funpackcustom/maimai/'+e['name']+'/'+str(e['from'])))
-    rot=e.get('rotation')
-    rotation=[0,0,0]
-    origin=[(a+b)/2 for a,b in zip(e['from'],e['to'])]
-    if rot:
-        rotation['xyz'.index(rot['axis'])]=rot['angle'];origin=rot['origin']
-    bbfaces={}
-    for direction,face in e['faces'].items():
-        index=texture_indices[face['texture']]
-        width,height=texture_sizes[index]
-        bbfaces[direction]={'uv':[v*(width if i%2==0 else height)/16 for i,v in enumerate(face['uv'])], 'texture':index}
-    for direction in ('north','east','south','west','up','down'):
-        if direction not in bbfaces:
-            bbfaces[direction]={'uv':[0,0,0,0],'texture':None}
-    bb_elements.append({'name':e['name'],'type':'cube','uuid':uid,'from':e['from'],'to':e['to'],
-                        'origin':origin,'rotation':rotation,'faces':bbfaces,'box_uv':False,
-                        'color':1,'rescale':False,'autouv':0,'visibility':True,'export':True,
-                        'shade':e.get('shade',True)})
-    groups.setdefault(source['_group'],[]).append(uid)
-bbtextures=[]
-for i,(identifier,path) in enumerate(texture_specs):
-    texture=Image.open(path)
-    bbtextures.append({'path':str(path),'name':path.name,'folder':'block','namespace':'funpackcustom',
-                       'id':str(i),'uuid':str(uuid.uuid5(uuid.NAMESPACE_URL,'maimai/'+identifier)),
-                       'width':texture.width,'height':texture.height,'uv_width':texture.width,'uv_height':texture.height,
-                       'relative_path':'../../src/main/resources/assets/funpackcustom/textures/block/'+path.name,
-                       'source':'data:image/png;base64,'+base64.b64encode(path.read_bytes()).decode(),
-                       'mode':'bitmap','particle':i==0,'render_mode':'default','visible':True})
-write_json(ART/'maimai.bbmodel',
-           {'meta':{'format_version':'4.10','model_format':'free','box_uv':False},
-            'name':'maimai DX','model_identifier':'maimai','visible_box':[3,4,1.5],
-            'resolution':{'width':256,'height':256},'elements':bb_elements,'textures':bbtextures,
-            'outliner':[{'name':name,'uuid':str(uuid.uuid5(uuid.NAMESPACE_URL,'maimai/group/'+name)),
-                         'origin':[16,0,8],'children':children} for name,children in groups.items()]})
-write_json(ART/'geometry.json', {'textures':texture_paths,'elements':elements,'surface_optimization':surface_details})
-print('Generated',len(elements),'surface elements; section counts:',{name:len(values) for name,values in parts.items()})
-print('Exterior surfaces:',surface_details)
-print('Editable model:',ART/'maimai.bbmodel')
+# The exact shallow recline needs arbitrary surface angles. NeoForge's bundled
+# OBJ loader accepts those faces directly, with no additional Java renderer.
+export_mesh_assets(elements, texture_paths, surface_details, ROOT)

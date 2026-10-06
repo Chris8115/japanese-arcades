@@ -62,9 +62,12 @@ def build_upper(cube,polygon,art_dir):
         for angle in (45,135,225,315):
             rad=math.radians(angle)
             x=cx+8.17*math.cos(rad);y=cy+8.17*math.sin(rad)
-            cube(prefix+'white diagonal molded rib '+str(angle),(x-.08,y-.46,-.14),
-                 (x+.08,y+.46,.05),'white',rotation=('z',45 if angle in (135,315) else -45,(x,y,0)),
-                 group='Molded facade ribs')
+            tilt=math.radians(45 if angle in (135,315) else -45)
+            c,s=math.cos(tilt),math.sin(tilt)
+            outline=[(x+dx*c-dy*s,y+dx*s+dy*c)
+                     for dx,dy in ((-.08,-.46),(.08,-.46),(.08,.46),(-.08,.46))]
+            polygon(prefix+'white diagonal molded rib '+str(angle),outline,-.14,.05,
+                    'white',group='Molded facade ribs',step=.08)
 
         # The upper LCD is a separate wide display framed by DX printed trim.
         bezel=[(cx-7.95,35.32),(cx+7.95,35.32),(cx+8.15,35.78),
