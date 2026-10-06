@@ -1,0 +1,72 @@
+WACCA Reverse source artwork
+Mode: built-in image_gen; generate for both initial assets; precise-object-edit follow-up on the generated display to make its composition safe for the circular screen.
+User-supplied WACCA cabinet photographs reviewed visually before generation. The sharp front/side Reverse photographs guide character, colors and branding; the original rainbow version guides construction only.
+Project files retain original generated pixels unmodified. The cabinet model generator handles atlas packing separately.
+Initial display generation: local-source/exec-63f4a9eb-b406-4c21-9892-4ed7813c0579.png
+Final display generation: local-source/exec-61765f71-3e29-4e51-b8b5-38e39918f407.png
+Final marquee generation: local-source/exec-c34c3245-cacc-44b0-b716-57b68db7823c.png
+Saved project copies: display-artwork-source.png (1254 x 1254 RGB); marquee-artwork-source.png (2172 x 724 RGB).
+Character revision: previous canonical source preserved unmodified as display-artwork-v1.png.
+Source-faithful correction intermediate: local-source/exec-6a7f7dc9-3cdf-44a8-b3d9-2fa067000544.png
+Source-faithful correction final: local-source/exec-33a7980b-e3e4-4f88-86bd-464d07cebd09.png
+Final correction copied unmodified to display-artwork-source.png (1254 x 1254 RGB).
+
+DISPLAY ARTWORK PROMPT
+Use case: stylized-concept
+Asset type: production square arcade display texture for a Minecraft WACCA Reverse cabinet with a circular recessed screen.
+Primary request: Original polished pixel-art interpretation of WACCA Reverse attract-screen artwork: an adult male rhythm-game host in front of an abstract cyan/violet profile silhouette, on a deep-indigo luminous digital backdrop.
+Subject: One youthful ADULT man in his twenties, dark black tousled hair with cyan highlights, expressive violet eyes, welcoming confident smile, black-and-white futuristic technical jacket with restrained gold accents and sleeves, fully clothed. Waist-up composition; one hand extended in welcome and the other relaxed near his chest. Behind him, a larger stylized cyan-to-violet side-profile silhouette creates a layered rhythm-game graphic.
+Style/medium: Intentional Minecraft-compatible hand-crafted pixel art with clear, consistent square pixel clusters, stepped silhouettes and limited tonal ramps; approximately 160 logical pixels across. Rich, crisp, readable clusters rather than soft illustration or blurry pixel filter. Full-color premium Japanese arcade promotional art.
+Scene/backdrop: opaque deep indigo and navy background with restrained cyan and neon purple geometric circuits, sparse pink angular glints, bright central contrast and calm dark corners.
+Composition/framing: square 1024 x 1024 artwork. ALL important content, head, hands, and title must fit well inside a central circular safe area with radius 43% of the image width. Artwork itself fills the entire square with opaque background, WITHOUT drawing an actual circular border. The host occupies the upper central two-thirds. Large readable title across lower center, kept inside the circle. Safe dark corner areas will be masked off by the physical cabinet.
+Text (verbatim): "WACCA" centered in large bold geometric creamy white letters with dark outlines, distinctive circular C forms; "REVERSE" in small vivid magenta capitals immediately beneath; "TOUCH TO START" in very small cyan pixels underneath, but still comfortably inside the circular safe area.
+Constraints: ONLY square screen artwork. No cabinet, no bezel, no frame, no perspective, no monitor mockup, no photographed texture, no watermark, no unrelated text. Completely opaque image. No childlike anatomy, no weapons, no sexualized pose.
+
+MARQUEE ARTWORK PROMPT
+Use case: logo-brand
+Asset type: wide flat printed marquee texture for a Minecraft WACCA Reverse arcade cabinet.
+Primary request: A polished original pixel-art interpretation of the WACCA REVERSE branding. Wide rectangular 3:1 aspect ratio, ideally 1536 x 512.
+Scene/backdrop: warm ivory opaque background across the whole rectangle, with a very subtle pale gray and pale cream triangular pixel pattern. Quiet generous white margins, especially at the left and right ends.
+Text (verbatim): "WACCA" large, centered, with "REVERSE" in smaller magenta capitals directly beneath. WACCA letters are bold geometric cream-white faces with very thick dark charcoal outlines and a minimal offset shadow, angular outer cuts mixed with distinctive concentric-circle C motifs. Exact spelling W-A-C-C-A, all five letters readable. REVERSE letter spacing is measured and neat.
+Graphic accents: small split neon accents hugging the central lettering: magenta on its left and cyan on its right. Restrained stepped triangles, short angular rays and tiny concentric circle fragments. No extra slogan.
+Style/medium: careful flat 2D PIXEL ART suitable as a game-ready Minecraft texture, crisp square pixel clusters and intentional staircase diagonals at about 288 logical pixels across. High quality readable graphic design, not a rasterized photo.
+Composition/framing: center the entire logo and all important accents inside the middle 70% of width and middle 70% of height. Keep letters uncropped, give generous calm ivory margins on all sides.
+Constraints: ONLY a full-bleed straight-on rectangular graphic. No real cabinet, monitor, speakers, bezel, metal frame, 3D perspective, room, watermark, extra words or crop marks. Opaque ivory background, no transparency, no blurred glow.
+
+DISPLAY CIRCULAR-SAFE COMPOSITION EDIT PROMPT
+Use case: precise-object-edit
+Asset type: square Minecraft pixel-art screen texture which will be physically masked into a circle.
+Edit target: the provided WACCA Reverse pixel artwork.
+Change ONLY composition and background details to enforce a strict circular safe area. Preserve this character's recognizable face, black/cyan hairstyle, black/white/gold jacket, friendly pose, all exact WACCA / REVERSE / TOUCH TO START lettering, palette, and crisp pixel-art treatment.
+Scale down the COMPLETE character, welcoming hand, secondary profile silhouette, logo and start prompt together to approximately 76% of their current size, centered within the original square. Redistribute if needed so every essential pixel of the hair, hands and title lies inside a circle centered at (50%,50%) with radius 42% of the image width. The character's hair must be below y=12%; bottom prompt above y=88%; logo must be narrower and slightly higher so the first W and final A fit entirely inside the lower circular silhouette.
+Extend the opaque dark indigo/cyan/violet geometric backdrop naturally into the newly empty outer margin. Remove the unrequested small side slogans. Remove the visible bright circular arc from the background: the physical cabinet supplies the circle, this image should have a rectangular background without an explicit circular border.
+Keep the canvas square, opaque and full bleed, no cabinet, no bezel, no frame, no watermark. This is a layout correction, not a change of style or subject. All three lines of required text must remain exact and legible.
+
+SOURCE-FAITHFUL CHARACTER CORRECTION PROMPT
+Use case: identity-preserve
+Asset type: original game-ready square pixel-art texture for the circular screen in a Minecraft WACCA Reverse arcade cabinet.
+
+Inputs:
+Image 1 is the EDIT TARGET, our current pixel artwork. Its square full-opacity texture format and circle-safe layout are required, but its character design currently differs from the real artwork.
+Images 2 and 3 are AUTHORITATIVE CHARACTER AND COMPOSITION REFERENCES. Look closely at the artwork inside the central circular display of the real WACCA Reverse machine. Reproduce that specific character's recognizable design faithfully in pixel art. Ignore the photographed cabinet, room, screen reflections, and social-media UI.
+
+Requested correction:
+Replace the generic broad-shouldered grinning man in image 1 with the specific slim, pale, androgynous youthful male-presenting character visible in images 2 and 3. Match the reference's delicate slender face, large violet eyes, small nose, calm direct gaze and very faint closed-mouth smile. His head faces straight toward the viewer. His shoulders are narrow and his build slender.
+Match the short tousled black hair with its VERY distinctive large mint-cyan/white swooping forelocks, curved upstanding hair tuft, and fine magenta hair/headset accents. The light front locks are prominent graphic shapes, not tiny blue highlights. No glasses, beard or broad adult superhero jaw.
+Match the compact black high-collared uniform with cream panels, delicate gold edging and restrained rose/magenta accents from the source. Both arms extend gently outward and BOTH hands are open low on either side with palms offered forward, matching the reference pose; avoid one giant reaching hand and avoid the second hand touching the chest.
+Behind him on the viewer's right, reproduce the larger shadowy side-profile portrait of the same specific character, with long diagonal cyan/mint and magenta hair shapes and a violet eye, matching the source's graphic silhouette. Deep vivid cobalt-blue and purple backdrop, a cyan crescent/swoosh on the left, a few light halftone dot shapes. Match this campaign composition much more closely than the edit target's random circuit pattern.
+
+Typography/composition:
+Retain exact "WACCA" and "REVERSE", but use the source photo's compact angular cream-white WACCA mark with dark outline and distinctive overlapping concentric C shapes, magenta angular accent at left and cyan angular accent at right. Place it across the middle-lower CHEST at approximately 55–62% image height, like the actual campaign image, smaller than the oversized logo in image 1. "REVERSE" sits just beneath it in vivid magenta italic capitals. Both open hands should remain visible below/alongside the title. Add a small, restrained "TOUCH TO START" near 81% image height.
+
+Style and strict invariants:
+Beautiful clean Minecraft-compatible PIXEL ART throughout: coarse coherent square pixel clusters, intentional stair-step contours, approximately 144–176 logical pixels across, limited crisp shading ramps. Faithful source-character identity matters more than reusing the previous generic face.
+Opaque square artwork fills the full canvas. ALL essential hair, hands, face, WACCA REVERSE lettering and start prompt must fit entirely inside a centered circle of radius 43% of the image width. Keep generous dark geometric background in corners; do not draw a physical circle, monitor, bezel, frame, cabinet or room. No watermark or additional slogans. Not a photograph or photo crop; re-illustrate the actual supplied screen artwork in the established pixel style.
+
+SOURCE-FAITHFUL CHARACTER CIRCLE-SAFE EDIT
+Use case: precise-object-edit
+Edit target: the supplied newly corrected WACCA Reverse pixel-art display.
+The character identity is now correct. Preserve EXACTLY the specific slender youthful androgynous face, violet eyes, mint-white curled forelocks, black hair with magenta loop accents, cream/black/gold uniform, both open palms, all WACCA/REVERSE typography, and the larger shadowy right-side profile.
+
+Only correct framing for a circular physical screen. Current hands extend into the lower square corners and will be cropped. Scale the ENTIRE foreground character INCLUDING BOTH ARMS, EVERY FINGER, and the complete WACCA REVERSE / TOUCH TO START lockup together to 74 percent of its current size, centered on the square. Do not redraw its face or clothing and do not change its pose. Keep the relative arrangement unchanged. Extend the cobalt/purple graphic background naturally behind the newly reduced foreground, and preserve the large secondary profile on the right. All foreground hair, hands and text must fit fully inside a circle centered at (50%,50%) with radius 43% of canvas width. Hair tuft below 18% height, hand tips inward from x=18% and x=82%, lowest fingers above y=82%. The large background profile may extend beyond this safe area because it is decorative.
+Maintain exact square opaque format and crisp blocky pixel-art style. No physical circle outline, cabinet, bezel, frame, shadows from a real room, or extra text. Preserve the source character faithfully; this is a composition-only reduction.

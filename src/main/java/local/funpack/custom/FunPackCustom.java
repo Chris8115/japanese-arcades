@@ -46,13 +46,20 @@ public final class FunPackCustom {
         BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)
             .sound(SoundType.METAL).noOcclusion().lightLevel(state ->
                 state.getValue(NostalgiaCabinetBlock.PART) == NostalgiaCabinetBlock.Part.BASE ? 10 : 13));
+    public static final DeferredBlock<WaccaCabinetBlock> WACCA = BLOCKS.registerBlock(
+        "wacca", WaccaCabinetBlock::new,
+        BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)
+            .sound(SoundType.METAL).noOcclusion().lightLevel(state ->
+                state.getValue(NostalgiaCabinetBlock.PART) == NostalgiaCabinetBlock.Part.BASE ? 4 : 13));
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<NostalgiaJukeboxBlockEntity>> NOSTALGIA_JUKEBOX =
         BLOCK_ENTITIES.register("nostalgia_jukebox", () -> BlockEntityType.Builder.of(
-            NostalgiaJukeboxBlockEntity::new, NOSTALGIA_OP3.get(), SOUND_VOLTEX_VALKYRIE.get()).build(null));
+            NostalgiaJukeboxBlockEntity::new, NOSTALGIA_OP3.get(), SOUND_VOLTEX_VALKYRIE.get(), WACCA.get()).build(null));
     public static final DeferredItem<?> NOSTALGIA_OP3_ITEM =
         ITEMS.registerSimpleBlockItem("nostalgia_op3", NOSTALGIA_OP3, new Item.Properties());
     public static final DeferredItem<?> SOUND_VOLTEX_VALKYRIE_ITEM =
         ITEMS.registerSimpleBlockItem("sound_voltex_valkyrie", SOUND_VOLTEX_VALKYRIE, new Item.Properties());
+    public static final DeferredItem<?> WACCA_ITEM =
+        ITEMS.registerSimpleBlockItem("wacca", WACCA, new Item.Properties());
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> JAPANESE_ARCADES =
         TABS.register("japanese_arcades", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.funpackcustom.japanese_arcades"))
@@ -60,6 +67,7 @@ public final class FunPackCustom {
             .displayItems((parameters, output) -> {
                 output.accept(NOSTALGIA_OP3_ITEM.get());
                 output.accept(SOUND_VOLTEX_VALKYRIE_ITEM.get());
+                output.accept(WACCA_ITEM.get());
             })
             .build());
 

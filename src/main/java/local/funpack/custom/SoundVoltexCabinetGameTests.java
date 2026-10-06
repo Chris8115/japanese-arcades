@@ -9,6 +9,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.GameType;
@@ -68,29 +69,34 @@ public final class SoundVoltexCabinetGameTests {
 
     @GameTest(template="nostalgia_test")
     public static void valkyrieCreativeRemovalLeavesAdjacentNostalgiaPlaying(GameTestHelper helper) {
-        Player player = cabinet(helper, GameType.CREATIVE, FunPackCustom.SOUND_VOLTEX_VALKYRIE_ITEM.get());
+        creativeRemovalLeavesNeighborPlaying(helper, FunPackCustom.SOUND_VOLTEX_VALKYRIE_ITEM.get(),
+            FunPackCustom.NOSTALGIA_OP3_ITEM.get());
+    }
+
+    static void creativeRemovalLeavesNeighborPlaying(GameTestHelper helper, Item removedCabinet, Item neighborCabinet) {
+        Player player = cabinet(helper, GameType.CREATIVE, removedCabinet);
         insert(helper, player, BASE.above());
         BlockPos neighbor = BASE.east();
-        player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(FunPackCustom.NOSTALGIA_OP3_ITEM.get()));
-        helper.assertTrue(place(helper, player, neighbor), "Neighboring Nostalgia placement failed");
+        player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(neighborCabinet));
+        helper.assertTrue(place(helper, player, neighbor), "Neighboring cabinet placement failed");
         player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.MUSIC_DISC_CAT));
         helper.useBlock(neighbor.above(2), player);
         var neighborEntity = (NostalgiaJukeboxBlockEntity)helper.getBlockEntity(neighbor);
-        helper.assertTrue(neighborEntity.getSongPlayer().isPlaying(), "Neighboring Nostalgia did not start playing");
+        helper.assertTrue(neighborEntity.getSongPlayer().isPlaying(), "Neighboring cabinet did not start playing");
         var top = helper.absolutePos(BASE.above(2));
         var state = helper.getLevel().getBlockState(top);
         state.getBlock().playerWillDestroy(helper.getLevel(), top, state, player);
         helper.getLevel().destroyBlock(top, false, player);
         for (int i=0; i<3; i++) {
             helper.assertBlockPresent(Blocks.AIR, BASE.above(i));
-            helper.assertBlockPresent(FunPackCustom.NOSTALGIA_OP3.get(), neighbor.above(i));
+            helper.assertBlockPresent(((BlockItem)neighborCabinet).getBlock(), neighbor.above(i));
         }
-        helper.assertTrue(neighborEntity.getTheItem().is(Items.MUSIC_DISC_CAT), "Removing Valkyrie affected the neighboring disc");
-        helper.assertTrue(neighborEntity.getSongPlayer().isPlaying(), "Removing Valkyrie stopped the neighboring song");
+        helper.assertTrue(neighborEntity.getTheItem().is(Items.MUSIC_DISC_CAT), "Removal affected the neighboring disc");
+        helper.assertTrue(neighborEntity.getSongPlayer().isPlaying(), "Removal stopped the neighboring song");
         helper.assertItemEntityCountIs(Items.MUSIC_DISC_13, BASE, 3, 1);
         helper.assertItemEntityCountIs(Items.MUSIC_DISC_CAT, BASE, 3, 0);
-        helper.assertItemEntityCountIs(FunPackCustom.SOUND_VOLTEX_VALKYRIE_ITEM.get(), BASE, 3, 0);
-        helper.assertItemEntityCountIs(FunPackCustom.NOSTALGIA_OP3_ITEM.get(), BASE, 3, 0);
+        helper.assertItemEntityCountIs(removedCabinet, BASE, 3, 0);
+        helper.assertItemEntityCountIs(neighborCabinet, BASE, 3, 0);
         helper.succeed();
     }
 

@@ -3,13 +3,15 @@
 This workspace is for our own mods for **Minecraft 1.21.1 / NeoForge 21.1.252**.
 The starter mod is **Fun Pack Custom**, id `funpackcustom`, version `0.1.0`.
 It registers `/funpackdev`, a small command to confirm that the mod is loaded.
-The **Japanese Arcades** creative tab includes two cabinets with music-disc playback:
+The **Japanese Arcades** creative tab includes three cabinets with music-disc playback:
 
 - [Nostalgia Op.3 Arcade Cabinet](art/nostalgia-op3/README.md)
 - [Sound Voltex Valkyrie Arcade Cabinet](art/sound-voltex-valkyrie/README.md)
+- [WACCA Reverse Arcade Cabinet](art/wacca/README.md)
 
-Their model notes include editable files, previews, and use instructions. Both occupy
-three vertical blocks; Valkyrie's wider deck and upper wings need some side clearance.
+Their model notes include editable files, previews, and use instructions. All occupy
+three vertical blocks; Valkyrie's wider deck and wings and WACCA's circular enclosure
+need some side clearance.
 
 ## Start here
 
@@ -28,7 +30,7 @@ Use **Terminal > Run Task** for the `Fun:` tasks, or open a terminal here:
 - `SyncPack` refreshes the copied mods, configs, resource packs, and pack scripts from the live pack.
 - `Prepare` downloads game assets and prepares client/server launch files.
 - `Server` launches a small dedicated server for checking server compatibility.
-- `GameTest` runs ten cabinet integration tests in a disposable test world and exits.
+- `GameTest` runs thirteen cabinet integration tests in a disposable test world and exits.
 - `Data` runs our data generators once we add them.
 
 The script selects Java 21 locally. Your default Java installation remains available to other projects.
@@ -50,8 +52,10 @@ The original pack and its saved worlds are separate from all of these directorie
 
 The tests cover placement, disc insertion/ejection, native playback ticks, saved disc
 and song progress, removal without duplicate drops, creative removal, and isolation
-between neighboring Nostalgia and Valkyrie cabinets. All ten passed on 2026-10-05;
-visual checks and full-pack compatibility remain separate from these server tests.
+between neighboring cabinets. The WACCA tests include saved-disc placement and
+playback restoration alongside insertion/ejection through all three sections.
+All thirteen passed on 2026-10-05.
+Visual checks and full-pack compatibility remain separate from these server tests.
 
 `SyncPack` overwrites files that exist in the source pack's configuration. Close the development
 game before syncing, and keep permanent custom content in source control rather than only in `runs/`.
