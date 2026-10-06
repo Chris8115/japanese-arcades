@@ -3,7 +3,7 @@
 This workspace is for our own mods for **Minecraft 1.21.1 / NeoForge 21.1.252**.
 The starter mod is **Fun Pack Custom**, id `funpackcustom`, version `0.1.0`.
 It registers `/funpackdev`, a small command to confirm that the mod is loaded.
-The **Japanese Arcades** creative tab includes eleven cabinets with music-disc playback:
+The **Japanese Arcades** creative tab includes twelve cabinets with music-disc playback:
 
 - [Nostalgia Op.3 Arcade Cabinet](art/nostalgia-op3/README.md)
 - [Sound Voltex Valkyrie Arcade Cabinet](art/sound-voltex-valkyrie/README.md)
@@ -16,6 +16,7 @@ The **Japanese Arcades** creative tab includes eleven cabinets with music-disc p
 - [maimai DX Twin Arcade Cabinet](art/maimai/README.md)
 - [DDR SuperNOVA Arcade Cabinet](art/ddr_supernova/README.md)
 - [Taiko no Tatsujin Arcade Cabinet](art/taiko/README.md)
+- [Initial D Single Racing Cabinet](art/initial_d/README.md)
 
 Their model notes include editable files, previews, and use instructions. All are
 three blocks high. maimai uses **two connected columns** and requires a supported,
@@ -27,6 +28,10 @@ and side panels.
 Left- or right-click the drumheads and rims with an empty hand or a stick for
 different note-block percussion sounds. Sneak-left-click to remove it. Use the
 rear cabinet for music discs; playing the drums leaves the disc running.
+Initial D is a **one-wide, three-deep single-player cabinet** with a usable
+seat. Its shell and controls stay within one block of width so neighboring
+units can be placed flush in a row. Right-click its seat empty-handed to sit;
+sneak to get out. Each cabinet has its own music-disc inventory.
 The other cabinets occupy one vertical column.
 Allow additional clearance for the visible decks, wings, mats, and enclosures.
 Each model's notes describe its dimensions.
@@ -62,7 +67,7 @@ Use **Terminal > Run Task** for the `Fun:` tasks, or open a terminal here:
 - `SyncPack` refreshes the copied mods, configs, resource packs, and pack scripts from the live pack.
 - `Prepare` downloads game assets and prepares client/server launch files.
 - `Server` launches a small dedicated server for checking server compatibility.
-- `GameTest` runs seventy-three cabinet, gachapon and ordering integration tests in a disposable test world and exits.
+- `GameTest` runs eighty cabinet, gachapon and ordering integration tests in a disposable test world and exits.
 - `Data` runs our data generators once we add them.
 
 The script selects Java 21 locally. Your default Java installation remains available to other projects.
@@ -103,12 +108,15 @@ step-on access, open dance space, and handrail collision in every facing.
 Gachapon adds placement/setup, owner and password access, password-session revocation,
 private save data, protected extraction, capsule contents and overflow, exact-item
 payments, failed transaction rollback, concurrent buyers and the five-second crank
-reset. The ordering kiosk adds two-cell placement/removal, all twelve material
+reset. The ordering kiosk adds two-cell placement/removal, all thirteen material
 transactions, invalid/stale requests, safe inventory overflow and creative pickup,
 spawn-veto rollback, and the loaded shaped recipe. Taiko adds ten-cell placement
 and removal in all directions, neighboring-cabinet isolation, shared saved-disc
 playback, head/rim sound events, both mouse buttons and hands, cooldowns, and
-rejection of invalid tools, blocked rays, and out-of-reach hits. All seventy-three passed on
+rejection of invalid tools, blocked rays, and out-of-reach hits. Initial D adds
+single-column placement/removal, exclusive seating in every direction, safe rear
+aisle exits from a full row, blocked interactions/headroom, logout/removal cleanup,
+and uninterrupted saved-disc playback while seated. All eighty passed on
 2026-10-06.
 Visual checks and full-pack compatibility remain separate from these server tests.
 

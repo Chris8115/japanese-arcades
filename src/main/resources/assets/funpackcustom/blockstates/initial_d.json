@@ -1,0 +1,109 @@
+{
+  "variants": {
+    "facing=north,section=cabinet_base": {
+      "model": "funpackcustom:block/initial_d_cabinet_base"
+    },
+    "facing=north,section=cabinet_console": {
+      "model": "funpackcustom:block/initial_d_cabinet_console"
+    },
+    "facing=north,section=cabinet_marquee": {
+      "model": "funpackcustom:block/initial_d_cabinet_marquee"
+    },
+    "facing=north,section=footwell": {
+      "model": "funpackcustom:block/initial_d_footwell"
+    },
+    "facing=north,section=controls": {
+      "model": "funpackcustom:block/initial_d_controls"
+    },
+    "facing=north,section=seat_base": {
+      "model": "funpackcustom:block/initial_d_seat_base"
+    },
+    "facing=north,section=seat_back": {
+      "model": "funpackcustom:block/initial_d_seat_back"
+    },
+    "facing=east,section=cabinet_base": {
+      "model": "funpackcustom:block/initial_d_cabinet_base",
+      "y": 90
+    },
+    "facing=east,section=cabinet_console": {
+      "model": "funpackcustom:block/initial_d_cabinet_console",
+      "y": 90
+    },
+    "facing=east,section=cabinet_marquee": {
+      "model": "funpackcustom:block/initial_d_cabinet_marquee",
+      "y": 90
+    },
+    "facing=east,section=footwell": {
+      "model": "funpackcustom:block/initial_d_footwell",
+      "y": 90
+    },
+    "facing=east,section=controls": {
+      "model": "funpackcustom:block/initial_d_controls",
+      "y": 90
+    },
+    "facing=east,section=seat_base": {
+      "model": "funpackcustom:block/initial_d_seat_base",
+      "y": 90
+    },
+    "facing=east,section=seat_back": {
+      "model": "funpackcustom:block/initial_d_seat_back",
+      "y": 90
+    },
+    "facing=south,section=cabinet_base": {
+      "model": "funpackcustom:block/initial_d_cabinet_base",
+      "y": 180
+    },
+    "facing=south,section=cabinet_console": {
+      "model": "funpackcustom:block/initial_d_cabinet_console",
+      "y": 180
+    },
+    "facing=south,section=cabinet_marquee": {
+      "model": "funpackcustom:block/initial_d_cabinet_marquee",
+      "y": 180
+    },
+    "facing=south,section=footwell": {
+      "model": "funpackcustom:block/initial_d_footwell",
+      "y": 180
+    },
+    "facing=south,section=controls": {
+      "model": "funpackcustom:block/initial_d_controls",
+      "y": 180
+    },
+    "facing=south,section=seat_base": {
+      "model": "funpackcustom:block/initial_d_seat_base",
+      "y": 180
+    },
+    "facing=south,section=seat_back": {
+      "model": "funpackcustom:block/initial_d_seat_back",
+      "y": 180
+    },
+    "facing=west,section=cabinet_base": {
+      "model": "funpackcustom:block/initial_d_cabinet_base",
+      "y": 270
+    },
+    "facing=west,section=cabinet_console": {
+      "model": "funpackcustom:block/initial_d_cabinet_console",
+      "y": 270
+    },
+    "facing=west,section=cabinet_marquee": {
+      "model": "funpackcustom:block/initial_d_cabinet_marquee",
+      "y": 270
+    },
+    "facing=west,section=footwell": {
+      "model": "funpackcustom:block/initial_d_footwell",
+      "y": 270
+    },
+    "facing=west,section=controls": {
+      "model": "funpackcustom:block/initial_d_controls",
+      "y": 270
+    },
+    "facing=west,section=seat_base": {
+      "model": "funpackcustom:block/initial_d_seat_base",
+      "y": 270
+    },
+    "facing=west,section=seat_back": {
+      "model": "funpackcustom:block/initial_d_seat_back",
+      "y": 270
+    }
+  }
+}

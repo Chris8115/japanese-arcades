@@ -6,6 +6,8 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -35,6 +37,7 @@ public final class FunPackCustom {
     private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
         DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, MOD_ID);
     private static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, MOD_ID);
+    private static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(Registries.ENTITY_TYPE, MOD_ID);
 
     public static final DeferredBlock<NostalgiaCabinetBlock> NOSTALGIA_OP3 = BLOCKS.registerBlock(
         "nostalgia_op3", NostalgiaCabinetBlock::new,
@@ -99,11 +102,22 @@ public final class FunPackCustom {
                 case REAR_CONSOLE, REAR_MARQUEE -> 12;
                 default -> 0;
             }));
+    public static final DeferredBlock<InitialDCabinetBlock> INITIAL_D = BLOCKS.registerBlock(
+        "initial_d", InitialDCabinetBlock::new,
+        BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(2.0F, 6.0F)
+            .sound(SoundType.METAL).noOcclusion().lightLevel(state -> switch (state.getValue(InitialDCabinetBlock.SECTION)) {
+                case CABINET_CONSOLE, CABINET_MARQUEE -> 12;
+                default -> 0;
+            }));
+    public static final DeferredHolder<EntityType<?>, EntityType<InitialDSeatEntity>> INITIAL_D_SEAT =
+        ENTITIES.register("initial_d_seat", () -> EntityType.Builder.<InitialDSeatEntity>of(
+            InitialDSeatEntity::new, MobCategory.MISC).sized(.05F, .05F)
+            .clientTrackingRange(8).updateInterval(1).noSave().noSummon().build(MOD_ID + ":initial_d_seat"));
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<NostalgiaJukeboxBlockEntity>> NOSTALGIA_JUKEBOX =
         BLOCK_ENTITIES.register("nostalgia_jukebox", () -> BlockEntityType.Builder.of(
             NostalgiaJukeboxBlockEntity::new, NOSTALGIA_OP3.get(), SOUND_VOLTEX_VALKYRIE.get(),
             WACCA.get(), CHUNITHM.get(), GROOVE_COASTER.get(), MUSECA.get(), PROJECT_DIVA.get(),
-            CHRONO_CIRCLE.get(), MAIMAI.get(), DDR_SUPERNOVA.get(), TAIKO.get()).build(null));
+            CHRONO_CIRCLE.get(), MAIMAI.get(), DDR_SUPERNOVA.get(), TAIKO.get(), INITIAL_D.get()).build(null));
     public static final DeferredItem<?> NOSTALGIA_OP3_ITEM =
         ITEMS.registerSimpleBlockItem("nostalgia_op3", NOSTALGIA_OP3, new Item.Properties());
     public static final DeferredItem<?> SOUND_VOLTEX_VALKYRIE_ITEM =
@@ -126,6 +140,8 @@ public final class FunPackCustom {
         ITEMS.registerSimpleBlockItem("ddr_supernova", DDR_SUPERNOVA, new Item.Properties());
     public static final DeferredItem<?> TAIKO_ITEM =
         ITEMS.registerSimpleBlockItem("taiko", TAIKO, new Item.Properties());
+    public static final DeferredItem<?> INITIAL_D_ITEM =
+        ITEMS.registerSimpleBlockItem("initial_d", INITIAL_D, new Item.Properties());
     public static final DeferredBlock<GachaponBlock> GACHAPON = BLOCKS.registerBlock(
         "gachapon", GachaponBlock::new,
         BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(2.5F, 1200.0F)
@@ -163,6 +179,7 @@ public final class FunPackCustom {
                 output.accept(MAIMAI_ITEM.get());
                 output.accept(DDR_SUPERNOVA_ITEM.get());
                 output.accept(TAIKO_ITEM.get());
+                output.accept(INITIAL_D_ITEM.get());
                 output.accept(GACHAPON_ITEM.get());
                 output.accept(ARCADE_KIOSK_ITEM.get());
             })
@@ -174,10 +191,12 @@ public final class FunPackCustom {
         TABS.register(modEventBus);
         BLOCK_ENTITIES.register(modEventBus);
         MENUS.register(modEventBus);
+        ENTITIES.register(modEventBus);
         modEventBus.addListener(GachaponNetwork::register);
         modEventBus.addListener(ArcadeKioskNetwork::register);
         NeoForge.EVENT_BUS.register(GachaponProtection.class);
         NeoForge.EVENT_BUS.register(TaikoDrumInteraction.class);
+        NeoForge.EVENT_BUS.register(InitialDSeatEntity.class);
         NeoForge.EVENT_BUS.addListener(ArcadeKioskMenu::protectOverflowPickup);
         NeoForge.EVENT_BUS.addListener(FunPackCustom::registerCommands);
         LOGGER.info("Fun Pack Custom loaded. Development environment is ready.");

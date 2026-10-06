@@ -1,0 +1,34 @@
+newmtl details_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #details
+
+newmtl marquee_lit
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #marquee
+
+newmtl materials_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #materials
+
+newmtl pedestal_side_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #pedestal_side
+
+newmtl screen_lit
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #screen
+
+newmtl seat_back_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #seat_back
+
+newmtl side_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #side
