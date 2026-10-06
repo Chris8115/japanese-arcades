@@ -130,6 +130,14 @@ public final class FunPackCustom {
         MENUS.register("gachapon", () -> IMenuTypeExtension.create(GachaponMenu::new));
     public static final DeferredHolder<MenuType<?>, MenuType<GachaponAccessMenu>> GACHAPON_ACCESS_MENU =
         MENUS.register("gachapon_access", () -> IMenuTypeExtension.create(GachaponAccessMenu::new));
+    public static final DeferredBlock<ArcadeKioskBlock> ARCADE_KIOSK = BLOCKS.registerBlock(
+        "arcade_kiosk", ArcadeKioskBlock::new,
+        BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(2.5F, 6.0F)
+            .sound(SoundType.METAL).noOcclusion().lightLevel(state ->
+                state.getValue(ArcadeKioskBlock.HALF) == net.minecraft.world.level.block.state.properties.DoubleBlockHalf.UPPER ? 7 : 0));
+    public static final DeferredItem<?> ARCADE_KIOSK_ITEM = ITEMS.registerSimpleBlockItem("arcade_kiosk", ARCADE_KIOSK, new Item.Properties());
+    public static final DeferredHolder<MenuType<?>, MenuType<ArcadeKioskMenu>> ARCADE_KIOSK_MENU =
+        MENUS.register("arcade_kiosk", () -> IMenuTypeExtension.create(ArcadeKioskMenu::new));
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> JAPANESE_ARCADES =
         TABS.register("japanese_arcades", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.funpackcustom.japanese_arcades"))
@@ -146,6 +154,7 @@ public final class FunPackCustom {
                 output.accept(MAIMAI_ITEM.get());
                 output.accept(DDR_SUPERNOVA_ITEM.get());
                 output.accept(GACHAPON_ITEM.get());
+                output.accept(ARCADE_KIOSK_ITEM.get());
             })
             .build());
 
@@ -156,7 +165,9 @@ public final class FunPackCustom {
         BLOCK_ENTITIES.register(modEventBus);
         MENUS.register(modEventBus);
         modEventBus.addListener(GachaponNetwork::register);
+        modEventBus.addListener(ArcadeKioskNetwork::register);
         NeoForge.EVENT_BUS.register(GachaponProtection.class);
+        NeoForge.EVENT_BUS.addListener(ArcadeKioskMenu::protectOverflowPickup);
         NeoForge.EVENT_BUS.addListener(FunPackCustom::registerCommands);
         LOGGER.info("Fun Pack Custom loaded. Development environment is ready.");
     }

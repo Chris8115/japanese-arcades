@@ -31,6 +31,13 @@ Hold right-click to crank and receive one capsule containing the entire selected
 reward amount. Walking away pauses the crank and resets it after five seconds
 without payment. The price and prize item icons update on the machine itself.
 
+[Arcade Ordering Kiosk](art/arcade_kiosk/README.md) provides a survival route to the
+machines. Craft the two-block-tall kiosk with iron, glass, gold and redstone, then
+select a machine to see its material costs. The **Order** button exchanges those
+materials for the selected machine, putting it into the player's inventory or
+dropping it nearby if full. The **Machines** and **Prizes** tabs can be extended as
+new content is added; Prizes is ready for future reward items.
+
 ## Start here
 
 Open this folder in VS Code. The Java and Gradle extensions are already installed.
@@ -89,7 +96,10 @@ step-on access, open dance space, and handrail collision in every facing.
 Gachapon adds placement/setup, owner and password access, password-session revocation,
 private save data, protected extraction, capsule contents and overflow, exact-item
 payments, failed transaction rollback, concurrent buyers and the five-second crank
-reset. All fifty-eight passed on 2026-10-06.
+reset. The ordering kiosk adds two-cell placement/removal, all eleven material
+transactions, invalid/stale requests, safe inventory overflow and creative pickup,
+spawn-veto rollback, and the loaded shaped recipe. All sixty-seven passed on
+2026-10-06.
 Visual checks and full-pack compatibility remain separate from these server tests.
 
 `SyncPack` overwrites files that exist in the source pack's configuration. Close the development

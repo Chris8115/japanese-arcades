@@ -1,0 +1,29 @@
+newmtl materials_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #materials
+
+newmtl materials_glow
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #materials
+
+newmtl screen_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #screen
+
+newmtl screen_glow
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #screen
+
+newmtl details_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #details
+
+newmtl details_glow
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #details
