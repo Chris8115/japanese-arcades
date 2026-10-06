@@ -43,7 +43,9 @@ public final class ArcadePlayGameTests {
             "Cabinet failed to place for arcade play");
     }
     private static void aim(GameTestHelper helper, ServerPlayer player) {
-        Vec3 target = Vec3.atLowerCornerOf(helper.absolutePos(BASE)).add(.5, 1.7, .6);
+        Vec3 offset = helper.getBlockState(BASE).is(FunPackCustom.JUBEAT.get())
+            ? new Vec3(.5, 21.5/16, 7.5/16) : new Vec3(.5, 1.7, .6);
+        Vec3 target = Vec3.atLowerCornerOf(helper.absolutePos(BASE)).add(offset);
         Vec3 eye = target.add(-2, 0, 0);
         player.setPos(eye.x, eye.y-player.getEyeHeight(), eye.z);
         player.setYRot(-90); player.setYHeadRot(-90); player.setXRot(0);

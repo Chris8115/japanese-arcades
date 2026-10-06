@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "funpackcustom:jubeat",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "funpackcustom:jubeat",
+              "properties": {
+                "part": "base"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+"""Original utility graphics for the classic blue Jubeat cabinet model."""
+import math
+from pathlib import Path
+from PIL import Image,ImageDraw,ImageFont
+from jubeat_geometry import COLORS
+
+def font(size,bold=False):
+    return ImageFont.truetype('C:/Windows/Fonts/'+('arialbd.ttf' if bold else 'arial.ttf'),size)
+
+def word(draw,xy,text,size,fill='white',bold=False):
+    draw.text(xy,text,font=font(size,bold),fill=fill,anchor='mm',stroke_width=0)
+
+def build_textures(destination):
+    destination=Path(destination);destination.mkdir(parents=True,exist_ok=True)
+    result={}
+    def save(name,im):
+        path=destination/('jubeat_'+name+'.png');im.save(path);result[name]=path
+    im=Image.new('RGB',(256,256));d=ImageDraw.Draw(im)
+    for i,color in enumerate(COLORS.values()):
+        x,y=(i%4)*64,(i//4)*64;d.rectangle((x,y,x+63,y+63),fill=color)
+    save('materials',im)
+
+    im=Image.new('RGB',(768,768));px=im.load()
+    for y in range(768):
+        for x in range(768):
+            halo=max(0,1-math.hypot((x-290)/670,(y-440)/750))
+            streak=max(0,1-abs(x+y*.48-445)/260)
+            px[x,y]=(int(3+4*halo),int(25+70*halo+20*streak),int(64+83*halo+45*streak))
+    d=ImageDraw.Draw(im)
+    # Offset outlined square circuits suggest depth in the blue acrylic cube.
+    for row in range(5):
+        for col in range(5):
+            x=32+col*155;y=25+row*154
+            d.rectangle((x,y,x+112,y+112),outline=('#319cdf' if (row+col)%3 else '#69dfff'),width=5)
+            d.rectangle((x+13,y+13,x+93,y+93),outline='#14649d',width=3)
+    for x in (96,302,533,694):d.line((x,0,x+60,768),fill='#164f86',width=3)
+    d.rectangle((0,401,768,548),fill='#1379a8')
+    word(d,(389,475),'jubeat',151,'#efffff')
+    d.line((133,550,639,550),fill='#d6fbff',width=4)
+    word(d,(384,590),'TOUCH THE MUSIC',24,'#b9efff')
+    word(d,(384,686),'16 PANELS  /  ONE RHYTHM',18,'#73c6ec')
+    save('cube',im)
+    top=im.copy();dt=ImageDraw.Draw(top)
+    dt.line((0,0,768,768),fill='#387cab',width=4);dt.line((768,0,0,768),fill='#387cab',width=4)
+    save('cube_top',top)
+
+    im=Image.new('RGB',(768,768),'#043871');d=ImageDraw.Draw(im)
+    for y in range(9,768,12):
+        for x in range(9,768,12):
+            radius=math.hypot(x-384,y-384)
+            c=int(145+70*min(1,radius/450))
+            d.ellipse((x-2,y-2,x+2,y+2),fill=(20,c,255))
+    for i in range(10):d.rectangle((i*3,i*3,767-i*3,767-i*3),outline=(20,120+i*9,245),width=2)
+    d.ellipse((128,125,640,637),fill='#073348',outline='#0ca1d7',width=8)
+    word(d,(384,354),'jubeat',130,'#43dcff')
+    word(d,(384,457),'FEEL THE BEAT',29,'#60d8f5')
+    d.line((160,421,608,421),fill='#42c7e7',width=4)
+    save('plaque',im)
+
+    im=Image.new('RGB',(512,512),'#08131a');d=ImageDraw.Draw(im)
+    lit={1,2,5,6,9,10}
+    for row in range(4):
+        for col in range(4):
+            x,y=col*128,row*128;i=row*4+col
+            d.rectangle((x+4,y+4,x+123,y+123),fill='#263642',outline='#789399',width=3)
+            d.rectangle((x+10,y+10,x+117,y+117),fill='#36464d',outline='#12212b',width=2)
+            if i in lit:
+                d.rectangle((x+18,y+18,x+109,y+109),fill='#9eaf3c',outline='#dce770',width=3)
+                d.rectangle((x+27,y+27,x+100,y+100),fill='#c5d34e',outline='#f6faba',width=2)
+                d.line((x+30,y+62,x+97,y+62),fill='#e4efa2',width=3)
+                d.line((x+64,y+29,x+64,y+98),fill='#e4efa2',width=3)
+            else:
+                d.rectangle((x+24,y+24,x+103,y+103),outline='#60757b',width=3)
+                d.line((x+26,y+29,x+99,y+29),fill='#c0cbd0',width=4)
+            d.line((x+12,y+112,x+115,y+112),fill='#a0b5bc',width=2)
+    save('pads',im)
+    im=Image.new('RGB',(1024,128),'#091b37');d=ImageDraw.Draw(im)
+    for x in range(0,1024,45):d.line((x,0,x+95,128),fill='#124d77',width=3)
+    # The separate silver panel sits ahead of this narrow blue deck strip.
+    # Keep it decorative so no lettering is clipped by that physical panel.
+    for x in range(16,1024,128):
+        d.rectangle((x,23,x+70,93),outline='#2072a0',width=3)
+    d.line((0,112,1024,112),fill='#4296bb',width=3)
+    save('status',im)
+
+    im=Image.new('RGB',(768,320),'#063567');d=ImageDraw.Draw(im)
+    for row in range(3):
+        for col in range(8):
+            x,y=12+col*103,12+row*104
+            d.rectangle((x,y,x+75,y+75),outline='#198abf',width=3)
+    for x in range(-100,768,106):d.line((x,0,x+160,320),fill='#1371a5',width=3)
+    word(d,(384,159),'jubeat',132,'#efffff')
+    d.line((137,235,631,235),fill='#69d8f0',width=3)
+    word(d,(384,274),'TOUCH THE MUSIC',21,'#a4e4f4')
+    save('neck',im)
+
+    im=Image.new('RGB',(512,512),'#151e26');d=ImageDraw.Draw(im)
+    for row in range(4):
+        for col in range(4):
+            x,y=25+col*120,25+row*120
+            d.rectangle((x,y,x+98,y+98),fill='#b7bfc0',outline='#657780',width=5)
+            d.rectangle((x+9,y+9,x+89,y+89),outline='#e0e3db',width=2)
+    save('side',im)
+
+    im=Image.new('RGB',(512,512),'#1b222a');d=ImageDraw.Draw(im)
+    for radius,col in ((208,'#52616a'),(192,'#111820'),(161,'#323d46'),(128,'#1f2830'),(94,'#404c53'),(72,'#121a22')):
+        d.ellipse((256-radius,256-radius,256+radius,256+radius),fill=col)
+    for y in range(12,512,13):
+        for x in range(12+(6 if (y//13)%2 else 0),512,13):d.ellipse((x,y,x+5,y+5),fill='#071018')
+    d.rectangle((4,4,507,507),outline='#6b7b80',width=5)
+    save('speaker',im)
+
+    im=Image.new('RGB',(1024,128),'#aab7bb');d=ImageDraw.Draw(im)
+    d.rectangle((20,22,265,109),fill='#303b46')
+    for i in range(5):d.rectangle((32+i*44,41,65+i*44,67),fill='#267780' if i!=3 else '#7b2228')
+    word(d,(455,64),'CARD / COIN',44,'#142330',True)
+    word(d,(822,48),'jubeat',59,'#142330')
+    word(d,(822,99),'TOUCH & PLAY',18,'#142330')
+    save('labels',im)
+    im=Image.new('RGB',(256,256),'#127bc0');d=ImageDraw.Draw(im)
+    d.rounded_rectangle((12,12,244,244),radius=17,outline='#d3f5ff',width=9)
+    d.rounded_rectangle((42,71,164,165),radius=9,outline='#e8ffff',width=7)
+    d.line((56,94,150,94),fill='#e8ffff',width=7)
+    for r in (24,39,54):d.arc((166-r,128-r,166+r,128+r),-56,56,fill='#e8ffff',width=5)
+    word(d,(128,213),'CARD',30,'white',True)
+    save('card',im)
+    return result

@@ -1,0 +1,49 @@
+newmtl card_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #card
+
+newmtl cube_lit
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #cube
+
+newmtl cube_top_lit
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #cube_top
+
+newmtl labels_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #labels
+
+newmtl materials_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #materials
+
+newmtl neck_lit
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #neck
+
+newmtl pads_lit
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #pads
+
+newmtl plaque_lit
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #plaque
+
+newmtl side_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #side
+
+newmtl speaker_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #speaker

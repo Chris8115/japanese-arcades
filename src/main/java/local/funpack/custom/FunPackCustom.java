@@ -127,6 +127,11 @@ public final class FunPackCustom {
                 case CABINET_CONSOLE, CABINET_MARQUEE -> 12;
                 default -> 0;
             }));
+    public static final DeferredBlock<JubeatCabinetBlock> JUBEAT = BLOCKS.registerBlock(
+        "jubeat", JubeatCabinetBlock::new,
+        BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)
+            .sound(SoundType.METAL).noOcclusion().lightLevel(state ->
+                state.getValue(NostalgiaCabinetBlock.PART) == NostalgiaCabinetBlock.Part.BASE ? 3 : 12));
     public static final DeferredHolder<EntityType<?>, EntityType<InitialDSeatEntity>> INITIAL_D_SEAT =
         ENTITIES.register("initial_d_seat", () -> EntityType.Builder.<InitialDSeatEntity>of(
             InitialDSeatEntity::new, MobCategory.MISC).sized(.05F, .05F)
@@ -135,7 +140,7 @@ public final class FunPackCustom {
         BLOCK_ENTITIES.register("nostalgia_jukebox", () -> BlockEntityType.Builder.of(
             NostalgiaJukeboxBlockEntity::new, NOSTALGIA_OP3.get(), SOUND_VOLTEX_VALKYRIE.get(),
             WACCA.get(), CHUNITHM.get(), GROOVE_COASTER.get(), MUSECA.get(), PROJECT_DIVA.get(),
-            CHRONO_CIRCLE.get(), MAIMAI.get(), DDR_SUPERNOVA.get(), TAIKO.get(), INITIAL_D.get()).build(null));
+            CHRONO_CIRCLE.get(), MAIMAI.get(), DDR_SUPERNOVA.get(), TAIKO.get(), INITIAL_D.get(), JUBEAT.get()).build(null));
     public static final DeferredItem<?> NOSTALGIA_OP3_ITEM =
         ITEMS.registerSimpleBlockItem("nostalgia_op3", NOSTALGIA_OP3, new Item.Properties());
     public static final DeferredItem<?> SOUND_VOLTEX_VALKYRIE_ITEM =
@@ -160,6 +165,8 @@ public final class FunPackCustom {
         ITEMS.registerSimpleBlockItem("taiko", TAIKO, new Item.Properties());
     public static final DeferredItem<?> INITIAL_D_ITEM =
         ITEMS.registerSimpleBlockItem("initial_d", INITIAL_D, new Item.Properties());
+    public static final DeferredItem<?> JUBEAT_ITEM =
+        ITEMS.registerSimpleBlockItem("jubeat", JUBEAT, new Item.Properties());
     public static final DeferredBlock<GachaponBlock> GACHAPON = BLOCKS.registerBlock(
         "gachapon", GachaponBlock::new,
         BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(2.5F, 1200.0F)
@@ -198,6 +205,7 @@ public final class FunPackCustom {
                 output.accept(DDR_SUPERNOVA_ITEM.get());
                 output.accept(TAIKO_ITEM.get());
                 output.accept(INITIAL_D_ITEM.get());
+                output.accept(JUBEAT_ITEM.get());
                 output.accept(GACHAPON_ITEM.get());
                 output.accept(ARCADE_KIOSK_ITEM.get());
                 output.accept(ARCADE_PASS.get());

@@ -1,0 +1,25 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "neoforge:obj",
+  "model": "funpackcustom:models/block/jubeat_console.obj",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "emissive_ambient": true,
+  "ambientocclusion": true,
+  "render_type": "minecraft:cutout_mipped_all",
+  "textures": {
+    "materials": "funpackcustom:block/jubeat_materials",
+    "cube": "funpackcustom:block/jubeat_cube",
+    "cube_top": "funpackcustom:block/jubeat_cube_top",
+    "plaque": "funpackcustom:block/jubeat_plaque",
+    "pads": "funpackcustom:block/jubeat_pads",
+    "status": "funpackcustom:block/jubeat_status",
+    "neck": "funpackcustom:block/jubeat_neck",
+    "side": "funpackcustom:block/jubeat_side",
+    "speaker": "funpackcustom:block/jubeat_speaker",
+    "labels": "funpackcustom:block/jubeat_labels",
+    "card": "funpackcustom:block/jubeat_card",
+    "particle": "funpackcustom:block/jubeat_materials"
+  }
+}
