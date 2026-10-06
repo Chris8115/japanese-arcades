@@ -216,8 +216,8 @@ blush adjustment changed only 24 face-pixel palette assignments: every vertex
 and all other materials stayed identical. The last fringe adjustment extends
 the bangs by one hair cell and the inner side locks to the cheek line; its
 face pixels, headset, twin tails and body remain identical.
-Finally, four lighter iris pixels were changed to eye white, leaving one blue
-column per eye with all geometry preserved.
+The final eye layout uses one inner blue iris column, eye white outside it,
+and face color at the outer edge, with all geometry preserved.
 
 The small native client verified real 2,500-point purchases of both figures,
 insufficient funds, physical pass-slot return, purchased-item placement,

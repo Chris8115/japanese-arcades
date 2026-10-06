@@ -11,7 +11,7 @@ These observations describe the user-supplied reference sheets. Byte-identical c
 - The lower cheeks have broad, subtle pale-pink pixels. Omit a protruding nose; make the mouth almost imperceptible. The face should read as one flat pixel-art surface under the hair.
 - **Final Miku pixel correction:** after the hair rebuild, move the accepted eye pattern down one face pixel and use one blush pixel at each lower outer cheek corner. This is a palette/UV update on the existing face grid; preserve all head, hair and body vertices.
 - The subsequent fringe adjustment extends the bangs down one hair-grid cell and brings the small side locks to the cheek line. It preserves that corrected eye/blush pattern, the crown, twin tails, headset and body.
-- Each Miku eye has one blue iris column. The adjacent lighter-blue column is replaced by the existing eye-white color; the dark upper eye row and all pixel positions stay fixed.
+- Each Miku eye has one blue iris column toward the nose, eye white outside that, and face color at the outer edge. Keep the dark upper eye pixels above the blue/white area and preserve all pixel positions.
 
 ## Voxel construction
 
