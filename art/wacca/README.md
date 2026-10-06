@@ -14,10 +14,16 @@ headphone connection, coin hardware, and printed labels. A black-and-ivory pedes
 rear service panels, vents, feet, and the raised WACCA Reverse marquee complete
 the cabinet.
 
-The rim and circular screen use fine 0.125-unit courses. The bowl uses a 0.25-unit
-surface grid with 0.125-unit depth steps, preserving its backward lean and recessed
+The rim and circular screen use 0.25-unit courses. The bowl uses a 0.5-unit surface
+grid with 0.25-unit depth steps, preserving its slight backward lean and recessed
 profile. A continuous 60-sector LED texture follows the bowl across merged surface
-patches, keeping the light pattern aligned while reducing unnecessary cuboids.
+patches, with wider spacing and lower contrast in its fine light pattern.
+
+The flicker correction removes overlapping faces on the white/gray rim and clips
+hidden and overlapping surfaces throughout the axis-aligned casing geometry. These
+faces previously competed at the same depth. World and inventory models use solid
+rendering so Minecraft can apply mipmaps to their opaque textures. The coarser
+surface steps also reduce tiny edges that can shimmer while the camera moves.
 
 The base is approximately **1.1 blocks wide** (17.7 model units); the touch enclosure
 reaches **1.375 blocks** (22 units). The highest point is approximately **2.81 blocks**
@@ -64,7 +70,7 @@ changes only.
 - `wacca-controls.png`: close-up of the sloped reader/headphone/coin fascia.
 - `wacca-ring.png`: close-up of the deep touch bowl and recessed screen.
 - `wacca-marquee.png`: upper rim and raised marquee close-up.
-- `geometry.json`: complete cabinet cuboids and UV data used by the renderer.
+- `geometry.json`: exported cabinet elements, visible faces, and UV data used by the renderer.
 - `display-artwork-source.png` and `marquee-artwork-source.png`: original source artwork made with the built-in imagegen tool.
 - `display-artwork-v1.png`: retained first version of the display artwork.
 - `imagegen-prompts.txt`: exact artwork prompts and provenance.
@@ -74,9 +80,16 @@ machine title for identification. The current display character was reworked to
 follow the reference face, hair, uniform, and both hands; the exact revision prompt
 is saved with the original generation prompts. Source pixels are packed unchanged into
 power-of-two runtime sheets; model UVs select the visible regions. Material patterns,
-hardware labels, and geometry are generated separately in code. The complete model
-currently contains **4,401 cuboids**: 110 in the base, 2,727 in the console section,
-and 1,564 in the upper section.
+hardware labels, and geometry are generated separately in code. The source geometry
+contains **1,282 solid cuboids**. After hidden-face removal and overlap clipping,
+the export has **6,545 surface elements carrying 7,052 rendered faces**, down from
+26,406 faces in the earlier model—a **73.3% reduction**. The optimizer removes
+2,698 fully hidden source faces and clips 3,511 overlapping source faces.
+
+Clipping can split one cuboid into several elements that each carry only part of
+its exterior. Exported element counts therefore do not equal full cuboid counts
+or rendered polygon counts; visible faces are the useful measure of the final
+rendering work.
 
 ## Edit and regenerate
 
@@ -86,8 +99,10 @@ separate bounded Java block models, facing variants, inventory model, textures,
 geometry data, and the Blockbench project.
 
 - `scripts/make_wacca_model.py`: main generator, rim, screen, artwork packing, and exports.
-- `scripts/wacca_ring_geometry.py`: fine touch-bowl surface, continuous LED map, and coplanar patch merging.
+- `scripts/wacca_ring_geometry.py`: touch-bowl surface, continuous LED map, and coplanar patch merging.
 - `scripts/wacca_shell_geometry.py`: pedestal, sloped fascia, casing, and service details.
+- `scripts/wacca_surface_geometry.py`: clips internal and overlapping axis-aligned faces while preserving the visible UV regions.
+- `scripts/test_wacca_surface_geometry.py`: regression checks for face clipping, UVs, material lighting, and exterior surface coverage; `--model` also audits the saved cabinet export.
 - `scripts/render_wacca_model.py`: renders the exported cuboids and UVs in Blender.
 
 **Regeneration overwrites the generated Blockbench project and model files.** Save
@@ -101,11 +116,20 @@ From the repository root on this machine:
 
 ```powershell
 & 'python' scripts/make_wacca_model.py
+& 'python' scripts/test_wacca_surface_geometry.py --model
 & 'C:/Program Files/Blender Foundation/Blender 5.0/blender.exe' -b --python scripts/render_wacca_model.py
 .\dev.cmd Build
 ```
 
 ## Runtime verification
+
+The surface regression script checks touching and overlapping cuboids, partial
+occlusion, all six UV directions and quarter-turn UV rotations, fullbright data,
+and unchanged rotated elements. It also compares 30 randomized box unions against
+an independent exterior-area calculation. Its optional model audit checks positive
+dimensions, unique element names, and absence of same-facing coplanar overlaps
+in the saved export. These checks target the geometry defect separately from the
+jukebox tests.
 
 The runtime implementation built successfully, and all **13 native integration
 tests passed on 2026-10-05** using `dev.cmd GameTest` in a disposable world. Three
@@ -117,9 +141,12 @@ rendered appearance or full-pack client compatibility.
 
 The copied full-pack client successfully completed startup with the initial WACCA
 model and no WACCA asset errors; the log is
-`build/verification/wacca-pack-client.log`. The subsequent finer geometry and revised
-display artwork have been audited and rendered, but have not yet had another
-full-pack client check.
+`build/verification/wacca-pack-client.log`. The revised character artwork and earlier
+geometry refinement were audited and rendered. The current flicker correction
+passes the build, exterior-surface regressions, and asset/UV audit, including the
+scaled inventory model's vertex tolerance. It removes all same-facing coplanar
+overlaps in the unrotated geometry. The preview renders use the exported geometry;
+moving-camera appearance still needs confirmation in Minecraft.
 
 The block/item ID is `funpackcustom:wacca`. Assets live under
 `src/main/resources/assets/funpackcustom`. `WaccaCabinetBlock.java` supplies the wider

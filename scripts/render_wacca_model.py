@@ -67,7 +67,7 @@ for e in data['elements']:
             else: n=[x*c-y*s,x*s+y*c,z]
             verts[i]=[n[j]+o[j] for j in range(3)]
     mesh=bpy.data.meshes.new(e['name'])
-    names=list(face_indices)
+    names=[direction for direction in face_indices if direction in e['faces']]
     mesh.from_pydata([world(v) for v in verts],[],[face_indices[name] for name in names])
     mesh.update()
     obj=bpy.data.objects.new(e['name'],mesh)

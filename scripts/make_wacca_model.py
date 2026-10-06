@@ -1,6 +1,6 @@
 """Build a WACCA Reverse cabinet with a recessed, segmented touch bowl.
 
-All geometry is native Java-model cuboids. Original imagegen artwork is packed
+All geometry uses native Java-model cuboid faces. Original imagegen artwork is packed
 unchanged; only model UVs select it. The Blockbench file embeds the same textures.
 """
 from __future__ import annotations
@@ -16,6 +16,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 from wacca_shell_geometry import build_shell
 from wacca_ring_geometry import build_touch_bowl
+from wacca_surface_geometry import optimize_surfaces
 
 ROOT=Path(__file__).resolve().parents[1]
 ART=ROOT/'art/wacca'
@@ -168,11 +169,11 @@ def polygon(name,points,z0,z1,material,*,group='Sculpted panels',glow=False,fron
              north=override,rotation=rotation,glow=glow,group=group)
 
 
-def circle_points(cx,cy,r,n=192):
+def circle_points(cx,cy,r,n=96):
     return [(cx+r*math.sin(i*2*math.pi/n),cy+r*math.cos(i*2*math.pi/n)) for i in range(n)]
 
 
-def annulus(name,cx,cy,outer,inner,z0,z1,material,group,step=.125):
+def annulus(name,cx,cy,outer,inner,z0,z1,material,group,step=.25):
     # Two spans on each scanline leave the center genuinely open.
     count=math.ceil(2*outer/step);dy=2*outer/count
     for i in range(count):
@@ -193,14 +194,13 @@ build_shell(cube,polygon)
 ring_start=len(elements)
 cx,cy=8,28.2
 polygon('Circular rear display enclosure',circle_points(cx,cy,10.70),7.65,9.12,'black',group='Ring rear enclosure')
-annulus('Outer white barrel',cx,cy,10.94,10.23,1.48,7.72,'ivory','White outer ring')
-annulus('Outer rim rear seam',cx,cy,11.00,10.73,1.38,2.02,'rim_gray','White outer ring')
-annulus('Broad molded white rim',cx,cy,11.00,10.28,1.06,1.61,'white','White outer ring')
-annulus('Inner rim silver return',cx,cy,10.34,10.17,1.23,1.69,'silver','White outer ring')
+# One continuous white shell replaces four intersecting annuli. Their coincident
+# outer walls previously fought for the same pixels as the camera moved.
+annulus('Molded white rim and barrel',cx,cy,11.00,10.23,1.06,7.72,'white','White outer ring')
 
-annulus('Circular screen black gasket',cx,cy,6.38,6.13,5.80,6.23,'rubber','Recessed circular monitor',step=.125)
+annulus('Circular screen black gasket',cx,cy,6.38,6.13,5.80,6.23,'rubber','Recessed circular monitor',step=.25)
 polygon('WACCA Reverse circular display',circle_points(cx,cy,6.18),5.82,5.99,'black',
-        front=('display',[0,0,16,16]),glow=('north',),group='Recessed circular monitor',step=.125)
+        front=('display',[0,0,16,16]),glow=('north',),group='Recessed circular monitor',step=.25)
 
 # Eight breaks and small fixing covers in the molded white ring are physical.
 for i in range(8):
@@ -221,7 +221,7 @@ for i in range(8):
 ring_elements=elements[ring_start:];elements=elements[:ring_start]
 for e in ring_elements:
     bottom,top=e['from'][1],e['to'][1]
-    count=max(1,math.ceil((top-bottom)/.25))
+    count=max(1,math.ceil((top-bottom)/.5))
     for i in range(count):
         part=copy.deepcopy(e)
         y0=bottom+(top-bottom)*i/count;y1=bottom+(top-bottom)*(i+1)/count
@@ -257,7 +257,6 @@ printed=[(-.56,41.70),(1.52,43.43),(4.63,44.17),(8,44.40),(11.37,44.17),
 printed=[(x,y-.8 if i>=7 else y) for i,(x,y) in enumerate(printed)]
 polygon('Marquee silver edging',printed,7.07,7.38,'silver',group='Curved marquee')
 inside=[((x-8)*.97+8,(y-41.3)*.96+41.3) for x,y in printed]
-polygon('Marquee luminous ivory panel',inside,6.99,7.15,'warm_white',glow=('north',),group='Curved marquee')
 # Clip quiet ivory margins with the physical arch; the letterforms retain their
 # native aspect and sit above the lower center curve, without a separate poster.
 logo_width=max(x for x,y in inside)-min(x for x,y in inside)
@@ -265,7 +264,7 @@ logo_height=logo_width/(3*.78)
 logo_top=41.20+logo_height/2
 logo_v0=(logo_top-max(y for x,y in inside))/logo_height*16
 logo_v1=(logo_top-min(y for x,y in inside))/logo_height*16
-polygon('WACCA Reverse marquee print',inside,6.945,7.02,'warm_white',
+polygon('WACCA Reverse marquee print',inside,6.945,7.15,'warm_white',
         front=('branding',[1.76,logo_v0,14.24,logo_v1]),
         glow=('north',),group='Curved marquee')
 for side,x0,x1 in (('Left',-1.24,.06),('Right',15.94,17.24)):
@@ -291,6 +290,10 @@ for e in elements:
         e['rotation']['origin'][0]=16-e['rotation']['origin'][0]
         if e['rotation']['axis'] in ('y','z'): e['rotation']['angle']*=-1
 
+# Bake only the opaque exterior. Adjacent pieces do not need internal faces;
+# clipped overlaps have exactly one surface owner, eliminating coplanar fights.
+elements,surface_details=optimize_surfaces(elements)
+
 def strip_element(element):
     return {k:copy.deepcopy(v) for k,v in element.items() if not k.startswith('_')}
 
@@ -311,7 +314,7 @@ for source in elements:
     parts[part_names[index]].append(e)
 for part in part_names:
     write_json(MODEL / ('wacca_'+part+'.json'),
-               {'parent':'minecraft:block/block','ambientocclusion':True,'render_type':'minecraft:cutout',
+               {'parent':'minecraft:block/block','ambientocclusion':True,'render_type':'minecraft:solid',
                 'textures':texture_paths,'elements':parts[part]})
 variants={}
 for facing,rotation in (('north',0),('east',90),('south',180),('west',270)):
@@ -331,7 +334,7 @@ for source in elements:
         o=e['rotation']['origin'];e['rotation']['origin']=[o[0]*.35+5.2,o[1]*.35,o[2]*.35+5.2]
     item_elements.append(e)
 write_json(ASSETS / 'models/item/wacca.json',
-           {'ambientocclusion':False,'gui_light':'front','textures':texture_paths,'elements':item_elements,
+           {'ambientocclusion':False,'gui_light':'front','render_type':'minecraft:solid','textures':texture_paths,'elements':item_elements,
             'display':{'gui':{'rotation':[15,225,0],'translation':[0,0,0],'scale':[.95,.95,.95]},
                        'ground':{'translation':[0,2,0],'scale':[.6,.6,.6]},
                        'fixed':{'rotation':[0,180,0],'scale':[1,1,1]},
@@ -363,6 +366,9 @@ for source in elements:
         index=texture_indices[face['texture']]
         width,height=texture_sizes[index]
         bbfaces[direction]={'uv':[v*(width if i%2==0 else height)/16 for i,v in enumerate(face['uv'])], 'texture':index}
+    for direction in ('north','east','south','west','up','down'):
+        if direction not in bbfaces:
+            bbfaces[direction]={'uv':[0,0,0,0],'texture':None}
     bb_elements.append({'name':e['name'],'type':'cube','uuid':uid,'from':e['from'],'to':e['to'],
                         'origin':origin,'rotation':rotation,'faces':bbfaces,'box_uv':False,
                         'color':1,'rescale':False,'autouv':0,'visibility':True,'export':True,
@@ -383,7 +389,8 @@ write_json(ART/'wacca.bbmodel',
             'resolution':{'width':256,'height':256},'elements':bb_elements,'textures':bbtextures,
             'outliner':[{'name':name,'uuid':str(uuid.uuid5(uuid.NAMESPACE_URL,'wacca/group/'+name)),
                          'origin':[8,0,8],'children':children} for name,children in groups.items()]})
-write_json(ART/'geometry.json', {'textures':texture_paths,'elements':elements})
-print('Generated',len(elements),'cuboids; section counts:',{name:len(values) for name,values in parts.items()})
+write_json(ART/'geometry.json', {'textures':texture_paths,'elements':elements,'surface_optimization':surface_details})
+print('Generated',len(elements),'surface elements; section counts:',{name:len(values) for name,values in parts.items()})
+print('Exterior surfaces:',surface_details)
 print('Touch bowl:',bowl_details)
 print('Editable model:',ART/'wacca.bbmodel')

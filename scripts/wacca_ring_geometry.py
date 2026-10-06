@@ -13,11 +13,11 @@ from PIL import Image
 
 CENTER_X, CENTER_Y = 8.0, 28.2
 OUTER_RADIUS, INNER_RADIUS = 10.32, 6.23
-XY_STEP, DEPTH_STEP = .25, .125
+XY_STEP, DEPTH_STEP = .5, .25
 GRID_SPAN = 22.0
 GRID_MIN_X, GRID_MIN_Y = -3.0, 17.2
 GRID_MAX_Y = 39.2
-GRID_COUNT = 88
+GRID_COUNT = round(GRID_SPAN/XY_STEP)
 BACK_DEPTH = 9.98
 SECTOR_COUNT = 60
 
@@ -68,11 +68,11 @@ def _write_led_atlas(texture_dir):
                 colour = (12, 11, 31)
             else:
                 radial_distance = OUTER_RADIUS-radius
-                radial_phase = radial_distance % .125
-                angular_phase = (fraction*arc_width) % .15
-                delta = -17 if radial_phase < .021 else 0
-                if angular_phase < .018:
-                    delta += 10
+                radial_phase = radial_distance % .25
+                angular_phase = (fraction*arc_width) % .30
+                delta = -6 if radial_phase < .04 else 0
+                if angular_phase < .035:
+                    delta += 3
                 colour = tuple(max(0, min(255, c+delta)) for c in base)
             pixels[px, py] = colour
     directory = Path(texture_dir)
