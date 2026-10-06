@@ -12,3 +12,5 @@ dev.local.json
 bin/
 out/
 src/generated/**/.cache/
+*.blend1
+*.blend2

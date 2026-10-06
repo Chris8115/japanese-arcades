@@ -1,6 +1,6 @@
 [CmdletBinding(SupportsShouldProcess = $true)]
 param(
-    [ValidateSet('Build', 'Prepare', 'Client', 'PackClient', 'DebugClient', 'DebugPackClient', 'Server', 'Data', 'SyncPack')]
+    [ValidateSet('Build', 'Prepare', 'Client', 'PackClient', 'DebugClient', 'DebugPackClient', 'Server', 'Data', 'SyncPack', 'GameTest')]
     [string]$Task = 'Build'
 )
 
@@ -134,6 +134,18 @@ function Initialize-DevServer {
 
 switch ($Task) {
     'Build' { if (-not $WhatIfPreference) { Invoke-DevGradle @('build') } }
+    'GameTest' {
+        if (-not $WhatIfPreference) {
+            $gameTestPath = Get-WorkspacePath 'runs/gametest'
+            New-Item -ItemType Directory -Path $gameTestPath -Force | Out-Null
+            $gameTestProperties = Get-WorkspacePath 'runs/gametest/server.properties'
+            if (-not (Test-Path -LiteralPath $gameTestProperties)) {
+                [IO.File]::WriteAllLines($gameTestProperties,
+                    [string[]]@('server-ip=127.0.0.1', 'server-port=25576', 'online-mode=false'), [Text.Encoding]::ASCII)
+            }
+            Invoke-DevGradle @('runGameTestServer')
+        }
+    }
     'Prepare' { if (-not $WhatIfPreference) { Invoke-DevGradle @('prepareClientRun', 'preparePackClientRun', 'prepareServerRun') } }
     'Client' { if (-not $WhatIfPreference) { Invoke-DevGradle @('runClient') } }
     { $_ -in 'PackClient', 'DebugPackClient' } {

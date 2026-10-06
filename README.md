@@ -3,6 +3,9 @@
 This workspace is for our own mods for **Minecraft 1.21.1 / NeoForge 21.1.252**.
 The starter mod is **Fun Pack Custom**, id `funpackcustom`, version `0.1.0`.
 It registers `/funpackdev`, a small command to confirm that the mod is loaded.
+It also includes a **Nostalgia Op.3 Arcade Cabinet** with music-disc playback in the
+**Japanese Arcades** creative tab. See [the model notes](art/nostalgia-op3/README.md)
+for editable files, previews, and how to use the cabinet.
 
 ## Start here
 
@@ -21,6 +24,7 @@ Use **Terminal > Run Task** for the `Fun:` tasks, or open a terminal here:
 - `SyncPack` refreshes the copied mods, configs, resource packs, and pack scripts from the live pack.
 - `Prepare` downloads game assets and prepares client/server launch files.
 - `Server` launches a small dedicated server for checking server compatibility.
+- `GameTest` runs the cabinet's six integration tests in a disposable test world and exits.
 - `Data` runs our data generators once we add them.
 
 The script selects Java 21 locally. Your default Java installation remains available to other projects.
@@ -36,7 +40,8 @@ Names, versions, and loader versions are in `gradle.properties`.
 
 After editing, build and run the small client. Create a disposable world and type `/funpackdev`.
 Then test the same feature with `PackClient` to check interactions with the pack's other mods.
-Game runs use `runs/client`, `runs/pack-client`, and `runs/server` respectively.
+Game runs use `runs/client`, `runs/pack-client`, and `runs/server` respectively;
+automated integration tests use `runs/gametest`.
 The original pack and its saved worlds are separate from all of these directories.
 
 `SyncPack` overwrites files that exist in the source pack's configuration. Close the development

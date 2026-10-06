@@ -41,6 +41,11 @@ neoForge {
             programArgument '--nogui'
             jvmArgument '-Xmx4G'
         }
+        gameTestServer {
+            type = 'gameTestServer'
+            gameDirectory = project.file('runs/gametest')
+            jvmArgument '-Xmx2G'
+        }
         data {
             data()
             gameDirectory = project.file('runs/data')
