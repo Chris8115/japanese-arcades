@@ -1,0 +1,626 @@
+{
+  "format": "static NeoForge OBJ baked meshes",
+  "source": {
+    "source_size": [
+      1024,
+      1536
+    ],
+    "alpha_bbox_pixels": [
+      71,
+      13,
+      851,
+      1498
+    ],
+    "grid": [
+      48,
+      91
+    ],
+    "back_rectangles": 92,
+    "outline_edge_quads": 234,
+    "art_width_model_units": 12.944582907728973,
+    "art_height_model_units": 24.64449438202247,
+    "top_model_units": 25.64449438202247,
+    "source_sha256": "9fdaf717da27e6e5db990aa9ce390c838af33b44700d9fd37d66993175bfa90f"
+  },
+  "rotation_contract": "0=south,4=west,8=north,12=east;22.5degrees per segment",
+  "inventory_faces": 357,
+  "complete_placed_faces": 378,
+  "placed_lower_faces": 191,
+  "placed_upper_faces": 187,
+  "whole_bounds": [
+    [
+      1.52770855,
+      14.47229145
+    ],
+    [
+      0,
+      25.64449438
+    ],
+    [
+      4.8,
+      11.2
+    ]
+  ],
+  "front_thickness_model_units": 0.6400000000000006,
+  "render_type": "minecraft:cutout_mipped_all",
+  "block_entity_renderer": false,
+  "ticking": false,
+  "placed_models": [
+    {
+      "model": "kasane_teto_cutout_lower_00",
+      "faces": 191,
+      "bounds": [
+        [
+          1.52770855,
+          14.47229145
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          4.8,
+          11.2
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_upper_00",
+      "faces": 187,
+      "bounds": [
+        [
+          1.52770855,
+          14.47229145
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          7.68,
+          8.32
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_lower_01",
+      "faces": 191,
+      "bounds": [
+        [
+          1.8979237,
+          14.1020763
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          3.35977839,
+          12.64022161
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_upper_01",
+      "faces": 187,
+      "bounds": [
+        [
+          1.8979237,
+          14.1020763
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          5.22751984,
+          10.77248016
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_lower_02",
+      "faces": 191,
+      "bounds": [
+        [
+          2.62598846,
+          13.37401154
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          2.62598846,
+          13.37401154
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_upper_02",
+      "faces": 187,
+      "bounds": [
+        [
+          3.19712465,
+          12.80287535
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          3.19712465,
+          12.80287535
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_lower_03",
+      "faces": 191,
+      "bounds": [
+        [
+          3.35977839,
+          12.64022161
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          2.1428411,
+          14.1020763
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_upper_03",
+      "faces": 187,
+      "bounds": [
+        [
+          5.22751984,
+          10.77248016
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          1.8979237,
+          14.1020763
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_lower_04",
+      "faces": 191,
+      "bounds": [
+        [
+          4.8,
+          11.2
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          1.52770855,
+          14.47229145
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_upper_04",
+      "faces": 187,
+      "bounds": [
+        [
+          7.68,
+          8.32
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          1.52770855,
+          14.47229145
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_lower_05",
+      "faces": 191,
+      "bounds": [
+        [
+          3.35977839,
+          12.64022161
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          1.8979237,
+          14.1020763
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_upper_05",
+      "faces": 187,
+      "bounds": [
+        [
+          5.22751984,
+          10.77248016
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          1.8979237,
+          14.1020763
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_lower_06",
+      "faces": 191,
+      "bounds": [
+        [
+          2.62598846,
+          13.37401154
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          2.62598846,
+          13.37401154
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_upper_06",
+      "faces": 187,
+      "bounds": [
+        [
+          3.19712465,
+          12.80287535
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          3.19712465,
+          12.80287535
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_lower_07",
+      "faces": 191,
+      "bounds": [
+        [
+          1.8979237,
+          13.8571589
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          3.35977839,
+          12.64022161
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_upper_07",
+      "faces": 187,
+      "bounds": [
+        [
+          1.8979237,
+          14.1020763
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          5.22751984,
+          10.77248016
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_lower_08",
+      "faces": 191,
+      "bounds": [
+        [
+          1.52770855,
+          14.47229145
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          4.8,
+          11.2
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_upper_08",
+      "faces": 187,
+      "bounds": [
+        [
+          1.52770855,
+          14.47229145
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          7.68,
+          8.32
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_lower_09",
+      "faces": 191,
+      "bounds": [
+        [
+          1.8979237,
+          14.1020763
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          3.35977839,
+          12.64022161
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_upper_09",
+      "faces": 187,
+      "bounds": [
+        [
+          1.8979237,
+          14.1020763
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          5.22751984,
+          10.77248016
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_lower_10",
+      "faces": 191,
+      "bounds": [
+        [
+          2.62598846,
+          13.37401154
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          2.62598846,
+          13.37401154
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_upper_10",
+      "faces": 187,
+      "bounds": [
+        [
+          3.19712465,
+          12.80287535
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          3.19712465,
+          12.80287535
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_lower_11",
+      "faces": 191,
+      "bounds": [
+        [
+          3.35977839,
+          12.64022161
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          1.8979237,
+          13.8571589
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_upper_11",
+      "faces": 187,
+      "bounds": [
+        [
+          5.22751984,
+          10.77248016
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          1.8979237,
+          14.1020763
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_lower_12",
+      "faces": 191,
+      "bounds": [
+        [
+          4.8,
+          11.2
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          1.52770855,
+          14.47229145
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_upper_12",
+      "faces": 187,
+      "bounds": [
+        [
+          7.68,
+          8.32
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          1.52770855,
+          14.47229145
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_lower_13",
+      "faces": 191,
+      "bounds": [
+        [
+          3.35977839,
+          12.64022161
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          1.8979237,
+          14.1020763
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_upper_13",
+      "faces": 187,
+      "bounds": [
+        [
+          5.22751984,
+          10.77248016
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          1.8979237,
+          14.1020763
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_lower_14",
+      "faces": 191,
+      "bounds": [
+        [
+          2.62598846,
+          13.37401154
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          2.62598846,
+          13.37401154
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_upper_14",
+      "faces": 187,
+      "bounds": [
+        [
+          3.19712465,
+          12.80287535
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          3.19712465,
+          12.80287535
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_lower_15",
+      "faces": 191,
+      "bounds": [
+        [
+          2.1428411,
+          14.1020763
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          3.35977839,
+          12.64022161
+        ]
+      ]
+    },
+    {
+      "model": "kasane_teto_cutout_upper_15",
+      "faces": 187,
+      "bounds": [
+        [
+          1.8979237,
+          14.1020763
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          5.22751984,
+          10.77248016
+        ]
+      ]
+    }
+  ]
+}

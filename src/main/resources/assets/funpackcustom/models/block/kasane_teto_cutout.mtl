@@ -1,0 +1,9 @@
+newmtl print_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #print
+
+newmtl cardboard_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #cardboard

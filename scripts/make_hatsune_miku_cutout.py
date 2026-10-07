@@ -21,6 +21,10 @@ ROOT=Path(__file__).resolve().parents[1]
 ASSETS=ROOT/'src/main/resources/assets/funpackcustom'
 ART=ROOT/'art/hatsune_miku_cutout'
 NAME='hatsune_miku_cutout'
+DISPLAY_TITLE='Hatsune Miku Cardboard Cutout'
+SOURCE_FILENAME='miku-cutout-print.png'
+SHORT_NAME='Miku'
+MAX_ART_HEIGHT=29.4
 Z_BACK,Z_FRONT=7.68,8.32
 TEXTURES={'print':'funpackcustom:block/'+NAME+'_print',
           'cardboard':'funpackcustom:block/'+NAME+'_cardboard',
@@ -117,7 +121,7 @@ def silhouette(source,grid_width):
     if cutoff.getextrema()==(255,255):raise ValueError('The print requires a transparent silhouette, not a rectangular opaque background')
     left,top,right,bottom=bbox
     art_w,art_h=right-left,bottom-top
-    scale=min(15.2/art_w,29.4/art_h)
+    scale=min(15.2/art_w,MAX_ART_HEIGHT/art_h)
     width,height=art_w*scale,art_h*scale
     x0=8-width/2;y0=1.0;y1=y0+height
     rows=max(2,round(grid_width*art_h/art_w))
@@ -224,7 +228,7 @@ def bounds(faces):
 
 
 def obj(name,faces):
-    lines=['# Static Minecraft-style Miku cardboard display','mtllib funpackcustom:models/block/'+NAME+'.mtl']
+    lines=['# Static Minecraft-style '+SHORT_NAME+' cardboard display','mtllib funpackcustom:models/block/'+NAME+'.mtl']
     index=1;previous=None
     for face in faces:
         material=face['texture'][1:]+'_surface'
@@ -265,15 +269,23 @@ def editable(faces):
                 for key,(u,v) in zip(keys,face['uv'])},'texture':index}},'visibility':True,'export':True})
         groups[face['group']].append(uid)
     write(ART/(NAME+'.bbmodel'),{'meta':{'format_version':'4.10','model_format':'free','box_uv':False},
-        'name':'Hatsune Miku Cardboard Cutout','resolution':{'width':256,'height':256},
+        'name':DISPLAY_TITLE,'resolution':{'width':256,'height':256},
         'elements':elements,'textures':textures,'outliner':[{'name':group,
             'uuid':str(uuid.uuid5(uuid.NAMESPACE_URL,NAME+'/group/'+group)),
             'origin':[8,0,8],'children':children} for group,children in groups.items()]})
 
 
-def main():
+def main(name='hatsune_miku_cutout',display_title='Hatsune Miku Cardboard Cutout',
+         source_filename='miku-cutout-print.png',short_name='Miku',max_art_height=29.4):
+    """Run the shared exporter; defaults preserve the original Miku outputs."""
+    global NAME,ART,TEXTURES,DISPLAY_TITLE,SOURCE_FILENAME,SHORT_NAME,MAX_ART_HEIGHT
+    NAME=name;ART=ROOT/'art'/name;DISPLAY_TITLE=display_title
+    SOURCE_FILENAME=source_filename;SHORT_NAME=short_name;MAX_ART_HEIGHT=max_art_height
+    TEXTURES={'print':'funpackcustom:block/'+NAME+'_print',
+              'cardboard':'funpackcustom:block/'+NAME+'_cardboard',
+              'particle':'funpackcustom:block/'+NAME+'_cardboard'}
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--source',type=Path,default=ART/'miku-cutout-print.png')
+    parser.add_argument('--source',type=Path,default=ART/SOURCE_FILENAME)
     parser.add_argument('--grid-width',type=int,default=48)
     args=parser.parse_args()
     if not args.source.exists():raise FileNotFoundError('Waiting for immutable source artwork: '+str(args.source))

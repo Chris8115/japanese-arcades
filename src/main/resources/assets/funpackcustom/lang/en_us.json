@@ -214,5 +214,6 @@
   "tooltip.funpackcustom.custom_display_box.filled": "Empty-hand right-click: angled / straight. Sneak-use: unpack.",
   "message.funpackcustom.custom_display_box.straight": "Display: straight on",
   "message.funpackcustom.custom_display_box.angled": "Display: angled",
-  "block.funpackcustom.hatsune_miku_cutout": "Hatsune Miku Cardboard Cutout"
+  "block.funpackcustom.hatsune_miku_cutout": "Hatsune Miku Cardboard Cutout",
+  "block.funpackcustom.kasane_teto_cutout": "Kasane Teto Cardboard Cutout"
 }

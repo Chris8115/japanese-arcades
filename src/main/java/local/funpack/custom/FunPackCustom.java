@@ -56,6 +56,10 @@ public final class FunPackCustom {
         "hatsune_miku_cutout", HatsuneMikuCutoutBlock::new,
         BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).strength(.5F).sound(SoundType.WOOD).noOcclusion());
     public static final DeferredItem<?> HATSUNE_MIKU_CUTOUT_ITEM = ITEMS.registerSimpleBlockItem("hatsune_miku_cutout", HATSUNE_MIKU_CUTOUT);
+    public static final DeferredBlock<KasaneTetoCutoutBlock> KASANE_TETO_CUTOUT = BLOCKS.registerBlock(
+        "kasane_teto_cutout", KasaneTetoCutoutBlock::new,
+        BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).strength(.5F).sound(SoundType.WOOD).noOcclusion());
+    public static final DeferredItem<?> KASANE_TETO_CUTOUT_ITEM = ITEMS.registerSimpleBlockItem("kasane_teto_cutout", KASANE_TETO_CUTOUT);
     public record MobFigureSet(String mob, DeferredBlock<MobFigureBlock> figure,
             DeferredBlock<MobFigureBlock> emptyBox, DeferredBlock<MobFigureBlock> boxedFigure,
             DeferredItem<MobFigureItem> figureItem, DeferredItem<MobFigureItem> emptyBoxItem,
@@ -315,6 +319,7 @@ public final class FunPackCustom {
                 output.accept(HATSUNE_MIKU_FIGURE_ITEM.get());
                 output.accept(KASANE_TETO_FIGURE_ITEM.get());
                 output.accept(HATSUNE_MIKU_CUTOUT_ITEM.get());
+                output.accept(KASANE_TETO_CUTOUT_ITEM.get());
                 output.accept(WACCA_POSTER.get());
                 for (MobFigureSet figures : MOB_FIGURES) {
                     output.accept(figures.boxedFigureItem().get());

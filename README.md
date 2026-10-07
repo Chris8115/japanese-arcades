@@ -85,7 +85,8 @@ real **From** and **To** slots. Both cards return when the kiosk closes. Use a p
 on a music arcade cabinet to spend Credits and earn randomized Prize Points,
 then redeem them in **Prizes** for placeable Miku and Teto figures, a
 [WACCA wall poster](art/wacca_poster/README.md), a
-[Minecraft-style Hatsune Miku cardboard cutout](art/hatsune_miku_cutout/README.md), or
+[Minecraft-style Hatsune Miku cardboard cutout](art/hatsune_miku_cutout/README.md),
+a matching [Kasane Teto cutout](art/kasane_teto_cutout/README.md), or
 [boxed Minecraft mob figures](art/mob_figures/README.md). Creeper, Zombie,
 Skeleton, Enderman, Slime and Axolotl figures can be displayed boxed or loose.
 Opening a box keeps its empty packaging, which can also be placed and refilled.
@@ -94,8 +95,8 @@ weights and machine profiles are server-configurable. See the
 [Arcade Pass economy guide](art/arcade_economy/README.md) for controls, defaults,
 configuration, transferable-card data and future loot support.
 
-The freestanding Miku cutout costs 1,500 Prize Points by default and can also be
-stocked in claw machines or gachapon. It is about 1.6 blocks tall, with printed
+The freestanding Miku and Teto cutouts each cost 1,500 Prize Points by default
+and can also be stocked in claw machines or gachapon. Both are about 1.6 blocks tall, with printed
 artwork, cardboard backing and a folded support. Place it on solid ground at
 16 angles, spaced 22.5° apart like a standing sign. Breaking either half returns
 one cutout in survival.
@@ -125,7 +126,7 @@ Use **Terminal > Run Task** for the `Fun:` tasks, or open a terminal here:
 - `SyncPack` refreshes the copied mods, configs, resource packs, and pack scripts from the live pack.
 - `Prepare` downloads game assets and prepares client/server launch files.
 - `Server` launches a small dedicated server for checking server compatibility.
-- `GameTest` runs 168 cabinet, claw machine, gachapon, figure, cutout, display box, poster, ordering and Arcade Pass economy integration tests in a disposable test world and exits.
+- `GameTest` runs 170 cabinet, claw machine, gachapon, figure, cutout, display box, poster, ordering and Arcade Pass economy integration tests in a disposable test world and exits.
 - `Data` runs our data generators once we add them.
 
 The script selects Java 21 locally. Your default Java installation remains available to other projects.
@@ -184,10 +185,11 @@ reinserted-card stale requests, separate viewer inventories, close/break/logout/
 returns, canceled overflow recovery, creative pickup, and swaps during delivery.
 Miku and Teto figure tests exercise real placement, rotation, separate neighboring
 figures and one-item loot drops; retired prize IDs are rejected by the kiosk.
-Miku cutout tests cover all 16 placement angles, yaw rounding, obstructions,
+Miku and Teto cutout tests cover all 16 placement angles, yaw rounding, obstructions,
 world limits, both removal orders, support loss, neighboring-object isolation,
-rotation/mirroring and saved block states. The prize transaction tests also
-exercise its configured point price and delivery.
+rotation/mirroring and saved block states, plus mixed-character neighbors and
+mismatched halves. The prize transaction tests also exercise each cutout's
+configured point price and delivery.
 Jubeat tests cover all-facing saved playback, flush neighbors with independent
 inventories, sloped selection and collision, disc ejection clearance, obstructed
 placement and support-loss cleanup.
