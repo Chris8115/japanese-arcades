@@ -328,6 +328,17 @@ inner=[(1.33,43.74),(14.67,43.74),(13.41,40.50),(12.87,40.23),(3.13,40.23),(2.59
 prism('Hanging trapezoid dark face',inner,4.287,4.32,'charcoal',back=False)
 decal('ONGEKI luminous marquee title',(2.8,40.36,13.2,43.63),4.27,'marquee',glow=True)
 
+# Rake the freestanding front assembly toward the player from its deck mounts.
+# Move its attached trim, discs and title together without changing their UVs.
+lean_groups={'White portal side shells','Circular side pads',
+             'Sculpted canopy and suspended title marquee'}
+lean=math.radians(-6)
+for f in surfaces:
+    if f['group'] in lean_groups:
+        f['vertices']=[[x,17.2+(y-17.2)*math.cos(lean)-z*math.sin(lean),
+                        (y-17.2)*math.sin(lean)+z*math.cos(lean)]
+                       for x,y,z in f['vertices']]
+
 textures={key:'funpackcustom:block/ongeki_'+key for key in ('materials','controls','details','display','marquee')}
 textures['particle']=textures['materials']
 

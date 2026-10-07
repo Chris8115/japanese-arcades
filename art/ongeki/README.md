@@ -8,7 +8,9 @@ a recessed black portrait monitor, an open gap below the hanging title sign,
 large circular panels on the side wings, and a white sloped control deck. Two
 groups of three illuminated buttons flank the black central lever. Rectangular
 side-hit panels, a card reader, service doors, vents, and a silver base lip finish
-the cabinet. The photographed loose chair and venue accessories are not part of
+the cabinet. The white arch leans six degrees toward the player from its deck
+mounts; the side discs, lights, canopy, and hanging marquee follow that angle.
+The photographed loose chair and venue accessories are not part of
 the cabinet.
 
 ## Obtaining and using it
@@ -23,8 +25,8 @@ or use the Japanese Arcades creative tab:
 Place it on a solid floor with three clear vertical blocks. The shell is slightly
 wider than its placement column; use two-block center spacing for separate
 cabinets. Breaking any section removes the cabinet and drops one item in survival.
-The complete model measures approximately **1.18 blocks wide, 2.96 high, and
-1.07 deep**. These proportions are estimated from the references.
+The complete model measures approximately **1.18 blocks wide, 3.00 high, and
+1.21 deep**. These proportions are estimated from the references.
 
 Use an Arcade Pass to spend Credits and receive the existing simulated rank and
 Prize Point reward. The shared default is 10 Credits per play; the server economy
@@ -46,7 +48,8 @@ it. Each cabinet retains its own inventory and playback progress.
 - [Editable Blender scene](ongeki.blend) with packed textures
 - [Source geometry and export statistics](geometry.json)
 - Native Minecraft views: [front](native-front.png),
-  [three-quarter](native-three-quarter.png), [controls](native-controls.png), and
+  [three-quarter](native-three-quarter.png), [side](native-side.png),
+  [controls](native-controls.png), and
   [ordering kiosk](native-kiosk.png)
 
 These reference-inspired illustrations were generated with the built-in imagegen
@@ -59,7 +62,7 @@ The cabinet uses static chunk-rendered geometry. Screen and light accents use
 emissive faces; there is no per-frame cabinet renderer or new client ticker.
 Vanilla Minecraft shows the lit colors; bloom depends on the active shader pack.
 
-The item has **1,292 faces**; the three world sections have **1,489 faces** in
+The item has **1,292 faces**; the three world sections have **1,485 faces** in
 total after splitting at block boundaries. The circular side panels use polygon
 rings instead of dense stacks of cubes. Indexed OBJ exports retain printed
 details in textures. Selection/collision volumes are cached for every part and
@@ -81,3 +84,8 @@ mesh in Minecraft; the studio previews use that same source geometry.
 A separate copied Sodium 0.8.13 / Iris 1.8.14-beta.1 client with Complementary
 Reimagined 5.9.3 passed the model, visual, and reload checks. Both test clients
 exited cleanly. Original pack files and saved worlds were not modified.
+
+After the six-degree forward-lean revision, the build and all 130 GameTests
+passed again. A fresh isolated native run verified all 24 block states, the
+updated front/side profiles, kiosk item, and resource reload; it exited cleanly.
+The native screenshots and editable models include this revision.

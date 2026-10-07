@@ -86,6 +86,10 @@ public final class OngekiCabinetGameTests {
                     origin.add(rotated(facing, .1, 6, 8)), pos);
                 helper.assertTrue(wing != null && wing.getDirection() == facing,
                     "The forward arch was not selectable facing " + facing);
+                Vec3 forward = new Vec3(facing.getStepX(), 0, facing.getStepZ());
+                double overhang = wing.getLocation().subtract(origin.add(rotated(facing, .1, 6, 0))).dot(forward);
+                helper.assertTrue(overhang > (section == 1 ? .1 : .2),
+                    "The selection outline did not follow the forward-leaning arch facing " + facing);
                 var gap = shape.clip(origin.add(rotated(facing, 8, 6, 0)),
                     origin.add(rotated(facing, 8, 6, 8)), pos);
                 helper.assertTrue(gap == null, "ONGEKI's open arch became an invisible solid wall");
