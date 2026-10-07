@@ -61,22 +61,29 @@ matching the supplied white-background product reference.
 | [display-artwork-source.png](display-artwork-source.png) | Original portrait display illustration |
 | [marquee-artwork-source.png](marquee-artwork-source.png) | Original character marquee illustration |
 
-The current export has **7,985 world faces** split across three block models:
-**3,571 base**, **3,295 console**, and **1,119 marquee**. Its item has **7,909
+The current export has **7,425 world faces** split across three block models:
+**3,571 base**, **2,735 console**, and **1,119 marquee**. Its item has **7,349
 faces**. Compared with the saved pre-optimization models (9,987 world / 9,983
-item), this removes **20.0%** of world faces and **20.8%** of item faces.
+item), this removes **25.7%** of world faces and **26.4%** of item faces.
 
 The printed controller deck is two coplanar quads on its original shallow
 `y = 18.07 + 0.145 × (z + 7.50)` slope. Six straight bevels, continuous sidewalls,
 and a sealed undertray replace the former 24 stair courses. Its complete shell
-uses 22 faces. The five spinners use 32 radial segments with the original tier
+uses 22 faces. The five spinners use 24 radial segments with the original tier
 radii, heights and white lighting; their hubs, inlays, screw heads and rear
 function button follow the same slope. Cabinet bounds, monitor, marquee, lower
 body, pedal and all five texture files remain unchanged.
 
+The follow-up controller reduction lowers each round body and hub from 448 to
+336 faces (32 to 24 radial segments), saving another 560 faces across the five
+controllers. All 5,669 other source faces are exactly unchanged, including the
+approved flat deck and center inlays. The previous planar-deck revision is
+saved as `backup/museca-before-spinner-reduction-20261007-112932` with a matching
+external backup archive.
+
 The surface optimizer removes hidden cuboid faces and clips overlapping opaque
 surfaces. Static NeoForge OBJ models preserve native lighting and guarded UVs
-without a custom renderer. The editable source contains 7,909 faces before
+without a custom renderer. The editable source contains 7,349 faces before
 section clipping and conservative coplanar merging.
 
 The two source illustrations were produced with the built-in image-generation
@@ -124,11 +131,11 @@ backup. Six refreshed studio views and the packed Blender scene show the new
 continuous controller surfaces. [optimization-audit.json](optimization-audit.json)
 records the asset checks.
 
-The final 2026-10-07 build passed. A disposable Minecraft client with Sodium
+The final 2026-10-07 build, including the 24-segment controller reduction, passed. A disposable Minecraft client with Sodium
 0.8.13, Iris 1.8.14-beta.1 and Complementary Reimagined 5.9.3 verified placement,
 all 24 block states, the item model, seven cabinet/deck views, and resource
-reload. Its 63,880 state quads represent 7,985 faces per complete cabinet across
-four facings and two disc states; the item bakes to 7,909 quads. There is no
+reload. Its 59,400 state quads represent 7,425 faces per complete cabinet across
+four facings and two disc states; the item bakes to 7,349 quads. There is no
 per-frame cabinet renderer. The final control, edge and overall views were
 visually checked for a continuous deck surface and aligned spinner tiers.
 [In-game controls](museca-planar-controls.png) and
@@ -138,8 +145,9 @@ All 15 packaged MÚSECA assets match their sources, all five runtime texture
 files are byte-identical to the backup, and the four OBJ exports pass an
 optimizer idempotence check. Local reports are
 `build/verification/museca-plane-audit.json`,
-`build/verification/museca-planar-independent-audit.json`, and
-`runs/museca-plane-after-final-visual-probe/native-report.json`.
+`build/verification/museca-planar-independent-audit.json`,
+`build/verification/museca-controller-reduction-audit.json`, and
+`runs/museca-plane-24-segment-visual-probe/native-report.json`.
 The original pack and saves were not modified. This is a geometry reduction,
 not a measured FPS improvement. The pre-change revision is tagged
 `backup/museca-before-planar-deck-20261007-110921`; a verified 31-file archive

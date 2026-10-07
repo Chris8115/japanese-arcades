@@ -1,9 +1,9 @@
 {
   "baseline_backup_tag": "backup/museca-before-planar-deck-20261007-110921",
   "world_faces_before": 9987,
-  "world_faces_after": 7985,
+  "world_faces_after": 7425,
   "item_faces_before": 9983,
-  "item_faces_after": 7909,
+  "item_faces_after": 7349,
   "identical_bounds": [
     [
       -2.7328601428068424,
@@ -46,17 +46,28 @@
     "result": "PASS",
     "build": "dev.cmd Build",
     "states": 24,
-    "state_quads_total": 63880,
-    "item_quads": 7909,
+    "state_quads_total": 59400,
+    "item_quads": 7349,
     "visual_views": 7,
     "resource_reload": "PASS",
     "static_renderer": true,
     "packaged_assets": 15,
     "obj_optimizer_idempotent": true,
-    "release_sha256": "6c61f91698648ad64332a1220185e71928f53625577838aeddf5839d083bdc68",
+    "release_sha256": "9e465a12143cea6988c5e88ccdd19a8de5f89e72fac3f6a5b193d0d49054ae06",
     "preview_files": [
       "museca-planar-controls.png",
       "museca-planar-cabinet.png"
     ]
+  },
+  "controller_reduction": {
+    "baseline_commit": "fe52617e97ee8d2a4de5789d683e124b6470f12f",
+    "segments_before": 32,
+    "segments_after": 24,
+    "faces_per_body_and_hub_before": 448,
+    "faces_per_body_and_hub_after": 336,
+    "total_faces_saved": 560,
+    "non_controller_faces_unchanged": 5669,
+    "world_faces_before": 7985,
+    "item_faces_before": 7909
   }
 }

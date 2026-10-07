@@ -90,7 +90,9 @@ def build_deck(palette_uv):
     for x,z in ((-1.,-4.9),(17.,-4.9),(.9,-6.93),(15.1,-6.93),(.1,2.9),(15.9,2.9)):
         box('Deck countersunk screw '+str((x,z)),x-.075,x+.075,z-.075,z+.075,0,.055,'steel','Deck hardware')
 
-    segments=32
+    # Twenty-four sides keep these small controllers round at playing distance
+    # without spending extra faces on their repeated body and hub rings.
+    segments=24
     angles=[i*math.tau/segments for i in range(segments+1)]
 
     def spindle(name,cx,cz,profile,materials,group='Five luminous spinners'):
