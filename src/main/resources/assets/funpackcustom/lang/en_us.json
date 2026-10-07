@@ -205,5 +205,11 @@
   "message.funpackcustom.claw_machine.insufficient_currency": "You do not have enough matching currency for this play.",
   "message.funpackcustom.claw_machine.payment_full": "The payment box is full. Ask the operator to empty it.",
   "message.funpackcustom.claw_machine.won": "You won! Collect your prize at the chute.",
-  "message.funpackcustom.claw_machine.slipped": "It slipped! The prize is back inside the machine."
+  "message.funpackcustom.claw_machine.slipped": "It slipped! The prize is back inside the machine.",
+  "block.funpackcustom.custom_display_box": "Custom Display Box",
+  "label.funpackcustom.custom_display_box": "YOUR COLLECTION",
+  "tooltip.funpackcustom.custom_display_box.previous": "Empty packaging: %s",
+  "tooltip.funpackcustom.custom_display_box.contains": "Contains: %s",
+  "tooltip.funpackcustom.custom_display_box.empty": "Place and right-click with an item to box one.",
+  "tooltip.funpackcustom.custom_display_box.filled": "Empty-hand right-click to unpack. Sneak-use in air also opens it."
 }

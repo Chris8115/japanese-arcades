@@ -57,6 +57,18 @@ public final class FunPackCustom {
             DeferredItem<MobFigureItem> figureItem, DeferredItem<MobFigureItem> emptyBoxItem,
             DeferredItem<MobFigureItem> boxedFigureItem) {}
     public static final List<MobFigureSet> MOB_FIGURES = MobFigureBlock.MOBS.stream().map(FunPackCustom::mobFigure).toList();
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<CustomDisplayBoxData>> DISPLAY_BOX_DATA =
+        COMPONENTS.register("display_box", () -> DataComponentType.<CustomDisplayBoxData>builder()
+            .persistent(CustomDisplayBoxData.CODEC).networkSynchronized(CustomDisplayBoxData.STREAM_CODEC).build());
+    public static final DeferredBlock<CustomDisplayBoxBlock> CUSTOM_DISPLAY_BOX = BLOCKS.registerBlock(
+        "custom_display_box", CustomDisplayBoxBlock::new,
+        BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(.5F).sound(SoundType.WOOD).noOcclusion());
+    public static final DeferredItem<CustomDisplayBoxItem> CUSTOM_DISPLAY_BOX_ITEM = ITEMS.register("custom_display_box",
+        () -> new CustomDisplayBoxItem(CUSTOM_DISPLAY_BOX.get(), new Item.Properties()
+            .component(DISPLAY_BOX_DATA.get(), CustomDisplayBoxData.EMPTY)));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CustomDisplayBoxBlockEntity>> CUSTOM_DISPLAY_BOX_ENTITY =
+        BLOCK_ENTITIES.register("custom_display_box", () -> BlockEntityType.Builder.of(
+            CustomDisplayBoxBlockEntity::new, CUSTOM_DISPLAY_BOX.get()).build(null));
     public static final DeferredItem<WaccaPosterItem> WACCA_POSTER = ITEMS.registerItem(
         "wacca_poster", WaccaPosterItem::new, new Item.Properties());
     public static final DeferredHolder<EntityType<?>, EntityType<WaccaPosterEntity>> WACCA_POSTER_ENTITY =
@@ -304,6 +316,7 @@ public final class FunPackCustom {
                     output.accept(figures.figureItem().get());
                     output.accept(figures.emptyBoxItem().get());
                 }
+                output.accept(CUSTOM_DISPLAY_BOX_ITEM.get());
             })
             .build());
 

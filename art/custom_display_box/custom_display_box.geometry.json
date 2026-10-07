@@ -1,0 +1,2045 @@
+{
+  "textures": {
+    "package": "funpackcustom:block/custom_display_box_package",
+    "particle": "funpackcustom:block/custom_display_box_package"
+  },
+  "meshes": [
+    {
+      "name": "Printed front frame and glints north",
+      "group": "Printed front frame and glints",
+      "texture": "#package",
+      "vertices": [
+        [
+          13,
+          14,
+          4.008
+        ],
+        [
+          13,
+          0,
+          4.008
+        ],
+        [
+          3,
+          0,
+          4.008
+        ],
+        [
+          3,
+          14,
+          4.008
+        ]
+      ],
+      "uv": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          3.5
+        ],
+        [
+          5.0,
+          3.5
+        ],
+        [
+          5.0,
+          0.0
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Inside printed front frame south",
+      "group": "Inside printed front frame",
+      "texture": "#package",
+      "vertices": [
+        [
+          3,
+          14,
+          4.022
+        ],
+        [
+          3,
+          0,
+          4.022
+        ],
+        [
+          13,
+          0,
+          4.022
+        ],
+        [
+          13,
+          14,
+          4.022
+        ]
+      ],
+      "uv": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          3.5
+        ],
+        [
+          5.0,
+          3.5
+        ],
+        [
+          5.0,
+          0.0
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Cardboard back north",
+      "group": "Cardboard back",
+      "texture": "#package",
+      "vertices": [
+        [
+          12.995,
+          13.995,
+          11.7
+        ],
+        [
+          12.995,
+          0,
+          11.7
+        ],
+        [
+          3.005,
+          0,
+          11.7
+        ],
+        [
+          3.005,
+          13.995,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          4.0,
+          5.5
+        ],
+        [
+          4.0,
+          7.5
+        ],
+        [
+          9.0,
+          7.5
+        ],
+        [
+          9.0,
+          5.5
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Cardboard back south",
+      "group": "Cardboard back",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.005,
+          13.995,
+          11.995
+        ],
+        [
+          3.005,
+          0,
+          11.995
+        ],
+        [
+          12.995,
+          0,
+          11.995
+        ],
+        [
+          12.995,
+          13.995,
+          11.995
+        ]
+      ],
+      "uv": [
+        [
+          5.0,
+          0.0
+        ],
+        [
+          5.0,
+          3.5
+        ],
+        [
+          10.0,
+          3.5
+        ],
+        [
+          10.0,
+          0.0
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Cardboard back east",
+      "group": "Cardboard back",
+      "texture": "#package",
+      "vertices": [
+        [
+          12.995,
+          13.995,
+          11.995
+        ],
+        [
+          12.995,
+          0,
+          11.995
+        ],
+        [
+          12.995,
+          0,
+          11.7
+        ],
+        [
+          12.995,
+          13.995,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Cardboard back west",
+      "group": "Cardboard back",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.005,
+          13.995,
+          11.7
+        ],
+        [
+          3.005,
+          0,
+          11.7
+        ],
+        [
+          3.005,
+          0,
+          11.995
+        ],
+        [
+          3.005,
+          13.995,
+          11.995
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Cardboard back up",
+      "group": "Cardboard back",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.005,
+          13.995,
+          11.7
+        ],
+        [
+          3.005,
+          13.995,
+          11.995
+        ],
+        [
+          12.995,
+          13.995,
+          11.995
+        ],
+        [
+          12.995,
+          13.995,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Cardboard back down",
+      "group": "Cardboard back",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.005,
+          0,
+          11.995
+        ],
+        [
+          3.005,
+          0,
+          11.7
+        ],
+        [
+          12.995,
+          0,
+          11.7
+        ],
+        [
+          12.995,
+          0,
+          11.995
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Cardboard left wall north",
+      "group": "Cardboard left wall",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.3,
+          13.995,
+          4.03
+        ],
+        [
+          3.3,
+          0,
+          4.03
+        ],
+        [
+          3.005,
+          0,
+          4.03
+        ],
+        [
+          3.005,
+          13.995,
+          4.03
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Cardboard left wall south",
+      "group": "Cardboard left wall",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.005,
+          13.995,
+          11.7
+        ],
+        [
+          3.005,
+          0,
+          11.7
+        ],
+        [
+          3.3,
+          0,
+          11.7
+        ],
+        [
+          3.3,
+          13.995,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Cardboard left wall east",
+      "group": "Cardboard left wall",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.3,
+          13.995,
+          11.7
+        ],
+        [
+          3.3,
+          0,
+          11.7
+        ],
+        [
+          3.3,
+          0,
+          4.03
+        ],
+        [
+          3.3,
+          13.995,
+          4.03
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Cardboard left wall west",
+      "group": "Cardboard left wall",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.005,
+          13.995,
+          4.03
+        ],
+        [
+          3.005,
+          0,
+          4.03
+        ],
+        [
+          3.005,
+          0,
+          11.7
+        ],
+        [
+          3.005,
+          13.995,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          10.0,
+          0.0
+        ],
+        [
+          10.0,
+          3.5
+        ],
+        [
+          14.0,
+          3.5
+        ],
+        [
+          14.0,
+          0.0
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Cardboard left wall up",
+      "group": "Cardboard left wall",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.005,
+          13.995,
+          4.03
+        ],
+        [
+          3.005,
+          13.995,
+          11.7
+        ],
+        [
+          3.3,
+          13.995,
+          11.7
+        ],
+        [
+          3.3,
+          13.995,
+          4.03
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Cardboard left wall down",
+      "group": "Cardboard left wall",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.005,
+          0,
+          11.7
+        ],
+        [
+          3.005,
+          0,
+          4.03
+        ],
+        [
+          3.3,
+          0,
+          4.03
+        ],
+        [
+          3.3,
+          0,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Cardboard right wall north",
+      "group": "Cardboard right wall",
+      "texture": "#package",
+      "vertices": [
+        [
+          12.995,
+          13.995,
+          4.03
+        ],
+        [
+          12.995,
+          0,
+          4.03
+        ],
+        [
+          12.7,
+          0,
+          4.03
+        ],
+        [
+          12.7,
+          13.995,
+          4.03
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Cardboard right wall south",
+      "group": "Cardboard right wall",
+      "texture": "#package",
+      "vertices": [
+        [
+          12.7,
+          13.995,
+          11.7
+        ],
+        [
+          12.7,
+          0,
+          11.7
+        ],
+        [
+          12.995,
+          0,
+          11.7
+        ],
+        [
+          12.995,
+          13.995,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Cardboard right wall east",
+      "group": "Cardboard right wall",
+      "texture": "#package",
+      "vertices": [
+        [
+          12.995,
+          13.995,
+          11.7
+        ],
+        [
+          12.995,
+          0,
+          11.7
+        ],
+        [
+          12.995,
+          0,
+          4.03
+        ],
+        [
+          12.995,
+          13.995,
+          4.03
+        ]
+      ],
+      "uv": [
+        [
+          0.0,
+          3.5
+        ],
+        [
+          0.0,
+          7.0
+        ],
+        [
+          4.0,
+          7.0
+        ],
+        [
+          4.0,
+          3.5
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Cardboard right wall west",
+      "group": "Cardboard right wall",
+      "texture": "#package",
+      "vertices": [
+        [
+          12.7,
+          13.995,
+          4.03
+        ],
+        [
+          12.7,
+          0,
+          4.03
+        ],
+        [
+          12.7,
+          0,
+          11.7
+        ],
+        [
+          12.7,
+          13.995,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Cardboard right wall up",
+      "group": "Cardboard right wall",
+      "texture": "#package",
+      "vertices": [
+        [
+          12.7,
+          13.995,
+          4.03
+        ],
+        [
+          12.7,
+          13.995,
+          11.7
+        ],
+        [
+          12.995,
+          13.995,
+          11.7
+        ],
+        [
+          12.995,
+          13.995,
+          4.03
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Cardboard right wall down",
+      "group": "Cardboard right wall",
+      "texture": "#package",
+      "vertices": [
+        [
+          12.7,
+          0,
+          11.7
+        ],
+        [
+          12.7,
+          0,
+          4.03
+        ],
+        [
+          12.995,
+          0,
+          4.03
+        ],
+        [
+          12.995,
+          0,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Top lid north",
+      "group": "Top lid",
+      "texture": "#package",
+      "vertices": [
+        [
+          12.7,
+          13.995,
+          4.03
+        ],
+        [
+          12.7,
+          13.7,
+          4.03
+        ],
+        [
+          3.3,
+          13.7,
+          4.03
+        ],
+        [
+          3.3,
+          13.995,
+          4.03
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Top lid south",
+      "group": "Top lid",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.3,
+          13.995,
+          11.7
+        ],
+        [
+          3.3,
+          13.7,
+          11.7
+        ],
+        [
+          12.7,
+          13.7,
+          11.7
+        ],
+        [
+          12.7,
+          13.995,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Top lid east",
+      "group": "Top lid",
+      "texture": "#package",
+      "vertices": [
+        [
+          12.7,
+          13.995,
+          11.7
+        ],
+        [
+          12.7,
+          13.7,
+          11.7
+        ],
+        [
+          12.7,
+          13.7,
+          4.03
+        ],
+        [
+          12.7,
+          13.995,
+          4.03
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Top lid west",
+      "group": "Top lid",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.3,
+          13.995,
+          4.03
+        ],
+        [
+          3.3,
+          13.7,
+          4.03
+        ],
+        [
+          3.3,
+          13.7,
+          11.7
+        ],
+        [
+          3.3,
+          13.995,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Top lid up",
+      "group": "Top lid",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.3,
+          13.995,
+          4.03
+        ],
+        [
+          3.3,
+          13.995,
+          11.7
+        ],
+        [
+          12.7,
+          13.995,
+          11.7
+        ],
+        [
+          12.7,
+          13.995,
+          4.03
+        ]
+      ],
+      "uv": [
+        [
+          4.0,
+          3.5
+        ],
+        [
+          4.0,
+          5.5
+        ],
+        [
+          9.0,
+          5.5
+        ],
+        [
+          9.0,
+          3.5
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Top lid down",
+      "group": "Top lid",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.3,
+          13.7,
+          11.7
+        ],
+        [
+          3.3,
+          13.7,
+          4.03
+        ],
+        [
+          12.7,
+          13.7,
+          4.03
+        ],
+        [
+          12.7,
+          13.7,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Bottom lid north",
+      "group": "Bottom lid",
+      "texture": "#package",
+      "vertices": [
+        [
+          12.7,
+          0.3,
+          4.03
+        ],
+        [
+          12.7,
+          0,
+          4.03
+        ],
+        [
+          3.3,
+          0,
+          4.03
+        ],
+        [
+          3.3,
+          0.3,
+          4.03
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Bottom lid south",
+      "group": "Bottom lid",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.3,
+          0.3,
+          11.7
+        ],
+        [
+          3.3,
+          0,
+          11.7
+        ],
+        [
+          12.7,
+          0,
+          11.7
+        ],
+        [
+          12.7,
+          0.3,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Bottom lid east",
+      "group": "Bottom lid",
+      "texture": "#package",
+      "vertices": [
+        [
+          12.7,
+          0.3,
+          11.7
+        ],
+        [
+          12.7,
+          0,
+          11.7
+        ],
+        [
+          12.7,
+          0,
+          4.03
+        ],
+        [
+          12.7,
+          0.3,
+          4.03
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Bottom lid west",
+      "group": "Bottom lid",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.3,
+          0.3,
+          4.03
+        ],
+        [
+          3.3,
+          0,
+          4.03
+        ],
+        [
+          3.3,
+          0,
+          11.7
+        ],
+        [
+          3.3,
+          0.3,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Bottom lid up",
+      "group": "Bottom lid",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.3,
+          0.3,
+          4.03
+        ],
+        [
+          3.3,
+          0.3,
+          11.7
+        ],
+        [
+          12.7,
+          0.3,
+          11.7
+        ],
+        [
+          12.7,
+          0.3,
+          4.03
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Bottom lid down",
+      "group": "Bottom lid",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.3,
+          0,
+          11.7
+        ],
+        [
+          3.3,
+          0,
+          4.03
+        ],
+        [
+          12.7,
+          0,
+          4.03
+        ],
+        [
+          12.7,
+          0,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          9.0,
+          3.5
+        ],
+        [
+          9.0,
+          5.5
+        ],
+        [
+          14.0,
+          5.5
+        ],
+        [
+          14.0,
+          3.5
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Retained inner cardboard tray north",
+      "group": "Retained inner cardboard tray",
+      "texture": "#package",
+      "vertices": [
+        [
+          12.6,
+          0.59,
+          4.3
+        ],
+        [
+          12.6,
+          0.3,
+          4.3
+        ],
+        [
+          3.4,
+          0.3,
+          4.3
+        ],
+        [
+          3.4,
+          0.59,
+          4.3
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Retained inner cardboard tray south",
+      "group": "Retained inner cardboard tray",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.4,
+          0.59,
+          11.65
+        ],
+        [
+          3.4,
+          0.3,
+          11.65
+        ],
+        [
+          12.6,
+          0.3,
+          11.65
+        ],
+        [
+          12.6,
+          0.59,
+          11.65
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Retained inner cardboard tray east",
+      "group": "Retained inner cardboard tray",
+      "texture": "#package",
+      "vertices": [
+        [
+          12.6,
+          0.59,
+          11.65
+        ],
+        [
+          12.6,
+          0.3,
+          11.65
+        ],
+        [
+          12.6,
+          0.3,
+          4.3
+        ],
+        [
+          12.6,
+          0.59,
+          4.3
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Retained inner cardboard tray west",
+      "group": "Retained inner cardboard tray",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.4,
+          0.59,
+          4.3
+        ],
+        [
+          3.4,
+          0.3,
+          4.3
+        ],
+        [
+          3.4,
+          0.3,
+          11.65
+        ],
+        [
+          3.4,
+          0.59,
+          11.65
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Retained inner cardboard tray up",
+      "group": "Retained inner cardboard tray",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.4,
+          0.59,
+          4.3
+        ],
+        [
+          3.4,
+          0.59,
+          11.65
+        ],
+        [
+          12.6,
+          0.59,
+          11.65
+        ],
+        [
+          12.6,
+          0.59,
+          4.3
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Retained inner cardboard tray down",
+      "group": "Retained inner cardboard tray",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.4,
+          0.3,
+          11.65
+        ],
+        [
+          3.4,
+          0.3,
+          4.3
+        ],
+        [
+          12.6,
+          0.3,
+          4.3
+        ],
+        [
+          12.6,
+          0.3,
+          11.65
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.125
+        ],
+        [
+          14.25,
+          0.375
+        ],
+        [
+          14.75,
+          0.375
+        ],
+        [
+          14.75,
+          0.125
+        ]
+      ],
+      "glow": false,
+      "tintindex": -1
+    },
+    {
+      "name": "Tintable front border and accent north",
+      "group": "Tintable front border and accent",
+      "texture": "#package",
+      "vertices": [
+        [
+          13,
+          14,
+          4
+        ],
+        [
+          13,
+          0,
+          4
+        ],
+        [
+          3,
+          0,
+          4
+        ],
+        [
+          3,
+          14,
+          4
+        ]
+      ],
+      "uv": [
+        [
+          0.0,
+          8.0
+        ],
+        [
+          0.0,
+          11.5
+        ],
+        [
+          5.0,
+          11.5
+        ],
+        [
+          5.0,
+          8.0
+        ]
+      ],
+      "glow": false,
+      "tintindex": 0
+    },
+    {
+      "name": "Tintable back accent south",
+      "group": "Tintable back accent",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.005,
+          13.995,
+          12
+        ],
+        [
+          3.005,
+          0,
+          12
+        ],
+        [
+          12.995,
+          0,
+          12
+        ],
+        [
+          12.995,
+          13.995,
+          12
+        ]
+      ],
+      "uv": [
+        [
+          5.0,
+          8.0
+        ],
+        [
+          5.0,
+          11.5
+        ],
+        [
+          10.0,
+          11.5
+        ],
+        [
+          10.0,
+          8.0
+        ]
+      ],
+      "glow": false,
+      "tintindex": 0
+    },
+    {
+      "name": "Tintable left side west",
+      "group": "Tintable left side",
+      "texture": "#package",
+      "vertices": [
+        [
+          3,
+          13.995,
+          4.03
+        ],
+        [
+          3,
+          0,
+          4.03
+        ],
+        [
+          3,
+          0,
+          11.7
+        ],
+        [
+          3,
+          13.995,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          10.0,
+          8.0
+        ],
+        [
+          10.0,
+          11.5
+        ],
+        [
+          14.0,
+          11.5
+        ],
+        [
+          14.0,
+          8.0
+        ]
+      ],
+      "glow": false,
+      "tintindex": 0
+    },
+    {
+      "name": "Tintable right side east",
+      "group": "Tintable right side",
+      "texture": "#package",
+      "vertices": [
+        [
+          13,
+          13.995,
+          11.7
+        ],
+        [
+          13,
+          0,
+          11.7
+        ],
+        [
+          13,
+          0,
+          4.03
+        ],
+        [
+          13,
+          13.995,
+          4.03
+        ]
+      ],
+      "uv": [
+        [
+          0.0,
+          11.5
+        ],
+        [
+          0.0,
+          15.0
+        ],
+        [
+          4.0,
+          15.0
+        ],
+        [
+          4.0,
+          11.5
+        ]
+      ],
+      "glow": false,
+      "tintindex": 0
+    },
+    {
+      "name": "Tintable lid border up",
+      "group": "Tintable lid border",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.3,
+          14,
+          4.03
+        ],
+        [
+          3.3,
+          14,
+          11.7
+        ],
+        [
+          12.7,
+          14,
+          11.7
+        ],
+        [
+          12.7,
+          14,
+          4.03
+        ]
+      ],
+      "uv": [
+        [
+          4.0,
+          11.5
+        ],
+        [
+          4.0,
+          13.5
+        ],
+        [
+          9.0,
+          13.5
+        ],
+        [
+          9.0,
+          11.5
+        ]
+      ],
+      "glow": false,
+      "tintindex": 0
+    }
+  ],
+  "bounds": [
+    [
+      3,
+      13
+    ],
+    [
+      0,
+      14
+    ],
+    [
+      4,
+      12
+    ]
+  ],
+  "face_count": 43,
+  "preview_tint": "#79c9bb"
+}

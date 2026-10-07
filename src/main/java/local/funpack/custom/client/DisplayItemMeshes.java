@@ -49,6 +49,10 @@ final class DisplayItemMeshes {
     }
 
     boolean render(ItemStack stack, PoseStack pose, MultiBufferSource buffers, int light, int overlay) {
+        return render(stack, pose, buffers, light, overlay, true);
+    }
+
+    boolean render(ItemStack stack, PoseStack pose, MultiBufferSource buffers, int light, int overlay, boolean cullFromEye) {
         // Only our static block items are eligible. Vanilla/modded dynamic models, custom
         // renderers, item overrides and enchanted items retain their normal rendering path.
         if (!(stack.getItem() instanceof BlockItem) || stack.hasFoil()
@@ -76,7 +80,7 @@ final class DisplayItemMeshes {
             vertices += mesh.vertices;
         }
         if (!mesh.markSpritesActive()) { return false; }
-        mesh.render(stack, pose, buffers, light, overlay);
+        mesh.render(stack, pose, buffers, light, overlay, cullFromEye);
         return true;
     }
 
@@ -89,14 +93,14 @@ final class DisplayItemMeshes {
             }
             return true;
         }
-        void render(ItemStack stack, PoseStack poses, MultiBufferSource buffers, int light, int overlay) {
+        void render(ItemStack stack, PoseStack poses, MultiBufferSource buffers, int light, int overlay, boolean cullFromEye) {
             PoseStack.Pose pose = poses.last();
             Vector3f position = new Vector3f(), normal = new Vector3f();
             Matrix4f view = new Matrix4f(RenderSystem.getModelViewMatrix()).mul(pose.pose());
             float winding = Math.signum(view.determinant3x3());
             Vector3f eye = view.invert().transformPosition(0, 0, 0, new Vector3f());
             // Shadow maps use a light projection, not the eye. Keep their complete geometry.
-            boolean cull = !ClawRenderCompatibility.isRenderingShadowPass();
+            boolean cull = cullFromEye && !ClawRenderCompatibility.isRenderingShadowPass();
             for (Part part : parts) {
                 VertexConsumer out = buffers.getBuffer(part.type);
                 float[] data = part.data;

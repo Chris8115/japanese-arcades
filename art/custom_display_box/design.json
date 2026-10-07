@@ -1,0 +1,85 @@
+{
+  "shell_faces": 43,
+  "shell_elements": 13,
+  "shell_bounds_model_units": [
+    [
+      3,
+      13
+    ],
+    [
+      0,
+      14
+    ],
+    [
+      4,
+      12
+    ]
+  ],
+  "tinted_faces": 5,
+  "tintindex": 0,
+  "tint_policy": "Only white accent-mask quads receive the contained-item color; print and cardboard remain untinted.",
+  "texture": "funpackcustom:block/custom_display_box_package",
+  "texture_size": [
+    512,
+    1024
+  ],
+  "texture_layout": "Untinted atlas in top half, matching white alpha accent masks in bottom half.",
+  "dynamic_label": {
+    "font": "funpackcustom:custom_display_box",
+    "color": "#f7f7ec",
+    "region_model_units": {
+      "x": [
+        3.85,
+        12.15
+      ],
+      "y": [
+        0.43,
+        1.48
+      ],
+      "z": 3.985
+    },
+    "center_model_units": [
+      8,
+      0.955,
+      3.985
+    ],
+    "center_block_units": [
+      0.5,
+      0.0596875,
+      0.2490625
+    ],
+    "recommended_max_width_block_units": 0.51875,
+    "recommended_max_height_block_units": 0.065625,
+    "transform": "Apply the block facing rotation about block center. In north-local coordinates, text screen-right points toward negative X; text screen-down points toward negative Y. Place the text plane at z=3.985/16, in front of the untinted navy footer. Center the measured line and scale it to fit the region.",
+    "overflow": "Scale to fit; preserve Component text and use the minecraft:default font fallback for remaining Unicode."
+  },
+  "contents": {
+    "interior_model_units": {
+      "x": [
+        3.5,
+        12.5
+      ],
+      "y": [
+        1.9,
+        11.9
+      ],
+      "z": [
+        4.15,
+        11.6
+      ]
+    },
+    "suggested_center_model_units": [
+      8,
+      6.7,
+      8
+    ],
+    "suggested_max_extent_model_units": [
+      8,
+      9.6,
+      7.1
+    ],
+    "note": "Fit the complete transformed item or mob miniature bounds inside the window; the cardboard tray top is y=0.59."
+  },
+  "item_model": "minecraft:builtin/entity; custom item renderer draws this shell block model and the stored contents.",
+  "copied_loot_component": "funpackcustom:display_box"
+}
