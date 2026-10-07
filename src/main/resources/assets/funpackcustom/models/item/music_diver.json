@@ -1,0 +1,105 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "neoforge:obj",
+  "model": "funpackcustom:models/item/music_diver.obj",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "emissive_ambient": true,
+  "ambientocclusion": false,
+  "render_type": "minecraft:solid",
+  "textures": {
+    "materials": "funpackcustom:block/music_diver_materials",
+    "circuit": "funpackcustom:block/music_diver_circuit",
+    "marquee": "funpackcustom:block/music_diver_marquee",
+    "logo": "funpackcustom:block/music_diver_logo",
+    "display": "funpackcustom:block/music_diver_display",
+    "status": "funpackcustom:block/music_diver_status",
+    "side": "funpackcustom:block/music_diver_side",
+    "details": "funpackcustom:block/music_diver_details",
+    "particle": "funpackcustom:block/music_diver_materials"
+  },
+  "gui_light": "front",
+  "display": {
+    "gui": {
+      "rotation": [
+        10,
+        225,
+        0
+      ],
+      "translation": [
+        0,
+        -5.2,
+        0
+      ],
+      "scale": [
+        0.37,
+        0.37,
+        0.37
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "translation": [
+        0,
+        -7,
+        0
+      ],
+      "scale": [
+        0.36,
+        0.36,
+        0.36
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        75,
+        45,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.27,
+        0.27,
+        0.27
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        45,
+        0
+      ],
+      "translation": [
+        0,
+        -3,
+        0
+      ],
+      "scale": [
+        0.35,
+        0.35,
+        0.35
+      ]
+    }
+  }
+}

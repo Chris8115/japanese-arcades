@@ -1,0 +1,49 @@
+newmtl circuit_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #circuit
+
+newmtl details_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #details
+
+newmtl details_glow
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #details
+
+newmtl display_glow
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #display
+
+newmtl logo_glow
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #logo
+
+newmtl marquee_glow
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #marquee
+
+newmtl materials_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #materials
+
+newmtl materials_glow
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #materials
+
+newmtl side_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #side
+
+newmtl status_glow
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #status

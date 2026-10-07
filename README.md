@@ -3,7 +3,7 @@
 This workspace is for our own mods for **Minecraft 1.21.1 / NeoForge 21.1.252**.
 The starter mod is **Fun Pack Custom**, id `funpackcustom`, version `0.1.0`.
 It registers `/funpackdev`, a small command to confirm that the mod is loaded.
-The **Japanese Arcades** creative tab includes seventeen cabinets with music-disc playback:
+The **Japanese Arcades** creative tab includes eighteen cabinets with music-disc playback:
 
 - [Nostalgia Op.3 Arcade Cabinet](art/nostalgia-op3/README.md)
 - [BeatStream Arcade Cabinet](art/beatstream/README.md)
@@ -16,6 +16,7 @@ The **Japanese Arcades** creative tab includes seventeen cabinets with music-dis
 - [MÚSECA Arcade Cabinet](art/museca/README.md)
 - [Project DIVA Arcade Future Tone Cabinet](art/project_diva/README.md)
 - [Chrono Circle Arcade Cabinet](art/chrono_circle/README.md)
+- [MUSIC DIVER Arcade Cabinet](art/music-diver/README.md)
 - [maimai DX Twin Arcade Cabinet](art/maimai/README.md)
 - [DDR SuperNOVA Arcade Cabinet](art/ddr_supernova/README.md)
 - [Taiko no Tatsujin Arcade Cabinet](art/taiko/README.md)
@@ -52,6 +53,8 @@ portrait monitor, two groups of three buttons, and a center lever. It uses the
 standard kiosk ordering, Arcade Pass rewards, and saved music-disc playback.
 Sound Voltex NEMSYS adds the original cabinet shape with four angular light wings,
 square side speakers, four BT keys, two FX keys, and a pair of rotary knobs.
+MUSIC DIVER adds a white wedge cabinet with an inclined circular play surface,
+four raised strike pads, a smaller status display and a round circuit-lit marquee.
 Allow additional clearance for the visible decks, wings, mats, and enclosures.
 Each model's notes describe its dimensions.
 
@@ -103,7 +106,7 @@ Use **Terminal > Run Task** for the `Fun:` tasks, or open a terminal here:
 - `SyncPack` refreshes the copied mods, configs, resource packs, and pack scripts from the live pack.
 - `Prepare` downloads game assets and prepares client/server launch files.
 - `Server` launches a small dedicated server for checking server compatibility.
-- `GameTest` runs 130 cabinet, claw machine, gachapon, poster, ordering and Arcade Pass economy integration tests in a disposable test world and exits.
+- `GameTest` runs 148 cabinet, claw machine, gachapon, poster, ordering and Arcade Pass economy integration tests in a disposable test world and exits.
 - `Data` runs our data generators once we add them.
 
 The script selects Java 21 locally. Your default Java installation remains available to other projects.
@@ -176,7 +179,10 @@ blocked placement, wing selection and the recessed monitor's open front space.
 IIDX tests cover eight-cell placement, shared saved-disc playback, every break point
 and floor support, adjacent-cabinet isolation, blocked placement, world limits,
 and standing, stepping onto and walking across its low platform in every facing.
-All 141 passed on 2026-10-07.
+MUSIC DIVER tests cover all-facing placement and obstructions, shared saved-disc
+playback, every section and support removal, neighboring-cabinet isolation,
+sloping-rim and marquee selection, and clear disc ejection beside the holster.
+All 148 passed on 2026-10-07.
 Visual checks and full-pack compatibility remain separate from these server tests.
 
 `SyncPack` overwrites files that exist in the source pack's configuration. Close the development
