@@ -13,6 +13,7 @@ from jubeat_textures import build_textures
 ROOT=Path(__file__).resolve().parents[1]
 ART=ROOT/'art/jubeat';ASSETS=ROOT/'src/main/resources/assets/funpackcustom'
 TEX=ASSETS/'textures/block'
+GLASS_TEXTURES={'#cube','#cube_top','#glass_overlay'}
 
 def write_json(path,data):
     path.write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8')
@@ -49,14 +50,26 @@ def main():
             lines.append('f '+' '.join('%d/%d'%(index+i,index+i) for i in range(len(f['vertices']))))
             index+=len(f['vertices'])
         path.write_text('\n'.join(lines)+'\n',encoding='utf-8')
-    def wrapper(path):
+    def wrapper(path,render_type='minecraft:cutout_mipped_all'):
         return {'parent':'minecraft:block/block','loader':'neoforge:obj','model':'funpackcustom:models/'+path,
                 'automatic_culling':False,'shade_quads':True,'flip_v':True,'emissive_ambient':True,
-                'ambientocclusion':True,'render_type':'minecraft:cutout_mipped_all','textures':textures}
+                'ambientocclusion':True,'render_type':render_type,'textures':textures}
+    def layered_model(path,faces,transform):
+        # Opaque frames/interiors render first; genuine fractional-alpha panes
+        # are a separate native translucent pass for both blocks and items.
+        solid=[f for f in faces if f['texture'] not in GLASS_TEXTURES]
+        glass=[f for f in faces if f['texture'] in GLASS_TEXTURES]
+        obj(ASSETS/'models'/(path+'.obj'),solid,transform)
+        obj(ASSETS/'models'/(path+'_glass.obj'),glass,transform)
+        return {'parent':'minecraft:block/block','loader':'neoforge:composite',
+                'ambientocclusion':True,'textures':textures,
+                'children':{'solid':wrapper(path+'.obj'),
+                            'glass':wrapper(path+'_glass.obj','minecraft:translucent')},
+                'item_render_order':['solid','glass']}
     for row,name in enumerate(part_names):
         path='block/jubeat_'+name
-        obj(ASSETS/'models'/(path+'.obj'),parts[name],lambda p,row=row:[p[0]/16,(p[1]-row*16)/16,p[2]/16])
-        write_json(ASSETS/'models'/(path+'.json'),wrapper(path+'.obj'))
+        model=layered_model(path,parts[name],lambda p,row=row:[p[0]/16,(p[1]-row*16)/16,p[2]/16])
+        write_json(ASSETS/'models'/(path+'.json'),model)
     mtl=[]
     for key,lit in sorted({(f['texture'][1:],f['glow']) for f in g.faces}):
         mtl.extend(['newmtl '+key+('_lit' if lit else '_surface'),'Ka '+('1 1 1' if lit else '0 0 0'),'Kd 1 1 1','map_Kd #'+key,''])
@@ -64,8 +77,7 @@ def main():
     write_json(ASSETS/'blockstates/jubeat.json',{'variants':{
         'facing='+direction+',part='+part:{'model':'funpackcustom:block/jubeat_'+part,**({'y':angle} if angle else {})}
         for direction,angle in (('north',0),('east',90),('south',180),('west',270)) for part in part_names}})
-    obj(ASSETS/'models/item/jubeat.obj',g.faces,lambda p:[((p[0]-8)*.36+8)/16,p[1]*.36/16,((p[2]-8)*.36+8)/16])
-    item=wrapper('item/jubeat.obj')
+    item=layered_model('item/jubeat',g.faces,lambda p:[((p[0]-8)*.36+8)/16,p[1]*.36/16,((p[2]-8)*.36+8)/16])
     item.update({'ambientocclusion':False,'gui_light':'front','display':{
         'gui':{'rotation':[15,225,0],'scale':[.96,.96,.96]},
         'ground':{'translation':[0,2,0],'scale':[.65,.65,.65]},
@@ -80,9 +92,14 @@ def main():
         'entries':[{'type':'minecraft:item','name':'funpackcustom:jubeat','conditions':[{
             'condition':'minecraft:block_state_property','block':'funpackcustom:jubeat','properties':{'part':'base'}}]}]}]})
     bounds=[[min(p[i] for f in g.faces for p in f['vertices']),max(p[i] for f in g.faces for p in f['vertices'])] for i in range(3)]
-    stats={'source_faces':len(g.faces),'runtime_section_faces':{k:len(v) for k,v in parts.items()}}
+    stats={'source_faces':len(g.faces),'runtime_section_faces':{k:len(v) for k,v in parts.items()},
+           'translucent_faces':sum(f['texture'] in GLASS_TEXTURES for f in g.faces)}
     write_json(ART/'geometry.json',{'textures':textures,'meshes':g.faces,'bounds':bounds,'statistics':stats,**metadata})
-    specs=list(texture_files.items());indices={'#'+key:i for i,(key,path) in enumerate(specs)}
+    # Blockbench displays a single square frame; the runtime atlas uses the
+    # matching vertical animation strip and its .mcmeta timing.
+    specs=[(key,ART/'jubeat-pads-preview.png' if key=='pads' else path)
+           for key,path in texture_files.items()]
+    indices={'#'+key:i for i,(key,path) in enumerate(specs)}
     sizes=[Image.open(path).size for key,path in specs];elements=[];groups=defaultdict(list)
     for f in g.faces:
         uid=str(uuid.uuid5(uuid.NAMESPACE_URL,'jubeat/'+f['name']));idx=indices[f['texture']];w,h=sizes[idx]

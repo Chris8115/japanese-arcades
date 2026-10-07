@@ -1,18 +1,36 @@
 # Jubeat arcade cabinet
 
 A compact single cabinet based on the original black-and-blue Jubeat design:
-an illuminated cube topper, silver speaker pods, an inclined 4-by-4 panel grid,
-coin/card controls and a blue lower sign on a narrow pedestal.
+a glass cube topper, upward-tilted silver speaker fronts, an inclined 4-by-4
+panel grid, coin/card controls and a smaller glass display cube at the foot.
 
 The model follows [KONAMI's original Jubeat cabinet reference](https://www.konami.com/arcadegames/products/am_jubeat_1/).
 The blue grid graphics and cabinet labels are authored for this mod. The sixteen
 raised panels are separate pieces of geometry over the inclined display.
 The lower control housing is a rigid 10-by-10-by-10-unit cube, with square
 checkered side faces and perpendicular button and service-panel faces.
-Its control deck rests at 35 degrees above horizontal, with a separate sloped
-display connecting it to the speaker bar below the topper. The bottom blue sign
-reclines 35 degrees from vertical, and the upper cube tilts forward 12 degrees
-to face down toward the player.
+Its control deck rests at 35 degrees above horizontal, with a separate display
+continuing that same slope up to the repositioned utility panel and speaker bar.
+The broad rear casing connects the control housing to the base. The bottom display
+is a 9.2-unit cube reclining 25 degrees from vertical, and the upper 9-unit cube
+tilts forward 12 degrees to face down toward the player. The larger 3.2-unit
+square speaker faces tilt upward 10 degrees, with dark housings behind them.
+
+Both display cubes have edge frames, transparent outer panes and
+illuminated artwork recessed inside. The upper square circuitry is printed on
+the glass, with the logo on the panel behind it. The lower cube has inset front
+and side displays beneath clear glazing, with circular front artwork and plain
+square logo panels on the sides. Its rear lower corner is embedded in
+the plinth so the full front face reaches down close to the floor. The hidden
+portion below the plinth is omitted from the rendered mesh. Native composite models render the
+opaque structure and translucent glass separately, including the inventory item.
+
+The sixteen raised buttons run an idle light sequence: scattered buttons switch
+between cyan, blue, pink, purple, lime and amber. The 24-frame shuffled loop changes
+every six ticks (0.3 seconds), with three to six lit pads per frame and all sixteen
+positions participating. A native animated texture drives the lights without block
+updates or network traffic. The editable models and studio
+previews show the sequence's first frame.
 
 ## Placement and ordering
 
@@ -61,20 +79,26 @@ Arcade Pass rewards. The display neck and tilted cubes have matching
 selection and collision shapes. Geometric checks also cover the lower cube's
 width and the open space under its sloping front.
 
-The native NeoForge OBJ loader baked **8,000 quads** across every block rotation
-and the item, with verified texture coordinates and emissive materials. All
+The native NeoForge OBJ loader baked **8,309 quads** across every block rotation
+and the item, with verified texture coordinates, emissive interiors, and separate
+opaque and translucent passes. All
 packaged Jubeat resources match the source assets. The visible model stays
-within X **0.55–15.45**, Y **0–41.3373**, Z **0.55–15.7873** model units
+within X **0.45–15.55**, Y **0–41.3373**, Z **0.55–15.7873** model units
 (16 units per block); all sixteen raised pads remain square.
 
 The small native client completed real kiosk ordering, survival placement,
 configured credit deduction and point awards, disc insertion/playback/ejection,
 and removal with adjacent cabinets intact. The item and all model textures
 rendered correctly, and the client exited with code 0.
+Native client checks confirm separate solid/translucent block layers, ordered item
+passes and all 24 loaded animation frames. Two control-deck screenshots taken one
+second apart show different lit positions and colors.
 
 The same release also completed those interactions in a copied modpack with all
-218 third-party mods enabled and exited with code 0. Both clients spent 10 Credits
-and awarded 20 Prize Points on the selected pass during verification. No Jubeat
+218 third-party mods and Complementary Reimagined enabled and exited with code 0.
+Transparent glass, ordered item layers and the changing pad lights were verified
+there as well. Both clients spent 10 Credits
+and awarded the configured randomized Prize Points on the selected pass. No Jubeat
 model or texture errors were reported. The original instance and saves were not
 modified.
 
@@ -82,3 +106,6 @@ modified.
 - [Native side profile](jubeat-side-in-game.png)
 - [Adjacent row](jubeat-row-in-game.png)
 - [Kiosk ordering and item model](jubeat-ordering.png)
+- [Transparent topper and speaker detail](jubeat-glass-in-game.png)
+- [Animated pads: first capture](jubeat-animation-a.png)
+- [Animated pads: one second later](jubeat-animation-b.png)

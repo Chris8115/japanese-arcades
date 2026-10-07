@@ -3,15 +3,25 @@ Ka 0 0 0
 Kd 1 1 1
 map_Kd #card
 
-newmtl cube_lit
-Ka 1 1 1
+newmtl cube_surface
+Ka 0 0 0
 Kd 1 1 1
 map_Kd #cube
 
-newmtl cube_top_lit
+newmtl cube_inner_lit
 Ka 1 1 1
 Kd 1 1 1
+map_Kd #cube_inner
+
+newmtl cube_top_surface
+Ka 0 0 0
+Kd 1 1 1
 map_Kd #cube_top
+
+newmtl glass_overlay_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #glass_overlay
 
 newmtl labels_surface
 Ka 0 0 0
@@ -37,6 +47,11 @@ newmtl plaque_lit
 Ka 1 1 1
 Kd 1 1 1
 map_Kd #plaque
+
+newmtl plaque_side_lit
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #plaque_side
 
 newmtl side_surface
 Ka 0 0 0

@@ -21,8 +21,15 @@ for f in data['meshes']:
     mat=bpy.data.materials.new(key+('_lit' if lit else ''));mat.use_nodes=True
     bsdf=mat.node_tree.nodes.get('Principled BSDF');bsdf.inputs['Roughness'].default_value=.33
     tex=mat.node_tree.nodes.new('ShaderNodeTexImage')
-    tex.image=bpy.data.images.load(str(TEX/(data['textures'][key].split('/')[-1]+'.png')),check_existing=True)
+    texture_path=ART/'jubeat-pads-preview.png' if key=='pads' else TEX/(data['textures'][key].split('/')[-1]+'.png')
+    tex.image=bpy.data.images.load(str(texture_path),check_existing=True)
     tex.interpolation='Closest';mat.node_tree.links.new(tex.outputs['Color'],bsdf.inputs['Base Color'])
+    if key in ('cube','cube_top','glass_overlay'):
+        # Match the game's alpha-blended outer panes, including the printed
+        # circuit lines. Inner artwork remains an independent recessed mesh.
+        mat.node_tree.links.new(tex.outputs['Alpha'],bsdf.inputs['Alpha'])
+        bsdf.inputs['Roughness'].default_value=.12
+        bsdf.inputs['Specular IOR Level'].default_value=.12
     if lit:
         bsdf.inputs['Roughness'].default_value=.8
         bsdf.inputs['Specular IOR Level'].default_value=.05

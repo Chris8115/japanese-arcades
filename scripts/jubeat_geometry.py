@@ -1,6 +1,7 @@
 """Classic original blue Jubeat: native cabinet, sixteen raised pads and cube."""
 import math
 from initial_d_geometry import Geometry
+from ddr_mesh_export import pieces,quads
 
 COLORS = {
     'black':'#101820','charcoal':'#222c38','edge':'#475765','rubber':'#080d13',
@@ -13,8 +14,13 @@ SLOPE_Z = math.cos(math.radians(35))
 PAD_ORIGIN = (0,19.5,1.0)
 CUBE_CENTER = (8,36,10.45)
 CUBE_PITCH = -12
-CUBE_SCALE = 9/9.8
-NECK_ANGLE = 58
+LOWER_CUBE_CENTER = (8,3.9,7.1)
+LOWER_CUBE_SIZE = 9.2
+LOWER_CUBE_PITCH = 25
+LOWER_CUBE_PLINTH = .86
+SPEAKER_CENTERS = ((2.05,28.8,11.75),(13.95,28.8,11.75))
+SPEAKER_PITCH = 10
+NECK_ANGLE = 35
 NECK_ORIGIN = (0,PAD_ORIGIN[1]+10*SLOPE_Y,PAD_ORIGIN[2]+10*SLOPE_Z)
 NECK_LENGTH = 3.0
 
@@ -26,6 +32,87 @@ def deck_point(x,y,z=0):
 def neck_point(x,y,z=0):
     sy,sz=math.sin(math.radians(NECK_ANGLE)),math.cos(math.radians(NECK_ANGLE))
     return (x,NECK_ORIGIN[1]+y*sy-z*sz,NECK_ORIGIN[2]+y*sz+z*sy)
+
+
+def pitched_point(point,center,angle):
+    x,y,z=point;c,s=math.cos(math.radians(angle)),math.sin(math.radians(angle))
+    return (center[0]+x,center[1]+y*c-z*s,center[2]+y*s+z*c)
+
+
+def face_bounds(faces):
+    return [[min(p[i] for f in faces for p in f['vertices']),
+             max(p[i] for f in faces for p in f['vertices'])] for i in range(3)]
+
+
+def embed_below_plinth(g,start,height):
+    """Clip only the hidden portion of a rigid cube below its opaque plinth."""
+    visible=[]
+    for face in g.faces[start:]:
+        if all(p[1]>=height-1e-9 for p in face['vertices']):
+            visible.append(face);continue
+        for fragment in pieces(list(zip(face['vertices'],face['uv'])),1,[height]):
+            if sum(p[1] for p,uv in fragment)/len(fragment)<height-1e-9:continue
+            for i,fragment_quad in enumerate(quads(fragment)):
+                visible.append({**face,'name':face['name']+' plinth cut '+str(i),
+                                'vertices':[p for p,uv in fragment_quad],
+                                'uv':[uv for p,uv in fragment_quad]})
+    g.faces[start:]=visible
+
+
+def pane_vertices(side,half,plane):
+    """Outward-wound square pane; half is span, plane is distance to center."""
+    a,d=half,plane
+    return {
+        'front':[(a,a,-d),(a,-a,-d),(-a,-a,-d),(-a,a,-d)],
+        'rear':[(-a,a,d),(-a,-a,d),(a,-a,d),(a,a,d)],
+        'left':[(-d,a,-a),(-d,-a,-a),(-d,-a,a),(-d,a,a)],
+        'right':[(d,a,a),(d,-a,a),(d,-a,-a),(d,a,-a)],
+        'top':[(-a,d,-a),(-a,d,a),(a,d,a),(a,d,-a)],
+        'bottom':[(-a,-d,a),(-a,-d,-a),(a,-d,-a),(a,-d,a)],
+    }[side]
+
+
+def hollow_glass_cube(g,name,size,frame,outer_texture,top_texture,inner_texture,
+                      inner_size,inset,inner_sides=('front','left','right','rear')):
+    """Real hollow edge frame with glass and small recessed independent displays."""
+    h=size/2;glass_plane=h-frame*.25;glass_half=h-frame*.45
+    inner_plane=glass_plane-inset;ih=inner_size/2
+    for x in (-h,h-frame):
+        for z in (-h,h-frame):
+            g.box(name+' corner rail %.2f %.2f'%(x,z),(x,-h,z),(x+frame,h,z+frame),'black')
+    for y in (-h,h-frame):
+        for z in (-h,h-frame):
+            g.box(name+' horizontal rail %.2f %.2f'%(y,z),(-h,y,z),(h,y+frame,z+frame),'black')
+        for x in (-h,h-frame):
+            g.box(name+' depth rail %.2f %.2f'%(x,y),(x,y,-h+frame),(x+frame,y+frame,h-frame),'black')
+    for side in ('front','rear','left','right','top','bottom'):
+        tex=top_texture if side=='top' else outer_texture
+        uv=[(0,0),(0,16),(16,16),(16,0)]
+        if side=='top':uv=[(16,16),(16,0),(0,0),(0,16)]
+        g.face(name+' exterior glass '+side,pane_vertices(side,glass_half,glass_plane),
+               texture=tex,uv=uv,glow=False)
+    for side in inner_sides:
+        a=ih+.07;d=inner_plane
+        lo,hi={
+            'front':((-a,-a,-d+.012),(a,a,-d+.12)),
+            'rear':((-a,-a,d-.12),(a,a,d-.012)),
+            'left':((-d+.012,-a,-a),(-d+.12,a,a)),
+            'right':((d-.12,-a,-a),(d-.012,a,a)),
+        }[side]
+        g.box(name+' recessed display backing '+side,lo,hi,'charcoal')
+        tex=inner_texture[side] if isinstance(inner_texture,dict) else inner_texture
+        g.face(name+' recessed illuminated artwork '+side,pane_vertices(side,ih,inner_plane),
+               texture=tex,uv=[(0,0),(0,16),(16,16),(16,0)],glow=True)
+    # Visible interior rails provide depth through the clear fields, without
+    # filling the cabinet with an opaque cube behind its exterior glass.
+    rail=h-.53
+    for x in (-rail,rail):
+        for z in (-rail,rail):
+            g.box(name+' internal silver upright %.2f %.2f'%(x,z),
+                  (x-.04,-h+.25,z-.04),(x+.04,h-.25,z+.04),'silver_dark')
+    for z in (-rail,rail):
+        g.box(name+' inner bottom bearer '+str(z),(-rail,-h+.32,z-.06),
+              (rail,-h+.43,z+.06),'edge')
 
 
 def bevel(g,name,rect,front,back,rim,side='edge',top='silver'):
@@ -51,29 +138,35 @@ def build():
         g.box('Raised silver foot rail '+str(i),(x,.65,2.15),(x+.72,.99,14.70),'silver')
         for j,z in enumerate((2.6,13.9)):
             g.box('Foot rail bolt %d %d'%(i,j),(x+.22,1,z),(x+.47,1.025,z+.25),'edge')
-    profile=[(.85,8.6),(12.6,8.6),(15.85,13.22),(.85,13.22)]
-    g.yz_shell('Black support pedestal beneath control cube',3.3,12.7,profile,'black')
-    g.box('Rear lower service housing',(3.75,1.0,11.0),(12.25,15.8,13.3),'charcoal')
+    front_profile=[(.86,10.6),(9.8,10.6),(10.6,6.25),(11.4,6.65),
+                   (24.75,9.05),(26.95,12.05),(29.3,12.05)]
+    profile=front_profile+[(29.3,14.9),(.86,14.9)]
+    # Convex vertical bands preserve the deliberate recessed outline without
+    # a centroid fan spanning across the concave ledge below the control cube.
+    for i,((y,z),(Y,Z)) in enumerate(zip(front_profile,front_profile[1:])):
+        g.yz_shell('Continuous rear chassis band '+str(i),3.9,12.1,
+                   [(y,z),(Y,Z),(Y,14.9),(y,14.9)],'black')
+    g.box('Rear lower service housing',(4.3,1.0,12.40),(11.7,15.8,14.88),'charcoal')
     for row in range(9):
-        g.box('Rear horizontal vent '+str(row),(5.0,3.1+row*.30,13.302),(11.0,3.20+row*.30,13.34),'rubber')
-    g.box('Rear black upper backbone',(5.2,16,12.1),(10.8,30.0,13.3),'black')
+        g.box('Rear horizontal vent '+str(row),(5.0,3.1+row*.30,14.902),(11.0,3.20+row*.30,14.94),'rubber')
+    g.box('Rear black upper backbone',(5.2,16,12.1),(10.8,30.0,14.88),'black')
     for row in range(6):
-        g.box('Upper rear cooling slot '+str(row),(6.25,22.0+row*.3,13.305),(9.75,22.11+row*.3,13.34),'edge')
-    g.box('Rear power socket frame',(8.7,1.4,13.31),(10.85,2.6,13.38),'rubber')
-    g.box('Rear power socket',(9.15,1.8,13.375),(10.45,2.1,13.41),'silver_dark')
+        g.box('Upper rear cooling slot '+str(row),(6.25,22.0+row*.3,14.905),(9.75,22.11+row*.3,14.94),'edge')
+    g.box('Rear power socket frame',(8.2,1.4,14.91),(9.95,2.6,14.98),'rubber')
+    g.box('Rear power socket',(8.55,1.8,14.975),(9.55,2.1,15.01),'silver_dark')
 
-    g.group='Blue luminous lower plaque'
+    g.group='Lower tilted hollow glass display cube'
     start=len(g.faces)
-    panel=bevel(g,'Lower square lamp black surround',(2.8,0,13.2,11.4),-.08,.45,.43,'black','edge')
-    g.decal('Blue dot matrix lower jubeat plaque',panel,-.09,'plaque',True)
-    for x in (3.05,12.95):
-        for y in (.28,11.12):g.disc('Lower plaque screw %.2f %.2f'%(x,y),x,y,.065,-.10,-.04,'silver_dark',12)
-    c,s=math.cos(math.radians(35)),math.sin(math.radians(35))
-    g.transform(start,lambda x,y,z:(x,1.55+y*c-z*s,1.4+y*s+z*c))
-    # Two triangular braces connect the forward lamp to the pedestal.
-    for x in (3.10,12.65):
-        g.yz_shell('Lower lamp rear brace '+str(x),x,x+.25,
-                   [(1.0,1.8),(10.50,8.10),(11.15,8.95),(1.0,9.1)],'charcoal')
+    hollow_glass_cube(g,'Lower glass cube',LOWER_CUBE_SIZE,.28,'glass_overlay','glass_overlay',
+                      {'front':'plaque','left':'plaque_side','right':'plaque_side'},7.40,.52,
+                      ('front','left','right'))
+    g.transform(start,lambda x,y,z:pitched_point((x,y,z),LOWER_CUBE_CENTER,LOWER_CUBE_PITCH))
+    lower_glass_unclipped_bounds=face_bounds(g.faces[start:])
+    embed_below_plinth(g,start,LOWER_CUBE_PLINTH)
+    lower_glass_bounds=face_bounds(g.faces[start:])
+    h=LOWER_CUBE_SIZE/2
+    lower_glass_corners=[pitched_point((0,y,z),LOWER_CUBE_CENTER,LOWER_CUBE_PITCH)
+                         for y,z in ((h,-h),(h,h),(-h,h),(-h,-h))]
 
     g.group='Rigid tilted lower control cube'
     start=len(g.faces)
@@ -151,48 +244,27 @@ def build():
 
     g.group='Separate silver square speakers'
     g.box('Speaker support bridge',(1.1,27.8,11.65),(14.9,29.3,13.4),'black')
-    start=len(g.faces)
-    for side,x in (('left',.65),('right',12.70)):
-        g.box(side+' silver speaker enclosure',(x,26.7,7.8),(x+2.65,29.45,10.75),'silver_dark')
-        inner=bevel(g,side+' speaker brushed bevel',(x,26.7,x+2.65,29.45),7.70,7.82,.19,'silver_dark','silver')
-        g.decal(side+' perforated black speaker grille',inner,7.692,'speaker')
-        for xx in (x+.14,x+2.50):
-            for yy in (26.84,29.30):g.disc(side+' speaker screw %.2f %.2f'%(xx,yy),xx,yy,.055,7.685,7.73,'edge',12)
-    g.transform(start,lambda x,y,z:(x,y+.7,z+2.4))
-    g.box('Upper panel mounting block',(3.8,27.65,11.8),(12.2,29.55,13.1),'black')
-    panel=bevel(g,'Separate silver utility panel',(3.45,27.80,12.55,29.45),10.95,11.16,.18,'silver_dark','silver')
-    g.decal('Indicator bar above play grid',(3.72,28.03,12.28,29.22),10.931,'labels')
+    speaker_specs=[]
+    for side,center in zip(('left','right'),SPEAKER_CENTERS):
+        start=len(g.faces)
+        g.box(side+' dark speaker enclosure',(-1.6,-1.6,-1.5),(1.6,1.6,1.5),'black')
+        inner=bevel(g,side+' speaker brushed bevel',(-1.6,-1.6,1.6,1.6),-1.61,-1.49,.19,'charcoal','silver')
+        g.decal(side+' perforated black speaker grille',inner,-1.622,'speaker')
+        for xx in (-1.46,1.46):
+            for yy in (-1.46,1.46):g.disc(side+' speaker screw %.2f %.2f'%(xx,yy),xx,yy,.055,-1.638,-1.58,'edge',12)
+        g.transform(start,lambda x,y,z,center=center:pitched_point((x,y,z),center,SPEAKER_PITCH))
+        speaker_specs.append({'side':side,'center':center,'housing_size':[3.2,3.2,3.0],
+                              'pitch_degrees':SPEAKER_PITCH,'bounds':face_bounds(g.faces[start:])})
+    g.box('Upper panel mounting block',(3.8,26.85,12.45),(12.2,28.75,13.75),'black')
+    panel=bevel(g,'Separate silver utility panel',(3.72,27.00,12.28,28.65),11.60,11.81,.18,'silver_dark','silver')
+    g.decal('Indicator bar above play grid',(3.98,27.23,12.02,28.42),11.581,'labels')
 
     g.group='Black framed blue illuminated cube topper'
     g.box('Cube rear neck',(6.4,29.1,10.5),(9.6,32.2,13.0),'black')
     start=len(g.faces)
-    lo=(3.1,29.8,5.1);hi=(12.9,39.6,14.9);thick=.39
-    # Flat luminous inset panes provide a blue acrylic appearance. The full
-    # cube frame is modeled in3D, including its rear and top surfaces.
-    g.box('Cube blue inner block',(3.42,30.12,5.42),(12.58,39.28,14.58),'blue_dark')
-    g.decal('Blue cube front jubeat grid',(3.49,30.19,12.51,39.21),5.405,'cube',True)
-    g.face('Blue cube rear jubeat grid',[(3.49,39.21,14.595),(3.49,30.19,14.595),(12.51,30.19,14.595),(12.51,39.21,14.595)],
-           texture='cube',uv=[(0,0),(0,16),(16,16),(16,0)],glow=True)
-    for x,left in ((3.405,True),(12.595,False)):
-        near,far=(5.49,14.51) if left else (14.51,5.49)
-        pts=[(x,39.21,near),(x,30.19,near),(x,30.19,far),(x,39.21,far)]
-        uv=[(0,0),(0,16),(16,16),(16,0)]
-        g.face('Blue cube side jubeat grid '+str(left),pts,texture='cube',uv=uv,glow=True)
-    g.face('Blue cube upper grid',[(3.49,39.295,5.49),(3.49,39.295,14.51),(12.51,39.295,14.51),(12.51,39.295,5.49)],
-           texture='cube_top',uv=[(16,16),(16,0),(0,0),(0,16)],glow=True)
-    for x in (lo[0],hi[0]-thick):
-        for z in (lo[2],hi[2]-thick):g.box('Cube corner upright %.2f %.2f'%(x,z),(x,lo[1],z),(x+thick,hi[1],z+thick),'black')
-    for y in (lo[1],hi[1]-thick):
-        for z in (lo[2],hi[2]-thick):g.box('Cube horizontal frame %.2f %.2f'%(y,z),(lo[0],y,z),(hi[0],y+thick,z+thick),'black')
-        for x in (lo[0],hi[0]-thick):g.box('Cube side frame %.2f %.2f'%(x,y),(x,y,lo[2]+thick),(x+thick,y+thick,hi[2]-thick),'black')
-    for x in (3.58,12.42):
-        g.box('Cube inset cyan edge '+str(x),(x,30.3,5.388),(x+.045,38.99,5.41),'blue_light')
-    c,s=math.cos(math.radians(CUBE_PITCH)),math.sin(math.radians(CUBE_PITCH))
-    g.transform(start,lambda x,y,z:(8+(x-8)*CUBE_SCALE,
-                                    CUBE_CENTER[1]+((y-34.7)*c-(z-10)*s)*CUBE_SCALE,
-                                    CUBE_CENTER[2]+((y-34.7)*s+(z-10)*c)*CUBE_SCALE))
-    cube_bounds=[[min(p[i] for f in g.faces[start:] for p in f['vertices']),
-                  max(p[i] for f in g.faces[start:] for p in f['vertices'])] for i in range(3)]
+    hollow_glass_cube(g,'Upper glass cube',9,.32,'cube','cube_top','cube_inner',5.70,.65)
+    g.transform(start,lambda x,y,z:pitched_point((x,y,z),CUBE_CENTER,CUBE_PITCH))
+    cube_bounds=face_bounds(g.faces[start:])
 
     metadata={'machine':'Original blue Jubeat single cabinet','front':'north (-Z)',
               'block_units':16,'pad_count':16,'pads':pads,
@@ -204,10 +276,21 @@ def build():
                                     'up_back_axis':(0,SLOPE_Y,SLOPE_Z),
                                     'into_volume_axis':(0,-SLOPE_Z,SLOPE_Y),
                                     'side_corners_yz':[[p[1],p[2]] for p in lower_cube_corners]},
-              'lower_plaque_recline_degrees':35,
+              'lower_glass_cube':{'center':LOWER_CUBE_CENTER,'size':[LOWER_CUBE_SIZE]*3,
+                                  'pitch_degrees':LOWER_CUBE_PITCH,'bounds':lower_glass_bounds,
+                                  'unclipped_bounds':lower_glass_unclipped_bounds,
+                                  'embedded_in_plinth':True,'clip_below_y':LOWER_CUBE_PLINTH,
+                                  'side_corners_yz':[[p[1],p[2]] for p in lower_glass_corners],
+                                  'glass_texture':'glass_overlay','art_texture':'plaque',
+                                  'side_art_texture':'plaque_side',
+                                  'glass_to_art_gap':.52,'art_size':7.40},
+              'rear_lower_support':{'bounds':[[3.9,12.1],[.86,29.3],[6.25,14.9]],
+                                    'front_profile_yz':front_profile,'profile_yz':profile},
               'display_neck':{'origin':NECK_ORIGIN,'slope_degrees':NECK_ANGLE,
                               'width':9.8,'height':NECK_LENGTH},
-              'upper_panel_bounds':[[3.45,12.55],[27.80,29.45],[10.931,11.28]],
-              'cube':{'center':CUBE_CENTER,'pitch_degrees':CUBE_PITCH,'bounds':cube_bounds},
+              'upper_panel_bounds':[[3.72,12.28],[27.00,28.65],[11.581,11.93]],
+              'speakers':speaker_specs,
+              'cube':{'center':CUBE_CENTER,'size':[9,9,9],'pitch_degrees':CUBE_PITCH,'bounds':cube_bounds,
+                      'glass_to_art_gap':.65,'inner_art_size':5.70,'hollow':True},
               'maximum_height':cube_bounds[1][1]}
     return g,metadata

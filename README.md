@@ -36,6 +36,8 @@ sneak to get out. Each cabinet has its own music-disc inventory.
 The other cabinets occupy one vertical column.
 Jubeat keeps its entire shell, speakers and cube topper inside one block of
 width and depth, so independent cabinets can be placed directly side by side.
+Its glass display cubes contain recessed artwork, and its sixteen buttons run
+a multicolor idle animation. The small display above the buttons shares their slope.
 Allow additional clearance for the visible decks, wings, mats, and enclosures.
 Each model's notes describe its dimensions.
 

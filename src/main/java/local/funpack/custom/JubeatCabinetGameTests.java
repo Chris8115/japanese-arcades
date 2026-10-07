@@ -125,12 +125,16 @@ public final class JubeatCabinetGameTests {
             placeFacing(helper, operator, BASE, facing, new ItemStack(FunPackCustom.JUBEAT_ITEM.get()));
             BlockPos base = helper.absolutePos(BASE);
             var lower = helper.getBlockState(BASE).getCollisionShape(helper.getLevel(), base);
-            var lowerHit = lower.clip(point(base,facing,-8,8,11), point(base,facing,8,8,11), base);
-            helper.assertTrue(lowerHit != null && lowerHit.getLocation().distanceTo(point(base,facing,3.3,8,11)) < .001,
+            var lowerHit = lower.clip(point(base,facing,-8,12,12.5), point(base,facing,8,12,12.5), base);
+            helper.assertTrue(lowerHit != null && lowerHit.getLocation().distanceTo(point(base,facing,3.9,12,12.5)) < .001,
                 "Jubeat's pedestal collision is wider than its body facing " + facing);
-            var plaqueHit = lower.clip(point(base,facing,-8,10.5,7.5),point(base,facing,8,10.5,7.5),base);
-            helper.assertTrue(plaqueHit != null && plaqueHit.getLocation().distanceTo(point(base,facing,2.8,10.5,7.5)) < .001,
-                "The raised lower blue panel cannot be selected");
+            for (double depth : new double[] {4,10.5}) {
+                var glassHit = lower.clip(point(base,facing,-8,6,depth),point(base,facing,8,6,depth),base);
+                helper.assertTrue(glassHit != null && glassHit.getLocation().distanceTo(point(base,facing,3.4,6,depth)) < .001,
+                    "The lower glass cube is missing its full width or physical depth");
+            }
+            helper.assertTrue(lower.clip(point(base,facing,-8,10.5,2.5),point(base,facing,24,10.5,2.5),base) == null,
+                "The old flat plaque collision remains in front of the tilted glass cube");
             helper.assertTrue(lower.clip(point(base,facing,-8,14,3),point(base,facing,24,14,3),base) == null,
                 "The old wedge collision remains below the tilted control cube");
             BlockPos consolePos = base.above();
@@ -140,10 +144,23 @@ public final class JubeatCabinetGameTests {
             var controlsHit = console.clip(point(base,facing,-8,21.5,7.5),point(base,facing,8,21.5,7.5),consolePos);
             helper.assertTrue(controlsHit != null && controlsHit.getLocation().distanceTo(point(base,facing,3,21.5,7.5)) < .001,
                 "The lower control cube has the wrong width facing " + facing);
-            helper.assertTrue(console.clip(point(base,facing,-8,26.5,10.1), point(base,facing,8,26.5,10.1),consolePos) != null,
+            helper.assertTrue(console.clip(point(base,facing,-8,26,10.6), point(base,facing,8,26,10.6),consolePos) != null,
                 "The sloped display neck above the controls cannot be selected");
             helper.assertTrue(console.clip(point(base,facing,-8,26,9), point(base,facing,24,26,9),consolePos) == null,
                 "Invisible collision fills the space in front of the sloped display neck");
+            helper.assertTrue(console.clip(point(base,facing,5,27.4,10.3),point(base,facing,11,27.4,10.3),consolePos) == null,
+                "Steep collision remains above the display neck's continued control-deck slope");
+            var rearHit = console.clip(point(base,facing,-8,22,14.5),point(base,facing,8,22,14.5),consolePos);
+            helper.assertTrue(rearHit != null && rearHit.getLocation().distanceTo(point(base,facing,3.9,22,14.5)) < .001,
+                "The fuller rear chassis has no selection at its outer side");
+            var leftSpeakerHit = console.clip(point(base,facing,-8,29,10.5),point(base,facing,2.05,29,10.5),consolePos);
+            var rightSpeakerHit = console.clip(point(base,facing,24,29,10.5),point(base,facing,13.95,29,10.5),consolePos);
+            helper.assertTrue(leftSpeakerHit != null && rightSpeakerHit != null
+                    && leftSpeakerHit.getLocation().distanceTo(point(base,facing,.45,29,10.5)) < .001
+                    && rightSpeakerHit.getLocation().distanceTo(point(base,facing,15.55,29,10.5)) < .001,
+                "An enlarged speaker cannot be selected at its outer edge");
+            helper.assertTrue(console.clip(point(base,facing,-8,30.5,13.4),point(base,facing,3.65,30.5,13.4),consolePos) == null,
+                "Upright collision remains behind the upward-tilted speaker");
             BlockPos topPos = base.above(2);
             var top = helper.getLevel().getBlockState(topPos).getCollisionShape(helper.getLevel(), topPos);
             var topHit = top.clip(point(base,facing,8,48,13.5),point(base,facing,8,35,13.5),topPos);
