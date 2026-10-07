@@ -37,7 +37,8 @@ public final class ArcadeEconomyConfig {
             .defineListAllowEmpty("rankProfiles", List.of("standard|C|45|10", "standard|B|30|20", "standard|A|18|40",
                 "standard|S|6|80", "standard|SS / Perfect|1|150"), ArcadeEconomyConfig::validRank);
         MACHINES = builder.comment("Optional overrides: namespace:machine|credit cost|profile. Empty uses default cost and standard ranks.",
-                "Example: funpackcustom:initial_d|15|standard")
+                "Example: funpackcustom:initial_d|15|standard",
+                "BeatStream uses its own machine ID: funpackcustom:beatstream|10|standard")
             .defineListAllowEmpty("machineOverrides", List.of(), ArcadeEconomyConfig::validMachine);
         builder.pop().comment("Prize Point costs; ordinary material recipes are intentionally absent.").push("prizes");
         PRICES.put("hatsune_miku_figure", builder.defineInRange("hatsune_miku_figure", 2500, 1, 1_000_000));

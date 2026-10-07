@@ -42,6 +42,7 @@ public final class ArcadeOrderCatalog {
         new Category(PASSES, Component.translatable("kiosk.category.passes")));
     private static final List<Entry> ENTRIES = List.of(
         machine("nostalgia_op3", FunPackCustom.NOSTALGIA_OP3_ITEM, 16, 4, 1, 6, 6),
+        machine("beatstream", FunPackCustom.BEATSTREAM_ITEM, 16, 4, 1, 6, 6),
         machine("sound_voltex_valkyrie", FunPackCustom.SOUND_VOLTEX_VALKYRIE_ITEM, 18, 4, 1, 6, 8),
         machine("wacca", FunPackCustom.WACCA_ITEM, 16, 4, 1, 8, 6),
         machine("chunithm", FunPackCustom.CHUNITHM_ITEM, 16, 4, 1, 6, 6),

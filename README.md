@@ -3,9 +3,10 @@
 This workspace is for our own mods for **Minecraft 1.21.1 / NeoForge 21.1.252**.
 The starter mod is **Fun Pack Custom**, id `funpackcustom`, version `0.1.0`.
 It registers `/funpackdev`, a small command to confirm that the mod is loaded.
-The **Japanese Arcades** creative tab includes thirteen cabinets with music-disc playback:
+The **Japanese Arcades** creative tab includes fourteen cabinets with music-disc playback:
 
 - [Nostalgia Op.3 Arcade Cabinet](art/nostalgia-op3/README.md)
+- [BeatStream Arcade Cabinet](art/beatstream/README.md)
 - [Sound Voltex Valkyrie Arcade Cabinet](art/sound-voltex-valkyrie/README.md)
 - [WACCA Reverse Arcade Cabinet](art/wacca/README.md)
 - [Chunithm Paradise Lost Arcade Cabinet](art/chunithm/README.md)
@@ -34,6 +35,8 @@ seat. Its shell and controls stay within one block of width so neighboring
 units can be placed flush in a row. Right-click its seat empty-handed to sit;
 sneak to get out. Each cabinet has its own music-disc inventory.
 The other cabinets occupy one vertical column.
+BeatStream uses a copy of Nostalgia's chassis, with triangular illuminated speaker
+grilles, a larger sloped touchscreen, a flat white control strip, and its own cutout topper.
 Jubeat keeps its entire shell, speakers and cube topper inside one block of
 width and depth, so independent cabinets can be placed directly side by side.
 Its glass display cubes contain recessed artwork, and its sixteen buttons run
@@ -79,7 +82,7 @@ Use **Terminal > Run Task** for the `Fun:` tasks, or open a terminal here:
 - `SyncPack` refreshes the copied mods, configs, resource packs, and pack scripts from the live pack.
 - `Prepare` downloads game assets and prepares client/server launch files.
 - `Server` launches a small dedicated server for checking server compatibility.
-- `GameTest` runs 108 cabinet, gachapon, ordering and Arcade Pass economy integration tests in a disposable test world and exits.
+- `GameTest` runs 112 cabinet, gachapon, ordering and Arcade Pass economy integration tests in a disposable test world and exits.
 - `Data` runs our data generators once we add them.
 
 The script selects Java 21 locally. Your default Java installation remains available to other projects.
@@ -120,7 +123,7 @@ step-on access, open dance space, and handrail collision in every facing.
 Gachapon adds placement/setup, owner and password access, password-session revocation,
 private save data, protected extraction, capsule contents and overflow, exact-item
 payments, failed transaction rollback, concurrent buyers and the five-second crank
-reset. The ordering kiosk adds two-cell placement/removal, all fourteen material
+reset. The ordering kiosk adds two-cell placement/removal, all fifteen material
 transactions, invalid/stale requests, safe inventory overflow and creative pickup,
 spawn-veto rollback, and the loaded shaped recipe. Taiko adds ten-cell placement
 and removal in all directions, neighboring-cabinet isolation, shared saved-disc
@@ -131,7 +134,7 @@ aisle exits from a full row, blocked interactions/headroom, logout/removal clean
 and uninterrupted saved-disc playback while seated. Arcade Pass tests cover
 versioned save/network data, all four exchanges, balance transfers, stale and
 cross-player requests, atomic prize delivery, spawn-event reentrancy, live
-configuration changes, all thirteen paid cabinets, weighted rewards, cooldowns,
+configuration changes, all fourteen paid cabinets, weighted rewards, cooldowns,
 invalid interaction rejection, and preservation of idle state and disc playback.
 Physical pass-slot tests cover native insertion and shift-clicks, tab restrictions,
 reinserted-card stale requests, separate viewer inventories, close/break/logout/death
@@ -141,7 +144,9 @@ figures and one-item loot drops; retired prize IDs are rejected by the kiosk.
 Jubeat tests cover all-facing saved playback, flush neighbors with independent
 inventories, sloped selection and collision, disc ejection clearance, obstructed
 placement and support-loss cleanup.
-All 108 passed on 2026-10-06.
+BeatStream tests cover disc use through every section, saved playback, all-facing
+placement beside Nostalgia, neighbor isolation, single drops and support-loss cleanup.
+All 112 passed on 2026-10-06.
 Visual checks and full-pack compatibility remain separate from these server tests.
 
 `SyncPack` overwrites files that exist in the source pack's configuration. Close the development

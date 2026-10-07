@@ -16,7 +16,7 @@
    their names, designs and identities remain available to keep or trade.
    Replacing either card cancels the confirmation. Cards in the rest of your
    inventory are not selected for the transfer.
-4. Hold a pass and right-click any of the thirteen full-size arcade cabinets.
+4. Hold a pass and right-click any of the fourteen full-size arcade cabinets.
    An offhand pass works when the main hand is empty. A successful play spends
    Credits and awards a randomized rank and Prize Points, with a result message,
    note-block chime/bell and particles. The existing idle geometry, textures,
