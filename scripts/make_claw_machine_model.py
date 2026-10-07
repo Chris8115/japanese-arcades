@@ -85,8 +85,21 @@ box('Front lower sill',(.65,2.1,.6),(47.35,4,1.85),'white',group='Front service 
 box('Front upper fascia',(.65,11.5,.6),(47.35,17.55,1.85),'white',group='Front service and chute')
 box('Prize port left wall',(.65,4,.6),(3,11.5,1.85),'white',group='Front service and chute')
 box('Service and control front wall',(13,4,.6),(47.35,11.5,1.85),'white',group='Front service and chute')
-box('Dark chute recess',(3,4,4.6),(13,11.5,5.1),'dark',group='Front service and chute')
-box('Chute bottom return',(3,3.9,.65),(13,4.25,4.8),'shade',group='Front service and chute')
+# The delivery shaft is a real enclosed cavity, open only toward the player
+# and through the prize-floor aperture. Its interior faces must remain visible
+# from oblique angles instead of exposing the hollow pedestal behind them.
+box('Dark chute recess',(3,4,6.05),(13,17.55,6.4),'dark',group='Front service and chute')
+box('Chute bottom return',(3,3.9,.65),(13,4.25,6.4),'shade',group='Front service and chute')
+# Start behind the existing 1.85-deep front jambs, rather than duplicating
+# their inward side faces (which would shimmer from either oblique view).
+box('Chute interior left wall',(2.75,4,1.85),(3,17.55,6.4),'shade',group='Front service and chute')
+box('Chute interior right wall',(13,4,1.85),(13.25,17.55,6.4),'shade',group='Front service and chute')
+# Four ceiling strips close the space around the unchanged X4..12/Z1.8..5.8
+# opening, with their undersides visible from inside the prize-out port.
+box('Chute ceiling left',(3,17.25,.68),(4,17.45,6.4),'shade',group='Front service and chute')
+box('Chute ceiling right',(12,17.25,.68),(13,17.45,6.4),'shade',group='Front service and chute')
+box('Chute ceiling front',(4,17.25,.68),(12,17.45,1.8),'shade',group='Front service and chute')
+box('Chute ceiling rear',(4,17.25,5.8),(12,17.45,6.4),'shade',group='Front service and chute')
 for x in (2.55,13):box('Prize door pink side '+str(x),(x,3.6,.42),(x+.45,11.95,.66),'pink',group='Front service and chute')
 box('Prize door pink top',(2.55,11.5,.42),(13.45,12.1,.66),'pink',group='Front service and chute')
 box('Prize out printed flap',(3.1,4.0,.36),(12.9,6.1,.53),'pink',north=('prize_out',[0,0,16,16]),group='Front service and chute')
@@ -102,9 +115,12 @@ for side,x0,x1 in (('left',.50,.68),('right',47.32,47.50)):
     for z in (5,25):box(side+' side cover screw '+str(z),(x0,5.5,z),(x1,5.8,z+.3),'silver',group='Side trim')
 
 # The live prize field has a separate true delivery hole at the front-left.
-box('Prize floor rear',(1.7,17.45,5.8),(46.3,18,30.3),'paper',group='Glass display floor')
-box('Prize floor front left',(1.7,17.45,1.8),(4,18,5.8),'paper',group='Glass display floor')
-box('Prize floor front right',(12,17.45,1.8),(46.3,18,5.8),'paper',group='Glass display floor')
+# Cover the full pedestal rim. A .02-unit cap overhang prevents coplanar side
+# faces at the shell/posts, while staying within the original outer trim bounds.
+# The lower pedestal intentionally has no solid top across the chute opening.
+box('Prize floor rear',(.63,17.45,5.8),(47.37,18,30.67),'paper',group='Glass display floor')
+box('Prize floor front left',(.63,17.45,1.8),(4,18,5.8),'paper',group='Glass display floor')
+box('Prize floor front right',(12,17.45,1.8),(47.37,18,5.8),'paper',group='Glass display floor')
 for x in (4,11.75):box('Chute aperture side '+str(x),(x,17.8,1.8),(x+.25,18.13,5.8),'silver',group='Glass display floor')
 box('Chute aperture back',(4,17.8,5.55),(12,18.13,5.8),'silver',group='Glass display floor')
 for row in range(3):
