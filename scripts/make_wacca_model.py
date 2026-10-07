@@ -1,21 +1,19 @@
-"""Build a WACCA Reverse cabinet with a recessed, segmented touch bowl.
+"""Build WACCA with a smooth recessed cone, bevelled rim, and curved marquee.
 
-All geometry uses native Java-model cuboid faces. Original imagegen artwork is packed
-unchanged; only model UVs select it. The Blockbench file embeds the same textures.
+The retained pedestal faces and continuous curved surfaces share native OBJ
+exports. Original artwork and LED pixels remain unchanged; only geometry and
+UV interpolation select them. The Blockbench file embeds the same textures.
 """
 from __future__ import annotations
 
-import base64
-import copy
-import json
 import math
 import random
-import uuid
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 from wacca_shell_geometry import build_shell
-from wacca_ring_geometry import build_touch_bowl
+from wacca_ring_geometry import _write_led_atlas
+from wacca_mesh_geometry import build_smooth_ring, smooth_polygon, export_wacca
 from wacca_surface_geometry import optimize_surfaces
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -117,6 +115,7 @@ def uv(name):
 
 
 elements=[]
+header_meshes=[]
 
 
 def cube(name,start,end,material='black',*,north=None,east=None,west=None,south=None,
@@ -141,6 +140,10 @@ def cube(name,start,end,material='black',*,north=None,east=None,west=None,south=
 
 
 def polygon(name,points,z0,z1,material,*,group='Sculpted panels',glow=False,front=None,rotation=None,step=.25):
+    if group=='Curved marquee':
+        assert rotation is None, 'The header retains its original upright plane'
+        header_meshes.extend(smooth_polygon(name,points,z0,z1,material,group,front,glow,uv,source_scales))
+        return
     minx,maxx=min(x for x,y in points),max(x for x,y in points)
     miny,maxy=min(y for x,y in points),max(y for x,y in points)
     count=max(1,math.ceil((maxy-miny)/step));dy=(maxy-miny)/count
@@ -172,83 +175,10 @@ def polygon(name,points,z0,z1,material,*,group='Sculpted panels',glow=False,fron
              north=override,rotation=rotation,glow=glow,group=group)
 
 
-def circle_points(cx,cy,r,n=96):
-    return [(cx+r*math.sin(i*2*math.pi/n),cy+r*math.cos(i*2*math.pi/n)) for i in range(n)]
-
-
-def annulus(name,cx,cy,outer,inner,z0,z1,material,group,step=.25):
-    # Two spans on each scanline leave the center genuinely open.
-    count=math.ceil(2*outer/step);dy=2*outer/count
-    for i in range(count):
-        y=cy-outer+(i+.5)*dy
-        dx=math.sqrt(max(0,outer*outer-(y-cy)**2))
-        hole=math.sqrt(max(0,inner*inner-(y-cy)**2))
-        lo=cy-outer+i*dy;hi=lo+dy
-        spans=[(-dx,-hole),(hole,dx)] if hole>.05 else [(-dx,dx)]
-        for j,(a,b) in enumerate(spans):
-            a=round(a/step)*step;b=round(b/step)*step
-            if b>a:cube(name+f' course {i:02d}-{j}',(cx+a,lo,z0),(cx+b,hi,z1),material,group=group)
-
-
 build_shell(cube,polygon)
-
-# Main touch ring: the outside edge is forward, while the smaller round display
-# is physically recessed behind a deep annular bank of touch-sensitive panels.
-ring_start=len(elements)
-cx,cy=8,28.2
-polygon('Circular rear display enclosure',circle_points(cx,cy,10.70),7.65,9.12,'black',group='Ring rear enclosure')
-# One continuous white shell replaces four intersecting annuli. Their coincident
-# outer walls previously fought for the same pixels as the camera moved.
-annulus('Molded white rim and barrel',cx,cy,11.00,10.23,1.06,7.72,'white','White outer ring')
-
-annulus('Circular screen black gasket',cx,cy,6.38,6.13,5.80,6.23,'rubber','Recessed circular monitor',step=.25)
-polygon('WACCA Reverse circular display',circle_points(cx,cy,6.18),5.82,5.99,'black',
-        front=('display',[0,0,16,16]),glow=('north',),group='Recessed circular monitor',step=.25)
-
-# Eight breaks and small fixing covers in the molded white ring are physical.
-for i in range(8):
-    angle=i*math.pi/4
-    x=cx+10.64*math.sin(angle);y=cy+10.64*math.cos(angle)
-    if i%2==0:
-        width,height=(.08,.67) if i in (0,4) else (.67,.08)
-        cube('White rim panel seam '+str(i),(x-width/2,y-height/2,1.035),
-             (x+width/2,y+height/2,1.09),'rim_gray',group='Rim panel divisions')
-    else:
-        seam=[(cx+r*math.sin(angle+da),cy+r*math.cos(angle+da))
-              for r,da in ((10.30,-.003),(10.99,-.003),(10.99,.003),(10.30,.003))]
-        polygon('Diagonal white rim seam '+str(i),seam,1.025,1.09,'rim_gray',
-                group='Rim panel divisions',step=.08)
-
-# A slight lean follows the real side profile. Short courses make the slope
-# compatible with vanilla rotations and preserve the screen print continuously.
-ring_elements=elements[ring_start:];elements=elements[:ring_start]
-for e in ring_elements:
-    bottom,top=e['from'][1],e['to'][1]
-    count=max(1,math.ceil((top-bottom)/.5))
-    for i in range(count):
-        part=copy.deepcopy(e)
-        y0=bottom+(top-bottom)*i/count;y1=bottom+(top-bottom)*(i+1)/count
-        dz=((y0+y1)/2-17.2)*.10
-        part['from'][1]=y0;part['to'][1]=y1
-        part['from'][2]+=dz;part['to'][2]+=dz
-        part['name']+=f' lean {i:02d}'
-        for direction in ('north','south','east','west'):
-            u0,v0,u1,v1=e['faces'][direction]['uv']
-            part['faces'][direction]['uv']=[u0,v0+(top-y1)/(top-bottom)*(v1-v0),
-                                            u1,v0+(top-y0)/(top-bottom)*(v1-v0)]
-        # Only the screen needs its printed row carried over a tiny ledge.
-        # Solid materials retain a 2D patch inside their tile: a collapsed UV at
-        # the sprite's V=0 edge bypasses FaceBakery's shrink and samples its neighbour.
-        front=part['faces']['north'];u0,v0,u1,v1=front['uv']
-        if front['texture']=='#display':
-            for direction,v in (('up',v0),('down',v1)):
-                part['faces'][direction]=copy.deepcopy(front)
-                part['faces'][direction]['uv']=[u0,v,u1,v]
-        elements.append(part)
-
-# The fine bowl already includes its lean in the quantized depth. A continuous
-# XY texture lets neighboring coplanar cells merge without interrupting light.
-bowl_details=build_touch_bowl(cube,TEXTURES)
+# Regenerate the exact same deterministic atlas; no artwork is changed.
+_write_led_atlas(TEXTURES)
+smooth_meshes,smooth_details=build_smooth_ring(uv,source_scales)
 
 # Raised curved marquee behind the bowl. Dark upright speakers flank the sign,
 # as in the reference, rather than adding large exposed circular speaker pods.
@@ -300,103 +230,4 @@ for e in elements:
 # clipped overlaps have exactly one surface owner, eliminating coplanar fights.
 elements,surface_details=optimize_surfaces(elements)
 
-def strip_element(element):
-    return {k:copy.deepcopy(v) for k,v in element.items() if not k.startswith('_')}
-
-def write_json(path, data):
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8')
-
-part_names = ['base','console','marquee']
-parts = {part:[] for part in part_names}
-for source in elements:
-    e=strip_element(source)
-    center=(e['from'][1]+e['to'][1])/2
-    index=min(2,max(0,int(center//16)))
-    for key in ('from','to'): e[key][1]=round(e[key][1]-index*16,5)
-    if 'rotation' in e: e['rotation']['origin'][1]-=index*16
-    for coords in (e['from'],e['to']):
-        assert all(-16 <= v <= 32 for v in coords), (e['name'],coords)
-    parts[part_names[index]].append(e)
-for part in part_names:
-    write_json(MODEL / ('wacca_'+part+'.json'),
-               {'parent':'minecraft:block/block','ambientocclusion':True,'render_type':'minecraft:solid',
-                'textures':texture_paths,'elements':parts[part]})
-variants={}
-for facing,rotation in (('north',0),('east',90),('south',180),('west',270)):
-    for part in part_names:
-        variant={'model':'funpackcustom:block/wacca_'+part}
-        if rotation: variant['y']=rotation
-        variants['facing='+facing+',part='+part]=variant
-write_json(ASSETS / 'blockstates/wacca.json', {'variants':variants})
-
-# An explicitly scaled complete model for inventory rendering (vanilla element bounds).
-item_elements=[]
-for source in elements:
-    e=strip_element(source)
-    for key in ('from','to'):
-        e[key]=[round(e[key][0]*0.35+5.2,5),round(e[key][1]*0.35,5),round(e[key][2]*0.35+5.2,5)]
-    if 'rotation' in e:
-        o=e['rotation']['origin'];e['rotation']['origin']=[o[0]*.35+5.2,o[1]*.35,o[2]*.35+5.2]
-    item_elements.append(e)
-write_json(ASSETS / 'models/item/wacca.json',
-           {'ambientocclusion':False,'gui_light':'front','render_type':'minecraft:solid','textures':texture_paths,'elements':item_elements,
-            'display':{'gui':{'rotation':[15,225,0],'translation':[0,0,0],'scale':[.95,.95,.95]},
-                       'ground':{'translation':[0,2,0],'scale':[.6,.6,.6]},
-                       'fixed':{'rotation':[0,180,0],'scale':[1,1,1]},
-                       'thirdperson_righthand':{'rotation':[75,45,0],'translation':[0,3,0],'scale':[.45,.45,.45]},
-                       'firstperson_righthand':{'rotation':[0,45,0],'translation':[0,2,0],'scale':[.5,.5,.5]}}})
-
-artwork=TEXTURES / 'wacca_display.png'
-if not artwork.exists():
-    raise SystemExit('Missing original artwork sheet: '+str(artwork))
-im=Image.open(artwork)
-assert all(n & (n-1) == 0 for n in im.size), 'Artwork must have power-of-two dimensions'
-
-# Blockbench's free format preserves the complete cabinet and named groups.
-texture_specs = [(key,TEXTURES/(value.split('/')[-1]+'.png')) for key,value in texture_paths.items() if key!='particle']
-texture_indices = {'#'+key:i for i,(key,path) in enumerate(texture_specs)}
-texture_sizes = [Image.open(path).size for key,path in texture_specs]
-bb_elements=[]
-groups={}
-for source in elements:
-    e=strip_element(source)
-    uid=str(uuid.uuid5(uuid.NAMESPACE_URL,'funpackcustom/wacca/'+e['name']+'/'+str(e['from'])))
-    rot=e.get('rotation')
-    rotation=[0,0,0]
-    origin=[(a+b)/2 for a,b in zip(e['from'],e['to'])]
-    if rot:
-        rotation['xyz'.index(rot['axis'])]=rot['angle'];origin=rot['origin']
-    bbfaces={}
-    for direction,face in e['faces'].items():
-        index=texture_indices[face['texture']]
-        width,height=texture_sizes[index]
-        bbfaces[direction]={'uv':[v*(width if i%2==0 else height)/16 for i,v in enumerate(face['uv'])], 'texture':index}
-    for direction in ('north','east','south','west','up','down'):
-        if direction not in bbfaces:
-            bbfaces[direction]={'uv':[0,0,0,0],'texture':None}
-    bb_elements.append({'name':e['name'],'type':'cube','uuid':uid,'from':e['from'],'to':e['to'],
-                        'origin':origin,'rotation':rotation,'faces':bbfaces,'box_uv':False,
-                        'color':1,'rescale':False,'autouv':0,'visibility':True,'export':True,
-                        'shade':e.get('shade',True)})
-    groups.setdefault(source['_group'],[]).append(uid)
-bbtextures=[]
-for i,(identifier,path) in enumerate(texture_specs):
-    texture=Image.open(path)
-    bbtextures.append({'path':str(path),'name':path.name,'folder':'block','namespace':'funpackcustom',
-                       'id':str(i),'uuid':str(uuid.uuid5(uuid.NAMESPACE_URL,'wacca/'+identifier)),
-                       'width':texture.width,'height':texture.height,'uv_width':texture.width,'uv_height':texture.height,
-                       'relative_path':'../../src/main/resources/assets/funpackcustom/textures/block/'+path.name,
-                       'source':'data:image/png;base64,'+base64.b64encode(path.read_bytes()).decode(),
-                       'mode':'bitmap','particle':i==0,'render_mode':'default','visible':True})
-write_json(ART/'wacca.bbmodel',
-           {'meta':{'format_version':'4.10','model_format':'free','box_uv':False},
-            'name':'WACCA Reverse','model_identifier':'wacca','visible_box':[2,4,1.5],
-            'resolution':{'width':256,'height':256},'elements':bb_elements,'textures':bbtextures,
-            'outliner':[{'name':name,'uuid':str(uuid.uuid5(uuid.NAMESPACE_URL,'wacca/group/'+name)),
-                         'origin':[8,0,8],'children':children} for name,children in groups.items()]})
-write_json(ART/'geometry.json', {'textures':texture_paths,'elements':elements,'surface_optimization':surface_details})
-print('Generated',len(elements),'surface elements; section counts:',{name:len(values) for name,values in parts.items()})
-print('Exterior surfaces:',surface_details)
-print('Touch bowl:',bowl_details)
-print('Editable model:',ART/'wacca.bbmodel')
+export_wacca(elements,smooth_meshes+header_meshes,texture_paths,surface_details,smooth_details,ROOT)

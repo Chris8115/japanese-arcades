@@ -6,6 +6,8 @@ import copy
 import importlib.util
 import itertools
 import json
+import math
+from collections import Counter, defaultdict
 import random
 import struct
 import time
@@ -110,10 +112,95 @@ for trial in range(30):
     overlap_check(result)
 print('Synthetic checks passed: adjacency, source priority, depth steps, partial clipping, six UV directions, UV rotations, fullbright, rotated exclusion, 30 union-oracle cases.')
 
+def audit_meshes(meshes, palette_size):
+    """Check the replacement bowl's actual surfaces, not its declared segment count."""
+    def cross(a, b):
+        return (a[1]*b[2]-a[2]*b[1], a[2]*b[0]-a[0]*b[2], a[0]*b[1]-a[1]*b[0])
+
+    def sub(a, b):
+        return tuple(x-y for x, y in zip(a, b))
+
+    def dot(a, b):
+        return sum(x*y for x, y in zip(a, b))
+
+    def canonical(points):
+        return min(tuple(points[i:]+points[:i]) for i in range(len(points)))
+
+    def boundary_loops(faces):
+        # Shared edges must close at the angular seam. An annulus has only its
+        # inner and outer boundary loops, with no cracks or T-junctions.
+        edges = Counter()
+        for face in faces:
+            points = [tuple(round(v, 6) for v in p) for p in face['vertices']]
+            edges.update(tuple(sorted((a, b))) for a, b in zip(points, points[1:]+points[:1]))
+        assert all(count <= 2 for count in edges.values()), 'Non-manifold smooth surface edge'
+        boundary = defaultdict(set)
+        for (a, b), count in edges.items():
+            if count == 1:
+                boundary[a].add(b)
+                boundary[b].add(a)
+        assert boundary and all(len(neighbors) == 2 for neighbors in boundary.values()), 'Open or branched bowl boundary'
+        unseen = set(boundary)
+        loops = 0
+        while unseen:
+            loops += 1
+            pending = [unseen.pop()]
+            while pending:
+                for neighbor in boundary[pending.pop()]:
+                    if neighbor in unseen:
+                        unseen.remove(neighbor)
+                        pending.append(neighbor)
+        return loops
+
+    palette_faces = white_faces = 0
+    oriented = set()
+    cone = []
+    for face in meshes:
+        name, points, uv = face['name'], face['vertices'], face['uv']
+        assert len(points) in (3, 4) and len(points) == len(uv), ('Invalid mesh face', name)
+        assert all(math.isfinite(v) for p in points+uv for v in p), ('Non-finite mesh value', name)
+        assert all(-1e-7 <= v <= 16+1e-7 for p in uv for v in p), ('Mesh UV outside sprite', name)
+        normal = cross(sub(points[1], points[0]), sub(points[2], points[0]))
+        magnitude = math.sqrt(dot(normal, normal))
+        assert magnitude > 1e-10, ('Degenerate mesh face', name)
+        normal = tuple(v/magnitude for v in normal)
+        assert all(abs(dot(normal, sub(p, points[0]))) < 1e-5 for p in points), ('Non-planar mesh face', name)
+        identity = (face['texture'], face.get('glow', False), canonical([
+            (tuple(round(v, 6) for v in p), tuple(round(v, 6) for v in t)) for p, t in zip(points, uv)]))
+        assert identity not in oriented, ('Duplicate same-facing textured surface', name)
+        oriented.add(identity)
+        if face['texture'] == '#materials':
+            palette_faces += 1
+            for axis, dimension in enumerate(palette_size):
+                values = [p[axis]*dimension/16 for p in uv]
+                low, high = min(values), max(values)
+                tile_size = dimension/4
+                tile = int(((low+high)/2)//tile_size)
+                assert 0 <= tile < 4 and low >= tile*tile_size+8-1e-6 and high <= (tile+1)*tile_size-8+1e-6, (
+                    'Mesh palette UV lacks mip-4 edge guard', name, axis, low, high)
+            if 'white' in face.get('group', '').lower() and 'rim' in face.get('group', '').lower():
+                white_faces += 1
+                uv_area = abs(sum(a[0]*b[1]-b[0]*a[1] for a, b in zip(uv, uv[1:]+uv[:1])))/2
+                assert uv_area > 1e-8, ('White rim needs a two-dimensional interior UV patch', name)
+        if face['texture'] == '#leds':
+            cone.append(face)
+            center = [sum(p[i] for p in points)/len(points) for i in range(3)]
+            radial = (center[0]-8, center[1]-28.2, 0)
+            assert normal[2] < -.1 and dot(normal, radial) < 0, ('Reversed touch-cone surface', name)
+            # Remove the existing backward lean before comparing the recess depth.
+            samples = sorted((math.hypot(p[0]-8, p[1]-28.2), p[2]-.1*(p[1]-17.2)) for p in points)
+            assert samples[0][1] > samples[-1][1]+1e-5, ('Flat or inverted touch-cone depth', name)
+    assert palette_faces and white_faces, 'Mesh palette/white-rim checks must exercise visible faces'
+    assert cone and boundary_loops(cone) == 2, 'Touch cone must close with exactly two circular boundary loops'
+    print({'mesh_faces': len(meshes), 'mesh_palette_faces_with_mip4_guard': palette_faces,
+           'white_rim_mesh_faces_with_2d_uvs': white_faces, 'continuous_cone_faces': len(cone)})
+
+
 if '--model' in sys.argv:
     start = time.monotonic()
     model = json.loads((ROOT/'art/wacca/geometry.json').read_text(encoding='utf-8'))
-    result = model['elements']
+    result = model.get('legacy_elements', model.get('elements', []))
+    assert result, 'Cuboid clipping regression must still cover the preserved cabinet hardware'
     overlap_check(result)
     assert all(all(b > a for a, b in zip(e['from'], e['to'])) for e in result)
     assert len({e['name'] for e in result}) == len(result)
@@ -158,7 +245,11 @@ if '--model' in sys.argv:
                 white_ledges += 1
                 assert abs(face['uv'][2]-face['uv'][0]) > 1e-8 and abs(face['uv'][3]-face['uv'][1]) > 1e-8, (
                     'White rim ledge must use a two-dimensional interior UV patch', e['name'], direction, face['uv'])
-    assert palette_faces and white_ledges, 'Palette/white-ledge regression checks must exercise visible faces'
+    if model.get('meshes'):
+        audit_meshes(model['meshes'], palette_size)
+        assert palette_faces, 'Preserved cuboid palette checks must exercise visible faces'
+    else:
+        assert palette_faces and white_ledges, 'Palette/white-ledge regression checks must exercise visible faces'
     print({'palette_faces_with_mip4_guard': palette_faces,
            'white_ledges_with_2d_uvs': white_ledges, 'guard_source_pixels': half_texel_guard})
     print({'model_elements': len(result), 'model_faces': sum(len(e['faces']) for e in result)},

@@ -1,4 +1,4 @@
-"""Render the actual Minecraft cuboids and UVs with Blender, without redesigning them."""
+"""Render WACCA's exported native surfaces and original artwork in Blender."""
 import json
 import math
 import sys
@@ -11,12 +11,13 @@ ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / 'art/wacca'
 TEXTURES = ROOT / 'src/main/resources/assets/funpackcustom/textures/block'
 data = json.loads((ART/'geometry.json').read_text(encoding='utf-8'))
+bpy.context.preferences.filepaths.save_version = 0
 
 bpy.ops.object.select_all(action='SELECT')
 bpy.ops.object.delete(use_global=False)
 scene = bpy.context.scene
 scene.render.engine = 'CYCLES'
-scene.cycles.samples = 48
+scene.cycles.samples = 24 if '--quick' in sys.argv else 48
 scene.cycles.use_denoising = True
 scene.render.resolution_x = 1100
 scene.render.resolution_y = 1500
@@ -53,7 +54,7 @@ face_indices={'north':(2,1,0,3),'east':(6,5,1,2),'south':(7,4,5,6),
 
 def world(v): return ((8-v[0])/16,(v[2]-8)/16,v[1]/16)
 
-for e in data['elements']:
+for e in data.get('elements', []):
     a,b=e['from'],e['to']
     verts=[[a[0],a[1],a[2]],[b[0],a[1],a[2]],[b[0],b[1],a[2]],[a[0],b[1],a[2]],
            [a[0],a[1],b[2]],[b[0],a[1],b[2]],[b[0],b[1],b[2]],[a[0],b[1],b[2]]]
@@ -83,6 +84,35 @@ for e in data['elements']:
         uvs=[(u0,1-v0),(u0,1-v1),(u1,1-v1),(u1,1-v0)]
         for loop,tex_uv in zip(poly.loop_indices,uvs): uv_layer.data[loop].uv=tex_uv
 
+# These are the same mesh faces exported to Minecraft; leave their shading flat
+# so the preview cannot conceal faceting with Blender-only smoothing.
+mesh_groups = {}
+for face in data.get('meshes', []):
+    mesh_groups.setdefault(face['group'], []).append(face)
+for name, faces in mesh_groups.items():
+    vertices, polygons, coordinates, group_materials, indices = [], [], [], [], []
+    for face in faces:
+        start = len(vertices)
+        vertices.extend(world(point) for point in face['vertices'])
+        polygons.append(list(range(start, len(vertices))))
+        coordinates.append(face['uv'])
+        mat = texture_material(face['texture'][1:], face['glow'])
+        if mat not in group_materials:
+            group_materials.append(mat)
+        indices.append(group_materials.index(mat))
+    mesh = bpy.data.meshes.new(name)
+    mesh.from_pydata(vertices, [], polygons)
+    mesh.update()
+    obj = bpy.data.objects.new(name, mesh)
+    bpy.context.collection.objects.link(obj)
+    for mat in group_materials:
+        mesh.materials.append(mat)
+    layer = mesh.uv_layers.new(name='Native WACCA surface UV')
+    for polygon, uv, index in zip(mesh.polygons, coordinates, indices):
+        polygon.material_index = index
+        for loop, (u, v) in zip(polygon.loop_indices, uv):
+            layer.data[loop].uv = u / 16, 1 - v / 16
+
 # Restrained studio environment, separate from the exported game geometry.
 bpy.ops.mesh.primitive_plane_add(size=200,location=(0,0,-.015))
 floor=bpy.context.object;floor.name='Preview ground'
@@ -111,6 +141,12 @@ def render(name,loc,target=(0,.02,1.46),scale=3.67):
     camera.rotation_euler=(Vector(target)-camera.location).to_track_quat('-Z','Y').to_euler()
     scene.render.filepath=str(ART/name)
     bpy.ops.render.render(write_still=True)
+
+if '--ring-only' in sys.argv:
+    scene.render.resolution_y=1100
+    render('wacca-ring.png',(2.4,-6,3.0),target=(0,-.06,1.77),scale=1.72)
+    print('Rendered the exported touch bowl for close-up review.')
+    sys.exit(0)
 
 if '--detail-only' not in sys.argv:
     render('wacca-front.png',(3,-6,3.35))
