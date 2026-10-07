@@ -44,6 +44,7 @@ public final class ArcadeOrderCatalog {
         machine("nostalgia_op3", FunPackCustom.NOSTALGIA_OP3_ITEM, 16, 4, 1, 6, 6),
         machine("beatstream", FunPackCustom.BEATSTREAM_ITEM, 16, 4, 1, 6, 6),
         machine("sound_voltex_valkyrie", FunPackCustom.SOUND_VOLTEX_VALKYRIE_ITEM, 18, 4, 1, 6, 8),
+        machine("sound_voltex_nemsys", FunPackCustom.SOUND_VOLTEX_NEMSYS_ITEM, 16, 4, 1, 6, 6),
         machine("wacca", FunPackCustom.WACCA_ITEM, 16, 4, 1, 8, 6),
         machine("chunithm", FunPackCustom.CHUNITHM_ITEM, 16, 4, 1, 6, 6),
         machine("ongeki", FunPackCustom.ONGEKI_ITEM, 16, 4, 1, 6, 6),

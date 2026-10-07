@@ -1,0 +1,49 @@
+{
+  "variants": {
+    "facing=north,part=base": {
+      "model": "funpackcustom:block/sound_voltex_nemsys_base"
+    },
+    "facing=north,part=console": {
+      "model": "funpackcustom:block/sound_voltex_nemsys_console"
+    },
+    "facing=north,part=marquee": {
+      "model": "funpackcustom:block/sound_voltex_nemsys_marquee"
+    },
+    "facing=east,part=base": {
+      "model": "funpackcustom:block/sound_voltex_nemsys_base",
+      "y": 90
+    },
+    "facing=east,part=console": {
+      "model": "funpackcustom:block/sound_voltex_nemsys_console",
+      "y": 90
+    },
+    "facing=east,part=marquee": {
+      "model": "funpackcustom:block/sound_voltex_nemsys_marquee",
+      "y": 90
+    },
+    "facing=south,part=base": {
+      "model": "funpackcustom:block/sound_voltex_nemsys_base",
+      "y": 180
+    },
+    "facing=south,part=console": {
+      "model": "funpackcustom:block/sound_voltex_nemsys_console",
+      "y": 180
+    },
+    "facing=south,part=marquee": {
+      "model": "funpackcustom:block/sound_voltex_nemsys_marquee",
+      "y": 180
+    },
+    "facing=west,part=base": {
+      "model": "funpackcustom:block/sound_voltex_nemsys_base",
+      "y": 270
+    },
+    "facing=west,part=console": {
+      "model": "funpackcustom:block/sound_voltex_nemsys_console",
+      "y": 270
+    },
+    "facing=west,part=marquee": {
+      "model": "funpackcustom:block/sound_voltex_nemsys_marquee",
+      "y": 270
+    }
+  }
+}

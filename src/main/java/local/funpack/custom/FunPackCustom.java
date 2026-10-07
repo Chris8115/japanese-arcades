@@ -84,6 +84,11 @@ public final class FunPackCustom {
         BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)
             .sound(SoundType.METAL).noOcclusion().lightLevel(state ->
                 state.getValue(NostalgiaCabinetBlock.PART) == NostalgiaCabinetBlock.Part.BASE ? 10 : 13));
+    public static final DeferredBlock<SoundVoltexNemsysCabinetBlock> SOUND_VOLTEX_NEMSYS = BLOCKS.registerBlock(
+        "sound_voltex_nemsys", SoundVoltexNemsysCabinetBlock::new,
+        BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)
+            .sound(SoundType.METAL).noOcclusion().lightLevel(state ->
+                state.getValue(NostalgiaCabinetBlock.PART) == NostalgiaCabinetBlock.Part.BASE ? 4 : 13));
     public static final DeferredBlock<WaccaCabinetBlock> WACCA = BLOCKS.registerBlock(
         "wacca", WaccaCabinetBlock::new,
         BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)
@@ -157,7 +162,7 @@ public final class FunPackCustom {
             .clientTrackingRange(8).updateInterval(1).noSave().noSummon().build(MOD_ID + ":initial_d_seat"));
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<NostalgiaJukeboxBlockEntity>> NOSTALGIA_JUKEBOX =
         BLOCK_ENTITIES.register("nostalgia_jukebox", () -> BlockEntityType.Builder.of(
-            NostalgiaJukeboxBlockEntity::new, NOSTALGIA_OP3.get(), BEATSTREAM.get(), SOUND_VOLTEX_VALKYRIE.get(),
+            NostalgiaJukeboxBlockEntity::new, NOSTALGIA_OP3.get(), BEATSTREAM.get(), SOUND_VOLTEX_VALKYRIE.get(), SOUND_VOLTEX_NEMSYS.get(),
             WACCA.get(), CHUNITHM.get(), ONGEKI.get(), GROOVE_COASTER.get(), MUSECA.get(), PROJECT_DIVA.get(),
             CHRONO_CIRCLE.get(), MAIMAI.get(), DDR_SUPERNOVA.get(), TAIKO.get(), INITIAL_D.get(), JUBEAT.get()).build(null));
     public static final DeferredItem<?> NOSTALGIA_OP3_ITEM =
@@ -166,6 +171,8 @@ public final class FunPackCustom {
         ITEMS.registerSimpleBlockItem("beatstream", BEATSTREAM, new Item.Properties());
     public static final DeferredItem<?> SOUND_VOLTEX_VALKYRIE_ITEM =
         ITEMS.registerSimpleBlockItem("sound_voltex_valkyrie", SOUND_VOLTEX_VALKYRIE, new Item.Properties());
+    public static final DeferredItem<?> SOUND_VOLTEX_NEMSYS_ITEM =
+        ITEMS.registerSimpleBlockItem("sound_voltex_nemsys", SOUND_VOLTEX_NEMSYS, new Item.Properties());
     public static final DeferredItem<?> WACCA_ITEM =
         ITEMS.registerSimpleBlockItem("wacca", WACCA, new Item.Properties());
     public static final DeferredItem<?> CHUNITHM_ITEM =
@@ -232,6 +239,7 @@ public final class FunPackCustom {
                 output.accept(NOSTALGIA_OP3_ITEM.get());
                 output.accept(BEATSTREAM_ITEM.get());
                 output.accept(SOUND_VOLTEX_VALKYRIE_ITEM.get());
+                output.accept(SOUND_VOLTEX_NEMSYS_ITEM.get());
                 output.accept(WACCA_ITEM.get());
                 output.accept(CHUNITHM_ITEM.get());
                 output.accept(ONGEKI_ITEM.get());

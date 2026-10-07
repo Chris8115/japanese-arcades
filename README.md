@@ -3,11 +3,12 @@
 This workspace is for our own mods for **Minecraft 1.21.1 / NeoForge 21.1.252**.
 The starter mod is **Fun Pack Custom**, id `funpackcustom`, version `0.1.0`.
 It registers `/funpackdev`, a small command to confirm that the mod is loaded.
-The **Japanese Arcades** creative tab includes fifteen cabinets with music-disc playback:
+The **Japanese Arcades** creative tab includes sixteen cabinets with music-disc playback:
 
 - [Nostalgia Op.3 Arcade Cabinet](art/nostalgia-op3/README.md)
 - [BeatStream Arcade Cabinet](art/beatstream/README.md)
 - [Sound Voltex Valkyrie Arcade Cabinet](art/sound-voltex-valkyrie/README.md)
+- [Sound Voltex NEMSYS Arcade Cabinet](art/sound-voltex-nemsys/README.md)
 - [WACCA Reverse Arcade Cabinet](art/wacca/README.md)
 - [Chunithm Paradise Lost Arcade Cabinet](art/chunithm/README.md)
 - [Groove Coaster Arcade Cabinet](art/groove_coaster/README.md)
@@ -45,6 +46,8 @@ a multicolor idle animation. The small display above the buttons shares their sl
 ONGEKI bright has a separate white outer arch, circular side panels, a recessed
 portrait monitor, two groups of three buttons, and a center lever. It uses the
 standard kiosk ordering, Arcade Pass rewards, and saved music-disc playback.
+Sound Voltex NEMSYS adds the original cabinet shape with four angular light wings,
+square side speakers, four BT keys, two FX keys, and a pair of rotary knobs.
 Allow additional clearance for the visible decks, wings, mats, and enclosures.
 Each model's notes describe its dimensions.
 
@@ -164,7 +167,9 @@ WACCA poster tests cover all four wall facings, fixed artwork, save/reload,
 survival and creative removal, support loss, blocked placement, and canceled spawns.
 ONGEKI tests cover rotated placement and blocked placement, saved disc playback,
 single drops, neighbor isolation, and selection through the open arch to its monitor.
-All 130 passed on 2026-10-07.
+NEMSYS tests cover disc use and persistence, one-item removal, all-facing placement,
+blocked placement, wing selection and the recessed monitor's open front space.
+All 133 passed on 2026-10-07.
 Visual checks and full-pack compatibility remain separate from these server tests.
 
 `SyncPack` overwrites files that exist in the source pack's configuration. Close the development

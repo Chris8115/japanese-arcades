@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [{ "type": "minecraft:item", "name": "funpackcustom:sound_voltex_nemsys" }],
+      "conditions": [
+        { "condition": "minecraft:survives_explosion" },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "funpackcustom:sound_voltex_nemsys",
+          "properties": { "part": "base" }
+        }
+      ]
+    }
+  ]
+}
