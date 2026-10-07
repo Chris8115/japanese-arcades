@@ -36,33 +36,21 @@ def build_console(cube, uv):
         for y in (18.42,26.43):
             cube('Touchscreen screw '+str((x,y)),(x+.06,y,2.21),(x+.18,y+.14,2.28),'black_key',rotation=tilt,group='Touchscreen hardware')
 
+    # The white lower-screen surround continues beside both triangular speakers.
+    # These are single rigid shoulder pieces on the same screen slope. Their
+    # deep upper returns physically overlap the black monitor surround atY29.5,
+    # while the front ends reach each triangle's outer top corner atY30.02.
+    for side,x0,x1 in (('Left',.80,1.24),('Right',14.76,15.20)):
+        cube(side+' continuous white screen-to-speaker shoulder',
+             (x0,26.50,2.39),(x1,30.80,3.68),'ivory',rotation=tilt,group='Touchscreen trim')
+
     cube('Speaker fascia rear support',(1,25.9,7.75),(15,29.83,10),group='Speaker enclosure')
     speaker_tilt=('x',22.5,(8,26,6.45))
     # This is a plain recessed connector, not Nostalgia's raised center plaque.
     cube('Shallow white speaker shelf',(4.0,26.0,6.75),(12,26.72,8.95),'ivory',rotation=speaker_tilt,group='Speaker enclosure')
     cube('Recessed plain black speaker backband',(4.0,26.72,7.10),(12,29.8,8.95),'black',rotation=speaker_tilt,group='Speaker enclosure')
-    sine,cosine=math.sin(math.radians(22.5)),math.cos(math.radians(22.5))
-    for side,x0,x1,hinge,angle,flip in (('Left',.75,4.4,4.2,-22.5,False),('Right',11.6,15.25,11.8,22.5,True)):
-        # Two rigid triangular enclosures point inward. Thin horizontal courses
-        # preserve both cabinet pitch and listener-facing yaw in vanilla JSON.
-        rows=36
-        for i in range(rows):
-            low=26+3.8*i/rows
-            high=26+3.8*(i+1)/rows
-            fraction=max(.035,1-abs((i+.5)/rows*2-1))
-            width=(x1-x0)*fraction
-            a,b=(x1-width,x1) if flip else (x0,x0+width)
-            z=6.45+((low+high)/2-26)*sine
-            bottom=26+(low-26)*cosine
-            top=26+(high-26)*cosine
-            rot=('y',angle,(hinge,26,z))
-            cube(side+' triangular speaker housing %02d'%i,(a,bottom,z),(b,top,z+1.20),'black',rotation=rot,group='Triangular speaker wings')
-            # The whole triangle texture has a bright narrow acrylic surround
-            # and dark perforated center, with its matching UVs across courses.
-            u0=(a-x0)/(x1-x0)*16
-            u1=(b-x0)/(x1-x0)*16
-            tex=[16-u1 if flip else u0,16-(i+1)/rows*16,16-u0 if flip else u1,16-i/rows*16]
-            cube(side+' cyan triangular speaker face %02d'%i,(a,bottom+.001,z-.075),(b,top-.001,z+.015),'speaker',north=('speaker',tex),rotation=rot,glow=('north',),group='Triangular speaker wings')
+    # Compound-angle rigid speaker meshes are emitted separately by
+    # beatstream_speaker_geometry; no stair-step cuboid rims remain.
 
     cube('Upper display black chassis',(.80,29.5,8.10),(15.20,39.45,10.30),group='Upper monitor')
     cube('Upper display black surround',(.68,29.5,7.84),(15.32,39.45,8.35),'black',group='Upper monitor')

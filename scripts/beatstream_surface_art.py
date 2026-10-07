@@ -48,20 +48,25 @@ def build_surface_art(directory):
         d.ellipse((x-4,y-4,x+4,y+4),fill=(66,84,92))
     im.save(directory/'beatstream_speaker.png')
 
+    # Same symmetric53/64-high triangular artwork footprint and UV selection as
+    # Nostalgia's centered lower geometry, recolored to cyan illuminated acrylic.
     im=Image.new('RGB',(512,512),(10,27,35));d=ImageDraw.Draw(im)
-    d.polygon([(0,511),(511,0),(511,511)],fill=(10,38,50))
-    for inset,color,width in ((5,(115,255,249),5),(16,(19,155,182),4),(25,(62,215,232),2)):
-        d.line([(inset,511-inset),(511-inset,inset),(511-inset,511-inset),(inset,511-inset)],fill=color,width=width)
-    cx,cy=348,362
-    for radius,width,color in ((99,3,(17,108,139)),(89,3,(66,219,230)),(74,2,(143,250,245)),(65,3,(39,198,218))):
+    d.polygon([(256,40),(32,464),(480,464)],fill=(10,38,50))
+    for points,color,width in (([(256,44),(37,460),(475,460)],(115,255,249),4),
+                               ([(256,70),(57,448),(455,448)],(19,155,182),4),
+                               ([(256,86),(71,439),(441,439)],(62,215,232),2)):
+        d.line(points+points[:1],fill=color,width=width)
+    cx,cy=256,304
+    for radius,width,color in ((123,3,(17,108,139)),(111,3,(66,219,230)),(88,2,(143,250,245)),(76,3,(39,198,218))):
         d.ellipse((cx-radius,cy-radius,cx+radius,cy+radius),outline=color,width=width)
     for n in range(36):
         a=n*math.tau/36
-        x,y=round(cx+102*math.cos(a)),round(cy+102*math.sin(a))
-        d.rectangle((x-2,y-2,x+2,y+2),fill=(80,220,232))
-    for y in range(48,480,28):
-        for x in range(45,479,29):
-            if x>512-y+27 and (x-cx)**2+(y-cy)**2>118**2:
+        x,y=round(cx+129*math.cos(a)),round(cy+129*math.sin(a))
+        if abs(x-256)<(y-40)*.50:
+            d.rectangle((x-2,y-2,x+2,y+2),fill=(80,220,232))
+    for y in range(72,449,28):
+        for x in range(55,458,29):
+            if abs(x-256)<(y-40)*.48-12 and (x-cx)**2+(y-cy)**2>138**2:
                 d.polygon([(x,y),(x+6,y+9),(x-6,y+9)],outline=(89,212,224))
     im.save(directory/'beatstream_triangle.png')
 

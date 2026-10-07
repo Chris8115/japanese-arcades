@@ -85,6 +85,17 @@ for e in data['elements']:
         uvs=[(u0,1-v0),(u0,1-v1),(u1,1-v1),(u1,1-v0)]
         for loop,tex_uv in zip(poly.loop_indices,uvs): uv_layer.data[loop].uv=tex_uv
 
+for face in data.get('meshes',[]):
+    mesh=bpy.data.meshes.new(face['name'])
+    mesh.from_pydata([world(p) for p in face['vertices']],[],[list(range(len(face['vertices'])))])
+    mesh.update()
+    obj=bpy.data.objects.new(face['name'],mesh)
+    bpy.context.collection.objects.link(obj)
+    mesh.materials.append(texture_material(face['texture'][1:],face['glow']))
+    uv_layer=mesh.uv_layers.new(name='Cabinet UV')
+    for loop,(u,v) in zip(mesh.polygons[0].loop_indices,face['uv']):
+        uv_layer.data[loop].uv=(u/16,1-v/16)
+
 # Restrained studio environment, separate from the exported game geometry.
 bpy.ops.mesh.primitive_plane_add(size=200,location=(0,0,-.015))
 floor=bpy.context.object;floor.name='Preview ground'

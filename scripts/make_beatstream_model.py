@@ -15,6 +15,7 @@ from PIL import Image
 from beatstream_cabinet_geometry import build_cabinet
 from beatstream_console_geometry import build_console, build_marquee
 from beatstream_surface_art import PALETTE, build_surface_art
+from beatstream_speaker_geometry import build_speakers
 
 ROOT=Path(__file__).resolve().parents[1]
 ASSETS=ROOT/'src/main/resources/assets/funpackcustom'
@@ -105,6 +106,7 @@ def cutout_sprite(name,start,end,material,*,group='Diecut topper'):
 build_cabinet(cube,uv)
 build_console(cube,uv)
 build_marquee(cube,cutout_sprite)
+mesh_faces=build_speakers(uv)
 texture_paths={key:'funpackcustom:block/beatstream_'+key for key in ('materials','screens','topper','trim','controls','side','triangle','speaker')}
 texture_paths['particle']=texture_paths['materials']
 
@@ -125,6 +127,38 @@ def write_json(path, data):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8')
 
+def write_speakers_obj(path,transform):
+    lines=['# BeatStream rigid speaker prisms; native block-space units.',
+           'mtllib funpackcustom:models/block/beatstream_speakers.mtl']
+    index=1
+    for face in mesh_faces:
+        lines.append('usemtl '+('speaker_lit' if face['glow'] else 'materials_surface'))
+        lines.extend('v '+' '.join('%.9f'%v for v in transform(p)) for p in face['vertices'])
+        lines.extend('vt %.9f %.9f'%(u/16,1-v/16) for u,v in face['uv'])
+        lines.append('f '+' '.join('%d/%d'%(index+i,index+i) for i in range(len(face['vertices']))))
+        index+=len(face['vertices'])
+    path.write_text('\n'.join(lines)+'\n',encoding='utf-8')
+
+def speaker_wrapper(path):
+    return {'parent':'minecraft:block/block','loader':'neoforge:obj',
+            'model':'funpackcustom:models/'+path,'automatic_culling':False,
+            'shade_quads':True,'flip_v':True,'emissive_ambient':True,
+            'ambientocclusion':True,'render_type':'minecraft:cutout_mipped_all',
+            'textures':texture_paths}
+
+def with_speakers(cabinet,path):
+    return {'parent':'minecraft:block/block','loader':'neoforge:composite',
+            'ambientocclusion':cabinet.get('ambientocclusion',True),
+            'textures':texture_paths,
+            'children':{'cabinet':cabinet,'speakers':speaker_wrapper(path)},
+            'item_render_order':['cabinet','speakers']}
+
+write_speakers_obj(MODEL/'beatstream_speakers.obj',lambda p:[p[0]/16,(p[1]-16)/16,p[2]/16])
+write_speakers_obj(ASSETS/'models/item/beatstream_speakers.obj',lambda p:[(p[0]*.35+5.2)/16,p[1]*.35/16,(p[2]*.35+5.2)/16])
+(MODEL/'beatstream_speakers.mtl').write_text(
+    'newmtl materials_surface\nKa 0 0 0\nKd 1 1 1\nmap_Kd #materials\n\n'
+    'newmtl speaker_lit\nKa 1 1 1\nKd 1 1 1\nmap_Kd #speaker\n',encoding='utf-8')
+
 part_names = ['base','console','marquee']
 parts = {part:[] for part in part_names}
 for source in elements:
@@ -137,9 +171,10 @@ for source in elements:
         assert all(-16 <= v <= 32 for v in coords), (e['name'],coords)
     parts[part_names[index]].append(e)
 for part in part_names:
-    write_json(MODEL / ('beatstream_'+part+'.json'),
-               {'parent':'minecraft:block/block','ambientocclusion':True,'render_type':'minecraft:cutout',
-                'textures':texture_paths,'elements':parts[part]})
+    model={'parent':'minecraft:block/block','ambientocclusion':True,'render_type':'minecraft:cutout',
+           'textures':texture_paths,'elements':parts[part]}
+    if part=='console': model=with_speakers(model,'block/beatstream_speakers.obj')
+    write_json(MODEL / ('beatstream_'+part+'.json'),model)
 variants={}
 for facing,rotation in (('north',0),('east',90),('south',180),('west',270)):
     for part in part_names:
@@ -165,6 +200,16 @@ write_json(ASSETS / 'models/item/beatstream.json',
                        'thirdperson_righthand':{'rotation':[75,45,0],'translation':[0,3,0],'scale':[.45,.45,.45]},
                        'firstperson_righthand':{'rotation':[0,45,0],'translation':[0,2,0],'scale':[.5,.5,.5]}}})
 
+# Both children use the same already-scaled coordinates. Keep held/GUI display
+# transforms only on the composite so the meshes cannot drift from the shell.
+item_path=ASSETS/'models/item/beatstream.json'
+native_item=json.loads(item_path.read_text())
+item_display=native_item.pop('display')
+native_item['render_type']='minecraft:cutout'
+item_model=with_speakers(native_item,'item/beatstream_speakers.obj')
+item_model.update({'display':item_display,'gui_light':'front','ambientocclusion':False})
+write_json(item_path,item_model)
+
 # Blockbench's free format preserves the complete cabinet and named groups.
 texture_specs = [(key,TEXTURES/(value.split('/')[-1]+'.png')) for key,value in texture_paths.items() if key!='particle']
 texture_indices = {'#'+key:i for i,(key,path) in enumerate(texture_specs)}
@@ -189,6 +234,17 @@ for source in elements:
                         'color':1,'rescale':False,'autouv':0,'visibility':True,'export':True,
                         'shade':e.get('shade',True)})
     groups.setdefault(source['_group'],[]).append(uid)
+for face in mesh_faces:
+    uid=str(uuid.uuid5(uuid.NAMESPACE_URL,'beatstream/'+face['name']))
+    index=texture_indices[face['texture']]
+    width,height=texture_sizes[index]
+    keys=['v'+str(i) for i in range(len(face['vertices']))]
+    bb_elements.append({'name':face['name'],'type':'mesh','uuid':uid,'origin':[0,0,0],'rotation':[0,0,0],
+                        'vertices':dict(zip(keys,face['vertices'])),
+                        'faces':{'face':{'vertices':keys,'texture':index,
+                                         'uv':{key:[u*width/16,v*height/16] for key,(u,v) in zip(keys,face['uv'])}}},
+                        'visibility':True,'export':True})
+    groups.setdefault(face['group'],[]).append(uid)
 bbtextures=[]
 for i,(identifier,path) in enumerate(texture_specs):
     texture=Image.open(path)
@@ -204,6 +260,7 @@ write_json(ART/'beatstream.bbmodel',
             'resolution':{'width':256,'height':256},'elements':bb_elements,'textures':bbtextures,
             'outliner':[{'name':name,'uuid':str(uuid.uuid5(uuid.NAMESPACE_URL,'beatstream/group/'+name)),
                          'origin':[8,0,8],'children':children} for name,children in groups.items()]})
-write_json(ART/'geometry.json', {'textures':texture_paths,'elements':elements})
+write_json(ART/'geometry.json', {'textures':texture_paths,'elements':elements,'meshes':mesh_faces})
 print('Generated',len(elements),'cuboids; section counts:',{name:len(values) for name,values in parts.items()})
+print('Rigid speaker polygons:',len(mesh_faces))
 print('Editable model:',ART/'beatstream.bbmodel')

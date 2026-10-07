@@ -49,23 +49,24 @@ def build_cabinet(cube, uv):
             cube('Square rubber foot '+str((x, z)), (x, 0, z), (x+.8, .33, z+.8),
                  'black_key', group='Metal threshold and feet')
 
-    # BeatStream's lower acrylic is a right triangle, recessed inside the exact
-    # Nostalgia footwell. Its low edge meets the shared metal threshold.
+    # Continuous artwork UVs across the stepped triangular silhouette. A separate
+    # dark substrate gives a narrow physical rim without a bright projecting fin.
     triangle_tilt = ('x', 22.5, (8, 2.45, 5.43))
-    rows = 36
-    x0, x1, ybase, height = 4.0, 12.70, 2.45, 8.0
+    rows = 18
+    width, height = 4.70, 8.0
     for i in range(rows):
-        y0 = ybase+i*height/rows
-        y1 = ybase+(i+1)*height/rows
-        left = x0+(x1-x0)*i/rows
-        cube('Lower triangular black acrylic edge %02d'%i,
-             (left-.10,y0-.015,5.46),(x1+.10,y1+.015,5.75),'black_key',
-             rotation=triangle_tilt,group='Recessed triangle')
-        u0 = (left-x0)/(x1-x0)*16
-        tex = [u0,16-(i+1)/rows*16,16,16-i/rows*16]
-        cube('Lower cyan triangular display %02d'%i,
-             (left,y0,5.425),(x1,y1,5.51),'triangle',north=('triangle',tex),
-             rotation=triangle_tilt,glow=('north',),group='Recessed triangle')
+        y0 = 2.45+i*height/rows
+        y1 = 2.45+(i+1)*height/rows
+        half = width*(1-i/rows)
+        cube('Triangular inset dark edge %02d'%i, (8-half-.09, y0-.025, 5.465),
+             (8+half+.09, y1+.025, 5.735), 'black_key', rotation=triangle_tilt,
+             group='Recessed triangle')
+        u0, u1 = 32-half/width*28, 32+half/width*28
+        v0, v1 = 58-(i+1)/rows*53, 58-i/rows*53
+        triangle_uv = [u0/4, v0/4, u1/4, v1/4]
+        cube('Recessed triangle engraved face %02d'%i, (8-half, y0, 5.425),
+             (8+half, y1, 5.51), 'triangle', north=('triangle', triangle_uv),
+             rotation=triangle_tilt, glow=('north',), group='Recessed triangle')
 
     # Two low-contrast service doors behind the recess, including a real key lock
     # on the right. The recess remains visibly deeper than both patterned rails.

@@ -6,11 +6,17 @@ The original Nostalgia model and artwork are unchanged.
 
 The conversion replaces the round upper speakers with inward-facing triangular
 grilles edged in cyan light, and lights the large triangular lower speaker to match.
+The lower triangle keeps Nostalgia's centered shape, position and backward lean.
+The upper speakers are rigid triangular meshes, with continuous outer edges even
+at their combined inward and backward angles.
 The central Nostalgia plaque, piano keys, gold ornament and book decoration are gone.
 A larger inclined touch display reaches down toward a flat white front strip.
 BeatStream has its own upper screen, lower touch-screen artwork, patterned trim,
 and a thin die-cut illustrated topper based on the supplied photographs.
-The export contains 468 cuboids. Its rotated visual bounds are X 0.20–15.75,
+The white lower-screen surround continues up beside the speaker triangles and
+meets the upper screen's black surround. Its shoulder pieces align flush with
+the existing white frame, with no gap at the join.
+The export contains 290 cuboids and twelve speaker-mesh polygons. Its visual bounds are X 0.20–15.75,
 Y 0–47.65 and Z 0–15.355 model units, fitting inside a 1×1×3 block column.
 
 ## Obtain and use
@@ -45,6 +51,8 @@ physical cutout. Native cabinet materials and trim are generated separately.
 The entry points are `scripts/make_beatstream_model.py` and
 `scripts/render_beatstream_model.py`. Apply lasting geometry changes to the source
 scripts; regenerating replaces the exported assets and editable model.
+`scripts/beatstream_speaker_geometry.py` supplies the two rigid triangular speaker
+housings. The console and item models combine these meshes with their native cuboids.
 
 ```powershell
 & 'python' scripts/make_beatstream_model.py
@@ -55,7 +63,8 @@ scripts; regenerating replaces the exported assets and editable model.
 
 The cabinet is decorative with simulated Arcade Pass results; it does not implement
 BeatStream rhythm gameplay. Illuminated faces remain bright, while bloom depends
-on the active shader. The exported model uses native Minecraft cuboids and textures.
+on the active shader. The exported model combines native Minecraft cuboids with
+two triangular speaker meshes.
 
 ## Verification
 
@@ -66,3 +75,22 @@ BeatStream automatically.
 The export audit confirms all twelve facing/part variants, eight textures, valid
 native model bounds/rotations/UVs, and matching Blockbench geometry and embedded
 artwork. All 35 original Nostalgia art, resource and generator files are unchanged.
+The 36 lower-triangle cuboids match Nostalgia's positions, dimensions and rotations
+exactly. Both upper speaker housings have closed, planar geometry, with matching
+OBJ and Blockbench coordinates, UVs and material assignments.
+
+The corrected build also passes native small-client checks for all four facings,
+both composite children, render layers and inventory-item pass order. In-game
+closeups confirm the centered lower triangle and clean upper speaker edges.
+`native-front.png`, `native-triangles-close.png` and `native-kiosk.png` show this
+final geometry in Minecraft. The earlier complete kiosk/pass/disc/removal checks
+passed in both the small client and the copied 218-mod pack; this visual revision
+changes model resources only.
+
+The rigid speaker meshes also passed a resource-only check under the copied pack's
+shaders. `native-pack-*.png` captures that version, before the final white shoulder
+extensions. The final shoulder build passes the small-client visual check; its
+only differences from the pack-tested JAR are the console and item JSON models.
+Java classes, speaker meshes and textures are identical. The full-pack check needed
+one unchanged retry after an NTGL 3.2.0 startup race; the retry exited successfully.
+Current `native-*.png` images without `pack` in the name show the final white trim.
