@@ -3,12 +3,13 @@
 This workspace is for our own mods for **Minecraft 1.21.1 / NeoForge 21.1.252**.
 The starter mod is **Fun Pack Custom**, id `funpackcustom`, version `0.1.0`.
 It registers `/funpackdev`, a small command to confirm that the mod is loaded.
-The **Japanese Arcades** creative tab includes sixteen cabinets with music-disc playback:
+The **Japanese Arcades** creative tab includes seventeen cabinets with music-disc playback:
 
 - [Nostalgia Op.3 Arcade Cabinet](art/nostalgia-op3/README.md)
 - [BeatStream Arcade Cabinet](art/beatstream/README.md)
 - [Sound Voltex Valkyrie Arcade Cabinet](art/sound-voltex-valkyrie/README.md)
 - [Sound Voltex NEMSYS Arcade Cabinet](art/sound-voltex-nemsys/README.md)
+- [beatmania IIDX LIGHTNING MODEL](art/beatmania-iidx-lightning/README.md)
 - [WACCA Reverse Arcade Cabinet](art/wacca/README.md)
 - [Chunithm Paradise Lost Arcade Cabinet](art/chunithm/README.md)
 - [Groove Coaster Arcade Cabinet](art/groove_coaster/README.md)
@@ -26,6 +27,9 @@ Their model notes include editable files, previews, and use instructions. All ar
 three blocks high. maimai uses **two connected columns** and requires a supported,
 clear **two-by-three-block** space. DDR SuperNOVA uses a **two-wide, three-deep**
 supported footprint, including a real two-by-two dance stage and open handrails.
+beatmania IIDX uses a **two-wide, two-deep** supported footprint, with two connected
+rear cabinet columns and a low standing platform in front. Its two turntables
+use subtle native texture animation around two banks of seven illuminated keys.
 Taiko uses a **two-by-two supported footprint** with two playable drums angled
 upward and slightly away from each other, plus festival artwork on the front
 and side panels.
@@ -140,7 +144,7 @@ step-on access, open dance space, and handrail collision in every facing.
 Gachapon adds placement/setup, owner and password access, password-session revocation,
 private save data, protected extraction, capsule contents and overflow, exact-item
 payments, failed transaction rollback, concurrent buyers and the five-second crank
-reset. The ordering kiosk adds two-cell placement/removal, all seventeen material
+reset. The ordering kiosk adds two-cell placement/removal, all catalog material
 transactions, invalid/stale requests, safe inventory overflow and creative pickup,
 spawn-veto rollback, and the loaded shaped recipe. Taiko adds ten-cell placement
 and removal in all directions, neighboring-cabinet isolation, shared saved-disc
@@ -151,7 +155,7 @@ aisle exits from a full row, blocked interactions/headroom, logout/removal clean
 and uninterrupted saved-disc playback while seated. Arcade Pass tests cover
 versioned save/network data, all four exchanges, balance transfers, stale and
 cross-player requests, atomic prize delivery, spawn-event reentrancy, live
-configuration changes, all fifteen paid cabinets, weighted rewards, cooldowns,
+configuration changes, all supported paid cabinets, weighted rewards, cooldowns,
 invalid interaction rejection, and preservation of idle state and disc playback.
 Physical pass-slot tests cover native insertion and shift-clicks, tab restrictions,
 reinserted-card stale requests, separate viewer inventories, close/break/logout/death
@@ -169,7 +173,10 @@ ONGEKI tests cover rotated placement and blocked placement, saved disc playback,
 single drops, neighbor isolation, and selection through the open arch to its monitor.
 NEMSYS tests cover disc use and persistence, one-item removal, all-facing placement,
 blocked placement, wing selection and the recessed monitor's open front space.
-All 133 passed on 2026-10-07.
+IIDX tests cover eight-cell placement, shared saved-disc playback, every break point
+and floor support, adjacent-cabinet isolation, blocked placement, world limits,
+and standing, stepping onto and walking across its low platform in every facing.
+All 141 passed on 2026-10-07.
 Visual checks and full-pack compatibility remain separate from these server tests.
 
 `SyncPack` overwrites files that exist in the source pack's configuration. Close the development

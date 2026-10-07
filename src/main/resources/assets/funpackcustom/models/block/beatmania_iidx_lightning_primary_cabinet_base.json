@@ -1,0 +1,22 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "neoforge:obj",
+  "model": "funpackcustom:models/block/beatmania_iidx_lightning_primary_cabinet_base.obj",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "emissive_ambient": true,
+  "ambientocclusion": true,
+  "render_type": "minecraft:solid",
+  "textures": {
+    "materials": "funpackcustom:block/beatmania_iidx_lightning_materials",
+    "controls": "funpackcustom:block/beatmania_iidx_lightning_controls",
+    "details": "funpackcustom:block/beatmania_iidx_lightning_details",
+    "floor": "funpackcustom:block/beatmania_iidx_lightning_floor",
+    "turntable": "funpackcustom:block/beatmania_iidx_lightning_turntable",
+    "display": "funpackcustom:block/beatmania_iidx_lightning_display",
+    "marquee": "funpackcustom:block/beatmania_iidx_lightning_marquee",
+    "banners": "funpackcustom:block/beatmania_iidx_lightning_banners",
+    "particle": "funpackcustom:block/beatmania_iidx_lightning_materials"
+  }
+}

@@ -40,7 +40,8 @@ public final class ArcadeEconomyConfig {
                 "Example: funpackcustom:initial_d|15|standard",
                 "BeatStream uses its own machine ID: funpackcustom:beatstream|10|standard",
                 "ONGEKI uses its own machine ID: funpackcustom:ongeki|10|standard",
-                "SOUND VOLTEX NEMSYS uses its own machine ID: funpackcustom:sound_voltex_nemsys|10|standard")
+                "SOUND VOLTEX NEMSYS uses its own machine ID: funpackcustom:sound_voltex_nemsys|10|standard",
+                "beatmania IIDX LIGHTNING MODEL uses its own machine ID: funpackcustom:beatmania_iidx_lightning|10|standard")
             .defineListAllowEmpty("machineOverrides", List.of(), ArcadeEconomyConfig::validMachine);
         builder.pop().comment("Prize Point costs; ordinary material recipes are intentionally absent.").push("prizes");
         PRICES.put("hatsune_miku_figure", builder.defineInRange("hatsune_miku_figure", 2500, 1, 1_000_000));

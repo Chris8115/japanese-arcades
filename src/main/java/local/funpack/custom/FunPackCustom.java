@@ -144,6 +144,14 @@ public final class FunPackCustom {
                 case REAR_CONSOLE, REAR_MARQUEE -> 12;
                 default -> 0;
             }));
+    public static final DeferredBlock<BeatmaniaIidxCabinetBlock> BEATMANIA_IIDX_LIGHTNING = BLOCKS.registerBlock(
+        "beatmania_iidx_lightning", BeatmaniaIidxCabinetBlock::new,
+        BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)
+            .sound(SoundType.METAL).noOcclusion().lightLevel(state -> switch (state.getValue(BeatmaniaIidxCabinetBlock.SECTION)) {
+                case CABINET_CONSOLE, CABINET_MARQUEE -> 13;
+                case PLATFORM -> 2;
+                case CABINET_BASE -> 4;
+            }));
     public static final DeferredBlock<InitialDCabinetBlock> INITIAL_D = BLOCKS.registerBlock(
         "initial_d", InitialDCabinetBlock::new,
         BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(2.0F, 6.0F)
@@ -164,7 +172,7 @@ public final class FunPackCustom {
         BLOCK_ENTITIES.register("nostalgia_jukebox", () -> BlockEntityType.Builder.of(
             NostalgiaJukeboxBlockEntity::new, NOSTALGIA_OP3.get(), BEATSTREAM.get(), SOUND_VOLTEX_VALKYRIE.get(), SOUND_VOLTEX_NEMSYS.get(),
             WACCA.get(), CHUNITHM.get(), ONGEKI.get(), GROOVE_COASTER.get(), MUSECA.get(), PROJECT_DIVA.get(),
-            CHRONO_CIRCLE.get(), MAIMAI.get(), DDR_SUPERNOVA.get(), TAIKO.get(), INITIAL_D.get(), JUBEAT.get()).build(null));
+            CHRONO_CIRCLE.get(), MAIMAI.get(), DDR_SUPERNOVA.get(), BEATMANIA_IIDX_LIGHTNING.get(), TAIKO.get(), INITIAL_D.get(), JUBEAT.get()).build(null));
     public static final DeferredItem<?> NOSTALGIA_OP3_ITEM =
         ITEMS.registerSimpleBlockItem("nostalgia_op3", NOSTALGIA_OP3, new Item.Properties());
     public static final DeferredItem<?> BEATSTREAM_ITEM =
@@ -191,6 +199,8 @@ public final class FunPackCustom {
         ITEMS.registerSimpleBlockItem("maimai", MAIMAI, new Item.Properties());
     public static final DeferredItem<?> DDR_SUPERNOVA_ITEM =
         ITEMS.registerSimpleBlockItem("ddr_supernova", DDR_SUPERNOVA, new Item.Properties());
+    public static final DeferredItem<?> BEATMANIA_IIDX_LIGHTNING_ITEM =
+        ITEMS.registerSimpleBlockItem("beatmania_iidx_lightning", BEATMANIA_IIDX_LIGHTNING, new Item.Properties());
     public static final DeferredItem<?> TAIKO_ITEM =
         ITEMS.registerSimpleBlockItem("taiko", TAIKO, new Item.Properties());
     public static final DeferredItem<?> INITIAL_D_ITEM =
@@ -249,6 +259,7 @@ public final class FunPackCustom {
                 output.accept(CHRONO_CIRCLE_ITEM.get());
                 output.accept(MAIMAI_ITEM.get());
                 output.accept(DDR_SUPERNOVA_ITEM.get());
+                output.accept(BEATMANIA_IIDX_LIGHTNING_ITEM.get());
                 output.accept(TAIKO_ITEM.get());
                 output.accept(INITIAL_D_ITEM.get());
                 output.accept(JUBEAT_ITEM.get());

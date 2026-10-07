@@ -54,6 +54,7 @@ public final class ArcadeOrderCatalog {
         machine("chrono_circle", FunPackCustom.CHRONO_CIRCLE_ITEM, 18, 4, 1, 8, 8),
         machine("maimai", FunPackCustom.MAIMAI_ITEM, 24, 6, 2, 8, 8),
         machine("ddr_supernova", FunPackCustom.DDR_SUPERNOVA_ITEM, 24, 6, 2, 8, 8),
+        machine("beatmania_iidx_lightning", FunPackCustom.BEATMANIA_IIDX_LIGHTNING_ITEM, 24, 6, 2, 8, 8),
         machine("taiko", FunPackCustom.TAIKO_ITEM, 20, 4, 1, 6, 6),
         machine("initial_d", FunPackCustom.INITIAL_D_ITEM, 20, 4, 1, 6, 6),
         machine("jubeat", FunPackCustom.JUBEAT_ITEM, 12, 2, 1, 4, 4),
