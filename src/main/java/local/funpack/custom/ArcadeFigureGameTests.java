@@ -44,7 +44,8 @@ public final class ArcadeFigureGameTests {
         helper.setBlock(BASE.below(), Blocks.STONE);
         for (var entry : ArcadePrizeCatalog.entries()) {
             Item item = entry.item().get();
-            var block = ((BlockItem)item).getBlock();
+            if (!(item instanceof BlockItem blockItem) || !(blockItem.getBlock() instanceof ArcadePrizeBlock)) { continue; }
+            var block = blockItem.getBlock();
             for (Direction facing : Direction.Plane.HORIZONTAL) {
                 helper.assertTrue(place(helper, player, item, BASE, facing), "Figure placement failed: " + entry.id() + " " + facing);
                 helper.assertTrue(player.getMainHandItem().getCount() == 1, "Survival placement did not consume one figure");

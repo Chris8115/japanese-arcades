@@ -261,9 +261,10 @@ public final class ArcadeEconomyTransactionGameTests {
     public static void arcadeEveryConfiguredPrizeChargesOnlyItsPointPrice(GameTestHelper helper) {
         ServerPlayer player = createPlayer(helper, "PassPrizes", GameType.SURVIVAL);
         ArcadeKioskMenu menu = setup(helper, player);
-        helper.assertTrue(ArcadePrizeCatalog.entries().size() == 2
+        helper.assertTrue(ArcadePrizeCatalog.entries().size() == 3
             && ArcadePrizeCatalog.find(id("hatsune_miku_figure")).isPresent()
-            && ArcadePrizeCatalog.find(id("kasane_teto_figure")).isPresent(), "The shop must offer both collectible figures");
+            && ArcadePrizeCatalog.find(id("kasane_teto_figure")).isPresent()
+            && ArcadePrizeCatalog.find(id("wacca_poster")).isPresent(), "The shop must offer both figures and the WACCA poster");
         for (var entry : ArcadePrizeCatalog.entries()) {
             player.getInventory().clearContent();
             int price = ArcadeEconomyConfig.prizePrice(entry.id());

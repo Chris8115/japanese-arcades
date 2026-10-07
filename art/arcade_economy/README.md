@@ -121,16 +121,24 @@ and all pass functionality. The [artwork notes](arcade-pass-artwork.md) retain
 the reference provenance and final image-generation prompt.
 The two small placeable prizes follow the user's Miku and Teto figure references.
 The pass is an inventory item; the figures are three-dimensional decorations.
+The WACCA poster uses the supplied artwork and hangs on a wall like a painting.
 
 | Prize ID | Display name | Default points |
 | --- | --- | ---: |
 | `hatsune_miku_figure` | Hatsune Miku Figure | 2,500 |
 | `kasane_teto_figure` | Kasane Teto Figure | 2,500 |
+| `wacca_poster` | WACCA Poster | 750 |
 
 Point prices are owned by the arcade economy configuration, not embedded in
 the models or `ArcadePrizeCatalog`. Prizes have no crafting recipes. Each drops
 one copy of its own item when normally broken. Figures have no block entity,
 playable game, music inventory, or reward interaction.
+
+The [WACCA poster](../wacca_poster/README.md) is 1 block wide and about 1⅜ blocks
+tall, with support from two vertical wall blocks. It always displays the same artwork and returns its own poster
+item when broken in survival, so it can be rehung. Ordinary paintings do not
+randomly select it. The full source image is preserved without cropping,
+stretching or added borders; the poster's shape follows the artwork's proportions.
 
 Both models fit inside one block, below Y15/16. The block class uses a shared
 compact X2–14, Y0–15, Z3–13 collision/selection envelope and horizontal facing.

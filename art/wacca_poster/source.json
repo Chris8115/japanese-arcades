@@ -1,0 +1,68 @@
+{
+  "source": {
+    "file": "source.jpg",
+    "original_filename": "WaccaPoster.jpg",
+    "sha256": "f5dee443fa819d42dd10de789c84380830009c1987970412c473074f1159f558",
+    "bytes": 1001082,
+    "dimensions": [
+      2979,
+      4096
+    ],
+    "mode": "RGB"
+  },
+  "output": {
+    "texture": "funpackcustom:painting/wacca_poster",
+    "file": "src/main/resources/assets/funpackcustom/textures/painting/wacca_poster.png",
+    "sha256": "02cf5b0c301813a675da7da13805b4337c90e42ac194807e8be1bbb6309b8175",
+    "dimensions": [
+      1024,
+      1408
+    ],
+    "mode": "RGB",
+    "item_texture": "funpackcustom:item/wacca_poster",
+    "item_file": "src/main/resources/assets/funpackcustom/textures/item/wacca_poster.png",
+    "item_sha256": "02cf5b0c301813a675da7da13805b4337c90e42ac194807e8be1bbb6309b8175"
+  },
+  "packing": {
+    "operation": "Uniform resize of the whole original image to1024pixels wide, without added padding",
+    "resampling": "Pillow LANCZOS",
+    "uniform_scale": 0.3437395099026519,
+    "scaled_dimensions": [
+      1024,
+      1408
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "integer_size_rounding": "Nearest integer pixel; no crop, stretching, border removal, or artwork changes"
+  },
+  "wall_support_grid_blocks": [
+    1,
+    2
+  ],
+  "visual_dimensions_blocks": [
+    1,
+    1.3749580396106076
+  ],
+  "item": {
+    "model": "funpackcustom:item/wacca_poster",
+    "face_dimensions": [
+      10.909423828125,
+      15
+    ],
+    "thickness": 0.12,
+    "texture_uv": [
+      0,
+      0,
+      16,
+      16
+    ]
+  }
+}

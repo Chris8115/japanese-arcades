@@ -60,7 +60,8 @@ new content is added. The **Passes** tab issues Arcade Passes, loads Credits fro
 iron, gold, emeralds or diamonds, and combines balances between cards placed in
 real **From** and **To** slots. Both cards return when the kiosk closes. Use a pass
 on a full-size arcade cabinet to spend Credits and earn randomized Prize Points,
-then redeem them in **Prizes** for placeable Miku and Teto figures. Prices, rank
+then redeem them in **Prizes** for placeable Miku and Teto figures or a
+[WACCA wall poster](art/wacca_poster/README.md). Prices, rank
 weights and machine profiles are server-configurable. See the
 [Arcade Pass economy guide](art/arcade_economy/README.md) for controls, defaults,
 configuration, transferable-card data and future loot support.
@@ -146,7 +147,9 @@ inventories, sloped selection and collision, disc ejection clearance, obstructed
 placement and support-loss cleanup.
 BeatStream tests cover disc use through every section, saved playback, all-facing
 placement beside Nostalgia, neighbor isolation, single drops and support-loss cleanup.
-All 112 passed on 2026-10-06.
+WACCA poster tests cover all four wall facings, fixed artwork, save/reload,
+survival and creative removal, support loss, blocked placement, and canceled spawns.
+All 116 passed on 2026-10-06.
 Visual checks and full-pack compatibility remain separate from these server tests.
 
 `SyncPack` overwrites files that exist in the source pack's configuration. Close the development

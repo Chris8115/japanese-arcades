@@ -51,6 +51,12 @@ public final class FunPackCustom {
     public static final DeferredBlock<ArcadePrizeBlock> KASANE_TETO_FIGURE = prizeBlock("kasane_teto_figure");
     public static final DeferredItem<?> HATSUNE_MIKU_FIGURE_ITEM = ITEMS.registerSimpleBlockItem("hatsune_miku_figure", HATSUNE_MIKU_FIGURE);
     public static final DeferredItem<?> KASANE_TETO_FIGURE_ITEM = ITEMS.registerSimpleBlockItem("kasane_teto_figure", KASANE_TETO_FIGURE);
+    public static final DeferredItem<WaccaPosterItem> WACCA_POSTER = ITEMS.registerItem(
+        "wacca_poster", WaccaPosterItem::new, new Item.Properties());
+    public static final DeferredHolder<EntityType<?>, EntityType<WaccaPosterEntity>> WACCA_POSTER_ENTITY =
+        ENTITIES.register("wacca_poster", () -> EntityType.Builder.<WaccaPosterEntity>of(
+            WaccaPosterEntity::new, MobCategory.MISC).sized(.5F, .5F).clientTrackingRange(10)
+            .updateInterval(Integer.MAX_VALUE).build(MOD_ID + ":wacca_poster"));
 
     private static DeferredBlock<ArcadePrizeBlock> prizeBlock(String name) {
         return BLOCKS.registerBlock(name, ArcadePrizeBlock::new, BlockBehaviour.Properties.of()
@@ -222,6 +228,7 @@ public final class FunPackCustom {
                 output.accept(ARCADE_PASS.get());
                 output.accept(HATSUNE_MIKU_FIGURE_ITEM.get());
                 output.accept(KASANE_TETO_FIGURE_ITEM.get());
+                output.accept(WACCA_POSTER.get());
             })
             .build());
 

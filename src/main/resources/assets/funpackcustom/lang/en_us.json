@@ -124,5 +124,10 @@
   "kiosk.pass.insert_both": "Insert both passes to transfer.",
   "kiosk.pass.new_hint": "New passes start empty.",
   "block.funpackcustom.hatsune_miku_figure": "Hatsune Miku Figure",
-  "block.funpackcustom.kasane_teto_figure": "Kasane Teto Figure"
+  "block.funpackcustom.kasane_teto_figure": "Kasane Teto Figure",
+  "item.funpackcustom.wacca_poster": "WACCA Poster",
+  "entity.funpackcustom.wacca_poster": "WACCA Poster",
+  "painting.funpackcustom.wacca_poster.title": "WACCA",
+  "painting.funpackcustom.wacca_poster.author": "Marvelous / HARDCORE TANO*C",
+  "tooltip.funpackcustom.wacca_poster": "Wall poster · 1 block wide, about 1⅜ blocks tall."
 }
