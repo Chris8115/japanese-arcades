@@ -15,7 +15,7 @@ from PIL import Image
 from beatstream_cabinet_geometry import build_cabinet
 from beatstream_console_geometry import build_console, build_marquee
 from beatstream_surface_art import PALETTE, build_surface_art
-from beatstream_speaker_geometry import build_speakers
+from beatstream_speaker_geometry import build_speakers, build_separator
 
 ROOT=Path(__file__).resolve().parents[1]
 ASSETS=ROOT/'src/main/resources/assets/funpackcustom'
@@ -106,7 +106,7 @@ def cutout_sprite(name,start,end,material,*,group='Diecut topper'):
 build_cabinet(cube,uv)
 build_console(cube,uv)
 build_marquee(cube,cutout_sprite)
-mesh_faces=build_speakers(uv)
+mesh_faces=build_speakers(uv)+build_separator(uv)
 texture_paths={key:'funpackcustom:block/beatstream_'+key for key in ('materials','screens','topper','trim','controls','side','triangle','speaker')}
 texture_paths['particle']=texture_paths['materials']
 
@@ -262,5 +262,5 @@ write_json(ART/'beatstream.bbmodel',
                          'origin':[8,0,8],'children':children} for name,children in groups.items()]})
 write_json(ART/'geometry.json', {'textures':texture_paths,'elements':elements,'meshes':mesh_faces})
 print('Generated',len(elements),'cuboids; section counts:',{name:len(values) for name,values in parts.items()})
-print('Rigid speaker polygons:',len(mesh_faces))
+print('Rigid speaker and separator polygons:',len(mesh_faces))
 print('Editable model:',ART/'beatstream.bbmodel')

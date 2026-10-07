@@ -16662,7 +16662,7 @@
           }
         },
         {
-          "name": "Left continuous white screen-to-speaker shoulder",
+          "name": "Left white lower speaker shoulder",
           "from": [
             10.366,
             9.275,
@@ -16670,7 +16670,7 @@
           ],
           "to": [
             10.52,
-            10.78,
+            9.89679,
             6.488
           ],
           "faces": {
@@ -16741,7 +16741,86 @@
           }
         },
         {
-          "name": "Right continuous white screen-to-speaker shoulder",
+          "name": "Left black upper speaker shoulder",
+          "from": [
+            10.366,
+            9.89679,
+            6.0365
+          ],
+          "to": [
+            10.52,
+            10.78,
+            6.488
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "south": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          },
+          "rotation": {
+            "axis": "x",
+            "angle": 22.5,
+            "origin": [
+              8.0,
+              6.6850000000000005,
+              6.18
+            ],
+            "rescale": false
+          }
+        },
+        {
+          "name": "Right white lower speaker shoulder",
           "from": [
             5.48,
             9.275,
@@ -16749,7 +16828,7 @@
           ],
           "to": [
             5.634,
-            10.78,
+            9.89679,
             6.488
           ],
           "faces": {
@@ -16803,6 +16882,85 @@
                 4,
                 0,
                 8,
+                4
+              ],
+              "texture": "#materials"
+            }
+          },
+          "rotation": {
+            "axis": "x",
+            "angle": 22.5,
+            "origin": [
+              8.0,
+              6.6850000000000005,
+              6.18
+            ],
+            "rescale": false
+          }
+        },
+        {
+          "name": "Right black upper speaker shoulder",
+          "from": [
+            5.48,
+            9.89679,
+            6.0365
+          ],
+          "to": [
+            5.634,
+            10.78,
+            6.488
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "south": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                0,
+                0,
+                4,
                 4
               ],
               "texture": "#materials"
@@ -16886,164 +17044,6 @@
               ],
               "texture": "#materials"
             }
-          }
-        },
-        {
-          "name": "Shallow white speaker shelf",
-          "from": [
-            6.6,
-            9.1,
-            7.5625
-          ],
-          "to": [
-            9.4,
-            9.352,
-            8.3325
-          ],
-          "faces": {
-            "north": {
-              "uv": [
-                4,
-                0,
-                8,
-                4
-              ],
-              "texture": "#materials"
-            },
-            "east": {
-              "uv": [
-                4,
-                0,
-                8,
-                4
-              ],
-              "texture": "#materials"
-            },
-            "south": {
-              "uv": [
-                4,
-                0,
-                8,
-                4
-              ],
-              "texture": "#materials"
-            },
-            "west": {
-              "uv": [
-                4,
-                0,
-                8,
-                4
-              ],
-              "texture": "#materials"
-            },
-            "up": {
-              "uv": [
-                4,
-                0,
-                8,
-                4
-              ],
-              "texture": "#materials"
-            },
-            "down": {
-              "uv": [
-                4,
-                0,
-                8,
-                4
-              ],
-              "texture": "#materials"
-            }
-          },
-          "rotation": {
-            "axis": "x",
-            "angle": 22.5,
-            "origin": [
-              8.0,
-              9.1,
-              7.4575
-            ],
-            "rescale": false
-          }
-        },
-        {
-          "name": "Recessed plain black speaker backband",
-          "from": [
-            6.6,
-            9.352,
-            7.685
-          ],
-          "to": [
-            9.4,
-            10.43,
-            8.3325
-          ],
-          "faces": {
-            "north": {
-              "uv": [
-                0,
-                0,
-                4,
-                4
-              ],
-              "texture": "#materials"
-            },
-            "east": {
-              "uv": [
-                0,
-                0,
-                4,
-                4
-              ],
-              "texture": "#materials"
-            },
-            "south": {
-              "uv": [
-                0,
-                0,
-                4,
-                4
-              ],
-              "texture": "#materials"
-            },
-            "west": {
-              "uv": [
-                0,
-                0,
-                4,
-                4
-              ],
-              "texture": "#materials"
-            },
-            "up": {
-              "uv": [
-                0,
-                0,
-                4,
-                4
-              ],
-              "texture": "#materials"
-            },
-            "down": {
-              "uv": [
-                0,
-                0,
-                4,
-                4
-              ],
-              "texture": "#materials"
-            }
-          },
-          "rotation": {
-            "axis": "x",
-            "angle": 22.5,
-            "origin": [
-              8.0,
-              9.1,
-              7.4575
-            ],
-            "rescale": false
           }
         },
         {

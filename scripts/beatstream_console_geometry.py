@@ -36,21 +36,20 @@ def build_console(cube, uv):
         for y in (18.42,26.43):
             cube('Touchscreen screw '+str((x,y)),(x+.06,y,2.21),(x+.18,y+.14,2.28),'black_key',rotation=tilt,group='Touchscreen hardware')
 
-    # The white lower-screen surround continues beside both triangular speakers.
-    # These are single rigid shoulder pieces on the same screen slope. Their
-    # deep upper returns physically overlap the black monitor surround atY29.5,
-    # while the front ends reach each triangle's outer top corner atY30.02.
+    # The outer surround changes from white to black on the horizontal line
+    # through the inward speaker tips. The white portion belongs to the lower
+    # touchscreen; the black portion continues down from the upper monitor.
+    seam_y=19.1+(27.73492062465493-19.1+(2.39-2.8)*math.sin(math.radians(22.5)))/math.cos(math.radians(22.5))
     for side,x0,x1 in (('Left',.80,1.24),('Right',14.76,15.20)):
-        cube(side+' continuous white screen-to-speaker shoulder',
-             (x0,26.50,2.39),(x1,30.80,3.68),'ivory',rotation=tilt,group='Touchscreen trim')
+        cube(side+' white lower speaker shoulder',
+             (x0,26.50,2.39),(x1,seam_y,3.68),'ivory',rotation=tilt,group='Touchscreen trim')
+        cube(side+' black upper speaker shoulder',
+             (x0,seam_y,2.39),(x1,30.80,3.68),'black',rotation=tilt,group='Touchscreen trim')
 
     cube('Speaker fascia rear support',(1,25.9,7.75),(15,29.83,10),group='Speaker enclosure')
-    speaker_tilt=('x',22.5,(8,26,6.45))
-    # This is a plain recessed connector, not Nostalgia's raised center plaque.
-    cube('Shallow white speaker shelf',(4.0,26.0,6.75),(12,26.72,8.95),'ivory',rotation=speaker_tilt,group='Speaker enclosure')
-    cube('Recessed plain black speaker backband',(4.0,26.72,7.10),(12,29.8,8.95),'black',rotation=speaker_tilt,group='Speaker enclosure')
-    # Compound-angle rigid speaker meshes are emitted separately by
-    # beatstream_speaker_geometry; no stair-step cuboid rims remain.
+    # The broad white bridge and black upper transition use two simple planar
+    # meshes, meeting exactly at the unchanged inward speaker-tip line. They
+    # replace the former recessed valley and tiny shelf, without a center plaque.
 
     cube('Upper display black chassis',(.80,29.5,8.10),(15.20,39.45,10.30),group='Upper monitor')
     cube('Upper display black surround',(.68,29.5,7.84),(15.32,39.45,8.35),'black',group='Upper monitor')

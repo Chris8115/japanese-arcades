@@ -52,3 +52,35 @@ def build_speakers(material_uv):
         art_uv=[[(x-x0)/(x1-x0)*16 if not flip else (x1-x)/(x1-x0)*16,(29.8-y)/3.8*16] for x,y in triangle]
         face('continuous cyan grille',front_art,'#speaker',art_uv,True)
     return faces
+
+
+def build_separator(material_uv):
+    """Two continuous flat plates join the screens at the inward triangle tips."""
+    faces=[]
+    seam_y=27.73492062465493
+    seam_z=7.245
+    # These are cabinet-world coordinates, independent of the mirrored author
+    # convention. Both front faces share exactly the same full-width seam edge.
+    panels=(
+        ('Broad white lower display bridge','ivory',
+         [[.8,26.35,5.30],[15.2,26.35,5.30],[15.2,seam_y,seam_z],[.8,seam_y,seam_z]],
+         [0,-.16,.12]),
+        ('Black upper display transition','black',
+         [[.8,seam_y,seam_z],[15.2,seam_y,seam_z],[15.2,29.62,7.77],[.8,29.62,7.77]],
+         [0,0,.12]),
+    )
+    for name,material,front,offset in panels:
+        back=[[p[i]+offset[i] for i in range(3)] for p in front]
+        center=[sum(p[i] for p in front+back)/8 for i in range(3)]
+        tile=material_uv(material)
+        pixel=[(tile[0]+tile[2])/2,(tile[1]+tile[3])/2]
+        polygons=[('front',front),('back',back)]+[('edge %d'%i,[front[i],back[i],back[(i+1)%4],front[(i+1)%4]])for i in range(4)]
+        for label,points in polygons:
+            a,b,c=points[:3]
+            u=[b[i]-a[i] for i in range(3)];v=[c[i]-a[i] for i in range(3)]
+            normal=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]]
+            outside=[sum(p[i] for p in points)/len(points)-center[i] for i in range(3)]
+            if sum(normal[i]*outside[i] for i in range(3))<0:points=list(reversed(points))
+            faces.append({'name':name+' '+label,'vertices':points,'uv':[pixel[:] for _ in points],
+                          'texture':'#materials','glow':False,'group':'White-black display separator'})
+    return faces

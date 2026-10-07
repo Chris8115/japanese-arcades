@@ -20521,9 +20521,9 @@
       "shade": true
     },
     {
-      "name": "Left continuous white screen-to-speaker shoulder",
+      "name": "Left white lower speaker shoulder",
       "type": "cube",
-      "uuid": "5a0b8398-950a-545a-b9c1-89250dd5ee42",
+      "uuid": "89d4d62e-863d-5794-b368-95b7bba7bd02",
       "from": [
         14.76,
         26.5,
@@ -20531,7 +20531,7 @@
       ],
       "to": [
         15.2,
-        30.8,
+        28.276543173697455,
         3.68
       ],
       "origin": [
@@ -20609,9 +20609,97 @@
       "shade": true
     },
     {
-      "name": "Right continuous white screen-to-speaker shoulder",
+      "name": "Left black upper speaker shoulder",
       "type": "cube",
-      "uuid": "22715701-6a77-5e49-a504-db648aeda8a8",
+      "uuid": "c5c8b223-32d4-5d34-a269-8bbe09a63dd4",
+      "from": [
+        14.76,
+        28.276543173697455,
+        2.39
+      ],
+      "to": [
+        15.2,
+        30.8,
+        3.68
+      ],
+      "origin": [
+        8,
+        19.1,
+        2.8
+      ],
+      "rotation": [
+        22.5,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            0.0,
+            64.0,
+            64.0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0.0,
+            0.0,
+            64.0,
+            64.0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0.0,
+            0.0,
+            64.0,
+            64.0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0.0,
+            0.0,
+            64.0,
+            64.0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0.0,
+            0.0,
+            64.0,
+            64.0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0.0,
+            0.0,
+            64.0,
+            64.0
+          ],
+          "texture": 0
+        }
+      },
+      "box_uv": false,
+      "color": 1,
+      "rescale": false,
+      "autouv": 0,
+      "visibility": true,
+      "export": true,
+      "shade": true
+    },
+    {
+      "name": "Right white lower speaker shoulder",
+      "type": "cube",
+      "uuid": "f88a70fa-1804-5cca-9d43-da8d75b9cf6c",
       "from": [
         0.8000000000000007,
         26.5,
@@ -20619,7 +20707,7 @@
       ],
       "to": [
         1.2400000000000002,
-        30.8,
+        28.276543173697455,
         3.68
       ],
       "origin": [
@@ -20683,6 +20771,94 @@
             64.0,
             0.0,
             128.0,
+            64.0
+          ],
+          "texture": 0
+        }
+      },
+      "box_uv": false,
+      "color": 1,
+      "rescale": false,
+      "autouv": 0,
+      "visibility": true,
+      "export": true,
+      "shade": true
+    },
+    {
+      "name": "Right black upper speaker shoulder",
+      "type": "cube",
+      "uuid": "dcb00965-4325-5ed0-b095-655a96f97042",
+      "from": [
+        0.8000000000000007,
+        28.276543173697455,
+        2.39
+      ],
+      "to": [
+        1.2400000000000002,
+        30.8,
+        3.68
+      ],
+      "origin": [
+        8,
+        19.1,
+        2.8
+      ],
+      "rotation": [
+        22.5,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            0.0,
+            64.0,
+            64.0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0.0,
+            0.0,
+            64.0,
+            64.0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0.0,
+            0.0,
+            64.0,
+            64.0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0.0,
+            0.0,
+            64.0,
+            64.0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0.0,
+            0.0,
+            64.0,
+            64.0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0.0,
+            0.0,
+            64.0,
             64.0
           ],
           "texture": 0
@@ -20717,182 +20893,6 @@
       ],
       "rotation": [
         0,
-        0,
-        0
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            0.0,
-            0.0,
-            64.0,
-            64.0
-          ],
-          "texture": 0
-        },
-        "east": {
-          "uv": [
-            0.0,
-            0.0,
-            64.0,
-            64.0
-          ],
-          "texture": 0
-        },
-        "south": {
-          "uv": [
-            0.0,
-            0.0,
-            64.0,
-            64.0
-          ],
-          "texture": 0
-        },
-        "west": {
-          "uv": [
-            0.0,
-            0.0,
-            64.0,
-            64.0
-          ],
-          "texture": 0
-        },
-        "up": {
-          "uv": [
-            0.0,
-            0.0,
-            64.0,
-            64.0
-          ],
-          "texture": 0
-        },
-        "down": {
-          "uv": [
-            0.0,
-            0.0,
-            64.0,
-            64.0
-          ],
-          "texture": 0
-        }
-      },
-      "box_uv": false,
-      "color": 1,
-      "rescale": false,
-      "autouv": 0,
-      "visibility": true,
-      "export": true,
-      "shade": true
-    },
-    {
-      "name": "Shallow white speaker shelf",
-      "type": "cube",
-      "uuid": "5ec5ccd0-6437-5487-b8ac-c8fdd302809d",
-      "from": [
-        4,
-        26.0,
-        6.75
-      ],
-      "to": [
-        12.0,
-        26.72,
-        8.95
-      ],
-      "origin": [
-        8,
-        26,
-        6.45
-      ],
-      "rotation": [
-        22.5,
-        0,
-        0
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            64.0,
-            0.0,
-            128.0,
-            64.0
-          ],
-          "texture": 0
-        },
-        "east": {
-          "uv": [
-            64.0,
-            0.0,
-            128.0,
-            64.0
-          ],
-          "texture": 0
-        },
-        "south": {
-          "uv": [
-            64.0,
-            0.0,
-            128.0,
-            64.0
-          ],
-          "texture": 0
-        },
-        "west": {
-          "uv": [
-            64.0,
-            0.0,
-            128.0,
-            64.0
-          ],
-          "texture": 0
-        },
-        "up": {
-          "uv": [
-            64.0,
-            0.0,
-            128.0,
-            64.0
-          ],
-          "texture": 0
-        },
-        "down": {
-          "uv": [
-            64.0,
-            0.0,
-            128.0,
-            64.0
-          ],
-          "texture": 0
-        }
-      },
-      "box_uv": false,
-      "color": 1,
-      "rescale": false,
-      "autouv": 0,
-      "visibility": true,
-      "export": true,
-      "shade": true
-    },
-    {
-      "name": "Recessed plain black speaker backband",
-      "type": "cube",
-      "uuid": "1020be8e-3e78-5c20-82a3-f32660133f8b",
-      "from": [
-        4,
-        26.72,
-        7.1
-      ],
-      "to": [
-        12.0,
-        29.8,
-        8.95
-      ],
-      "origin": [
-        8,
-        26,
-        6.45
-      ],
-      "rotation": [
-        22.5,
         0,
         0
       ],
@@ -26291,6 +26291,822 @@
       },
       "visibility": true,
       "export": true
+    },
+    {
+      "name": "Broad white lower display bridge front",
+      "type": "mesh",
+      "uuid": "5de7c393-fcb0-53b8-a22f-c7235b82e4e6",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": {
+        "v0": [
+          0.8,
+          27.73492062465493,
+          7.245
+        ],
+        "v1": [
+          15.2,
+          27.73492062465493,
+          7.245
+        ],
+        "v2": [
+          15.2,
+          26.35,
+          5.3
+        ],
+        "v3": [
+          0.8,
+          26.35,
+          5.3
+        ]
+      },
+      "faces": {
+        "face": {
+          "vertices": [
+            "v0",
+            "v1",
+            "v2",
+            "v3"
+          ],
+          "texture": 0,
+          "uv": {
+            "v0": [
+              96.0,
+              32.0
+            ],
+            "v1": [
+              96.0,
+              32.0
+            ],
+            "v2": [
+              96.0,
+              32.0
+            ],
+            "v3": [
+              96.0,
+              32.0
+            ]
+          }
+        }
+      },
+      "visibility": true,
+      "export": true
+    },
+    {
+      "name": "Broad white lower display bridge back",
+      "type": "mesh",
+      "uuid": "197c01ae-7ba0-5a1b-a1d2-39cad1c5f043",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": {
+        "v0": [
+          0.8,
+          26.19,
+          5.42
+        ],
+        "v1": [
+          15.2,
+          26.19,
+          5.42
+        ],
+        "v2": [
+          15.2,
+          27.57492062465493,
+          7.365
+        ],
+        "v3": [
+          0.8,
+          27.57492062465493,
+          7.365
+        ]
+      },
+      "faces": {
+        "face": {
+          "vertices": [
+            "v0",
+            "v1",
+            "v2",
+            "v3"
+          ],
+          "texture": 0,
+          "uv": {
+            "v0": [
+              96.0,
+              32.0
+            ],
+            "v1": [
+              96.0,
+              32.0
+            ],
+            "v2": [
+              96.0,
+              32.0
+            ],
+            "v3": [
+              96.0,
+              32.0
+            ]
+          }
+        }
+      },
+      "visibility": true,
+      "export": true
+    },
+    {
+      "name": "Broad white lower display bridge edge 0",
+      "type": "mesh",
+      "uuid": "ee6714ac-3d3c-5698-b977-8d95e3d509d3",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": {
+        "v0": [
+          15.2,
+          26.35,
+          5.3
+        ],
+        "v1": [
+          15.2,
+          26.19,
+          5.42
+        ],
+        "v2": [
+          0.8,
+          26.19,
+          5.42
+        ],
+        "v3": [
+          0.8,
+          26.35,
+          5.3
+        ]
+      },
+      "faces": {
+        "face": {
+          "vertices": [
+            "v0",
+            "v1",
+            "v2",
+            "v3"
+          ],
+          "texture": 0,
+          "uv": {
+            "v0": [
+              96.0,
+              32.0
+            ],
+            "v1": [
+              96.0,
+              32.0
+            ],
+            "v2": [
+              96.0,
+              32.0
+            ],
+            "v3": [
+              96.0,
+              32.0
+            ]
+          }
+        }
+      },
+      "visibility": true,
+      "export": true
+    },
+    {
+      "name": "Broad white lower display bridge edge 1",
+      "type": "mesh",
+      "uuid": "687586b8-6fb6-5a0c-97fc-a6242ff9be41",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": {
+        "v0": [
+          15.2,
+          27.73492062465493,
+          7.245
+        ],
+        "v1": [
+          15.2,
+          27.57492062465493,
+          7.365
+        ],
+        "v2": [
+          15.2,
+          26.19,
+          5.42
+        ],
+        "v3": [
+          15.2,
+          26.35,
+          5.3
+        ]
+      },
+      "faces": {
+        "face": {
+          "vertices": [
+            "v0",
+            "v1",
+            "v2",
+            "v3"
+          ],
+          "texture": 0,
+          "uv": {
+            "v0": [
+              96.0,
+              32.0
+            ],
+            "v1": [
+              96.0,
+              32.0
+            ],
+            "v2": [
+              96.0,
+              32.0
+            ],
+            "v3": [
+              96.0,
+              32.0
+            ]
+          }
+        }
+      },
+      "visibility": true,
+      "export": true
+    },
+    {
+      "name": "Broad white lower display bridge edge 2",
+      "type": "mesh",
+      "uuid": "ccd0e7e4-25dc-509a-bdd8-5f793e2ad073",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": {
+        "v0": [
+          0.8,
+          27.73492062465493,
+          7.245
+        ],
+        "v1": [
+          0.8,
+          27.57492062465493,
+          7.365
+        ],
+        "v2": [
+          15.2,
+          27.57492062465493,
+          7.365
+        ],
+        "v3": [
+          15.2,
+          27.73492062465493,
+          7.245
+        ]
+      },
+      "faces": {
+        "face": {
+          "vertices": [
+            "v0",
+            "v1",
+            "v2",
+            "v3"
+          ],
+          "texture": 0,
+          "uv": {
+            "v0": [
+              96.0,
+              32.0
+            ],
+            "v1": [
+              96.0,
+              32.0
+            ],
+            "v2": [
+              96.0,
+              32.0
+            ],
+            "v3": [
+              96.0,
+              32.0
+            ]
+          }
+        }
+      },
+      "visibility": true,
+      "export": true
+    },
+    {
+      "name": "Broad white lower display bridge edge 3",
+      "type": "mesh",
+      "uuid": "b0810f07-6ae1-5c90-a8cb-0ef781158052",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": {
+        "v0": [
+          0.8,
+          26.35,
+          5.3
+        ],
+        "v1": [
+          0.8,
+          26.19,
+          5.42
+        ],
+        "v2": [
+          0.8,
+          27.57492062465493,
+          7.365
+        ],
+        "v3": [
+          0.8,
+          27.73492062465493,
+          7.245
+        ]
+      },
+      "faces": {
+        "face": {
+          "vertices": [
+            "v0",
+            "v1",
+            "v2",
+            "v3"
+          ],
+          "texture": 0,
+          "uv": {
+            "v0": [
+              96.0,
+              32.0
+            ],
+            "v1": [
+              96.0,
+              32.0
+            ],
+            "v2": [
+              96.0,
+              32.0
+            ],
+            "v3": [
+              96.0,
+              32.0
+            ]
+          }
+        }
+      },
+      "visibility": true,
+      "export": true
+    },
+    {
+      "name": "Black upper display transition front",
+      "type": "mesh",
+      "uuid": "e8d7d602-4892-5a12-a8a7-44630e73ad61",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": {
+        "v0": [
+          0.8,
+          29.62,
+          7.77
+        ],
+        "v1": [
+          15.2,
+          29.62,
+          7.77
+        ],
+        "v2": [
+          15.2,
+          27.73492062465493,
+          7.245
+        ],
+        "v3": [
+          0.8,
+          27.73492062465493,
+          7.245
+        ]
+      },
+      "faces": {
+        "face": {
+          "vertices": [
+            "v0",
+            "v1",
+            "v2",
+            "v3"
+          ],
+          "texture": 0,
+          "uv": {
+            "v0": [
+              32.0,
+              32.0
+            ],
+            "v1": [
+              32.0,
+              32.0
+            ],
+            "v2": [
+              32.0,
+              32.0
+            ],
+            "v3": [
+              32.0,
+              32.0
+            ]
+          }
+        }
+      },
+      "visibility": true,
+      "export": true
+    },
+    {
+      "name": "Black upper display transition back",
+      "type": "mesh",
+      "uuid": "adeed0a9-5067-5730-a597-1dfd62e275f0",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": {
+        "v0": [
+          0.8,
+          27.73492062465493,
+          7.365
+        ],
+        "v1": [
+          15.2,
+          27.73492062465493,
+          7.365
+        ],
+        "v2": [
+          15.2,
+          29.62,
+          7.89
+        ],
+        "v3": [
+          0.8,
+          29.62,
+          7.89
+        ]
+      },
+      "faces": {
+        "face": {
+          "vertices": [
+            "v0",
+            "v1",
+            "v2",
+            "v3"
+          ],
+          "texture": 0,
+          "uv": {
+            "v0": [
+              32.0,
+              32.0
+            ],
+            "v1": [
+              32.0,
+              32.0
+            ],
+            "v2": [
+              32.0,
+              32.0
+            ],
+            "v3": [
+              32.0,
+              32.0
+            ]
+          }
+        }
+      },
+      "visibility": true,
+      "export": true
+    },
+    {
+      "name": "Black upper display transition edge 0",
+      "type": "mesh",
+      "uuid": "7b2c9b53-7a80-5632-a774-dbbb89927481",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": {
+        "v0": [
+          15.2,
+          27.73492062465493,
+          7.245
+        ],
+        "v1": [
+          15.2,
+          27.73492062465493,
+          7.365
+        ],
+        "v2": [
+          0.8,
+          27.73492062465493,
+          7.365
+        ],
+        "v3": [
+          0.8,
+          27.73492062465493,
+          7.245
+        ]
+      },
+      "faces": {
+        "face": {
+          "vertices": [
+            "v0",
+            "v1",
+            "v2",
+            "v3"
+          ],
+          "texture": 0,
+          "uv": {
+            "v0": [
+              32.0,
+              32.0
+            ],
+            "v1": [
+              32.0,
+              32.0
+            ],
+            "v2": [
+              32.0,
+              32.0
+            ],
+            "v3": [
+              32.0,
+              32.0
+            ]
+          }
+        }
+      },
+      "visibility": true,
+      "export": true
+    },
+    {
+      "name": "Black upper display transition edge 1",
+      "type": "mesh",
+      "uuid": "8f3409ea-6a44-5775-89c4-2b2670ea6dd2",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": {
+        "v0": [
+          15.2,
+          29.62,
+          7.77
+        ],
+        "v1": [
+          15.2,
+          29.62,
+          7.89
+        ],
+        "v2": [
+          15.2,
+          27.73492062465493,
+          7.365
+        ],
+        "v3": [
+          15.2,
+          27.73492062465493,
+          7.245
+        ]
+      },
+      "faces": {
+        "face": {
+          "vertices": [
+            "v0",
+            "v1",
+            "v2",
+            "v3"
+          ],
+          "texture": 0,
+          "uv": {
+            "v0": [
+              32.0,
+              32.0
+            ],
+            "v1": [
+              32.0,
+              32.0
+            ],
+            "v2": [
+              32.0,
+              32.0
+            ],
+            "v3": [
+              32.0,
+              32.0
+            ]
+          }
+        }
+      },
+      "visibility": true,
+      "export": true
+    },
+    {
+      "name": "Black upper display transition edge 2",
+      "type": "mesh",
+      "uuid": "a19a11c6-2695-5197-bcd4-574d6ebda808",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": {
+        "v0": [
+          0.8,
+          29.62,
+          7.77
+        ],
+        "v1": [
+          0.8,
+          29.62,
+          7.89
+        ],
+        "v2": [
+          15.2,
+          29.62,
+          7.89
+        ],
+        "v3": [
+          15.2,
+          29.62,
+          7.77
+        ]
+      },
+      "faces": {
+        "face": {
+          "vertices": [
+            "v0",
+            "v1",
+            "v2",
+            "v3"
+          ],
+          "texture": 0,
+          "uv": {
+            "v0": [
+              32.0,
+              32.0
+            ],
+            "v1": [
+              32.0,
+              32.0
+            ],
+            "v2": [
+              32.0,
+              32.0
+            ],
+            "v3": [
+              32.0,
+              32.0
+            ]
+          }
+        }
+      },
+      "visibility": true,
+      "export": true
+    },
+    {
+      "name": "Black upper display transition edge 3",
+      "type": "mesh",
+      "uuid": "d126966b-0dc4-5b82-9e96-074198e68670",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": {
+        "v0": [
+          0.8,
+          27.73492062465493,
+          7.245
+        ],
+        "v1": [
+          0.8,
+          27.73492062465493,
+          7.365
+        ],
+        "v2": [
+          0.8,
+          29.62,
+          7.89
+        ],
+        "v3": [
+          0.8,
+          29.62,
+          7.77
+        ]
+      },
+      "faces": {
+        "face": {
+          "vertices": [
+            "v0",
+            "v1",
+            "v2",
+            "v3"
+          ],
+          "texture": 0,
+          "uv": {
+            "v0": [
+              32.0,
+              32.0
+            ],
+            "v1": [
+              32.0,
+              32.0
+            ],
+            "v2": [
+              32.0,
+              32.0
+            ],
+            "v3": [
+              32.0,
+              32.0
+            ]
+          }
+        }
+      },
+      "visibility": true,
+      "export": true
     }
   ],
   "textures": [
@@ -26791,8 +27607,10 @@
       "children": [
         "a66693ce-c093-54c8-a72e-6e96edc18b80",
         "c3644869-5aa9-59df-b6ae-607e059769c7",
-        "5a0b8398-950a-545a-b9c1-89250dd5ee42",
-        "22715701-6a77-5e49-a504-db648aeda8a8"
+        "89d4d62e-863d-5794-b368-95b7bba7bd02",
+        "c5c8b223-32d4-5d34-a269-8bbe09a63dd4",
+        "f88a70fa-1804-5cca-9d43-da8d75b9cf6c",
+        "dcb00965-4325-5ed0-b095-655a96f97042"
       ]
     },
     {
@@ -26819,9 +27637,7 @@
         8
       ],
       "children": [
-        "61bd2fd3-12e8-59ea-a123-f6593d7a5ce8",
-        "5ec5ccd0-6437-5487-b8ac-c8fdd302809d",
-        "1020be8e-3e78-5c20-82a3-f32660133f8b"
+        "61bd2fd3-12e8-59ea-a123-f6593d7a5ce8"
       ]
     },
     {
@@ -26952,6 +27768,29 @@
         "dc617eaa-eadd-5574-bb8a-d12654b13c92",
         "3e4f2a11-dee5-51bf-9d7b-0b1c1634bf0a",
         "f7b37008-a909-51c1-9a5a-71cfd5c2da00"
+      ]
+    },
+    {
+      "name": "White-black display separator",
+      "uuid": "9a4a15cb-f6a7-5a9a-8d3d-f8a79cfb7270",
+      "origin": [
+        8,
+        0,
+        8
+      ],
+      "children": [
+        "5de7c393-fcb0-53b8-a22f-c7235b82e4e6",
+        "197c01ae-7ba0-5a1b-a1d2-39cad1c5f043",
+        "ee6714ac-3d3c-5698-b977-8d95e3d509d3",
+        "687586b8-6fb6-5a0c-97fc-a6242ff9be41",
+        "ccd0e7e4-25dc-509a-bdd8-5f793e2ad073",
+        "b0810f07-6ae1-5c90-a8cb-0ef781158052",
+        "e8d7d602-4892-5a12-a8a7-44630e73ad61",
+        "adeed0a9-5067-5730-a597-1dfd62e275f0",
+        "7b2c9b53-7a80-5632-a774-dbbb89927481",
+        "8f3409ea-6a44-5775-89c4-2b2670ea6dd2",
+        "a19a11c6-2695-5197-bcd4-574d6ebda808",
+        "d126966b-0dc4-5b82-9e96-074198e68670"
       ]
     }
   ]

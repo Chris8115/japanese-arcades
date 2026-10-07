@@ -13,10 +13,10 @@ The central Nostalgia plaque, piano keys, gold ornament and book decoration are 
 A larger inclined touch display reaches down toward a flat white front strip.
 BeatStream has its own upper screen, lower touch-screen artwork, patterned trim,
 and a thin die-cut illustrated topper based on the supplied photographs.
-The white lower-screen surround continues up beside the speaker triangles and
-meets the upper screen's black surround. Its shoulder pieces align flush with
-the existing white frame, with no gap at the join.
-The export contains 290 cuboids and twelve speaker-mesh polygons. Its visual bounds are X 0.20–15.75,
+The white lower-screen surround forms a broad bridge beneath the speaker triangles.
+Its upper edge meets the black upper surround at the triangles' inward points;
+the outer trim is white below that seam and black above it.
+The export contains 290 cuboids and 24 speaker/separator mesh polygons. Its visual bounds are X 0.20–15.75,
 Y 0–47.65 and Z 0–15.355 model units, fitting inside a 1×1×3 block column.
 
 ## Obtain and use
@@ -52,7 +52,8 @@ The entry points are `scripts/make_beatstream_model.py` and
 `scripts/render_beatstream_model.py`. Apply lasting geometry changes to the source
 scripts; regenerating replaces the exported assets and editable model.
 `scripts/beatstream_speaker_geometry.py` supplies the two rigid triangular speaker
-housings. The console and item models combine these meshes with their native cuboids.
+housings and the flat white/black connecting panels. The console and item models
+combine these meshes with their native cuboids.
 
 ```powershell
 & 'python' scripts/make_beatstream_model.py
@@ -64,7 +65,7 @@ housings. The console and item models combine these meshes with their native cub
 The cabinet is decorative with simulated Arcade Pass results; it does not implement
 BeatStream rhythm gameplay. Illuminated faces remain bright, while bloom depends
 on the active shader. The exported model combines native Minecraft cuboids with
-two triangular speaker meshes.
+the triangular speakers and connecting-panel meshes.
 
 ## Verification
 
@@ -88,9 +89,10 @@ passed in both the small client and the copied 218-mod pack; this visual revisio
 changes model resources only.
 
 The rigid speaker meshes also passed a resource-only check under the copied pack's
-shaders. `native-pack-*.png` captures that version, before the final white shoulder
-extensions. The final shoulder build passes the small-client visual check; its
-only differences from the pack-tested JAR are the console and item JSON models.
-Java classes, speaker meshes and textures are identical. The full-pack check needed
+shaders. `native-pack-*.png` captures that version, before the final white bridge
+and surround join. The final trim build passes the small-client visual check; its
+only differences from the pack-tested JAR are the console/item JSON and OBJ models.
+The original twelve speaker faces, Java classes and textures are identical; the
+OBJ additions are the two connecting panels. The full-pack check needed
 one unchanged retry after an NTGL 3.2.0 startup race; the retry exited successfully.
 Current `native-*.png` images without `pack` in the name show the final white trim.
