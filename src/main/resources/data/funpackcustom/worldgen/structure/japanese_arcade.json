@@ -1,0 +1,10 @@
+{
+  "type": "funpackcustom:japanese_arcade",
+  "biomes": "#funpackcustom:has_structure/japanese_arcade",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "beard_thin",
+  "start_pool": "funpackcustom:arcade/start",
+  "max_terrain_height_difference": 3,
+  "surface_height_offset": -1
+}

@@ -338,6 +338,8 @@ public final class FunPackCustom {
         MENUS.register(modEventBus);
         ENTITIES.register(modEventBus);
         COMPONENTS.register(modEventBus);
+        ArcadeVillagers.register(modEventBus);
+        ArcadeWorldgen.register(modEventBus, modContainer);
         modContainer.registerConfig(ModConfig.Type.SERVER, ArcadeEconomyConfig.SPEC, "funpackcustom-arcade-economy.toml");
         modEventBus.addListener(GachaponNetwork::register);
         modEventBus.addListener(ClawMachineNetwork::register);

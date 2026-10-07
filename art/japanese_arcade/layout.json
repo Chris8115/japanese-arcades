@@ -1,0 +1,801 @@
+{
+  "size": [
+    19,
+    18,
+    19
+  ],
+  "front": "north",
+  "main_building_bounds": [
+    [
+      2,
+      0,
+      3
+    ],
+    [
+      16,
+      11,
+      16
+    ]
+  ],
+  "ground_floor_solid_y": 1,
+  "ground_floor_walk_y": 2,
+  "upper_floor_solid_y": 6,
+  "upper_floor_walk_y": 7,
+  "entrance": {
+    "clear_x": [
+      7,
+      11
+    ],
+    "z": 3,
+    "walk_y": 2,
+    "height": 3
+  },
+  "village_connector": {
+    "position": [
+      9,
+      1,
+      0
+    ],
+    "orientation": "north_up",
+    "name": "minecraft:building_entrance",
+    "target": "minecraft:building_entrance",
+    "pool": "minecraft:empty",
+    "final_state": "minecraft:dirt_path",
+    "joint": "aligned"
+  },
+  "integrated_village_connector": {
+    "position": [
+      9,
+      2,
+      0
+    ],
+    "orientation": "north_up",
+    "name": "integrated_villages:house",
+    "target": "integrated_villages:house",
+    "pool": "minecraft:empty",
+    "final_state": "minecraft:air",
+    "joint": "aligned"
+  },
+  "fixtures": [
+    {
+      "id": "funpackcustom:jubeat",
+      "kind": "standard",
+      "anchor": [
+        3,
+        2,
+        6
+      ],
+      "facing": "east",
+      "parts": [
+        {
+          "pos": [
+            3,
+            2,
+            6
+          ],
+          "properties": {
+            "facing": "east",
+            "part": "base",
+            "has_record": "false"
+          }
+        },
+        {
+          "pos": [
+            3,
+            3,
+            6
+          ],
+          "properties": {
+            "facing": "east",
+            "part": "console",
+            "has_record": "false"
+          }
+        },
+        {
+          "pos": [
+            3,
+            4,
+            6
+          ],
+          "properties": {
+            "facing": "east",
+            "part": "marquee",
+            "has_record": "false"
+          }
+        }
+      ],
+      "stock": "empty",
+      "record": "none"
+    },
+    {
+      "id": "funpackcustom:wacca",
+      "kind": "standard",
+      "anchor": [
+        3,
+        2,
+        9
+      ],
+      "facing": "east",
+      "parts": [
+        {
+          "pos": [
+            3,
+            2,
+            9
+          ],
+          "properties": {
+            "facing": "east",
+            "part": "base",
+            "has_record": "false"
+          }
+        },
+        {
+          "pos": [
+            3,
+            3,
+            9
+          ],
+          "properties": {
+            "facing": "east",
+            "part": "console",
+            "has_record": "false"
+          }
+        },
+        {
+          "pos": [
+            3,
+            4,
+            9
+          ],
+          "properties": {
+            "facing": "east",
+            "part": "marquee",
+            "has_record": "false"
+          }
+        }
+      ],
+      "stock": "empty",
+      "record": "none"
+    },
+    {
+      "id": "funpackcustom:chunithm",
+      "kind": "standard",
+      "anchor": [
+        3,
+        2,
+        12
+      ],
+      "facing": "east",
+      "parts": [
+        {
+          "pos": [
+            3,
+            2,
+            12
+          ],
+          "properties": {
+            "facing": "east",
+            "part": "base",
+            "has_record": "false"
+          }
+        },
+        {
+          "pos": [
+            3,
+            3,
+            12
+          ],
+          "properties": {
+            "facing": "east",
+            "part": "console",
+            "has_record": "false"
+          }
+        },
+        {
+          "pos": [
+            3,
+            4,
+            12
+          ],
+          "properties": {
+            "facing": "east",
+            "part": "marquee",
+            "has_record": "false"
+          }
+        }
+      ],
+      "stock": "empty",
+      "record": "none"
+    },
+    {
+      "id": "funpackcustom:taiko",
+      "kind": "taiko",
+      "anchor": [
+        7,
+        2,
+        14
+      ],
+      "facing": "north",
+      "parts": [
+        {
+          "pos": [
+            7,
+            2,
+            14
+          ],
+          "properties": {
+            "facing": "north",
+            "side": "primary",
+            "section": "rear_base",
+            "part": "base",
+            "has_record": "false"
+          }
+        },
+        {
+          "pos": [
+            7,
+            3,
+            14
+          ],
+          "properties": {
+            "facing": "north",
+            "side": "primary",
+            "section": "rear_console",
+            "part": "console",
+            "has_record": "false"
+          }
+        },
+        {
+          "pos": [
+            7,
+            4,
+            14
+          ],
+          "properties": {
+            "facing": "north",
+            "side": "primary",
+            "section": "rear_marquee",
+            "part": "marquee",
+            "has_record": "false"
+          }
+        },
+        {
+          "pos": [
+            7,
+            2,
+            13
+          ],
+          "properties": {
+            "facing": "north",
+            "side": "primary",
+            "section": "drum_base",
+            "part": "base",
+            "has_record": "false"
+          }
+        },
+        {
+          "pos": [
+            7,
+            3,
+            13
+          ],
+          "properties": {
+            "facing": "north",
+            "side": "primary",
+            "section": "drums",
+            "part": "console",
+            "has_record": "false"
+          }
+        },
+        {
+          "pos": [
+            8,
+            2,
+            14
+          ],
+          "properties": {
+            "facing": "north",
+            "side": "secondary",
+            "section": "rear_base",
+            "part": "base",
+            "has_record": "false"
+          }
+        },
+        {
+          "pos": [
+            8,
+            3,
+            14
+          ],
+          "properties": {
+            "facing": "north",
+            "side": "secondary",
+            "section": "rear_console",
+            "part": "console",
+            "has_record": "false"
+          }
+        },
+        {
+          "pos": [
+            8,
+            4,
+            14
+          ],
+          "properties": {
+            "facing": "north",
+            "side": "secondary",
+            "section": "rear_marquee",
+            "part": "marquee",
+            "has_record": "false"
+          }
+        },
+        {
+          "pos": [
+            8,
+            2,
+            13
+          ],
+          "properties": {
+            "facing": "north",
+            "side": "secondary",
+            "section": "drum_base",
+            "part": "base",
+            "has_record": "false"
+          }
+        },
+        {
+          "pos": [
+            8,
+            3,
+            13
+          ],
+          "properties": {
+            "facing": "north",
+            "side": "secondary",
+            "section": "drums",
+            "part": "console",
+            "has_record": "false"
+          }
+        }
+      ],
+      "stock": "empty",
+      "record": "none"
+    },
+    {
+      "id": "funpackcustom:project_diva",
+      "kind": "standard",
+      "anchor": [
+        11,
+        2,
+        14
+      ],
+      "facing": "north",
+      "parts": [
+        {
+          "pos": [
+            11,
+            2,
+            14
+          ],
+          "properties": {
+            "facing": "north",
+            "part": "base",
+            "has_record": "false"
+          }
+        },
+        {
+          "pos": [
+            11,
+            3,
+            14
+          ],
+          "properties": {
+            "facing": "north",
+            "part": "console",
+            "has_record": "false"
+          }
+        },
+        {
+          "pos": [
+            11,
+            4,
+            14
+          ],
+          "properties": {
+            "facing": "north",
+            "part": "marquee",
+            "has_record": "false"
+          }
+        }
+      ],
+      "stock": "empty",
+      "record": "none"
+    },
+    {
+      "id": "funpackcustom:nostalgia_op3",
+      "kind": "standard",
+      "anchor": [
+        15,
+        2,
+        8
+      ],
+      "facing": "west",
+      "parts": [
+        {
+          "pos": [
+            15,
+            2,
+            8
+          ],
+          "properties": {
+            "facing": "west",
+            "part": "base",
+            "has_record": "false"
+          }
+        },
+        {
+          "pos": [
+            15,
+            3,
+            8
+          ],
+          "properties": {
+            "facing": "west",
+            "part": "console",
+            "has_record": "false"
+          }
+        },
+        {
+          "pos": [
+            15,
+            4,
+            8
+          ],
+          "properties": {
+            "facing": "west",
+            "part": "marquee",
+            "has_record": "false"
+          }
+        }
+      ],
+      "stock": "empty",
+      "record": "none"
+    },
+    {
+      "id": "funpackcustom:arcade_kiosk",
+      "kind": "kiosk",
+      "anchor": [
+        12,
+        2,
+        5
+      ],
+      "facing": "west",
+      "parts": [
+        {
+          "pos": [
+            12,
+            2,
+            5
+          ],
+          "properties": {
+            "facing": "west",
+            "half": "lower"
+          }
+        },
+        {
+          "pos": [
+            12,
+            3,
+            5
+          ],
+          "properties": {
+            "facing": "west",
+            "half": "upper"
+          }
+        }
+      ],
+      "stock": "empty",
+      "record": "none"
+    }
+  ],
+  "machine_count": 6,
+  "jukebox_anchors": 6,
+  "prize_displays": [
+    {
+      "id": "funpackcustom:boxed_creeper_figure",
+      "position": [
+        14,
+        3,
+        5
+      ],
+      "facing": "west"
+    },
+    {
+      "id": "funpackcustom:boxed_axolotl_figure",
+      "position": [
+        14,
+        3,
+        6
+      ],
+      "facing": "west"
+    },
+    {
+      "id": "funpackcustom:boxed_enderman_figure",
+      "position": [
+        14,
+        3,
+        7
+      ],
+      "facing": "west"
+    },
+    {
+      "id": "funpackcustom:boxed_zombie_figure",
+      "position": [
+        5,
+        3,
+        5
+      ],
+      "facing": "east"
+    }
+  ],
+  "operator_spawn": [
+    11.5,
+    2,
+    5.5
+  ],
+  "operator_profession": "unemployed adult; acquires funpackcustom:arcade_operator from the reachable kiosk",
+  "staircase": {
+    "width_x": [
+      13,
+      14
+    ],
+    "steps": [
+      [
+        13,
+        2,
+        10
+      ],
+      [
+        13,
+        3,
+        11
+      ],
+      [
+        13,
+        4,
+        12
+      ],
+      [
+        13,
+        5,
+        13
+      ],
+      [
+        13,
+        6,
+        14
+      ]
+    ],
+    "upper_landing": [
+      13,
+      7,
+      15
+    ]
+  },
+  "atrium_opening": {
+    "x": [
+      7,
+      11
+    ],
+    "z": [
+      7,
+      11
+    ],
+    "floor_y": 6
+  },
+  "paintings": [
+    {
+      "variant": "funpackcustom:arcade_vertical_sign",
+      "size": [
+        1,
+        5
+      ],
+      "anchor": [
+        9,
+        9,
+        1
+      ],
+      "facing": "north",
+      "backing": [
+        [
+          9,
+          7,
+          2
+        ],
+        [
+          9,
+          11,
+          2
+        ]
+      ]
+    },
+    {
+      "variant": "funpackcustom:arcade_game_center",
+      "size": [
+        5,
+        1
+      ],
+      "anchor": [
+        9,
+        5,
+        1
+      ],
+      "facing": "north",
+      "backing": [
+        [
+          7,
+          5,
+          2
+        ],
+        [
+          11,
+          5,
+          2
+        ]
+      ]
+    },
+    {
+      "variant": "funpackcustom:arcade_invader",
+      "size": [
+        3,
+        3
+      ],
+      "anchor": [
+        17,
+        8,
+        9
+      ],
+      "facing": "east",
+      "backing": [
+        [
+          16,
+          7,
+          8
+        ],
+        [
+          16,
+          9,
+          10
+        ]
+      ]
+    },
+    {
+      "variant": "funpackcustom:arcade_fuji",
+      "size": [
+        4,
+        3
+      ],
+      "anchor": [
+        8,
+        8,
+        17
+      ],
+      "facing": "south",
+      "backing": [
+        [
+          7,
+          7,
+          16
+        ],
+        [
+          10,
+          9,
+          16
+        ]
+      ]
+    }
+  ],
+  "inventory_policy": "Six jukebox cabinets start without discs. No claw/gachapon operator inventories. Service chest contains 8 paper and 3 bread only; four static boxed figures decorate display plinths.",
+  "resident_bed": {
+    "foot": [
+      14,
+      7,
+      8
+    ],
+    "head": [
+      14,
+      7,
+      9
+    ],
+    "facing": "south"
+  },
+  "rotation_verification": "Place all native rotations around template origin; transform each fixturepart and facing together. No fixed world-space job-site NBT.",
+  "outputs": [
+    {
+      "file": "src/main/resources/data/funpackcustom/structure/arcade/japanese_arcade.nbt",
+      "blocks": 6290,
+      "palette_states": 79,
+      "entities": 5,
+      "compressed_bytes": 18554
+    },
+    {
+      "file": "src/main/resources/data/funpackcustom/structure/arcade/japanese_arcade_village.nbt",
+      "blocks": 6290,
+      "palette_states": 80,
+      "entities": 5,
+      "compressed_bytes": 18682
+    },
+    {
+      "file": "src/main/resources/data/funpackcustom/structure/arcade/japanese_arcade_integrated_village.nbt",
+      "blocks": 6290,
+      "palette_states": 80,
+      "entities": 5,
+      "compressed_bytes": 18691
+    },
+    {
+      "file": "src/main/resources/data/funpackcustom/structure/arcade_test.nbt",
+      "blocks": 0,
+      "palette_states": 1,
+      "entities": 0,
+      "compressed_bytes": 113
+    },
+    {
+      "file": "src/main/resources/data/funpackcustom/structure/arcade/test_road.nbt",
+      "blocks": 45,
+      "palette_states": 3,
+      "entities": 0,
+      "compressed_bytes": 405
+    }
+  ],
+  "terrain_preservation": "Unbuilt perimeter cells at Y0/Y1 are omitted from serialized NBT; explicit air clears rooms and roof space above.",
+  "solid_block_counts": {
+    "funpackcustom:arcade_kiosk": 2,
+    "funpackcustom:boxed_axolotl_figure": 1,
+    "funpackcustom:boxed_creeper_figure": 1,
+    "funpackcustom:boxed_enderman_figure": 1,
+    "funpackcustom:boxed_zombie_figure": 1,
+    "funpackcustom:chunithm": 3,
+    "funpackcustom:jubeat": 3,
+    "funpackcustom:nostalgia_op3": 3,
+    "funpackcustom:project_diva": 3,
+    "funpackcustom:taiko": 10,
+    "funpackcustom:wacca": 3,
+    "minecraft:black_terracotta": 9,
+    "minecraft:bookshelf": 4,
+    "minecraft:chain": 2,
+    "minecraft:cherry_leaves": 70,
+    "minecraft:cherry_log": 6,
+    "minecraft:chest": 1,
+    "minecraft:dark_oak_fence": 43,
+    "minecraft:dark_oak_log": 77,
+    "minecraft:dark_oak_planks": 365,
+    "minecraft:dark_oak_stairs": 24,
+    "minecraft:dark_oak_trapdoor": 3,
+    "minecraft:dark_oak_wall_sign": 6,
+    "minecraft:dirt": 2,
+    "minecraft:dirt_path": 5,
+    "minecraft:glass_pane": 66,
+    "minecraft:gray_stained_glass_pane": 24,
+    "minecraft:lantern": 17,
+    "minecraft:light_gray_terracotta": 108,
+    "minecraft:oak_pressure_plate": 5,
+    "minecraft:polished_blackstone": 78,
+    "minecraft:polished_blackstone_brick_stairs": 262,
+    "minecraft:polished_blackstone_brick_wall": 4,
+    "minecraft:polished_blackstone_bricks": 70,
+    "minecraft:potted_azalea_bush": 1,
+    "minecraft:potted_cherry_sapling": 1,
+    "minecraft:potted_flowering_azalea_bush": 4,
+    "minecraft:red_bed": 2,
+    "minecraft:red_concrete": 12,
+    "minecraft:red_nether_brick_slab": 4,
+    "minecraft:red_stained_glass_pane": 12,
+    "minecraft:red_terracotta": 78,
+    "minecraft:shroomlight": 4,
+    "minecraft:smooth_stone": 39,
+    "minecraft:stone_brick_wall": 2,
+    "minecraft:stone_bricks": 269,
+    "minecraft:stripped_mangrove_log": 158,
+    "minecraft:white_terracotta": 12
+  }
+}

@@ -215,5 +215,14 @@
   "message.funpackcustom.custom_display_box.straight": "Display: straight on",
   "message.funpackcustom.custom_display_box.angled": "Display: angled",
   "block.funpackcustom.hatsune_miku_cutout": "Hatsune Miku Cardboard Cutout",
-  "block.funpackcustom.kasane_teto_cutout": "Kasane Teto Cardboard Cutout"
+  "block.funpackcustom.kasane_teto_cutout": "Kasane Teto Cardboard Cutout",
+  "entity.minecraft.villager.funpackcustom.arcade_operator": "Arcade Operator",
+  "painting.funpackcustom.arcade_vertical_sign.title": "Japanese Arcade Sign",
+  "painting.funpackcustom.arcade_vertical_sign.author": "Japanese Arcades",
+  "painting.funpackcustom.arcade_game_center.title": "Game Center",
+  "painting.funpackcustom.arcade_game_center.author": "Japanese Arcades",
+  "painting.funpackcustom.arcade_invader.title": "Insert Coin",
+  "painting.funpackcustom.arcade_invader.author": "Japanese Arcades",
+  "painting.funpackcustom.arcade_fuji.title": "Fuji at Sunset",
+  "painting.funpackcustom.arcade_fuji.author": "Japanese Arcades"
 }

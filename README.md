@@ -219,6 +219,62 @@ To use another mod's Java API, add its documented Maven repository and `compileO
 in `build.gradle`, and declare any required runtime dependency in the mod metadata.
 Only the pack test client discovers the copied pack mods. The small client stays fast to start.
 
+## Generated Japanese arcades
+
+New chunks can contain a two-storey Japanese arcade: a 19×19 footprint including
+the entrance, cherry planters and roof eaves, with an upstairs lounge and open
+balcony. Downstairs contains Jubeat, WACCA, Chunithm, Taiko, Project DIVA and
+Nostalgia cabinets, four boxed figure displays, and a working Arcade Ordering
+Kiosk. Cabinets retain their normal disc/pass interactions and start without
+discs. Generated furniture is ordinary, removable mod content.
+
+The arcade is added to all five vanilla village house pools without replacing
+their other entries. When Integrated Villages is installed, it also joins eight
+house pools used by its Tavern, Cabin, Clockwork, Kutcha, Marketstead and
+Mediterranean villages, using that mod's air-level entrance convention. No
+Integrated Villages dependency is required for ordinary worlds.
+A second, independently generated structure allows arcades
+to appear even when a village-overhaul mod uses different village pools. Neither
+route alters already-generated terrain or guarantees an arcade in every village.
+The standalone route uses dry, gently sloping sites in plains, savanna and taiga
+biome tags (including compatible modded biomes), plus meadows and cherry groves.
+
+The resident acquires the kiosk as an **Arcade Operator** workstation through
+normal villager AI. Only the kiosk's lower half counts, supporting one worker.
+Existing unemployed villagers can also take this profession. Its five career
+levels offer paper/glass/copper exchanges, empty passes, custom display boxes,
+WACCA posters, Miku/Teto cutouts and figures. Trades use normal emerald pricing,
+reputation, stock limits and workstation restocking; passes contain no prepaid
+credits or prize points.
+
+`config/funpackcustom-arcade-worldgen.toml` independently enables village and
+standalone generation and adjusts the village selection weight. Restart the
+world/server after changing it. Datapacks can customize
+`funpackcustom:has_structure/japanese_arcade` biome eligibility, the
+`funpackcustom:japanese_arcade` structure set (48-chunk spacing, 16 separation),
+and the `funpackcustom:arcade/start`, `arcade/village` and
+`arcade/integrated_village` template pools. Mods or
+datapacks that deliberately disable all relevant structures can still prevent
+generation; compatibility is not a bypass of their world settings.
+
+With cheats enabled:
+
+```mcfunction
+/locate structure funpackcustom:japanese_arcade
+/place structure funpackcustom:japanese_arcade
+```
+
+The locate command finds standalone arcades; village-attached arcades belong to
+their parent village structure. Placement needs a suitable dry site. Original
+wall paintings provide the Japanese vertical sign, Game Center sign, invader
+and Fuji mural. These also join the ordinary painting selection pool.
+
+Architecture source and layout: [art/japanese_arcade](art/japanese_arcade).
+Regenerate with `python scripts/make_japanese_arcade_structure.py`; the wall-art
+and operator-texture scripts are separate. The structure uses native chunk meshes
+and six existing cabinet inventories. It adds no building-wide renderer or tick
+loop; detailed cabinet models are reused unchanged.
+
 ## Model export optimization
 
 Editable cabinet/figure sources stay under `art/` and their `scripts/make_*`

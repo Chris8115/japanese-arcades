@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "#c:is_plains",
+    "#c:is_savanna",
+    "#c:is_taiga",
+    "minecraft:meadow",
+    "minecraft:cherry_grove"
+  ]
+}
