@@ -3,6 +3,7 @@ package local.funpack.custom;
 import static local.funpack.custom.GachaponTransactionGameTests.aimAt;
 import static local.funpack.custom.GachaponTransactionGameTests.createPlayer;
 
+import io.netty.buffer.Unpooled;
 import java.util.List;
 import java.util.function.Consumer;
 import net.minecraft.core.BlockPos;
@@ -11,6 +12,8 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtOps;
+import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -88,6 +91,27 @@ public final class CustomDisplayBoxGameTests {
             player, hand, new BlockHitResult(Vec3.atCenterOf(pos), Direction.NORTH, pos, false));
     }
 
+    private static void useWithoutItem(GameTestHelper helper, ServerPlayer player) {
+        BlockPos pos = helper.absolutePos(BASE);
+        var state = helper.getLevel().getBlockState(pos);
+        FunPackCustom.CUSTOM_DISPLAY_BOX.get().useWithoutItem(state, helper.getLevel(), pos,
+            player, new BlockHitResult(Vec3.atCenterOf(pos), Direction.NORTH, pos, false));
+    }
+
+    private static void useThroughGameMode(GameTestHelper helper, ServerPlayer player) {
+        BlockPos pos = helper.absolutePos(BASE);
+        var hit = new BlockHitResult(Vec3.atCenterOf(pos), Direction.NORTH, pos, false);
+        helper.assertTrue(player.gameMode.useItemOn(player, helper.getLevel(), player.getMainHandItem(),
+            InteractionHand.MAIN_HAND, hit).consumesAction(), "Native display-box interaction was not consumed");
+    }
+
+    private static void extract(GameTestHelper helper, ServerPlayer player, InteractionHand hand) {
+        boolean sneaking = player.isShiftKeyDown();
+        player.setShiftKeyDown(true);
+        try { use(helper, player, hand); }
+        finally { player.setShiftKeyDown(sneaking); }
+    }
+
     private static void full(ServerPlayer player) {
         player.getInventory().clearContent();
         for (int slot = 0; slot < 36; slot++) player.getInventory().setItem(slot, new ItemStack(Items.COBBLESTONE, 64));
@@ -112,9 +136,125 @@ public final class CustomDisplayBoxGameTests {
     }
 
     private static void dataMatches(GameTestHelper helper, CustomDisplayBoxData actual, CustomDisplayBoxData expected, String message) {
-        helper.assertTrue(actual.isEmpty() == expected.isEmpty()
+        helper.assertTrue(actual.isEmpty() == expected.isEmpty() && actual.straightOn() == expected.straightOn()
             && ItemStack.matches(actual.containedItem(), expected.containedItem())
             && ItemStack.matches(actual.retainedItem(), expected.retainedItem()), message);
+    }
+
+    @GameTest(template = "nostalgia_test")
+    public static void customDisplayBoxTogglePreservesItemsAndSurvivesUnpackingAndRefillingInEveryFacing(GameTestHelper helper) {
+        CustomDisplayBoxData original = CustomDisplayBoxData.filled(payloads().getFirst());
+        for (GameType mode : new GameType[]{GameType.SURVIVAL, GameType.CREATIVE}) {
+            ServerPlayer player = createPlayer(helper, "DisplayToggle" + mode.getName(), mode);
+            for (Direction facing : Direction.Plane.HORIZONTAL) {
+                place(helper, player, box(original, 1), facing);
+                player.getInventory().clearContent();
+                ItemStack unrelated = marked(new ItemStack(Items.EMERALD, 13), "Unrelated collection");
+                player.getInventory().setItem(5, unrelated.copy());
+                // Native dispatch can call the empty-hand fallback: a single click must toggle once.
+                useThroughGameMode(helper, player);
+                dataMatches(helper, entity(helper).data(), original.withStraightOn(true),
+                    "Normal empty-hand interaction did not toggle the item straight without changing its components");
+                helper.assertBlockProperty(BASE, CustomDisplayBoxBlock.FACING, facing);
+                helper.assertTrue(ItemStack.matches(player.getInventory().getItem(5), unrelated)
+                    && player.getMainHandItem().isEmpty() && player.getOffhandItem().isEmpty()
+                    && exactInventory(player, original.containedItem()) == 0,
+                    "Toggling extracted the displayed item or changed inventory");
+                useWithoutItem(helper, player);
+                dataMatches(helper, entity(helper).data(), original, "The second click did not restore the original angled view");
+                use(helper, player, InteractionHand.OFF_HAND);
+                dataMatches(helper, entity(helper).data(), original.withStraightOn(true), "Empty-offhand toggling did not set the same orientation");
+
+                var packet = entity(helper).getUpdatePacket();
+                var synced = new CustomDisplayBoxBlockEntity(helper.absolutePos(BASE), helper.getBlockState(BASE));
+                synced.handleUpdateTag(packet.getTag(), helper.getLevel().registryAccess());
+                dataMatches(helper, synced.data(), original.withStraightOn(true), "Block-entity update omitted the selected orientation or item identity");
+
+                player.setShiftKeyDown(true);
+                try { useThroughGameMode(helper, player); }
+                finally { player.setShiftKeyDown(false); }
+                dataMatches(helper, entity(helper).data(), original.withStraightOn(true).emptied(),
+                    "Sneak extraction failed to keep the selected orientation and label");
+                helper.assertTrue(exactInventory(player, original.containedItem()) == 1,
+                    "Sneak extraction did not return exactly the displayed item");
+                player.getInventory().clearContent();
+                useWithoutItem(helper, player);
+                dataMatches(helper, entity(helper).data(), original.withStraightOn(true).emptied(),
+                    "An empty display box changed orientation or regenerated its item");
+                ItemStack refill = payloads().get(1);
+                player.setItemInHand(InteractionHand.MAIN_HAND, refill.copy());
+                use(helper, player, InteractionHand.MAIN_HAND);
+                dataMatches(helper, entity(helper).data(), CustomDisplayBoxData.filled(refill).withStraightOn(true),
+                    "Refilling with a different item reset orientation or kept the previous label");
+                helper.assertTrue(ItemStack.matches(player.getMainHandItem(), refill.copyWithCount(refill.getCount()-1)),
+                    "Refilling consumed the wrong quantity or changed the remaining item's components");
+                noDrops(helper);
+                helper.getLevel().destroyBlock(helper.absolutePos(BASE), false, player);
+            }
+        }
+        helper.succeed();
+    }
+
+    @GameTest(template = "nostalgia_test")
+    public static void customDisplayBoxLegacyDataDefaultsToAngledAndBothOrientationsRoundTripOverTheNetwork(GameTestHelper helper) {
+        ServerPlayer player = createPlayer(helper, "DisplayLegacy", GameType.SURVIVAL);
+        var registry = helper.getLevel().registryAccess();
+        var ops = registry.createSerializationContext(NbtOps.INSTANCE);
+        CustomDisplayBoxData original = CustomDisplayBoxData.filled(payloads().getFirst());
+        CompoundTag legacy = (CompoundTag)CustomDisplayBoxData.CODEC.encodeStart(ops, original.withStraightOn(true)).getOrThrow();
+        legacy.remove("straight_on");
+        CustomDisplayBoxData decoded = CustomDisplayBoxData.CODEC.parse(ops, legacy).getOrThrow();
+        place(helper, player, box(decoded, 1), Direction.NORTH);
+        dataMatches(helper, entity(helper).data(), original, "A legacy box without orientation failed to place with its original angled view");
+        player.getInventory().clearContent();
+        useWithoutItem(helper, player);
+        dataMatches(helper, entity(helper).data(), original.withStraightOn(true), "A loaded legacy box could not toggle normally");
+        for (CustomDisplayBoxData data : List.of(entity(helper).data(), original, entity(helper).data().emptied())) {
+            RegistryFriendlyByteBuf buffer = new RegistryFriendlyByteBuf(Unpooled.buffer(), registry);
+            try {
+                CustomDisplayBoxData.STREAM_CODEC.encode(buffer, data);
+                dataMatches(helper, CustomDisplayBoxData.STREAM_CODEC.decode(buffer), data,
+                    "Network item components lost orientation, contents, or the retained empty-box identity");
+                helper.assertTrue(buffer.readableBytes() == 0, "Display data's network decoder left orientation bytes unread");
+            } finally { buffer.release(); }
+        }
+        noDrops(helper);
+        helper.succeed();
+    }
+
+    @GameTest(template = "nostalgia_test")
+    public static void customDisplayBoxRejectsUnauthorizedOrNonemptyHandOrientationChanges(GameTestHelper helper) {
+        ServerPlayer player = createPlayer(helper, "DisplayDenied", GameType.SURVIVAL);
+        CustomDisplayBoxData original = CustomDisplayBoxData.filled(payloads().getFirst());
+        place(helper, player, box(original, 1), Direction.NORTH);
+        player.getInventory().clearContent();
+        for (GameType denied : new GameType[]{GameType.SPECTATOR, GameType.ADVENTURE}) {
+            player.setGameMode(denied);
+            use(helper, player, InteractionHand.MAIN_HAND);
+            dataMatches(helper, entity(helper).data(), original, "A player without building permission changed orientation through the item interaction");
+            useWithoutItem(helper, player);
+            dataMatches(helper, entity(helper).data(), original, "A player without building permission changed the display orientation");
+        }
+        player.setGameMode(GameType.SURVIVAL);
+        player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.STICK, 2));
+        use(helper, player, InteractionHand.MAIN_HAND);
+        dataMatches(helper, entity(helper).data(), original, "A nonempty hand toggled an occupied display through the item interaction");
+        useWithoutItem(helper, player);
+        dataMatches(helper, entity(helper).data(), original, "A nonempty main hand toggled an occupied display");
+        helper.assertTrue(player.getMainHandItem().getCount() == 2, "A rejected toggle consumed held items");
+        player.getInventory().clearContent();
+        player.setPos(player.getX()+12, player.getY(), player.getZ());
+        use(helper, player, InteractionHand.MAIN_HAND);
+        dataMatches(helper, entity(helper).data(), original, "An out-of-reach player toggled the display through the item interaction");
+        useWithoutItem(helper, player);
+        dataMatches(helper, entity(helper).data(), original, "An out-of-reach player toggled the display");
+        aimAt(player, helper.absolutePos(BASE));
+        use(helper, player, InteractionHand.MAIN_HAND);
+        dataMatches(helper, entity(helper).data(), original.withStraightOn(true), "Rejected interactions prevented the next legitimate toggle");
+        helper.assertTrue(player.getMainHandItem().isEmpty() && exactInventory(player, original.containedItem()) == 0,
+            "A denied interaction extracted or duplicated the displayed item");
+        noDrops(helper);
+        helper.succeed();
     }
 
     @GameTest(template = "nostalgia_test")
@@ -140,12 +280,12 @@ public final class CustomDisplayBoxGameTests {
                 helper.assertTrue(player.getMainHandItem().getCount() == 2 && ItemStack.matches(entity(helper).containedItem(), expected),
                     "An occupied box accepted a replacement item");
                 player.getInventory().clearContent();
-                use(helper, player, InteractionHand.MAIN_HAND);
+                extract(helper, player, InteractionHand.MAIN_HAND);
                 helper.assertTrue(entity(helper).data().isEmpty() && ItemStack.matches(entity(helper).retainedItem(), expected),
                     "Unpacking erased the display identity or kept a second live item");
                 helper.assertTrue(exactInventory(player, expected) == 1, "Unpacking lost components or delivered more than one item");
                 player.getInventory().clearContent();
-                use(helper, player, InteractionHand.MAIN_HAND);
+                extract(helper, player, InteractionHand.MAIN_HAND);
                 helper.assertTrue(entity(helper).data().isEmpty() && exactInventory(player, expected) == 0,
                     "An empty labeled box regenerated its retained item");
                 noDrops(helper);
@@ -159,7 +299,7 @@ public final class CustomDisplayBoxGameTests {
     public static void customDisplayBoxContentsAndRetainedIdentitySurviveSaveLootAndReplacementInEveryFacing(GameTestHelper helper) {
         ServerPlayer player = createPlayer(helper, "DisplaySave", GameType.SURVIVAL);
         CustomDisplayBoxData filled = CustomDisplayBoxData.filled(payloads().getFirst());
-        for (CustomDisplayBoxData expected : List.of(filled, filled.emptied())) {
+        for (CustomDisplayBoxData expected : List.of(filled, filled.emptied(), filled.withStraightOn(true), filled.emptied().withStraightOn(true))) {
             for (Direction facing : Direction.Plane.HORIZONTAL) {
                 ItemStack source = box(expected, 1);
                 // Exercise item component serialization before normal placement as well as block-entity persistence.
@@ -194,7 +334,7 @@ public final class CustomDisplayBoxGameTests {
     @GameTest(template = "nostalgia_test")
     public static void creativeBreakingPreservesStoredDisplayItemsWithoutDuplicatingEmptyCases(GameTestHelper helper) {
         ServerPlayer player = createPlayer(helper, "DisplayCreative", GameType.CREATIVE);
-        CustomDisplayBoxData filled = CustomDisplayBoxData.filled(payloads().getFirst());
+        CustomDisplayBoxData filled = CustomDisplayBoxData.filled(payloads().getFirst()).withStraightOn(true);
         for (Direction facing : Direction.Plane.HORIZONTAL) {
             for (CustomDisplayBoxData expected : List.of(filled, filled.emptied())) {
                 place(helper, player, box(expected, 1), facing);
@@ -223,7 +363,7 @@ public final class CustomDisplayBoxGameTests {
     @GameTest(template = "nostalgia_test")
     public static void heldCustomDisplayBoxesOpenOnePreservingOuterAndInnerComponentsInBothHands(GameTestHelper helper) {
         ItemStack payload = payloads().getFirst();
-        CustomDisplayBoxData data = CustomDisplayBoxData.filled(payload);
+        CustomDisplayBoxData data = CustomDisplayBoxData.filled(payload).withStraightOn(true);
         for (GameType mode : new GameType[]{GameType.SURVIVAL, GameType.CREATIVE}) {
             ServerPlayer player = createPlayer(helper, "DisplayHeld" + mode.getName(), mode);
             for (InteractionHand hand : InteractionHand.values()) {
@@ -285,7 +425,7 @@ public final class CustomDisplayBoxGameTests {
     public static void customDisplayBoxCanceledOrSubstitutedOverflowKeepsTheExactPlacedPayload(GameTestHelper helper) {
         ServerPlayer player = createPlayer(helper, "DisplayOverflow", GameType.SURVIVAL);
         ItemStack payload = payloads().getFirst();
-        CustomDisplayBoxData data = CustomDisplayBoxData.filled(payload);
+        CustomDisplayBoxData data = CustomDisplayBoxData.filled(payload).withStraightOn(true);
         place(helper, player, box(data, 1), Direction.WEST);
         for (int action = 0; action < 3; action++) {
             full(player);
@@ -298,7 +438,7 @@ public final class CustomDisplayBoxGameTests {
                 }
             };
             NeoForge.EVENT_BUS.addListener(callback);
-            try { use(helper, player, InteractionHand.OFF_HAND); }
+            try { extract(helper, player, InteractionHand.OFF_HAND); }
             finally { NeoForge.EVENT_BUS.unregister(callback); }
             helper.assertTrue(ArcadeOrderCatalog.count(player, Items.COBBLESTONE) == 36*64 && player.getOffhandItem().isEmpty(),
                 "Placed extraction overwrote an unrelated full inventory slot");
@@ -316,7 +456,7 @@ public final class CustomDisplayBoxGameTests {
     @GameTest(template = "nostalgia_test")
     public static void heldCustomDisplayBoxRollsBackBothOutputsIfReturningTheEmptyCaseFails(GameTestHelper helper) {
         ItemStack payload = payloads().getFirst();
-        CustomDisplayBoxData data = CustomDisplayBoxData.filled(payload);
+        CustomDisplayBoxData data = CustomDisplayBoxData.filled(payload).withStraightOn(true);
         for (GameType mode : new GameType[]{GameType.SURVIVAL, GameType.CREATIVE}) {
             ServerPlayer player = createPlayer(helper, "DisplayFull" + mode.getName(), mode);
             player.setShiftKeyDown(true);

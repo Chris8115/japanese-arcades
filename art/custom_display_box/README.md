@@ -6,9 +6,12 @@ The Custom Display Box is a separate collectible package for displaying your own
 
 - Find it in the creative tab, or craft **four boxes** with eight paper surrounding one glass pane.
 - Place an empty box and right-click it with an item to insert **one item**. Inserting consumes one item even in creative mode.
-- Right-click a filled box with an empty hand to retrieve its contents. The empty box remains placed and retains its label and color.
+- Right-click a filled box with an empty hand to toggle its contents between angled and straight-on views.
+- Sneak-right-click with empty hands to retrieve its contents. The empty box remains placed and retains its label, color, and orientation preference.
 - Sneak-use a filled box held in your hand to open one package and receive its contents and an empty box.
 - Breaking a box in survival preserves its stored data in the dropped package. In creative mode, a filled box also drops its stored package to preserve the item; an empty box drops nothing.
+
+The orientation preference stays with the box through saving, breaking/replacing, unpacking, and refilling. Existing boxes start in the original angled view. The shell, name label, and packaging color stay fixed when toggling.
 
 Stored items retain their complete names and components. The printed label shortens names longer than 48 characters to fit the package; this does not rename the stored item. The matching bitmap font covers printable ASCII and Latin-1, with Minecraft's default font supplying other Unicode characters.
 
@@ -16,7 +19,7 @@ Stored items retain their complete names and components. The printed label short
 
 The static shell contains **43 faces across 13 elements**, plus the contained item's model and printed label. Five cutout accent faces use tint index `0`; the navy print and cardboard remain untinted. The front window uses transparent cutout pixels and small opaque highlights, without a full translucent layer.
 
-The placed box uses a block-entity renderer, and its inventory item uses a custom item renderer. Neither requires ticking. Item color and model fitting share a cache limited to 256 entries, cleared on resource reload. Items with custom renderers use their particle texture as the color fallback. Complete rendering cost depends on the contained item's own model.
+The placed box uses a block-entity renderer, and its inventory item uses a custom item renderer. Neither requires ticking. Item color and model fitting share a cache limited to 256 entries for both orientations together, cleared on resource reload. Items with custom renderers use their particle texture as the color fallback. Complete rendering cost depends on the contained item's own model.
 
 The shell occupies model coordinates `x=3..13`, `y=0..14`, `z=4..12` and faces north. The live label is centered at `(8, 0.955, 3.985)` within `x=3.85..12.15`, `y=0.43..1.48`. Detailed UV, tint, label-transform, and interior-fit specifications are in [design.json](design.json).
 
@@ -34,12 +37,15 @@ The generator writes only the custom box's texture, block and item models, block
 
 ## Verification
 
-The build and all **160 server GameTests** passed. Seven new tests exercise item
+The build and all **163 server GameTests** passed. Ten display-box tests exercise item
 components, packing and unpacking, held packages, all-facing placement and loot,
-save/reload, creative recovery, nesting rejection, and canceled overflow delivery.
+save/reload, creative recovery, nesting rejection, canceled overflow delivery, native right-click dispatch,
+orientation persistence, and legacy-data compatibility.
 Native client checks verified actual world and inventory rendering, enchantment
 glint, shared appearance caching, synchronized retained-empty packaging, and
 resource reload. All eighteen preset mob models retain their original assets.
-The final native screenshots and build hash are saved here in `verification.json`.
+The original feature check is recorded in `verification.json`. The updated
+orientation checks and build hash are in `orientation-verification.json`, with
+a comparison image in `orientation-comparison.png`.
 
 ![Custom box examples](custom-box-examples.png)

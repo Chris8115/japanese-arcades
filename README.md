@@ -96,7 +96,8 @@ configuration, transferable-card data and future loot support.
 The separate [Custom Display Box](art/custom_display_box/README.md) displays one
 item with an automatically colored package and printed name. Craft four with
 eight paper around a glass pane. Place a box and right-click it with the item;
-empty-hand right-click unpacks it and keeps the labeled packaging. Sneak-use
+empty-hand right-click toggles angled or straight-on display. Sneak-right-click
+unpacks it and keeps the labeled packaging. Sneak-use
 a held filled box to unpack it in your inventory. Existing mob boxes retain
 their original static models and behavior.
 
@@ -117,7 +118,7 @@ Use **Terminal > Run Task** for the `Fun:` tasks, or open a terminal here:
 - `SyncPack` refreshes the copied mods, configs, resource packs, and pack scripts from the live pack.
 - `Prepare` downloads game assets and prepares client/server launch files.
 - `Server` launches a small dedicated server for checking server compatibility.
-- `GameTest` runs 160 cabinet, claw machine, gachapon, figure, display box, poster, ordering and Arcade Pass economy integration tests in a disposable test world and exits.
+- `GameTest` runs 163 cabinet, claw machine, gachapon, figure, display box, poster, ordering and Arcade Pass economy integration tests in a disposable test world and exits.
 - `Data` runs our data generators once we add them.
 
 The script selects Java 21 locally. Your default Java installation remains available to other projects.

@@ -33,11 +33,12 @@ import org.joml.Vector3f;
 /** Reuses the detailed arcade prize meshes without rebuilding their quads every frame. */
 final class DisplayItemMeshes {
     static final DisplayItemMeshes INSTANCE = new DisplayItemMeshes();
-    // Roughly 40 MiB of vertex data and quad references, shared across BOTH display
+    // Roughly 40 MiB of vertex data and quad references, shared across all display
     // renderers rather than duplicated per machine type. Cleared after every model bake.
     private static final int MAX_VERTICES = 800_000;
-    private final Map<BakedModel, Mesh> meshes = new LinkedHashMap<>(16, .75F, true);
-    private final java.util.Set<BakedModel> nativeModels = java.util.Collections.newSetFromMap(new java.util.IdentityHashMap<>());
+    private record ModelKey(BakedModel model, ItemDisplayContext context) {}
+    private final Map<ModelKey, Mesh> meshes = new LinkedHashMap<>(16, .75F, true);
+    private final java.util.Set<ModelKey> nativeModels = new java.util.HashSet<>();
     private int vertices;
 
     private DisplayItemMeshes() {}
@@ -53,6 +54,11 @@ final class DisplayItemMeshes {
     }
 
     boolean render(ItemStack stack, PoseStack pose, MultiBufferSource buffers, int light, int overlay, boolean cullFromEye) {
+        return render(stack, pose, buffers, light, overlay, cullFromEye, ItemDisplayContext.GUI);
+    }
+
+    boolean render(ItemStack stack, PoseStack pose, MultiBufferSource buffers, int light, int overlay,
+                   boolean cullFromEye, ItemDisplayContext context) {
         // Only our static block items are eligible. Vanilla/modded dynamic models, custom
         // renderers, item overrides and enchanted items retain their normal rendering path.
         if (!(stack.getItem() instanceof BlockItem) || stack.hasFoil()
@@ -61,22 +67,23 @@ final class DisplayItemMeshes {
         }
         ItemRenderer renderer = Minecraft.getInstance().getItemRenderer();
         BakedModel model = renderer.getItemModelShaper().getItemModel(stack);
-        if (model.isCustomRenderer() || model.getOverrides() != ItemOverrides.EMPTY || nativeModels.contains(model)) { return false; }
-        Mesh mesh = meshes.get(model);
+        ModelKey key = new ModelKey(model, context);
+        if (model.isCustomRenderer() || model.getOverrides() != ItemOverrides.EMPTY || nativeModels.contains(key)) { return false; }
+        Mesh mesh = meshes.get(key);
         if (mesh == null) {
             Capture capture = new Capture();
-            // Capture the same GUI transform and render passes as ItemRenderer. Light is zero
+            // Capture the requested transform and render passes as ItemRenderer. Light is zero
             // here so baked emission can be combined with the current world light on replay.
-            renderer.render(stack, ItemDisplayContext.GUI, false, new PoseStack(), capture, 0, 0, model);
-            if (!capture.supported()) { nativeModels.add(model); return false; }
+            renderer.render(stack, context, false, new PoseStack(), capture, 0, 0, model);
+            if (!capture.supported()) { nativeModels.add(key); return false; }
             mesh = capture.finish(model);
-            if (mesh.vertices > MAX_VERTICES) { nativeModels.add(model); return false; }
+            if (mesh.vertices > MAX_VERTICES) { nativeModels.add(key); return false; }
             while (vertices + mesh.vertices > MAX_VERTICES && !meshes.isEmpty()) {
                 var oldest = meshes.entrySet().iterator();
                 vertices -= oldest.next().getValue().vertices;
                 oldest.remove();
             }
-            meshes.put(model, mesh);
+            meshes.put(key, mesh);
             vertices += mesh.vertices;
         }
         if (!mesh.markSpritesActive()) { return false; }

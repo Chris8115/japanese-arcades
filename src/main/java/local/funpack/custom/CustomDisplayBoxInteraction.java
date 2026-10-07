@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -56,6 +57,17 @@ public final class CustomDisplayBoxInteraction {
         List<ItemStack> expectedDrops = new ArrayList<>();
         boolean committed = false;
         try {
+            // Both block interaction entry points share this dispatch. A consumed normal
+            // right-click adjusts only orientation; sneaking follows the extraction path.
+            if (box != null && opening && !player.isShiftKeyDown()) {
+                CustomDisplayBoxData replacement = data.toggledOrientation();
+                box.setData(replacement);
+                committed = true;
+                player.displayClientMessage(Component.translatable(replacement.straightOn()
+                    ? "message.funpackcustom.custom_display_box.straight"
+                    : "message.funpackcustom.custom_display_box.angled"), true);
+                return true;
+            }
             var inventory = player.getInventory();
             int selected = inventory.selected;
             List<ItemStack> before = new ArrayList<>(), after = new ArrayList<>();
@@ -65,7 +77,7 @@ public final class CustomDisplayBoxInteraction {
             }
             int handSlot = hand == InteractionHand.MAIN_HAND ? selected : 40;
             ItemStack held = before.get(handSlot);
-            CustomDisplayBoxData replacement = opening ? data.emptied() : CustomDisplayBoxData.filled(held);
+            CustomDisplayBoxData replacement = opening ? data.emptied() : data.filledWith(held);
             // Consuming the source in creative also prevents a conversion from copying its contents.
             if (box == null || !opening) { after.get(handSlot).shrink(1); }
             List<ItemStack> outputs = new ArrayList<>();

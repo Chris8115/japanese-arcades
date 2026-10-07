@@ -19,6 +19,7 @@ import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.client.RenderTypeHelper;
 import net.neoforged.neoforge.client.model.data.ModelData;
@@ -48,7 +49,7 @@ public final class CustomDisplayBoxRenderer implements BlockEntityRenderer<Custo
         try {
             Minecraft mc = Minecraft.getInstance();
             ItemStack sample = data.retainedItem();
-            var look = CustomDisplayBoxAppearance.of(sample);
+            var look = CustomDisplayBoxAppearance.of(sample, data.straightOn());
             var shell = mc.getModelManager().getModel(SHELL);
             var state = FunPackCustom.CUSTOM_DISPLAY_BOX.get().defaultBlockState();
             int color = look.color();
@@ -62,13 +63,20 @@ public final class CustomDisplayBoxRenderer implements BlockEntityRenderer<Custo
             if (!contents.isEmpty() && !contents.is(FunPackCustom.CUSTOM_DISPLAY_BOX_ITEM.get())) {
                 pose.pushPose();
                 pose.translate(.5, .432, .49);
-                pose.mulPose(Axis.YP.rotationDegrees(180));
+                // Baked block geometry faces north. Item icons and custom item renderers
+                // (including vanilla chests) face +Z instead. NONE removes the GUI tilt.
+                boolean northFacingModel = contents.getItem() instanceof BlockItem
+                    && !mc.getItemRenderer().getModel(contents, mc.level, mc.player, 0).isCustomRenderer();
+                if (!data.straightOn() || !northFacingModel) {
+                    pose.mulPose(Axis.YP.rotationDegrees(180));
+                }
                 pose.scale(look.scale(), look.scale(), look.scale());
                 pose.translate(-look.x(), -look.y(), -look.z());
                 // Inventory projection is orthographic; a world-space eye test incorrectly
                 // removes these nested meshes. Keep the cache, with native GPU culling.
-                if (!DisplayItemMeshes.INSTANCE.render(contents, pose, buffers, light, overlay, cullFromEye)) {
-                    mc.getItemRenderer().renderStatic(contents, ItemDisplayContext.GUI, light, overlay, pose, buffers, mc.level, 0);
+                ItemDisplayContext context = data.straightOn() ? ItemDisplayContext.NONE : ItemDisplayContext.GUI;
+                if (!DisplayItemMeshes.INSTANCE.render(contents, pose, buffers, light, overlay, cullFromEye, context)) {
+                    mc.getItemRenderer().renderStatic(contents, context, light, overlay, pose, buffers, mc.level, 0);
                 }
                 pose.popPose();
             }

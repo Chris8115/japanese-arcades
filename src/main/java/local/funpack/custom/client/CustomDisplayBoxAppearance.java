@@ -15,22 +15,25 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import org.joml.Vector3f;
 
-/** Bounded, resource-reload-aware analysis of the item's rendered pixels and GUI bounds. */
+/** Bounded, resource-reload-aware analysis of the item's pixels and display bounds. */
 final class CustomDisplayBoxAppearance {
     private static final int LIMIT = 256;
     private static final Map<Key, Appearance> CACHE = new LinkedHashMap<>(16, .75F, true);
     private static final Appearance EMPTY = new Appearance(0x73C8CC, 1, 0, 0, 0);
     record Appearance(int color, float scale, float x, float y, float z) {}
-    private record Key(ItemStack stack) {
-        @Override public int hashCode() { return ItemStack.hashItemAndComponents(stack); }
+    private record Key(ItemStack stack, boolean straightOn) {
+        @Override public int hashCode() { return 31 * ItemStack.hashItemAndComponents(stack) + Boolean.hashCode(straightOn); }
         @Override public boolean equals(Object other) {
-            return other instanceof Key key && ItemStack.isSameItemSameComponents(stack, key.stack);
+            return other instanceof Key key && straightOn == key.straightOn && ItemStack.isSameItemSameComponents(stack, key.stack);
         }
     }
     static void clear() { CACHE.clear(); }
     static Appearance of(ItemStack stack) {
+        return of(stack, false);
+    }
+    static Appearance of(ItemStack stack, boolean straightOn) {
         if (stack.isEmpty()) { return EMPTY; }
-        Appearance found = CACHE.get(new Key(stack));
+        Appearance found = CACHE.get(new Key(stack, straightOn));
         if (found != null) { return found; }
         Minecraft mc = Minecraft.getInstance();
         var renderer = mc.getItemRenderer();
@@ -43,12 +46,15 @@ final class CustomDisplayBoxAppearance {
             // The fake analysis buffer is shared across layers. Do not combine it with
             // itself through a glint VertexMultiConsumer; glint is not packaging color.
             analyzed.set(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, false);
-            renderer.render(analyzed, ItemDisplayContext.GUI, false, new PoseStack(), ignored -> capture, 0, 0, model);
+            renderer.render(analyzed, straightOn ? ItemDisplayContext.NONE : ItemDisplayContext.GUI,
+                false, new PoseStack(), ignored -> capture, 0, 0, model);
         }
         if (capture.surfaces.isEmpty()) { capture.sample(model.getParticleIcon(), 0, 1, 0, 1, 1, 1, 1, 1); }
         found = capture.finish();
+        // Orientation changes the fit, never the packaging's identity or color.
+        if (straightOn) { found = new Appearance(of(stack).color(), found.scale(), found.x(), found.y(), found.z()); }
         if (CACHE.size() >= LIMIT) { CACHE.remove(CACHE.keySet().iterator().next()); }
-        CACHE.put(new Key(stack.copyWithCount(1)), found);
+        CACHE.put(new Key(stack.copyWithCount(1), straightOn), found);
         return found;
     }
 

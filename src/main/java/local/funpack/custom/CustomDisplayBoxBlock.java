@@ -29,7 +29,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-/** A reusable package for a single arbitrary item; the renderer supplies its contents and label. */
+/** A reusable package: empty-hand use changes the view, and sneaking unpacks its contents. */
 public final class CustomDisplayBoxBlock extends HorizontalDirectionalBlock implements EntityBlock {
     public static final MapCodec<CustomDisplayBoxBlock> CODEC = simpleCodec(CustomDisplayBoxBlock::new);
     private static final VoxelShape NORTH_SOUTH = Block.box(3, 0, 4, 13, 14, 12);

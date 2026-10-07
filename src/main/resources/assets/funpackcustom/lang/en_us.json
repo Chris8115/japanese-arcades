@@ -211,5 +211,7 @@
   "tooltip.funpackcustom.custom_display_box.previous": "Empty packaging: %s",
   "tooltip.funpackcustom.custom_display_box.contains": "Contains: %s",
   "tooltip.funpackcustom.custom_display_box.empty": "Place and right-click with an item to box one.",
-  "tooltip.funpackcustom.custom_display_box.filled": "Empty-hand right-click to unpack. Sneak-use in air also opens it."
+  "tooltip.funpackcustom.custom_display_box.filled": "Empty-hand right-click: angled / straight. Sneak-use: unpack.",
+  "message.funpackcustom.custom_display_box.straight": "Display: straight on",
+  "message.funpackcustom.custom_display_box.angled": "Display: angled"
 }
