@@ -37,6 +37,7 @@
 	# Range: 1 ~ 1000000
 	kasane_teto_figure = 2500
 	wacca_poster = 750
+	hatsune_miku_cutout = 1500
 	boxed_creeper_figure = 1000
 	boxed_zombie_figure = 1000
 	boxed_skeleton_figure = 1000

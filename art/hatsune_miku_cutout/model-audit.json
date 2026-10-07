@@ -1,0 +1,626 @@
+{
+  "format": "static NeoForge OBJ baked meshes",
+  "source": {
+    "source_size": [
+      1024,
+      1536
+    ],
+    "alpha_bbox_pixels": [
+      67,
+      50,
+      957,
+      1493
+    ],
+    "grid": [
+      48,
+      78
+    ],
+    "back_rectangles": 62,
+    "outline_edge_quads": 162,
+    "art_width_model_units": 15.199999999999998,
+    "art_height_model_units": 24.64449438202247,
+    "top_model_units": 25.64449438202247,
+    "source_sha256": "fe7a326447c797a763466f04b180fdf271f4132e414b09df4e08e1e024033eb6"
+  },
+  "rotation_contract": "0=south,4=west,8=north,12=east;22.5degrees per segment",
+  "inventory_faces": 255,
+  "complete_placed_faces": 279,
+  "placed_lower_faces": 192,
+  "placed_upper_faces": 87,
+  "whole_bounds": [
+    [
+      0.4,
+      15.6
+    ],
+    [
+      0,
+      25.64449438
+    ],
+    [
+      4.8,
+      11.2
+    ]
+  ],
+  "front_thickness_model_units": 0.6400000000000006,
+  "render_type": "minecraft:cutout_mipped_all",
+  "block_entity_renderer": false,
+  "ticking": false,
+  "placed_models": [
+    {
+      "model": "hatsune_miku_cutout_lower_00",
+      "faces": 192,
+      "bounds": [
+        [
+          0.4,
+          15.6
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          4.8,
+          11.2
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_upper_00",
+      "faces": 87,
+      "bounds": [
+        [
+          0.4,
+          15.6
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          7.68,
+          8.32
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_lower_01",
+      "faces": 192,
+      "bounds": [
+        [
+          0.85605685,
+          15.14394315
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          3.35977839,
+          12.64022161
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_upper_01",
+      "faces": 87,
+      "bounds": [
+        [
+          0.85605685,
+          14.89902575
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          4.79596446,
+          11.20403554
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_lower_02",
+      "faces": 192,
+      "bounds": [
+        [
+          2.39971429,
+          13.60028571
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          2.39971429,
+          13.60028571
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_upper_02",
+      "faces": 87,
+      "bounds": [
+        [
+          2.39971429,
+          13.14773737
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          2.39971429,
+          13.60028571
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_lower_03",
+      "faces": 192,
+      "bounds": [
+        [
+          3.35977839,
+          12.64022161
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          0.85605685,
+          15.14394315
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_upper_03",
+      "faces": 87,
+      "bounds": [
+        [
+          4.79596446,
+          10.71930319
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          0.85605685,
+          15.14394315
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_lower_04",
+      "faces": 192,
+      "bounds": [
+        [
+          4.8,
+          11.2
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          0.4,
+          15.6
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_upper_04",
+      "faces": 87,
+      "bounds": [
+        [
+          7.68,
+          8.32
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          0.4,
+          15.6
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_lower_05",
+      "faces": 192,
+      "bounds": [
+        [
+          3.35977839,
+          12.64022161
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          0.85605685,
+          15.14394315
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_upper_05",
+      "faces": 87,
+      "bounds": [
+        [
+          4.79596446,
+          11.20403554
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          0.85605685,
+          14.89902575
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_lower_06",
+      "faces": 192,
+      "bounds": [
+        [
+          2.39971429,
+          13.60028571
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          2.39971429,
+          13.60028571
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_upper_06",
+      "faces": 87,
+      "bounds": [
+        [
+          2.39971429,
+          13.60028571
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          2.39971429,
+          13.14773737
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_lower_07",
+      "faces": 192,
+      "bounds": [
+        [
+          0.85605685,
+          15.14394315
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          3.35977839,
+          12.64022161
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_upper_07",
+      "faces": 87,
+      "bounds": [
+        [
+          0.85605685,
+          15.14394315
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          4.79596446,
+          10.71930319
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_lower_08",
+      "faces": 192,
+      "bounds": [
+        [
+          0.4,
+          15.6
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          4.8,
+          11.2
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_upper_08",
+      "faces": 87,
+      "bounds": [
+        [
+          0.4,
+          15.6
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          7.68,
+          8.32
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_lower_09",
+      "faces": 192,
+      "bounds": [
+        [
+          0.85605685,
+          15.14394315
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          3.35977839,
+          12.64022161
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_upper_09",
+      "faces": 87,
+      "bounds": [
+        [
+          1.10097425,
+          15.14394315
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          4.79596446,
+          11.20403554
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_lower_10",
+      "faces": 192,
+      "bounds": [
+        [
+          2.39971429,
+          13.60028571
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          2.39971429,
+          13.60028571
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_upper_10",
+      "faces": 87,
+      "bounds": [
+        [
+          2.85226263,
+          13.60028571
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          2.39971429,
+          13.60028571
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_lower_11",
+      "faces": 192,
+      "bounds": [
+        [
+          3.35977839,
+          12.64022161
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          0.85605685,
+          15.14394315
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_upper_11",
+      "faces": 87,
+      "bounds": [
+        [
+          5.28069681,
+          11.20403554
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          0.85605685,
+          15.14394315
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_lower_12",
+      "faces": 192,
+      "bounds": [
+        [
+          4.8,
+          11.2
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          0.4,
+          15.6
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_upper_12",
+      "faces": 87,
+      "bounds": [
+        [
+          7.68,
+          8.32
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          0.4,
+          15.6
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_lower_13",
+      "faces": 192,
+      "bounds": [
+        [
+          3.35977839,
+          12.64022161
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          0.85605685,
+          15.14394315
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_upper_13",
+      "faces": 87,
+      "bounds": [
+        [
+          4.79596446,
+          11.20403554
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          1.10097425,
+          15.14394315
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_lower_14",
+      "faces": 192,
+      "bounds": [
+        [
+          2.39971429,
+          13.60028571
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          2.39971429,
+          13.60028571
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_upper_14",
+      "faces": 87,
+      "bounds": [
+        [
+          2.39971429,
+          13.60028571
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          2.85226263,
+          13.60028571
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_lower_15",
+      "faces": 192,
+      "bounds": [
+        [
+          0.85605685,
+          15.14394315
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          3.35977839,
+          12.64022161
+        ]
+      ]
+    },
+    {
+      "model": "hatsune_miku_cutout_upper_15",
+      "faces": 87,
+      "bounds": [
+        [
+          0.85605685,
+          15.14394315
+        ],
+        [
+          -0.0,
+          9.64449438
+        ],
+        [
+          5.28069681,
+          11.20403554
+        ]
+      ]
+    }
+  ]
+}

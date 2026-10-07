@@ -128,6 +128,7 @@ The WACCA poster uses the supplied artwork and hangs on a wall like a painting.
 | `hatsune_miku_figure` | Hatsune Miku Figure | 2,500 |
 | `kasane_teto_figure` | Kasane Teto Figure | 2,500 |
 | `wacca_poster` | WACCA Poster | 750 |
+| `hatsune_miku_cutout` | Hatsune Miku Cardboard Cutout | 1,500 |
 | `boxed_creeper_figure` | Boxed Creeper Figure | 1,000 |
 | `boxed_zombie_figure` | Boxed Zombie Figure | 1,000 |
 | `boxed_skeleton_figure` | Boxed Skeleton Figure | 1,000 |

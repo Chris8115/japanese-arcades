@@ -47,6 +47,7 @@ public final class ArcadeEconomyConfig {
         builder.pop().comment("Prize Point costs; ordinary material recipes are intentionally absent.").push("prizes");
         PRICES.put("hatsune_miku_figure", builder.defineInRange("hatsune_miku_figure", 2500, 1, 1_000_000));
         PRICES.put("kasane_teto_figure", builder.defineInRange("kasane_teto_figure", 2500, 1, 1_000_000));
+        PRICES.put("hatsune_miku_cutout", builder.defineInRange("hatsune_miku_cutout", 1500, 1, 1_000_000));
         PRICES.put("wacca_poster", builder.defineInRange("wacca_poster", 750, 1, 1_000_000));
         for (String mob : MobFigureBlock.MOBS) {
             String prize = MobFigureBlock.path(mob, MobFigureBlock.Form.BOXED);

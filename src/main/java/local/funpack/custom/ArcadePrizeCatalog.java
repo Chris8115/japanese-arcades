@@ -19,6 +19,7 @@ public final class ArcadePrizeCatalog {
     private static final List<Entry> ENTRIES = Stream.concat(Stream.of(
         new Entry(id("hatsune_miku_figure"), FunPackCustom.HATSUNE_MIKU_FIGURE_ITEM),
         new Entry(id("kasane_teto_figure"), FunPackCustom.KASANE_TETO_FIGURE_ITEM),
+        new Entry(id("hatsune_miku_cutout"), FunPackCustom.HATSUNE_MIKU_CUTOUT_ITEM),
         new Entry(id("wacca_poster"), FunPackCustom.WACCA_POSTER)),
         FunPackCustom.MOB_FIGURES.stream().map(figures -> new Entry(
             id(MobFigureBlock.path(figures.mob(), MobFigureBlock.Form.BOXED)), figures.boxedFigureItem()))).toList();

@@ -213,5 +213,6 @@
   "tooltip.funpackcustom.custom_display_box.empty": "Place and right-click with an item to box one.",
   "tooltip.funpackcustom.custom_display_box.filled": "Empty-hand right-click: angled / straight. Sneak-use: unpack.",
   "message.funpackcustom.custom_display_box.straight": "Display: straight on",
-  "message.funpackcustom.custom_display_box.angled": "Display: angled"
+  "message.funpackcustom.custom_display_box.angled": "Display: angled",
+  "block.funpackcustom.hatsune_miku_cutout": "Hatsune Miku Cardboard Cutout"
 }
