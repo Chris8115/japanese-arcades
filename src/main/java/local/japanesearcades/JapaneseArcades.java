@@ -7,6 +7,8 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -15,6 +17,7 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.ModContainer;
@@ -48,6 +51,8 @@ public final class JapaneseArcades {
             .persistent(ArcadePassData.CODEC).networkSynchronized(ArcadePassData.STREAM_CODEC).build());
     public static final DeferredItem<ArcadePassItem> ARCADE_PASS = ITEMS.registerItem("arcade_pass", ArcadePassItem::new,
         new Item.Properties().stacksTo(1));
+    public record GlowStickSet(String color, String path, DeferredBlock<GlowStickBlock> block, DeferredItem<BlockItem> item) {}
+    public static final List<GlowStickSet> GLOW_STICKS = GlowStickBlock.COLORS.stream().map(JapaneseArcades::glowStick).toList();
     public static final DeferredBlock<ArcadePrizeBlock> HATSUNE_MIKU_FIGURE = prizeBlock("hatsune_miku_figure");
     public static final DeferredBlock<ArcadePrizeBlock> KASANE_TETO_FIGURE = prizeBlock("kasane_teto_figure");
     public static final DeferredItem<?> HATSUNE_MIKU_FIGURE_ITEM = ITEMS.registerSimpleBlockItem("hatsune_miku_figure", HATSUNE_MIKU_FIGURE);
@@ -83,6 +88,14 @@ public final class JapaneseArcades {
         ENTITIES.register("wacca_poster", () -> EntityType.Builder.<WaccaPosterEntity>of(
             WaccaPosterEntity::new, MobCategory.MISC).sized(.5F, .5F).clientTrackingRange(10)
             .updateInterval(Integer.MAX_VALUE).build(MOD_ID + ":wacca_poster"));
+
+    private static GlowStickSet glowStick(String color) {
+        String path = color + "_glow_stick";
+        var block = BLOCKS.registerBlock(path, GlowStickBlock::new, BlockBehaviour.Properties.of()
+            .mapColor(DyeColor.byName(color, DyeColor.WHITE).getMapColor()).instabreak().sound(SoundType.GLASS)
+            .noCollission().noOcclusion().pushReaction(PushReaction.DESTROY).lightLevel(state -> 14));
+        return new GlowStickSet(color, path, block, ITEMS.registerSimpleBlockItem(path, block));
+    }
 
     private static DeferredBlock<ArcadePrizeBlock> prizeBlock(String name) {
         return BLOCKS.registerBlock(name, ArcadePrizeBlock::new, BlockBehaviour.Properties.of()
@@ -316,6 +329,7 @@ public final class JapaneseArcades {
                 output.accept(CLAW_MACHINE_ITEM.get());
                 output.accept(ARCADE_KIOSK_ITEM.get());
                 output.accept(ARCADE_PASS.get());
+                for (GlowStickSet glowStick : GLOW_STICKS) { output.accept(glowStick.item().get()); }
                 output.accept(HATSUNE_MIKU_FIGURE_ITEM.get());
                 output.accept(KASANE_TETO_FIGURE_ITEM.get());
                 output.accept(HATSUNE_MIKU_CUTOUT_ITEM.get());

@@ -54,6 +54,9 @@ public final class ArcadeEconomyConfig {
             String prize = MobFigureBlock.path(mob, MobFigureBlock.Form.BOXED);
             PRICES.put(prize, builder.defineInRange(prize, 1000, 1, 1_000_000));
         }
+        for (var stick : JapaneseArcades.GLOW_STICKS) {
+            PRICES.put(stick.path(), builder.defineInRange(stick.path(), 100, 1, 1_000_000));
+        }
         builder.pop();
         SPEC = builder.build();
     }

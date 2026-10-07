@@ -1,0 +1,22 @@
+{
+  "colors": [
+    "blue",
+    "red",
+    "yellow",
+    "green",
+    "pink",
+    "purple",
+    "orange"
+  ],
+  "model_pixel_height": 13.3,
+  "tube_sides": 12,
+  "faces": {
+    "placed_floor": 180,
+    "placed_wall": 186,
+    "inventory_per_item": 180,
+    "dual_wield": 360
+  },
+  "rendering": "Static solid baked OBJ; tube material emissive, handle normally lit; no block entity.",
+  "textures": "Eight 16x16 textures, one handle plus seven color tubes.",
+  "hand_transforms": "Both hands provided; Minecraft mirrors the left hand natively."
+}

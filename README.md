@@ -104,6 +104,17 @@ artwork, cardboard backing and a folded support. Place it on solid ground at
 16 angles, spaced 22.5° apart like a standing sign. Breaking either half returns
 one cutout in survival.
 
+Concert glow sticks come in **blue, red, yellow, green, pink, purple and orange**.
+Redeem one for **100 Prize Points** at the kiosk (each color's price is server
+configurable), or stock them as claw-machine and gachapon rewards. Hold one in
+either hand, including two different colors at once. Right-click a supported
+floor or wall to place it; placed sticks emit level-14 light like torches and
+also work underwater. Breaking one or removing its support returns that color.
+The tube remains visibly luminous when held, while world illumination uses
+normal Minecraft block lighting: no colored light or built-in held dynamic light.
+The shared static models use **180 faces** per floor/held stick and **186** per
+wall-mounted stick, with no block entity or ticking renderer.
+
 The separate [Custom Display Box](art/custom_display_box/README.md) displays one
 item with an automatically colored package and printed name. Craft four with
 eight paper around a glass pane. Place a box and right-click it with the item;

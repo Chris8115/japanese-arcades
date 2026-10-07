@@ -224,5 +224,12 @@
   "painting.japanesearcades.arcade_invader.title": "Insert Coin",
   "painting.japanesearcades.arcade_invader.author": "Japanese Arcades",
   "painting.japanesearcades.arcade_fuji.title": "Fuji at Sunset",
-  "painting.japanesearcades.arcade_fuji.author": "Japanese Arcades"
+  "painting.japanesearcades.arcade_fuji.author": "Japanese Arcades",
+  "block.japanesearcades.blue_glow_stick": "Blue Concert Glow Stick",
+  "block.japanesearcades.red_glow_stick": "Red Concert Glow Stick",
+  "block.japanesearcades.yellow_glow_stick": "Yellow Concert Glow Stick",
+  "block.japanesearcades.green_glow_stick": "Green Concert Glow Stick",
+  "block.japanesearcades.pink_glow_stick": "Pink Concert Glow Stick",
+  "block.japanesearcades.purple_glow_stick": "Purple Concert Glow Stick",
+  "block.japanesearcades.orange_glow_stick": "Orange Concert Glow Stick"
 }

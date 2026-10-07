@@ -59,6 +59,13 @@ These are simulated results, independent of the decorative game on the screen.
 The server commits the debit and award together, before audiovisual feedback.
 There is no charged-but-unpaid pending round to lose on disconnect or restart.
 
+Concert glow sticks are modest kiosk rewards at **100 Prize Points each**, in
+blue, red, yellow, green, pink, purple and orange. Each purchase delivers one
+stick. The standard rank table averages 24 points per play, making these an
+early reward; the existing figures, boxed mobs, cutouts and poster keep their
+prices. Glow sticks are ordinary items that operators can also stock in claw
+machines and gachapon. They have no crafting recipes.
+
 ## Configuration
 
 NeoForge generates **`japanesearcades-arcade-economy.toml`** as a SERVER config and
@@ -70,6 +77,11 @@ as a second configuration. `ArcadeEconomyConfig` owns the runtime values.
 - `[exchange]`: Credits per iron ingot, gold ingot, emerald or diamond.
 - `[play]`: default cost, cooldown, weighted rank rows and machine overrides.
 - `[prizes]`: point price for each collectible in the prize catalog.
+
+Each glow-stick color has its own price key, such as
+`prizes.blue_glow_stick = 100`; the other colors use the same naming pattern.
+The kiosk's scrollable prize list includes all seven colors after the existing
+collectibles, with mouse-wheel, arrow-key and Page Up/Down navigation.
 
 Rank rows use `profile|label|weight|points`; weights are relative within their
 profile. Add a new profile's rows and assign it to a cabinet with

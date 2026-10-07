@@ -1,0 +1,7 @@
+{
+  "parent": "japanesearcades:block/glow_stick_wall",
+  "textures": {
+    "tube": "japanesearcades:block/purple_glow_stick",
+    "particle": "japanesearcades:block/purple_glow_stick"
+  }
+}

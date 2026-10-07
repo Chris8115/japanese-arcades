@@ -1,0 +1,23 @@
+newmtl plastic
+Kd 1 1 1
+Ka 0 0 0
+d 1
+map_Kd #handle
+
+newmtl silver
+Kd 1 1 1
+Ka 0 0 0
+d 1
+map_Kd #handle
+
+newmtl rubber
+Kd 1 1 1
+Ka 0 0 0
+d 1
+map_Kd #handle
+
+newmtl tube
+Kd 1 1 1
+Ka 1 1 1
+d 1
+map_Kd #tube

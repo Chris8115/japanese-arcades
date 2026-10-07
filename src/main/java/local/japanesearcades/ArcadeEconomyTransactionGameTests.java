@@ -261,18 +261,22 @@ public final class ArcadeEconomyTransactionGameTests {
     public static void arcadeEveryConfiguredPrizeChargesOnlyItsPointPrice(GameTestHelper helper) {
         ServerPlayer player = createPlayer(helper, "PassPrizes", GameType.SURVIVAL);
         ArcadeKioskMenu menu = setup(helper, player);
-        helper.assertTrue(ArcadePrizeCatalog.entries().size() == 11
+        helper.assertTrue(ArcadePrizeCatalog.entries().size() == 18
             && ArcadePrizeCatalog.find(id("hatsune_miku_figure")).isPresent()
             && ArcadePrizeCatalog.find(id("kasane_teto_figure")).isPresent()
             && ArcadePrizeCatalog.find(id("wacca_poster")).isPresent()
             && ArcadePrizeCatalog.find(id("hatsune_miku_cutout")).isPresent()
             && ArcadePrizeCatalog.find(id("kasane_teto_cutout")).isPresent(),
-            "The shop must retain the character figures, WACCA poster and six boxed mobs alongside both cardboard cutouts");
+            "The shop must retain its eleven collectibles and add all seven glow-stick colors");
         for (String mob : MobFigureBlock.MOBS) {
             helper.assertTrue(ArcadePrizeCatalog.find(id("boxed_" + mob + "_figure")).isPresent()
                 && ArcadePrizeCatalog.find(id(mob + "_figure")).isEmpty()
                 && ArcadePrizeCatalog.find(id(mob + "_figure_box")).isEmpty(),
                 "Mob prizes must arrive boxed, with loose figures and empty boxes obtained by opening them");
+        }
+        for (String color : List.of("blue", "red", "yellow", "green", "pink", "purple", "orange")) {
+            helper.assertTrue(ArcadePrizeCatalog.find(id(color + "_glow_stick")).isPresent(),
+                "Missing glow-stick reward in the real redemption test: " + color);
         }
         for (var entry : ArcadePrizeCatalog.entries()) {
             player.getInventory().clearContent();
@@ -405,15 +409,16 @@ public final class ArcadeEconomyTransactionGameTests {
         ArcadeKioskMenu menu = setup(helper, player);
         ModConfigSpec.IntValue iron = ArcadeEconomyConfig.SPEC.getValues().get("exchange.iron");
         ModConfigSpec.IntValue miku = ArcadeEconomyConfig.SPEC.getValues().get("prizes.hatsune_miku_figure");
+        ModConfigSpec.IntValue blueGlowStick = ArcadeEconomyConfig.SPEC.getValues().get("prizes.blue_glow_stick");
         ModConfigSpec.IntValue defaultCost = ArcadeEconomyConfig.SPEC.getValues().get("play.defaultCreditCost");
         ModConfigSpec.ConfigValue<List<? extends String>> ranks = ArcadeEconomyConfig.SPEC.getValues().get("play.rankProfiles");
         ModConfigSpec.ConfigValue<List<? extends String>> machines = ArcadeEconomyConfig.SPEC.getValues().get("play.machineOverrides");
-        int oldIron = iron.get(), oldMiku = miku.get(), oldCost = defaultCost.get();
+        int oldIron = iron.get(), oldMiku = miku.get(), oldGlowStick = blueGlowStick.get(), oldCost = defaultCost.get();
         List<? extends String> oldRanks = List.copyOf(ranks.get()), oldMachines = List.copyOf(machines.get());
         try {
             // Synchronous on the server thread. Restore in finally before any
             // delayed test or another player's action can see this test config.
-            iron.set(37); miku.set(73); defaultCost.set(19);
+            iron.set(37); miku.set(73); blueGlowStick.set(17); defaultCost.set(19);
             ranks.set(List.of("standard|Config C|1|29", "test_config|Config S|1|83"));
             machines.set(List.of("japanesearcades:initial_d|23|test_config"));
             target(menu, pass(0, 500));
@@ -425,6 +430,14 @@ public final class ArcadeEconomyTransactionGameTests {
             var prize = ArcadePrizeCatalog.find(id("hatsune_miku_figure")).orElseThrow();
             helper.assertTrue(targetData(menu).prizePoints() == 427 && targetData(menu).credits() == 37
                 && ArcadeOrderCatalog.count(player, prize.item().get()) == 1, "A changed server prize price was not charged exactly");
+            var glowStick = ArcadePrizeCatalog.find(id("blue_glow_stick")).orElseThrow();
+            for (int order = 0; order < 2; order++) {
+                ArcadeKioskNetwork.handlePrize(player, prize(menu, player, glowStick.id()));
+            }
+            helper.assertTrue(targetData(menu).prizePoints() == 393 && targetData(menu).credits() == 37
+                && ArcadeOrderCatalog.count(player, glowStick.item().get()) == 2
+                && player.getInventory().items.stream().anyMatch(stack -> stack.is(glowStick.item().get()) && stack.getCount() == 2),
+                "Repeated glow-stick purchases ignored the color's configured price or lost a stackable reward");
             var standard = ArcadeEconomyConfig.profile(id("nostalgia_op3"));
             var override = ArcadeEconomyConfig.profile(id("initial_d"));
             helper.assertTrue(standard.credits() == 19 && standard.name().equals("standard")
@@ -434,10 +447,11 @@ public final class ArcadeEconomyTransactionGameTests {
                 && ArcadeEconomyConfig.roll(override, RandomSource.create(17)).points() == 83,
                 "A machine-specific cost/profile override did not select its configured single-rank reward");
         } finally {
-            iron.set(oldIron); miku.set(oldMiku); defaultCost.set(oldCost); ranks.set(oldRanks); machines.set(oldMachines);
+            iron.set(oldIron); miku.set(oldMiku); blueGlowStick.set(oldGlowStick); defaultCost.set(oldCost); ranks.set(oldRanks); machines.set(oldMachines);
         }
         helper.assertTrue(ArcadeEconomyConfig.exchangeRates().stream().filter(rate -> rate.material() == Items.IRON_INGOT).findFirst().orElseThrow().credits() == oldIron
             && ArcadeEconomyConfig.prizePrice(id("hatsune_miku_figure")) == oldMiku
+            && ArcadeEconomyConfig.prizePrice(id("blue_glow_stick")) == oldGlowStick
             && defaultCost.get() == oldCost && ranks.get().equals(oldRanks) && machines.get().equals(oldMachines),
             "Config test failed to restore the server's original economy");
         helper.succeed();

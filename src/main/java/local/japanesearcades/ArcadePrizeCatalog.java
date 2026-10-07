@@ -16,14 +16,16 @@ public final class ArcadePrizeCatalog {
         public Component title() { return output().getHoverName(); }
     }
 
-    private static final List<Entry> ENTRIES = Stream.concat(Stream.of(
+    private static final List<Entry> ENTRIES = Stream.of(Stream.of(
         new Entry(id("hatsune_miku_figure"), JapaneseArcades.HATSUNE_MIKU_FIGURE_ITEM),
         new Entry(id("kasane_teto_figure"), JapaneseArcades.KASANE_TETO_FIGURE_ITEM),
         new Entry(id("hatsune_miku_cutout"), JapaneseArcades.HATSUNE_MIKU_CUTOUT_ITEM),
         new Entry(id("kasane_teto_cutout"), JapaneseArcades.KASANE_TETO_CUTOUT_ITEM),
         new Entry(id("wacca_poster"), JapaneseArcades.WACCA_POSTER)),
         JapaneseArcades.MOB_FIGURES.stream().map(figures -> new Entry(
-            id(MobFigureBlock.path(figures.mob(), MobFigureBlock.Form.BOXED)), figures.boxedFigureItem()))).toList();
+            id(MobFigureBlock.path(figures.mob(), MobFigureBlock.Form.BOXED)), figures.boxedFigureItem())),
+        JapaneseArcades.GLOW_STICKS.stream().map(stick -> new Entry(id(stick.path()), stick.item())))
+        .flatMap(entries -> entries).toList();
 
     private ArcadePrizeCatalog() {}
     private static ResourceLocation id(String path) { return ResourceLocation.fromNamespaceAndPath(JapaneseArcades.MOD_ID, path); }

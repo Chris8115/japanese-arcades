@@ -1,0 +1,23 @@
+{
+  "variants": {
+    "facing=up": {
+      "model": "japanesearcades:block/purple_glow_stick"
+    },
+    "facing=south": {
+      "model": "japanesearcades:block/purple_glow_stick_wall",
+      "y": 0
+    },
+    "facing=west": {
+      "model": "japanesearcades:block/purple_glow_stick_wall",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "japanesearcades:block/purple_glow_stick_wall",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "japanesearcades:block/purple_glow_stick_wall",
+      "y": 270
+    }
+  }
+}
