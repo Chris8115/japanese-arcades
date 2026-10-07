@@ -3,7 +3,7 @@
 This workspace is for our own mods for **Minecraft 1.21.1 / NeoForge 21.1.252**.
 The starter mod is **Fun Pack Custom**, id `funpackcustom`, version `0.1.0`.
 It registers `/funpackdev`, a small command to confirm that the mod is loaded.
-The **Japanese Arcades** creative tab includes fourteen cabinets with music-disc playback:
+The **Japanese Arcades** creative tab includes fifteen cabinets with music-disc playback:
 
 - [Nostalgia Op.3 Arcade Cabinet](art/nostalgia-op3/README.md)
 - [BeatStream Arcade Cabinet](art/beatstream/README.md)
@@ -19,6 +19,7 @@ The **Japanese Arcades** creative tab includes fourteen cabinets with music-disc
 - [Taiko no Tatsujin Arcade Cabinet](art/taiko/README.md)
 - [Initial D Single Racing Cabinet](art/initial_d/README.md)
 - [Jubeat Arcade Cabinet](art/jubeat/README.md)
+- [ONGEKI bright Arcade Cabinet](art/ongeki/README.md)
 
 Their model notes include editable files, previews, and use instructions. All are
 three blocks high. maimai uses **two connected columns** and requires a supported,
@@ -41,6 +42,9 @@ Jubeat keeps its entire shell, speakers and cube topper inside one block of
 width and depth, so independent cabinets can be placed directly side by side.
 Its glass display cubes contain recessed artwork, and its sixteen buttons run
 a multicolor idle animation. The small display above the buttons shares their slope.
+ONGEKI bright has a separate white outer arch, circular side panels, a recessed
+portrait monitor, two groups of three buttons, and a center lever. It uses the
+standard kiosk ordering, Arcade Pass rewards, and saved music-disc playback.
 Allow additional clearance for the visible decks, wings, mats, and enclosures.
 Each model's notes describe its dimensions.
 
@@ -92,7 +96,7 @@ Use **Terminal > Run Task** for the `Fun:` tasks, or open a terminal here:
 - `SyncPack` refreshes the copied mods, configs, resource packs, and pack scripts from the live pack.
 - `Prepare` downloads game assets and prepares client/server launch files.
 - `Server` launches a small dedicated server for checking server compatibility.
-- `GameTest` runs 125 cabinet, claw machine, gachapon, poster, ordering and Arcade Pass economy integration tests in a disposable test world and exits.
+- `GameTest` runs 130 cabinet, claw machine, gachapon, poster, ordering and Arcade Pass economy integration tests in a disposable test world and exits.
 - `Data` runs our data generators once we add them.
 
 The script selects Java 21 locally. Your default Java installation remains available to other projects.
@@ -133,7 +137,7 @@ step-on access, open dance space, and handrail collision in every facing.
 Gachapon adds placement/setup, owner and password access, password-session revocation,
 private save data, protected extraction, capsule contents and overflow, exact-item
 payments, failed transaction rollback, concurrent buyers and the five-second crank
-reset. The ordering kiosk adds two-cell placement/removal, all fifteen material
+reset. The ordering kiosk adds two-cell placement/removal, all seventeen material
 transactions, invalid/stale requests, safe inventory overflow and creative pickup,
 spawn-veto rollback, and the loaded shaped recipe. Taiko adds ten-cell placement
 and removal in all directions, neighboring-cabinet isolation, shared saved-disc
@@ -144,7 +148,7 @@ aisle exits from a full row, blocked interactions/headroom, logout/removal clean
 and uninterrupted saved-disc playback while seated. Arcade Pass tests cover
 versioned save/network data, all four exchanges, balance transfers, stale and
 cross-player requests, atomic prize delivery, spawn-event reentrancy, live
-configuration changes, all fourteen paid cabinets, weighted rewards, cooldowns,
+configuration changes, all fifteen paid cabinets, weighted rewards, cooldowns,
 invalid interaction rejection, and preservation of idle state and disc playback.
 Physical pass-slot tests cover native insertion and shift-clicks, tab restrictions,
 reinserted-card stale requests, separate viewer inventories, close/break/logout/death
@@ -158,7 +162,9 @@ BeatStream tests cover disc use through every section, saved playback, all-facin
 placement beside Nostalgia, neighbor isolation, single drops and support-loss cleanup.
 WACCA poster tests cover all four wall facings, fixed artwork, save/reload,
 survival and creative removal, support loss, blocked placement, and canceled spawns.
-All 116 passed on 2026-10-06.
+ONGEKI tests cover rotated placement and blocked placement, saved disc playback,
+single drops, neighbor isolation, and selection through the open arch to its monitor.
+All 130 passed on 2026-10-07.
 Visual checks and full-pack compatibility remain separate from these server tests.
 
 `SyncPack` overwrites files that exist in the source pack's configuration. Close the development
