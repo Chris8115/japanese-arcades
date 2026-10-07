@@ -149,9 +149,23 @@ checks and before/after group counts. The independent report at
 runtime meshes, preserved fitting radii/depth/printed UVs, closed outward-facing
 rails, exact unaffected meshes, unchanged textures and collision code. Its
 native counts confirm **7,222 → 5,114 world** and **6,739 → 4,647 item** faces.
-Native client/package verification is handled separately; the historical
-integration checks below precede this optimization. Face-count reduction alone
-is not a measured FPS improvement.
+The final `dev.cmd Build` passed. A disposable Minecraft client with Sodium
+0.8.13, Iris 1.8.14-beta.1 and Complementary Reimagined 5.9.3 placed the complete
+machine, baked all 288 states and its item, captured seven matching before/after
+views, and passed resource reload. Its 122,736 state quads represent 24 repeated
+state combinations of the same 5,114 placed faces; the item has 4,647 quads.
+The final rail, speaker and whole-cabinet views were visually inspected.
+[In-game rails](ddr-optimized-rails.png) and
+[whole machine](ddr-optimized-cabinet.png) show the verified result.
+
+All 32 packaged DDR assets match their sources, all four runtime textures are
+unchanged, and all thirteen OBJ exports pass optimizer idempotence. Reports:
+`build/verification/ddr-reduction-audit.json` and
+`runs/ddr-reduction-after-visual-probe/native-report.json`.
+The previous model is saved in a verified 55-file external archive and Git tag
+`backup/ddr-before-hardware-reduction-20261007-114654`.
+The historical integration checks below precede this optimization. Face-count
+reduction alone is not a measured FPS improvement.
 
 The final Build passed and **all 47 integration tests passed on
 2026-10-06**, including the previous forty. Seven new DDR tests cover:
