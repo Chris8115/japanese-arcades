@@ -1,0 +1,1071 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:cutout",
+  "ambientocclusion": true,
+  "textures": {
+    "skin": "funpackcustom:block/skeleton_figure_skin",
+    "package": "funpackcustom:block/skeleton_figure_package",
+    "particle": "funpackcustom:block/skeleton_figure_skin"
+  },
+  "elements": [
+    {
+      "name": "Display plinth",
+      "from": [
+        4.4,
+        0,
+        4.4
+      ],
+      "to": [
+        11.6,
+        0.46,
+        11.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Accent plinth rim",
+      "from": [
+        4.5,
+        0.46,
+        4.5
+      ],
+      "to": [
+        11.5,
+        0.64,
+        11.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Dark inset top",
+      "from": [
+        4.7,
+        0.64,
+        4.7
+      ],
+      "to": [
+        11.3,
+        0.73,
+        11.3
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Printed collection nameplate",
+      "from": [
+        5.05,
+        0.06,
+        4.395
+      ],
+      "to": [
+        10.95,
+        0.4,
+        4.395
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.0,
+            11.0,
+            14.0,
+            12.0
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "skeleton head",
+      "from": [
+        6.78,
+        8.05,
+        6.78
+      ],
+      "to": [
+        9.22,
+        10.49,
+        9.22
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2.0,
+            4.0,
+            4.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            6.0,
+            4.0,
+            8.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            4.0,
+            2.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            4.0,
+            4.0,
+            6.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            2.0,
+            0.0,
+            4.0,
+            4.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            4.0,
+            4.0,
+            6.0,
+            0.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "skeleton torso",
+      "from": [
+        6.78,
+        4.390000000000001,
+        7.39
+      ],
+      "to": [
+        9.22,
+        8.05,
+        8.61
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            5.0,
+            10.0,
+            7.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            8.0,
+            10.0,
+            10.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            4.0,
+            10.0,
+            5.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            7.0,
+            10.0,
+            8.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            5.0,
+            8.0,
+            7.0,
+            10.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            7.0,
+            10.0,
+            9.0,
+            8.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "skeleton leg -1",
+      "from": [
+        7.085,
+        0.73,
+        7.695
+      ],
+      "to": [
+        7.694999999999999,
+        4.390000000000001,
+        8.305
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.5,
+            9.0,
+            1.0,
+            15.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            1.5,
+            9.0,
+            2.0,
+            15.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            9.0,
+            0.5,
+            15.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            1.0,
+            9.0,
+            1.5,
+            15.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            0.5,
+            8.0,
+            1.0,
+            9.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            1.0,
+            9.0,
+            1.5,
+            8.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "Skeleton arm bone -1",
+      "from": [
+        6.17,
+        4.390000000000001,
+        7.695
+      ],
+      "to": [
+        6.779999999999999,
+        8.05,
+        8.305
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            10.5,
+            9.0,
+            11.0,
+            15.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            11.5,
+            9.0,
+            12.0,
+            15.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            10.0,
+            9.0,
+            10.5,
+            15.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            11.0,
+            9.0,
+            11.5,
+            15.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            10.5,
+            8.0,
+            11.0,
+            9.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            11.0,
+            9.0,
+            11.5,
+            8.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "skeleton leg 1",
+      "from": [
+        8.305,
+        0.73,
+        7.695
+      ],
+      "to": [
+        8.915,
+        4.390000000000001,
+        8.305
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.5,
+            9.0,
+            1.0,
+            15.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            1.5,
+            9.0,
+            2.0,
+            15.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            9.0,
+            0.5,
+            15.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            1.0,
+            9.0,
+            1.5,
+            15.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            0.5,
+            8.0,
+            1.0,
+            9.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            1.0,
+            9.0,
+            1.5,
+            8.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "Skeleton arm bone 1",
+      "from": [
+        9.22,
+        4.390000000000001,
+        7.695
+      ],
+      "to": [
+        9.83,
+        8.05,
+        8.305
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            10.5,
+            9.0,
+            11.0,
+            15.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            11.5,
+            9.0,
+            12.0,
+            15.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            10.0,
+            9.0,
+            10.5,
+            15.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            11.0,
+            9.0,
+            11.5,
+            15.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            10.5,
+            8.0,
+            11.0,
+            9.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            11.0,
+            9.0,
+            11.5,
+            8.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "Bow wood 2.2",
+      "from": [
+        5.65,
+        2.2,
+        6.65
+      ],
+      "to": [
+        5.9,
+        3.2800000000000002,
+        6.9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Bow wood 3.25",
+      "from": [
+        5.3,
+        3.25,
+        6.65
+      ],
+      "to": [
+        5.55,
+        4.33,
+        6.9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Bow wood 4.3",
+      "from": [
+        5.1,
+        4.3,
+        6.65
+      ],
+      "to": [
+        5.35,
+        5.38,
+        6.9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Bow wood 5.35",
+      "from": [
+        5.3,
+        5.35,
+        6.65
+      ],
+      "to": [
+        5.55,
+        6.43,
+        6.9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Bow wood 6.4",
+      "from": [
+        5.65,
+        6.4,
+        6.65
+      ],
+      "to": [
+        5.9,
+        7.48,
+        6.9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            1.75,
+            14.75,
+            2.0
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Bow string",
+      "from": [
+        5.89,
+        2.25,
+        6.71
+      ],
+      "to": [
+        5.95,
+        7.4,
+        6.78
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        }
+      }
+    }
+  ]
+}

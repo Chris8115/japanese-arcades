@@ -1,0 +1,682 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:cutout",
+  "ambientocclusion": true,
+  "textures": {
+    "skin": "funpackcustom:block/enderman_figure_skin",
+    "package": "funpackcustom:block/enderman_figure_package",
+    "particle": "funpackcustom:block/enderman_figure_skin",
+    "eyes": "funpackcustom:block/enderman_figure_eyes"
+  },
+  "elements": [
+    {
+      "name": "Display plinth",
+      "from": [
+        4.4,
+        0,
+        4.4
+      ],
+      "to": [
+        11.6,
+        0.46,
+        11.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Accent plinth rim",
+      "from": [
+        4.5,
+        0.46,
+        4.5
+      ],
+      "to": [
+        11.5,
+        0.64,
+        11.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Dark inset top",
+      "from": [
+        4.7,
+        0.64,
+        4.7
+      ],
+      "to": [
+        11.3,
+        0.73,
+        11.3
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Printed collection nameplate",
+      "from": [
+        5.05,
+        0.06,
+        4.395
+      ],
+      "to": [
+        10.95,
+        0.4,
+        4.395
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.0,
+            11.0,
+            14.0,
+            12.0
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Enderman head",
+      "from": [
+        7.16,
+        8.709999999999999,
+        7.16
+      ],
+      "to": [
+        8.84,
+        10.39,
+        8.84
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2.0,
+            4.0,
+            4.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            6.0,
+            4.0,
+            8.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            4.0,
+            2.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            4.0,
+            4.0,
+            6.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            2.0,
+            0.0,
+            4.0,
+            4.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            4.0,
+            4.0,
+            6.0,
+            0.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "Enderman torso",
+      "from": [
+        7.16,
+        6.4,
+        7.58
+      ],
+      "to": [
+        8.84,
+        8.92,
+        8.42
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.0,
+            10.0,
+            11.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            12.0,
+            10.0,
+            14.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            8.0,
+            10.0,
+            9.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            11.0,
+            10.0,
+            12.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            9.0,
+            8.0,
+            11.0,
+            10.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            11.0,
+            10.0,
+            13.0,
+            8.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "Enderman long leg -1",
+      "from": [
+        7.37,
+        0.73,
+        7.79
+      ],
+      "to": [
+        7.79,
+        7.029999999999999,
+        8.21
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.5,
+            1.0,
+            15.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            15.5,
+            1.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            14.0,
+            1.0,
+            14.5,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            15.0,
+            1.0,
+            15.5,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            14.5,
+            0.0,
+            15.0,
+            1.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            15.0,
+            1.0,
+            15.5,
+            0.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "Enderman long arm -1",
+      "from": [
+        6.74,
+        2.62,
+        7.79
+      ],
+      "to": [
+        7.16,
+        8.92,
+        8.21
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.5,
+            1.0,
+            15.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            15.5,
+            1.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            14.0,
+            1.0,
+            14.5,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            15.0,
+            1.0,
+            15.5,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            14.5,
+            0.0,
+            15.0,
+            1.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            15.0,
+            1.0,
+            15.5,
+            0.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "Enderman long leg 1",
+      "from": [
+        8.209999999999999,
+        0.73,
+        7.79
+      ],
+      "to": [
+        8.63,
+        7.029999999999999,
+        8.21
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.5,
+            1.0,
+            15.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            15.5,
+            1.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            14.0,
+            1.0,
+            14.5,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            15.0,
+            1.0,
+            15.5,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            14.5,
+            0.0,
+            15.0,
+            1.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            15.0,
+            1.0,
+            15.5,
+            0.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "Enderman long arm 1",
+      "from": [
+        8.84,
+        2.62,
+        7.79
+      ],
+      "to": [
+        9.260000000000002,
+        8.92,
+        8.21
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.5,
+            1.0,
+            15.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            15.5,
+            1.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            14.0,
+            1.0,
+            14.5,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            15.0,
+            1.0,
+            15.5,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            14.5,
+            0.0,
+            15.0,
+            1.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            15.0,
+            1.0,
+            15.5,
+            0.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "Purple Enderman eyes",
+      "from": [
+        7.16,
+        8.709999999999999,
+        7.155
+      ],
+      "to": [
+        8.84,
+        10.39,
+        7.155
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            4,
+            4,
+            8
+          ],
+          "texture": "#eyes"
+        }
+      }
+    }
+  ]
+}

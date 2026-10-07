@@ -1,6 +1,7 @@
 package local.funpack.custom;
 
 import com.mojang.logging.LogUtils;
+import java.util.List;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.core.component.DataComponentType;
@@ -51,6 +52,11 @@ public final class FunPackCustom {
     public static final DeferredBlock<ArcadePrizeBlock> KASANE_TETO_FIGURE = prizeBlock("kasane_teto_figure");
     public static final DeferredItem<?> HATSUNE_MIKU_FIGURE_ITEM = ITEMS.registerSimpleBlockItem("hatsune_miku_figure", HATSUNE_MIKU_FIGURE);
     public static final DeferredItem<?> KASANE_TETO_FIGURE_ITEM = ITEMS.registerSimpleBlockItem("kasane_teto_figure", KASANE_TETO_FIGURE);
+    public record MobFigureSet(String mob, DeferredBlock<MobFigureBlock> figure,
+            DeferredBlock<MobFigureBlock> emptyBox, DeferredBlock<MobFigureBlock> boxedFigure,
+            DeferredItem<MobFigureItem> figureItem, DeferredItem<MobFigureItem> emptyBoxItem,
+            DeferredItem<MobFigureItem> boxedFigureItem) {}
+    public static final List<MobFigureSet> MOB_FIGURES = MobFigureBlock.MOBS.stream().map(FunPackCustom::mobFigure).toList();
     public static final DeferredItem<WaccaPosterItem> WACCA_POSTER = ITEMS.registerItem(
         "wacca_poster", WaccaPosterItem::new, new Item.Properties());
     public static final DeferredHolder<EntityType<?>, EntityType<WaccaPosterEntity>> WACCA_POSTER_ENTITY =
@@ -61,6 +67,21 @@ public final class FunPackCustom {
     private static DeferredBlock<ArcadePrizeBlock> prizeBlock(String name) {
         return BLOCKS.registerBlock(name, ArcadePrizeBlock::new, BlockBehaviour.Properties.of()
             .mapColor(MapColor.COLOR_CYAN).strength(.5F).sound(SoundType.WOOD).noOcclusion());
+    }
+
+    private static MobFigureSet mobFigure(String mob) {
+        var figure = mobFigureBlock(mob, MobFigureBlock.Form.FIGURE);
+        var emptyBox = mobFigureBlock(mob, MobFigureBlock.Form.BOX);
+        var boxed = mobFigureBlock(mob, MobFigureBlock.Form.BOXED);
+        return new MobFigureSet(mob, figure, emptyBox, boxed,
+            ITEMS.register(MobFigureBlock.path(mob, MobFigureBlock.Form.FIGURE), () -> new MobFigureItem(figure.get(), new Item.Properties())),
+            ITEMS.register(MobFigureBlock.path(mob, MobFigureBlock.Form.BOX), () -> new MobFigureItem(emptyBox.get(), new Item.Properties())),
+            ITEMS.register(MobFigureBlock.path(mob, MobFigureBlock.Form.BOXED), () -> new MobFigureItem(boxed.get(), new Item.Properties())));
+    }
+
+    private static DeferredBlock<MobFigureBlock> mobFigureBlock(String mob, MobFigureBlock.Form form) {
+        return BLOCKS.registerBlock(MobFigureBlock.path(mob, form), properties -> new MobFigureBlock(mob, form, properties),
+            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(.5F).sound(SoundType.WOOD).noOcclusion());
     }
 
     public static final DeferredBlock<NostalgiaCabinetBlock> NOSTALGIA_OP3 = BLOCKS.registerBlock(
@@ -278,6 +299,11 @@ public final class FunPackCustom {
                 output.accept(HATSUNE_MIKU_FIGURE_ITEM.get());
                 output.accept(KASANE_TETO_FIGURE_ITEM.get());
                 output.accept(WACCA_POSTER.get());
+                for (MobFigureSet figures : MOB_FIGURES) {
+                    output.accept(figures.boxedFigureItem().get());
+                    output.accept(figures.figureItem().get());
+                    output.accept(figures.emptyBoxItem().get());
+                }
             })
             .build());
 

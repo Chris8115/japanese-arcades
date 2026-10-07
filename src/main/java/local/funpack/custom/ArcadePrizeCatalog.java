@@ -3,6 +3,7 @@ package local.funpack.custom;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -15,10 +16,12 @@ public final class ArcadePrizeCatalog {
         public Component title() { return output().getHoverName(); }
     }
 
-    private static final List<Entry> ENTRIES = List.of(
+    private static final List<Entry> ENTRIES = Stream.concat(Stream.of(
         new Entry(id("hatsune_miku_figure"), FunPackCustom.HATSUNE_MIKU_FIGURE_ITEM),
         new Entry(id("kasane_teto_figure"), FunPackCustom.KASANE_TETO_FIGURE_ITEM),
-        new Entry(id("wacca_poster"), FunPackCustom.WACCA_POSTER));
+        new Entry(id("wacca_poster"), FunPackCustom.WACCA_POSTER)),
+        FunPackCustom.MOB_FIGURES.stream().map(figures -> new Entry(
+            id(MobFigureBlock.path(figures.mob(), MobFigureBlock.Form.BOXED)), figures.boxedFigureItem()))).toList();
 
     private ArcadePrizeCatalog() {}
     private static ResourceLocation id(String path) { return ResourceLocation.fromNamespaceAndPath(FunPackCustom.MOD_ID, path); }

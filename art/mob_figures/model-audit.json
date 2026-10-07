@@ -1,0 +1,399 @@
+{
+  "format": "static vanilla block JSON",
+  "source_minecraft_version": "1.21.1",
+  "render_type": "minecraft:cutout",
+  "textures_copied_without_modification": [
+    {
+      "file": "src/main/resources/assets/funpackcustom/textures/block/creeper_figure_skin.png",
+      "source": "assets/minecraft/textures/entity/creeper/creeper.png",
+      "sha256": "a98947a543623cedca72016e06aa24dc34807251ff8e2433be158c86a977c9e9"
+    },
+    {
+      "file": "src/main/resources/assets/funpackcustom/textures/block/zombie_figure_skin.png",
+      "source": "assets/minecraft/textures/entity/zombie/zombie.png",
+      "sha256": "1c879744424077ab6f7d8b13b015dfc9d5e0efee6c70696de5c2ee588f4f563a"
+    },
+    {
+      "file": "src/main/resources/assets/funpackcustom/textures/block/skeleton_figure_skin.png",
+      "source": "assets/minecraft/textures/entity/skeleton/skeleton.png",
+      "sha256": "66524aa68d4e94fd3117df9b6e40cb48da5526e24a7f079c2c4852bca0d1c20e"
+    },
+    {
+      "file": "src/main/resources/assets/funpackcustom/textures/block/enderman_figure_skin.png",
+      "source": "assets/minecraft/textures/entity/enderman/enderman.png",
+      "sha256": "ac2a712566f11083a7e7f44ca904088662157144d35e764002be04fc9c34d50c"
+    },
+    {
+      "file": "src/main/resources/assets/funpackcustom/textures/block/slime_figure_skin.png",
+      "source": "assets/minecraft/textures/entity/slime/slime.png",
+      "sha256": "c724fc4eb07da3e2e10cc4b269d554bfb19271a560e2dbd4b74f71fae050f955"
+    },
+    {
+      "file": "src/main/resources/assets/funpackcustom/textures/block/axolotl_figure_skin.png",
+      "source": "assets/minecraft/textures/entity/axolotl/axolotl_lucy.png",
+      "sha256": "397a68244fcf28991b367b2353ada65fd32706aac08d04cd3b5cad6639f45dec"
+    }
+  ],
+  "models": [
+    {
+      "model": "creeper_figure",
+      "elements": 10,
+      "placed_faces": 55,
+      "inventory_faces": 55,
+      "bounds": [
+        [
+          4.4,
+          11.6
+        ],
+        [
+          0,
+          10.610000000000001
+        ],
+        [
+          4.395,
+          11.6
+        ]
+      ]
+    },
+    {
+      "model": "creeper_figure_box",
+      "elements": 8,
+      "placed_faces": 38,
+      "inventory_faces": 38,
+      "bounds": [
+        [
+          3,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          4,
+          12
+        ]
+      ]
+    },
+    {
+      "model": "boxed_creeper_figure",
+      "elements": 18,
+      "placed_faces": 93,
+      "inventory_faces": 93,
+      "bounds": [
+        [
+          3,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          4,
+          12
+        ]
+      ]
+    },
+    {
+      "model": "zombie_figure",
+      "elements": 10,
+      "placed_faces": 55,
+      "inventory_faces": 55,
+      "bounds": [
+        [
+          4.4,
+          11.6
+        ],
+        [
+          0,
+          10.49
+        ],
+        [
+          4.22,
+          11.6
+        ]
+      ]
+    },
+    {
+      "model": "zombie_figure_box",
+      "elements": 8,
+      "placed_faces": 38,
+      "inventory_faces": 38,
+      "bounds": [
+        [
+          3,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          4,
+          12
+        ]
+      ]
+    },
+    {
+      "model": "boxed_zombie_figure",
+      "elements": 18,
+      "placed_faces": 93,
+      "inventory_faces": 93,
+      "bounds": [
+        [
+          3,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          4,
+          12
+        ]
+      ]
+    },
+    {
+      "model": "skeleton_figure",
+      "elements": 16,
+      "placed_faces": 91,
+      "inventory_faces": 91,
+      "bounds": [
+        [
+          4.4,
+          11.6
+        ],
+        [
+          0,
+          10.49
+        ],
+        [
+          4.395,
+          11.6
+        ]
+      ]
+    },
+    {
+      "model": "skeleton_figure_box",
+      "elements": 8,
+      "placed_faces": 38,
+      "inventory_faces": 38,
+      "bounds": [
+        [
+          3,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          4,
+          12
+        ]
+      ]
+    },
+    {
+      "model": "boxed_skeleton_figure",
+      "elements": 24,
+      "placed_faces": 129,
+      "inventory_faces": 129,
+      "bounds": [
+        [
+          3,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          4,
+          12
+        ]
+      ]
+    },
+    {
+      "model": "enderman_figure",
+      "elements": 11,
+      "placed_faces": 56,
+      "inventory_faces": 56,
+      "bounds": [
+        [
+          4.4,
+          11.6
+        ],
+        [
+          0,
+          10.39
+        ],
+        [
+          4.395,
+          11.6
+        ]
+      ]
+    },
+    {
+      "model": "enderman_figure_box",
+      "elements": 8,
+      "placed_faces": 38,
+      "inventory_faces": 38,
+      "bounds": [
+        [
+          3,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          4,
+          12
+        ]
+      ]
+    },
+    {
+      "model": "boxed_enderman_figure",
+      "elements": 19,
+      "placed_faces": 94,
+      "inventory_faces": 94,
+      "bounds": [
+        [
+          3,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          4,
+          12
+        ]
+      ]
+    },
+    {
+      "model": "slime_figure",
+      "elements": 10,
+      "placed_faces": 55,
+      "inventory_faces": 55,
+      "bounds": [
+        [
+          4.4,
+          11.6
+        ],
+        [
+          0,
+          6.746
+        ],
+        [
+          4.395,
+          11.6
+        ]
+      ]
+    },
+    {
+      "model": "slime_figure_box",
+      "elements": 8,
+      "placed_faces": 38,
+      "inventory_faces": 38,
+      "bounds": [
+        [
+          3,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          4,
+          12
+        ]
+      ]
+    },
+    {
+      "model": "boxed_slime_figure",
+      "elements": 18,
+      "placed_faces": 93,
+      "inventory_faces": 93,
+      "bounds": [
+        [
+          3,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          4,
+          12
+        ]
+      ]
+    },
+    {
+      "model": "axolotl_figure",
+      "elements": 22,
+      "placed_faces": 47,
+      "inventory_faces": 47,
+      "bounds": [
+        [
+          4.325,
+          11.675
+        ],
+        [
+          0,
+          6.6
+        ],
+        [
+          4.35,
+          11.6
+        ]
+      ]
+    },
+    {
+      "model": "axolotl_figure_box",
+      "elements": 8,
+      "placed_faces": 38,
+      "inventory_faces": 38,
+      "bounds": [
+        [
+          3,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          4,
+          12
+        ]
+      ]
+    },
+    {
+      "model": "boxed_axolotl_figure",
+      "elements": 30,
+      "placed_faces": 85,
+      "inventory_faces": 85,
+      "bounds": [
+        [
+          3,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          4,
+          12
+        ]
+      ]
+    }
+  ]
+}

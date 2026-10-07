@@ -1,0 +1,1144 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:cutout",
+  "ambientocclusion": true,
+  "textures": {
+    "skin": "funpackcustom:block/enderman_figure_skin",
+    "package": "funpackcustom:block/enderman_figure_package",
+    "particle": "funpackcustom:block/enderman_figure_skin",
+    "eyes": "funpackcustom:block/enderman_figure_eyes"
+  },
+  "elements": [
+    {
+      "name": "Printed frame and window glints",
+      "from": [
+        3,
+        0,
+        4
+      ],
+      "to": [
+        13,
+        14,
+        4
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            0.0,
+            5.0,
+            7.0
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Inside printed front frame",
+      "from": [
+        3,
+        0,
+        4.015
+      ],
+      "to": [
+        13,
+        14,
+        4.015
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            0.0,
+            0.0,
+            5.0,
+            7.0
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Cardboard back",
+      "from": [
+        3,
+        0,
+        11.7
+      ],
+      "to": [
+        13,
+        14,
+        12
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.0,
+            11.0,
+            9.0,
+            15.0
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            5.0,
+            0.0,
+            10.0,
+            7.0
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Cardboard left wall",
+      "from": [
+        3,
+        0,
+        4.02
+      ],
+      "to": [
+        3.3,
+        14,
+        11.7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            10.0,
+            0.0,
+            14.0,
+            7.0
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Cardboard right wall",
+      "from": [
+        12.7,
+        0,
+        4.02
+      ],
+      "to": [
+        13,
+        14,
+        11.7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            7.0,
+            4.0,
+            14.0
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Top lid",
+      "from": [
+        3.3,
+        13.7,
+        4.02
+      ],
+      "to": [
+        12.7,
+        14,
+        11.7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            4.0,
+            7.0,
+            9.0,
+            11.0
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Bottom lid",
+      "from": [
+        3.3,
+        0,
+        4.02
+      ],
+      "to": [
+        12.7,
+        0.3,
+        11.7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            9.0,
+            7.0,
+            14.0,
+            11.0
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Retained inner cardboard tray",
+      "from": [
+        3.4,
+        0.3,
+        4.3
+      ],
+      "to": [
+        12.6,
+        0.59,
+        11.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            1.0,
+            14.75,
+            1.25
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Display plinth",
+      "from": [
+        4.4,
+        0.6,
+        4.4
+      ],
+      "to": [
+        11.6,
+        1.06,
+        11.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Accent plinth rim",
+      "from": [
+        4.5,
+        1.06,
+        4.5
+      ],
+      "to": [
+        11.5,
+        1.24,
+        11.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Dark inset top",
+      "from": [
+        4.7,
+        1.24,
+        4.7
+      ],
+      "to": [
+        11.3,
+        1.33,
+        11.3
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Printed collection nameplate",
+      "from": [
+        5.05,
+        0.6599999999999999,
+        4.395
+      ],
+      "to": [
+        10.95,
+        1.0,
+        4.395
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.0,
+            11.0,
+            14.0,
+            12.0
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Enderman head",
+      "from": [
+        7.16,
+        9.309999999999999,
+        7.16
+      ],
+      "to": [
+        8.84,
+        10.99,
+        8.84
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2.0,
+            4.0,
+            4.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            6.0,
+            4.0,
+            8.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            4.0,
+            2.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            4.0,
+            4.0,
+            6.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            2.0,
+            0.0,
+            4.0,
+            4.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            4.0,
+            4.0,
+            6.0,
+            0.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "Enderman torso",
+      "from": [
+        7.16,
+        7.0,
+        7.58
+      ],
+      "to": [
+        8.84,
+        9.52,
+        8.42
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.0,
+            10.0,
+            11.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            12.0,
+            10.0,
+            14.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            8.0,
+            10.0,
+            9.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            11.0,
+            10.0,
+            12.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            9.0,
+            8.0,
+            11.0,
+            10.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            11.0,
+            10.0,
+            13.0,
+            8.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "Enderman long leg -1",
+      "from": [
+        7.37,
+        1.33,
+        7.79
+      ],
+      "to": [
+        7.79,
+        7.629999999999999,
+        8.21
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.5,
+            1.0,
+            15.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            15.5,
+            1.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            14.0,
+            1.0,
+            14.5,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            15.0,
+            1.0,
+            15.5,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            14.5,
+            0.0,
+            15.0,
+            1.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            15.0,
+            1.0,
+            15.5,
+            0.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "Enderman long arm -1",
+      "from": [
+        6.74,
+        3.22,
+        7.79
+      ],
+      "to": [
+        7.16,
+        9.52,
+        8.21
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.5,
+            1.0,
+            15.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            15.5,
+            1.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            14.0,
+            1.0,
+            14.5,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            15.0,
+            1.0,
+            15.5,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            14.5,
+            0.0,
+            15.0,
+            1.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            15.0,
+            1.0,
+            15.5,
+            0.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "Enderman long leg 1",
+      "from": [
+        8.209999999999999,
+        1.33,
+        7.79
+      ],
+      "to": [
+        8.63,
+        7.629999999999999,
+        8.21
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.5,
+            1.0,
+            15.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            15.5,
+            1.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            14.0,
+            1.0,
+            14.5,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            15.0,
+            1.0,
+            15.5,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            14.5,
+            0.0,
+            15.0,
+            1.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            15.0,
+            1.0,
+            15.5,
+            0.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "Enderman long arm 1",
+      "from": [
+        8.84,
+        3.22,
+        7.79
+      ],
+      "to": [
+        9.260000000000002,
+        9.52,
+        8.21
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.5,
+            1.0,
+            15.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            15.5,
+            1.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            14.0,
+            1.0,
+            14.5,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            15.0,
+            1.0,
+            15.5,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            14.5,
+            0.0,
+            15.0,
+            1.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            15.0,
+            1.0,
+            15.5,
+            0.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "Purple Enderman eyes",
+      "from": [
+        7.16,
+        9.309999999999999,
+        7.155
+      ],
+      "to": [
+        8.84,
+        10.99,
+        7.155
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            4,
+            4,
+            8
+          ],
+          "texture": "#eyes"
+        }
+      }
+    }
+  ]
+}

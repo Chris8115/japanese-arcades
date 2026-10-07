@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "funpackcustom:block/axolotl_figure"
+    },
+    "facing=east": {
+      "model": "funpackcustom:block/axolotl_figure",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "funpackcustom:block/axolotl_figure",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "funpackcustom:block/axolotl_figure",
+      "y": 270
+    }
+  }
+}

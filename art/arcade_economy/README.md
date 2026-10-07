@@ -128,11 +128,19 @@ The WACCA poster uses the supplied artwork and hangs on a wall like a painting.
 | `hatsune_miku_figure` | Hatsune Miku Figure | 2,500 |
 | `kasane_teto_figure` | Kasane Teto Figure | 2,500 |
 | `wacca_poster` | WACCA Poster | 750 |
+| `boxed_creeper_figure` | Boxed Creeper Figure | 1,000 |
+| `boxed_zombie_figure` | Boxed Zombie Figure | 1,000 |
+| `boxed_skeleton_figure` | Boxed Skeleton Figure | 1,000 |
+| `boxed_enderman_figure` | Boxed Enderman Figure | 1,000 |
+| `boxed_slime_figure` | Boxed Slime Figure | 1,000 |
+| `boxed_axolotl_figure` | Boxed Axolotl Figure | 1,000 |
 
 Point prices are owned by the arcade economy configuration, not embedded in
 the models or `ArcadePrizeCatalog`. Prizes have no crafting recipes. Each drops
 one copy of its own item when normally broken. Figures have no block entity,
-playable game, music inventory, or reward interaction.
+playable game or music inventory. The [mob collection](../mob_figures/README.md)
+also supports opening and repacking its display boxes while keeping every figure
+and empty box as a separate placeable item.
 
 The [WACCA poster](../wacca_poster/README.md) is 1 block wide and about 1⅜ blocks
 tall, with support from two vertical wall blocks. It always displays the same artwork and returns its own poster

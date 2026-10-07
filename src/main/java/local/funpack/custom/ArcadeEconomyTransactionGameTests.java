@@ -261,10 +261,16 @@ public final class ArcadeEconomyTransactionGameTests {
     public static void arcadeEveryConfiguredPrizeChargesOnlyItsPointPrice(GameTestHelper helper) {
         ServerPlayer player = createPlayer(helper, "PassPrizes", GameType.SURVIVAL);
         ArcadeKioskMenu menu = setup(helper, player);
-        helper.assertTrue(ArcadePrizeCatalog.entries().size() == 3
+        helper.assertTrue(ArcadePrizeCatalog.entries().size() == 9
             && ArcadePrizeCatalog.find(id("hatsune_miku_figure")).isPresent()
             && ArcadePrizeCatalog.find(id("kasane_teto_figure")).isPresent()
-            && ArcadePrizeCatalog.find(id("wacca_poster")).isPresent(), "The shop must offer both figures and the WACCA poster");
+            && ArcadePrizeCatalog.find(id("wacca_poster")).isPresent(), "The shop must retain both character figures and the WACCA poster alongside six boxed mobs");
+        for (String mob : MobFigureBlock.MOBS) {
+            helper.assertTrue(ArcadePrizeCatalog.find(id("boxed_" + mob + "_figure")).isPresent()
+                && ArcadePrizeCatalog.find(id(mob + "_figure")).isEmpty()
+                && ArcadePrizeCatalog.find(id(mob + "_figure_box")).isEmpty(),
+                "Mob prizes must arrive boxed, with loose figures and empty boxes obtained by opening them");
+        }
         for (var entry : ArcadePrizeCatalog.entries()) {
             player.getInventory().clearContent();
             int price = ArcadeEconomyConfig.prizePrice(entry.id());

@@ -83,8 +83,12 @@ new content is added. The **Passes** tab issues Arcade Passes, loads Credits fro
 iron, gold, emeralds or diamonds, and combines balances between cards placed in
 real **From** and **To** slots. Both cards return when the kiosk closes. Use a pass
 on a music arcade cabinet to spend Credits and earn randomized Prize Points,
-then redeem them in **Prizes** for placeable Miku and Teto figures or a
-[WACCA wall poster](art/wacca_poster/README.md). Prices, rank
+then redeem them in **Prizes** for placeable Miku and Teto figures, a
+[WACCA wall poster](art/wacca_poster/README.md), or
+[boxed Minecraft mob figures](art/mob_figures/README.md). Creeper, Zombie,
+Skeleton, Enderman, Slime and Axolotl figures can be displayed boxed or loose.
+Opening a box keeps its empty packaging, which can also be placed and refilled.
+Prices, rank
 weights and machine profiles are server-configurable. See the
 [Arcade Pass economy guide](art/arcade_economy/README.md) for controls, defaults,
 configuration, transferable-card data and future loot support.
@@ -106,7 +110,7 @@ Use **Terminal > Run Task** for the `Fun:` tasks, or open a terminal here:
 - `SyncPack` refreshes the copied mods, configs, resource packs, and pack scripts from the live pack.
 - `Prepare` downloads game assets and prepares client/server launch files.
 - `Server` launches a small dedicated server for checking server compatibility.
-- `GameTest` runs 148 cabinet, claw machine, gachapon, poster, ordering and Arcade Pass economy integration tests in a disposable test world and exits.
+- `GameTest` runs 153 cabinet, claw machine, gachapon, figure, poster, ordering and Arcade Pass economy integration tests in a disposable test world and exits.
 - `Data` runs our data generators once we add them.
 
 The script selects Java 21 locally. Your default Java installation remains available to other projects.
