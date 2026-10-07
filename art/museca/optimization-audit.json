@@ -1,0 +1,62 @@
+{
+  "baseline_backup_tag": "backup/museca-before-planar-deck-20261007-110921",
+  "world_faces_before": 9987,
+  "world_faces_after": 7985,
+  "item_faces_before": 9983,
+  "item_faces_after": 7909,
+  "identical_bounds": [
+    [
+      -2.7328601428068424,
+      18.732860142806842
+    ],
+    [
+      0.03,
+      47.85360808150653
+    ],
+    [
+      -11.91,
+      16.179356357218513
+    ]
+  ],
+  "top_face_count": 2,
+  "max_top_plane_error": 1.5543122344752192e-15,
+  "deck_shell_faces": 22,
+  "deck_closed_edge_incidence": 2,
+  "unchanged_image_sha256": {
+    "museca_branding.png": "de31d86e200d1dcefed409e5e1dd833fb8b79382c45c3f00c7a331fa7df04073",
+    "museca_details.png": "f5fe1253233746c54bc69ff8d33b631b28b18038f160ef7f67bf9c9de1f23488",
+    "museca_display.png": "239c4c5636e93412d51b720f65b9c2a0976c6e41fa26e4405decf4e727f2f0e9",
+    "museca_marquee.png": "a20866239b5da63d0c7fe594444b249d655ab78bcdd1609defc6cd2175a92ab8",
+    "museca_materials.png": "fd49c65003bc66e210dec8613cbded57f2cc341afbefbe9faebf8d9e1e558d80",
+    "display-artwork-source.png": "8be59155fe9b9e1d4cf8ff861d528636145343dd75446511a256bfd97fad53d7",
+    "marquee-artwork-source.png": "5f4ea75dc424079c269e2de5ccefb523a74a04a9d393802648b6a5640532d701"
+  },
+  "invalid_geometry_faces": 0,
+  "invalid_uvs": 0,
+  "duplicate_faces": 0,
+  "retained_exact_noncontrol_source_faces": 5054,
+  "retained_geometry_reclipped_groups": [
+    "Deck front trim",
+    "Lower black cabinet",
+    "Prism chamber structure",
+    "Rear monitor spine"
+  ],
+  "reclipping_note": "Opaque surface union is recalculated after removing stepped controls. Original noncontrol source primitives stay unchanged; only covered face fragments at their junctions change.",
+  "runtime_verification": {
+    "result": "PASS",
+    "build": "dev.cmd Build",
+    "states": 24,
+    "state_quads_total": 63880,
+    "item_quads": 7909,
+    "visual_views": 7,
+    "resource_reload": "PASS",
+    "static_renderer": true,
+    "packaged_assets": 15,
+    "obj_optimizer_idempotent": true,
+    "release_sha256": "6c61f91698648ad64332a1220185e71928f53625577838aeddf5839d083bdc68",
+    "preview_files": [
+      "museca-planar-controls.png",
+      "museca-planar-cabinet.png"
+    ]
+  }
+}

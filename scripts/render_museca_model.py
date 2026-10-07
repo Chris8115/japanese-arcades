@@ -16,12 +16,15 @@ ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / 'art/museca'
 TEXTURES = ROOT / 'src/main/resources/assets/funpackcustom/textures/block'
 data = json.loads((ART/'geometry.json').read_text(encoding='utf-8'))
+bpy.context.preferences.filepaths.save_version = 0
 
 bpy.ops.object.select_all(action='SELECT')
 bpy.ops.object.delete(use_global=False)
 scene = bpy.context.scene
 scene.render.engine = 'CYCLES'
-scene.cycles.samples = 48
+scene.render.threads_mode = 'FIXED'
+scene.render.threads = 4
+scene.cycles.samples = 12 if '--quick' in sys.argv else 48
 scene.cycles.use_denoising = True
 scene.render.resolution_x = 1100
 scene.render.resolution_y = 1500
@@ -72,45 +75,35 @@ def world(v):
     return ((8-v[0])/16, (v[2]-8)/16, v[1]/16)
 
 
-for e in data['elements']:
-    a, b = e['from'], e['to']
-    verts = [[a[0],a[1],a[2]], [b[0],a[1],a[2]], [b[0],b[1],a[2]], [a[0],b[1],a[2]],
-             [a[0],a[1],b[2]], [b[0],a[1],b[2]], [b[0],b[1],b[2]], [a[0],b[1],b[2]]]
-    if 'rotation' in e:
-        r = e['rotation']
-        o = r['origin']
-        angle = math.radians(r['angle'])
-        c, s = math.cos(angle), math.sin(angle)
-        axis = r['axis']
-        for i, v in enumerate(verts):
-            x, y, z = [v[j]-o[j] for j in range(3)]
-            if axis == 'x':
-                n = [x, y*c-z*s, y*s+z*c]
-            elif axis == 'y':
-                n = [x*c+z*s, y, -x*s+z*c]
-            else:
-                n = [x*c-y*s, x*s+y*c, z]
-            verts[i] = [n[j]+o[j] for j in range(3)]
-    mesh = bpy.data.meshes.new(e['name'])
-    names = [direction for direction in face_indices if direction in e['faces']]
-    mesh.from_pydata([world(v) for v in verts], [], [face_indices[name] for name in names])
+# These are the same mesh faces exported to Minecraft; leave their shading flat
+# so the preview cannot conceal faceting with Blender-only smoothing.
+mesh_groups = {}
+for face in data.get('meshes', []):
+    mesh_groups.setdefault(face['group'], []).append(face)
+for name, faces in mesh_groups.items():
+    vertices, polygons, coordinates, group_materials, indices = [], [], [], [], []
+    for face in faces:
+        start = len(vertices)
+        vertices.extend(world(point) for point in face['vertices'])
+        polygons.append(list(range(start, len(vertices))))
+        coordinates.append(face['uv'])
+        mat = texture_material(face['texture'][1:], face['glow'])
+        if mat not in group_materials:
+            group_materials.append(mat)
+        indices.append(group_materials.index(mat))
+    mesh = bpy.data.meshes.new(name)
+    mesh.from_pydata(vertices, [], polygons)
     mesh.update()
-    obj = bpy.data.objects.new(e['name'], mesh)
+    obj = bpy.data.objects.new(name, mesh)
     bpy.context.collection.objects.link(obj)
-    uv_layer = mesh.uv_layers.new(name='Cabinet UV')
-    for poly, direction in zip(mesh.polygons, names):
-        face = e['faces'][direction]
-        tex = face['texture'][1:]
-        mat = texture_material(tex, 'neoforge_data' in face)
-        if mat.name not in obj.data.materials:
-            obj.data.materials.append(mat)
-        poly.material_index = list(obj.data.materials).index(mat)
-        u0, v0, u1, v1 = [v/16 for v in face['uv']]
-        uvs = [(u0,1-v0), (u0,1-v1), (u1,1-v1), (u1,1-v0)]
-        turns = face.get('rotation', 0)//90
-        uvs = uvs[turns:]+uvs[:turns]
-        for loop, tex_uv in zip(poly.loop_indices, uvs):
-            uv_layer.data[loop].uv = tex_uv
+    for mat in group_materials:
+        mesh.materials.append(mat)
+    layer = mesh.uv_layers.new(name='Native MUSECA surface UV')
+    for polygon, uv, index in zip(mesh.polygons, coordinates, indices):
+        polygon.material_index = index
+        for loop, (u, v) in zip(polygon.loop_indices, uv):
+            layer.data[loop].uv = u / 16, 1 - v / 16
+
 
 # Studio objects are separate from the exported cabinet model.
 bpy.ops.mesh.primitive_plane_add(size=200, location=(0,0,-.015))
