@@ -1,9 +1,9 @@
 {
   "replace": false,
   "values": [
-    "funpackcustom:arcade_vertical_sign",
-    "funpackcustom:arcade_game_center",
-    "funpackcustom:arcade_invader",
-    "funpackcustom:arcade_fuji"
+    "japanesearcades:arcade_vertical_sign",
+    "japanesearcades:arcade_game_center",
+    "japanesearcades:arcade_invader",
+    "japanesearcades:arcade_fuji"
   ]
 }

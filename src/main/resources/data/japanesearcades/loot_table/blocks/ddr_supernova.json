@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "japanesearcades:ddr_supernova"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "japanesearcades:ddr_supernova",
+          "properties": {
+            "section": "cabinet_base",
+            "side": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}

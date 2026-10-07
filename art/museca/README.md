@@ -23,7 +23,7 @@ Launch `dev.cmd Client` or `dev.cmd PackClient`, then select **MÚSECA Arcade
 Cabinet** from **Japanese Arcades**, or run:
 
 ```text
-/give @s funpackcustom:museca
+/give @s japanesearcades:museca
 ```
 
 Place it on a solid floor with three clear vertical blocks and room for the
@@ -113,8 +113,8 @@ replaces exported model files.
 
 ## Runtime implementation
 
-The block/item ID is `funpackcustom:museca`. Registration begins in
-`src/main/java/local/funpack/custom/FunPackCustom.java`. `MusecaCabinetBlock.java`
+The block/item ID is `japanesearcades:museca`. Registration begins in
+`src/main/java/local/japanesearcades/JapaneseArcades.java`. `MusecaCabinetBlock.java`
 defines the section bounds, compound pedal/base collision, and disc-ejection
 position. It inherits placement and interaction from `NostalgiaCabinetBlock.java`.
 All cabinets share `NostalgiaJukeboxBlockEntity.java` and Minecraft's native

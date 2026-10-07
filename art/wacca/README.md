@@ -49,7 +49,7 @@ Launch `dev.cmd Client` or `dev.cmd PackClient`, then select **WACCA Reverse Arc
 Cabinet** in the **Japanese Arcades** creative tab. Alternatively:
 
 ```text
-/give @s funpackcustom:wacca
+/give @s japanesearcades:wacca
 ```
 
 Place it on a solid floor with three clear blocks above the floor and enough room
@@ -153,8 +153,8 @@ the local `source/backups/fun-pack-mods/wacca-before-smooth-20261007-100821` fol
 Rollback should restore only the WACCA changes and remove the added WACCA mesh
 files; it should not reset unrelated cabinet work.
 
-The block/item ID is `funpackcustom:wacca`. Assets live under
-`src/main/resources/assets/funpackcustom`. `WaccaCabinetBlock.java` supplies the wider
+The block/item ID is `japanesearcades:wacca`. Assets live under
+`src/main/resources/assets/japanesearcades`. `WaccaCabinetBlock.java` supplies the wider
 bounds and inherits placement and interactions from `NostalgiaCabinetBlock.java`.
 The cabinet uses `NostalgiaJukeboxBlockEntity.java` and Minecraft's native
 `JukeboxSongPlayer`; existing registry and saved-data IDs remain unchanged.

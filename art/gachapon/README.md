@@ -7,7 +7,7 @@ An individual white capsule machine, authored to fit one Minecraft block. Copies
 Find **Gachapon Machine** in the **Japanese Arcades** creative tab, or use:
 
 ```mcfunction
-/give @s funpackcustom:gachapon
+/give @s japanesearcades:gachapon
 ```
 
 Each unit occupies **1×1×1 blocks** and holds its own owner, password, price, prizes and collected payments. Sneak while placing another unit on top of an existing one. The first placement opens a prompt for the owner's chosen **4–32 character PIN or phrase**. If the prompt is closed, the owner can set a password through the operator inventory; sales stay disabled until one is set.
@@ -46,7 +46,7 @@ Minecraft model coordinates use 16 units per block. North is the front (negative
 | --- | --- |
 | Complete machine bounds | X 0.22–15.78, Y 0–16, Z 0.096–15.78 |
 | Crank pivot | (8.2, 5.0, 1.0) |
-| Crank baked model | `funpackcustom:block/gachapon_crank`, centered at origin |
+| Crank baked model | `japanesearcades:block/gachapon_crank`, centered at origin |
 | Price center | (13.05, 7.0, 0.94) |
 | Prize columns, left to right | X 11.9, 8.0, 4.1 |
 | Prize rows, top to bottom | Y 13.72, 11.75, 9.78 |

@@ -18,7 +18,7 @@ from wacca_surface_geometry import optimize_surfaces
 
 ROOT=Path(__file__).resolve().parents[1]
 ART=ROOT/'art/wacca'
-ASSETS=ROOT/'src/main/resources/assets/funpackcustom'
+ASSETS=ROOT/'src/main/resources/assets/japanesearcades'
 TEXTURES=ASSETS/'textures/block'
 MODEL=ASSETS/'models/block'
 ART.mkdir(parents=True,exist_ok=True)
@@ -211,9 +211,9 @@ for side,x0,x1 in (('Left',-1.24,.06),('Right',15.94,17.24)):
         cube(side+' header screw '+str(y),(x0+.13,y,6.87),(x0+.25,y+.12,6.97),'silver',group='Header fasteners')
 
 texture_paths={
-    'materials':'funpackcustom:block/wacca_materials','details':'funpackcustom:block/wacca_details',
-    'leds':'funpackcustom:block/wacca_leds','display':'funpackcustom:block/wacca_display',
-    'branding':'funpackcustom:block/wacca_branding','particle':'funpackcustom:block/wacca_materials',
+    'materials':'japanesearcades:block/wacca_materials','details':'japanesearcades:block/wacca_details',
+    'leds':'japanesearcades:block/wacca_leds','display':'japanesearcades:block/wacca_display',
+    'branding':'japanesearcades:block/wacca_branding','particle':'japanesearcades:block/wacca_materials',
 }
 
 # Minecraft's north-facing UVs run from +X to -X when viewed from the front.

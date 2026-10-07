@@ -1,0 +1,16 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "neoforge:obj",
+  "model": "japanesearcades:models/block/kasane_teto_figure.obj",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "emissive_ambient": true,
+  "ambientocclusion": true,
+  "render_type": "minecraft:cutout_mipped_all",
+  "textures": {
+    "materials": "japanesearcades:block/kasane_teto_figure_materials",
+    "nameplate": "japanesearcades:block/kasane_teto_figure_nameplate",
+    "particle": "japanesearcades:block/kasane_teto_figure_materials"
+  }
+}

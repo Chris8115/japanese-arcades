@@ -1,0 +1,598 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:cutout",
+  "ambientocclusion": true,
+  "textures": {
+    "package": "japanesearcades:block/custom_display_box_package",
+    "particle": "japanesearcades:block/custom_display_box_package"
+  },
+  "elements": [
+    {
+      "name": "Printed front frame and glints",
+      "from": [
+        3,
+        0,
+        4.008
+      ],
+      "to": [
+        13,
+        14,
+        4.008
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            0.0,
+            5.0,
+            3.5
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Inside printed front frame",
+      "from": [
+        3,
+        0,
+        4.022
+      ],
+      "to": [
+        13,
+        14,
+        4.022
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            0.0,
+            0.0,
+            5.0,
+            3.5
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Cardboard back",
+      "from": [
+        3.005,
+        0,
+        11.7
+      ],
+      "to": [
+        12.995,
+        13.995,
+        11.995
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.0,
+            5.5,
+            9.0,
+            7.5
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            5.0,
+            0.0,
+            10.0,
+            3.5
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Cardboard left wall",
+      "from": [
+        3.005,
+        0,
+        4.03
+      ],
+      "to": [
+        3.3,
+        13.995,
+        11.7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            10.0,
+            0.0,
+            14.0,
+            3.5
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Cardboard right wall",
+      "from": [
+        12.7,
+        0,
+        4.03
+      ],
+      "to": [
+        12.995,
+        13.995,
+        11.7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            3.5,
+            4.0,
+            7.0
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Top lid",
+      "from": [
+        3.3,
+        13.7,
+        4.03
+      ],
+      "to": [
+        12.7,
+        13.995,
+        11.7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            4.0,
+            3.5,
+            9.0,
+            5.5
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Bottom lid",
+      "from": [
+        3.3,
+        0,
+        4.03
+      ],
+      "to": [
+        12.7,
+        0.3,
+        11.7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            9.0,
+            3.5,
+            14.0,
+            5.5
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Retained inner cardboard tray",
+      "from": [
+        3.4,
+        0.3,
+        4.3
+      ],
+      "to": [
+        12.6,
+        0.59,
+        11.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            0.125,
+            14.75,
+            0.375
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Tintable front border and accent",
+      "from": [
+        3,
+        0,
+        4
+      ],
+      "to": [
+        13,
+        14,
+        4
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            8.0,
+            5.0,
+            11.5
+          ],
+          "texture": "#package",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "name": "Tintable back accent",
+      "from": [
+        3.005,
+        0,
+        12
+      ],
+      "to": [
+        12.995,
+        13.995,
+        12
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            5.0,
+            8.0,
+            10.0,
+            11.5
+          ],
+          "texture": "#package",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "name": "Tintable left side",
+      "from": [
+        3,
+        0,
+        4.03
+      ],
+      "to": [
+        3,
+        13.995,
+        11.7
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            10.0,
+            8.0,
+            14.0,
+            11.5
+          ],
+          "texture": "#package",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "name": "Tintable right side",
+      "from": [
+        13,
+        0,
+        4.03
+      ],
+      "to": [
+        13,
+        13.995,
+        11.7
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            0.0,
+            11.5,
+            4.0,
+            15.0
+          ],
+          "texture": "#package",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "name": "Tintable lid border",
+      "from": [
+        3.3,
+        14,
+        4.03
+      ],
+      "to": [
+        12.7,
+        14,
+        11.7
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            4.0,
+            11.5,
+            9.0,
+            13.5
+          ],
+          "texture": "#package",
+          "tintindex": 0
+        }
+      }
+    }
+  ]
+}

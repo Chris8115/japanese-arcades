@@ -16,7 +16,7 @@ from PIL import Image,ImageDraw,ImageFont
 
 ROOT=Path(__file__).resolve().parents[1]
 ART=ROOT/'art/claw_machine'
-ASSETS=ROOT/'src/main/resources/assets/funpackcustom'
+ASSETS=ROOT/'src/main/resources/assets/japanesearcades'
 TEX=ASSETS/'textures/block'
 for path in (ART,TEX,ASSETS/'models/block',ASSETS/'models/item',ASSETS/'blockstates',ASSETS/'textures/entity'):
     path.mkdir(parents=True,exist_ok=True)
@@ -57,7 +57,7 @@ d.line((18,6,490,6),fill=(205,247,255,140),width=2)
 d.line((24,108,53,73),fill=(237,252,255,140),width=2)
 d.line((32,131,77,76),fill=(237,252,255,140),width=2)
 glass.save(TEX/'claw_machine_glass.png')
-textures={key:'funpackcustom:block/claw_machine_'+key for key in ('materials','sign','prize_out','controls','glass')}
+textures={key:'japanesearcades:block/claw_machine_'+key for key in ('materials','sign','prize_out','controls','glass')}
 textures['particle']=textures['materials']
 
 def uv(name):
@@ -250,7 +250,7 @@ for source in elements:
 for part,values in parts.items():
     write_json(ASSETS/'models/block'/('claw_machine_'+str(part)+'.json'),{'parent':'minecraft:block/block','render_type':'minecraft:cutout','textures':textures,'elements':values})
 write_json(ASSETS/'blockstates/claw_machine.json',{'variants':{
-    'facing='+facing+',part='+str(part):{'model':'funpackcustom:block/claw_machine_'+str(part),**({'y':angle} if angle else {})}
+    'facing='+facing+',part='+str(part):{'model':'japanesearcades:block/claw_machine_'+str(part),**({'y':angle} if angle else {})}
     for facing,angle in (('north',0),('east',90),('south',180),('west',270)) for part in parts}})
 item=[]
 for source in elements+preview_elements:

@@ -17,7 +17,7 @@ bpy.context.preferences.filepaths.save_version=0
 
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / 'art/maimai'
-TEXTURES = ROOT / 'src/main/resources/assets/funpackcustom/textures/block'
+TEXTURES = ROOT / 'src/main/resources/assets/japanesearcades/textures/block'
 data = json.loads((ART/'geometry.json').read_text(encoding='utf-8'))
 
 bpy.ops.object.select_all(action='SELECT')

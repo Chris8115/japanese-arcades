@@ -86,7 +86,7 @@ On this machine the bundled Python is available at
 
 Run `dev.cmd Client` or `dev.cmd PackClient`, open a creative test world, and select
 **Nostalgia Op.3 Arcade Cabinet** from the **Japanese Arcades** creative tab.
-Alternatively, use `/give @s funpackcustom:nostalgia_op3`.
+Alternatively, use `/give @s japanesearcades:nostalgia_op3`.
 Place on a solid floor with three clear vertical blocks. The front faces the player.
 Breaking any section removes the other sections; the base supplies the survival item drop.
 
@@ -112,7 +112,7 @@ all 858 cuboids have valid dimensions and vanilla rotation/bounds, all 12 facing
 variants resolve, seven textures and their UVs agree with Blockbench, section-local
 coordinates reconstruct the complete model, and regeneration is deterministic.
 
-Minecraft resources are in `src/main/resources/assets/funpackcustom`, and the block's
+Minecraft resources are in `src/main/resources/assets/japanesearcades`, and the block's
 placement and interaction implementation is `NostalgiaCabinetBlock.java`.
 `NostalgiaJukeboxBlockEntity.java` stores the disc and delegates audio to Minecraft's
 `JukeboxSongPlayer`, so playback uses the normal jukebox volume category and sound events.

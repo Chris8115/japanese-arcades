@@ -12,7 +12,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
-TEXTURES = ROOT / 'src/main/resources/assets/funpackcustom/textures/block'
+TEXTURES = ROOT / 'src/main/resources/assets/japanesearcades/textures/block'
 INK = '#542e29'
 CREAM = '#fff4d4'
 RED = '#ed4734'

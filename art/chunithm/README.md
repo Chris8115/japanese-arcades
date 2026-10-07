@@ -38,7 +38,7 @@ Launch `dev.cmd Client` or `dev.cmd PackClient`, then choose **Chunithm Paradise
 Arcade Cabinet** in the **Japanese Arcades** creative tab. Alternatively:
 
 ```text
-/give @s funpackcustom:chunithm
+/give @s japanesearcades:chunithm
 ```
 
 Place it on a solid floor with three clear vertical blocks and space beside the
@@ -86,14 +86,14 @@ coplanar seams against their surrounding axis-aligned supports.
 
 ## Development and editing
 
-Java registration starts in `src/main/java/local/funpack/custom/FunPackCustom.java`.
-The block/item ID is `funpackcustom:chunithm`. `ChunithmCabinetBlock.java` supplies
+Java registration starts in `src/main/java/local/japanesearcades/JapaneseArcades.java`.
+The block/item ID is `japanesearcades:chunithm`. `ChunithmCabinetBlock.java` supplies
 the cabinet's wider bounds and inherits placement and interactions from
 `NostalgiaCabinetBlock.java`. All four cabinets use the saved disc inventory in
 `NostalgiaJukeboxBlockEntity.java` and Minecraft's native `JukeboxSongPlayer`.
 Existing cabinet registry and saved-data IDs remain unchanged.
 
-Generated model resources belong under `src/main/resources/assets/funpackcustom`.
+Generated model resources belong under `src/main/resources/assets/japanesearcades`.
 Open `chunithm.bbmodel` in Blockbench to edit the complete grouped cabinet. It uses
 Generic Model format because the cabinet spans three blocks; the generator exports
 the separate bounded Java models, facing variants, inventory model, textures,

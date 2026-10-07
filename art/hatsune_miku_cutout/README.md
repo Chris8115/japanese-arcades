@@ -2,7 +2,7 @@
 
 A freestanding, Minecraft-style Hatsune Miku standee with teal twin-tails, a friendly wave, and a printed silhouette. The thin plate has kraft-cardboard edges and backing, a folded rear support, and a low cardboard foot. It is a separate arcade prize from the Miku figure.
 
-The arcade kiosk price defaults to **1,500 Prize Points**, configurable as `prizes.hatsune_miku_cutout` in the server config `funpackcustom-arcade-economy.toml`.
+The arcade kiosk price defaults to **1,500 Prize Points**, configurable as `prizes.hatsune_miku_cutout` in the server config `japanesearcades-arcade-economy.toml`.
 
 ## Source and regeneration
 

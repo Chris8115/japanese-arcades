@@ -35,7 +35,7 @@ previews show the sequence's first frame.
 ## Placement and ordering
 
 Find **Jubeat Arcade Cabinet** in **Japanese Arcades**, use
-`/give @s funpackcustom:jubeat`, or order one in the Arcade Ordering Kiosk's
+`/give @s japanesearcades:jubeat`, or order one in the Arcade Ordering Kiosk's
 **Machines** tab for **12 iron ingots, 2 gold ingots, 1 diamond, 4 glass blocks
 and 4 redstone dust**.
 

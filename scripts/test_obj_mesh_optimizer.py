@@ -6,7 +6,7 @@ from obj_mesh_optimizer import optimize_obj
 
 
 def obj(polygons, *, uv=None, normals=False, boundary=None):
-    lines = ["# authored fixture", "mtllib funpackcustom:models/block/example.mtl", "o cabinet", "g fascia", "s off", "usemtl face"]
+    lines = ["# authored fixture", "mtllib japanesearcades:models/block/example.mtl", "o cabinet", "g fascia", "s off", "usemtl face"]
     index = 1
     for number, polygon in enumerate(polygons):
         if boundary and number:
@@ -45,7 +45,7 @@ class ObjMeshOptimizerTests(unittest.TestCase):
                 self.assertEqual(points, {(0, 0, 0), (2, 0, 0), (2, 1, 0), (0, 1, 0)})
                 for v, t in pairs:
                     self.assertEqual(vertices[v - 1][:2], uvs[t - 1])
-        for directive in ("mtllib funpackcustom:models/block/example.mtl", "o cabinet", "g fascia", "s off", "usemtl face"):
+        for directive in ("mtllib japanesearcades:models/block/example.mtl", "o cabinet", "g fascia", "s off", "usemtl face"):
             self.assertIn(directive, output)
 
     def test_triangles_merge_without_changing_the_diagonal_interpolation(self):

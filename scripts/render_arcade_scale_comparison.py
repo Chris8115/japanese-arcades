@@ -13,7 +13,7 @@ from mathutils import Vector
 
 
 ROOT = Path(__file__).resolve().parents[1]
-TEXTURES = ROOT / 'src/main/resources/assets/funpackcustom/textures/block'
+TEXTURES = ROOT / 'src/main/resources/assets/japanesearcades/textures/block'
 OUTPUT = ROOT / 'art/groove_coaster/groove-coaster-chunithm-scale.png'
 MODEL_TO_WORLD = 1 / 16
 FACE_INDICES = {

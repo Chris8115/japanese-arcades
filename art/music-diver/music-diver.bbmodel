@@ -147373,7 +147373,7 @@
     {
       "name": "music_diver_materials.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "0",
       "uuid": "d18db86e-2928-55fc-ab08-f601c71c1da0",
       "width": 256,
@@ -147389,7 +147389,7 @@
     {
       "name": "music_diver_circuit.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "1",
       "uuid": "8c108be3-a971-53b4-9e90-67401c4715e5",
       "width": 1024,
@@ -147405,7 +147405,7 @@
     {
       "name": "music_diver_marquee.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "2",
       "uuid": "d8503033-7f48-5aba-9690-68a781f400ed",
       "width": 1024,
@@ -147421,7 +147421,7 @@
     {
       "name": "music_diver_logo.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "3",
       "uuid": "1f37d778-5fdc-50b3-9a8a-c3199408671f",
       "width": 512,
@@ -147437,7 +147437,7 @@
     {
       "name": "music_diver_display.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "4",
       "uuid": "de89064e-c55b-5c5f-88cc-9e6108b3a4bd",
       "width": 1024,
@@ -147453,7 +147453,7 @@
     {
       "name": "music_diver_status.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "5",
       "uuid": "34702838-02ec-5990-9240-ea4c846226d7",
       "width": 1024,
@@ -147469,7 +147469,7 @@
     {
       "name": "music_diver_side.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "6",
       "uuid": "a272b765-50f7-5149-9727-61f1b7b55691",
       "width": 256,
@@ -147485,7 +147485,7 @@
     {
       "name": "music_diver_details.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "7",
       "uuid": "4cd6d53e-ebdc-50aa-b9ac-83a69339f32f",
       "width": 1024,

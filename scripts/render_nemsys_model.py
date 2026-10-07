@@ -8,7 +8,7 @@ from mathutils import Vector
 
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / 'art/sound-voltex-nemsys'
-TEXTURES = ROOT / 'src/main/resources/assets/funpackcustom/textures/block'
+TEXTURES = ROOT / 'src/main/resources/assets/japanesearcades/textures/block'
 data = json.loads((ART / 'geometry.json').read_text(encoding='utf-8'))
 bpy.context.preferences.filepaths.save_version = 0
 bpy.ops.object.select_all(action='SELECT')

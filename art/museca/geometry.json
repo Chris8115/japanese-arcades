@@ -1,11 +1,11 @@
 {
   "textures": {
-    "materials": "funpackcustom:block/museca_materials",
-    "details": "funpackcustom:block/museca_details",
-    "display": "funpackcustom:block/museca_display",
-    "branding": "funpackcustom:block/museca_branding",
-    "marquee": "funpackcustom:block/museca_marquee",
-    "particle": "funpackcustom:block/museca_materials"
+    "materials": "japanesearcades:block/museca_materials",
+    "details": "japanesearcades:block/museca_details",
+    "display": "japanesearcades:block/museca_display",
+    "branding": "japanesearcades:block/museca_branding",
+    "marquee": "japanesearcades:block/museca_marquee",
+    "particle": "japanesearcades:block/museca_materials"
   },
   "meshes": [
     {

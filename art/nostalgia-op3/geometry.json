@@ -1,13 +1,13 @@
 {
   "textures": {
-    "materials": "funpackcustom:block/nostalgia_materials",
-    "artwork": "funpackcustom:block/nostalgia_artwork",
-    "marquee": "funpackcustom:block/nostalgia_marquee",
-    "trim": "funpackcustom:block/nostalgia_trim_v2",
-    "rhythm": "funpackcustom:block/nostalgia_rhythm",
-    "controls": "funpackcustom:block/nostalgia_controls",
-    "side": "funpackcustom:block/nostalgia_side_v2",
-    "particle": "funpackcustom:block/nostalgia_materials"
+    "materials": "japanesearcades:block/nostalgia_materials",
+    "artwork": "japanesearcades:block/nostalgia_artwork",
+    "marquee": "japanesearcades:block/nostalgia_marquee",
+    "trim": "japanesearcades:block/nostalgia_trim_v2",
+    "rhythm": "japanesearcades:block/nostalgia_rhythm",
+    "controls": "japanesearcades:block/nostalgia_controls",
+    "side": "japanesearcades:block/nostalgia_side_v2",
+    "particle": "japanesearcades:block/nostalgia_materials"
   },
   "elements": [
     {

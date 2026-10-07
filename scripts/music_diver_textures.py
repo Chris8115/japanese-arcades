@@ -8,7 +8,7 @@ import math
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT=Path(__file__).resolve().parents[1]
-TEX=ROOT/'src/main/resources/assets/funpackcustom/textures/block'
+TEX=ROOT/'src/main/resources/assets/japanesearcades/textures/block'
 COLORS={'black':'#15141c','dark':'#272632','rubber':'#080a11','steel':'#535560',
         'silver':'#b7bac5','white':'#e9e9ef','edge':'#9396a3','pink':'#f127c2',
         'violet':'#911fee','cyan':'#41d9e8','cream':'#d2d4df','purple':'#59139b',

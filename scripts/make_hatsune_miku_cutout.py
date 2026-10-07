@@ -18,7 +18,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 ROOT=Path(__file__).resolve().parents[1]
-ASSETS=ROOT/'src/main/resources/assets/funpackcustom'
+ASSETS=ROOT/'src/main/resources/assets/japanesearcades'
 ART=ROOT/'art/hatsune_miku_cutout'
 NAME='hatsune_miku_cutout'
 DISPLAY_TITLE='Hatsune Miku Cardboard Cutout'
@@ -26,9 +26,9 @@ SOURCE_FILENAME='miku-cutout-print.png'
 SHORT_NAME='Miku'
 MAX_ART_HEIGHT=29.4
 Z_BACK,Z_FRONT=7.68,8.32
-TEXTURES={'print':'funpackcustom:block/'+NAME+'_print',
-          'cardboard':'funpackcustom:block/'+NAME+'_cardboard',
-          'particle':'funpackcustom:block/'+NAME+'_cardboard'}
+TEXTURES={'print':'japanesearcades:block/'+NAME+'_print',
+          'cardboard':'japanesearcades:block/'+NAME+'_cardboard',
+          'particle':'japanesearcades:block/'+NAME+'_cardboard'}
 
 
 def write(path,value):
@@ -228,7 +228,7 @@ def bounds(faces):
 
 
 def obj(name,faces):
-    lines=['# Static Minecraft-style '+SHORT_NAME+' cardboard display','mtllib funpackcustom:models/block/'+NAME+'.mtl']
+    lines=['# Static Minecraft-style '+SHORT_NAME+' cardboard display','mtllib japanesearcades:models/block/'+NAME+'.mtl']
     index=1;previous=None
     for face in faces:
         material=face['texture'][1:]+'_surface'
@@ -241,7 +241,7 @@ def obj(name,faces):
     path.parent.mkdir(parents=True,exist_ok=True)
     path.write_text('\n'.join(lines)+'\n',encoding='utf-8')
     model={'parent':'minecraft:block/block','loader':'neoforge:obj',
-        'model':'funpackcustom:models/block/'+name+'.obj','automatic_culling':False,
+        'model':'japanesearcades:models/block/'+name+'.obj','automatic_culling':False,
         'shade_quads':True,'flip_v':True,'emissive_ambient':True,'ambientocclusion':True,
         'render_type':'minecraft:cutout_mipped_all','textures':TEXTURES}
     write(ASSETS/'models/block'/(name+'.json'),model)
@@ -281,9 +281,9 @@ def main(name='hatsune_miku_cutout',display_title='Hatsune Miku Cardboard Cutout
     global NAME,ART,TEXTURES,DISPLAY_TITLE,SOURCE_FILENAME,SHORT_NAME,MAX_ART_HEIGHT
     NAME=name;ART=ROOT/'art'/name;DISPLAY_TITLE=display_title
     SOURCE_FILENAME=source_filename;SHORT_NAME=short_name;MAX_ART_HEIGHT=max_art_height
-    TEXTURES={'print':'funpackcustom:block/'+NAME+'_print',
-              'cardboard':'funpackcustom:block/'+NAME+'_cardboard',
-              'particle':'funpackcustom:block/'+NAME+'_cardboard'}
+    TEXTURES={'print':'japanesearcades:block/'+NAME+'_print',
+              'cardboard':'japanesearcades:block/'+NAME+'_cardboard',
+              'particle':'japanesearcades:block/'+NAME+'_cardboard'}
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--source',type=Path,default=ART/SOURCE_FILENAME)
     parser.add_argument('--grid-width',type=int,default=48)
@@ -323,14 +323,14 @@ def main(name='hatsune_miku_cutout',display_title='Hatsune Miku Cardboard Cutout
             assert 0<=box[0][0] and box[0][1]<=16 and 0<=box[2][0] and box[2][1]<=16,(name,box)
             assert 0<=box[1][0] and box[1][1]<=16,(name,box)
             obj(name,turned)
-            variants[f'half={half},rotation={rotation}']={'model':'funpackcustom:block/'+name}
+            variants[f'half={half},rotation={rotation}']={'model':'japanesearcades:block/'+name}
             audit.append({'model':name,'faces':len(turned),'bounds':box})
     write(ASSETS/'blockstates'/(NAME+'.json'),{'variants':variants})
-    write(ROOT/'src/main/resources/data/funpackcustom/loot_table/blocks'/(NAME+'.json'),{
+    write(ROOT/'src/main/resources/data/japanesearcades/loot_table/blocks'/(NAME+'.json'),{
         'type':'minecraft:block','pools':[{'rolls':1,'conditions':[
-            {'condition':'minecraft:block_state_property','block':'funpackcustom:'+NAME,'properties':{'half':'lower'}},
+            {'condition':'minecraft:block_state_property','block':'japanesearcades:'+NAME,'properties':{'half':'lower'}},
             {'condition':'minecraft:survives_explosion'}],
-            'entries':[{'type':'minecraft:item','name':'funpackcustom:'+NAME}]}]})
+            'entries':[{'type':'minecraft:item','name':'japanesearcades:'+NAME}]}]})
     write(ART/(NAME+'.geometry.json'),{'textures':TEXTURES,'meshes':g.faces,
         'bounds':bounds(g.faces),'face_count':len(g.faces)})
     editable(g.faces)

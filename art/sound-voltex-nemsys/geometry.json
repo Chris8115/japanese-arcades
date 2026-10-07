@@ -1,11 +1,11 @@
 {
   "textures": {
-    "materials": "funpackcustom:block/sound_voltex_nemsys_materials",
-    "controls": "funpackcustom:block/sound_voltex_nemsys_controls",
-    "details": "funpackcustom:block/sound_voltex_nemsys_details",
-    "display": "funpackcustom:block/sound_voltex_nemsys_display",
-    "marquee": "funpackcustom:block/sound_voltex_nemsys_marquee",
-    "particle": "funpackcustom:block/sound_voltex_nemsys_materials"
+    "materials": "japanesearcades:block/sound_voltex_nemsys_materials",
+    "controls": "japanesearcades:block/sound_voltex_nemsys_controls",
+    "details": "japanesearcades:block/sound_voltex_nemsys_details",
+    "display": "japanesearcades:block/sound_voltex_nemsys_display",
+    "marquee": "japanesearcades:block/sound_voltex_nemsys_marquee",
+    "particle": "japanesearcades:block/sound_voltex_nemsys_materials"
   },
   "meshes": [
     {

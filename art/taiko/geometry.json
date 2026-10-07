@@ -1,14 +1,14 @@
 {
   "textures": {
-    "materials": "funpackcustom:block/taiko_materials",
-    "marquee": "funpackcustom:block/taiko_marquee",
-    "screen": "funpackcustom:block/taiko_screen",
-    "front": "funpackcustom:block/taiko_front",
-    "instructions": "funpackcustom:block/taiko_instructions",
-    "side": "funpackcustom:block/taiko_side",
-    "lantern": "funpackcustom:block/taiko_lantern",
-    "podium_side": "funpackcustom:block/taiko_podium_side",
-    "particle": "funpackcustom:block/taiko_materials"
+    "materials": "japanesearcades:block/taiko_materials",
+    "marquee": "japanesearcades:block/taiko_marquee",
+    "screen": "japanesearcades:block/taiko_screen",
+    "front": "japanesearcades:block/taiko_front",
+    "instructions": "japanesearcades:block/taiko_instructions",
+    "side": "japanesearcades:block/taiko_side",
+    "lantern": "japanesearcades:block/taiko_lantern",
+    "podium_side": "japanesearcades:block/taiko_podium_side",
+    "particle": "japanesearcades:block/taiko_materials"
   },
   "meshes": [
     {

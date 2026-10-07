@@ -54169,7 +54169,7 @@
     {
       "name": "sound_voltex_nemsys_materials.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "0",
       "uuid": "752a7f16-5c7c-59f6-858a-8a9b52f92839",
       "width": 256,
@@ -54185,7 +54185,7 @@
     {
       "name": "sound_voltex_nemsys_controls.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "1",
       "uuid": "f1c92f02-70a9-54a4-9497-f4ea33af7195",
       "width": 1024,
@@ -54201,7 +54201,7 @@
     {
       "name": "sound_voltex_nemsys_details.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "2",
       "uuid": "d6fa4500-1179-533c-ab59-e7defbcedcb7",
       "width": 1024,
@@ -54217,7 +54217,7 @@
     {
       "name": "sound_voltex_nemsys_display.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "3",
       "uuid": "4d2424c5-173e-5a75-b1a6-6505ae762324",
       "width": 1024,
@@ -54233,7 +54233,7 @@
     {
       "name": "sound_voltex_nemsys_marquee.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "4",
       "uuid": "2ac66e69-9687-5516-98af-97a1e80f88c3",
       "width": 2048,

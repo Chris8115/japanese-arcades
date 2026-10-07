@@ -17,7 +17,7 @@ from chrono_circle_mesh_geometry import build_controls, export_chrono
 
 ROOT=Path(__file__).resolve().parents[1]
 ART=ROOT/'art/chrono_circle'
-ASSETS=ROOT/'src/main/resources/assets/funpackcustom'
+ASSETS=ROOT/'src/main/resources/assets/japanesearcades'
 TEXTURES=ASSETS/'textures/block'
 MODEL=ASSETS/'models/block'
 for path in (ART,TEXTURES,MODEL):path.mkdir(parents=True,exist_ok=True)
@@ -105,9 +105,9 @@ smooth_meshes,smooth_details=build_controls(uv,source_scales)
 build_upper(cube,polygon,ART)
 
 texture_paths={
-    'materials':'funpackcustom:block/chrono_circle_materials','details':'funpackcustom:block/chrono_circle_details',
-    'display':'funpackcustom:block/chrono_circle_display',
-    'branding':'funpackcustom:block/chrono_circle_branding','header':'funpackcustom:block/chrono_circle_header','particle':'funpackcustom:block/chrono_circle_materials',
+    'materials':'japanesearcades:block/chrono_circle_materials','details':'japanesearcades:block/chrono_circle_details',
+    'display':'japanesearcades:block/chrono_circle_display',
+    'branding':'japanesearcades:block/chrono_circle_branding','header':'japanesearcades:block/chrono_circle_header','particle':'japanesearcades:block/chrono_circle_materials',
 }
 
 # Minecraft's north-facing UVs run from +X to -X when viewed from the front.

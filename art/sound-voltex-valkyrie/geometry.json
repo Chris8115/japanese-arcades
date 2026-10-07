@@ -1,12 +1,12 @@
 {
   "textures": {
-    "materials": "funpackcustom:block/valkyrie_materials",
-    "details": "funpackcustom:block/valkyrie_details",
-    "display": "funpackcustom:block/valkyrie_display",
-    "branding": "funpackcustom:block/valkyrie_branding",
-    "wing": "funpackcustom:block/valkyrie_wing",
-    "side": "funpackcustom:block/valkyrie_side",
-    "particle": "funpackcustom:block/valkyrie_materials"
+    "materials": "japanesearcades:block/valkyrie_materials",
+    "details": "japanesearcades:block/valkyrie_details",
+    "display": "japanesearcades:block/valkyrie_display",
+    "branding": "japanesearcades:block/valkyrie_branding",
+    "wing": "japanesearcades:block/valkyrie_wing",
+    "side": "japanesearcades:block/valkyrie_side",
+    "particle": "japanesearcades:block/valkyrie_materials"
   },
   "elements": [
     {

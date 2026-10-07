@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:block",
+  "pools": [{
+    "rolls": 1,
+    "entries": [{ "type": "minecraft:item", "name": "japanesearcades:claw_machine" }],
+    "conditions": [
+      { "condition": "minecraft:survives_explosion" },
+      { "condition": "minecraft:block_state_property", "block": "japanesearcades:claw_machine", "properties": { "part": "0" } }
+    ]
+  }]
+}

@@ -12,7 +12,7 @@ shapes; the space above the pads remains open.
 ## Placement and use
 
 ```text
-/give @s funpackcustom:ddr_supernova
+/give @s japanesearcades:ddr_supernova
 ```
 
 Place the item on a solid floor. All six floor positions must have solid upper
@@ -54,9 +54,9 @@ same native player.
 
 ## Model and runtime files
 
-The block/item ID is `funpackcustom:ddr_supernova`. Runtime behavior is in
-`src/main/java/local/funpack/custom/DdrCabinetBlock.java`; registration starts in
-`FunPackCustom.java`. The block uses `side=primary|secondary` and six named
+The block/item ID is `japanesearcades:ddr_supernova`. Runtime behavior is in
+`src/main/java/local/japanesearcades/DdrCabinetBlock.java`; registration starts in
+`JapaneseArcades.java`. The block uses `side=primary|secondary` and six named
 `section` values matching the table. The inherited `part` property is maintained
 for shared jukebox compatibility.
 

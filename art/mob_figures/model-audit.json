@@ -4,32 +4,32 @@
   "render_type": "minecraft:cutout",
   "textures_copied_without_modification": [
     {
-      "file": "src/main/resources/assets/funpackcustom/textures/block/creeper_figure_skin.png",
+      "file": "src/main/resources/assets/japanesearcades/textures/block/creeper_figure_skin.png",
       "source": "assets/minecraft/textures/entity/creeper/creeper.png",
       "sha256": "a98947a543623cedca72016e06aa24dc34807251ff8e2433be158c86a977c9e9"
     },
     {
-      "file": "src/main/resources/assets/funpackcustom/textures/block/zombie_figure_skin.png",
+      "file": "src/main/resources/assets/japanesearcades/textures/block/zombie_figure_skin.png",
       "source": "assets/minecraft/textures/entity/zombie/zombie.png",
       "sha256": "1c879744424077ab6f7d8b13b015dfc9d5e0efee6c70696de5c2ee588f4f563a"
     },
     {
-      "file": "src/main/resources/assets/funpackcustom/textures/block/skeleton_figure_skin.png",
+      "file": "src/main/resources/assets/japanesearcades/textures/block/skeleton_figure_skin.png",
       "source": "assets/minecraft/textures/entity/skeleton/skeleton.png",
       "sha256": "66524aa68d4e94fd3117df9b6e40cb48da5526e24a7f079c2c4852bca0d1c20e"
     },
     {
-      "file": "src/main/resources/assets/funpackcustom/textures/block/enderman_figure_skin.png",
+      "file": "src/main/resources/assets/japanesearcades/textures/block/enderman_figure_skin.png",
       "source": "assets/minecraft/textures/entity/enderman/enderman.png",
       "sha256": "ac2a712566f11083a7e7f44ca904088662157144d35e764002be04fc9c34d50c"
     },
     {
-      "file": "src/main/resources/assets/funpackcustom/textures/block/slime_figure_skin.png",
+      "file": "src/main/resources/assets/japanesearcades/textures/block/slime_figure_skin.png",
       "source": "assets/minecraft/textures/entity/slime/slime.png",
       "sha256": "c724fc4eb07da3e2e10cc4b269d554bfb19271a560e2dbd4b74f71fae050f955"
     },
     {
-      "file": "src/main/resources/assets/funpackcustom/textures/block/axolotl_figure_skin.png",
+      "file": "src/main/resources/assets/japanesearcades/textures/block/axolotl_figure_skin.png",
       "source": "assets/minecraft/textures/entity/axolotl/axolotl_lucy.png",
       "sha256": "397a68244fcf28991b367b2353ada65fd32706aac08d04cd3b5cad6639f45dec"
     }

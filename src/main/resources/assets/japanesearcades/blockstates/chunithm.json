@@ -1,0 +1,49 @@
+{
+  "variants": {
+    "facing=north,part=base": {
+      "model": "japanesearcades:block/chunithm_base"
+    },
+    "facing=north,part=console": {
+      "model": "japanesearcades:block/chunithm_console"
+    },
+    "facing=north,part=marquee": {
+      "model": "japanesearcades:block/chunithm_marquee"
+    },
+    "facing=east,part=base": {
+      "model": "japanesearcades:block/chunithm_base",
+      "y": 90
+    },
+    "facing=east,part=console": {
+      "model": "japanesearcades:block/chunithm_console",
+      "y": 90
+    },
+    "facing=east,part=marquee": {
+      "model": "japanesearcades:block/chunithm_marquee",
+      "y": 90
+    },
+    "facing=south,part=base": {
+      "model": "japanesearcades:block/chunithm_base",
+      "y": 180
+    },
+    "facing=south,part=console": {
+      "model": "japanesearcades:block/chunithm_console",
+      "y": 180
+    },
+    "facing=south,part=marquee": {
+      "model": "japanesearcades:block/chunithm_marquee",
+      "y": 180
+    },
+    "facing=west,part=base": {
+      "model": "japanesearcades:block/chunithm_base",
+      "y": 270
+    },
+    "facing=west,part=console": {
+      "model": "japanesearcades:block/chunithm_console",
+      "y": 270
+    },
+    "facing=west,part=marquee": {
+      "model": "japanesearcades:block/chunithm_marquee",
+      "y": 270
+    }
+  }
+}

@@ -49,5 +49,6 @@
     "screen",
     "marquee"
   ],
-  "runtime_verification": "Delegated to root; no FPS improvement claimed from asset counts alone."
+  "runtime_verification": "Delegated to root; no FPS improvement claimed from asset counts alone.",
+  "namespace_history_note": "Historical evidence recorded before the japanesearcades namespace rename. Original resource names, logged messages, hashes and measurements are retained exactly; current runtime assets use japanesearcades."
 }

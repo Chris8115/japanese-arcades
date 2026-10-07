@@ -19,7 +19,7 @@ from PIL import Image, ImageChops
 
 ROOT=Path(__file__).resolve().parents[1]
 ART=ROOT/'art/wacca_poster'
-ASSETS=ROOT/'src/main/resources/assets/funpackcustom'
+ASSETS=ROOT/'src/main/resources/assets/japanesearcades'
 SOURCE=ART/'source.jpg'
 TEXTURE=ASSETS/'textures/painting/wacca_poster.png'
 ITEM_TEXTURE=ASSETS/'textures/item/wacca_poster.png'
@@ -70,7 +70,7 @@ def main():
     faces.update({direction:{'texture':'#poster','uv':[0,0,16,16]} for direction in ('north','south')})
     model={
         'ambientocclusion':False,'gui_light':'front',
-        'textures':{'poster':'funpackcustom:item/wacca_poster','particle':'funpackcustom:item/wacca_poster'},
+        'textures':{'poster':'japanesearcades:item/wacca_poster','particle':'japanesearcades:item/wacca_poster'},
         'elements':[{'name':'WACCA original-aspect poster print',
                      'from':[8-item_width/2,.5,7.94],'to':[8+item_width/2,15.5,8.06],'faces':faces}],
         'display':{
@@ -86,10 +86,10 @@ def main():
     metadata={
         'source':{'file':'source.jpg','original_filename':'WaccaPoster.jpg','sha256':original_hash,
                   'bytes':SOURCE.stat().st_size,'dimensions':list(original_size),'mode':source_mode},
-        'output':{'texture':'funpackcustom:painting/wacca_poster','file':'src/main/resources/assets/funpackcustom/textures/painting/wacca_poster.png',
+        'output':{'texture':'japanesearcades:painting/wacca_poster','file':'src/main/resources/assets/japanesearcades/textures/painting/wacca_poster.png',
                   'sha256':sha256(TEXTURE),'dimensions':list(fitted_size),'mode':'RGB',
-                  'item_texture':'funpackcustom:item/wacca_poster',
-                  'item_file':'src/main/resources/assets/funpackcustom/textures/item/wacca_poster.png',
+                  'item_texture':'japanesearcades:item/wacca_poster',
+                  'item_file':'src/main/resources/assets/japanesearcades/textures/item/wacca_poster.png',
                   'item_sha256':sha256(ITEM_TEXTURE)},
         'packing':{'operation':'Uniform resize of the whole original image to1024pixels wide, without added padding',
                    'resampling':'Pillow LANCZOS','uniform_scale':scale,'scaled_dimensions':list(fitted_size),
@@ -97,7 +97,7 @@ def main():
                    'integer_size_rounding':'Nearest integer pixel; no crop, stretching, border removal, or artwork changes'},
         'wall_support_grid_blocks':[1,2],
         'visual_dimensions_blocks':[1,source.height/source.width],
-        'item':{'model':'funpackcustom:item/wacca_poster','face_dimensions':[item_width,item_height],
+        'item':{'model':'japanesearcades:item/wacca_poster','face_dimensions':[item_width,item_height],
                 'thickness':.12,'texture_uv':[0,0,16,16]},
     }
     (ART/'source.json').write_text(json.dumps(metadata,indent=2)+'\n',encoding='utf-8')
@@ -113,7 +113,7 @@ def main():
     assert abs((element['to'][0]-element['from'][0])/(element['to'][1]-element['from'][1])-source.width/source.height)<1e-12
     assert decoded.size==fitted_size
     assert all(face['texture']=='#poster' for face in element['faces'].values())
-    assert model['textures']['poster']=='funpackcustom:item/wacca_poster'
+    assert model['textures']['poster']=='japanesearcades:item/wacca_poster'
     print(json.dumps({'source_sha256':original_hash,'source_dimensions':original_size,
                       'fitted':fitted_size,'visual_blocks':metadata['visual_dimensions_blocks'],
                       'item_dimensions':[item_width,item_height],'pixel_and_aspect_checks':'PASS'},indent=2))

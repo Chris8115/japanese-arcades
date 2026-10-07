@@ -1,11 +1,11 @@
 {
   "textures": {
-    "materials": "funpackcustom:block/chunithm_materials",
-    "details": "funpackcustom:block/chunithm_details",
-    "lights": "funpackcustom:block/chunithm_lights",
-    "display": "funpackcustom:block/chunithm_display",
-    "branding": "funpackcustom:block/chunithm_branding",
-    "particle": "funpackcustom:block/chunithm_materials"
+    "materials": "japanesearcades:block/chunithm_materials",
+    "details": "japanesearcades:block/chunithm_details",
+    "lights": "japanesearcades:block/chunithm_lights",
+    "display": "japanesearcades:block/chunithm_display",
+    "branding": "japanesearcades:block/chunithm_branding",
+    "particle": "japanesearcades:block/chunithm_materials"
   },
   "elements": [
     {

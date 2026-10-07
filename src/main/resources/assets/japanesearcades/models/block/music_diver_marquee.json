@@ -1,0 +1,22 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "neoforge:obj",
+  "model": "japanesearcades:models/block/music_diver_marquee.obj",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "emissive_ambient": true,
+  "ambientocclusion": true,
+  "render_type": "minecraft:solid",
+  "textures": {
+    "materials": "japanesearcades:block/music_diver_materials",
+    "circuit": "japanesearcades:block/music_diver_circuit",
+    "marquee": "japanesearcades:block/music_diver_marquee",
+    "logo": "japanesearcades:block/music_diver_logo",
+    "display": "japanesearcades:block/music_diver_display",
+    "status": "japanesearcades:block/music_diver_status",
+    "side": "japanesearcades:block/music_diver_side",
+    "details": "japanesearcades:block/music_diver_details",
+    "particle": "japanesearcades:block/music_diver_materials"
+  }
+}

@@ -1,7 +1,7 @@
 # ONGEKI bright cabinet
 
 ONGEKI bright joins the Japanese Arcades creative tab and the ordering kiosk's
-Machines category as `funpackcustom:ongeki`.
+Machines category as `japanesearcades:ongeki`.
 
 The cabinet follows the supplied photographs: a tall white forward arch around
 a recessed black portrait monitor, an open gap below the hanging title sign,
@@ -19,7 +19,7 @@ Order it for **16 iron ingots, 4 gold ingots, 1 diamond, 6 glass, and 6 redstone
 or use the Japanese Arcades creative tab:
 
 ```text
-/give @s funpackcustom:ongeki
+/give @s japanesearcades:ongeki
 ```
 
 Place it on a solid floor with three clear vertical blocks. The shell is slightly
@@ -30,7 +30,7 @@ The complete model measures approximately **1.18 blocks wide, 3.00 high, and
 
 Use an Arcade Pass to spend Credits and receive the existing simulated rank and
 Prize Point reward. The shared default is 10 Credits per play; the server economy
-configuration can override its cost and rewards using `funpackcustom:ongeki`.
+configuration can override its cost and rewards using `japanesearcades:ongeki`.
 The controls and screen are decorative rather than a playable ONGEKI game.
 
 Music discs use the same saved jukebox behavior as the other rhythm cabinets:

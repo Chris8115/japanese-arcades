@@ -3,7 +3,7 @@
 The **WACCA Poster** is a wall decoration purchased in the Arcade Ordering Kiosk's
 **Prizes** tab for **750 Prize Points** by default. Insert an Arcade Pass into the
 **To** slot, select the poster, and order it. Its price is configurable as
-`prizes.wacca_poster` in `funpackcustom-arcade-economy.toml`.
+`prizes.wacca_poster` in `japanesearcades-arcade-economy.toml`.
 
 The poster is **1 block wide and about 1⅜ blocks tall**, matching the source image's
 aspect ratio. Use it on a solid wall with space in front of two vertical blocks. It
@@ -12,7 +12,7 @@ The thin edge and backing are black, matching the artwork's border.
 Breaking it in survival or removing its supporting wall returns one WACCA Poster
 for rehanging. Creative removal does not create extra drops. The poster is also
 available in the Japanese Arcades creative tab and through
-`/give @s funpackcustom:wacca_poster`.
+`/give @s japanesearcades:wacca_poster`.
 
 The poster always uses this artwork. It is absent from the ordinary painting
 selection pool and has no crafting recipe.

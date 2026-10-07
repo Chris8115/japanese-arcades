@@ -1,8 +1,8 @@
 {
   "textures": {
-    "skin": "funpackcustom:block/slime_figure_skin",
-    "package": "funpackcustom:block/slime_figure_package",
-    "particle": "funpackcustom:block/slime_figure_skin"
+    "skin": "japanesearcades:block/slime_figure_skin",
+    "package": "japanesearcades:block/slime_figure_package",
+    "particle": "japanesearcades:block/slime_figure_skin"
   },
   "meshes": [
     {

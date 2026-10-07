@@ -22,7 +22,7 @@ Launch `dev.cmd Client` or `dev.cmd PackClient`, then select **Project DIVA Arca
 Future Tone Cabinet** from **Japanese Arcades**, or run:
 
 ```text
-/give @s funpackcustom:project_diva
+/give @s japanesearcades:project_diva
 ```
 
 Place it on a solid floor with three clear vertical blocks. Its front faces the
@@ -97,8 +97,8 @@ exported model files.
 
 ## Runtime implementation
 
-The block/item ID is `funpackcustom:project_diva`. Registration begins in
-`src/main/java/local/funpack/custom/FunPackCustom.java`.
+The block/item ID is `japanesearcades:project_diva`. Registration begins in
+`src/main/java/local/japanesearcades/JapaneseArcades.java`.
 `ProjectDivaCabinetBlock.java` defines section bounds and disc-ejection position.
 It inherits placement and interaction from `NostalgiaCabinetBlock.java`. All
 cabinets share `NostalgiaJukeboxBlockEntity.java` and Minecraft's native

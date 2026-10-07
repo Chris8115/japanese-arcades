@@ -17,7 +17,7 @@ from museca_mesh_geometry import build_deck, export_museca
 
 ROOT=Path(__file__).resolve().parents[1]
 ART=ROOT/'art/museca'
-ASSETS=ROOT/'src/main/resources/assets/funpackcustom'
+ASSETS=ROOT/'src/main/resources/assets/japanesearcades'
 TEXTURES=ASSETS/'textures/block'
 MODEL=ASSETS/'models/block'
 for path in (ART,TEXTURES,MODEL):path.mkdir(parents=True,exist_ok=True)
@@ -105,9 +105,9 @@ build_upper(cube,polygon,ART)
 deck_meshes,deck_details=build_deck(uv)
 
 texture_paths={
-    'materials':'funpackcustom:block/museca_materials','details':'funpackcustom:block/museca_details',
-    'display':'funpackcustom:block/museca_display',
-    'branding':'funpackcustom:block/museca_branding','marquee':'funpackcustom:block/museca_marquee','particle':'funpackcustom:block/museca_materials',
+    'materials':'japanesearcades:block/museca_materials','details':'japanesearcades:block/museca_details',
+    'display':'japanesearcades:block/museca_display',
+    'branding':'japanesearcades:block/museca_branding','marquee':'japanesearcades:block/museca_marquee','particle':'japanesearcades:block/museca_materials',
 }
 
 # Minecraft's north-facing UVs run from +X to -X when viewed from the front.

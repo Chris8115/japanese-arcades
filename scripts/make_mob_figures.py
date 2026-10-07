@@ -16,10 +16,10 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSETS = ROOT / 'src/main/resources/assets/funpackcustom'
+ASSETS = ROOT / 'src/main/resources/assets/japanesearcades'
 TEX = ASSETS / 'textures/block'
 ART = ROOT / 'art/mob_figures'
-LOOT = ROOT / 'src/main/resources/data/funpackcustom/loot_table/blocks'
+LOOT = ROOT / 'src/main/resources/data/japanesearcades/loot_table/blocks'
 MOBS = [('creeper', '#97d85e', 'OVERWORLD'), ('zombie', '#53c7ba', 'OVERWORLD'),
         ('skeleton', '#e3d6bd', 'OVERWORLD'), ('enderman', '#bc8ef1', 'THE END'),
         ('slime', '#a9ed77', 'SWAMP'), ('axolotl', '#f9a7c9', 'LUSH CAVES')]
@@ -304,25 +304,25 @@ def meshes(elements):
 
 
 def export(name, mob, g, boxed=False):
-    textures={'skin':'funpackcustom:block/'+mob+'_figure_skin',
-              'package':'funpackcustom:block/'+mob+'_figure_package',
-              'particle':'funpackcustom:block/'+mob+'_figure_skin'}
-    if mob=='enderman':textures['eyes']='funpackcustom:block/enderman_figure_eyes'
+    textures={'skin':'japanesearcades:block/'+mob+'_figure_skin',
+              'package':'japanesearcades:block/'+mob+'_figure_package',
+              'particle':'japanesearcades:block/'+mob+'_figure_skin'}
+    if mob=='enderman':textures['eyes']='japanesearcades:block/enderman_figure_eyes'
     model={'parent':'minecraft:block/block','render_type':'minecraft:cutout',
            'ambientocclusion':True,'textures':textures,'elements':g.elements}
     write(ASSETS/'models/block'/(name+'.json'),model)
-    write(ASSETS/'models/item'/(name+'.json'),{'parent':'funpackcustom:block/'+name,'gui_light':'front',
+    write(ASSETS/'models/item'/(name+'.json'),{'parent':'japanesearcades:block/'+name,'gui_light':'front',
         'display':{'gui':{'rotation':[14,205,0],'translation':[0,0,0], 'scale':[1,1,1] if boxed else [1.12,1.12,1.12]},
         'ground':{'translation':[0,2,0],'scale':[.5,.5,.5]},
         'fixed':{'rotation':[0,180,0],'scale':[.8,.8,.8]},
         'thirdperson_righthand':{'rotation':[75,45,0],'translation':[0,2.5,0],'scale':[.4,.4,.4]},
         'firstperson_righthand':{'rotation':[0,45,0],'translation':[0,1,0],'scale':[.55,.55,.55]}}})
     write(ASSETS/'blockstates'/(name+'.json'),{'variants':{
-        'facing='+direction:{'model':'funpackcustom:block/'+name,**({'y':angle} if angle else {})}
+        'facing='+direction:{'model':'japanesearcades:block/'+name,**({'y':angle} if angle else {})}
         for direction,angle in (('north',0),('east',90),('south',180),('west',270))}})
     write(LOOT/(name+'.json'),{'type':'minecraft:block','pools':[{'rolls':1,
         'conditions':[{'condition':'minecraft:survives_explosion'}],
-        'entries':[{'type':'minecraft:item','name':'funpackcustom:'+name}]}]})
+        'entries':[{'type':'minecraft:item','name':'japanesearcades:'+name}]}]})
     faces=meshes(g.elements)
     bounds=[[min(p[i] for f in faces for p in f['vertices']),max(p[i] for f in faces for p in f['vertices'])] for i in range(3)]
     assert len(faces)<400,(name,len(faces))

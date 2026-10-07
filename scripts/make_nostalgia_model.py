@@ -21,7 +21,7 @@ from nostalgia_marquee_geometry import build_marquee
 from nostalgia_surface_art import build_surface_art
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSETS = ROOT / 'src/main/resources/assets/funpackcustom'
+ASSETS = ROOT / 'src/main/resources/assets/japanesearcades'
 ART = ROOT / 'art/nostalgia-op3'
 TEXTURES = ASSETS / 'textures/block'
 MODEL = ASSETS / 'models/block'
@@ -249,14 +249,14 @@ build_console(cube, uv)
 
 build_marquee(cube, cutout_sprite)
 
-texture_paths = {'materials':'funpackcustom:block/nostalgia_materials',
-                 'artwork':'funpackcustom:block/nostalgia_artwork',
-                 'marquee':'funpackcustom:block/nostalgia_marquee',
-                 'trim':'funpackcustom:block/nostalgia_trim_v2',
-                 'rhythm':'funpackcustom:block/nostalgia_rhythm',
-                 'controls':'funpackcustom:block/nostalgia_controls',
-                 'side':'funpackcustom:block/nostalgia_side_v2',
-                 'particle':'funpackcustom:block/nostalgia_materials'}
+texture_paths = {'materials':'japanesearcades:block/nostalgia_materials',
+                 'artwork':'japanesearcades:block/nostalgia_artwork',
+                 'marquee':'japanesearcades:block/nostalgia_marquee',
+                 'trim':'japanesearcades:block/nostalgia_trim_v2',
+                 'rhythm':'japanesearcades:block/nostalgia_rhythm',
+                 'controls':'japanesearcades:block/nostalgia_controls',
+                 'side':'japanesearcades:block/nostalgia_side_v2',
+                 'particle':'japanesearcades:block/nostalgia_materials'}
 
 # Minecraft's north-facing UVs run from +X to -X when viewed from the front.
 # Mirror our front-view coordinates so the ornaments stay on the photographed right.
@@ -293,7 +293,7 @@ for part in part_names:
 variants={}
 for facing,rotation in (('north',0),('east',90),('south',180),('west',270)):
     for part in part_names:
-        variant={'model':'funpackcustom:block/nostalgia_op3_'+part}
+        variant={'model':'japanesearcades:block/nostalgia_op3_'+part}
         if rotation: variant['y']=rotation
         variants['facing='+facing+',part='+part]=variant
 write_json(ASSETS / 'blockstates/nostalgia_op3.json', {'variants':variants})
@@ -329,7 +329,7 @@ bb_elements=[]
 groups={}
 for source in elements:
     e=strip_element(source)
-    uid=str(uuid.uuid5(uuid.NAMESPACE_URL,'funpackcustom/nostalgia/'+e['name']+'/'+str(e['from'])))
+    uid=str(uuid.uuid5(uuid.NAMESPACE_URL,'japanesearcades/nostalgia/'+e['name']+'/'+str(e['from'])))
     rot=e.get('rotation')
     rotation=[0,0,0]
     origin=[(a+b)/2 for a,b in zip(e['from'],e['to'])]
@@ -348,10 +348,10 @@ for source in elements:
 bbtextures=[]
 for i,(identifier,path) in enumerate(texture_specs):
     texture=Image.open(path)
-    bbtextures.append({'path':str(path),'name':path.name,'folder':'block','namespace':'funpackcustom',
+    bbtextures.append({'path':str(path),'name':path.name,'folder':'block','namespace':'japanesearcades',
                        'id':str(i),'uuid':str(uuid.uuid5(uuid.NAMESPACE_URL,'nostalgia/'+identifier)),
                        'width':texture.width,'height':texture.height,'uv_width':texture.width,'uv_height':texture.height,
-                       'relative_path':'../../src/main/resources/assets/funpackcustom/textures/block/'+path.name,
+                       'relative_path':'../../src/main/resources/assets/japanesearcades/textures/block/'+path.name,
                        'source':'data:image/png;base64,'+base64.b64encode(path.read_bytes()).decode(),
                        'mode':'bitmap','particle':i==0,'render_mode':'default','visible':True})
 write_json(ART/'nostalgia-op3.bbmodel',

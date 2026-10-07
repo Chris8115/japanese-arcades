@@ -17,7 +17,7 @@ from obj_mesh_optimizer import optimize_obj
 from nemsys_artwork import pack_artwork
 ROOT=Path(__file__).resolve().parents[1]
 ART=ROOT/'art/sound-voltex-nemsys'
-ASSETS=ROOT/'src/main/resources/assets/funpackcustom'
+ASSETS=ROOT/'src/main/resources/assets/japanesearcades'
 TEX=ASSETS/'textures/block'
 for path in (ART,TEX,ASSETS/'models/block',ASSETS/'models/item',ASSETS/'blockstates'):
     path.mkdir(parents=True,exist_ok=True)
@@ -332,7 +332,7 @@ for f in surfaces[header_start:]:
         f['uv']=[[(15.92-p[0])/15.84*16*su,(47.43-p[1])/6.33*16*sv] for p in f['vertices']]
 
 
-textures={key:'funpackcustom:block/sound_voltex_nemsys_'+key for key in ('materials','controls','details','display','marquee')}
+textures={key:'japanesearcades:block/sound_voltex_nemsys_'+key for key in ('materials','controls','details','display','marquee')}
 textures['particle']=textures['materials']
 
 def write_json(path,data):
@@ -340,7 +340,7 @@ def write_json(path,data):
 
 def obj(path,faces):
     lines=['# SOUND VOLTEX NEMSYS efficient native cabinet, coordinates in blocks.',
-           'mtllib funpackcustom:models/block/sound_voltex_nemsys.mtl'];index=1;last=None
+           'mtllib japanesearcades:models/block/sound_voltex_nemsys.mtl'];index=1;last=None
     for f in faces:
         material=f['texture'][1:]+('_glow' if f['glow'] else '_surface')
         if material!=last:lines.append('usemtl '+material);last=material
@@ -352,7 +352,7 @@ def obj(path,faces):
     path.write_text(optimized,encoding='utf-8');return stats
 
 def wrapper(name,item=False):
-    model={'parent':'minecraft:block/block','loader':'neoforge:obj','model':'funpackcustom:models/'+name+'.obj',
+    model={'parent':'minecraft:block/block','loader':'neoforge:obj','model':'japanesearcades:models/'+name+'.obj',
            'automatic_culling':False,'shade_quads':True,'flip_v':True,'emissive_ambient':True,
            'ambientocclusion':not item,'render_type':'minecraft:solid','textures':textures}
     if item:model.update({'gui_light':'front','display':{
@@ -383,7 +383,7 @@ for key,glow in sorted({(f['texture'][1:],f['glow']) for f in surfaces}):
                 'Kd 1 1 1','map_Kd #'+key,''])
 (ASSETS/'models/block/sound_voltex_nemsys.mtl').write_text('\n'.join(mtl),encoding='utf-8')
 write_json(ASSETS/'blockstates/sound_voltex_nemsys.json',{'variants':{
-    'facing='+direction+',part='+part:{'model':'funpackcustom:block/sound_voltex_nemsys_'+part,**({'y':angle} if angle else {})}
+    'facing='+direction+',part='+part:{'model':'japanesearcades:block/sound_voltex_nemsys_'+part,**({'y':angle} if angle else {})}
     for direction,angle in (('north',0),('east',90),('south',180),('west',270)) for part in split}})
 
 bounds=[[min(p[i] for f in surfaces for p in f['vertices']),max(p[i] for f in surfaces for p in f['vertices'])] for i in range(3)]
@@ -406,7 +406,7 @@ for f in surfaces:
 bbtex=[]
 for i,key in enumerate(texture_keys):
     path=TEX/('sound_voltex_nemsys_'+key+'.png');width,height=sizes[key]
-    bbtex.append({'name':path.name,'folder':'block','namespace':'funpackcustom','id':str(i),
+    bbtex.append({'name':path.name,'folder':'block','namespace':'japanesearcades','id':str(i),
         'uuid':str(uuid.uuid5(uuid.NAMESPACE_URL,'sound_voltex_nemsys/'+key)),'width':width,'height':height,
         'uv_width':width,'uv_height':height,'source':'data:image/png;base64,'+base64.b64encode(path.read_bytes()).decode(),
         'mode':'bitmap','particle':i==0,'render_mode':'default','visible':True})

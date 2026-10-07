@@ -44,7 +44,7 @@ draw.rectangle((44, 26, 59, 28), fill=red)
 draw.line((44, 28, 59, 28), fill=teal_dark)
 
 for entity in ("villager", "zombie_villager"):
-    path = ROOT / "src/main/resources/assets/funpackcustom/textures/entity" / entity / "profession/arcade_operator.png"
+    path = ROOT / "src/main/resources/assets/japanesearcades/textures/entity" / entity / "profession/arcade_operator.png"
     path.parent.mkdir(parents=True, exist_ok=True)
     image.save(path)
     path.with_suffix(".png.mcmeta").write_text('{"villager":{"hat":"none"}}\n', encoding="utf-8")

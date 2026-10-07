@@ -8,7 +8,7 @@ placeable forms: boxed figure, loose figure and empty display box.
 
 - Redeem a boxed figure in the Arcade Kiosk's **Prizes** tab. Each costs
   **1,000 Prize Points** by default, configurable under `prizes.boxed_<mob>_figure`
-  in `funpackcustom-arcade-economy.toml`.
+  in `japanesearcades-arcade-economy.toml`.
 - Operators can also stock the ordinary boxed items in existing claw and
   gachapon prize inventories. All three forms appear in the Japanese Arcades
   creative tab.
@@ -50,8 +50,8 @@ including packaging and the figure inside a full box. Each form uses baked
 vanilla JSON geometry with no live mob renderer. `model-audit.json` records
 exported bounds, counts and source texture hashes.
 
-Runtime IDs use `funpackcustom:boxed_<mob>_figure`,
-`funpackcustom:<mob>_figure`, and `funpackcustom:<mob>_figure_box`, where `<mob>`
+Runtime IDs use `japanesearcades:boxed_<mob>_figure`,
+`japanesearcades:<mob>_figure`, and `japanesearcades:<mob>_figure_box`, where `<mob>`
 is `creeper`, `zombie`, `skeleton`, `enderman`, `slime` or `axolotl`.
 
 ## Sources and verification

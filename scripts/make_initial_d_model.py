@@ -6,7 +6,7 @@ from initial_d_geometry import Geometry,export
 from initial_d_textures import build_textures
 
 ROOT=Path(__file__).resolve().parents[1];ART=ROOT/'art/initial_d'
-ASSETS=ROOT/'src/main/resources/assets/funpackcustom';TEX=ASSETS/'textures/block'
+ASSETS=ROOT/'src/main/resources/assets/japanesearcades';TEX=ASSETS/'textures/block'
 for p in (ART,TEX,ASSETS/'models/block',ASSETS/'models/item',ASSETS/'blockstates'):p.mkdir(parents=True,exist_ok=True)
 build_textures(TEX)
 COLORS={'white':'#eceee8','ivory':'#d9ddd5','silver':'#aab2b3','edge':'#727c7e',
@@ -139,7 +139,7 @@ for x in (2.80,12.12):
     g.transform(start,lambda X,z,neg_y:(X,-neg_y,z))
 disc('Seat rear access fastening',8,11.79,.12,-29.32,-29.18,'silver',16)
 
-textures={key:'funpackcustom:block/initial_d_'+key for key in ('materials','marquee','screen','side','seat_back','pedestal_side','details')}
+textures={key:'japanesearcades:block/initial_d_'+key for key in ('materials','marquee','screen','side','seat_back','pedestal_side','details')}
 textures['particle']=textures['materials']
 export(ROOT,g,textures,{'seat_geometry':{'cushion_center':[8,11.55,-24],'cushion_top':11.55,
     'cushion_bounds':[[3.13,12.87],[8.53,11.55],[-28.12,-18.57]],'back_top':28.1,

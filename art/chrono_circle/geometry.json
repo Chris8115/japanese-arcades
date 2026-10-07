@@ -1,11 +1,11 @@
 {
   "textures": {
-    "materials": "funpackcustom:block/chrono_circle_materials",
-    "details": "funpackcustom:block/chrono_circle_details",
-    "display": "funpackcustom:block/chrono_circle_display",
-    "branding": "funpackcustom:block/chrono_circle_branding",
-    "header": "funpackcustom:block/chrono_circle_header",
-    "particle": "funpackcustom:block/chrono_circle_materials"
+    "materials": "japanesearcades:block/chrono_circle_materials",
+    "details": "japanesearcades:block/chrono_circle_details",
+    "display": "japanesearcades:block/chrono_circle_display",
+    "branding": "japanesearcades:block/chrono_circle_branding",
+    "header": "japanesearcades:block/chrono_circle_header",
+    "particle": "japanesearcades:block/chrono_circle_materials"
   },
   "meshes": [
     {

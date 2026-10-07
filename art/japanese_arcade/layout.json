@@ -58,7 +58,7 @@
   },
   "fixtures": [
     {
-      "id": "funpackcustom:jubeat",
+      "id": "japanesearcades:jubeat",
       "kind": "standard",
       "anchor": [
         3,
@@ -108,7 +108,7 @@
       "record": "none"
     },
     {
-      "id": "funpackcustom:wacca",
+      "id": "japanesearcades:wacca",
       "kind": "standard",
       "anchor": [
         3,
@@ -158,7 +158,7 @@
       "record": "none"
     },
     {
-      "id": "funpackcustom:chunithm",
+      "id": "japanesearcades:chunithm",
       "kind": "standard",
       "anchor": [
         3,
@@ -208,7 +208,7 @@
       "record": "none"
     },
     {
-      "id": "funpackcustom:taiko",
+      "id": "japanesearcades:taiko",
       "kind": "taiko",
       "anchor": [
         7,
@@ -362,7 +362,7 @@
       "record": "none"
     },
     {
-      "id": "funpackcustom:project_diva",
+      "id": "japanesearcades:project_diva",
       "kind": "standard",
       "anchor": [
         11,
@@ -412,7 +412,7 @@
       "record": "none"
     },
     {
-      "id": "funpackcustom:nostalgia_op3",
+      "id": "japanesearcades:nostalgia_op3",
       "kind": "standard",
       "anchor": [
         15,
@@ -462,7 +462,7 @@
       "record": "none"
     },
     {
-      "id": "funpackcustom:arcade_kiosk",
+      "id": "japanesearcades:arcade_kiosk",
       "kind": "kiosk",
       "anchor": [
         12,
@@ -502,7 +502,7 @@
   "jukebox_anchors": 6,
   "prize_displays": [
     {
-      "id": "funpackcustom:boxed_creeper_figure",
+      "id": "japanesearcades:boxed_creeper_figure",
       "position": [
         14,
         3,
@@ -511,7 +511,7 @@
       "facing": "west"
     },
     {
-      "id": "funpackcustom:boxed_axolotl_figure",
+      "id": "japanesearcades:boxed_axolotl_figure",
       "position": [
         14,
         3,
@@ -520,7 +520,7 @@
       "facing": "west"
     },
     {
-      "id": "funpackcustom:boxed_enderman_figure",
+      "id": "japanesearcades:boxed_enderman_figure",
       "position": [
         14,
         3,
@@ -529,7 +529,7 @@
       "facing": "west"
     },
     {
-      "id": "funpackcustom:boxed_zombie_figure",
+      "id": "japanesearcades:boxed_zombie_figure",
       "position": [
         5,
         3,
@@ -543,7 +543,7 @@
     2,
     5.5
   ],
-  "operator_profession": "unemployed adult; acquires funpackcustom:arcade_operator from the reachable kiosk",
+  "operator_profession": "unemployed adult; acquires japanesearcades:arcade_operator from the reachable kiosk",
   "staircase": {
     "width_x": [
       13,
@@ -595,7 +595,7 @@
   },
   "paintings": [
     {
-      "variant": "funpackcustom:arcade_vertical_sign",
+      "variant": "japanesearcades:arcade_vertical_sign",
       "size": [
         1,
         5
@@ -620,7 +620,7 @@
       ]
     },
     {
-      "variant": "funpackcustom:arcade_game_center",
+      "variant": "japanesearcades:arcade_game_center",
       "size": [
         5,
         1
@@ -645,7 +645,7 @@
       ]
     },
     {
-      "variant": "funpackcustom:arcade_invader",
+      "variant": "japanesearcades:arcade_invader",
       "size": [
         3,
         3
@@ -670,7 +670,7 @@
       ]
     },
     {
-      "variant": "funpackcustom:arcade_fuji",
+      "variant": "japanesearcades:arcade_fuji",
       "size": [
         4,
         3
@@ -712,54 +712,54 @@
   "rotation_verification": "Place all native rotations around template origin; transform each fixturepart and facing together. No fixed world-space job-site NBT.",
   "outputs": [
     {
-      "file": "src/main/resources/data/funpackcustom/structure/arcade/japanese_arcade.nbt",
+      "file": "src/main/resources/data/japanesearcades/structure/arcade/japanese_arcade.nbt",
       "blocks": 6290,
       "palette_states": 79,
       "entities": 5,
-      "compressed_bytes": 18554
+      "compressed_bytes": 18544
     },
     {
-      "file": "src/main/resources/data/funpackcustom/structure/arcade/japanese_arcade_village.nbt",
+      "file": "src/main/resources/data/japanesearcades/structure/arcade/japanese_arcade_village.nbt",
       "blocks": 6290,
       "palette_states": 80,
       "entities": 5,
-      "compressed_bytes": 18682
+      "compressed_bytes": 18673
     },
     {
-      "file": "src/main/resources/data/funpackcustom/structure/arcade/japanese_arcade_integrated_village.nbt",
+      "file": "src/main/resources/data/japanesearcades/structure/arcade/japanese_arcade_integrated_village.nbt",
       "blocks": 6290,
       "palette_states": 80,
       "entities": 5,
-      "compressed_bytes": 18691
+      "compressed_bytes": 18683
     },
     {
-      "file": "src/main/resources/data/funpackcustom/structure/arcade_test.nbt",
+      "file": "src/main/resources/data/japanesearcades/structure/arcade_test.nbt",
       "blocks": 0,
       "palette_states": 1,
       "entities": 0,
       "compressed_bytes": 113
     },
     {
-      "file": "src/main/resources/data/funpackcustom/structure/arcade/test_road.nbt",
+      "file": "src/main/resources/data/japanesearcades/structure/arcade/test_road.nbt",
       "blocks": 45,
       "palette_states": 3,
       "entities": 0,
-      "compressed_bytes": 405
+      "compressed_bytes": 403
     }
   ],
   "terrain_preservation": "Unbuilt perimeter cells at Y0/Y1 are omitted from serialized NBT; explicit air clears rooms and roof space above.",
   "solid_block_counts": {
-    "funpackcustom:arcade_kiosk": 2,
-    "funpackcustom:boxed_axolotl_figure": 1,
-    "funpackcustom:boxed_creeper_figure": 1,
-    "funpackcustom:boxed_enderman_figure": 1,
-    "funpackcustom:boxed_zombie_figure": 1,
-    "funpackcustom:chunithm": 3,
-    "funpackcustom:jubeat": 3,
-    "funpackcustom:nostalgia_op3": 3,
-    "funpackcustom:project_diva": 3,
-    "funpackcustom:taiko": 10,
-    "funpackcustom:wacca": 3,
+    "japanesearcades:arcade_kiosk": 2,
+    "japanesearcades:boxed_axolotl_figure": 1,
+    "japanesearcades:boxed_creeper_figure": 1,
+    "japanesearcades:boxed_enderman_figure": 1,
+    "japanesearcades:boxed_zombie_figure": 1,
+    "japanesearcades:chunithm": 3,
+    "japanesearcades:jubeat": 3,
+    "japanesearcades:nostalgia_op3": 3,
+    "japanesearcades:project_diva": 3,
+    "japanesearcades:taiko": 10,
+    "japanesearcades:wacca": 3,
     "minecraft:black_terracotta": 9,
     "minecraft:bookshelf": 4,
     "minecraft:chain": 2,

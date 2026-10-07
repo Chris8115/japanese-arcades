@@ -18,7 +18,7 @@ from PIL import Image, ImageDraw
 from make_mob_figures import font, lettering, meshes, write
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSETS = ROOT / 'src/main/resources/assets/funpackcustom'
+ASSETS = ROOT / 'src/main/resources/assets/japanesearcades'
 ART = ROOT / 'art/custom_display_box'
 TEXTURE = ASSETS / 'textures/block/custom_display_box_package.png'
 NAME = 'custom_display_box'
@@ -178,26 +178,26 @@ def bitmap_font():
     atlas.save(path)
     write(ASSETS/'font/custom_display_box.json',{'providers':[
         {'type':'space','advances':{' ':3.25,'\u00a0':3.25}},
-        {'type':'bitmap','file':'funpackcustom:font/custom_display_box.png','height':10,'ascent':8,'chars':rows},
+        {'type':'bitmap','file':'japanesearcades:font/custom_display_box.png','height':10,'ascent':8,'chars':rows},
         {'type':'reference','id':'minecraft:default'}]})
 
 
 def export(elements):
-    textures={'package':'funpackcustom:block/custom_display_box_package',
-              'particle':'funpackcustom:block/custom_display_box_package'}
+    textures={'package':'japanesearcades:block/custom_display_box_package',
+              'particle':'japanesearcades:block/custom_display_box_package'}
     write(ASSETS/'models/block/custom_display_box.json',{'parent':'minecraft:block/block',
         'render_type':'minecraft:cutout','ambientocclusion':True,'textures':textures,'elements':elements})
     write(ASSETS/'models/item/custom_display_box.json',{'parent':'minecraft:builtin/entity',
         'gui_light':'front','textures':{'particle':textures['particle']},'display':DISPLAY})
     write(ASSETS/'blockstates/custom_display_box.json',{'variants':{
-        'facing='+direction:{'model':'funpackcustom:block/custom_display_box',**({'y':angle} if angle else {})}
+        'facing='+direction:{'model':'japanesearcades:block/custom_display_box',**({'y':angle} if angle else {})}
         for direction,angle in (('north',0),('east',90),('south',180),('west',270))}})
-    write(ROOT/'src/main/resources/data/funpackcustom/loot_table/blocks/custom_display_box.json',{
+    write(ROOT/'src/main/resources/data/japanesearcades/loot_table/blocks/custom_display_box.json',{
         'type':'minecraft:block','pools':[{'rolls':1,
             'conditions':[{'condition':'minecraft:survives_explosion'}],
-            'entries':[{'type':'minecraft:item','name':'funpackcustom:custom_display_box',
+            'entries':[{'type':'minecraft:item','name':'japanesearcades:custom_display_box',
                 'functions':[{'function':'minecraft:copy_components','source':'block_entity',
-                    'include':['funpackcustom:display_box']}]}]}]})
+                    'include':['japanesearcades:display_box']}]}]}]})
     faces=meshes(elements)
     by_name={e['name']:e for e in elements}
     for f in faces:
@@ -226,10 +226,10 @@ def export(elements):
     write(ART/'design.json',{
         'shell_faces':43,'shell_elements':13,'shell_bounds_model_units':bounds,
         'tinted_faces':5,'tintindex':0,'tint_policy':'Only white accent-mask quads receive the contained-item color; print and cardboard remain untinted.',
-        'texture':'funpackcustom:block/custom_display_box_package',
+        'texture':'japanesearcades:block/custom_display_box_package',
         'texture_size':[512,1024],
         'texture_layout':'Untinted atlas in top half, matching white alpha accent masks in bottom half.',
-        'dynamic_label':{'font':'funpackcustom:custom_display_box','color':'#f7f7ec',
+        'dynamic_label':{'font':'japanesearcades:custom_display_box','color':'#f7f7ec',
             'region_model_units':{'x':[3.85,12.15],'y':[.43,1.48],'z':3.985},
             'center_model_units':[8,.955,3.985],
             'center_block_units':[.5,.0596875,.2490625],
@@ -242,7 +242,7 @@ def export(elements):
             'suggested_max_extent_model_units':[8,9.6,7.1],
             'note':'Fit the complete transformed item or mob miniature bounds inside the window; the cardboard tray top is y=0.59.'},
         'item_model':'minecraft:builtin/entity; custom item renderer draws this shell block model and the stored contents.',
-        'copied_loot_component':'funpackcustom:display_box'})
+        'copied_loot_component':'japanesearcades:display_box'})
     print('custom_display_box: 13 elements, 43 shell faces, 5 tinted masks; bounds='+str(bounds))
 
 

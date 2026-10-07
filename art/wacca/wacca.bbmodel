@@ -199141,7 +199141,7 @@
     {
       "name": "wacca_materials.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "0",
       "uuid": "75ae543b-c555-5b5d-909e-989d8db96f11",
       "width": 256,
@@ -199157,7 +199157,7 @@
     {
       "name": "wacca_details.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "1",
       "uuid": "ecb881b0-d59a-5e52-b629-6f9cfc5df0f2",
       "width": 512,
@@ -199173,7 +199173,7 @@
     {
       "name": "wacca_leds.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "2",
       "uuid": "915c30cd-f252-507a-a847-b646c049f59b",
       "width": 512,
@@ -199189,7 +199189,7 @@
     {
       "name": "wacca_display.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "3",
       "uuid": "6623b0ff-775d-555e-8c88-0cca9cfb1698",
       "width": 2048,
@@ -199205,7 +199205,7 @@
     {
       "name": "wacca_branding.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "4",
       "uuid": "01312b3e-f1b3-5b5c-adbc-75dca71f11da",
       "width": 4096,

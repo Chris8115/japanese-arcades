@@ -854253,7 +854253,7 @@
     {
       "name": "taiko_materials.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "0",
       "uuid": "1243b158-2d41-5b5d-896d-873ff7023397",
       "width": 256,
@@ -854269,7 +854269,7 @@
     {
       "name": "taiko_marquee.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "1",
       "uuid": "b19de163-e092-5d55-8a25-42207ef67940",
       "width": 1536,
@@ -854285,7 +854285,7 @@
     {
       "name": "taiko_screen.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "2",
       "uuid": "63b716b8-ac4b-586a-bbcc-b76d79ff698c",
       "width": 960,
@@ -854301,7 +854301,7 @@
     {
       "name": "taiko_front.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "3",
       "uuid": "a76fae08-997c-5e6f-870c-99d8ff0d534b",
       "width": 1200,
@@ -854317,7 +854317,7 @@
     {
       "name": "taiko_instructions.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "4",
       "uuid": "cb681dd5-be3a-59c8-87f3-19a67b6d3faa",
       "width": 1024,
@@ -854333,7 +854333,7 @@
     {
       "name": "taiko_side.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "5",
       "uuid": "9fb640f5-a69a-58c9-9ca1-19243a8e3871",
       "width": 512,
@@ -854349,7 +854349,7 @@
     {
       "name": "taiko_lantern.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "6",
       "uuid": "5e32ff31-9b3c-5a15-b1fb-9d2d7d20a879",
       "width": 256,
@@ -854365,7 +854365,7 @@
     {
       "name": "taiko_podium_side.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "7",
       "uuid": "4a4d1b4e-2c33-5d01-9768-7e351a1f6552",
       "width": 1024,

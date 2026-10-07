@@ -86691,7 +86691,7 @@
     {
       "name": "ongeki_materials.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "0",
       "uuid": "b1a30842-3cec-5b35-82b3-799afcb7038b",
       "width": 256,
@@ -86707,7 +86707,7 @@
     {
       "name": "ongeki_controls.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "1",
       "uuid": "ec23ef9f-38bd-56c2-8ffc-eb1d5f40617f",
       "width": 1024,
@@ -86723,7 +86723,7 @@
     {
       "name": "ongeki_details.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "2",
       "uuid": "25a43965-b4af-52ee-a739-2ff00f1754dd",
       "width": 1024,
@@ -86739,7 +86739,7 @@
     {
       "name": "ongeki_display.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "3",
       "uuid": "7b114bec-e76f-5ec9-9eda-5ba02258d0b3",
       "width": 1024,
@@ -86755,7 +86755,7 @@
     {
       "name": "ongeki_marquee.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "4",
       "uuid": "5ab07fa4-d848-5f9e-a27b-44e1b7a0469e",
       "width": 4096,

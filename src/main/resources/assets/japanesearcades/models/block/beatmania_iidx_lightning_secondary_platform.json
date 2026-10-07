@@ -1,0 +1,22 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "neoforge:obj",
+  "model": "japanesearcades:models/block/beatmania_iidx_lightning_secondary_platform.obj",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "emissive_ambient": true,
+  "ambientocclusion": true,
+  "render_type": "minecraft:solid",
+  "textures": {
+    "materials": "japanesearcades:block/beatmania_iidx_lightning_materials",
+    "controls": "japanesearcades:block/beatmania_iidx_lightning_controls",
+    "details": "japanesearcades:block/beatmania_iidx_lightning_details",
+    "floor": "japanesearcades:block/beatmania_iidx_lightning_floor",
+    "turntable": "japanesearcades:block/beatmania_iidx_lightning_turntable",
+    "display": "japanesearcades:block/beatmania_iidx_lightning_display",
+    "marquee": "japanesearcades:block/beatmania_iidx_lightning_marquee",
+    "banners": "japanesearcades:block/beatmania_iidx_lightning_banners",
+    "particle": "japanesearcades:block/beatmania_iidx_lightning_materials"
+  }
+}

@@ -1,8 +1,8 @@
 {
   "textures": {
-    "print": "funpackcustom:block/kasane_teto_cutout_print",
-    "cardboard": "funpackcustom:block/kasane_teto_cutout_cardboard",
-    "particle": "funpackcustom:block/kasane_teto_cutout_cardboard"
+    "print": "japanesearcades:block/kasane_teto_cutout_print",
+    "cardboard": "japanesearcades:block/kasane_teto_cutout_cardboard",
+    "particle": "japanesearcades:block/kasane_teto_cutout_cardboard"
   },
   "meshes": [
     {

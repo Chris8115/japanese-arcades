@@ -18,7 +18,7 @@ from beatstream_surface_art import PALETTE, build_surface_art
 from beatstream_speaker_geometry import build_speakers, build_separator
 
 ROOT=Path(__file__).resolve().parents[1]
-ASSETS=ROOT/'src/main/resources/assets/funpackcustom'
+ASSETS=ROOT/'src/main/resources/assets/japanesearcades'
 ART=ROOT/'art/beatstream'
 TEXTURES=ASSETS/'textures/block'
 MODEL=ASSETS/'models/block'
@@ -107,7 +107,7 @@ build_cabinet(cube,uv)
 build_console(cube,uv)
 build_marquee(cube,cutout_sprite)
 mesh_faces=build_speakers(uv)+build_separator(uv)
-texture_paths={key:'funpackcustom:block/beatstream_'+key for key in ('materials','screens','topper','trim','controls','side','triangle','speaker')}
+texture_paths={key:'japanesearcades:block/beatstream_'+key for key in ('materials','screens','topper','trim','controls','side','triangle','speaker')}
 texture_paths['particle']=texture_paths['materials']
 
 # Minecraft's north-facing UVs run from +X to -X when viewed from the front.
@@ -129,7 +129,7 @@ def write_json(path, data):
 
 def write_speakers_obj(path,transform):
     lines=['# BeatStream rigid speaker prisms; native block-space units.',
-           'mtllib funpackcustom:models/block/beatstream_speakers.mtl']
+           'mtllib japanesearcades:models/block/beatstream_speakers.mtl']
     index=1
     for face in mesh_faces:
         lines.append('usemtl '+('speaker_lit' if face['glow'] else 'materials_surface'))
@@ -141,7 +141,7 @@ def write_speakers_obj(path,transform):
 
 def speaker_wrapper(path):
     return {'parent':'minecraft:block/block','loader':'neoforge:obj',
-            'model':'funpackcustom:models/'+path,'automatic_culling':False,
+            'model':'japanesearcades:models/'+path,'automatic_culling':False,
             'shade_quads':True,'flip_v':True,'emissive_ambient':True,
             'ambientocclusion':True,'render_type':'minecraft:cutout_mipped_all',
             'textures':texture_paths}
@@ -178,7 +178,7 @@ for part in part_names:
 variants={}
 for facing,rotation in (('north',0),('east',90),('south',180),('west',270)):
     for part in part_names:
-        variant={'model':'funpackcustom:block/beatstream_'+part}
+        variant={'model':'japanesearcades:block/beatstream_'+part}
         if rotation: variant['y']=rotation
         variants['facing='+facing+',part='+part]=variant
 write_json(ASSETS / 'blockstates/beatstream.json', {'variants':variants})
@@ -218,7 +218,7 @@ bb_elements=[]
 groups={}
 for source in elements:
     e=strip_element(source)
-    uid=str(uuid.uuid5(uuid.NAMESPACE_URL,'funpackcustom/beatstream/'+e['name']+'/'+str(e['from'])))
+    uid=str(uuid.uuid5(uuid.NAMESPACE_URL,'japanesearcades/beatstream/'+e['name']+'/'+str(e['from'])))
     rot=e.get('rotation')
     rotation=[0,0,0]
     origin=[(a+b)/2 for a,b in zip(e['from'],e['to'])]
@@ -248,10 +248,10 @@ for face in mesh_faces:
 bbtextures=[]
 for i,(identifier,path) in enumerate(texture_specs):
     texture=Image.open(path)
-    bbtextures.append({'path':str(path),'name':path.name,'folder':'block','namespace':'funpackcustom',
+    bbtextures.append({'path':str(path),'name':path.name,'folder':'block','namespace':'japanesearcades',
                        'id':str(i),'uuid':str(uuid.uuid5(uuid.NAMESPACE_URL,'beatstream/'+identifier)),
                        'width':texture.width,'height':texture.height,'uv_width':texture.width,'uv_height':texture.height,
-                       'relative_path':'../../src/main/resources/assets/funpackcustom/textures/block/'+path.name,
+                       'relative_path':'../../src/main/resources/assets/japanesearcades/textures/block/'+path.name,
                        'source':'data:image/png;base64,'+base64.b64encode(path.read_bytes()).decode(),
                        'mode':'bitmap','particle':i==0,'render_mode':'default','visible':True})
 write_json(ART/'beatstream.bbmodel',

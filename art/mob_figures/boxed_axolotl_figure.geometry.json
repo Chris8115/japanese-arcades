@@ -1,8 +1,8 @@
 {
   "textures": {
-    "skin": "funpackcustom:block/axolotl_figure_skin",
-    "package": "funpackcustom:block/axolotl_figure_package",
-    "particle": "funpackcustom:block/axolotl_figure_skin"
+    "skin": "japanesearcades:block/axolotl_figure_skin",
+    "package": "japanesearcades:block/axolotl_figure_package",
+    "particle": "japanesearcades:block/axolotl_figure_skin"
   },
   "meshes": [
     {

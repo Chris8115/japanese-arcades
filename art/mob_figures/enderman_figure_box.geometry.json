@@ -1,9 +1,9 @@
 {
   "textures": {
-    "skin": "funpackcustom:block/enderman_figure_skin",
-    "package": "funpackcustom:block/enderman_figure_package",
-    "particle": "funpackcustom:block/enderman_figure_skin",
-    "eyes": "funpackcustom:block/enderman_figure_eyes"
+    "skin": "japanesearcades:block/enderman_figure_skin",
+    "package": "japanesearcades:block/enderman_figure_package",
+    "particle": "japanesearcades:block/enderman_figure_skin",
+    "eyes": "japanesearcades:block/enderman_figure_eyes"
   },
   "meshes": [
     {

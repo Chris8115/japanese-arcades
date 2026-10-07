@@ -1,11 +1,11 @@
 {
   "textures": {
-    "materials": "funpackcustom:block/ongeki_materials",
-    "controls": "funpackcustom:block/ongeki_controls",
-    "details": "funpackcustom:block/ongeki_details",
-    "display": "funpackcustom:block/ongeki_display",
-    "marquee": "funpackcustom:block/ongeki_marquee",
-    "particle": "funpackcustom:block/ongeki_materials"
+    "materials": "japanesearcades:block/ongeki_materials",
+    "controls": "japanesearcades:block/ongeki_controls",
+    "details": "japanesearcades:block/ongeki_details",
+    "display": "japanesearcades:block/ongeki_display",
+    "marquee": "japanesearcades:block/ongeki_marquee",
+    "particle": "japanesearcades:block/ongeki_materials"
   },
   "meshes": [
     {

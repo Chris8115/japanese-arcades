@@ -1,11 +1,11 @@
 {
   "textures": {
-    "materials": "funpackcustom:block/groove_coaster_materials",
-    "details": "funpackcustom:block/groove_coaster_details",
-    "lights": "funpackcustom:block/groove_coaster_lights",
-    "display": "funpackcustom:block/groove_coaster_display",
-    "branding": "funpackcustom:block/groove_coaster_branding",
-    "particle": "funpackcustom:block/groove_coaster_materials"
+    "materials": "japanesearcades:block/groove_coaster_materials",
+    "details": "japanesearcades:block/groove_coaster_details",
+    "lights": "japanesearcades:block/groove_coaster_lights",
+    "display": "japanesearcades:block/groove_coaster_display",
+    "branding": "japanesearcades:block/groove_coaster_branding",
+    "particle": "japanesearcades:block/groove_coaster_materials"
   },
   "elements": [
     {

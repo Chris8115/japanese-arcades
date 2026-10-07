@@ -1,0 +1,22 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "neoforge:obj",
+  "model": "japanesearcades:models/block/taiko_primary_drums.obj",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "emissive_ambient": true,
+  "ambientocclusion": true,
+  "render_type": "minecraft:cutout_mipped_all",
+  "textures": {
+    "materials": "japanesearcades:block/taiko_materials",
+    "marquee": "japanesearcades:block/taiko_marquee",
+    "screen": "japanesearcades:block/taiko_screen",
+    "front": "japanesearcades:block/taiko_front",
+    "instructions": "japanesearcades:block/taiko_instructions",
+    "side": "japanesearcades:block/taiko_side",
+    "lantern": "japanesearcades:block/taiko_lantern",
+    "podium_side": "japanesearcades:block/taiko_podium_side",
+    "particle": "japanesearcades:block/taiko_materials"
+  }
+}

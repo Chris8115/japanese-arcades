@@ -463773,7 +463773,7 @@
     {
       "name": "chrono_circle_materials.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "0",
       "uuid": "464a2f04-3a96-5e76-a1a8-3f8d8f4047f0",
       "width": 256,
@@ -463789,7 +463789,7 @@
     {
       "name": "chrono_circle_details.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "1",
       "uuid": "f20609c4-3e8a-577a-935d-6df87366b67d",
       "width": 1024,
@@ -463805,7 +463805,7 @@
     {
       "name": "chrono_circle_display.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "2",
       "uuid": "c3f596a6-2d9e-5be7-bb2f-934fa87ed9a3",
       "width": 2048,
@@ -463821,7 +463821,7 @@
     {
       "name": "chrono_circle_branding.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "3",
       "uuid": "4312ad7b-7785-5c83-9b2b-e4cd92115091",
       "width": 1024,
@@ -463837,7 +463837,7 @@
     {
       "name": "chrono_circle_header.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "4",
       "uuid": "c447f0be-0a83-5718-9ae6-b913efce9970",
       "width": 2048,

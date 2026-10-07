@@ -1,0 +1,16 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "neoforge:obj",
+  "model": "japanesearcades:models/block/hatsune_miku_cutout_upper_09.obj",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "emissive_ambient": true,
+  "ambientocclusion": true,
+  "render_type": "minecraft:cutout_mipped_all",
+  "textures": {
+    "print": "japanesearcades:block/hatsune_miku_cutout_print",
+    "cardboard": "japanesearcades:block/hatsune_miku_cutout_cardboard",
+    "particle": "japanesearcades:block/hatsune_miku_cutout_cardboard"
+  }
+}

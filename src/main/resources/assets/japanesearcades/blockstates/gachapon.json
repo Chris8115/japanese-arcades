@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "japanesearcades:block/gachapon"
+    },
+    "facing=east": {
+      "model": "japanesearcades:block/gachapon",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "japanesearcades:block/gachapon",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "japanesearcades:block/gachapon",
+      "y": 270
+    }
+  }
+}

@@ -15,7 +15,7 @@ from mathutils import Vector
 
 ROOT=Path(__file__).resolve().parents[1]
 ART=ROOT/'art/gachapon'
-TEX=ROOT/'src/main/resources/assets/funpackcustom/textures/block'
+TEX=ROOT/'src/main/resources/assets/japanesearcades/textures/block'
 BUILD=ROOT/'build/gachapon-preview';BUILD.mkdir(parents=True,exist_ok=True)
 data=json.loads((ART/'geometry.json').read_text(encoding='utf-8'))
 bpy.context.preferences.filepaths.save_version=0

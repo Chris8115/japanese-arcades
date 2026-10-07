@@ -11,16 +11,16 @@
     "mode": "RGB"
   },
   "output": {
-    "texture": "funpackcustom:painting/wacca_poster",
-    "file": "src/main/resources/assets/funpackcustom/textures/painting/wacca_poster.png",
+    "texture": "japanesearcades:painting/wacca_poster",
+    "file": "src/main/resources/assets/japanesearcades/textures/painting/wacca_poster.png",
     "sha256": "02cf5b0c301813a675da7da13805b4337c90e42ac194807e8be1bbb6309b8175",
     "dimensions": [
       1024,
       1408
     ],
     "mode": "RGB",
-    "item_texture": "funpackcustom:item/wacca_poster",
-    "item_file": "src/main/resources/assets/funpackcustom/textures/item/wacca_poster.png",
+    "item_texture": "japanesearcades:item/wacca_poster",
+    "item_file": "src/main/resources/assets/japanesearcades/textures/item/wacca_poster.png",
     "item_sha256": "02cf5b0c301813a675da7da13805b4337c90e42ac194807e8be1bbb6309b8175"
   },
   "packing": {
@@ -52,7 +52,7 @@
     1.3749580396106076
   ],
   "item": {
-    "model": "funpackcustom:item/wacca_poster",
+    "model": "japanesearcades:item/wacca_poster",
     "face_dimensions": [
       10.909423828125,
       15

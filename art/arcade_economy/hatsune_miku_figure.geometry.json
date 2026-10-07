@@ -1,8 +1,8 @@
 {
   "textures": {
-    "materials": "funpackcustom:block/hatsune_miku_figure_materials",
-    "nameplate": "funpackcustom:block/hatsune_miku_figure_nameplate",
-    "particle": "funpackcustom:block/hatsune_miku_figure_materials"
+    "materials": "japanesearcades:block/hatsune_miku_figure_materials",
+    "nameplate": "japanesearcades:block/hatsune_miku_figure_nameplate",
+    "particle": "japanesearcades:block/hatsune_miku_figure_materials"
   },
   "meshes": [
     {

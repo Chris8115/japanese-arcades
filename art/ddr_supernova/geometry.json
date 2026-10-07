@@ -1,10 +1,10 @@
 {
   "textures": {
-    "materials": "funpackcustom:block/ddr_supernova_materials",
-    "details": "funpackcustom:block/ddr_supernova_details",
-    "display": "funpackcustom:block/ddr_supernova_display",
-    "header": "funpackcustom:block/ddr_supernova_header",
-    "particle": "funpackcustom:block/ddr_supernova_materials"
+    "materials": "japanesearcades:block/ddr_supernova_materials",
+    "details": "japanesearcades:block/ddr_supernova_details",
+    "display": "japanesearcades:block/ddr_supernova_display",
+    "header": "japanesearcades:block/ddr_supernova_header",
+    "particle": "japanesearcades:block/ddr_supernova_materials"
   },
   "meshes": [
     {

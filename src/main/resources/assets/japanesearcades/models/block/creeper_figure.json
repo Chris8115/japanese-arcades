@@ -1,0 +1,657 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:cutout",
+  "ambientocclusion": true,
+  "textures": {
+    "skin": "japanesearcades:block/creeper_figure_skin",
+    "package": "japanesearcades:block/creeper_figure_package",
+    "particle": "japanesearcades:block/creeper_figure_skin"
+  },
+  "elements": [
+    {
+      "name": "Display plinth",
+      "from": [
+        4.4,
+        0,
+        4.4
+      ],
+      "to": [
+        11.6,
+        0.46,
+        11.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Accent plinth rim",
+      "from": [
+        4.5,
+        0.46,
+        4.5
+      ],
+      "to": [
+        11.5,
+        0.64,
+        11.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Dark inset top",
+      "from": [
+        4.7,
+        0.64,
+        4.7
+      ],
+      "to": [
+        11.3,
+        0.73,
+        11.3
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Printed collection nameplate",
+      "from": [
+        5.05,
+        0.06,
+        4.395
+      ],
+      "to": [
+        10.95,
+        0.4,
+        4.395
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.0,
+            11.0,
+            14.0,
+            12.0
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Creeper head",
+      "from": [
+        6.48,
+        7.57,
+        6.48
+      ],
+      "to": [
+        9.52,
+        10.610000000000001,
+        9.52
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2.0,
+            4.0,
+            4.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            6.0,
+            4.0,
+            8.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            4.0,
+            2.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            4.0,
+            4.0,
+            6.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            2.0,
+            0.0,
+            4.0,
+            4.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            4.0,
+            4.0,
+            6.0,
+            0.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "Creeper torso",
+      "from": [
+        6.48,
+        3.0100000000000002,
+        7.24
+      ],
+      "to": [
+        9.52,
+        7.57,
+        8.76
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            5.0,
+            10.0,
+            7.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            8.0,
+            10.0,
+            10.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            4.0,
+            10.0,
+            5.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            7.0,
+            10.0,
+            8.0,
+            16.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            5.0,
+            8.0,
+            7.0,
+            10.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            7.0,
+            10.0,
+            9.0,
+            8.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "Creeper foot (-4, -6)",
+      "from": [
+        6.48,
+        0.73,
+        5.72
+      ],
+      "to": [
+        8.0,
+        3.0100000000000002,
+        7.24
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.0,
+            10.0,
+            2.0,
+            13.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            3.0,
+            10.0,
+            4.0,
+            13.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            10.0,
+            1.0,
+            13.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            2.0,
+            10.0,
+            3.0,
+            13.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            1.0,
+            8.0,
+            2.0,
+            10.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            2.0,
+            10.0,
+            3.0,
+            8.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "Creeper foot (-4, 2)",
+      "from": [
+        6.48,
+        0.73,
+        8.76
+      ],
+      "to": [
+        8.0,
+        3.0100000000000002,
+        10.280000000000001
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.0,
+            10.0,
+            2.0,
+            13.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            3.0,
+            10.0,
+            4.0,
+            13.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            10.0,
+            1.0,
+            13.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            2.0,
+            10.0,
+            3.0,
+            13.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            1.0,
+            8.0,
+            2.0,
+            10.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            2.0,
+            10.0,
+            3.0,
+            8.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "Creeper foot (0, -6)",
+      "from": [
+        8.0,
+        0.73,
+        5.72
+      ],
+      "to": [
+        9.52,
+        3.0100000000000002,
+        7.24
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.0,
+            10.0,
+            2.0,
+            13.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            3.0,
+            10.0,
+            4.0,
+            13.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            10.0,
+            1.0,
+            13.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            2.0,
+            10.0,
+            3.0,
+            13.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            1.0,
+            8.0,
+            2.0,
+            10.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            2.0,
+            10.0,
+            3.0,
+            8.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "Creeper foot (0, 2)",
+      "from": [
+        8.0,
+        0.73,
+        8.76
+      ],
+      "to": [
+        9.52,
+        3.0100000000000002,
+        10.280000000000001
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.0,
+            10.0,
+            2.0,
+            13.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            3.0,
+            10.0,
+            4.0,
+            13.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            10.0,
+            1.0,
+            13.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            2.0,
+            10.0,
+            3.0,
+            13.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            1.0,
+            8.0,
+            2.0,
+            10.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            2.0,
+            10.0,
+            3.0,
+            8.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    }
+  ]
+}

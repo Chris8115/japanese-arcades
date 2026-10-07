@@ -1,7 +1,7 @@
 # MUSIC DIVER
 
 MUSIC DIVER joins the Japanese Arcades creative tab and Arcade Ordering Kiosk
-as `funpackcustom:music_diver`.
+as `japanesearcades:music_diver`.
 
 The supplied photographs guide the white wedge-shaped chassis, steeply inclined
 circular play screen, four separate black arc pads, cyan pad markings, and pink
@@ -16,7 +16,7 @@ Order it for **18 iron ingots, 4 gold ingots, 1 diamond, 8 glass and 8 redstone*
 or select it from the Japanese Arcades creative tab:
 
 ```text
-/give @s funpackcustom:music_diver
+/give @s japanesearcades:music_diver
 ```
 
 It occupies one supported column, three blocks high. Its visible dimensions are
@@ -26,7 +26,7 @@ saved music-disc inventory; breaking a section removes the connected cabinet.
 
 Right-click with an Arcade Pass for the existing simulated rank and Prize Point
 system. The default cost is 10 Credits; machine overrides use
-`funpackcustom:music_diver`. Insert and eject music discs using the same
+`japanesearcades:music_diver`. Insert and eject music discs using the same
 right-click interactions as the other music cabinets. The displayed rhythm UI
 and strike pads are decorative.
 

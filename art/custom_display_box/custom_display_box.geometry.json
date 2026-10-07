@@ -1,7 +1,7 @@
 {
   "textures": {
-    "package": "funpackcustom:block/custom_display_box_package",
-    "particle": "funpackcustom:block/custom_display_box_package"
+    "package": "japanesearcades:block/custom_display_box_package",
+    "particle": "japanesearcades:block/custom_display_box_package"
   },
   "meshes": [
     {

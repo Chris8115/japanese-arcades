@@ -108,7 +108,7 @@ def material_name(mesh):
 
 def write_obj(path,meshes,transform):
     lines=['# maimai DX smooth profile; coordinates in Minecraft block units.',
-           'mtllib funpackcustom:models/block/maimai.mtl','o maimai']
+           'mtllib japanesearcades:models/block/maimai.mtl','o maimai']
     current=None;index=1
     for mesh in meshes:
         material=material_name(mesh)
@@ -126,7 +126,7 @@ def write_obj(path,meshes,transform):
 
 
 def export_mesh_assets(elements,textures,statistics,root,raw_meshes=()):
-    art=root/'art/maimai';assets=root/'src/main/resources/assets/funpackcustom'
+    art=root/'art/maimai';assets=root/'src/main/resources/assets/japanesearcades'
     block=assets/'models/block';mesh=make_meshes(elements)
     for face in raw_meshes:
         for band,part in enumerate(pieces(list(zip(face['vertices'],face['uv'])),1,BEND_LEVELS)):
@@ -149,7 +149,7 @@ def export_mesh_assets(elements,textures,statistics,root,raw_meshes=()):
 
     def wrapper(obj):
         return {'parent':'minecraft:block/block','loader':'neoforge:obj',
-                'model':'funpackcustom:models/'+obj,'automatic_culling':False,
+                'model':'japanesearcades:models/'+obj,'automatic_culling':False,
                 'shade_quads':True,'flip_v':True,'emissive_ambient':True,
                 'ambientocclusion':True,'render_type':'minecraft:cutout_mipped_all',
                 'textures':textures}
@@ -170,7 +170,7 @@ def export_mesh_assets(elements,textures,statistics,root,raw_meshes=()):
     for facing,rotation in (('north',0),('east',90),('south',180),('west',270)):
         for side in ('primary','secondary'):
             for part in ('base','console','marquee'):
-                variant={'model':'funpackcustom:block/maimai_'+side+'_'+part}
+                variant={'model':'japanesearcades:block/maimai_'+side+'_'+part}
                 if rotation:variant['y']=rotation
                 variants['facing='+facing+',part='+part+',side='+side]=variant
     write_json(assets/'blockstates/maimai.json',{'variants':variants})
@@ -200,10 +200,10 @@ def export_mesh_assets(elements,textures,statistics,root,raw_meshes=()):
     bbtextures=[]
     for i,(identifier,path) in enumerate(specs):
         w,h=sizes[i]
-        bbtextures.append({'name':path.name,'folder':'block','namespace':'funpackcustom','id':str(i),
+        bbtextures.append({'name':path.name,'folder':'block','namespace':'japanesearcades','id':str(i),
                            'uuid':str(uuid.uuid5(uuid.NAMESPACE_URL,'maimai/'+identifier)),
                            'width':w,'height':h,'uv_width':w,'uv_height':h,
-                           'relative_path':'../../src/main/resources/assets/funpackcustom/textures/block/'+path.name,
+                           'relative_path':'../../src/main/resources/assets/japanesearcades/textures/block/'+path.name,
                            'source':'data:image/png;base64,'+base64.b64encode(path.read_bytes()).decode(),
                            'mode':'bitmap','particle':i==0,'render_mode':'default','visible':True})
     write_json(art/'maimai.bbmodel',{'meta':{'format_version':'4.10','model_format':'free','box_uv':False},

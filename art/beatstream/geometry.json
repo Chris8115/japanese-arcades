@@ -1,14 +1,14 @@
 {
   "textures": {
-    "materials": "funpackcustom:block/beatstream_materials",
-    "screens": "funpackcustom:block/beatstream_screens",
-    "topper": "funpackcustom:block/beatstream_topper",
-    "trim": "funpackcustom:block/beatstream_trim",
-    "controls": "funpackcustom:block/beatstream_controls",
-    "side": "funpackcustom:block/beatstream_side",
-    "triangle": "funpackcustom:block/beatstream_triangle",
-    "speaker": "funpackcustom:block/beatstream_speaker",
-    "particle": "funpackcustom:block/beatstream_materials"
+    "materials": "japanesearcades:block/beatstream_materials",
+    "screens": "japanesearcades:block/beatstream_screens",
+    "topper": "japanesearcades:block/beatstream_topper",
+    "trim": "japanesearcades:block/beatstream_trim",
+    "controls": "japanesearcades:block/beatstream_controls",
+    "side": "japanesearcades:block/beatstream_side",
+    "triangle": "japanesearcades:block/beatstream_triangle",
+    "speaker": "japanesearcades:block/beatstream_speaker",
+    "particle": "japanesearcades:block/beatstream_materials"
   },
   "elements": [
     {

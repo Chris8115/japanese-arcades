@@ -25,7 +25,7 @@
 	#Each weight is relative to other rows in that profile. The standard profile must exist.
 	rankProfiles = ["standard|C|45|10", "standard|B|30|20", "standard|A|18|40", "standard|S|6|80", "standard|SS / Perfect|1|150"]
 	#Optional overrides: namespace:machine|credit cost|profile. Empty uses default cost and standard ranks.
-	#Example: funpackcustom:initial_d|15|standard
+	#Example: japanesearcades:initial_d|15|standard
 	machineOverrides = []
 
 #Prize Point costs; ordinary material recipes are intentionally absent.

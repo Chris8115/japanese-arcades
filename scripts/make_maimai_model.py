@@ -19,7 +19,7 @@ from maimai_button_geometry import curved_button
 
 ROOT=Path(__file__).resolve().parents[1]
 ART=ROOT/'art/maimai'
-ASSETS=ROOT/'src/main/resources/assets/funpackcustom'
+ASSETS=ROOT/'src/main/resources/assets/japanesearcades'
 TEXTURES=ASSETS/'textures/block'
 MODEL=ASSETS/'models/block'
 for path in (ART,TEXTURES,MODEL):path.mkdir(parents=True,exist_ok=True)
@@ -111,9 +111,9 @@ build_shell(cube,polygon)
 build_upper(cube,polygon,ART)
 
 texture_paths={
-    'materials':'funpackcustom:block/maimai_materials','details':'funpackcustom:block/maimai_details',
-    'display':'funpackcustom:block/maimai_display',
-    'branding':'funpackcustom:block/maimai_branding','header':'funpackcustom:block/maimai_header','particle':'funpackcustom:block/maimai_materials',
+    'materials':'japanesearcades:block/maimai_materials','details':'japanesearcades:block/maimai_details',
+    'display':'japanesearcades:block/maimai_display',
+    'branding':'japanesearcades:block/maimai_branding','header':'japanesearcades:block/maimai_header','particle':'japanesearcades:block/maimai_materials',
 }
 
 # Minecraft's north-facing UVs run from +X to -X when viewed from the front.

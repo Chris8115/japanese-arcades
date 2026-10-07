@@ -2,7 +2,7 @@
 
 A matching Minecraft-style Teto standee with red twin-drill hair, a friendly wave, and a printed silhouette. It uses the same thin kraft-cardboard construction, folded rear support, and low foot as the Miku cutout. The artwork retains its original proportions, and the two standees have the same overall height.
 
-The arcade kiosk price defaults to **1,500 Prize Points**, configurable as `prizes.kasane_teto_cutout` in the server config `funpackcustom-arcade-economy.toml`.
+The arcade kiosk price defaults to **1,500 Prize Points**, configurable as `prizes.kasane_teto_cutout` in the server config `japanesearcades-arcade-economy.toml`.
 
 ## Source and regeneration
 

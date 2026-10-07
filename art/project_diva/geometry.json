@@ -1,11 +1,11 @@
 {
   "textures": {
-    "materials": "funpackcustom:block/project_diva_materials",
-    "details": "funpackcustom:block/project_diva_details",
-    "display": "funpackcustom:block/project_diva_display",
-    "branding": "funpackcustom:block/project_diva_branding",
-    "header": "funpackcustom:block/project_diva_header",
-    "particle": "funpackcustom:block/project_diva_materials"
+    "materials": "japanesearcades:block/project_diva_materials",
+    "details": "japanesearcades:block/project_diva_details",
+    "display": "japanesearcades:block/project_diva_display",
+    "branding": "japanesearcades:block/project_diva_branding",
+    "header": "japanesearcades:block/project_diva_header",
+    "particle": "japanesearcades:block/project_diva_materials"
   },
   "elements": [
     {

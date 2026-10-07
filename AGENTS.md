@@ -1,11 +1,11 @@
-# Fun pack custom mods
+# Japanese Arcades
 
 This workspace targets Minecraft 1.21.1, NeoForge 21.1.252, and Java 21.
 Use `./dev.cmd Build` to build with the configured JDK; the machine default Java is a different version.
 Local Java and source-pack paths are in the ignored `dev.local.json`.
 
-Source starts at `src/main/java/local/funpack/custom/FunPackCustom.java`.
-Mod id: `funpackcustom`. Keep it consistent with `gradle.properties` and mod metadata.
+Source starts at `src/main/java/local/japanesearcades/JapaneseArcades.java`.
+Mod id: `japanesearcades`. Keep it consistent with `gradle.properties` and mod metadata.
 Common code must work on dedicated servers; keep client classes in client-only entry points.
 Do not change Minecraft or loader versions without an explicit pack-upgrade request.
 

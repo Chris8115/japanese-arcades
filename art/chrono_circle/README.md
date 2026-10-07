@@ -22,7 +22,7 @@ Launch `dev.cmd Client` or `dev.cmd PackClient`, then select **Chrono Circle
 Arcade Cabinet** from **Japanese Arcades**, or run:
 
 ```text
-/give @s funpackcustom:chrono_circle
+/give @s japanesearcades:chrono_circle
 ```
 
 Place it on a solid floor with three clear vertical blocks. Its front faces the
@@ -106,8 +106,8 @@ exported model files.
 
 ## Runtime implementation
 
-The block/item ID is `funpackcustom:chrono_circle`. Registration begins in
-`src/main/java/local/funpack/custom/FunPackCustom.java`.
+The block/item ID is `japanesearcades:chrono_circle`. Registration begins in
+`src/main/java/local/japanesearcades/JapaneseArcades.java`.
 `ChronoCircleCabinetBlock.java` defines section bounds, compound body/platform
 collision, and disc-ejection position. It inherits placement and interaction
 from `NostalgiaCabinetBlock.java`. All cabinets share

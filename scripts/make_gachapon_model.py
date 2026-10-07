@@ -14,7 +14,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / 'art/gachapon'
-ASSETS = ROOT / 'src/main/resources/assets/funpackcustom'
+ASSETS = ROOT / 'src/main/resources/assets/japanesearcades'
 TEX = ASSETS / 'textures/block'
 for p in (ART, TEX, ASSETS/'models/block', ASSETS/'models/item', ASSETS/'blockstates'):
     p.mkdir(parents=True, exist_ok=True)
@@ -51,9 +51,9 @@ dd.line((75,915,950,915),fill='#849baf',width=6)
 for i in range(7):
     dd.ellipse((385+i*37,945,399+i*37,959),fill='#748795')
 decals.save(TEX/'gachapon_details.png')
-textures={'materials':'funpackcustom:block/gachapon_materials',
-          'details':'funpackcustom:block/gachapon_details',
-          'particle':'funpackcustom:block/gachapon_materials'}
+textures={'materials':'japanesearcades:block/gachapon_materials',
+          'details':'japanesearcades:block/gachapon_details',
+          'particle':'japanesearcades:block/gachapon_materials'}
 
 surfaces=[]
 group='Shell'
@@ -254,7 +254,7 @@ def write_json(path,data):path.write_text(json.dumps(data,indent=2)+'\n',encodin
 
 def obj(path,faces):
     lines=['# Original stackable Gachapon model; one coordinate unit is one block.',
-           'mtllib funpackcustom:models/block/gachapon.mtl'];index=1;material=None
+           'mtllib japanesearcades:models/block/gachapon.mtl'];index=1;material=None
     for f in faces:
         mat=f['texture'][1:]+'_surface'
         if mat!=material:lines.append('usemtl '+mat);material=mat
@@ -265,7 +265,7 @@ def obj(path,faces):
     path.write_text('\n'.join(lines)+'\n',encoding='utf-8')
 
 def wrapper(model,item=False):
-    model={'parent':'minecraft:block/block','loader':'neoforge:obj','model':'funpackcustom:models/'+model,
+    model={'parent':'minecraft:block/block','loader':'neoforge:obj','model':'japanesearcades:models/'+model,
            'automatic_culling':False,'shade_quads':True,'flip_v':True,'emissive_ambient':True,
            'ambientocclusion':not item,'render_type':'minecraft:cutout_mipped_all','textures':textures}
     if item:model.update({'gui_light':'front','display':{
@@ -282,7 +282,7 @@ for name,faces,item in (('block/gachapon',body,False),('block/gachapon_crank',cr
     write_json(ASSETS/'models'/(name+'.json'),wrapper(name+'.obj',item))
 (ASSETS/'models/block/gachapon.mtl').write_text('newmtl materials_surface\nKa 0 0 0\nKd 1 1 1\nmap_Kd #materials\n\nnewmtl details_surface\nKa 0 0 0\nKd 1 1 1\nmap_Kd #details\n',encoding='utf-8')
 write_json(ASSETS/'blockstates/gachapon.json',{'variants':{
-    'facing='+f:{'model':'funpackcustom:block/gachapon',**({'y':r} if r else {})}
+    'facing='+f:{'model':'japanesearcades:block/gachapon',**({'y':r} if r else {})}
     for f,r in (('north',0),('east',90),('south',180),('west',270))}})
 write_json(ART/'geometry.json',{'textures':textures,'meshes':combined,'capsule_meshes':capsule,
     'anchors':{'dial':[8.2,5,1],'price':[13.05,7,.94],
@@ -304,7 +304,7 @@ for f in combined:
 bbtex=[]
 for i,(key,size) in enumerate((('materials',256),('details',1024))):
     p=TEX/('gachapon_'+key+'.png')
-    bbtex.append({'name':p.name,'folder':'block','namespace':'funpackcustom','id':str(i),
+    bbtex.append({'name':p.name,'folder':'block','namespace':'japanesearcades','id':str(i),
         'uuid':str(uuid.uuid5(uuid.NAMESPACE_URL,'gachapon/'+key)),'width':size,'height':size,
         'uv_width':size,'uv_height':size,'source':'data:image/png;base64,'+base64.b64encode(p.read_bytes()).decode(),
         'mode':'bitmap','particle':i==0,'render_mode':'default','visible':True})

@@ -16,7 +16,7 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / 'src/main/resources/assets'
-CATALOG = ASSETS / 'funpackcustom'
+CATALOG = ASSETS / 'japanesearcades'
 
 
 def local_resource(identifier, prefix='', suffix=''):
@@ -70,7 +70,7 @@ def audit():
         for child in children(model):
             count += faces(child, seen)
         parent = model.get('parent', '')
-        if not count and parent.startswith('funpackcustom:'):
+        if not count and parent.startswith('japanesearcades:'):
             path = local_resource(parent, 'models/', '.json')
             assert path in models and path not in seen, f'Missing/cyclic model parent: {parent}'
             count = faces(models[path], (*seen, path))
@@ -85,7 +85,7 @@ def audit():
                 seen.add(identifier)
                 assert identifier[1:] in textures, f'Unresolved texture: {identifier}'
                 identifier = textures[identifier[1:]]
-            if identifier.startswith('funpackcustom:'):
+            if identifier.startswith('japanesearcades:'):
                 assert local_resource(identifier, 'textures/', '.png').is_file(), identifier
         for element in model.get('elements', []):
             assert len(element['from']) == len(element['to']) == 3

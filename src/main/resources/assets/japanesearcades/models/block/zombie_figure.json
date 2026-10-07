@@ -1,0 +1,657 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:cutout",
+  "ambientocclusion": true,
+  "textures": {
+    "skin": "japanesearcades:block/zombie_figure_skin",
+    "package": "japanesearcades:block/zombie_figure_package",
+    "particle": "japanesearcades:block/zombie_figure_skin"
+  },
+  "elements": [
+    {
+      "name": "Display plinth",
+      "from": [
+        4.4,
+        0,
+        4.4
+      ],
+      "to": [
+        11.6,
+        0.46,
+        11.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Accent plinth rim",
+      "from": [
+        4.5,
+        0.46,
+        4.5
+      ],
+      "to": [
+        11.5,
+        0.64,
+        11.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            6.25,
+            14.75,
+            6.5
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Dark inset top",
+      "from": [
+        4.7,
+        0.64,
+        4.7
+      ],
+      "to": [
+        11.3,
+        0.73,
+        11.3
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "west": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "up": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            0.25,
+            14.75,
+            0.5
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "Printed collection nameplate",
+      "from": [
+        5.05,
+        0.06,
+        4.395
+      ],
+      "to": [
+        10.95,
+        0.4,
+        4.395
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.0,
+            11.0,
+            14.0,
+            12.0
+          ],
+          "texture": "#package"
+        }
+      }
+    },
+    {
+      "name": "zombie head",
+      "from": [
+        6.78,
+        8.05,
+        6.78
+      ],
+      "to": [
+        9.22,
+        10.49,
+        9.22
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2.0,
+            2.0,
+            4.0,
+            4.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            6.0,
+            2.0,
+            8.0,
+            4.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            2.0,
+            2.0,
+            4.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            4.0,
+            2.0,
+            6.0,
+            4.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            2.0,
+            0.0,
+            4.0,
+            2.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            4.0,
+            2.0,
+            6.0,
+            0.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "zombie torso",
+      "from": [
+        6.78,
+        4.390000000000001,
+        7.39
+      ],
+      "to": [
+        9.22,
+        8.05,
+        8.61
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            5.0,
+            5.0,
+            7.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            8.0,
+            5.0,
+            10.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            4.0,
+            5.0,
+            5.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            7.0,
+            5.0,
+            8.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            5.0,
+            4.0,
+            7.0,
+            5.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            7.0,
+            5.0,
+            9.0,
+            4.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "zombie leg -1",
+      "from": [
+        6.779999999999999,
+        0.73,
+        7.39
+      ],
+      "to": [
+        8.0,
+        4.390000000000001,
+        8.61
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.0,
+            5.0,
+            2.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            3.0,
+            5.0,
+            4.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            5.0,
+            1.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            2.0,
+            5.0,
+            3.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            1.0,
+            4.0,
+            2.0,
+            5.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            2.0,
+            5.0,
+            3.0,
+            4.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "Zombie reaching arm -1",
+      "from": [
+        5.56,
+        6.83,
+        4.22
+      ],
+      "to": [
+        6.78,
+        8.05,
+        7.88
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12.0,
+            5.0,
+            13.0,
+            4.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            11.0,
+            4.0,
+            12.0,
+            5.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            10.0,
+            5.0,
+            11.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            12.0,
+            5.0,
+            13.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            11.0,
+            5.0,
+            12.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            13.0,
+            5.0,
+            14.0,
+            8.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "zombie leg 1",
+      "from": [
+        7.999999999999999,
+        0.73,
+        7.39
+      ],
+      "to": [
+        9.219999999999999,
+        4.390000000000001,
+        8.61
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.0,
+            5.0,
+            2.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            3.0,
+            5.0,
+            4.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            5.0,
+            1.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            2.0,
+            5.0,
+            3.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            1.0,
+            4.0,
+            2.0,
+            5.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            2.0,
+            5.0,
+            3.0,
+            4.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    },
+    {
+      "name": "Zombie reaching arm 1",
+      "from": [
+        9.22,
+        6.83,
+        4.22
+      ],
+      "to": [
+        10.44,
+        8.05,
+        7.88
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12.0,
+            5.0,
+            13.0,
+            4.0
+          ],
+          "texture": "#skin"
+        },
+        "south": {
+          "uv": [
+            11.0,
+            4.0,
+            12.0,
+            5.0
+          ],
+          "texture": "#skin"
+        },
+        "east": {
+          "uv": [
+            10.0,
+            5.0,
+            11.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "west": {
+          "uv": [
+            12.0,
+            5.0,
+            13.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "up": {
+          "uv": [
+            11.0,
+            5.0,
+            12.0,
+            8.0
+          ],
+          "texture": "#skin"
+        },
+        "down": {
+          "uv": [
+            13.0,
+            5.0,
+            14.0,
+            8.0
+          ],
+          "texture": "#skin"
+        }
+      }
+    }
+  ]
+}

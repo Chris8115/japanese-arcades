@@ -1,7 +1,7 @@
 # beatmania IIDX LIGHTNING MODEL
 
 The two-player LIGHTNING MODEL joins the Japanese Arcades creative tab and
-the Arcade Ordering Kiosk as `funpackcustom:beatmania_iidx_lightning`.
+the Arcade Ordering Kiosk as `japanesearcades:beatmania_iidx_lightning`.
 It follows the supplied HEROIC VERSE references: a wide silver and black control
 deck, two ring-lit turntables, two staggered seven-key banks, a sloped lower
 touchscreen, a landscape main monitor, and tall forward-leaning purple light
@@ -20,7 +20,7 @@ Order it for **24 iron ingots, 6 gold ingots, 2 diamonds, 8 glass, and 8 redston
 or use the Japanese Arcades creative tab:
 
 ```text
-/give @s funpackcustom:beatmania_iidx_lightning
+/give @s japanesearcades:beatmania_iidx_lightning
 ```
 
 Provide a supported **two-block-wide, two-block-deep footprint**. The rear cabinet
@@ -32,7 +32,7 @@ proportions are estimated from the supplied photographs.
 
 Use an Arcade Pass for the shared simulated play and reward loop. The default
 cost is 10 Credits; the server economy configuration can override this cabinet
-using `funpackcustom:beatmania_iidx_lightning`. Insert and eject music discs with
+using `japanesearcades:beatmania_iidx_lightning`. Insert and eject music discs with
 the same right-click interactions as the other music cabinets.
 
 ## Artwork and editable files

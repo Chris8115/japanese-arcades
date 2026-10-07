@@ -1,8 +1,8 @@
 {
   "textures": {
-    "skin": "funpackcustom:block/creeper_figure_skin",
-    "package": "funpackcustom:block/creeper_figure_package",
-    "particle": "funpackcustom:block/creeper_figure_skin"
+    "skin": "japanesearcades:block/creeper_figure_skin",
+    "package": "japanesearcades:block/creeper_figure_package",
+    "particle": "japanesearcades:block/creeper_figure_skin"
   },
   "meshes": [
     {

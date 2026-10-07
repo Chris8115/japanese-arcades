@@ -1,0 +1,84 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "neoforge:composite",
+  "ambientocclusion": true,
+  "textures": {
+    "materials": "japanesearcades:block/jubeat_materials",
+    "cube_inner": "japanesearcades:block/jubeat_cube_inner",
+    "cube": "japanesearcades:block/jubeat_cube",
+    "cube_top": "japanesearcades:block/jubeat_cube_top",
+    "glass_overlay": "japanesearcades:block/jubeat_glass_overlay",
+    "plaque": "japanesearcades:block/jubeat_plaque",
+    "plaque_side": "japanesearcades:block/jubeat_plaque_side",
+    "pads": "japanesearcades:block/jubeat_pads",
+    "status": "japanesearcades:block/jubeat_status",
+    "neck": "japanesearcades:block/jubeat_neck",
+    "side": "japanesearcades:block/jubeat_side",
+    "speaker": "japanesearcades:block/jubeat_speaker",
+    "labels": "japanesearcades:block/jubeat_labels",
+    "card": "japanesearcades:block/jubeat_card",
+    "particle": "japanesearcades:block/jubeat_materials"
+  },
+  "children": {
+    "solid": {
+      "parent": "minecraft:block/block",
+      "loader": "neoforge:obj",
+      "model": "japanesearcades:models/block/jubeat_base.obj",
+      "automatic_culling": false,
+      "shade_quads": true,
+      "flip_v": true,
+      "emissive_ambient": true,
+      "ambientocclusion": true,
+      "render_type": "minecraft:cutout_mipped_all",
+      "textures": {
+        "materials": "japanesearcades:block/jubeat_materials",
+        "cube_inner": "japanesearcades:block/jubeat_cube_inner",
+        "cube": "japanesearcades:block/jubeat_cube",
+        "cube_top": "japanesearcades:block/jubeat_cube_top",
+        "glass_overlay": "japanesearcades:block/jubeat_glass_overlay",
+        "plaque": "japanesearcades:block/jubeat_plaque",
+        "plaque_side": "japanesearcades:block/jubeat_plaque_side",
+        "pads": "japanesearcades:block/jubeat_pads",
+        "status": "japanesearcades:block/jubeat_status",
+        "neck": "japanesearcades:block/jubeat_neck",
+        "side": "japanesearcades:block/jubeat_side",
+        "speaker": "japanesearcades:block/jubeat_speaker",
+        "labels": "japanesearcades:block/jubeat_labels",
+        "card": "japanesearcades:block/jubeat_card",
+        "particle": "japanesearcades:block/jubeat_materials"
+      }
+    },
+    "glass": {
+      "parent": "minecraft:block/block",
+      "loader": "neoforge:obj",
+      "model": "japanesearcades:models/block/jubeat_base_glass.obj",
+      "automatic_culling": false,
+      "shade_quads": true,
+      "flip_v": true,
+      "emissive_ambient": true,
+      "ambientocclusion": true,
+      "render_type": "minecraft:translucent",
+      "textures": {
+        "materials": "japanesearcades:block/jubeat_materials",
+        "cube_inner": "japanesearcades:block/jubeat_cube_inner",
+        "cube": "japanesearcades:block/jubeat_cube",
+        "cube_top": "japanesearcades:block/jubeat_cube_top",
+        "glass_overlay": "japanesearcades:block/jubeat_glass_overlay",
+        "plaque": "japanesearcades:block/jubeat_plaque",
+        "plaque_side": "japanesearcades:block/jubeat_plaque_side",
+        "pads": "japanesearcades:block/jubeat_pads",
+        "status": "japanesearcades:block/jubeat_status",
+        "neck": "japanesearcades:block/jubeat_neck",
+        "side": "japanesearcades:block/jubeat_side",
+        "speaker": "japanesearcades:block/jubeat_speaker",
+        "labels": "japanesearcades:block/jubeat_labels",
+        "card": "japanesearcades:block/jubeat_card",
+        "particle": "japanesearcades:block/jubeat_materials"
+      }
+    }
+  },
+  "item_render_order": [
+    "solid",
+    "glass"
+  ]
+}

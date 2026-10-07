@@ -17,7 +17,7 @@ root+=tag(9,'entities',bytes([10])+integer(0))
 root+=tag(9,'blocks',bytes([10])+integer(0))
 root+=tag(9,'palette',bytes([10])+integer(1)+tag(8,'Name',name('minecraft:air'))+bytes([0]))
 root+=bytes([0])
-path=Path(__file__).resolve().parents[1]/'src/main/resources/data/funpackcustom/structure/nostalgia_test.nbt'
+path=Path(__file__).resolve().parents[1]/'src/main/resources/data/japanesearcades/structure/nostalgia_test.nbt'
 path.parent.mkdir(parents=True,exist_ok=True)
 path.write_bytes(gzip.compress(root,mtime=0))
 print(path)

@@ -11,7 +11,7 @@ utility artwork reads **ARCADE ORDER**.
 The kiosk is a public ordering station with a one-block footprint and two-block
 height. Right-click either half to open it. It needs a solid floor and a clear
 upper block when placed. Find it in **Japanese Arcades**, use
-`/give @s funpackcustom:arcade_kiosk`, or craft it at a crafting table:
+`/give @s japanesearcades:arcade_kiosk`, or craft it at a crafting table:
 
 ```text
 Glass      Iron       Glass
@@ -129,7 +129,7 @@ models, textures, crafting/loot/advancement JSON, translations, and the pickaxe
 tag. Existing translations were preserved. All kiosk classes target Java 21.
 
 The original kiosk implementation's disposable small-client world verified
-`/funpackdev`, the actual kiosk model
+the development status command, the actual kiosk model
 and screens, a disabled unaffordable order, a paid purchase with exact ingredient
 deductions, list scrolling and long titles, the empty Prizes tab, safe creative
 overflow followed by pickup after freeing a slot, and the minimum logical

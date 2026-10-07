@@ -1,0 +1,19 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "neoforge:obj",
+  "model": "japanesearcades:models/block/museca_console.obj",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "emissive_ambient": true,
+  "ambientocclusion": true,
+  "render_type": "minecraft:cutout_mipped_all",
+  "textures": {
+    "materials": "japanesearcades:block/museca_materials",
+    "details": "japanesearcades:block/museca_details",
+    "display": "japanesearcades:block/museca_display",
+    "branding": "japanesearcades:block/museca_branding",
+    "marquee": "japanesearcades:block/museca_marquee",
+    "particle": "japanesearcades:block/museca_materials"
+  }
+}

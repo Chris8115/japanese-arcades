@@ -494953,7 +494953,7 @@
     {
       "name": "museca_materials.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "0",
       "uuid": "77471f3c-c4ca-5832-b669-628583a235ec",
       "width": 256,
@@ -494969,7 +494969,7 @@
     {
       "name": "museca_details.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "1",
       "uuid": "b6622b64-47c1-5ab2-90e8-23d3106d3dae",
       "width": 512,
@@ -494985,7 +494985,7 @@
     {
       "name": "museca_display.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "2",
       "uuid": "827d5e76-2b80-5156-b332-11a5797919d8",
       "width": 1024,
@@ -495001,7 +495001,7 @@
     {
       "name": "museca_branding.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "3",
       "uuid": "ea2c7e39-d665-5eed-98e0-fdfb6cb8435d",
       "width": 1024,
@@ -495017,7 +495017,7 @@
     {
       "name": "museca_marquee.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "4",
       "uuid": "065fbd40-6d8a-5f0a-930b-212285dab7f2",
       "width": 2048,

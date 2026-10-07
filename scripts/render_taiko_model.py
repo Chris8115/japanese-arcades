@@ -8,7 +8,7 @@ import bpy
 from mathutils import Vector
 
 ROOT=Path(__file__).resolve().parents[1]
-ART=ROOT/'art/taiko';TEX=ROOT/'src/main/resources/assets/funpackcustom/textures/block'
+ART=ROOT/'art/taiko';TEX=ROOT/'src/main/resources/assets/japanesearcades/textures/block'
 parser=argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--single-only',action='store_true')
 parser.add_argument('--samples',type=int,default=40)

@@ -1,8 +1,11 @@
-# Fun pack mod development
+# Japanese Arcades
 
-This workspace is for our own mods for **Minecraft 1.21.1 / NeoForge 21.1.252**.
-The starter mod is **Fun Pack Custom**, id `funpackcustom`, version `0.1.0`.
-It registers `/funpackdev`, a small command to confirm that the mod is loaded.
+Japanese arcade cabinets, collectible prizes, and village game centers for
+**Minecraft 1.21.1 / NeoForge 21.1.252**.
+The mod is **Japanese Arcades**, version `0.1.0`. Its mod ID is
+`japanesearcades`. All items, blocks, resources, and configuration files use this namespace.
+This pre-release rename does not migrate IDs or configuration from older development builds.
+It registers `/japanesearcadesdev`, a small command to confirm that the mod is loaded.
 The **Japanese Arcades** creative tab includes eighteen cabinets with music-disc playback:
 
 - [Nostalgia Op.3 Arcade Cabinet](art/nostalgia-op3/README.md)
@@ -112,7 +115,7 @@ their original static models and behavior.
 ## Start here
 
 Open this folder in VS Code. The Java and Gradle extensions are already installed.
-Use **Terminal > Run Task** for the `Fun:` tasks, or open a terminal here:
+Use **Terminal > Run Task** for the `Japanese Arcades:` tasks, or open a terminal here:
 
 ```powershell
 .\dev.cmd Build
@@ -120,7 +123,7 @@ Use **Terminal > Run Task** for the `Fun:` tasks, or open a terminal here:
 .\dev.cmd PackClient
 ```
 
-- `Build` creates `build/libs/funpackcustom-0.1.0.jar` and a separate sources jar.
+- `Build` creates `build/libs/japanesearcades-0.1.0.jar` and a separate sources jar.
 - `Client` launches a small Minecraft test instance with just NeoForge and our mod.
 - `PackClient` launches a separate development copy of the full Fun pack with our mod loaded from source.
 - `SyncPack` refreshes the copied mods, configs, resource packs, and pack scripts from the live pack.
@@ -135,12 +138,12 @@ On another computer, copy `dev.local.example.json` and fill in the actual paths.
 
 ## Write a feature
 
-Start in `src/main/java/local/funpack/custom/FunPackCustom.java`.
+Start in `src/main/java/local/japanesearcades/JapaneseArcades.java`.
 Java code belongs under `src/main/java`; assets and recipes belong under `src/main/resources`.
 Mod metadata is in `src/main/templates/META-INF/neoforge.mods.toml`.
 Names, versions, and loader versions are in `gradle.properties`.
 
-After editing, build and run the small client. Create a disposable world and type `/funpackdev`.
+After editing, build and run the small client. Create a disposable world and type `/japanesearcadesdev`.
 Then test the same feature with `PackClient` to check interactions with the pack's other mods.
 Game runs use `runs/client`, `runs/pack-client`, and `runs/server` respectively;
 automated integration tests use `runs/gametest`.
@@ -247,12 +250,12 @@ WACCA posters, Miku/Teto cutouts and figures. Trades use normal emerald pricing,
 reputation, stock limits and workstation restocking; passes contain no prepaid
 credits or prize points.
 
-`config/funpackcustom-arcade-worldgen.toml` independently enables village and
+`config/japanesearcades-arcade-worldgen.toml` independently enables village and
 standalone generation and adjusts the village selection weight. Restart the
 world/server after changing it. Datapacks can customize
-`funpackcustom:has_structure/japanese_arcade` biome eligibility, the
-`funpackcustom:japanese_arcade` structure set (48-chunk spacing, 16 separation),
-and the `funpackcustom:arcade/start`, `arcade/village` and
+`japanesearcades:has_structure/japanese_arcade` biome eligibility, the
+`japanesearcades:japanese_arcade` structure set (48-chunk spacing, 16 separation),
+and the `japanesearcades:arcade/start`, `arcade/village` and
 `arcade/integrated_village` template pools. Mods or
 datapacks that deliberately disable all relevant structures can still prevent
 generation; compatibility is not a bypass of their world settings.
@@ -260,8 +263,8 @@ generation; compatibility is not a bypass of their world settings.
 With cheats enabled:
 
 ```mcfunction
-/locate structure funpackcustom:japanese_arcade
-/place structure funpackcustom:japanese_arcade
+/locate structure japanesearcades:japanese_arcade
+/place structure japanesearcades:japanese_arcade
 ```
 
 The locate command finds standalone arcades; village-attached arcades belong to
@@ -336,8 +339,13 @@ Our mod starts with the All Rights Reserved metadata setting; choose a license b
 
 Setup verified on 2026-10-05: the release jar built with Java 21 bytecode; the full pack
 client loaded our mod and completed startup; the small server started on 127.0.0.1:25575,
-executed `funpackdev`, and saved its test world on shutdown. The Java debugger also reached
+executed the development command, and saved its test world on shutdown. The Java debugger also reached
 its waiting state on port 5005. Gameplay compatibility of future features needs testing as we add them.
+
+The `japanesearcades` namespace rename was verified on 2026-10-07: the release
+build and all 179 required GameTests passed. A fresh native client found a naturally
+generated arcade, loaded its six cabinets and four paintings, and opened the
+Arcade Operator's trade screen. The packaged JAR contains no former namespace references.
 
 - [NeoForge 1.21.1 getting started](https://docs.neoforged.net/docs/1.21.1/gettingstarted/)
 - [NeoForge 1.21.1 concepts](https://docs.neoforged.net/docs/1.21.1/concepts/)

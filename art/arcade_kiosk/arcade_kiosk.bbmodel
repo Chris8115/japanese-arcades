@@ -297229,7 +297229,7 @@
     {
       "name": "arcade_kiosk_materials.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "0",
       "uuid": "d4450bbd-1a00-5b2b-b612-c8ecde85212b",
       "width": 256,
@@ -297245,7 +297245,7 @@
     {
       "name": "arcade_kiosk_screen.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "1",
       "uuid": "ff19a7d4-2b59-5675-a191-2124cfbd4f34",
       "width": 1024,
@@ -297261,7 +297261,7 @@
     {
       "name": "arcade_kiosk_details.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "2",
       "uuid": "bb447063-fddf-5c6e-bf7b-9924619f0417",
       "width": 1024,

@@ -1,0 +1,17 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "neoforge:obj",
+  "model": "japanesearcades:models/block/arcade_kiosk_upper.obj",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "emissive_ambient": true,
+  "ambientocclusion": true,
+  "render_type": "minecraft:cutout_mipped_all",
+  "textures": {
+    "materials": "japanesearcades:block/arcade_kiosk_materials",
+    "screen": "japanesearcades:block/arcade_kiosk_screen",
+    "details": "japanesearcades:block/arcade_kiosk_details",
+    "particle": "japanesearcades:block/arcade_kiosk_materials"
+  }
+}

@@ -9,9 +9,9 @@ import miku_figure_geometry
 import teto_figure_geometry
 
 ROOT=Path(__file__).resolve().parents[1]
-ASSETS=ROOT/'src/main/resources/assets/funpackcustom'
+ASSETS=ROOT/'src/main/resources/assets/japanesearcades'
 TEX=ASSETS/'textures/block'; ART=ROOT/'art/arcade_economy'
-LOOT=ROOT/'src/main/resources/data/funpackcustom/loot_table/blocks'
+LOOT=ROOT/'src/main/resources/data/japanesearcades/loot_table/blocks'
 FIGURES=[('hatsune_miku_figure','Hatsune Miku Figure','HATSUNE MIKU',miku_figure_geometry),
          ('kasane_teto_figure','Kasane Teto Figure','KASANE TETO',teto_figure_geometry)]
 
@@ -30,8 +30,8 @@ def textures(name,colors,plate):
     font=ImageFont.truetype('C:/Windows/Fonts/arialbd.ttf',36)
     draw.text((192,33),plate,font=font,fill='#242531',anchor='mm')
     plaque.save(TEX/(name+'_nameplate.png'))
-    return {'materials':'funpackcustom:block/'+name+'_materials',
-            'nameplate':'funpackcustom:block/'+name+'_nameplate','particle':'funpackcustom:block/'+name+'_materials'}
+    return {'materials':'japanesearcades:block/'+name+'_materials',
+            'nameplate':'japanesearcades:block/'+name+'_nameplate','particle':'japanesearcades:block/'+name+'_materials'}
 
 def export(name,title,plate,module):
     g=module.build();paths=textures(name,module.COLORS,plate)
@@ -44,7 +44,7 @@ def export(name,title,plate,module):
         assert all(2-1e-6<=p[0]<=14+1e-6 and 0<=p[1]<=15+1e-6 and 3-1e-6<=p[2]<=13+1e-6 for p in f['vertices']),(name,f['name'],f['vertices'])
     bounds=[[min(p[i] for f in g.faces for p in f['vertices']),max(p[i] for f in g.faces for p in f['vertices'])] for i in range(3)]
     write(ART/(name+'.geometry.json'),{'textures':paths,'meshes':g.faces,'bounds':bounds})
-    lines=['# Reference-based collectible: '+title,'mtllib funpackcustom:models/block/'+name+'.mtl'];idx=1;last=None
+    lines=['# Reference-based collectible: '+title,'mtllib japanesearcades:models/block/'+name+'.mtl'];idx=1;last=None
     for f in g.faces:
         mat=f['texture'][1:]+'_surface'
         if mat!=last:lines.append('usemtl '+mat);last=mat
@@ -55,11 +55,11 @@ def export(name,title,plate,module):
     mtl=[]
     for key in ('materials','nameplate'):mtl.extend(['newmtl '+key+'_surface','Ka 0 0 0','Kd 1 1 1','map_Kd #'+key,''])
     (ASSETS/'models/block'/(name+'.mtl')).write_text('\n'.join(mtl),encoding='utf-8')
-    model={'parent':'minecraft:block/block','loader':'neoforge:obj','model':'funpackcustom:models/block/'+name+'.obj',
+    model={'parent':'minecraft:block/block','loader':'neoforge:obj','model':'japanesearcades:models/block/'+name+'.obj',
            'automatic_culling':False,'shade_quads':True,'flip_v':True,'emissive_ambient':True,'ambientocclusion':True,
            'render_type':'minecraft:cutout_mipped_all','textures':paths}
     write(ASSETS/'models/block'/(name+'.json'),model)
-    write(ASSETS/'blockstates'/(name+'.json'),{'variants':{'facing='+direction:{'model':'funpackcustom:block/'+name,**({'y':angle} if angle else {})}
+    write(ASSETS/'blockstates'/(name+'.json'),{'variants':{'facing='+direction:{'model':'japanesearcades:block/'+name,**({'y':angle} if angle else {})}
         for direction,angle in (('north',0),('east',90),('south',180),('west',270))}})
     model.update({'ambientocclusion':False,'gui_light':'front','display':{
         'gui':{'rotation':[12,205,0],'translation':[0,0,0],'scale':[1.05,1.05,1.05]},
@@ -68,7 +68,7 @@ def export(name,title,plate,module):
         'firstperson_righthand':{'rotation':[0,45,0],'translation':[0,1,0],'scale':[.55,.55,.55]}}})
     write(ASSETS/'models/item'/(name+'.json'),model)
     write(LOOT/(name+'.json'),{'type':'minecraft:block','pools':[{'rolls':1,'conditions':[{'condition':'minecraft:survives_explosion'}],
-        'entries':[{'type':'minecraft:item','name':'funpackcustom:'+name}]}]})
+        'entries':[{'type':'minecraft:item','name':'japanesearcades:'+name}]}]})
     texdata=[]
     for i,key in enumerate(('materials','nameplate')):
         path=TEX/(name+'_'+key+'.png');w,h=Image.open(path).size
@@ -91,5 +91,5 @@ def export(name,title,plate,module):
 if __name__=='__main__':
     for path in (TEX,ART,ASSETS/'models/block',ASSETS/'models/item',LOOT):path.mkdir(parents=True,exist_ok=True)
     for args in FIGURES:export(*args)
-    write(ART/'art-lang.json',{'item.funpackcustom.arcade_pass':'Arcade Pass',
-        **{'block.funpackcustom.'+name:title for name,title,plate,module in FIGURES}})
+    write(ART/'art-lang.json',{'item.japanesearcades.arcade_pass':'Arcade Pass',
+        **{'block.japanesearcades.'+name:title for name,title,plate,module in FIGURES}})

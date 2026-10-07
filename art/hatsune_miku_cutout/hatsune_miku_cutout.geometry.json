@@ -1,8 +1,8 @@
 {
   "textures": {
-    "print": "funpackcustom:block/hatsune_miku_cutout_print",
-    "cardboard": "funpackcustom:block/hatsune_miku_cutout_cardboard",
-    "particle": "funpackcustom:block/hatsune_miku_cutout_cardboard"
+    "print": "japanesearcades:block/hatsune_miku_cutout_print",
+    "cardboard": "japanesearcades:block/hatsune_miku_cutout_cardboard",
+    "particle": "japanesearcades:block/hatsune_miku_cutout_cardboard"
   },
   "meshes": [
     {

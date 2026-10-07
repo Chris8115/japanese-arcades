@@ -1,8 +1,8 @@
 {
   "textures": {
-    "materials": "funpackcustom:block/gachapon_materials",
-    "details": "funpackcustom:block/gachapon_details",
-    "particle": "funpackcustom:block/gachapon_materials"
+    "materials": "japanesearcades:block/gachapon_materials",
+    "details": "japanesearcades:block/gachapon_details",
+    "particle": "japanesearcades:block/gachapon_materials"
   },
   "meshes": [
     {

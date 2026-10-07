@@ -51,7 +51,14 @@ function Sync-Pack {
     New-Item -ItemType Directory -Path $modsPath -Force | Out-Null
     $manifestPath = Get-WorkspacePath 'runs/pack-client/pack-snapshot.json'
     $sourceMods = @(Get-ChildItem -LiteralPath (Join-Path $pack 'mods') -File -Filter '*.jar' |
-        Where-Object { $_.Name -notlike 'funpackcustom-*' })
+        # Exclude the current build and its former filename from the copied pack.
+        Where-Object { $_.Name -notlike 'japanesearcades-*' -and $_.Name -notlike 'funpackcustom-*' })
+    # Gradle loads this project directly. Remove stale copied self-JARs as well.
+    foreach ($selfJar in Get-ChildItem -LiteralPath $modsPath -File -Filter '*.jar' |
+            Where-Object { $_.Name -like 'japanesearcades-*' -or $_.Name -like 'funpackcustom-*' }) {
+        $staleSelfJar = Get-WorkspacePath ('runs/pack-client/mods/' + $selfJar.Name)
+        Remove-Item -LiteralPath $staleSelfJar
+    }
     $currentNames = @($sourceMods | ForEach-Object { $_.Name })
     if (Test-Path -LiteralPath $manifestPath) {
         $previous = Get-Content -LiteralPath $manifestPath -Raw | ConvertFrom-Json

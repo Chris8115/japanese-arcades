@@ -23,13 +23,13 @@ def main():
                   stroke_width=0)
 
     def save(name, image, blocks):
-        path = RES / f'assets/funpackcustom/textures/painting/{name}.png'
+        path = RES / f'assets/japanesearcades/textures/painting/{name}.png'
         path.parent.mkdir(parents=True, exist_ok=True)
         image.save(path)
-        variant = RES / f'data/funpackcustom/painting_variant/{name}.json'
+        variant = RES / f'data/japanesearcades/painting_variant/{name}.json'
         variant.parent.mkdir(parents=True, exist_ok=True)
         variant.write_text(json.dumps({'width': blocks[0], 'height': blocks[1],
-                                      'asset_id': f'funpackcustom:{name}'}, indent=2)+'\n')
+                                      'asset_id': f'japanesearcades:{name}'}, indent=2)+'\n')
 
     image = Image.new('RGB', (64, 320), '#921b2d')
     draw = ImageDraw.Draw(image)
@@ -85,7 +85,7 @@ def main():
 
     tag = RES / 'data/minecraft/tags/painting_variant/placeable.json'
     tag.parent.mkdir(parents=True, exist_ok=True)
-    tag.write_text(json.dumps({'replace': False, 'values': [f'funpackcustom:{name}' for name in
+    tag.write_text(json.dumps({'replace': False, 'values': [f'japanesearcades:{name}' for name in
                     ['arcade_vertical_sign', 'arcade_game_center', 'arcade_invader', 'arcade_fuji']]}, indent=2)+'\n')
     print('Generated four arcade wall paintings and additive placeable tag.')
 

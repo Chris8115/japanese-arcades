@@ -1,0 +1,124 @@
+{
+  "variants": {
+    "facing=north,section=cabinet_base,side=primary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_primary_cabinet_base"
+    },
+    "facing=north,section=cabinet_console,side=primary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_primary_cabinet_console"
+    },
+    "facing=north,section=cabinet_marquee,side=primary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_primary_cabinet_marquee"
+    },
+    "facing=north,section=platform,side=primary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_primary_platform"
+    },
+    "facing=north,section=cabinet_base,side=secondary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_secondary_cabinet_base"
+    },
+    "facing=north,section=cabinet_console,side=secondary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_secondary_cabinet_console"
+    },
+    "facing=north,section=cabinet_marquee,side=secondary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_secondary_cabinet_marquee"
+    },
+    "facing=north,section=platform,side=secondary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_secondary_platform"
+    },
+    "facing=east,section=cabinet_base,side=primary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_primary_cabinet_base",
+      "y": 90
+    },
+    "facing=east,section=cabinet_console,side=primary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_primary_cabinet_console",
+      "y": 90
+    },
+    "facing=east,section=cabinet_marquee,side=primary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_primary_cabinet_marquee",
+      "y": 90
+    },
+    "facing=east,section=platform,side=primary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_primary_platform",
+      "y": 90
+    },
+    "facing=east,section=cabinet_base,side=secondary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_secondary_cabinet_base",
+      "y": 90
+    },
+    "facing=east,section=cabinet_console,side=secondary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_secondary_cabinet_console",
+      "y": 90
+    },
+    "facing=east,section=cabinet_marquee,side=secondary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_secondary_cabinet_marquee",
+      "y": 90
+    },
+    "facing=east,section=platform,side=secondary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_secondary_platform",
+      "y": 90
+    },
+    "facing=south,section=cabinet_base,side=primary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_primary_cabinet_base",
+      "y": 180
+    },
+    "facing=south,section=cabinet_console,side=primary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_primary_cabinet_console",
+      "y": 180
+    },
+    "facing=south,section=cabinet_marquee,side=primary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_primary_cabinet_marquee",
+      "y": 180
+    },
+    "facing=south,section=platform,side=primary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_primary_platform",
+      "y": 180
+    },
+    "facing=south,section=cabinet_base,side=secondary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_secondary_cabinet_base",
+      "y": 180
+    },
+    "facing=south,section=cabinet_console,side=secondary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_secondary_cabinet_console",
+      "y": 180
+    },
+    "facing=south,section=cabinet_marquee,side=secondary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_secondary_cabinet_marquee",
+      "y": 180
+    },
+    "facing=south,section=platform,side=secondary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_secondary_platform",
+      "y": 180
+    },
+    "facing=west,section=cabinet_base,side=primary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_primary_cabinet_base",
+      "y": 270
+    },
+    "facing=west,section=cabinet_console,side=primary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_primary_cabinet_console",
+      "y": 270
+    },
+    "facing=west,section=cabinet_marquee,side=primary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_primary_cabinet_marquee",
+      "y": 270
+    },
+    "facing=west,section=platform,side=primary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_primary_platform",
+      "y": 270
+    },
+    "facing=west,section=cabinet_base,side=secondary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_secondary_cabinet_base",
+      "y": 270
+    },
+    "facing=west,section=cabinet_console,side=secondary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_secondary_cabinet_console",
+      "y": 270
+    },
+    "facing=west,section=cabinet_marquee,side=secondary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_secondary_cabinet_marquee",
+      "y": 270
+    },
+    "facing=west,section=platform,side=secondary": {
+      "model": "japanesearcades:block/beatmania_iidx_lightning_secondary_platform",
+      "y": 270
+    }
+  }
+}

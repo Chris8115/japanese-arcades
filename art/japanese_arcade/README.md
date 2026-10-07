@@ -16,11 +16,11 @@ The architecture uses ordinary vanilla blocks. The only placed entities are the 
 
 ## Native templates
 
-`funpackcustom:arcade/japanese_arcade` is the standalone building. `funpackcustom:arcade/japanese_arcade_village` adds one `north_up` jigsaw at local `(9,1,0)`, with name/target `minecraft:building_entrance` and final state `minecraft:dirt_path`. The connector occupies the same ground-surface level as a village road. World-generation pools and the painting anchor processor are maintained separately from this asset generator.
+`japanesearcades:arcade/japanese_arcade` is the standalone building. `japanesearcades:arcade/japanese_arcade_village` adds one `north_up` jigsaw at local `(9,1,0)`, with name/target `minecraft:building_entrance` and final state `minecraft:dirt_path`. The connector occupies the same ground-surface level as a village road. World-generation pools and the painting anchor processor are maintained separately from this asset generator.
 
-The optional `funpackcustom:arcade/japanese_arcade_integrated_village` variant instead puts its connector at `(9,2,0)`, with name/target `integrated_villages:house` and final state `minecraft:air`. Integrated Villages roads connect through walking air, so this one-block-higher connector keeps the arcade floor aligned with those roads. The building and furnishings otherwise match the standalone template.
+The optional `japanesearcades:arcade/japanese_arcade_integrated_village` variant instead puts its connector at `(9,2,0)`, with name/target `integrated_villages:house` and final state `minecraft:air`. Integrated Villages roads connect through walking air, so this one-block-higher connector keeps the arcade floor aligned with those roads. The building and furnishings otherwise match the standalone template.
 
-For a manual preview in a test world, use `/place structure funpackcustom:japanese_arcade`. The generated `funpackcustom:arcade_test` empty fixture and `funpackcustom:arcade/test_road` connector fixture support runtime placement and rotation tests.
+For a manual preview in a test world, use `/place structure japanesearcades:japanese_arcade`. The generated `japanesearcades:arcade_test` empty fixture and `japanesearcades:arcade/test_road` connector fixture support runtime placement and rotation tests.
 
 ## Regeneration
 

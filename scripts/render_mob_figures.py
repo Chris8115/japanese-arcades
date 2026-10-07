@@ -6,7 +6,7 @@ from pathlib import Path
 import bpy
 from mathutils import Vector
 
-ROOT=Path(__file__).resolve().parents[1];ART=ROOT/'art/mob_figures';TEX=ROOT/'src/main/resources/assets/funpackcustom/textures/block'
+ROOT=Path(__file__).resolve().parents[1];ART=ROOT/'art/mob_figures';TEX=ROOT/'src/main/resources/assets/japanesearcades/textures/block'
 bpy.context.preferences.filepaths.save_version=0
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
 scene=bpy.context.scene;scene.render.engine='CYCLES';scene.cycles.samples=20;scene.cycles.use_denoising=True

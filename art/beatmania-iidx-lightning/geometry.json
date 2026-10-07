@@ -1,14 +1,14 @@
 {
   "textures": {
-    "materials": "funpackcustom:block/beatmania_iidx_lightning_materials",
-    "controls": "funpackcustom:block/beatmania_iidx_lightning_controls",
-    "details": "funpackcustom:block/beatmania_iidx_lightning_details",
-    "floor": "funpackcustom:block/beatmania_iidx_lightning_floor",
-    "turntable": "funpackcustom:block/beatmania_iidx_lightning_turntable",
-    "display": "funpackcustom:block/beatmania_iidx_lightning_display",
-    "marquee": "funpackcustom:block/beatmania_iidx_lightning_marquee",
-    "banners": "funpackcustom:block/beatmania_iidx_lightning_banners",
-    "particle": "funpackcustom:block/beatmania_iidx_lightning_materials"
+    "materials": "japanesearcades:block/beatmania_iidx_lightning_materials",
+    "controls": "japanesearcades:block/beatmania_iidx_lightning_controls",
+    "details": "japanesearcades:block/beatmania_iidx_lightning_details",
+    "floor": "japanesearcades:block/beatmania_iidx_lightning_floor",
+    "turntable": "japanesearcades:block/beatmania_iidx_lightning_turntable",
+    "display": "japanesearcades:block/beatmania_iidx_lightning_display",
+    "marquee": "japanesearcades:block/beatmania_iidx_lightning_marquee",
+    "banners": "japanesearcades:block/beatmania_iidx_lightning_banners",
+    "particle": "japanesearcades:block/beatmania_iidx_lightning_materials"
   },
   "meshes": [
     {

@@ -104553,7 +104553,7 @@
     {
       "name": "jubeat_materials.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "0",
       "uuid": "6924c5aa-fdc1-5099-8980-bb003494f399",
       "width": 256,
@@ -104569,7 +104569,7 @@
     {
       "name": "jubeat_cube_inner.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "1",
       "uuid": "018891a3-5939-5641-a2f7-ed12397dfe59",
       "width": 768,
@@ -104585,7 +104585,7 @@
     {
       "name": "jubeat_cube.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "2",
       "uuid": "15328dad-6f73-5500-9cbe-837caf82f0b9",
       "width": 768,
@@ -104601,7 +104601,7 @@
     {
       "name": "jubeat_cube_top.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "3",
       "uuid": "0c58b694-b5e2-55f7-bbbf-2a526bcd4d04",
       "width": 768,
@@ -104617,7 +104617,7 @@
     {
       "name": "jubeat_glass_overlay.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "4",
       "uuid": "eee9f070-1acb-5a7e-9045-82f0a2f156cf",
       "width": 512,
@@ -104633,7 +104633,7 @@
     {
       "name": "jubeat_plaque.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "5",
       "uuid": "463da59c-ba29-510e-b7be-bd8647e40b53",
       "width": 768,
@@ -104649,7 +104649,7 @@
     {
       "name": "jubeat_plaque_side.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "6",
       "uuid": "6de1db23-f79b-5b36-bee3-5ed32d076f6b",
       "width": 512,
@@ -104665,7 +104665,7 @@
     {
       "name": "jubeat-pads-preview.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "7",
       "uuid": "94018ec6-aa8f-5c40-9f6a-9ee11d74f528",
       "width": 512,
@@ -104681,7 +104681,7 @@
     {
       "name": "jubeat_status.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "8",
       "uuid": "7e85e9de-25be-5e04-b02a-8058b7054500",
       "width": 1024,
@@ -104697,7 +104697,7 @@
     {
       "name": "jubeat_neck.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "9",
       "uuid": "4e7fb69d-d0f0-5ac3-a8f0-9f5af5aadf85",
       "width": 768,
@@ -104713,7 +104713,7 @@
     {
       "name": "jubeat_side.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "10",
       "uuid": "138a3524-33f4-5e07-bdf2-7efaf9fefabc",
       "width": 512,
@@ -104729,7 +104729,7 @@
     {
       "name": "jubeat_speaker.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "11",
       "uuid": "c55b5779-41dc-5eb3-89d6-ea3f3b901872",
       "width": 512,
@@ -104745,7 +104745,7 @@
     {
       "name": "jubeat_labels.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "12",
       "uuid": "ebd6b48c-6800-59e2-8c43-07d5dfddc949",
       "width": 1024,
@@ -104761,7 +104761,7 @@
     {
       "name": "jubeat_card.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "13",
       "uuid": "b2d8d25e-cabf-5e28-b4e8-8083909990ca",
       "width": 256,

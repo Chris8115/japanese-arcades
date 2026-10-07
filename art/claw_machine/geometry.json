@@ -1,11 +1,11 @@
 {
   "textures": {
-    "materials": "funpackcustom:block/claw_machine_materials",
-    "sign": "funpackcustom:block/claw_machine_sign",
-    "prize_out": "funpackcustom:block/claw_machine_prize_out",
-    "controls": "funpackcustom:block/claw_machine_controls",
-    "glass": "funpackcustom:block/claw_machine_glass",
-    "particle": "funpackcustom:block/claw_machine_materials"
+    "materials": "japanesearcades:block/claw_machine_materials",
+    "sign": "japanesearcades:block/claw_machine_sign",
+    "prize_out": "japanesearcades:block/claw_machine_prize_out",
+    "controls": "japanesearcades:block/claw_machine_controls",
+    "glass": "japanesearcades:block/claw_machine_glass",
+    "particle": "japanesearcades:block/claw_machine_materials"
   },
   "elements": [
     {

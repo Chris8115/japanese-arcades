@@ -16,7 +16,7 @@ from ddr_mesh_export import pieces, quads
 
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / 'art/arcade_kiosk'
-ASSETS = ROOT / 'src/main/resources/assets/funpackcustom'
+ASSETS = ROOT / 'src/main/resources/assets/japanesearcades'
 TEX = ASSETS / 'textures/block'
 for path in (ART, TEX, ASSETS/'models/block', ASSETS/'models/item', ASSETS/'blockstates'):
     path.mkdir(parents=True, exist_ok=True)
@@ -242,12 +242,12 @@ for f in surfaces:
     for p in f['vertices']:p[0]=8+(p[0]-8)*.78
 
 def write_json(path,data):path.write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8')
-textures={name:'funpackcustom:block/arcade_kiosk_'+name for name in ('materials','screen','details')}
+textures={name:'japanesearcades:block/arcade_kiosk_'+name for name in ('materials','screen','details')}
 textures['particle']=textures['materials']
 
 def obj(path,faces):
     lines=['# Original arcade ordering kiosk. Coordinates in blocks.',
-        'mtllib funpackcustom:models/block/arcade_kiosk.mtl'];index=1;last=None
+        'mtllib japanesearcades:models/block/arcade_kiosk.mtl'];index=1;last=None
     for f in faces:
         material=f['texture'][1:]+('_glow' if f['glow'] else '_surface')
         if last!=material:lines.append('usemtl '+material);last=material
@@ -258,7 +258,7 @@ def obj(path,faces):
     path.write_text('\n'.join(lines)+'\n',encoding='utf-8')
 
 def wrapper(name,item=False):
-    data={'parent':'minecraft:block/block','loader':'neoforge:obj','model':'funpackcustom:models/'+name+'.obj',
+    data={'parent':'minecraft:block/block','loader':'neoforge:obj','model':'japanesearcades:models/'+name+'.obj',
         'automatic_culling':False,'shade_quads':True,'flip_v':True,'emissive_ambient':True,
         'ambientocclusion':not item,'render_type':'minecraft:cutout_mipped_all','textures':textures}
     if item:data.update({'gui_light':'front','display':{
@@ -288,7 +288,7 @@ for key in ('materials','screen','details'):
             'Kd 1 1 1','map_Kd #'+key,''])
 (ASSETS/'models/block/arcade_kiosk.mtl').write_text('\n'.join(mtl),encoding='utf-8')
 write_json(ASSETS/'blockstates/arcade_kiosk.json',{'variants':{
-    'facing='+direction+',half='+half:{'model':'funpackcustom:block/arcade_kiosk_'+half,**({'y':angle} if angle else {})}
+    'facing='+direction+',half='+half:{'model':'japanesearcades:block/arcade_kiosk_'+half,**({'y':angle} if angle else {})}
     for direction,angle in (('north',0),('east',90),('south',180),('west',270)) for half in ('lower','upper')}})
 
 bounds=[[min(p[i] for f in surfaces for p in f['vertices']),max(p[i] for f in surfaces for p in f['vertices'])] for i in range(3)]
@@ -310,7 +310,7 @@ for f in surfaces:
 bbtex=[]
 for i,(key,width,height) in enumerate((('materials',256,256),('screen',1024,2048),('details',1024,1024))):
     p=TEX/('arcade_kiosk_'+key+'.png')
-    bbtex.append({'name':p.name,'folder':'block','namespace':'funpackcustom','id':str(i),
+    bbtex.append({'name':p.name,'folder':'block','namespace':'japanesearcades','id':str(i),
         'uuid':str(uuid.uuid5(uuid.NAMESPACE_URL,'arcade_kiosk/'+key)),'width':width,'height':height,
         'uv_width':width,'uv_height':height,'source':'data:image/png;base64,'+base64.b64encode(p.read_bytes()).decode(),
         'mode':'bitmap','particle':i==0,'render_mode':'default','visible':True})

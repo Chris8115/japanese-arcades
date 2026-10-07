@@ -34,7 +34,7 @@ Launch `dev.cmd Client` or `dev.cmd PackClient`, then choose **Sound Voltex Valk
 Arcade Cabinet** in the **Japanese Arcades** creative tab. The command is:
 
 ```text
-/give @s funpackcustom:sound_voltex_valkyrie
+/give @s japanesearcades:sound_voltex_valkyrie
 ```
 
 Place it on a solid floor with three clear vertical blocks and side clearance. The
@@ -108,8 +108,8 @@ and rotations, and matching Blockbench geometry/UVs and six embedded textures.
 The six studio views were inspected for silhouette, lettering, and control
 clearance. Full-pack gameplay compatibility has not been re-tested for Valkyrie.
 
-The block/item ID is `funpackcustom:sound_voltex_valkyrie`. Resources are under
-`src/main/resources/assets/funpackcustom`. `SoundVoltexCabinetBlock.java` supplies
+The block/item ID is `japanesearcades:sound_voltex_valkyrie`. Resources are under
+`src/main/resources/assets/japanesearcades`. `SoundVoltexCabinetBlock.java` supplies
 the wider bounds and inherits placement and interactions from `NostalgiaCabinetBlock.java`.
 Both cabinets use `NostalgiaJukeboxBlockEntity.java` and Minecraft's native
 `JukeboxSongPlayer`. The original Nostalgia registry and saved-data IDs are retained.

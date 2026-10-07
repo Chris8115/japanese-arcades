@@ -83497,7 +83497,7 @@
     {
       "name": "beatmania_iidx_lightning_materials.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "0",
       "uuid": "d2606eb6-c71f-57be-a578-19f72ab29f9a",
       "width": 256,
@@ -83513,7 +83513,7 @@
     {
       "name": "beatmania_iidx_lightning_controls.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "1",
       "uuid": "ecdf02c8-ed38-5d7b-a2d0-11e8f409d9b7",
       "width": 1024,
@@ -83529,7 +83529,7 @@
     {
       "name": "beatmania_iidx_lightning_details.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "2",
       "uuid": "e5387d28-2e68-5596-ad01-7c3cbeede4dc",
       "width": 1024,
@@ -83545,7 +83545,7 @@
     {
       "name": "beatmania_iidx_lightning_floor.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "3",
       "uuid": "6b6d6f5f-4c88-5e74-bebf-b894820e4fac",
       "width": 1024,
@@ -83561,7 +83561,7 @@
     {
       "name": "turntable-frame.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "4",
       "uuid": "cd5ef628-f14f-59ef-866c-4a775f82406a",
       "width": 256,
@@ -83577,7 +83577,7 @@
     {
       "name": "beatmania_iidx_lightning_display.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "5",
       "uuid": "89f9f552-962a-5e1b-b740-bfbfd76a9bcf",
       "width": 2048,
@@ -83593,7 +83593,7 @@
     {
       "name": "beatmania_iidx_lightning_marquee.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "6",
       "uuid": "df49f95e-f6cb-5d72-8927-82ef79f32e11",
       "width": 2048,
@@ -83609,7 +83609,7 @@
     {
       "name": "beatmania_iidx_lightning_banners.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "7",
       "uuid": "33f0c3df-405a-5606-a367-1d11cd73459d",
       "width": 2048,

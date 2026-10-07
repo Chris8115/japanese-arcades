@@ -1,11 +1,11 @@
 {
   "textures": {
-    "materials": "funpackcustom:block/wacca_materials",
-    "details": "funpackcustom:block/wacca_details",
-    "leds": "funpackcustom:block/wacca_leds",
-    "display": "funpackcustom:block/wacca_display",
-    "branding": "funpackcustom:block/wacca_branding",
-    "particle": "funpackcustom:block/wacca_materials"
+    "materials": "japanesearcades:block/wacca_materials",
+    "details": "japanesearcades:block/wacca_details",
+    "leds": "japanesearcades:block/wacca_leds",
+    "display": "japanesearcades:block/wacca_display",
+    "branding": "japanesearcades:block/wacca_branding",
+    "particle": "japanesearcades:block/wacca_materials"
   },
   "meshes": [
     {

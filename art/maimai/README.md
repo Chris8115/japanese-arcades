@@ -27,7 +27,7 @@ Launch `dev.cmd Client` or `dev.cmd PackClient`, then select **maimai DX Twin
 Arcade Cabinet** from **Japanese Arcades**, or run:
 
 ```text
-/give @s funpackcustom:maimai
+/give @s japanesearcades:maimai
 ```
 
 Place the item on a solid floor with two adjacent supported columns and three
@@ -122,8 +122,8 @@ runtime geometry and UVs with lighting that differs from Minecraft.
 
 ## Runtime implementation
 
-The block/item ID is `funpackcustom:maimai`. Registration begins in
-`src/main/java/local/funpack/custom/FunPackCustom.java`. `MaimaiCabinetBlock.java`
+The block/item ID is `japanesearcades:maimai`. Registration begins in
+`src/main/java/local/japanesearcades/JapaneseArcades.java`. `MaimaiCabinetBlock.java`
 adds a `side=primary|secondary` property to the shared facing, part, and record
 properties. It resolves all six interactions to the primary base through the
 protected base-position hook in `NostalgiaCabinetBlock.java`.

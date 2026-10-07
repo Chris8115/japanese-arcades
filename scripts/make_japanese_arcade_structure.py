@@ -12,7 +12,7 @@ from collections import Counter
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-OUT=ROOT/'src/main/resources/data/funpackcustom/structure'
+OUT=ROOT/'src/main/resources/data/japanesearcades/structure'
 ART=ROOT/'art/japanese_arcade'
 SIZE=(19,18,19)
 BLOCKS={};ENTITIES=[];FIXTURES=[];DISPLAYS=[]
@@ -239,12 +239,12 @@ def furnishing():
 
 
 def add_machine(name,x,y,z,facing,kind='standard'):
-    identifier='funpackcustom:'+name;dx,dz=DIRECTIONS[facing];ax,az=DIRECTIONS[CLOCKWISE[facing]]
+    identifier='japanesearcades:'+name;dx,dz=DIRECTIONS[facing];ax,az=DIRECTIONS[CLOCKWISE[facing]]
     expected=[]
     if kind=='standard':
         for height,part in enumerate(('base','console','marquee')):
             p=(x,y+height,z);props={'facing':facing,'part':part,'has_record':False}
-            put(*p,identifier,props,{'id':string('funpackcustom:nostalgia_jukebox')} if height==0 else None)
+            put(*p,identifier,props,{'id':string('japanesearcades:nostalgia_jukebox')} if height==0 else None)
             expected.append({'pos':p,'properties':{k:str(v).lower() for k,v in props.items()}})
     elif kind=='taiko':
         sections=[('rear_base',0,0),('rear_console',0,1),('rear_marquee',0,2),('drum_base',1,0),('drums',1,1)]
@@ -252,16 +252,16 @@ def add_machine(name,x,y,z,facing,kind='standard'):
             for section,depth,height in sections:
                 p=(x+ax*side+dx*depth,y+height,z+az*side+dz*depth)
                 props={'facing':facing,'side':side_name,'section':section,'part':('base','console','marquee')[height],'has_record':False}
-                put(*p,identifier,props,{'id':string('funpackcustom:nostalgia_jukebox')} if side==0 and section=='rear_base' else None)
+                put(*p,identifier,props,{'id':string('japanesearcades:nostalgia_jukebox')} if side==0 and section=='rear_base' else None)
                 expected.append({'pos':p,'properties':{k:str(v).lower() for k,v in props.items()}})
     elif kind=='claw':
         for part in range(18):
             p=(x+ax*(part%3)-dx*((part//3)%2),y+part//6,z+az*(part%3)-dz*((part//3)%2))
             props={'facing':facing,'part':part}
-            put(*p,identifier,props,{'id':string('funpackcustom:claw_machine')} if part==0 else None)
+            put(*p,identifier,props,{'id':string('japanesearcades:claw_machine')} if part==0 else None)
             expected.append({'pos':p,'properties':{k:str(v).lower() for k,v in props.items()}})
     elif kind=='gachapon':
-        props={'facing':facing};put(x,y,z,identifier,props,{'id':string('funpackcustom:gachapon')})
+        props={'facing':facing};put(x,y,z,identifier,props,{'id':string('japanesearcades:gachapon')})
         expected.append({'pos':(x,y,z),'properties':props})
     elif kind=='kiosk':
         for height,half in enumerate(('lower','upper')):
@@ -282,20 +282,20 @@ def machines():
     # Prize displays have no ownership lock or operator inventory to configure.
     fill((14,2,5),(15,2,7),'polished_blackstone_bricks')
     for mob,z in (('creeper',5),('axolotl',6),('enderman',7)):
-        identifier='funpackcustom:boxed_'+mob+'_figure'
+        identifier='japanesearcades:boxed_'+mob+'_figure'
         put(14,3,z,identifier,{'facing':'west'})
         DISPLAYS.append({'id':identifier,'position':[14,3,z],'facing':'west'})
         put(15,3,z,'dark_oak_trapdoor',{'facing':'east','half':'bottom','open':True,'powered':False,'waterlogged':False})
     put(5,2,5,'polished_blackstone_bricks')
-    put(5,3,5,'funpackcustom:boxed_zombie_figure',{'facing':'east'})
-    DISPLAYS.append({'id':'funpackcustom:boxed_zombie_figure','position':[5,3,5],'facing':'east'})
+    put(5,3,5,'japanesearcades:boxed_zombie_figure',{'facing':'east'})
+    DISPLAYS.append({'id':'japanesearcades:boxed_zombie_figure','position':[5,3,5],'facing':'east'})
 
 
 PAINTINGS=[
-    {'variant':'funpackcustom:arcade_vertical_sign','size':[1,5],'anchor':[9,9,1],'facing':'north','backing':[[9,7,2],[9,11,2]]},
-    {'variant':'funpackcustom:arcade_game_center','size':[5,1],'anchor':[9,5,1],'facing':'north','backing':[[7,5,2],[11,5,2]]},
-    {'variant':'funpackcustom:arcade_invader','size':[3,3],'anchor':[17,8,9],'facing':'east','backing':[[16,7,8],[16,9,10]]},
-    {'variant':'funpackcustom:arcade_fuji','size':[4,3],'anchor':[8,8,17],'facing':'south','backing':[[7,7,16],[10,9,16]]}]
+    {'variant':'japanesearcades:arcade_vertical_sign','size':[1,5],'anchor':[9,9,1],'facing':'north','backing':[[9,7,2],[9,11,2]]},
+    {'variant':'japanesearcades:arcade_game_center','size':[5,1],'anchor':[9,5,1],'facing':'north','backing':[[7,5,2],[11,5,2]]},
+    {'variant':'japanesearcades:arcade_invader','size':[3,3],'anchor':[17,8,9],'facing':'east','backing':[[16,7,8],[16,9,10]]},
+    {'variant':'japanesearcades:arcade_fuji','size':[4,3],'anchor':[8,8,17],'facing':'south','backing':[[7,7,16],[10,9,16]]}]
 
 
 def entities():
@@ -363,7 +363,7 @@ def map_svg():
         for x in range(19):
             for z in range(19):
                 name=BLOCKS[x,y,z][0]
-                color='#c64245' if name.startswith('funpackcustom:') else colors.get(name,'#706864')
+                color='#c64245' if name.startswith('japanesearcades:') else colors.get(name,'#706864')
                 if y==7 and 7<=x<=11 and 7<=z<=11:color='#343845'
                 parts.append(f'<rect x="{ox+x*24}" y="{90+z*24}" width="23" height="23" fill="{color}"/>')
         parts.append(f'<text x="{ox+210}" y="578" class="small">NORTH / ENTRANCE ↑</text>')
@@ -395,7 +395,7 @@ def main():
     fixture=write_nbt(OUT/'arcade_test.nbt',(32,24,32),{},[])
     road={(x,y,z):('minecraft:air',{},None) for x in range(5) for y in range(3) for z in range(3)}
     for x in range(5):road[x,1,1]=('minecraft:dirt_path',{},None)
-    test_connector={**connector,'pool':string('funpackcustom:arcade/village')}
+    test_connector={**connector,'pool':string('japanesearcades:arcade/village')}
     road[2,1,0]=('minecraft:jigsaw',{'orientation':'north_up'},{'id':string('minecraft:jigsaw'),**test_connector})
     road_info=write_nbt(OUT/'arcade/test_road.nbt',(5,3,3),road,[])
     manifest={'size':list(SIZE),'front':'north','main_building_bounds':[[2,0,3],[16,11,16]],
@@ -406,7 +406,7 @@ def main():
         'integrated_village_connector':{'position':[9,2,0],'orientation':'north_up','name':'integrated_villages:house',
             'target':'integrated_villages:house','pool':'minecraft:empty','final_state':'minecraft:air','joint':'aligned'},
         'fixtures':FIXTURES,'machine_count':6,'jukebox_anchors':6,'prize_displays':DISPLAYS,'operator_spawn':[11.5,2,5.5],
-        'operator_profession':'unemployed adult; acquires funpackcustom:arcade_operator from the reachable kiosk',
+        'operator_profession':'unemployed adult; acquires japanesearcades:arcade_operator from the reachable kiosk',
         'staircase':{'width_x':[13,14],'steps':[[13,2+i,10+i] for i in range(5)],'upper_landing':[13,7,15]},
         'atrium_opening':{'x':[7,11],'z':[7,11],'floor_y':6},'paintings':PAINTINGS,
         'inventory_policy':'Six jukebox cabinets start without discs. No claw/gachapon operator inventories. Service chest contains 8 paper and 3 bread only; four static boxed figures decorate display plinths.',

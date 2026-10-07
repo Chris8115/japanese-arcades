@@ -1,7 +1,7 @@
 # SOUND VOLTEX NEMSYS cabinet
 
 The original NEMSYS-style cabinet joins the Japanese Arcades creative tab and
-the Arcade Ordering Kiosk's Machines category as `funpackcustom:sound_voltex_nemsys`.
+the Arcade Ordering Kiosk's Machines category as `japanesearcades:sound_voltex_nemsys`.
 Its EXCEED GEAR styling follows the supplied cabinet photographs: four tapered
 angular wings around a narrow portrait monitor, square black side speakers,
 magenta and cyan circuit lighting, a metallic SOUND VOLTEX / EXCEED GEAR marquee, and a separate
@@ -19,7 +19,7 @@ Order it for **16 iron ingots, 4 gold ingots, 1 diamond, 6 glass, and 6 redstone
 or select it in the Japanese Arcades creative tab:
 
 ```text
-/give @s funpackcustom:sound_voltex_nemsys
+/give @s japanesearcades:sound_voltex_nemsys
 ```
 
 Place it on a solid floor with three clear vertical blocks. Leave side clearance
@@ -30,7 +30,7 @@ The visible model measures approximately **1.37 blocks wide, 2.96 high, and
 
 Right-click with an Arcade Pass to spend Credits and receive a simulated rank
 and Prize Points. The shared default is 10 Credits per play; the server economy
-configuration accepts `funpackcustom:sound_voltex_nemsys` for machine overrides.
+configuration accepts `japanesearcades:sound_voltex_nemsys` for machine overrides.
 Right-click with a music disc to insert it; right-click again to eject it. Each
 cabinet keeps its own disc and playback progress.
 

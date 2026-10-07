@@ -18,14 +18,14 @@
   "tinted_faces": 5,
   "tintindex": 0,
   "tint_policy": "Only white accent-mask quads receive the contained-item color; print and cardboard remain untinted.",
-  "texture": "funpackcustom:block/custom_display_box_package",
+  "texture": "japanesearcades:block/custom_display_box_package",
   "texture_size": [
     512,
     1024
   ],
   "texture_layout": "Untinted atlas in top half, matching white alpha accent masks in bottom half.",
   "dynamic_label": {
-    "font": "funpackcustom:custom_display_box",
+    "font": "japanesearcades:custom_display_box",
     "color": "#f7f7ec",
     "region_model_units": {
       "x": [
@@ -81,5 +81,5 @@
     "note": "Fit the complete transformed item or mob miniature bounds inside the window; the cardboard tray top is y=0.59."
   },
   "item_model": "minecraft:builtin/entity; custom item renderer draws this shell block model and the stored contents.",
-  "copied_loot_component": "funpackcustom:display_box"
+  "copied_loot_component": "japanesearcades:display_box"
 }

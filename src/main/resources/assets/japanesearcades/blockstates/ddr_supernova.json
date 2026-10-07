@@ -1,0 +1,184 @@
+{
+  "variants": {
+    "facing=north,section=cabinet_base,side=primary": {
+      "model": "japanesearcades:block/ddr_supernova_primary_cabinet_base"
+    },
+    "facing=north,section=cabinet_console,side=primary": {
+      "model": "japanesearcades:block/ddr_supernova_primary_cabinet_console"
+    },
+    "facing=north,section=cabinet_marquee,side=primary": {
+      "model": "japanesearcades:block/ddr_supernova_primary_cabinet_marquee"
+    },
+    "facing=north,section=stage_rear,side=primary": {
+      "model": "japanesearcades:block/ddr_supernova_primary_stage_rear"
+    },
+    "facing=north,section=stage_front,side=primary": {
+      "model": "japanesearcades:block/ddr_supernova_primary_stage_front"
+    },
+    "facing=north,section=rail,side=primary": {
+      "model": "japanesearcades:block/ddr_supernova_primary_rail"
+    },
+    "facing=north,section=cabinet_base,side=secondary": {
+      "model": "japanesearcades:block/ddr_supernova_secondary_cabinet_base"
+    },
+    "facing=north,section=cabinet_console,side=secondary": {
+      "model": "japanesearcades:block/ddr_supernova_secondary_cabinet_console"
+    },
+    "facing=north,section=cabinet_marquee,side=secondary": {
+      "model": "japanesearcades:block/ddr_supernova_secondary_cabinet_marquee"
+    },
+    "facing=north,section=stage_rear,side=secondary": {
+      "model": "japanesearcades:block/ddr_supernova_secondary_stage_rear"
+    },
+    "facing=north,section=stage_front,side=secondary": {
+      "model": "japanesearcades:block/ddr_supernova_secondary_stage_front"
+    },
+    "facing=north,section=rail,side=secondary": {
+      "model": "japanesearcades:block/ddr_supernova_secondary_rail"
+    },
+    "facing=east,section=cabinet_base,side=primary": {
+      "model": "japanesearcades:block/ddr_supernova_primary_cabinet_base",
+      "y": 90
+    },
+    "facing=east,section=cabinet_console,side=primary": {
+      "model": "japanesearcades:block/ddr_supernova_primary_cabinet_console",
+      "y": 90
+    },
+    "facing=east,section=cabinet_marquee,side=primary": {
+      "model": "japanesearcades:block/ddr_supernova_primary_cabinet_marquee",
+      "y": 90
+    },
+    "facing=east,section=stage_rear,side=primary": {
+      "model": "japanesearcades:block/ddr_supernova_primary_stage_rear",
+      "y": 90
+    },
+    "facing=east,section=stage_front,side=primary": {
+      "model": "japanesearcades:block/ddr_supernova_primary_stage_front",
+      "y": 90
+    },
+    "facing=east,section=rail,side=primary": {
+      "model": "japanesearcades:block/ddr_supernova_primary_rail",
+      "y": 90
+    },
+    "facing=east,section=cabinet_base,side=secondary": {
+      "model": "japanesearcades:block/ddr_supernova_secondary_cabinet_base",
+      "y": 90
+    },
+    "facing=east,section=cabinet_console,side=secondary": {
+      "model": "japanesearcades:block/ddr_supernova_secondary_cabinet_console",
+      "y": 90
+    },
+    "facing=east,section=cabinet_marquee,side=secondary": {
+      "model": "japanesearcades:block/ddr_supernova_secondary_cabinet_marquee",
+      "y": 90
+    },
+    "facing=east,section=stage_rear,side=secondary": {
+      "model": "japanesearcades:block/ddr_supernova_secondary_stage_rear",
+      "y": 90
+    },
+    "facing=east,section=stage_front,side=secondary": {
+      "model": "japanesearcades:block/ddr_supernova_secondary_stage_front",
+      "y": 90
+    },
+    "facing=east,section=rail,side=secondary": {
+      "model": "japanesearcades:block/ddr_supernova_secondary_rail",
+      "y": 90
+    },
+    "facing=south,section=cabinet_base,side=primary": {
+      "model": "japanesearcades:block/ddr_supernova_primary_cabinet_base",
+      "y": 180
+    },
+    "facing=south,section=cabinet_console,side=primary": {
+      "model": "japanesearcades:block/ddr_supernova_primary_cabinet_console",
+      "y": 180
+    },
+    "facing=south,section=cabinet_marquee,side=primary": {
+      "model": "japanesearcades:block/ddr_supernova_primary_cabinet_marquee",
+      "y": 180
+    },
+    "facing=south,section=stage_rear,side=primary": {
+      "model": "japanesearcades:block/ddr_supernova_primary_stage_rear",
+      "y": 180
+    },
+    "facing=south,section=stage_front,side=primary": {
+      "model": "japanesearcades:block/ddr_supernova_primary_stage_front",
+      "y": 180
+    },
+    "facing=south,section=rail,side=primary": {
+      "model": "japanesearcades:block/ddr_supernova_primary_rail",
+      "y": 180
+    },
+    "facing=south,section=cabinet_base,side=secondary": {
+      "model": "japanesearcades:block/ddr_supernova_secondary_cabinet_base",
+      "y": 180
+    },
+    "facing=south,section=cabinet_console,side=secondary": {
+      "model": "japanesearcades:block/ddr_supernova_secondary_cabinet_console",
+      "y": 180
+    },
+    "facing=south,section=cabinet_marquee,side=secondary": {
+      "model": "japanesearcades:block/ddr_supernova_secondary_cabinet_marquee",
+      "y": 180
+    },
+    "facing=south,section=stage_rear,side=secondary": {
+      "model": "japanesearcades:block/ddr_supernova_secondary_stage_rear",
+      "y": 180
+    },
+    "facing=south,section=stage_front,side=secondary": {
+      "model": "japanesearcades:block/ddr_supernova_secondary_stage_front",
+      "y": 180
+    },
+    "facing=south,section=rail,side=secondary": {
+      "model": "japanesearcades:block/ddr_supernova_secondary_rail",
+      "y": 180
+    },
+    "facing=west,section=cabinet_base,side=primary": {
+      "model": "japanesearcades:block/ddr_supernova_primary_cabinet_base",
+      "y": 270
+    },
+    "facing=west,section=cabinet_console,side=primary": {
+      "model": "japanesearcades:block/ddr_supernova_primary_cabinet_console",
+      "y": 270
+    },
+    "facing=west,section=cabinet_marquee,side=primary": {
+      "model": "japanesearcades:block/ddr_supernova_primary_cabinet_marquee",
+      "y": 270
+    },
+    "facing=west,section=stage_rear,side=primary": {
+      "model": "japanesearcades:block/ddr_supernova_primary_stage_rear",
+      "y": 270
+    },
+    "facing=west,section=stage_front,side=primary": {
+      "model": "japanesearcades:block/ddr_supernova_primary_stage_front",
+      "y": 270
+    },
+    "facing=west,section=rail,side=primary": {
+      "model": "japanesearcades:block/ddr_supernova_primary_rail",
+      "y": 270
+    },
+    "facing=west,section=cabinet_base,side=secondary": {
+      "model": "japanesearcades:block/ddr_supernova_secondary_cabinet_base",
+      "y": 270
+    },
+    "facing=west,section=cabinet_console,side=secondary": {
+      "model": "japanesearcades:block/ddr_supernova_secondary_cabinet_console",
+      "y": 270
+    },
+    "facing=west,section=cabinet_marquee,side=secondary": {
+      "model": "japanesearcades:block/ddr_supernova_secondary_cabinet_marquee",
+      "y": 270
+    },
+    "facing=west,section=stage_rear,side=secondary": {
+      "model": "japanesearcades:block/ddr_supernova_secondary_stage_rear",
+      "y": 270
+    },
+    "facing=west,section=stage_front,side=secondary": {
+      "model": "japanesearcades:block/ddr_supernova_secondary_stage_front",
+      "y": 270
+    },
+    "facing=west,section=rail,side=secondary": {
+      "model": "japanesearcades:block/ddr_supernova_secondary_rail",
+      "y": 270
+    }
+  }
+}

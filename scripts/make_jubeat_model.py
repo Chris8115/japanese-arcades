@@ -11,7 +11,7 @@ from jubeat_geometry import build
 from jubeat_textures import build_textures
 
 ROOT=Path(__file__).resolve().parents[1]
-ART=ROOT/'art/jubeat';ASSETS=ROOT/'src/main/resources/assets/funpackcustom'
+ART=ROOT/'art/jubeat';ASSETS=ROOT/'src/main/resources/assets/japanesearcades'
 TEX=ASSETS/'textures/block'
 GLASS_TEXTURES={'#cube','#cube_top','#glass_overlay'}
 
@@ -22,7 +22,7 @@ def main():
     for p in (ART,TEX,ASSETS/'models/block',ASSETS/'models/item',ASSETS/'blockstates'):
         p.mkdir(parents=True,exist_ok=True)
     texture_files=build_textures(TEX)
-    textures={key:'funpackcustom:block/jubeat_'+key for key in texture_files}
+    textures={key:'japanesearcades:block/jubeat_'+key for key in texture_files}
     textures['particle']=textures['materials']
     g,metadata=build()
     assert len({f['name'] for f in g.faces})==len(g.faces),'Duplicate face name'
@@ -40,7 +40,7 @@ def main():
                 row=min(2,int(sum(p[1] for p,uv in q)/len(q)//16))
                 parts[part_names[row]].append({**f,'vertices':[p for p,uv in q],'uv':[uv for p,uv in q]})
     def obj(path,faces,transform):
-        lines=['# Classic blue Jubeat. Native block mesh; units are blocks.','mtllib funpackcustom:models/block/jubeat.mtl']
+        lines=['# Classic blue Jubeat. Native block mesh; units are blocks.','mtllib japanesearcades:models/block/jubeat.mtl']
         index=1;last=None
         for f in faces:
             mat=f['texture'][1:]+('_lit' if f['glow'] else '_surface')
@@ -51,7 +51,7 @@ def main():
             index+=len(f['vertices'])
         path.write_text('\n'.join(lines)+'\n',encoding='utf-8')
     def wrapper(path,render_type='minecraft:cutout_mipped_all'):
-        return {'parent':'minecraft:block/block','loader':'neoforge:obj','model':'funpackcustom:models/'+path,
+        return {'parent':'minecraft:block/block','loader':'neoforge:obj','model':'japanesearcades:models/'+path,
                 'automatic_culling':False,'shade_quads':True,'flip_v':True,'emissive_ambient':True,
                 'ambientocclusion':True,'render_type':render_type,'textures':textures}
     def layered_model(path,faces,transform):
@@ -75,7 +75,7 @@ def main():
         mtl.extend(['newmtl '+key+('_lit' if lit else '_surface'),'Ka '+('1 1 1' if lit else '0 0 0'),'Kd 1 1 1','map_Kd #'+key,''])
     (ASSETS/'models/block/jubeat.mtl').write_text('\n'.join(mtl),encoding='utf-8')
     write_json(ASSETS/'blockstates/jubeat.json',{'variants':{
-        'facing='+direction+',part='+part:{'model':'funpackcustom:block/jubeat_'+part,**({'y':angle} if angle else {})}
+        'facing='+direction+',part='+part:{'model':'japanesearcades:block/jubeat_'+part,**({'y':angle} if angle else {})}
         for direction,angle in (('north',0),('east',90),('south',180),('west',270)) for part in part_names}})
     item=layered_model('item/jubeat',g.faces,lambda p:[((p[0]-8)*.36+8)/16,p[1]*.36/16,((p[2]-8)*.36+8)/16])
     item.update({'ambientocclusion':False,'gui_light':'front','display':{
@@ -85,12 +85,12 @@ def main():
         'thirdperson_righthand':{'rotation':[75,45,0],'translation':[0,3,0],'scale':[.5,.5,.5]},
         'firstperson_righthand':{'rotation':[0,45,0],'translation':[0,2,0],'scale':[.55,.55,.55]}}})
     write_json(ASSETS/'models/item/jubeat.json',item)
-    loot=ROOT/'src/main/resources/data/funpackcustom/loot_table/blocks/jubeat.json'
+    loot=ROOT/'src/main/resources/data/japanesearcades/loot_table/blocks/jubeat.json'
     loot.parent.mkdir(parents=True,exist_ok=True)
     write_json(loot,{'type':'minecraft:block','pools':[{'rolls':1,
         'conditions':[{'condition':'minecraft:survives_explosion'}],
-        'entries':[{'type':'minecraft:item','name':'funpackcustom:jubeat','conditions':[{
-            'condition':'minecraft:block_state_property','block':'funpackcustom:jubeat','properties':{'part':'base'}}]}]}]})
+        'entries':[{'type':'minecraft:item','name':'japanesearcades:jubeat','conditions':[{
+            'condition':'minecraft:block_state_property','block':'japanesearcades:jubeat','properties':{'part':'base'}}]}]}]})
     bounds=[[min(p[i] for f in g.faces for p in f['vertices']),max(p[i] for f in g.faces for p in f['vertices'])] for i in range(3)]
     stats={'source_faces':len(g.faces),'runtime_section_faces':{k:len(v) for k,v in parts.items()},
            'translucent_faces':sum(f['texture'] in GLASS_TEXTURES for f in g.faces)}
@@ -110,7 +110,7 @@ def main():
         groups[f['group']].append(uid)
     texdata=[]
     for i,(key,path) in enumerate(specs):
-        w,h=sizes[i];texdata.append({'name':path.name,'folder':'block','namespace':'funpackcustom','id':str(i),
+        w,h=sizes[i];texdata.append({'name':path.name,'folder':'block','namespace':'japanesearcades','id':str(i),
             'uuid':str(uuid.uuid5(uuid.NAMESPACE_URL,'jubeat/'+key)),'width':w,'height':h,'uv_width':w,'uv_height':h,
             'source':'data:image/png;base64,'+base64.b64encode(path.read_bytes()).decode(),'mode':'bitmap','particle':i==0,'render_mode':'default','visible':True})
     write_json(ART/'jubeat.bbmodel',{'meta':{'format_version':'4.10','model_format':'free','box_uv':False},

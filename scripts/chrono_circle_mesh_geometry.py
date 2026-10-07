@@ -109,7 +109,7 @@ from obj_mesh_optimizer import optimize_obj
 
 def export_chrono(elements,curves,textures,surface_statistics,smooth_statistics,root):
     """Convert retained legacy faces exactly, add curves, and export native OBJ."""
-    art=root/'art/chrono_circle';assets=root/'src/main/resources/assets/funpackcustom'
+    art=root/'art/chrono_circle';assets=root/'src/main/resources/assets/japanesearcades'
     model=assets/'models/block';item=assets/'models/item'
     model.mkdir(parents=True,exist_ok=True);item.mkdir(parents=True,exist_ok=True)
     meshes=make_meshes([{**e,'_assembly':'cabinet'} for e in elements])+curves
@@ -117,7 +117,7 @@ def export_chrono(elements,curves,textures,surface_statistics,smooth_statistics,
     def write_json(path,data):path.write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8')
     def write_obj(path,faces):
         lines=['# Smooth Chrono Circle cabinet; positions are in Minecraft block units.',
-               'mtllib funpackcustom:models/block/chrono_circle.mtl'];index=1;last=None
+               'mtllib japanesearcades:models/block/chrono_circle.mtl'];index=1;last=None
         for f in faces:
             mat=f['texture'][1:]+('_glow' if f['glow'] else '_surface')
             if mat!=last:lines.append('usemtl '+mat);last=mat
@@ -128,7 +128,7 @@ def export_chrono(elements,curves,textures,surface_statistics,smooth_statistics,
         result,stats=optimize_obj('\n'.join(lines)+'\n');path.write_text(result,encoding='utf-8');return stats
 
     def wrapper(name):
-        return {'parent':'minecraft:block/block','loader':'neoforge:obj','model':'funpackcustom:models/'+name+'.obj',
+        return {'parent':'minecraft:block/block','loader':'neoforge:obj','model':'japanesearcades:models/'+name+'.obj',
                 'automatic_culling':False,'shade_quads':True,'flip_v':True,'emissive_ambient':True,
                 'ambientocclusion':True,'render_type':'minecraft:cutout_mipped_all','textures':textures}
 
@@ -158,7 +158,7 @@ def export_chrono(elements,curves,textures,surface_statistics,smooth_statistics,
                     'Kd 1 1 1','map_Kd #'+key,''])
     (model/'chrono_circle.mtl').write_text('\n'.join(mtl),encoding='utf-8')
     write_json(assets/'blockstates/chrono_circle.json',{'variants':{
-        'facing='+direction+',part='+part:{'model':'funpackcustom:block/chrono_circle_'+part,**({'y':angle} if angle else {})}
+        'facing='+direction+',part='+part:{'model':'japanesearcades:block/chrono_circle_'+part,**({'y':angle} if angle else {})}
         for direction,angle in (('north',0),('east',90),('south',180),('west',270)) for part in parts}})
 
     textures_list=[(key,assets/'textures/block'/(value.split('/')[-1]+'.png')) for key,value in textures.items() if key!='particle']
@@ -176,7 +176,7 @@ def export_chrono(elements,curves,textures,surface_statistics,smooth_statistics,
     bbtextures=[]
     for i,(key,path) in enumerate(textures_list):
         width,height=sizes[i]
-        bbtextures.append({'name':path.name,'folder':'block','namespace':'funpackcustom','id':str(i),
+        bbtextures.append({'name':path.name,'folder':'block','namespace':'japanesearcades','id':str(i),
                            'uuid':str(uuid.uuid5(uuid.NAMESPACE_URL,'chrono_circle/'+key)),'width':width,'height':height,
                            'uv_width':width,'uv_height':height,'source':'data:image/png;base64,'+base64.b64encode(path.read_bytes()).decode(),
                            'mode':'bitmap','particle':i==0,'render_mode':'default','visible':True})

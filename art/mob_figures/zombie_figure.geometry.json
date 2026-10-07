@@ -1,8 +1,8 @@
 {
   "textures": {
-    "skin": "funpackcustom:block/zombie_figure_skin",
-    "package": "funpackcustom:block/zombie_figure_package",
-    "particle": "funpackcustom:block/zombie_figure_skin"
+    "skin": "japanesearcades:block/zombie_figure_skin",
+    "package": "japanesearcades:block/zombie_figure_package",
+    "particle": "japanesearcades:block/zombie_figure_skin"
   },
   "meshes": [
     {

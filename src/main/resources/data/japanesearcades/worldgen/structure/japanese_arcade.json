@@ -1,0 +1,10 @@
+{
+  "type": "japanesearcades:japanese_arcade",
+  "biomes": "#japanesearcades:has_structure/japanese_arcade",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "beard_thin",
+  "start_pool": "japanesearcades:arcade/start",
+  "max_terrain_height_difference": 3,
+  "surface_height_offset": -1
+}

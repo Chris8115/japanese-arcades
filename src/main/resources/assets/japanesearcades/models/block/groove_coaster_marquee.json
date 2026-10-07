@@ -1,0 +1,5825 @@
+{
+  "parent": "minecraft:block/block",
+  "ambientocclusion": true,
+  "render_type": "minecraft:cutout_mipped_all",
+  "textures": {
+    "materials": "japanesearcades:block/groove_coaster_materials",
+    "details": "japanesearcades:block/groove_coaster_details",
+    "lights": "japanesearcades:block/groove_coaster_lights",
+    "display": "japanesearcades:block/groove_coaster_display",
+    "branding": "japanesearcades:block/groove_coaster_branding",
+    "particle": "japanesearcades:block/groove_coaster_materials"
+  },
+  "elements": [
+    {
+      "name": "Tall portrait monitor black case exterior north 004",
+      "from": [
+        -0.34,
+        0.3,
+        9.34
+      ],
+      "to": [
+        -0.19,
+        12.25,
+        15.1
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            3.42848837,
+            0.6300905,
+            3.45465116,
+            1.98190045
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Tall portrait monitor black case exterior north 005",
+      "from": [
+        -0.34,
+        12.4,
+        9.34
+      ],
+      "to": [
+        -0.19,
+        12.69,
+        15.1
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            3.42848837,
+            0.58031674,
+            3.45465116,
+            0.61312217
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Tall portrait monitor black case exterior north 011",
+      "from": [
+        16.23,
+        0.3,
+        9.34
+      ],
+      "to": [
+        16.38,
+        12.25,
+        15.1
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.53837209,
+            0.6300905,
+            0.56453488,
+            1.98190045
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Tall portrait monitor black case exterior north 012",
+      "from": [
+        16.23,
+        12.4,
+        9.34
+      ],
+      "to": [
+        16.38,
+        12.69,
+        15.1
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.53837209,
+            0.58031674,
+            0.56453488,
+            0.61312217
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Tall portrait monitor black case exterior south 001",
+      "from": [
+        -0.56,
+        -13.12,
+        9.34
+      ],
+      "to": [
+        0.07,
+        13.4,
+        15.1
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            0.50697674,
+            0.5,
+            0.61686047,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Tall portrait monitor black case exterior south 003",
+      "from": [
+        0.07,
+        -10.98,
+        9.34
+      ],
+      "to": [
+        15.93,
+        13.4,
+        15.1
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            0.61686047,
+            0.5,
+            3.38313953,
+            3.25791855
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Tall portrait monitor black case exterior south 005",
+      "from": [
+        15.93,
+        -13.12,
+        9.34
+      ],
+      "to": [
+        16.56,
+        13.4,
+        15.1
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            3.38313953,
+            0.5,
+            3.49302326,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Tall portrait monitor black case exterior up 000",
+      "from": [
+        -0.6,
+        -13.12,
+        11.33
+      ],
+      "to": [
+        -0.56,
+        13.4,
+        14.95
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0.5,
+            1.53645833,
+            0.50697674,
+            3.421875
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Tall portrait monitor black case exterior up 001",
+      "from": [
+        -0.56,
+        -13.12,
+        11.33
+      ],
+      "to": [
+        16.56,
+        13.4,
+        15.1
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0.50697674,
+            1.53645833,
+            3.49302326,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Tall portrait monitor black case exterior up 002",
+      "from": [
+        16.56,
+        -13.12,
+        11.33
+      ],
+      "to": [
+        16.6,
+        13.4,
+        14.95
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            3.49302326,
+            1.53645833,
+            3.5,
+            3.421875
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Tall portrait monitor black case exterior down 000",
+      "from": [
+        -0.6,
+        -13.12,
+        9.34
+      ],
+      "to": [
+        -0.37,
+        13.4,
+        15.1
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0.5,
+            0.5,
+            0.54011628,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Tall portrait monitor black case exterior down 001",
+      "from": [
+        -0.37,
+        -13.12,
+        10.1
+      ],
+      "to": [
+        0.2,
+        13.4,
+        15.1
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0.54011628,
+            0.5,
+            0.63953488,
+            3.10416667
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Tall portrait monitor black case exterior down 002",
+      "from": [
+        15.8,
+        -13.12,
+        10.1
+      ],
+      "to": [
+        16.37,
+        13.4,
+        15.1
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            3.36046512,
+            0.5,
+            3.45988372,
+            3.10416667
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Tall portrait monitor black case exterior down 003",
+      "from": [
+        16.37,
+        -13.12,
+        9.34
+      ],
+      "to": [
+        16.6,
+        13.4,
+        15.1
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            3.45988372,
+            0.5,
+            3.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Tall portrait monitor black case exterior west 002",
+      "from": [
+        -0.6,
+        12.94,
+        11.33
+      ],
+      "to": [
+        16.6,
+        13.4,
+        11.84
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            1.53645833,
+            0.5,
+            1.80208333,
+            0.5520362
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Tall portrait monitor black case exterior west 003",
+      "from": [
+        -0.6,
+        12.88,
+        11.84
+      ],
+      "to": [
+        16.6,
+        13.4,
+        14.81
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            1.80208333,
+            0.5,
+            3.34895833,
+            0.55882353
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Tall portrait monitor black case exterior west 004",
+      "from": [
+        -0.6,
+        -13.12,
+        14.81
+      ],
+      "to": [
+        16.6,
+        13.4,
+        14.95
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            3.34895833,
+            0.5,
+            3.421875,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Tall portrait monitor black case exterior east 002",
+      "from": [
+        -0.6,
+        12.94,
+        11.33
+      ],
+      "to": [
+        16.6,
+        13.4,
+        11.84
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            2.19791667,
+            0.5,
+            2.46354167,
+            0.5520362
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Tall portrait monitor black case exterior east 003",
+      "from": [
+        -0.6,
+        12.88,
+        11.84
+      ],
+      "to": [
+        16.6,
+        13.4,
+        14.81
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            0.65104167,
+            0.5,
+            2.19791667,
+            0.55882353
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Tall portrait monitor black case exterior east 004",
+      "from": [
+        -0.6,
+        -13.12,
+        14.81
+      ],
+      "to": [
+        16.6,
+        13.4,
+        14.95
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            0.578125,
+            0.5,
+            0.65104167,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Portrait monitor inset metal bezel exterior north 002",
+      "from": [
+        0.43,
+        12.68,
+        9.17
+      ],
+      "to": [
+        15.57,
+        12.69,
+        9.48
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.55901015,
+            4.527853,
+            7.44098985,
+            4.52901354
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Portrait monitor inset metal bezel exterior down 000",
+      "from": [
+        0.12,
+        -12.92,
+        9.17
+      ],
+      "to": [
+        15.88,
+        12.93,
+        9.34
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            4.5,
+            5.85483871,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Portrait screen rubber gasket exterior north 002",
+      "from": [
+        0.95,
+        12.45335,
+        9.045
+      ],
+      "to": [
+        15.05,
+        12.68,
+        9.29
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.60303831,
+            4.5,
+            11.39696169,
+            4.52668593
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Monitor front screw (-0.38, 32.15)",
+      "from": [
+        16.23,
+        0.15,
+        9.255
+      ],
+      "to": [
+        16.38,
+        0.3,
+        9.4
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.5,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Monitor front screw (-0.38, 32.15) exterior up 000",
+      "from": [
+        16.23,
+        0.15,
+        9.255
+      ],
+      "to": [
+        16.38,
+        0.3,
+        9.34
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            4.5,
+            4.5,
+            7.5,
+            6.25862069
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Monitor front screw (-0.38, 32.15) exterior down 000",
+      "from": [
+        16.23,
+        0.15,
+        9.255
+      ],
+      "to": [
+        16.38,
+        0.3,
+        9.34
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            4.5,
+            5.74137931,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Monitor front screw (-0.38, 32.15) exterior west 000",
+      "from": [
+        16.23,
+        0.15,
+        9.255
+      ],
+      "to": [
+        16.38,
+        0.3,
+        9.34
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            4.5,
+            4.5,
+            6.25862069,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Monitor front screw (-0.38, 32.15) exterior east 000",
+      "from": [
+        16.23,
+        0.15,
+        9.255
+      ],
+      "to": [
+        16.38,
+        0.3,
+        9.34
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            5.74137931,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Monitor front screw (-0.38, 44.25)",
+      "from": [
+        16.23,
+        12.25,
+        9.255
+      ],
+      "to": [
+        16.38,
+        12.4,
+        9.4
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.5,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Monitor front screw (-0.38, 44.25) exterior up 000",
+      "from": [
+        16.23,
+        12.25,
+        9.255
+      ],
+      "to": [
+        16.38,
+        12.4,
+        9.34
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            4.5,
+            4.5,
+            7.5,
+            6.25862069
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Monitor front screw (-0.38, 44.25) exterior down 000",
+      "from": [
+        16.23,
+        12.25,
+        9.255
+      ],
+      "to": [
+        16.38,
+        12.4,
+        9.34
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            4.5,
+            5.74137931,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Monitor front screw (-0.38, 44.25) exterior west 000",
+      "from": [
+        16.23,
+        12.25,
+        9.255
+      ],
+      "to": [
+        16.38,
+        12.4,
+        9.34
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            4.5,
+            4.5,
+            6.25862069,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Monitor front screw (-0.38, 44.25) exterior east 000",
+      "from": [
+        16.23,
+        12.25,
+        9.255
+      ],
+      "to": [
+        16.38,
+        12.4,
+        9.34
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            5.74137931,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Monitor front screw (16.19, 32.15)",
+      "from": [
+        -0.33999999999999986,
+        0.15,
+        9.255
+      ],
+      "to": [
+        -0.19000000000000128,
+        0.3,
+        9.4
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.5,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Monitor front screw (16.19, 32.15) exterior up 000",
+      "from": [
+        -0.34,
+        0.15,
+        9.255
+      ],
+      "to": [
+        -0.19,
+        0.3,
+        9.34
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            4.5,
+            4.5,
+            7.5,
+            6.25862069
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Monitor front screw (16.19, 32.15) exterior down 000",
+      "from": [
+        -0.34,
+        0.15,
+        9.255
+      ],
+      "to": [
+        -0.19,
+        0.3,
+        9.34
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            4.5,
+            5.74137931,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Monitor front screw (16.19, 32.15) exterior west 000",
+      "from": [
+        -0.34,
+        0.15,
+        9.255
+      ],
+      "to": [
+        -0.19,
+        0.3,
+        9.34
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            4.5,
+            4.5,
+            6.25862069,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Monitor front screw (16.19, 32.15) exterior east 000",
+      "from": [
+        -0.34,
+        0.15,
+        9.255
+      ],
+      "to": [
+        -0.19,
+        0.3,
+        9.34
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            5.74137931,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Monitor front screw (16.19, 44.25)",
+      "from": [
+        -0.33999999999999986,
+        12.25,
+        9.255
+      ],
+      "to": [
+        -0.19000000000000128,
+        12.4,
+        9.4
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.5,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Monitor front screw (16.19, 44.25) exterior up 000",
+      "from": [
+        -0.34,
+        12.25,
+        9.255
+      ],
+      "to": [
+        -0.19,
+        12.4,
+        9.34
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            4.5,
+            4.5,
+            7.5,
+            6.25862069
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Monitor front screw (16.19, 44.25) exterior down 000",
+      "from": [
+        -0.34,
+        12.25,
+        9.255
+      ],
+      "to": [
+        -0.19,
+        12.4,
+        9.34
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            4.5,
+            5.74137931,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Monitor front screw (16.19, 44.25) exterior west 000",
+      "from": [
+        -0.34,
+        12.25,
+        9.255
+      ],
+      "to": [
+        -0.19,
+        12.4,
+        9.34
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            4.5,
+            4.5,
+            6.25862069,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Monitor front screw (16.19, 44.25) exterior east 000",
+      "from": [
+        -0.34,
+        12.25,
+        9.255
+      ],
+      "to": [
+        -0.19,
+        12.4,
+        9.34
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            5.74137931,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left vertical monitor side return exterior north 000",
+      "from": [
+        16.6,
+        -12.6,
+        10.33
+      ],
+      "to": [
+        16.72,
+        12.69,
+        14.81
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.5,
+            0.52237049,
+            6.13636364,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left vertical monitor side return exterior south 000",
+      "from": [
+        16.6,
+        -12.6,
+        10.33
+      ],
+      "to": [
+        16.72,
+        12.88,
+        14.81
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            5.86363636,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left vertical monitor side return exterior up 000",
+      "from": [
+        16.6,
+        -12.6,
+        11.84
+      ],
+      "to": [
+        16.72,
+        12.88,
+        14.81
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            5.86363636,
+            1.51116071,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left vertical monitor side return exterior down 000",
+      "from": [
+        16.6,
+        -12.6,
+        10.33
+      ],
+      "to": [
+        16.72,
+        12.88,
+        14.81
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            5.86363636,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left vertical monitor side return exterior east 000",
+      "from": [
+        16.5,
+        -12.6,
+        10.33
+      ],
+      "to": [
+        16.72,
+        12.69,
+        11.84
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            6.48883929,
+            0.52237049,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left vertical monitor side return exterior east 001",
+      "from": [
+        16.5,
+        -12.6,
+        11.84
+      ],
+      "to": [
+        16.72,
+        12.88,
+        13.67
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            5.26339286,
+            0.5,
+            6.48883929,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left vertical monitor side return exterior east 004",
+      "from": [
+        16.5,
+        8.65,
+        13.67
+      ],
+      "to": [
+        16.72,
+        12.88,
+        13.82
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            5.16294643,
+            0.5,
+            5.26339286,
+            0.99803768
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left vertical monitor side return exterior east 005",
+      "from": [
+        16.5,
+        -12.6,
+        13.82
+      ],
+      "to": [
+        16.72,
+        12.88,
+        14.81
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            4.5,
+            0.5,
+            5.16294643,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left monitor side screw 40.5",
+      "from": [
+        16.475,
+        8.5,
+        13.67
+      ],
+      "to": [
+        16.745,
+        8.65,
+        13.82
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            4.5,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left monitor side screw 40.5 exterior north 000",
+      "from": [
+        16.72,
+        8.5,
+        13.67
+      ],
+      "to": [
+        16.745,
+        8.65,
+        13.82
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.5,
+            4.5,
+            4.77777778,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left monitor side screw 40.5 exterior south 000",
+      "from": [
+        16.72,
+        8.5,
+        13.67
+      ],
+      "to": [
+        16.745,
+        8.65,
+        13.82
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            7.22222222,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left monitor side screw 40.5 exterior up 000",
+      "from": [
+        16.72,
+        8.5,
+        13.67
+      ],
+      "to": [
+        16.745,
+        8.65,
+        13.82
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            7.22222222,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left monitor side screw 40.5 exterior down 000",
+      "from": [
+        16.72,
+        8.5,
+        13.67
+      ],
+      "to": [
+        16.745,
+        8.65,
+        13.82
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            7.22222222,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right vertical monitor side return exterior north 000",
+      "from": [
+        -0.72,
+        -12.6,
+        10.33
+      ],
+      "to": [
+        -0.6,
+        12.69,
+        14.81
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            5.86363636,
+            0.52237049,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right vertical monitor side return exterior south 000",
+      "from": [
+        -0.72,
+        -12.6,
+        10.33
+      ],
+      "to": [
+        -0.6,
+        12.88,
+        14.81
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            4.5,
+            0.5,
+            6.13636364,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right vertical monitor side return exterior up 000",
+      "from": [
+        -0.72,
+        -12.6,
+        11.84
+      ],
+      "to": [
+        -0.6,
+        12.88,
+        14.81
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            4.5,
+            1.51116071,
+            6.13636364,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right vertical monitor side return exterior down 000",
+      "from": [
+        -0.72,
+        -12.6,
+        10.33
+      ],
+      "to": [
+        -0.6,
+        12.88,
+        14.81
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            4.5,
+            0.5,
+            6.13636364,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right vertical monitor side return exterior west 000",
+      "from": [
+        -0.72,
+        -12.6,
+        10.33
+      ],
+      "to": [
+        -0.5,
+        12.69,
+        11.84
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            4.5,
+            0.52237049,
+            5.51116071,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right vertical monitor side return exterior west 001",
+      "from": [
+        -0.72,
+        -12.6,
+        11.84
+      ],
+      "to": [
+        -0.5,
+        12.88,
+        13.67
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            5.51116071,
+            0.5,
+            6.73660714,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right vertical monitor side return exterior west 004",
+      "from": [
+        -0.72,
+        8.65,
+        13.67
+      ],
+      "to": [
+        -0.5,
+        12.88,
+        13.82
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            6.73660714,
+            0.5,
+            6.83705357,
+            0.99803768
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right vertical monitor side return exterior west 005",
+      "from": [
+        -0.72,
+        -12.6,
+        13.82
+      ],
+      "to": [
+        -0.5,
+        12.88,
+        14.81
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            6.83705357,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right monitor side screw 40.5",
+      "from": [
+        -0.7449999999999974,
+        8.5,
+        13.67
+      ],
+      "to": [
+        -0.4750000000000014,
+        8.65,
+        13.82
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            4.5,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right monitor side screw 40.5 exterior north 000",
+      "from": [
+        -0.745,
+        8.5,
+        13.67
+      ],
+      "to": [
+        -0.72,
+        8.65,
+        13.82
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.22222222,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right monitor side screw 40.5 exterior south 000",
+      "from": [
+        -0.745,
+        8.5,
+        13.67
+      ],
+      "to": [
+        -0.72,
+        8.65,
+        13.82
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            4.5,
+            4.5,
+            4.77777778,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right monitor side screw 40.5 exterior up 000",
+      "from": [
+        -0.745,
+        8.5,
+        13.67
+      ],
+      "to": [
+        -0.72,
+        8.65,
+        13.82
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            4.5,
+            4.5,
+            4.77777778,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right monitor side screw 40.5 exterior down 000",
+      "from": [
+        -0.745,
+        8.5,
+        13.67
+      ],
+      "to": [
+        -0.72,
+        8.65,
+        13.82
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            4.5,
+            4.5,
+            4.77777778,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 00",
+      "from": [
+        -1.25,
+        12.93,
+        8.22
+      ],
+      "to": [
+        17.25,
+        13.16154,
+        11.33
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            4.5,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 00 exterior north 000",
+      "from": [
+        -1.25,
+        12.93,
+        8.22
+      ],
+      "to": [
+        17.0,
+        13.13,
+        11.33
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.54054054,
+            0.90863786,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 00 exterior north 001",
+      "from": [
+        17.0,
+        12.93,
+        8.22
+      ],
+      "to": [
+        17.25,
+        13.16154,
+        11.33
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.5,
+            0.5,
+            4.54054054,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 00 exterior south 000",
+      "from": [
+        -1.25,
+        12.93,
+        8.22
+      ],
+      "to": [
+        -1.2,
+        13.16154,
+        11.33
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            4.5,
+            0.5,
+            4.50810811,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 00 exterior south 001",
+      "from": [
+        -1.2,
+        12.94,
+        8.22
+      ],
+      "to": [
+        -0.6,
+        13.16154,
+        11.33
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            4.50810811,
+            0.5,
+            4.60540541,
+            3.37043189
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 00 exterior south 002",
+      "from": [
+        16.6,
+        12.94,
+        8.22
+      ],
+      "to": [
+        17.2,
+        13.16154,
+        11.33
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            7.39459459,
+            0.5,
+            7.49189189,
+            3.37043189
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 00 exterior south 003",
+      "from": [
+        17.2,
+        12.93,
+        8.22
+      ],
+      "to": [
+        17.25,
+        13.16154,
+        11.33
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            7.49189189,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 00 exterior down 000",
+      "from": [
+        -1.25,
+        12.93,
+        8.22
+      ],
+      "to": [
+        -1.2,
+        13.16154,
+        11.33
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            4.5,
+            0.5,
+            4.50810811,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 00 exterior down 001",
+      "from": [
+        -1.2,
+        12.93,
+        8.22
+      ],
+      "to": [
+        17.2,
+        13.16154,
+        8.49
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            4.50810811,
+            3.23954984,
+            7.49189189,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 00 exterior down 002",
+      "from": [
+        17.2,
+        12.93,
+        8.22
+      ],
+      "to": [
+        17.25,
+        13.16154,
+        11.33
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            7.49189189,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 00 exterior west 000",
+      "from": [
+        -1.25,
+        12.93,
+        8.22
+      ],
+      "to": [
+        17.25,
+        13.13,
+        8.3
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            4.5,
+            0.90863786,
+            4.57717042,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 00 exterior west 001",
+      "from": [
+        -1.25,
+        12.93,
+        8.3
+      ],
+      "to": [
+        17.25,
+        13.16154,
+        11.33
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            4.57717042,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 01",
+      "from": [
+        -1.7199999999999989,
+        13.16154,
+        8.22
+      ],
+      "to": [
+        17.72,
+        15.47692,
+        11.33
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            4.5,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            4.5,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 01 exterior north 000",
+      "from": [
+        -1.72,
+        13.16154,
+        8.22
+      ],
+      "to": [
+        -1.69,
+        15.47692,
+        11.33
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.49537037,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 01 exterior north 001",
+      "from": [
+        -1.69,
+        13.16154,
+        8.22
+      ],
+      "to": [
+        -1.25,
+        13.47,
+        11.33
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.42746914,
+            3.10033222,
+            7.49537037,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 01 exterior north 002",
+      "from": [
+        -1.69,
+        15.18,
+        8.22
+      ],
+      "to": [
+        -1.25,
+        15.47692,
+        11.33
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.42746914,
+            0.5,
+            7.49537037,
+            0.88471761
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 01 exterior north 003",
+      "from": [
+        -1.25,
+        15.44818,
+        8.22
+      ],
+      "to": [
+        -1.0,
+        15.47692,
+        11.33
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.38888889,
+            0.5,
+            7.42746914,
+            0.53723951
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 01 exterior north 004",
+      "from": [
+        17.0,
+        13.16154,
+        8.22
+      ],
+      "to": [
+        17.25,
+        13.36182,
+        11.33
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.57253086,
+            3.24050136,
+            4.61111111,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 01 exterior north 005",
+      "from": [
+        17.0,
+        15.44818,
+        8.22
+      ],
+      "to": [
+        17.25,
+        15.47692,
+        11.33
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.57253086,
+            0.5,
+            4.61111111,
+            0.53723951
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 01 exterior north 006",
+      "from": [
+        17.25,
+        13.16154,
+        8.22
+      ],
+      "to": [
+        17.69,
+        13.47,
+        11.33
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.50462963,
+            3.10033222,
+            4.57253086,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 01 exterior north 007",
+      "from": [
+        17.25,
+        15.18,
+        8.22
+      ],
+      "to": [
+        17.69,
+        15.47692,
+        11.33
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.50462963,
+            0.5,
+            4.57253086,
+            0.88471761
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 01 exterior north 008",
+      "from": [
+        17.69,
+        13.16154,
+        8.22
+      ],
+      "to": [
+        17.72,
+        15.47692,
+        11.33
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.5,
+            0.5,
+            4.50462963,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 01 exterior south 000",
+      "from": [
+        -1.72,
+        13.16154,
+        8.22
+      ],
+      "to": [
+        -1.65,
+        15.47692,
+        11.33
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            4.5,
+            0.5,
+            4.51080247,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 01 exterior south 001",
+      "from": [
+        -1.65,
+        13.16154,
+        8.22
+      ],
+      "to": [
+        -0.6,
+        14.38,
+        11.33
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            4.51080247,
+            1.92126246,
+            4.67283951,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 01 exterior south 002",
+      "from": [
+        -1.65,
+        15.37,
+        8.22
+      ],
+      "to": [
+        -0.56,
+        15.47692,
+        11.33
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            4.51080247,
+            0.5,
+            4.67901235,
+            0.63853821
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 01 exterior south 003",
+      "from": [
+        -0.6,
+        13.4,
+        8.22
+      ],
+      "to": [
+        -0.56,
+        14.38,
+        11.33
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            4.67283951,
+            1.92126246,
+            4.67901235,
+            3.1910299
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 01 exterior south 004",
+      "from": [
+        -0.56,
+        13.4,
+        8.22
+      ],
+      "to": [
+        16.56,
+        15.47692,
+        11.33
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            4.67901235,
+            0.5,
+            7.32098765,
+            3.1910299
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 01 exterior south 005",
+      "from": [
+        16.56,
+        13.4,
+        8.22
+      ],
+      "to": [
+        16.6,
+        14.38,
+        11.33
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            7.32098765,
+            1.92126246,
+            7.32716049,
+            3.1910299
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 01 exterior south 006",
+      "from": [
+        16.56,
+        15.37,
+        8.22
+      ],
+      "to": [
+        17.65,
+        15.47692,
+        11.33
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            7.32098765,
+            0.5,
+            7.48919753,
+            0.63853821
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 01 exterior south 007",
+      "from": [
+        16.6,
+        13.16154,
+        8.22
+      ],
+      "to": [
+        17.65,
+        14.38,
+        11.33
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            7.32716049,
+            1.92126246,
+            7.48919753,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 01 exterior south 008",
+      "from": [
+        17.65,
+        13.16154,
+        8.22
+      ],
+      "to": [
+        17.72,
+        15.47692,
+        11.33
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            7.48919753,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 01 exterior up 000",
+      "from": [
+        -1.72,
+        13.16154,
+        8.22
+      ],
+      "to": [
+        -1.5,
+        15.47692,
+        11.33
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            4.5,
+            0.5,
+            4.53395062,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 01 exterior up 001",
+      "from": [
+        17.5,
+        13.16154,
+        8.22
+      ],
+      "to": [
+        17.72,
+        15.47692,
+        11.33
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            7.46604938,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 01 exterior down 000",
+      "from": [
+        -1.72,
+        13.16154,
+        8.22
+      ],
+      "to": [
+        -1.25,
+        15.47692,
+        11.33
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            4.5,
+            0.5,
+            4.57253086,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 01 exterior down 001",
+      "from": [
+        17.25,
+        13.16154,
+        8.22
+      ],
+      "to": [
+        17.72,
+        15.47692,
+        11.33
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            7.42746914,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 02",
+      "from": [
+        -1.5,
+        15.47692,
+        8.22
+      ],
+      "to": [
+        17.5,
+        15.70846,
+        11.33
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            4.5,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            4.5,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            4.5,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 02 exterior north 000",
+      "from": [
+        -1.5,
+        15.47692,
+        8.22
+      ],
+      "to": [
+        -1.0,
+        15.70846,
+        11.33
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.42105263,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 02 exterior north 001",
+      "from": [
+        -1.0,
+        15.68,
+        8.22
+      ],
+      "to": [
+        17.0,
+        15.70846,
+        11.33
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.57894737,
+            0.5,
+            7.42105263,
+            0.86877079
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 02 exterior north 002",
+      "from": [
+        17.0,
+        15.47692,
+        8.22
+      ],
+      "to": [
+        17.5,
+        15.70846,
+        11.33
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.5,
+            0.5,
+            4.57894737,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 02 exterior up 000",
+      "from": [
+        -1.5,
+        15.47692,
+        8.22
+      ],
+      "to": [
+        -1.0,
+        15.70846,
+        11.33
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            4.5,
+            0.5,
+            4.57894737,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 02 exterior up 001",
+      "from": [
+        17.25,
+        15.47692,
+        8.22
+      ],
+      "to": [
+        17.5,
+        15.70846,
+        11.33
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            7.46052632,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Classic clipped header dark shell segment 03",
+      "from": [
+        -1.0,
+        15.70846,
+        8.22
+      ],
+      "to": [
+        17.25,
+        15.94,
+        11.33
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.5,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            4.5,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            4.5,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            4.5,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            4.5,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Groove Coaster luminous dot matrix header segment 00",
+      "from": [
+        -1.25,
+        13.13,
+        8.09
+      ],
+      "to": [
+        17.0,
+        13.36182,
+        8.3
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.32671673819742497,
+            6.863636363636356,
+            11.830874463519313,
+            7.5
+          ],
+          "texture": "#branding",
+          "neoforge_data": {
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "Groove Coaster luminous dot matrix header segment 00 exterior down 000",
+      "from": [
+        -1.25,
+        13.13,
+        8.09
+      ],
+      "to": [
+        17.0,
+        13.36182,
+        8.22
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            12.5,
+            9.64285714,
+            15.5,
+            11.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Groove Coaster luminous dot matrix header segment 00 exterior west 000",
+      "from": [
+        -1.25,
+        13.13,
+        8.09
+      ],
+      "to": [
+        17.0,
+        13.36182,
+        8.22
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            12.5,
+            8.5,
+            14.35714286,
+            11.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Groove Coaster luminous dot matrix header segment 00 exterior west 001",
+      "from": [
+        -1.25,
+        13.13,
+        8.22
+      ],
+      "to": [
+        17.0,
+        13.16154,
+        8.3
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            14.35714286,
+            11.09185522,
+            15.5,
+            11.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Groove Coaster luminous dot matrix header segment 00 exterior east 000",
+      "from": [
+        -1.25,
+        13.13,
+        8.09
+      ],
+      "to": [
+        17.0,
+        13.36182,
+        8.22
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            13.64285714,
+            8.5,
+            15.5,
+            11.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Groove Coaster luminous dot matrix header segment 01 exterior north 000",
+      "from": [
+        -1.25,
+        13.36182,
+        8.09
+      ],
+      "to": [
+        -0.52,
+        13.47,
+        8.3
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            11.37070815,
+            6.56666666,
+            11.83087446,
+            6.86363636
+          ],
+          "texture": "#branding",
+          "neoforge_data": {
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "Groove Coaster luminous dot matrix header segment 01 exterior north 001",
+      "from": [
+        -1.25,
+        15.18,
+        8.09
+      ],
+      "to": [
+        -0.52,
+        15.44818,
+        8.3
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            11.37070815,
+            1.13636364,
+            11.83087446,
+            1.87254902
+          ],
+          "texture": "#branding",
+          "neoforge_data": {
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "Groove Coaster luminous dot matrix header segment 01 exterior north 002",
+      "from": [
+        -0.52,
+        13.36182,
+        8.09
+      ],
+      "to": [
+        16.52,
+        15.44818,
+        8.3
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.62929185,
+            1.13636364,
+            11.37070815,
+            6.86363636
+          ],
+          "texture": "#branding",
+          "neoforge_data": {
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "Groove Coaster luminous dot matrix header segment 01 exterior north 003",
+      "from": [
+        16.52,
+        13.36182,
+        8.09
+      ],
+      "to": [
+        17.25,
+        13.47,
+        8.3
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.16912554,
+            6.56666666,
+            0.62929185,
+            6.86363636
+          ],
+          "texture": "#branding",
+          "neoforge_data": {
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "Groove Coaster luminous dot matrix header segment 01 exterior north 004",
+      "from": [
+        16.52,
+        15.18,
+        8.09
+      ],
+      "to": [
+        17.25,
+        15.44818,
+        8.3
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.16912554,
+            1.13636364,
+            0.62929185,
+            1.87254902
+          ],
+          "texture": "#branding",
+          "neoforge_data": {
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "Groove Coaster luminous dot matrix header segment 01 exterior up 000",
+      "from": [
+        -1.25,
+        13.36182,
+        8.09
+      ],
+      "to": [
+        -1.0,
+        15.44818,
+        8.22
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            12.5,
+            8.5,
+            12.54054054,
+            10.35714286
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Groove Coaster luminous dot matrix header segment 01 exterior up 001",
+      "from": [
+        17.0,
+        13.36182,
+        8.09
+      ],
+      "to": [
+        17.25,
+        15.44818,
+        8.22
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            15.45945946,
+            8.5,
+            15.5,
+            10.35714286
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Groove Coaster luminous dot matrix header segment 01 exterior down 000",
+      "from": [
+        17.0,
+        13.36182,
+        8.09
+      ],
+      "to": [
+        17.25,
+        15.44818,
+        8.22
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            15.45945946,
+            9.64285714,
+            15.5,
+            11.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Groove Coaster luminous dot matrix header segment 01 exterior west 000",
+      "from": [
+        -1.25,
+        13.36182,
+        8.09
+      ],
+      "to": [
+        17.25,
+        13.47,
+        8.22
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            12.5,
+            11.34444444,
+            14.35714286,
+            11.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Groove Coaster luminous dot matrix header segment 01 exterior west 001",
+      "from": [
+        -1.25,
+        15.18,
+        8.09
+      ],
+      "to": [
+        17.25,
+        15.44818,
+        8.22
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            12.5,
+            8.5,
+            14.35714286,
+            8.88562092
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Groove Coaster luminous dot matrix header segment 01 exterior east 000",
+      "from": [
+        -1.25,
+        13.36182,
+        8.09
+      ],
+      "to": [
+        17.25,
+        13.47,
+        8.22
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            13.64285714,
+            11.34444444,
+            15.5,
+            11.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Groove Coaster luminous dot matrix header segment 01 exterior east 001",
+      "from": [
+        -1.25,
+        15.18,
+        8.09
+      ],
+      "to": [
+        17.25,
+        15.44818,
+        8.22
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            13.64285714,
+            8.5,
+            15.5,
+            8.88562092
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Groove Coaster luminous dot matrix header segment 02",
+      "from": [
+        -1.0,
+        15.44818,
+        8.09
+      ],
+      "to": [
+        17.0,
+        15.68,
+        8.3
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.32671673819742497,
+            0.5,
+            11.673283261802576,
+            1.1363636363636433
+          ],
+          "texture": "#branding",
+          "neoforge_data": {
+            "block_light": 15,
+            "sky_light": 15,
+            "ambient_occlusion": false
+          }
+        }
+      }
+    },
+    {
+      "name": "Groove Coaster luminous dot matrix header segment 02 exterior up 000",
+      "from": [
+        -1.0,
+        15.44818,
+        8.09
+      ],
+      "to": [
+        17.0,
+        15.68,
+        8.22
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            12.5,
+            8.5,
+            15.5,
+            10.35714286
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Groove Coaster luminous dot matrix header segment 02 exterior west 000",
+      "from": [
+        -1.0,
+        15.44818,
+        8.09
+      ],
+      "to": [
+        17.0,
+        15.68,
+        8.22
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            12.5,
+            8.5,
+            14.35714286,
+            11.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Groove Coaster luminous dot matrix header segment 02 exterior east 000",
+      "from": [
+        -1.0,
+        15.44818,
+        8.09
+      ],
+      "to": [
+        17.0,
+        15.68,
+        8.22
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            13.64285714,
+            8.5,
+            15.5,
+            11.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Marquee lower silver support exterior north 000",
+      "from": [
+        -1.2,
+        12.69,
+        8.49
+      ],
+      "to": [
+        17.2,
+        12.93,
+        11.84
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.5,
+            4.62,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Marquee lower silver support exterior south 000",
+      "from": [
+        -1.2,
+        12.69,
+        8.49
+      ],
+      "to": [
+        -0.72,
+        12.94,
+        11.84
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            4.5,
+            4.5,
+            4.57826087,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Marquee lower silver support exterior south 001",
+      "from": [
+        -0.72,
+        12.88,
+        8.49
+      ],
+      "to": [
+        -0.6,
+        12.94,
+        11.84
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            4.57826087,
+            4.5,
+            4.59782609,
+            5.22
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Marquee lower silver support exterior south 002",
+      "from": [
+        16.6,
+        12.88,
+        8.49
+      ],
+      "to": [
+        16.72,
+        12.94,
+        11.84
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            7.40217391,
+            4.5,
+            7.42173913,
+            5.22
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Marquee lower silver support exterior south 003",
+      "from": [
+        16.72,
+        12.69,
+        8.49
+      ],
+      "to": [
+        17.2,
+        12.94,
+        11.84
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            7.42173913,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Marquee lower silver support exterior up 000",
+      "from": [
+        -1.2,
+        12.69,
+        11.33
+      ],
+      "to": [
+        -0.6,
+        12.94,
+        11.84
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            4.5,
+            7.04328358,
+            4.59782609,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Marquee lower silver support exterior up 001",
+      "from": [
+        16.6,
+        12.69,
+        11.33
+      ],
+      "to": [
+        17.2,
+        12.94,
+        11.84
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            7.40217391,
+            7.04328358,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Marquee lower silver support exterior down 000",
+      "from": [
+        -1.2,
+        12.69,
+        8.49
+      ],
+      "to": [
+        -0.72,
+        12.94,
+        11.84
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            4.5,
+            4.5,
+            4.57826087,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Marquee lower silver support exterior down 001",
+      "from": [
+        -0.72,
+        12.69,
+        8.49
+      ],
+      "to": [
+        -0.6,
+        12.94,
+        10.33
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            4.57826087,
+            5.85223881,
+            4.59782609,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Marquee lower silver support exterior down 002",
+      "from": [
+        -0.6,
+        12.69,
+        8.49
+      ],
+      "to": [
+        0.12,
+        12.94,
+        9.34
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            4.59782609,
+            6.73880597,
+            4.71521739,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Marquee lower silver support exterior down 003",
+      "from": [
+        0.12,
+        12.69,
+        8.49
+      ],
+      "to": [
+        15.88,
+        12.94,
+        9.17
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            4.71521739,
+            6.89104478,
+            7.28478261,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Marquee lower silver support exterior down 004",
+      "from": [
+        15.88,
+        12.69,
+        8.49
+      ],
+      "to": [
+        16.6,
+        12.94,
+        9.34
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            7.28478261,
+            6.73880597,
+            7.40217391,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Marquee lower silver support exterior down 005",
+      "from": [
+        16.6,
+        12.69,
+        8.49
+      ],
+      "to": [
+        16.72,
+        12.94,
+        10.33
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            7.40217391,
+            5.85223881,
+            7.42173913,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Marquee lower silver support exterior down 006",
+      "from": [
+        16.72,
+        12.69,
+        8.49
+      ],
+      "to": [
+        17.2,
+        12.94,
+        11.84
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            7.42173913,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Marquee lower silver support exterior west 000",
+      "from": [
+        -1.2,
+        12.69,
+        8.49
+      ],
+      "to": [
+        17.2,
+        12.93,
+        11.33
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            4.5,
+            4.62,
+            7.04328358,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Marquee lower silver support exterior west 001",
+      "from": [
+        -1.2,
+        12.69,
+        11.33
+      ],
+      "to": [
+        17.2,
+        12.94,
+        11.84
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            7.04328358,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Marquee lower silver support exterior east 000",
+      "from": [
+        -1.2,
+        12.69,
+        8.49
+      ],
+      "to": [
+        17.2,
+        12.93,
+        11.33
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            4.95671642,
+            4.62,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Marquee lower silver support exterior east 001",
+      "from": [
+        -1.2,
+        12.69,
+        11.33
+      ],
+      "to": [
+        17.2,
+        12.94,
+        11.84
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            4.5,
+            4.5,
+            4.95671642,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left rear header mounting leg",
+      "from": [
+        16.56,
+        11.65,
+        14.95
+      ],
+      "to": [
+        17.65,
+        14.52,
+        16.72
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            0.5,
+            0.5,
+            3.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left rear header mounting leg exterior north 000",
+      "from": [
+        16.56,
+        13.4,
+        14.95
+      ],
+      "to": [
+        16.6,
+        14.38,
+        16.72
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            3.38990826,
+            0.64634146,
+            3.5,
+            1.67073171
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left rear header mounting leg exterior north 001",
+      "from": [
+        16.6,
+        11.65,
+        14.95
+      ],
+      "to": [
+        17.65,
+        14.38,
+        16.72
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.5,
+            0.64634146,
+            3.38990826,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left rear header mounting leg exterior up 000",
+      "from": [
+        16.56,
+        11.65,
+        16.69
+      ],
+      "to": [
+        17.65,
+        14.52,
+        16.72
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0.5,
+            3.44915254,
+            3.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left rear header mounting leg exterior down 000",
+      "from": [
+        16.56,
+        11.65,
+        15.1
+      ],
+      "to": [
+        16.6,
+        14.52,
+        16.72
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0.5,
+            0.5,
+            0.61009174,
+            3.24576271
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left rear header mounting leg exterior down 001",
+      "from": [
+        16.6,
+        11.65,
+        14.95
+      ],
+      "to": [
+        17.65,
+        14.52,
+        16.72
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0.61009174,
+            0.5,
+            3.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left rear header mounting leg exterior west 000",
+      "from": [
+        16.56,
+        13.4,
+        14.95
+      ],
+      "to": [
+        17.65,
+        14.38,
+        15.1
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            0.5,
+            0.64634146,
+            0.75423729,
+            1.67073171
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left rear header mounting leg exterior west 001",
+      "from": [
+        16.56,
+        11.65,
+        15.1
+      ],
+      "to": [
+        17.65,
+        14.38,
+        16.69
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            0.75423729,
+            0.64634146,
+            3.44915254,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left rear header mounting leg exterior west 002",
+      "from": [
+        16.56,
+        11.65,
+        16.69
+      ],
+      "to": [
+        17.65,
+        14.52,
+        16.72
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            3.44915254,
+            0.5,
+            3.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left rear header mounting leg exterior east 000",
+      "from": [
+        16.56,
+        11.65,
+        14.95
+      ],
+      "to": [
+        17.65,
+        14.38,
+        16.69
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            0.55084746,
+            0.64634146,
+            3.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left rear header mounting leg exterior east 001",
+      "from": [
+        16.56,
+        11.65,
+        16.69
+      ],
+      "to": [
+        17.65,
+        14.52,
+        16.72
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            0.5,
+            0.5,
+            0.55084746,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left header mounting shoulder exterior south 000",
+      "from": [
+        16.56,
+        14.52,
+        10.68
+      ],
+      "to": [
+        17.65,
+        15.37,
+        16.69
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            0.5,
+            0.5,
+            3.5,
+            3.07575758
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left header mounting shoulder exterior up 000",
+      "from": [
+        16.56,
+        14.38,
+        11.33
+      ],
+      "to": [
+        17.65,
+        15.37,
+        16.69
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0.5,
+            0.82445923,
+            3.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left header mounting shoulder exterior down 000",
+      "from": [
+        16.56,
+        14.38,
+        11.33
+      ],
+      "to": [
+        17.65,
+        15.37,
+        14.95
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0.5,
+            1.36855241,
+            3.5,
+            3.17554077
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left header mounting shoulder exterior west 000",
+      "from": [
+        16.56,
+        14.38,
+        11.33
+      ],
+      "to": [
+        17.65,
+        15.37,
+        16.69
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            0.82445923,
+            0.5,
+            3.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left header mounting shoulder exterior east 000",
+      "from": [
+        16.56,
+        14.38,
+        11.33
+      ],
+      "to": [
+        17.65,
+        15.37,
+        16.69
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            0.5,
+            0.5,
+            3.17554077,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left clipped header end cap exterior north 000",
+      "from": [
+        16.52,
+        13.47,
+        8.04
+      ],
+      "to": [
+        17.17,
+        15.18,
+        8.43
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.83333333,
+            0.5,
+            3.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left clipped header end cap exterior north 001",
+      "from": [
+        17.17,
+        13.47,
+        8.04
+      ],
+      "to": [
+        17.31,
+        13.78,
+        8.43
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.47435897,
+            2.95614035,
+            1.83333333,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left clipped header end cap exterior north 002",
+      "from": [
+        17.17,
+        13.92,
+        8.04
+      ],
+      "to": [
+        17.31,
+        14.88,
+        8.43
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.47435897,
+            1.02631579,
+            1.83333333,
+            2.71052632
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left clipped header end cap exterior north 003",
+      "from": [
+        17.17,
+        15.02,
+        8.04
+      ],
+      "to": [
+        17.31,
+        15.18,
+        8.43
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.47435897,
+            0.5,
+            1.83333333,
+            0.78070175
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left clipped header end cap exterior north 004",
+      "from": [
+        17.31,
+        13.47,
+        8.04
+      ],
+      "to": [
+        17.69,
+        15.18,
+        8.43
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.5,
+            0.5,
+            1.47435897,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left clipped header end cap exterior up 000",
+      "from": [
+        16.52,
+        13.47,
+        8.04
+      ],
+      "to": [
+        17.25,
+        15.18,
+        8.09
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0.5,
+            0.5,
+            2.37179487,
+            0.88461538
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left clipped header end cap exterior up 001",
+      "from": [
+        17.25,
+        13.47,
+        8.04
+      ],
+      "to": [
+        17.69,
+        15.18,
+        8.22
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            2.37179487,
+            0.5,
+            3.5,
+            1.88461538
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left clipped header end cap exterior down 000",
+      "from": [
+        16.52,
+        13.47,
+        8.04
+      ],
+      "to": [
+        17.25,
+        15.18,
+        8.09
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0.5,
+            3.11538462,
+            2.37179487,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left clipped header end cap exterior down 001",
+      "from": [
+        17.25,
+        13.47,
+        8.04
+      ],
+      "to": [
+        17.69,
+        15.18,
+        8.22
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            2.37179487,
+            2.11538462,
+            3.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left clipped header end cap exterior west 000",
+      "from": [
+        16.52,
+        13.47,
+        8.04
+      ],
+      "to": [
+        17.69,
+        15.18,
+        8.09
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            0.5,
+            0.5,
+            0.88461538,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left clipped header end cap exterior east 000",
+      "from": [
+        16.52,
+        13.47,
+        8.04
+      ],
+      "to": [
+        17.69,
+        15.18,
+        8.22
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            2.11538462,
+            0.5,
+            3.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left header screw 45.78",
+      "from": [
+        17.17,
+        13.78,
+        7.99
+      ],
+      "to": [
+        17.31,
+        13.92,
+        8.16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.5,
+            4.5,
+            3.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left header screw 45.78 exterior up 000",
+      "from": [
+        17.17,
+        13.78,
+        7.99
+      ],
+      "to": [
+        17.31,
+        13.92,
+        8.04
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0.5,
+            4.5,
+            3.5,
+            5.38235294
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left header screw 45.78 exterior down 000",
+      "from": [
+        17.17,
+        13.78,
+        7.99
+      ],
+      "to": [
+        17.31,
+        13.92,
+        8.04
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0.5,
+            6.61764706,
+            3.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left header screw 45.78 exterior west 000",
+      "from": [
+        17.17,
+        13.78,
+        7.99
+      ],
+      "to": [
+        17.31,
+        13.92,
+        8.04
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            0.5,
+            4.5,
+            1.38235294,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left header screw 45.78 exterior east 000",
+      "from": [
+        17.17,
+        13.78,
+        7.99
+      ],
+      "to": [
+        17.31,
+        13.92,
+        8.04
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            2.61764706,
+            4.5,
+            3.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left header screw 46.88",
+      "from": [
+        17.17,
+        14.88,
+        7.99
+      ],
+      "to": [
+        17.31,
+        15.02,
+        8.16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.5,
+            4.5,
+            3.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left header screw 46.88 exterior up 000",
+      "from": [
+        17.17,
+        14.88,
+        7.99
+      ],
+      "to": [
+        17.31,
+        15.02,
+        8.04
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0.5,
+            4.5,
+            3.5,
+            5.38235294
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left header screw 46.88 exterior down 000",
+      "from": [
+        17.17,
+        14.88,
+        7.99
+      ],
+      "to": [
+        17.31,
+        15.02,
+        8.04
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0.5,
+            6.61764706,
+            3.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left header screw 46.88 exterior west 000",
+      "from": [
+        17.17,
+        14.88,
+        7.99
+      ],
+      "to": [
+        17.31,
+        15.02,
+        8.04
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            0.5,
+            4.5,
+            1.38235294,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Left header screw 46.88 exterior east 000",
+      "from": [
+        17.17,
+        14.88,
+        7.99
+      ],
+      "to": [
+        17.31,
+        15.02,
+        8.04
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            2.61764706,
+            4.5,
+            3.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right rear header mounting leg",
+      "from": [
+        -1.6499999999999986,
+        11.65,
+        14.95
+      ],
+      "to": [
+        -0.5599999999999987,
+        14.52,
+        16.72
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            0.5,
+            0.5,
+            3.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right rear header mounting leg exterior north 000",
+      "from": [
+        -1.65,
+        11.65,
+        14.95
+      ],
+      "to": [
+        -0.6,
+        14.38,
+        16.72
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.61009174,
+            0.64634146,
+            3.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right rear header mounting leg exterior north 001",
+      "from": [
+        -0.6,
+        13.4,
+        14.95
+      ],
+      "to": [
+        -0.56,
+        14.38,
+        16.72
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.5,
+            0.64634146,
+            0.61009174,
+            1.67073171
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right rear header mounting leg exterior up 000",
+      "from": [
+        -1.65,
+        11.65,
+        16.69
+      ],
+      "to": [
+        -0.56,
+        14.52,
+        16.72
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0.5,
+            3.44915254,
+            3.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right rear header mounting leg exterior down 000",
+      "from": [
+        -1.65,
+        11.65,
+        14.95
+      ],
+      "to": [
+        -0.6,
+        14.52,
+        16.72
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0.5,
+            0.5,
+            3.38990826,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right rear header mounting leg exterior down 001",
+      "from": [
+        -0.6,
+        11.65,
+        15.1
+      ],
+      "to": [
+        -0.56,
+        14.52,
+        16.72
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            3.38990826,
+            0.5,
+            3.5,
+            3.24576271
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right rear header mounting leg exterior west 000",
+      "from": [
+        -1.65,
+        11.65,
+        14.95
+      ],
+      "to": [
+        -0.56,
+        14.38,
+        16.69
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            0.5,
+            0.64634146,
+            3.44915254,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right rear header mounting leg exterior west 001",
+      "from": [
+        -1.65,
+        11.65,
+        16.69
+      ],
+      "to": [
+        -0.56,
+        14.52,
+        16.72
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            3.44915254,
+            0.5,
+            3.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right rear header mounting leg exterior east 000",
+      "from": [
+        -1.65,
+        13.4,
+        14.95
+      ],
+      "to": [
+        -0.56,
+        14.38,
+        15.1
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            3.24576271,
+            0.64634146,
+            3.5,
+            1.67073171
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right rear header mounting leg exterior east 001",
+      "from": [
+        -1.65,
+        11.65,
+        15.1
+      ],
+      "to": [
+        -0.56,
+        14.38,
+        16.69
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            0.55084746,
+            0.64634146,
+            3.24576271,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right rear header mounting leg exterior east 002",
+      "from": [
+        -1.65,
+        11.65,
+        16.69
+      ],
+      "to": [
+        -0.56,
+        14.52,
+        16.72
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            0.5,
+            0.5,
+            0.55084746,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right header mounting shoulder exterior south 000",
+      "from": [
+        -1.65,
+        14.52,
+        10.68
+      ],
+      "to": [
+        -0.56,
+        15.37,
+        16.69
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            0.5,
+            0.5,
+            3.5,
+            3.07575758
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right header mounting shoulder exterior up 000",
+      "from": [
+        -1.65,
+        14.38,
+        11.33
+      ],
+      "to": [
+        -0.56,
+        15.37,
+        16.69
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0.5,
+            0.82445923,
+            3.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right header mounting shoulder exterior down 000",
+      "from": [
+        -1.65,
+        14.38,
+        11.33
+      ],
+      "to": [
+        -0.56,
+        15.37,
+        14.95
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0.5,
+            1.36855241,
+            3.5,
+            3.17554077
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right header mounting shoulder exterior west 000",
+      "from": [
+        -1.65,
+        14.38,
+        11.33
+      ],
+      "to": [
+        -0.56,
+        15.37,
+        16.69
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            0.82445923,
+            0.5,
+            3.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right header mounting shoulder exterior east 000",
+      "from": [
+        -1.65,
+        14.38,
+        11.33
+      ],
+      "to": [
+        -0.56,
+        15.37,
+        16.69
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            0.5,
+            0.5,
+            3.17554077,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right clipped header end cap exterior north 000",
+      "from": [
+        -1.69,
+        13.47,
+        8.04
+      ],
+      "to": [
+        -1.04,
+        15.18,
+        8.43
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.83333333,
+            0.5,
+            3.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right clipped header end cap exterior north 001",
+      "from": [
+        -1.04,
+        13.47,
+        8.04
+      ],
+      "to": [
+        -0.9,
+        13.78,
+        8.43
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.47435897,
+            2.95614035,
+            1.83333333,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right clipped header end cap exterior north 002",
+      "from": [
+        -1.04,
+        13.92,
+        8.04
+      ],
+      "to": [
+        -0.9,
+        14.88,
+        8.43
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.47435897,
+            1.02631579,
+            1.83333333,
+            2.71052632
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right clipped header end cap exterior north 003",
+      "from": [
+        -1.04,
+        15.02,
+        8.04
+      ],
+      "to": [
+        -0.9,
+        15.18,
+        8.43
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.47435897,
+            0.5,
+            1.83333333,
+            0.78070175
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right clipped header end cap exterior north 004",
+      "from": [
+        -0.9,
+        13.47,
+        8.04
+      ],
+      "to": [
+        -0.52,
+        15.18,
+        8.43
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.5,
+            0.5,
+            1.47435897,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right clipped header end cap exterior up 000",
+      "from": [
+        -1.69,
+        13.47,
+        8.04
+      ],
+      "to": [
+        -1.25,
+        15.18,
+        8.22
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0.5,
+            0.5,
+            1.62820513,
+            1.88461538
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right clipped header end cap exterior up 001",
+      "from": [
+        -1.25,
+        13.47,
+        8.04
+      ],
+      "to": [
+        -0.52,
+        15.18,
+        8.09
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            1.62820513,
+            0.5,
+            3.5,
+            0.88461538
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right clipped header end cap exterior down 000",
+      "from": [
+        -1.69,
+        13.47,
+        8.04
+      ],
+      "to": [
+        -1.25,
+        15.18,
+        8.22
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0.5,
+            2.11538462,
+            1.62820513,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right clipped header end cap exterior down 001",
+      "from": [
+        -1.25,
+        13.47,
+        8.04
+      ],
+      "to": [
+        -0.52,
+        15.18,
+        8.09
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            1.62820513,
+            3.11538462,
+            3.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right clipped header end cap exterior west 000",
+      "from": [
+        -1.69,
+        13.47,
+        8.04
+      ],
+      "to": [
+        -0.52,
+        15.18,
+        8.22
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            0.5,
+            0.5,
+            1.88461538,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right clipped header end cap exterior east 000",
+      "from": [
+        -1.69,
+        13.47,
+        8.04
+      ],
+      "to": [
+        -0.52,
+        15.18,
+        8.09
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            3.11538462,
+            0.5,
+            3.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right header screw 45.78",
+      "from": [
+        -1.0399999999999991,
+        13.78,
+        7.99
+      ],
+      "to": [
+        -0.8999999999999986,
+        13.92,
+        8.16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.5,
+            4.5,
+            3.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right header screw 45.78 exterior up 000",
+      "from": [
+        -1.04,
+        13.78,
+        7.99
+      ],
+      "to": [
+        -0.9,
+        13.92,
+        8.04
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0.5,
+            4.5,
+            3.5,
+            5.38235294
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right header screw 45.78 exterior down 000",
+      "from": [
+        -1.04,
+        13.78,
+        7.99
+      ],
+      "to": [
+        -0.9,
+        13.92,
+        8.04
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0.5,
+            6.61764706,
+            3.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right header screw 45.78 exterior west 000",
+      "from": [
+        -1.04,
+        13.78,
+        7.99
+      ],
+      "to": [
+        -0.9,
+        13.92,
+        8.04
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            0.5,
+            4.5,
+            1.38235294,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right header screw 45.78 exterior east 000",
+      "from": [
+        -1.04,
+        13.78,
+        7.99
+      ],
+      "to": [
+        -0.9,
+        13.92,
+        8.04
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            2.61764706,
+            4.5,
+            3.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right header screw 46.88",
+      "from": [
+        -1.0399999999999991,
+        14.88,
+        7.99
+      ],
+      "to": [
+        -0.8999999999999986,
+        15.02,
+        8.16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.5,
+            4.5,
+            3.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right header screw 46.88 exterior up 000",
+      "from": [
+        -1.04,
+        14.88,
+        7.99
+      ],
+      "to": [
+        -0.9,
+        15.02,
+        8.04
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0.5,
+            4.5,
+            3.5,
+            5.38235294
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right header screw 46.88 exterior down 000",
+      "from": [
+        -1.04,
+        14.88,
+        7.99
+      ],
+      "to": [
+        -0.9,
+        15.02,
+        8.04
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0.5,
+            6.61764706,
+            3.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right header screw 46.88 exterior west 000",
+      "from": [
+        -1.04,
+        14.88,
+        7.99
+      ],
+      "to": [
+        -0.9,
+        15.02,
+        8.04
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            0.5,
+            4.5,
+            1.38235294,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Right header screw 46.88 exterior east 000",
+      "from": [
+        -1.04,
+        14.88,
+        7.99
+      ],
+      "to": [
+        -0.9,
+        15.02,
+        8.04
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            2.61764706,
+            4.5,
+            3.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Monitor rear gasket",
+      "from": [
+        0.2699999999999996,
+        -10.98,
+        15.12
+      ],
+      "to": [
+        15.73,
+        12.58,
+        15.25
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.5,
+            4.5,
+            11.5,
+            7.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            8.5,
+            4.5,
+            11.5,
+            7.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            8.5,
+            4.5,
+            11.5,
+            7.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            8.5,
+            4.5,
+            11.5,
+            7.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            8.5,
+            4.5,
+            11.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Monitor rear service cover",
+      "from": [
+        0.4900000000000002,
+        -10.77,
+        15.27
+      ],
+      "to": [
+        15.51,
+        12.37,
+        15.39
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.5,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            4.5,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            4.5,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "down": {
+          "uv": [
+            4.5,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            4.5,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            4.5,
+            0.5,
+            7.5,
+            3.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Rear monitor cooling vent 38.0",
+      "from": [
+        4.880000000000001,
+        6.0,
+        15.42
+      ],
+      "to": [
+        11.120000000000001,
+        8.07,
+        15.52
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12.5,
+            4.5,
+            15.5,
+            7.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            12.5,
+            4.5,
+            15.5,
+            7.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            12.5,
+            4.5,
+            15.5,
+            7.5
+          ],
+          "texture": "#materials"
+        },
+        "down": {
+          "uv": [
+            12.5,
+            4.5,
+            15.5,
+            7.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            12.5,
+            4.5,
+            15.5,
+            7.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            12.5,
+            4.5,
+            15.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Rear monitor cover screw (0.86, 43.8)",
+      "from": [
+        14.99,
+        11.8,
+        15.43
+      ],
+      "to": [
+        15.14,
+        11.95,
+        15.58
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.5,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            4.5,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            4.5,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        },
+        "down": {
+          "uv": [
+            4.5,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            4.5,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            4.5,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    },
+    {
+      "name": "Rear monitor cover screw (14.96, 43.8)",
+      "from": [
+        0.8899999999999988,
+        11.8,
+        15.43
+      ],
+      "to": [
+        1.0399999999999991,
+        11.95,
+        15.58
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.5,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        },
+        "south": {
+          "uv": [
+            4.5,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        },
+        "up": {
+          "uv": [
+            4.5,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        },
+        "down": {
+          "uv": [
+            4.5,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        },
+        "west": {
+          "uv": [
+            4.5,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        },
+        "east": {
+          "uv": [
+            4.5,
+            4.5,
+            7.5,
+            7.5
+          ],
+          "texture": "#materials"
+        }
+      }
+    }
+  ]
+}

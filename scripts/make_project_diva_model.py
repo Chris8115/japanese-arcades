@@ -18,7 +18,7 @@ from wacca_surface_geometry import optimize_surfaces
 
 ROOT=Path(__file__).resolve().parents[1]
 ART=ROOT/'art/project_diva'
-ASSETS=ROOT/'src/main/resources/assets/funpackcustom'
+ASSETS=ROOT/'src/main/resources/assets/japanesearcades'
 TEXTURES=ASSETS/'textures/block'
 MODEL=ASSETS/'models/block'
 for path in (ART,TEXTURES,MODEL):path.mkdir(parents=True,exist_ok=True)
@@ -105,9 +105,9 @@ build_shell(cube,polygon)
 build_upper(cube,polygon,ART)
 
 texture_paths={
-    'materials':'funpackcustom:block/project_diva_materials','details':'funpackcustom:block/project_diva_details',
-    'display':'funpackcustom:block/project_diva_display',
-    'branding':'funpackcustom:block/project_diva_branding','header':'funpackcustom:block/project_diva_header','particle':'funpackcustom:block/project_diva_materials',
+    'materials':'japanesearcades:block/project_diva_materials','details':'japanesearcades:block/project_diva_details',
+    'display':'japanesearcades:block/project_diva_display',
+    'branding':'japanesearcades:block/project_diva_branding','header':'japanesearcades:block/project_diva_header','particle':'japanesearcades:block/project_diva_materials',
 }
 
 # Minecraft's north-facing UVs run from +X to -X when viewed from the front.
@@ -159,7 +159,7 @@ for part in part_names:
 variants={}
 for facing,rotation in (('north',0),('east',90),('south',180),('west',270)):
     for part in part_names:
-        variant={'model':'funpackcustom:block/project_diva_'+part}
+        variant={'model':'japanesearcades:block/project_diva_'+part}
         if rotation: variant['y']=rotation
         variants['facing='+facing+',part='+part]=variant
 write_json(ASSETS / 'blockstates/project_diva.json', {'variants':variants})
@@ -195,7 +195,7 @@ bb_elements=[]
 groups={}
 for source in elements:
     e=strip_element(source)
-    uid=str(uuid.uuid5(uuid.NAMESPACE_URL,'funpackcustom/project_diva/'+e['name']+'/'+str(e['from'])))
+    uid=str(uuid.uuid5(uuid.NAMESPACE_URL,'japanesearcades/project_diva/'+e['name']+'/'+str(e['from'])))
     rot=e.get('rotation')
     rotation=[0,0,0]
     origin=[(a+b)/2 for a,b in zip(e['from'],e['to'])]
@@ -217,10 +217,10 @@ for source in elements:
 bbtextures=[]
 for i,(identifier,path) in enumerate(texture_specs):
     texture=Image.open(path)
-    bbtextures.append({'path':str(path),'name':path.name,'folder':'block','namespace':'funpackcustom',
+    bbtextures.append({'path':str(path),'name':path.name,'folder':'block','namespace':'japanesearcades',
                        'id':str(i),'uuid':str(uuid.uuid5(uuid.NAMESPACE_URL,'project_diva/'+identifier)),
                        'width':texture.width,'height':texture.height,'uv_width':texture.width,'uv_height':texture.height,
-                       'relative_path':'../../src/main/resources/assets/funpackcustom/textures/block/'+path.name,
+                       'relative_path':'../../src/main/resources/assets/japanesearcades/textures/block/'+path.name,
                        'source':'data:image/png;base64,'+base64.b64encode(path.read_bytes()).decode(),
                        'mode':'bitmap','particle':i==0,'render_mode':'default','visible':True})
 write_json(ART/'project_diva.bbmodel',

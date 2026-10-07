@@ -1,0 +1,4197 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "neoforge:composite",
+  "ambientocclusion": true,
+  "textures": {
+    "materials": "japanesearcades:block/beatstream_materials",
+    "screens": "japanesearcades:block/beatstream_screens",
+    "topper": "japanesearcades:block/beatstream_topper",
+    "trim": "japanesearcades:block/beatstream_trim",
+    "controls": "japanesearcades:block/beatstream_controls",
+    "side": "japanesearcades:block/beatstream_side",
+    "triangle": "japanesearcades:block/beatstream_triangle",
+    "speaker": "japanesearcades:block/beatstream_speaker",
+    "particle": "japanesearcades:block/beatstream_materials"
+  },
+  "children": {
+    "cabinet": {
+      "parent": "minecraft:block/block",
+      "ambientocclusion": true,
+      "render_type": "minecraft:cutout",
+      "textures": {
+        "materials": "japanesearcades:block/beatstream_materials",
+        "screens": "japanesearcades:block/beatstream_screens",
+        "topper": "japanesearcades:block/beatstream_topper",
+        "trim": "japanesearcades:block/beatstream_trim",
+        "controls": "japanesearcades:block/beatstream_controls",
+        "side": "japanesearcades:block/beatstream_side",
+        "triangle": "japanesearcades:block/beatstream_triangle",
+        "speaker": "japanesearcades:block/beatstream_speaker",
+        "particle": "japanesearcades:block/beatstream_materials"
+      },
+      "elements": [
+        {
+          "name": "Console back shell",
+          "from": [
+            1.1999999999999993,
+            0,
+            8.8
+          ],
+          "to": [
+            14.8,
+            16,
+            15.1
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "south": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Left side art dark surround",
+          "from": [
+            14.8,
+            4.0,
+            10.7
+          ],
+          "to": [
+            14.91,
+            22.15,
+            14.96
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "south": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Left printed side insert",
+          "from": [
+            14.915,
+            4.24,
+            10.95
+          ],
+          "to": [
+            14.95,
+            21.9,
+            14.73
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                16,
+                16
+              ],
+              "texture": "#side"
+            },
+            "south": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                16,
+                16
+              ],
+              "texture": "#side"
+            },
+            "up": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Right side art dark surround",
+          "from": [
+            1.0899999999999999,
+            4.0,
+            10.7
+          ],
+          "to": [
+            1.1999999999999993,
+            22.15,
+            14.96
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "south": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Right printed side insert",
+          "from": [
+            1.049999999999999,
+            4.24,
+            10.95
+          ],
+          "to": [
+            1.084999999999999,
+            21.9,
+            14.73
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                16,
+                16
+              ],
+              "texture": "#side"
+            },
+            "south": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                16,
+                16
+              ],
+              "texture": "#side"
+            },
+            "up": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Rear upper service panel",
+          "from": [
+            2.0500000000000007,
+            0.1,
+            15.11
+          ],
+          "to": [
+            13.95,
+            21.9,
+            15.19
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "south": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Rear access fastener (2.25, 16.4)",
+          "from": [
+            13.58,
+            0.4,
+            15.2
+          ],
+          "to": [
+            13.75,
+            0.57,
+            15.255
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "south": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Rear access fastener (13.53, 16.4)",
+          "from": [
+            2.3000000000000007,
+            0.4,
+            15.2
+          ],
+          "to": [
+            2.4700000000000006,
+            0.57,
+            15.255
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "south": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Console rear support",
+          "from": [
+            0.8000000000000007,
+            0,
+            3.25
+          ],
+          "to": [
+            15.2,
+            2.42,
+            14.8
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "south": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Touchscreen solid backing 02",
+          "from": [
+            1.1999999999999993,
+            2.26786,
+            3.2346375269500545
+          ],
+          "to": [
+            14.8,
+            2.57679,
+            9.05
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Touchscreen solid backing 03",
+          "from": [
+            1.1999999999999993,
+            2.57679,
+            3.3625999310403136
+          ],
+          "to": [
+            14.8,
+            2.88571,
+            9.05
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Touchscreen solid backing 04",
+          "from": [
+            1.1999999999999993,
+            2.88571,
+            3.4905623351305746
+          ],
+          "to": [
+            14.8,
+            3.19464,
+            9.05
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Touchscreen solid backing 05",
+          "from": [
+            1.1999999999999993,
+            3.19464,
+            3.6185247392208337
+          ],
+          "to": [
+            14.8,
+            3.50357,
+            9.05
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Touchscreen solid backing 06",
+          "from": [
+            1.1999999999999993,
+            3.50357,
+            3.746487143311093
+          ],
+          "to": [
+            14.8,
+            3.8125,
+            9.05
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Touchscreen solid backing 07",
+          "from": [
+            1.1999999999999993,
+            3.8125,
+            3.874449547401353
+          ],
+          "to": [
+            14.8,
+            4.12143,
+            9.05
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Touchscreen solid backing 08",
+          "from": [
+            1.1999999999999993,
+            4.12143,
+            4.002411951491612
+          ],
+          "to": [
+            14.8,
+            4.43036,
+            9.05
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Touchscreen solid backing 09",
+          "from": [
+            1.1999999999999993,
+            4.43036,
+            4.130374355581871
+          ],
+          "to": [
+            14.8,
+            4.73929,
+            9.05
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Touchscreen solid backing 10",
+          "from": [
+            1.1999999999999993,
+            4.73929,
+            4.258336759672132
+          ],
+          "to": [
+            14.8,
+            5.04821,
+            9.05
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Touchscreen solid backing 11",
+          "from": [
+            1.1999999999999993,
+            5.04821,
+            4.386299163762391
+          ],
+          "to": [
+            14.8,
+            5.35714,
+            9.05
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Touchscreen solid backing 12",
+          "from": [
+            1.1999999999999993,
+            5.35714,
+            4.514261567852652
+          ],
+          "to": [
+            14.8,
+            5.66607,
+            9.05
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Touchscreen solid backing 13",
+          "from": [
+            1.1999999999999993,
+            5.66607,
+            4.642223971942911
+          ],
+          "to": [
+            14.8,
+            5.975,
+            9.05
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Touchscreen solid backing 14",
+          "from": [
+            1.1999999999999993,
+            5.975,
+            4.77018637603317
+          ],
+          "to": [
+            14.8,
+            6.28393,
+            9.05
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Touchscreen solid backing 15",
+          "from": [
+            1.1999999999999993,
+            6.28393,
+            4.898148780123429
+          ],
+          "to": [
+            14.8,
+            6.59286,
+            9.05
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Touchscreen solid backing 16",
+          "from": [
+            1.1999999999999993,
+            6.59286,
+            5.02611118421369
+          ],
+          "to": [
+            14.8,
+            6.90179,
+            9.05
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Touchscreen solid backing 17",
+          "from": [
+            1.1999999999999993,
+            6.90179,
+            5.154073588303951
+          ],
+          "to": [
+            14.8,
+            7.21071,
+            9.05
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Touchscreen solid backing 18",
+          "from": [
+            1.1999999999999993,
+            7.21071,
+            5.28203599239421
+          ],
+          "to": [
+            14.8,
+            7.51964,
+            9.05
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Touchscreen solid backing 19",
+          "from": [
+            1.1999999999999993,
+            7.51964,
+            5.409998396484469
+          ],
+          "to": [
+            14.8,
+            7.82857,
+            9.05
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Touchscreen solid backing 20",
+          "from": [
+            1.1999999999999993,
+            7.82857,
+            5.537960800574729
+          ],
+          "to": [
+            14.8,
+            8.1375,
+            9.05
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Touchscreen solid backing 21",
+          "from": [
+            1.1999999999999993,
+            8.1375,
+            5.665923204664988
+          ],
+          "to": [
+            14.8,
+            8.44643,
+            9.05
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Touchscreen solid backing 22",
+          "from": [
+            1.1999999999999993,
+            8.44643,
+            5.793885608755248
+          ],
+          "to": [
+            14.8,
+            8.75536,
+            9.05
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Touchscreen solid backing 23",
+          "from": [
+            1.1999999999999993,
+            8.75536,
+            5.921848012845508
+          ],
+          "to": [
+            14.8,
+            9.06429,
+            9.05
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Touchscreen solid backing 24",
+          "from": [
+            1.1999999999999993,
+            9.06429,
+            6.049810416935768
+          ],
+          "to": [
+            14.8,
+            9.37321,
+            9.05
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Touchscreen solid backing 25",
+          "from": [
+            1.1999999999999993,
+            9.37321,
+            6.177772821026027
+          ],
+          "to": [
+            14.8,
+            9.68214,
+            9.05
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Touchscreen solid backing 26",
+          "from": [
+            1.1999999999999993,
+            9.68214,
+            6.305735225116287
+          ],
+          "to": [
+            14.8,
+            9.99107,
+            9.05
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Touchscreen solid backing 27",
+          "from": [
+            1.1999999999999993,
+            9.99107,
+            6.433697629206547
+          ],
+          "to": [
+            14.8,
+            10.3,
+            9.05
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Control deck black undertray",
+          "from": [
+            0.40000000000000036,
+            1.1,
+            0.85
+          ],
+          "to": [
+            15.6,
+            2.34,
+            5.8
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "south": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Clipped deck underside 0",
+          "from": [
+            1.3000000000000007,
+            1.22,
+            0.0
+          ],
+          "to": [
+            14.7,
+            2.32,
+            0.31
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Clipped white deck 0",
+          "from": [
+            1.1500000000000004,
+            2.12,
+            0.0
+          ],
+          "to": [
+            14.85,
+            2.53,
+            0.31
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Clipped deck underside 1",
+          "from": [
+            1.0,
+            1.22,
+            0.3
+          ],
+          "to": [
+            15.0,
+            2.32,
+            0.61
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Clipped white deck 1",
+          "from": [
+            0.8499999999999996,
+            2.12,
+            0.3
+          ],
+          "to": [
+            15.15,
+            2.53,
+            0.61
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Clipped deck underside 2",
+          "from": [
+            0.7000000000000011,
+            1.22,
+            0.6
+          ],
+          "to": [
+            15.3,
+            2.32,
+            0.9099999999999999
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Clipped white deck 2",
+          "from": [
+            0.5500000000000007,
+            2.12,
+            0.6
+          ],
+          "to": [
+            15.45,
+            2.53,
+            0.9099999999999999
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Flat white front strip",
+          "from": [
+            0.25,
+            2.12,
+            0.9
+          ],
+          "to": [
+            15.75,
+            2.53,
+            2.08
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "south": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "White front folded edge",
+          "from": [
+            1.1600000000000001,
+            1.93,
+            0.005
+          ],
+          "to": [
+            14.84,
+            2.26,
+            0.2
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "south": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Silver front seam",
+          "from": [
+            1.1600000000000001,
+            1.94,
+            0.001
+          ],
+          "to": [
+            14.84,
+            2.02,
+            0.07
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Printed instruction strip",
+          "from": [
+            1.1799999999999997,
+            2.531,
+            0.12
+          ],
+          "to": [
+            14.82,
+            2.565,
+            0.72
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "south": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                16,
+                16,
+                0,
+                0
+              ],
+              "texture": "#controls"
+            },
+            "down": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Front strip fixing 0.53",
+          "from": [
+            15.33,
+            2.532,
+            0.97
+          ],
+          "to": [
+            15.47,
+            2.563,
+            1.11
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "south": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Front strip fixing 15.28",
+          "from": [
+            0.5800000000000001,
+            2.532,
+            0.97
+          ],
+          "to": [
+            0.7200000000000006,
+            2.563,
+            1.11
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "south": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Coin slot surround",
+          "from": [
+            1.8100000000000005,
+            2.565,
+            0.2
+          ],
+          "to": [
+            2.5199999999999996,
+            2.63,
+            0.7
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "south": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Coin slot dark opening",
+          "from": [
+            2.1099999999999994,
+            2.63,
+            0.27
+          ],
+          "to": [
+            2.2300000000000004,
+            2.657,
+            0.61
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "south": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Inclined touchscreen black casing",
+          "from": [
+            0.6999999999999993,
+            2.22,
+            2.53
+          ],
+          "to": [
+            15.3,
+            10.85,
+            3.4
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "south": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          },
+          "rotation": {
+            "axis": "x",
+            "angle": 22.5,
+            "origin": [
+              8,
+              3.1000000000000014,
+              2.8
+            ],
+            "rescale": false
+          }
+        },
+        {
+          "name": "Inclined white touchscreen frame",
+          "from": [
+            0.8000000000000007,
+            2.27,
+            2.39
+          ],
+          "to": [
+            15.2,
+            10.8,
+            2.75
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            }
+          },
+          "rotation": {
+            "axis": "x",
+            "angle": 22.5,
+            "origin": [
+              8,
+              3.1000000000000014,
+              2.8
+            ],
+            "rescale": false
+          }
+        },
+        {
+          "name": "Touchscreen black gasket",
+          "from": [
+            1.2400000000000002,
+            2.56,
+            2.31
+          ],
+          "to": [
+            14.76,
+            10.43,
+            2.41
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            }
+          },
+          "rotation": {
+            "axis": "x",
+            "angle": 22.5,
+            "origin": [
+              8,
+              3.1000000000000014,
+              2.8
+            ],
+            "rescale": false
+          }
+        },
+        {
+          "name": "BeatStream lower touch display",
+          "from": [
+            1.4600000000000009,
+            2.78,
+            2.27
+          ],
+          "to": [
+            14.54,
+            10.2,
+            2.32
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                6.9296875,
+                0.0,
+                13.859375,
+                13.859375
+              ],
+              "texture": "#screens",
+              "neoforge_data": {
+                "block_light": 15,
+                "sky_light": 15,
+                "ambient_occlusion": false
+              }
+            },
+            "east": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            }
+          },
+          "rotation": {
+            "axis": "x",
+            "angle": 22.5,
+            "origin": [
+              8,
+              3.1000000000000014,
+              2.8
+            ],
+            "rescale": false
+          }
+        },
+        {
+          "name": "Touchscreen silver rail 0.91",
+          "from": [
+            14.85,
+            2.35,
+            2.27
+          ],
+          "to": [
+            15.09,
+            10.69,
+            2.44
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            }
+          },
+          "rotation": {
+            "axis": "x",
+            "angle": 22.5,
+            "origin": [
+              8,
+              3.1000000000000014,
+              2.8
+            ],
+            "rescale": false
+          }
+        },
+        {
+          "name": "Touchscreen screw (0.91, 18.42)",
+          "from": [
+            14.91,
+            2.42,
+            2.21
+          ],
+          "to": [
+            15.03,
+            2.56,
+            2.28
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            }
+          },
+          "rotation": {
+            "axis": "x",
+            "angle": 22.5,
+            "origin": [
+              8,
+              3.1000000000000014,
+              2.8
+            ],
+            "rescale": false
+          }
+        },
+        {
+          "name": "Touchscreen screw (0.91, 26.43)",
+          "from": [
+            14.91,
+            10.43,
+            2.21
+          ],
+          "to": [
+            15.03,
+            10.57,
+            2.28
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            }
+          },
+          "rotation": {
+            "axis": "x",
+            "angle": 22.5,
+            "origin": [
+              8,
+              3.1000000000000014,
+              2.8
+            ],
+            "rescale": false
+          }
+        },
+        {
+          "name": "Touchscreen silver rail 14.77",
+          "from": [
+            0.9900000000000002,
+            2.35,
+            2.27
+          ],
+          "to": [
+            1.2300000000000004,
+            10.69,
+            2.44
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            }
+          },
+          "rotation": {
+            "axis": "x",
+            "angle": 22.5,
+            "origin": [
+              8,
+              3.1000000000000014,
+              2.8
+            ],
+            "rescale": false
+          }
+        },
+        {
+          "name": "Touchscreen screw (14.77, 18.42)",
+          "from": [
+            1.0500000000000007,
+            2.42,
+            2.21
+          ],
+          "to": [
+            1.17,
+            2.56,
+            2.28
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            }
+          },
+          "rotation": {
+            "axis": "x",
+            "angle": 22.5,
+            "origin": [
+              8,
+              3.1000000000000014,
+              2.8
+            ],
+            "rescale": false
+          }
+        },
+        {
+          "name": "Touchscreen screw (14.77, 26.43)",
+          "from": [
+            1.0500000000000007,
+            10.43,
+            2.21
+          ],
+          "to": [
+            1.17,
+            10.57,
+            2.28
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                4,
+                4,
+                8,
+                8
+              ],
+              "texture": "#materials"
+            }
+          },
+          "rotation": {
+            "axis": "x",
+            "angle": 22.5,
+            "origin": [
+              8,
+              3.1000000000000014,
+              2.8
+            ],
+            "rescale": false
+          }
+        },
+        {
+          "name": "Left white lower speaker shoulder",
+          "from": [
+            14.76,
+            10.5,
+            2.39
+          ],
+          "to": [
+            15.2,
+            12.27654,
+            3.68
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "south": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            }
+          },
+          "rotation": {
+            "axis": "x",
+            "angle": 22.5,
+            "origin": [
+              8,
+              3.1000000000000014,
+              2.8
+            ],
+            "rescale": false
+          }
+        },
+        {
+          "name": "Left black upper speaker shoulder",
+          "from": [
+            14.76,
+            12.27654,
+            2.39
+          ],
+          "to": [
+            15.2,
+            14.8,
+            3.68
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "south": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          },
+          "rotation": {
+            "axis": "x",
+            "angle": 22.5,
+            "origin": [
+              8,
+              3.1000000000000014,
+              2.8
+            ],
+            "rescale": false
+          }
+        },
+        {
+          "name": "Right white lower speaker shoulder",
+          "from": [
+            0.8000000000000007,
+            10.5,
+            2.39
+          ],
+          "to": [
+            1.2400000000000002,
+            12.27654,
+            3.68
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "south": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                4,
+                0,
+                8,
+                4
+              ],
+              "texture": "#materials"
+            }
+          },
+          "rotation": {
+            "axis": "x",
+            "angle": 22.5,
+            "origin": [
+              8,
+              3.1000000000000014,
+              2.8
+            ],
+            "rescale": false
+          }
+        },
+        {
+          "name": "Right black upper speaker shoulder",
+          "from": [
+            0.8000000000000007,
+            12.27654,
+            2.39
+          ],
+          "to": [
+            1.2400000000000002,
+            14.8,
+            3.68
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "south": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          },
+          "rotation": {
+            "axis": "x",
+            "angle": 22.5,
+            "origin": [
+              8,
+              3.1000000000000014,
+              2.8
+            ],
+            "rescale": false
+          }
+        },
+        {
+          "name": "Speaker fascia rear support",
+          "from": [
+            1,
+            9.9,
+            7.75
+          ],
+          "to": [
+            15,
+            13.83,
+            10
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "south": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Upper frame diagonal lower band",
+          "from": [
+            0.9700000000000006,
+            13.68,
+            7.78
+          ],
+          "to": [
+            15.03,
+            14.04,
+            7.85
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                16,
+                16
+              ],
+              "texture": "#trim"
+            },
+            "east": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "south": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                0,
+                0,
+                4,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Upper monitor fixing (0.9, 29.77)",
+          "from": [
+            14.94,
+            13.77,
+            7.73
+          ],
+          "to": [
+            15.1,
+            13.93,
+            7.83
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "south": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        },
+        {
+          "name": "Upper monitor fixing (14.91, 29.77)",
+          "from": [
+            0.9299999999999997,
+            13.77,
+            7.73
+          ],
+          "to": [
+            1.0899999999999999,
+            13.93,
+            7.83
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "east": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "south": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "west": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "up": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            },
+            "down": {
+              "uv": [
+                12,
+                0,
+                16,
+                4
+              ],
+              "texture": "#materials"
+            }
+          }
+        }
+      ]
+    },
+    "speakers": {
+      "parent": "minecraft:block/block",
+      "loader": "neoforge:obj",
+      "model": "japanesearcades:models/block/beatstream_speakers.obj",
+      "automatic_culling": false,
+      "shade_quads": true,
+      "flip_v": true,
+      "emissive_ambient": true,
+      "ambientocclusion": true,
+      "render_type": "minecraft:cutout_mipped_all",
+      "textures": {
+        "materials": "japanesearcades:block/beatstream_materials",
+        "screens": "japanesearcades:block/beatstream_screens",
+        "topper": "japanesearcades:block/beatstream_topper",
+        "trim": "japanesearcades:block/beatstream_trim",
+        "controls": "japanesearcades:block/beatstream_controls",
+        "side": "japanesearcades:block/beatstream_side",
+        "triangle": "japanesearcades:block/beatstream_triangle",
+        "speaker": "japanesearcades:block/beatstream_speaker",
+        "particle": "japanesearcades:block/beatstream_materials"
+      }
+    }
+  },
+  "item_render_order": [
+    "cabinet",
+    "speakers"
+  ]
+}

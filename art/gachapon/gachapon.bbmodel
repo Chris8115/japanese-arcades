@@ -230949,7 +230949,7 @@
     {
       "name": "gachapon_materials.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "0",
       "uuid": "73134b61-2a24-56e6-8942-fc99fdd5271d",
       "width": 256,
@@ -230965,7 +230965,7 @@
     {
       "name": "gachapon_details.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "1",
       "uuid": "fbec9dfe-7959-5dcc-8607-dc693b6048bf",
       "width": 1024,

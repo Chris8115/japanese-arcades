@@ -17,7 +17,7 @@ one-block width, including the seat, dashboard, shifter, and marquee, so units
 can sit directly beside each other without overlapping shells.
 
 Find **Initial D Single Racing Cabinet** in **Japanese Arcades**, use
-`/give @s funpackcustom:initial_d`, or order it from the Arcade Ordering Kiosk's
+`/give @s japanesearcades:initial_d`, or order it from the Arcade Ordering Kiosk's
 **Machines** tab for **20 iron ingots, 4 gold ingots, 1 diamond, 6 glass blocks,
 and 6 redstone dust**.
 

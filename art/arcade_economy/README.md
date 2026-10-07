@@ -61,7 +61,7 @@ There is no charged-but-unpaid pending round to lose on disconnect or restart.
 
 ## Configuration
 
-NeoForge generates **`funpackcustom-arcade-economy.toml`** as a SERVER config and
+NeoForge generates **`japanesearcades-arcade-economy.toml`** as a SERVER config and
 syncs it to joining clients. The verification server writes it under `config/`.
 Edit the server's generated file while it is stopped, then restart. The checked-in
 [default example](economy-defaults.toml) documents all values; it is not loaded
@@ -75,7 +75,7 @@ Rank rows use `profile|label|weight|points`; weights are relative within their
 profile. Add a new profile's rows and assign it to a cabinet with
 `namespace:machine|cost|profile`. For example, retain the standard rows and add
 `"expert|A|3|100"` and `"expert|S|1|250"`, then use
-`machineOverrides = ["funpackcustom:initial_d|25|expert"]`.
+`machineOverrides = ["japanesearcades:initial_d|25|expert"]`.
 Unknown profiles fall back to `standard`; an absent usable standard profile
 disables play rather than silently inventing awards. Up to 64 rank rows per
 profile are supported. Omit a rank row to remove that result.
@@ -86,7 +86,7 @@ that could exceed that bound is rejected without losing value.
 ## Data and future additions
 
 The nonstackable card stores the persistent and network-synchronized
-`funpackcustom:arcade_pass` data component: schema version, unique card ID,
+`japanesearcades:arcade_pass` data component: schema version, unique card ID,
 design ResourceLocation, Credits, Prize Points and transaction revision.
 Optional fields and the schema version leave room for later statistics,
 mastery, achievements and collection tracking. Design IDs are independent of
@@ -98,7 +98,7 @@ the desired fields, with safe defaults for the rest. For example, a command
 for testing a found card is:
 
 ```mcfunction
-/give @s funpackcustom:arcade_pass[funpackcustom:arcade_pass={credits:75L,design:"funpackcustom:default"}]
+/give @s japanesearcades:arcade_pass[japanesearcades:arcade_pass={credits:75L,design:"japanesearcades:default"}]
 ```
 
 Its ID is assigned on its first kiosk insertion or balance mutation. Gameplay requests identify
@@ -116,7 +116,7 @@ following the user's supplied KONAMI card reference. The authored transparent
 PNG is retained unchanged as `arcade-pass-source.png`, and the preview is a
 byte-identical copy. The runtime item receives technical square padding and
 aspect-preserving downsampling, with the source alpha retained and no redrawing.
-This cosmetic update retains the existing `funpackcustom:default` design ID
+This cosmetic update retains the existing `japanesearcades:default` design ID
 and all pass functionality. The [artwork notes](arcade-pass-artwork.md) retain
 the reference provenance and final image-generation prompt.
 The two small placeable prizes follow the user's Miku and Teto figure references.
@@ -191,7 +191,7 @@ allow a later appearance rollback without undoing unrelated gameplay work.
 - `arcade-pass-source.png` is the immutable authored card artwork, based on the
   user's red-and-white e-amusement reference. `scripts/prepare_arcade_pass.py`
   copies it byte for byte to the `arcade-pass.png` preview. For the runtime
-  `assets/funpackcustom/textures/item/arcade_pass.png`, it crops only exterior
+  `assets/japanesearcades/textures/item/arcade_pass.png`, it crops only exterior
   empty padding using the alpha channel's nonzero bounding box, fits the card
   within 496 × 310 pixels with LANCZOS while preserving aspect ratio, then
   centers it on a transparent 512 × 512 canvas. Alpha is resampled with the

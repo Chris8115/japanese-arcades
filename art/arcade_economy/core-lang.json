@@ -1,5 +1,5 @@
 {
-  "pass.design.funpackcustom.default": "Arcade Original",
+  "pass.design.japanesearcades.default": "Arcade Original",
   "arcade.pass.balance": "%s Credits | %s Prize Points",
   "arcade.pass.credits": "Credits: %s",
   "arcade.pass.points": "Prize Points: %s",

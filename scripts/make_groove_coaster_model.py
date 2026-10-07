@@ -18,7 +18,7 @@ from wacca_surface_geometry import optimize_surfaces
 
 ROOT=Path(__file__).resolve().parents[1]
 ART=ROOT/'art/groove_coaster'
-ASSETS=ROOT/'src/main/resources/assets/funpackcustom'
+ASSETS=ROOT/'src/main/resources/assets/japanesearcades'
 TEXTURES=ASSETS/'textures/block'
 MODEL=ASSETS/'models/block'
 for path in (ART,TEXTURES,MODEL):path.mkdir(parents=True,exist_ok=True)
@@ -104,9 +104,9 @@ build_shell(cube,polygon)
 build_upper(cube,polygon,ART)
 
 texture_paths={
-    'materials':'funpackcustom:block/groove_coaster_materials','details':'funpackcustom:block/groove_coaster_details',
-    'lights':'funpackcustom:block/groove_coaster_lights','display':'funpackcustom:block/groove_coaster_display',
-    'branding':'funpackcustom:block/groove_coaster_branding','particle':'funpackcustom:block/groove_coaster_materials',
+    'materials':'japanesearcades:block/groove_coaster_materials','details':'japanesearcades:block/groove_coaster_details',
+    'lights':'japanesearcades:block/groove_coaster_lights','display':'japanesearcades:block/groove_coaster_display',
+    'branding':'japanesearcades:block/groove_coaster_branding','particle':'japanesearcades:block/groove_coaster_materials',
 }
 
 # Minecraft's north-facing UVs run from +X to -X when viewed from the front.
@@ -158,7 +158,7 @@ for part in part_names:
 variants={}
 for facing,rotation in (('north',0),('east',90),('south',180),('west',270)):
     for part in part_names:
-        variant={'model':'funpackcustom:block/groove_coaster_'+part}
+        variant={'model':'japanesearcades:block/groove_coaster_'+part}
         if rotation: variant['y']=rotation
         variants['facing='+facing+',part='+part]=variant
 write_json(ASSETS / 'blockstates/groove_coaster.json', {'variants':variants})
@@ -194,7 +194,7 @@ bb_elements=[]
 groups={}
 for source in elements:
     e=strip_element(source)
-    uid=str(uuid.uuid5(uuid.NAMESPACE_URL,'funpackcustom/groove_coaster/'+e['name']+'/'+str(e['from'])))
+    uid=str(uuid.uuid5(uuid.NAMESPACE_URL,'japanesearcades/groove_coaster/'+e['name']+'/'+str(e['from'])))
     rot=e.get('rotation')
     rotation=[0,0,0]
     origin=[(a+b)/2 for a,b in zip(e['from'],e['to'])]
@@ -216,10 +216,10 @@ for source in elements:
 bbtextures=[]
 for i,(identifier,path) in enumerate(texture_specs):
     texture=Image.open(path)
-    bbtextures.append({'path':str(path),'name':path.name,'folder':'block','namespace':'funpackcustom',
+    bbtextures.append({'path':str(path),'name':path.name,'folder':'block','namespace':'japanesearcades',
                        'id':str(i),'uuid':str(uuid.uuid5(uuid.NAMESPACE_URL,'groove_coaster/'+identifier)),
                        'width':texture.width,'height':texture.height,'uv_width':texture.width,'uv_height':texture.height,
-                       'relative_path':'../../src/main/resources/assets/funpackcustom/textures/block/'+path.name,
+                       'relative_path':'../../src/main/resources/assets/japanesearcades/textures/block/'+path.name,
                        'source':'data:image/png;base64,'+base64.b64encode(path.read_bytes()).decode(),
                        'mode':'bitmap','particle':i==0,'render_mode':'default','visible':True})
 write_json(ART/'groove_coaster.bbmodel',

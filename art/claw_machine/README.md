@@ -2,7 +2,7 @@
 
 A working white, cyan and pink glass prize cabinet, inspired by the supplied UFO Catcher Triple reference. The connected cabinet occupies **3 blocks wide × 2 deep × 3 tall**. All six floor cells must be supported and all eighteen occupied cells must be clear before placement.
 
-Obtain it in the Japanese Arcades creative tab, with `/give @s funpackcustom:claw_machine`, or from the Arcade Ordering Kiosk's Machines tab for **24 iron ingots, 4 gold ingots, 1 diamond, 12 glass and 8 redstone**.
+Obtain it in the Japanese Arcades creative tab, with `/give @s japanesearcades:claw_machine`, or from the Arcade Ordering Kiosk's Machines tab for **24 iron ingots, 4 gold ingots, 1 diamond, 12 glass and 8 redstone**.
 
 ## Operator setup
 

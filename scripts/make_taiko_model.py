@@ -19,7 +19,7 @@ from taiko_textures import build_textures
 
 ROOT=Path(__file__).resolve().parents[1]
 ART=ROOT/'art/taiko'
-ASSETS=ROOT/'src/main/resources/assets/funpackcustom'
+ASSETS=ROOT/'src/main/resources/assets/japanesearcades'
 TEX=ASSETS/'textures/block'
 for path in (ART,TEX,ASSETS/'models/block',ASSETS/'models/item',ASSETS/'blockstates'):
     path.mkdir(parents=True,exist_ok=True)
@@ -308,11 +308,11 @@ for cx in (8.0,24.0):
         tube('Hanging red tether %s %d'%(cx,k),pts,.055,'red',7)
 
 def write_json(path,data):path.write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8')
-textures={key:'funpackcustom:block/taiko_'+key for key in ('materials','marquee','screen','front','instructions','side','lantern','podium_side')}
+textures={key:'japanesearcades:block/taiko_'+key for key in ('materials','marquee','screen','front','instructions','side','lantern','podium_side')}
 textures['particle']=textures['materials']
 export_statistics={}
 def write_obj(path,faces,transform):
-    out=['# Classic lantern Taiko cabinet. Coordinates in blocks.','mtllib funpackcustom:models/block/taiko.mtl'];idx=1;last=None
+    out=['# Classic lantern Taiko cabinet. Coordinates in blocks.','mtllib japanesearcades:models/block/taiko.mtl'];idx=1;last=None
     for f in faces:
         mat=f['texture'][1:]+('_lit' if f['glow'] else '_surface')
         if mat!=last:out.append('usemtl '+mat);last=mat
@@ -324,7 +324,7 @@ def write_obj(path,faces,transform):
     assert not audit.get('skipped'),(path,audit)
     path.write_text(optimized,encoding='utf-8')
     export_statistics[path.relative_to(ASSETS).as_posix()]=audit
-def wrapper(name):return {'parent':'minecraft:block/block','loader':'neoforge:obj','model':'funpackcustom:models/'+name,
+def wrapper(name):return {'parent':'minecraft:block/block','loader':'neoforge:obj','model':'japanesearcades:models/'+name,
     'automatic_culling':False,'shade_quads':True,'flip_v':True,'emissive_ambient':True,'ambientocclusion':True,
     'render_type':'minecraft:cutout_mipped_all','textures':textures}
 sections={'rear_base':(0,0),'rear_console':(0,1),'rear_marquee':(0,2),'drum_base':(1,0),'drums':(1,1)}
@@ -355,7 +355,7 @@ variants={}
 for direction,angle in (('north',0),('east',90),('south',180),('west',270)):
     for name in parts:
         side,section=name.split('_',1)
-        variants['facing='+direction+',section='+section+',side='+side]={'model':'funpackcustom:block/taiko_'+name,**({'y':angle} if angle else {})}
+        variants['facing='+direction+',section='+section+',side='+side]={'model':'japanesearcades:block/taiko_'+name,**({'y':angle} if angle else {})}
 write_json(ASSETS/'blockstates/taiko.json',{'variants':variants})
 write_obj(ASSETS/'models/item/taiko.obj',surfaces,lambda p:[((p[0]-16)*.31+8)/16,p[1]*.31/16,(p[2]*.31+8)/16])
 item=wrapper('item/taiko.obj');item.update({'ambientocclusion':False,'gui_light':'front','display':{
@@ -394,7 +394,7 @@ if all((TEX/(value.split('/')[-1]+'.png')).exists() for key,value in textures.it
         groups[f['group']].append(uid)
     texdata=[]
     for i,(key,path) in enumerate(specs):
-        w,h=sizes[i];texdata.append({'name':path.name,'folder':'block','namespace':'funpackcustom','id':str(i),
+        w,h=sizes[i];texdata.append({'name':path.name,'folder':'block','namespace':'japanesearcades','id':str(i),
             'uuid':str(uuid.uuid5(uuid.NAMESPACE_URL,'taiko/'+key)),'width':w,'height':h,'uv_width':w,'uv_height':h,
             'source':'data:image/png;base64,'+base64.b64encode(path.read_bytes()).decode(),'mode':'bitmap','particle':i==0,'render_mode':'default','visible':True})
     write_json(ART/'taiko.bbmodel',{'meta':{'format_version':'4.10','model_format':'free','box_uv':False},'name':'Classic Lantern Taiko no Tatsujin',

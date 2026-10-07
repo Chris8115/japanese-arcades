@@ -238213,7 +238213,7 @@
     {
       "name": "initial_d_materials.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "0",
       "uuid": "682d71b1-19ae-5e91-b6b4-132c37b19feb",
       "width": 256,
@@ -238229,7 +238229,7 @@
     {
       "name": "initial_d_marquee.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "1",
       "uuid": "33e5359e-f543-5c9f-8d8e-27448ada91b1",
       "width": 1152,
@@ -238245,7 +238245,7 @@
     {
       "name": "initial_d_screen.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "2",
       "uuid": "caebcfe1-7fa2-57ba-a96c-00685178466f",
       "width": 1024,
@@ -238261,7 +238261,7 @@
     {
       "name": "initial_d_side.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "3",
       "uuid": "858a8bac-22ae-508f-baa6-37528222ae44",
       "width": 512,
@@ -238277,7 +238277,7 @@
     {
       "name": "initial_d_seat_back.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "4",
       "uuid": "775be284-510c-5843-8bc5-e7ad8155a65f",
       "width": 768,
@@ -238293,7 +238293,7 @@
     {
       "name": "initial_d_pedestal_side.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "5",
       "uuid": "8abff0ec-0a1d-54a0-b1ff-31befa5e3f3b",
       "width": 1280,
@@ -238309,7 +238309,7 @@
     {
       "name": "initial_d_details.png",
       "folder": "block",
-      "namespace": "funpackcustom",
+      "namespace": "japanesearcades",
       "id": "6",
       "uuid": "2d217db5-f56d-5c13-8a92-cf6294d2db6c",
       "width": 1024,

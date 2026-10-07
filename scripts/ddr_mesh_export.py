@@ -101,7 +101,7 @@ def material_name(mesh):
 
 def write_obj(path,meshes,transform):
     lines=['# DDR SuperNOVA cabinet and stage; coordinates in Minecraft block units.',
-           'mtllib funpackcustom:models/block/ddr_supernova.mtl','o ddr_supernova']
+           'mtllib japanesearcades:models/block/ddr_supernova.mtl','o ddr_supernova']
     current=None;index=1
     for mesh in meshes:
         material=material_name(mesh)
@@ -117,7 +117,7 @@ def write_obj(path,meshes,transform):
 
 
 def export_mesh_assets(elements,raw_meshes,textures,statistics,root):
-    art=root/'art/ddr_supernova';assets=root/'src/main/resources/assets/funpackcustom'
+    art=root/'art/ddr_supernova';assets=root/'src/main/resources/assets/japanesearcades'
     block=assets/'models/block';mesh=make_meshes(elements)
     for face in raw_meshes:
         # Mirror mesh positions and winding together with the cuboid source.
@@ -151,7 +151,7 @@ def export_mesh_assets(elements,raw_meshes,textures,statistics,root):
 
     def wrapper(obj):
         return {'parent':'minecraft:block/block','loader':'neoforge:obj',
-                'model':'funpackcustom:models/'+obj,'automatic_culling':False,
+                'model':'japanesearcades:models/'+obj,'automatic_culling':False,
                 'shade_quads':True,'flip_v':True,'emissive_ambient':True,
                 'ambientocclusion':True,'render_type':'minecraft:cutout_mipped_all',
                 'textures':textures}
@@ -173,7 +173,7 @@ def export_mesh_assets(elements,raw_meshes,textures,statistics,root):
     for facing,rotation in (('north',0),('east',90),('south',180),('west',270)):
         for side in ('primary','secondary'):
             for part in sections:
-                variant={'model':'funpackcustom:block/ddr_supernova_'+side+'_'+part}
+                variant={'model':'japanesearcades:block/ddr_supernova_'+side+'_'+part}
                 if rotation:variant['y']=rotation
                 variants['facing='+facing+',section='+part+',side='+side]=variant
     write_json(assets/'blockstates/ddr_supernova.json',{'variants':variants})
@@ -203,10 +203,10 @@ def export_mesh_assets(elements,raw_meshes,textures,statistics,root):
     bbtextures=[]
     for i,(identifier,path) in enumerate(specs):
         w,h=sizes[i]
-        bbtextures.append({'name':path.name,'folder':'block','namespace':'funpackcustom','id':str(i),
+        bbtextures.append({'name':path.name,'folder':'block','namespace':'japanesearcades','id':str(i),
                            'uuid':str(uuid.uuid5(uuid.NAMESPACE_URL,'ddr_supernova/'+identifier)),
                            'width':w,'height':h,'uv_width':w,'uv_height':h,
-                           'relative_path':'../../src/main/resources/assets/funpackcustom/textures/block/'+path.name,
+                           'relative_path':'../../src/main/resources/assets/japanesearcades/textures/block/'+path.name,
                            'source':'data:image/png;base64,'+base64.b64encode(path.read_bytes()).decode(),
                            'mode':'bitmap','particle':i==0,'render_mode':'default','visible':True})
     write_json(art/'ddr_supernova.bbmodel',{'meta':{'format_version':'4.10','model_format':'free','box_uv':False},

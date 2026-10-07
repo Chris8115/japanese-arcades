@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "japanesearcades:block/slime_figure"
+    },
+    "facing=east": {
+      "model": "japanesearcades:block/slime_figure",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "japanesearcades:block/slime_figure",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "japanesearcades:block/slime_figure",
+      "y": 270
+    }
+  }
+}

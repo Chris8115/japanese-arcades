@@ -1,0 +1,274 @@
+{
+  "variants": {
+    "facing=north,part=0": {
+      "model": "japanesearcades:block/claw_machine_0"
+    },
+    "facing=north,part=1": {
+      "model": "japanesearcades:block/claw_machine_1"
+    },
+    "facing=north,part=2": {
+      "model": "japanesearcades:block/claw_machine_2"
+    },
+    "facing=north,part=3": {
+      "model": "japanesearcades:block/claw_machine_3"
+    },
+    "facing=north,part=4": {
+      "model": "japanesearcades:block/claw_machine_4"
+    },
+    "facing=north,part=5": {
+      "model": "japanesearcades:block/claw_machine_5"
+    },
+    "facing=north,part=6": {
+      "model": "japanesearcades:block/claw_machine_6"
+    },
+    "facing=north,part=7": {
+      "model": "japanesearcades:block/claw_machine_7"
+    },
+    "facing=north,part=8": {
+      "model": "japanesearcades:block/claw_machine_8"
+    },
+    "facing=north,part=9": {
+      "model": "japanesearcades:block/claw_machine_9"
+    },
+    "facing=north,part=10": {
+      "model": "japanesearcades:block/claw_machine_10"
+    },
+    "facing=north,part=11": {
+      "model": "japanesearcades:block/claw_machine_11"
+    },
+    "facing=north,part=12": {
+      "model": "japanesearcades:block/claw_machine_12"
+    },
+    "facing=north,part=13": {
+      "model": "japanesearcades:block/claw_machine_13"
+    },
+    "facing=north,part=14": {
+      "model": "japanesearcades:block/claw_machine_14"
+    },
+    "facing=north,part=15": {
+      "model": "japanesearcades:block/claw_machine_15"
+    },
+    "facing=north,part=16": {
+      "model": "japanesearcades:block/claw_machine_16"
+    },
+    "facing=north,part=17": {
+      "model": "japanesearcades:block/claw_machine_17"
+    },
+    "facing=east,part=0": {
+      "model": "japanesearcades:block/claw_machine_0",
+      "y": 90
+    },
+    "facing=east,part=1": {
+      "model": "japanesearcades:block/claw_machine_1",
+      "y": 90
+    },
+    "facing=east,part=2": {
+      "model": "japanesearcades:block/claw_machine_2",
+      "y": 90
+    },
+    "facing=east,part=3": {
+      "model": "japanesearcades:block/claw_machine_3",
+      "y": 90
+    },
+    "facing=east,part=4": {
+      "model": "japanesearcades:block/claw_machine_4",
+      "y": 90
+    },
+    "facing=east,part=5": {
+      "model": "japanesearcades:block/claw_machine_5",
+      "y": 90
+    },
+    "facing=east,part=6": {
+      "model": "japanesearcades:block/claw_machine_6",
+      "y": 90
+    },
+    "facing=east,part=7": {
+      "model": "japanesearcades:block/claw_machine_7",
+      "y": 90
+    },
+    "facing=east,part=8": {
+      "model": "japanesearcades:block/claw_machine_8",
+      "y": 90
+    },
+    "facing=east,part=9": {
+      "model": "japanesearcades:block/claw_machine_9",
+      "y": 90
+    },
+    "facing=east,part=10": {
+      "model": "japanesearcades:block/claw_machine_10",
+      "y": 90
+    },
+    "facing=east,part=11": {
+      "model": "japanesearcades:block/claw_machine_11",
+      "y": 90
+    },
+    "facing=east,part=12": {
+      "model": "japanesearcades:block/claw_machine_12",
+      "y": 90
+    },
+    "facing=east,part=13": {
+      "model": "japanesearcades:block/claw_machine_13",
+      "y": 90
+    },
+    "facing=east,part=14": {
+      "model": "japanesearcades:block/claw_machine_14",
+      "y": 90
+    },
+    "facing=east,part=15": {
+      "model": "japanesearcades:block/claw_machine_15",
+      "y": 90
+    },
+    "facing=east,part=16": {
+      "model": "japanesearcades:block/claw_machine_16",
+      "y": 90
+    },
+    "facing=east,part=17": {
+      "model": "japanesearcades:block/claw_machine_17",
+      "y": 90
+    },
+    "facing=south,part=0": {
+      "model": "japanesearcades:block/claw_machine_0",
+      "y": 180
+    },
+    "facing=south,part=1": {
+      "model": "japanesearcades:block/claw_machine_1",
+      "y": 180
+    },
+    "facing=south,part=2": {
+      "model": "japanesearcades:block/claw_machine_2",
+      "y": 180
+    },
+    "facing=south,part=3": {
+      "model": "japanesearcades:block/claw_machine_3",
+      "y": 180
+    },
+    "facing=south,part=4": {
+      "model": "japanesearcades:block/claw_machine_4",
+      "y": 180
+    },
+    "facing=south,part=5": {
+      "model": "japanesearcades:block/claw_machine_5",
+      "y": 180
+    },
+    "facing=south,part=6": {
+      "model": "japanesearcades:block/claw_machine_6",
+      "y": 180
+    },
+    "facing=south,part=7": {
+      "model": "japanesearcades:block/claw_machine_7",
+      "y": 180
+    },
+    "facing=south,part=8": {
+      "model": "japanesearcades:block/claw_machine_8",
+      "y": 180
+    },
+    "facing=south,part=9": {
+      "model": "japanesearcades:block/claw_machine_9",
+      "y": 180
+    },
+    "facing=south,part=10": {
+      "model": "japanesearcades:block/claw_machine_10",
+      "y": 180
+    },
+    "facing=south,part=11": {
+      "model": "japanesearcades:block/claw_machine_11",
+      "y": 180
+    },
+    "facing=south,part=12": {
+      "model": "japanesearcades:block/claw_machine_12",
+      "y": 180
+    },
+    "facing=south,part=13": {
+      "model": "japanesearcades:block/claw_machine_13",
+      "y": 180
+    },
+    "facing=south,part=14": {
+      "model": "japanesearcades:block/claw_machine_14",
+      "y": 180
+    },
+    "facing=south,part=15": {
+      "model": "japanesearcades:block/claw_machine_15",
+      "y": 180
+    },
+    "facing=south,part=16": {
+      "model": "japanesearcades:block/claw_machine_16",
+      "y": 180
+    },
+    "facing=south,part=17": {
+      "model": "japanesearcades:block/claw_machine_17",
+      "y": 180
+    },
+    "facing=west,part=0": {
+      "model": "japanesearcades:block/claw_machine_0",
+      "y": 270
+    },
+    "facing=west,part=1": {
+      "model": "japanesearcades:block/claw_machine_1",
+      "y": 270
+    },
+    "facing=west,part=2": {
+      "model": "japanesearcades:block/claw_machine_2",
+      "y": 270
+    },
+    "facing=west,part=3": {
+      "model": "japanesearcades:block/claw_machine_3",
+      "y": 270
+    },
+    "facing=west,part=4": {
+      "model": "japanesearcades:block/claw_machine_4",
+      "y": 270
+    },
+    "facing=west,part=5": {
+      "model": "japanesearcades:block/claw_machine_5",
+      "y": 270
+    },
+    "facing=west,part=6": {
+      "model": "japanesearcades:block/claw_machine_6",
+      "y": 270
+    },
+    "facing=west,part=7": {
+      "model": "japanesearcades:block/claw_machine_7",
+      "y": 270
+    },
+    "facing=west,part=8": {
+      "model": "japanesearcades:block/claw_machine_8",
+      "y": 270
+    },
+    "facing=west,part=9": {
+      "model": "japanesearcades:block/claw_machine_9",
+      "y": 270
+    },
+    "facing=west,part=10": {
+      "model": "japanesearcades:block/claw_machine_10",
+      "y": 270
+    },
+    "facing=west,part=11": {
+      "model": "japanesearcades:block/claw_machine_11",
+      "y": 270
+    },
+    "facing=west,part=12": {
+      "model": "japanesearcades:block/claw_machine_12",
+      "y": 270
+    },
+    "facing=west,part=13": {
+      "model": "japanesearcades:block/claw_machine_13",
+      "y": 270
+    },
+    "facing=west,part=14": {
+      "model": "japanesearcades:block/claw_machine_14",
+      "y": 270
+    },
+    "facing=west,part=15": {
+      "model": "japanesearcades:block/claw_machine_15",
+      "y": 270
+    },
+    "facing=west,part=16": {
+      "model": "japanesearcades:block/claw_machine_16",
+      "y": 270
+    },
+    "facing=west,part=17": {
+      "model": "japanesearcades:block/claw_machine_17",
+      "y": 270
+    }
+  }
+}

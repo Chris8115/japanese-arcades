@@ -19,7 +19,7 @@ from valkyrie_lower_geometry import build_lower
 
 ROOT=Path(__file__).resolve().parents[1]
 ART=ROOT/'art/sound-voltex-valkyrie'
-ASSETS=ROOT/'src/main/resources/assets/funpackcustom'
+ASSETS=ROOT/'src/main/resources/assets/japanesearcades'
 TEXTURES=ASSETS/'textures/block'
 MODEL=ASSETS/'models/block'
 ART.mkdir(parents=True,exist_ok=True)
@@ -357,10 +357,10 @@ polygon('Marquee center diamond',[(8,42.27),(7.72,42.65),(8,43.03),(8.28,42.65)]
         glow=('north',),group='Crown lights',step=.125)
 
 texture_paths={
-    'materials':'funpackcustom:block/valkyrie_materials','details':'funpackcustom:block/valkyrie_details',
-    'display':'funpackcustom:block/valkyrie_display','branding':'funpackcustom:block/valkyrie_branding',
-    'wing':'funpackcustom:block/valkyrie_wing','side':'funpackcustom:block/valkyrie_side',
-    'particle':'funpackcustom:block/valkyrie_materials',
+    'materials':'japanesearcades:block/valkyrie_materials','details':'japanesearcades:block/valkyrie_details',
+    'display':'japanesearcades:block/valkyrie_display','branding':'japanesearcades:block/valkyrie_branding',
+    'wing':'japanesearcades:block/valkyrie_wing','side':'japanesearcades:block/valkyrie_side',
+    'particle':'japanesearcades:block/valkyrie_materials',
 }
 
 # Minecraft's north-facing UVs run from +X to -X when viewed from the front.
@@ -398,7 +398,7 @@ for part in part_names:
 variants={}
 for facing,rotation in (('north',0),('east',90),('south',180),('west',270)):
     for part in part_names:
-        variant={'model':'funpackcustom:block/sound_voltex_valkyrie_'+part}
+        variant={'model':'japanesearcades:block/sound_voltex_valkyrie_'+part}
         if rotation: variant['y']=rotation
         variants['facing='+facing+',part='+part]=variant
 write_json(ASSETS / 'blockstates/sound_voltex_valkyrie.json', {'variants':variants})
@@ -434,7 +434,7 @@ bb_elements=[]
 groups={}
 for source in elements:
     e=strip_element(source)
-    uid=str(uuid.uuid5(uuid.NAMESPACE_URL,'funpackcustom/valkyrie/'+e['name']+'/'+str(e['from'])))
+    uid=str(uuid.uuid5(uuid.NAMESPACE_URL,'japanesearcades/valkyrie/'+e['name']+'/'+str(e['from'])))
     rot=e.get('rotation')
     rotation=[0,0,0]
     origin=[(a+b)/2 for a,b in zip(e['from'],e['to'])]
@@ -453,10 +453,10 @@ for source in elements:
 bbtextures=[]
 for i,(identifier,path) in enumerate(texture_specs):
     texture=Image.open(path)
-    bbtextures.append({'path':str(path),'name':path.name,'folder':'block','namespace':'funpackcustom',
+    bbtextures.append({'path':str(path),'name':path.name,'folder':'block','namespace':'japanesearcades',
                        'id':str(i),'uuid':str(uuid.uuid5(uuid.NAMESPACE_URL,'valkyrie/'+identifier)),
                        'width':texture.width,'height':texture.height,'uv_width':texture.width,'uv_height':texture.height,
-                       'relative_path':'../../src/main/resources/assets/funpackcustom/textures/block/'+path.name,
+                       'relative_path':'../../src/main/resources/assets/japanesearcades/textures/block/'+path.name,
                        'source':'data:image/png;base64,'+base64.b64encode(path.read_bytes()).decode(),
                        'mode':'bitmap','particle':i==0,'render_mode':'default','visible':True})
 write_json(ART/'sound-voltex-valkyrie.bbmodel',

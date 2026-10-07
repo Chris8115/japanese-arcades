@@ -1,9 +1,9 @@
 {
   "textures": {
-    "materials": "funpackcustom:block/arcade_kiosk_materials",
-    "screen": "funpackcustom:block/arcade_kiosk_screen",
-    "details": "funpackcustom:block/arcade_kiosk_details",
-    "particle": "funpackcustom:block/arcade_kiosk_materials"
+    "materials": "japanesearcades:block/arcade_kiosk_materials",
+    "screen": "japanesearcades:block/arcade_kiosk_screen",
+    "details": "japanesearcades:block/arcade_kiosk_details",
+    "particle": "japanesearcades:block/arcade_kiosk_materials"
   },
   "meshes": [
     {

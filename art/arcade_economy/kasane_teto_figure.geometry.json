@@ -1,8 +1,8 @@
 {
   "textures": {
-    "materials": "funpackcustom:block/kasane_teto_figure_materials",
-    "nameplate": "funpackcustom:block/kasane_teto_figure_nameplate",
-    "particle": "funpackcustom:block/kasane_teto_figure_materials"
+    "materials": "japanesearcades:block/kasane_teto_figure_materials",
+    "nameplate": "japanesearcades:block/kasane_teto_figure_nameplate",
+    "particle": "japanesearcades:block/kasane_teto_figure_materials"
   },
   "meshes": [
     {

@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / 'art/arcade_economy'
 SOURCE = ART / 'arcade-pass-source.png'
 PREVIEW = ART / 'arcade-pass.png'
-TEXTURE = ROOT / 'src/main/resources/assets/funpackcustom/textures/item/arcade_pass.png'
+TEXTURE = ROOT / 'src/main/resources/assets/japanesearcades/textures/item/arcade_pass.png'
 
 
 def prepare_arcade_pass(source=SOURCE, preview=PREVIEW, texture=TEXTURE):

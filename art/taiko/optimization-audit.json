@@ -96,5 +96,6 @@
     "Remove buried rear caps from tacks, latches and flower petals; reduce subdivisions on tiny circular hardware.",
     "Simplify small cradle scroll circumferences and rounded trim corner arcs.",
     "Preserve all 64-sided drum body, head and rim geometry, transforms, materials, UVs and hit planes."
-  ]
+  ],
+  "namespace_history_note": "Historical evidence recorded before the japanesearcades namespace rename. Original resource names, logged messages, hashes and measurements are retained exactly; current runtime assets use japanesearcades."
 }

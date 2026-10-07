@@ -20,7 +20,7 @@ from collections import Counter
 
 ROOT=Path(__file__).resolve().parents[1]
 ART=ROOT/'art/ddr_supernova'
-ASSETS=ROOT/'src/main/resources/assets/funpackcustom'
+ASSETS=ROOT/'src/main/resources/assets/japanesearcades'
 TEXTURES=ASSETS/'textures/block'
 MODEL=ASSETS/'models/block'
 for path in (ART,TEXTURES,MODEL):path.mkdir(parents=True,exist_ok=True)
@@ -134,9 +134,9 @@ assembly='stage'
 build_platform(cube,polygon,mesh)
 
 texture_paths={
-    'materials':'funpackcustom:block/ddr_supernova_materials','details':'funpackcustom:block/ddr_supernova_details',
-    'display':'funpackcustom:block/ddr_supernova_display',
-    'header':'funpackcustom:block/ddr_supernova_header','particle':'funpackcustom:block/ddr_supernova_materials',
+    'materials':'japanesearcades:block/ddr_supernova_materials','details':'japanesearcades:block/ddr_supernova_details',
+    'display':'japanesearcades:block/ddr_supernova_display',
+    'header':'japanesearcades:block/ddr_supernova_header','particle':'japanesearcades:block/ddr_supernova_materials',
 }
 
 # Minecraft's north-facing UVs run from +X to -X when viewed from the front.

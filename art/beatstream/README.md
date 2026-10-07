@@ -24,11 +24,11 @@ Y 0–47.65 and Z 0–15.355 model units, fitting inside a 1×1×3 block column.
 - Find **BeatStream Arcade Cabinet** in the **Japanese Arcades** creative tab.
 - Or order it from the kiosk for **16 iron ingots, 4 gold ingots, 1 diamond,
   6 glass and 6 redstone**.
-- Command: `/give @s funpackcustom:beatstream`.
+- Command: `/give @s japanesearcades:beatstream`.
 - Place on a solid floor with three clear vertical cells. It faces the player.
 - Use an Arcade Pass to spend Credits and earn Prize Points through the shared
   simulated-play system. The default cost is 10 Credits; the server can override
-  its distinct machine ID, `funpackcustom:beatstream`, in the arcade economy config.
+  its distinct machine ID, `japanesearcades:beatstream`, in the arcade economy config.
 - Insert/eject a music disc through any cabinet section. Its base stores one disc
   and playback progress, using the same jukebox behavior as Nostalgia.
 - Breaking a section removes the cabinet and returns its disc once. Adjacent

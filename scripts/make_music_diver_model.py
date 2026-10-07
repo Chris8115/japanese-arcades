@@ -17,7 +17,7 @@ from obj_mesh_optimizer import optimize_obj
 from music_diver_textures import generate
 ROOT=Path(__file__).resolve().parents[1]
 ART=ROOT/'art/music-diver'
-ASSETS=ROOT/'src/main/resources/assets/funpackcustom'
+ASSETS=ROOT/'src/main/resources/assets/japanesearcades'
 TEX=ASSETS/'textures/block'
 for path in (ART,TEX,ASSETS/'models/block',ASSETS/'models/item',ASSETS/'blockstates'):
     path.mkdir(parents=True,exist_ok=True)
@@ -334,7 +334,7 @@ for f in surfaces[speakers_start:]:
     for p in f['vertices']:p[2]+=2.7
 
 
-textures={key:'funpackcustom:block/music_diver_'+key for key in ('materials','circuit','marquee','logo','display','status','side','details')}
+textures={key:'japanesearcades:block/music_diver_'+key for key in ('materials','circuit','marquee','logo','display','status','side','details')}
 textures['particle']=textures['materials']
 
 def write_json(path,data):
@@ -342,7 +342,7 @@ def write_json(path,data):
 
 def obj(path,faces):
     lines=['# MUSIC DIVER efficient native cabinet, coordinates in blocks.',
-           'mtllib funpackcustom:models/block/music_diver.mtl'];index=1;last=None
+           'mtllib japanesearcades:models/block/music_diver.mtl'];index=1;last=None
     for f in faces:
         material=f['texture'][1:]+('_glow' if f['glow'] else '_surface')
         if material!=last:lines.append('usemtl '+material);last=material
@@ -354,7 +354,7 @@ def obj(path,faces):
     path.write_text(optimized,encoding='utf-8');return stats
 
 def wrapper(name,item=False):
-    model={'parent':'minecraft:block/block','loader':'neoforge:obj','model':'funpackcustom:models/'+name+'.obj',
+    model={'parent':'minecraft:block/block','loader':'neoforge:obj','model':'japanesearcades:models/'+name+'.obj',
            'automatic_culling':False,'shade_quads':True,'flip_v':True,'emissive_ambient':True,
            'ambientocclusion':not item,'render_type':'minecraft:solid','textures':textures}
     if item:model.update({'gui_light':'front','display':{
@@ -385,7 +385,7 @@ for key,glow in sorted({(f['texture'][1:],f['glow']) for f in surfaces}):
                 'Kd 1 1 1','map_Kd #'+key,''])
 (ASSETS/'models/block/music_diver.mtl').write_text('\n'.join(mtl),encoding='utf-8')
 write_json(ASSETS/'blockstates/music_diver.json',{'variants':{
-    'facing='+direction+',part='+part:{'model':'funpackcustom:block/music_diver_'+part,**({'y':angle} if angle else {})}
+    'facing='+direction+',part='+part:{'model':'japanesearcades:block/music_diver_'+part,**({'y':angle} if angle else {})}
     for direction,angle in (('north',0),('east',90),('south',180),('west',270)) for part in split}})
 
 bounds=[[min(p[i] for f in surfaces for p in f['vertices']),max(p[i] for f in surfaces for p in f['vertices'])] for i in range(3)]
@@ -408,7 +408,7 @@ for f in surfaces:
 bbtex=[]
 for i,key in enumerate(texture_keys):
     path=TEX/('music_diver_'+key+'.png');width,height=sizes[key]
-    bbtex.append({'name':path.name,'folder':'block','namespace':'funpackcustom','id':str(i),
+    bbtex.append({'name':path.name,'folder':'block','namespace':'japanesearcades','id':str(i),
         'uuid':str(uuid.uuid5(uuid.NAMESPACE_URL,'music_diver/'+key)),'width':width,'height':height,
         'uv_width':width,'uv_height':height,'source':'data:image/png;base64,'+base64.b64encode(path.read_bytes()).decode(),
         'mode':'bitmap','particle':i==0,'render_mode':'default','visible':True})

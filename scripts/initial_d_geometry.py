@@ -71,7 +71,7 @@ class Geometry:
 
 def write_json(path,data):path.write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8')
 def export(root,g,textures,metadata):
-    art=root/'art/initial_d';assets=root/'src/main/resources/assets/funpackcustom';tex=assets/'textures/block'
+    art=root/'art/initial_d';assets=root/'src/main/resources/assets/japanesearcades';tex=assets/'textures/block'
     sections={'cabinet_base':(0,0),'cabinet_console':(0,1),'cabinet_marquee':(0,2),
         'footwell':(1,0),'controls':(1,1),'seat_base':(2,0),'seat_back':(2,1)}
     parts={key:[] for key in sections}
@@ -86,7 +86,7 @@ def export(root,g,textures,metadata):
                 key=('cabinet_base','cabinet_console','cabinet_marquee')[row] if depth==0 else ('footwell','controls')[row] if depth==1 else ('seat_base','seat_back')[row]
                 parts[key].append({**f,'vertices':[p for p,uv in q],'uv':[uv for p,uv in q]})
     def obj(path,faces,transform):
-        lines=['# Original single Initial D cabinet. Coordinates in blocks.','mtllib funpackcustom:models/block/initial_d.mtl'];idx=1;last=None
+        lines=['# Original single Initial D cabinet. Coordinates in blocks.','mtllib japanesearcades:models/block/initial_d.mtl'];idx=1;last=None
         for f in faces:
             mat=f['texture'][1:]+('_lit' if f['glow'] else '_surface')
             if mat!=last:lines.append('usemtl '+mat);last=mat
@@ -94,7 +94,7 @@ def export(root,g,textures,metadata):
             lines.extend('vt %.9f %.9f'%(u/16,1-v/16) for u,v in f['uv'])
             lines.append('f '+' '.join('%d/%d'%(idx+i,idx+i) for i in range(len(f['vertices']))));idx+=len(f['vertices'])
         path.write_text('\n'.join(lines)+'\n',encoding='utf-8')
-    def wrapper(name):return {'parent':'minecraft:block/block','loader':'neoforge:obj','model':'funpackcustom:models/'+name,
+    def wrapper(name):return {'parent':'minecraft:block/block','loader':'neoforge:obj','model':'japanesearcades:models/'+name,
         'automatic_culling':False,'shade_quads':True,'flip_v':True,'emissive_ambient':True,'ambientocclusion':True,
         'render_type':'minecraft:cutout_mipped_all','textures':textures}
     for name,faces in parts.items():
@@ -106,7 +106,7 @@ def export(root,g,textures,metadata):
         mtl.extend(['newmtl '+key+('_lit' if lit else '_surface'),'Ka '+('1 1 1' if lit else '0 0 0'),'Kd 1 1 1','map_Kd #'+key,''])
     (assets/'models/block/initial_d.mtl').write_text('\n'.join(mtl),encoding='utf-8')
     write_json(assets/'blockstates/initial_d.json',{'variants':{
-        'facing='+direction+',section='+section:{'model':'funpackcustom:block/initial_d_'+section,**({'y':angle} if angle else {})}
+        'facing='+direction+',section='+section:{'model':'japanesearcades:block/initial_d_'+section,**({'y':angle} if angle else {})}
         for direction,angle in (('north',0),('east',90),('south',180),('west',270)) for section in sections}})
     obj(assets/'models/item/initial_d.obj',g.faces,lambda p:[((p[0]-8)*.35+8)/16,p[1]*.35/16,((p[2]+8)*.35+8)/16])
     item=wrapper('item/initial_d.obj');item.update({'ambientocclusion':False,'gui_light':'front','display':{
@@ -128,7 +128,7 @@ def export(root,g,textures,metadata):
         groups[f['group']].append(uid)
     texdata=[]
     for i,(key,path) in enumerate(specs):
-        w,h=sizes[i];texdata.append({'name':path.name,'folder':'block','namespace':'funpackcustom','id':str(i),
+        w,h=sizes[i];texdata.append({'name':path.name,'folder':'block','namespace':'japanesearcades','id':str(i),
             'uuid':str(uuid.uuid5(uuid.NAMESPACE_URL,'initial_d/'+key)),'width':w,'height':h,'uv_width':w,'uv_height':h,
             'source':'data:image/png;base64,'+base64.b64encode(path.read_bytes()).decode(),'mode':'bitmap','particle':i==0,'render_mode':'default','visible':True})
     write_json(art/'initial_d.bbmodel',{'meta':{'format_version':'4.10','model_format':'free','box_uv':False},'name':'Initial D Stage 3 Single Cabinet',

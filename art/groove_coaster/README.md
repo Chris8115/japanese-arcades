@@ -72,7 +72,7 @@ Launch `dev.cmd Client` or `dev.cmd PackClient`, then choose **Groove Coaster Ar
 Cabinet** in the **Japanese Arcades** creative tab. Alternatively:
 
 ```text
-/give @s funpackcustom:groove_coaster
+/give @s japanesearcades:groove_coaster
 ```
 
 Place it on a solid floor with three clear vertical blocks and room for the larger
@@ -94,14 +94,14 @@ changes only.
 
 ## Development and editing
 
-The block/item ID is `funpackcustom:groove_coaster`. Registration starts in
-`src/main/java/local/funpack/custom/FunPackCustom.java`. `GrooveCoasterCabinetBlock.java`
+The block/item ID is `japanesearcades:groove_coaster`. Registration starts in
+`src/main/java/local/japanesearcades/JapaneseArcades.java`. `GrooveCoasterCabinetBlock.java`
 supplies the larger section bounds and inherits placement and interactions from
 `NostalgiaCabinetBlock.java`. All five cabinets use `NostalgiaJukeboxBlockEntity.java`
 and Minecraft's native `JukeboxSongPlayer`; existing registry and saved-data IDs
 are retained.
 
-Model resources belong under `src/main/resources/assets/funpackcustom`. Artwork
+Model resources belong under `src/main/resources/assets/japanesearcades`. Artwork
 generation prompts are saved in `imagegen-prompts.txt` in this directory. The
 generator is the canonical model source: save manual Blockbench changes separately
 or transfer them into the generator before regeneration, which replaces exported

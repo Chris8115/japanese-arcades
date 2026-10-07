@@ -1,14 +1,14 @@
 {
   "textures": {
-    "materials": "funpackcustom:block/music_diver_materials",
-    "circuit": "funpackcustom:block/music_diver_circuit",
-    "marquee": "funpackcustom:block/music_diver_marquee",
-    "logo": "funpackcustom:block/music_diver_logo",
-    "display": "funpackcustom:block/music_diver_display",
-    "status": "funpackcustom:block/music_diver_status",
-    "side": "funpackcustom:block/music_diver_side",
-    "details": "funpackcustom:block/music_diver_details",
-    "particle": "funpackcustom:block/music_diver_materials"
+    "materials": "japanesearcades:block/music_diver_materials",
+    "circuit": "japanesearcades:block/music_diver_circuit",
+    "marquee": "japanesearcades:block/music_diver_marquee",
+    "logo": "japanesearcades:block/music_diver_logo",
+    "display": "japanesearcades:block/music_diver_display",
+    "status": "japanesearcades:block/music_diver_status",
+    "side": "japanesearcades:block/music_diver_side",
+    "details": "japanesearcades:block/music_diver_details",
+    "particle": "japanesearcades:block/music_diver_materials"
   },
   "meshes": [
     {

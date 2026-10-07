@@ -10,7 +10,7 @@ shapes and type; the reference photos are not copied into the model textures.
 ## Obtaining and placing
 
 Find **Taiko no Tatsujin Arcade Cabinet** in **Japanese Arcades**, use
-`/give @s funpackcustom:taiko`, or order it from the Arcade Ordering Kiosk's
+`/give @s japanesearcades:taiko`, or order it from the Arcade Ordering Kiosk's
 **Machines** tab for:
 
 - 20 iron ingots
@@ -66,7 +66,7 @@ The final small Minecraft client passed actual left/right mouse interactions
 with empty hands and sticks after the outward drum rotation. It received exactly
 two bass-drum and two rim sounds from four hits; creative drumming preserved
 the cabinet. The real kiosk UI deducted the advertised materials and delivered
-one Taiko. `/funpackdev` also confirmed the release mod was loaded.
+one Taiko. The development status command also confirmed the release mod was loaded.
 
 Screenshots: [placed machine](taiko-in-game.png),
 [decorated side and drum angle](taiko-side-in-game.png),

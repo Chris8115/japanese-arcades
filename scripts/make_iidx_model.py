@@ -17,7 +17,7 @@ from obj_mesh_optimizer import optimize_obj
 from iidx_artwork import pack_artwork
 ROOT=Path(__file__).resolve().parents[1]
 ART=ROOT/'art/beatmania-iidx-lightning'
-ASSETS=ROOT/'src/main/resources/assets/funpackcustom'
+ASSETS=ROOT/'src/main/resources/assets/japanesearcades'
 TEX=ASSETS/'textures/block'
 for path in (ART,TEX,ASSETS/'models/block',ASSETS/'models/item',ASSETS/'blockstates'):
     path.mkdir(parents=True,exist_ok=True)
@@ -404,14 +404,14 @@ for x in (10.04,21.96):
         (x+.09,43.980,12.30),(x-.09,43.980,12.30)],'violet',glow=True)
 
 
-textures={key:'funpackcustom:block/beatmania_iidx_lightning_'+key for key in ('materials','controls','details','floor','turntable','display','marquee','banners')}
+textures={key:'japanesearcades:block/beatmania_iidx_lightning_'+key for key in ('materials','controls','details','floor','turntable','display','marquee','banners')}
 textures['particle']=textures['materials']
 def write_json(path,data):
     path.write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8')
 
 def obj(path,faces):
     lines=['# beatmania IIDX LIGHTNING MODEL efficient native cabinet, coordinates in blocks.',
-           'mtllib funpackcustom:models/block/beatmania_iidx_lightning.mtl'];index=1;last=None
+           'mtllib japanesearcades:models/block/beatmania_iidx_lightning.mtl'];index=1;last=None
     for f in faces:
         material=f['texture'][1:]+('_glow' if f['glow'] else '_surface')
         if material!=last:lines.append('usemtl '+material);last=material
@@ -423,7 +423,7 @@ def obj(path,faces):
     path.write_text(optimized,encoding='utf-8');return stats
 
 def wrapper(name,item=False):
-    model={'parent':'minecraft:block/block','loader':'neoforge:obj','model':'funpackcustom:models/'+name+'.obj',
+    model={'parent':'minecraft:block/block','loader':'neoforge:obj','model':'japanesearcades:models/'+name+'.obj',
            'automatic_culling':False,'shade_quads':True,'flip_v':True,'emissive_ambient':True,
            'ambientocclusion':not item,'render_type':'minecraft:solid','textures':textures}
     if item:model.update({'gui_light':'front','display':{
@@ -476,7 +476,7 @@ for direction,angle in (('north',0),('east',90),('south',180),('west',270)):
     for part in parts:
         side,section=part.split('_',1)
         variants['facing='+direction+',section='+section+',side='+side]={
-            'model':'funpackcustom:block/beatmania_iidx_lightning_'+part,**({'y':angle} if angle else {})}
+            'model':'japanesearcades:block/beatmania_iidx_lightning_'+part,**({'y':angle} if angle else {})}
 write_json(ASSETS/'blockstates/beatmania_iidx_lightning.json',{'variants':variants})
 bounds=[[min(p[i] for f in surfaces for p in f['vertices']),max(p[i] for f in surfaces for p in f['vertices'])] for i in range(3)]
 write_json(ART/'geometry.json',{'textures':textures,'meshes':surfaces,'bounds':bounds,
@@ -501,7 +501,7 @@ for f in surfaces:
 bbtex=[]
 for i,key in enumerate(texture_keys):
     path=texture_files[key];width,height=sizes[key]
-    bbtex.append({'name':path.name,'folder':'block','namespace':'funpackcustom','id':str(i),
+    bbtex.append({'name':path.name,'folder':'block','namespace':'japanesearcades','id':str(i),
         'uuid':str(uuid.uuid5(uuid.NAMESPACE_URL,'beatmania_iidx_lightning/'+key)),'width':width,'height':height,
         'uv_width':width,'uv_height':height,'source':'data:image/png;base64,'+base64.b64encode(path.read_bytes()).decode(),
         'mode':'bitmap','particle':i==0,'render_mode':'default','visible':True})
