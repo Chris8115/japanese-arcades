@@ -31,8 +31,10 @@ DISPLAY = {
     'fixed': {'translation': [0, 1, 0], 'scale': [.8]*3},
     'firstperson_righthand': {'rotation': [0, 0, -10], 'translation': [-1.5, 3.75, 0], 'scale': [.6]*3},
     'firstperson_lefthand': {'rotation': [0, 0, -10], 'translation': [-1.5, 3.75, 0], 'scale': [.6]*3},
-    'thirdperson_righthand': {'rotation': [90, 0, 0], 'translation': [0, 1, 3.9], 'scale': [.65]*3},
-    'thirdperson_lefthand': {'rotation': [90, 0, 0], 'translation': [0, 1, 3.9], 'scale': [.65]*3},
+    # Match vanilla stick's diagonal sprite after its handheld transform. Offset
+    # around the grip at model [8, 2, 8] so changing the angle cannot move the handle.
+    'thirdperson_righthand': {'rotation': [-10, 0, 0], 'translation': [0, 4.84075, -.67723], 'scale': [.65]*3},
+    'thirdperson_lefthand': {'rotation': [-10, 0, 0], 'translation': [0, 4.84075, -.67723], 'scale': [.65]*3},
     'head': {'translation': [0, 12, 0], 'scale': [.8]*3},
 }
 
