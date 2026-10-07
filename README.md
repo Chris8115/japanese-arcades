@@ -170,6 +170,37 @@ To use another mod's Java API, add its documented Maven repository and `compileO
 in `build.gradle`, and declare any required runtime dependency in the mod metadata.
 Only the pack test client discovers the copied pack mods. The small client stays fast to start.
 
+## Model export optimization
+
+Editable cabinet/figure sources stay under `art/` and their `scripts/make_*`
+generators. After regenerating a model, run the conservative export pass before
+building (Python 3 with Pillow):
+
+```powershell
+python scripts/optimize_models.py --write
+python scripts/optimize_models.py --check --report build/verification/model-audit.json
+python scripts/test_catalog_json_geometry.py
+python scripts/test_obj_mesh_optimizer.py
+.\dev.cmd Build
+```
+
+With no flags, `optimize_models.py` only audits the catalog. `--check` fails when
+an export still contains removable geometry or duplicate OBJ declarations.
+The checked-in runtime assets are already optimized; normal builds need neither
+Python nor Pillow. The pass leaves artwork, animation sheets and editable source
+models intact. It removes fully hidden JSON faces, joins compatible coplanar OBJ
+faces, and indexes repeated OBJ vertices/UVs. It preserves curved outlines, UV
+seams, separate material layers and translucent glass. It does not simplify
+faces merely because they use the same material: several palettes contain real
+dither detail that would be lost by flattening their UVs.
+
+Claw and gachapon prize displays share a bounded client mesh cache, cleared after
+each model/resource reload. Dynamic, tinted, enchanted and external-mod items
+retain native rendering. Native in-game views and shader checks remain necessary
+after geometry/rendering changes; the export checks alone do not verify lighting.
+
+See [the catalog optimization measurements](art/model-optimization.md).
+
 ## Install a finished build
 
 Run `Build`, then copy the **regular jar** (not `-sources.jar`) into the target instance's `mods`

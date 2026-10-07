@@ -31,13 +31,22 @@ import org.joml.Matrix4f;
 import org.joml.Vector3f;
 
 /** Reuses the detailed arcade prize meshes without rebuilding their quads every frame. */
-final class ClawPrizeMeshes {
-    // Roughly 40 MiB of vertex data and quad references. Shared by this BER's displays;
-    // the dispatcher replaces the renderer (and this cache) when resources are reloaded.
+final class DisplayItemMeshes {
+    static final DisplayItemMeshes INSTANCE = new DisplayItemMeshes();
+    // Roughly 40 MiB of vertex data and quad references, shared across BOTH display
+    // renderers rather than duplicated per machine type. Cleared after every model bake.
     private static final int MAX_VERTICES = 800_000;
     private final Map<BakedModel, Mesh> meshes = new LinkedHashMap<>(16, .75F, true);
     private final java.util.Set<BakedModel> nativeModels = java.util.Collections.newSetFromMap(new java.util.IdentityHashMap<>());
     private int vertices;
+
+    private DisplayItemMeshes() {}
+
+    void clear() {
+        meshes.clear();
+        nativeModels.clear();
+        vertices = 0;
+    }
 
     boolean render(ItemStack stack, PoseStack pose, MultiBufferSource buffers, int light, int overlay) {
         // Only our static block items are eligible. Vanilla/modded dynamic models, custom

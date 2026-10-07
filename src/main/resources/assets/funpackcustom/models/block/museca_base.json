@@ -84760,15 +84760,6 @@
           ],
           "texture": "#materials"
         },
-        "south": {
-          "uv": [
-            4.5,
-            12.5,
-            7.5,
-            15.5
-          ],
-          "texture": "#materials"
-        },
         "up": {
           "uv": [
             4.5,

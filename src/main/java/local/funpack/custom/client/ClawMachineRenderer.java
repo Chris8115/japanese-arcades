@@ -31,7 +31,7 @@ public final class ClawMachineRenderer implements BlockEntityRenderer<ClawMachin
     private static final int SILVER = 0xBCCDD6, DARK = 0x263B4B, CYAN = 0x59ECF4;
     private static final int PINK = 0xEEA1CC, RUBBER = 0x26313A;
     private final Font font;
-    private final ClawPrizeMeshes prizeMeshes = new ClawPrizeMeshes();
+    private final DisplayItemMeshes prizeMeshes = DisplayItemMeshes.INSTANCE;
     private final Map<ClawMachineBlockEntity, Sample> samples = new WeakHashMap<>();
 
     public ClawMachineRenderer(BlockEntityRendererProvider.Context context) { font = context.getFont(); }

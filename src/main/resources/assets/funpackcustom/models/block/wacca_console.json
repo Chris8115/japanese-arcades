@@ -5091,15 +5091,6 @@
             7.5
           ],
           "texture": "#materials"
-        },
-        "down": {
-          "uv": [
-            0.5,
-            4.5,
-            3.5,
-            7.5
-          ],
-          "texture": "#materials"
         }
       },
       "rotation": {
@@ -5233,15 +5224,6 @@
           ],
           "texture": "#materials"
         },
-        "south": {
-          "uv": [
-            0.5,
-            8.5,
-            3.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
         "west": {
           "uv": [
             0.5,
@@ -5252,15 +5234,6 @@
           "texture": "#materials"
         },
         "up": {
-          "uv": [
-            0.5,
-            8.5,
-            3.5,
-            11.5
-          ],
-          "texture": "#materials"
-        },
-        "down": {
           "uv": [
             0.5,
             8.5,
@@ -5304,15 +5277,6 @@
           "texture": "#materials"
         },
         "east": {
-          "uv": [
-            4.5,
-            4.5,
-            7.5,
-            7.5
-          ],
-          "texture": "#materials"
-        },
-        "south": {
           "uv": [
             4.5,
             4.5,
@@ -5391,15 +5355,6 @@
           ],
           "texture": "#materials"
         },
-        "south": {
-          "uv": [
-            4.5,
-            4.5,
-            7.5,
-            7.5
-          ],
-          "texture": "#materials"
-        },
         "west": {
           "uv": [
             4.5,
@@ -5462,15 +5417,6 @@
           "texture": "#materials"
         },
         "east": {
-          "uv": [
-            0.5,
-            4.5,
-            3.5,
-            7.5
-          ],
-          "texture": "#materials"
-        },
-        "south": {
           "uv": [
             0.5,
             4.5,
@@ -5549,15 +5495,6 @@
           ],
           "texture": "#materials"
         },
-        "south": {
-          "uv": [
-            8.5,
-            4.5,
-            11.5,
-            7.5
-          ],
-          "texture": "#materials"
-        },
         "west": {
           "uv": [
             8.5,
@@ -5620,15 +5557,6 @@
           "texture": "#materials"
         },
         "east": {
-          "uv": [
-            4.5,
-            4.5,
-            7.5,
-            7.5
-          ],
-          "texture": "#materials"
-        },
-        "south": {
           "uv": [
             4.5,
             4.5,

@@ -28,6 +28,7 @@ public final class GachaponRenderer implements BlockEntityRenderer<GachaponBlock
     public static final ModelResourceLocation CRANK_MODEL = ModelResourceLocation.standalone(
         ResourceLocation.fromNamespaceAndPath(FunPackCustom.MOD_ID, "block/gachapon_crank"));
     private final Font font;
+    private final DisplayItemMeshes prizeMeshes = DisplayItemMeshes.INSTANCE;
     private final Map<GachaponBlockEntity, CrankSample> crankSamples = new WeakHashMap<>();
 
     public GachaponRenderer(BlockEntityRendererProvider.Context context) {
@@ -59,9 +60,6 @@ public final class GachaponRenderer implements BlockEntityRenderer<GachaponBlock
         }
         ItemStack price = machine.getPrice();
         if (!price.isEmpty()) {
-            // Left-to-right: numeric amount, multiplication sign, currency item icon.
-            text(Component.literal(price.getCount() + " X"), 13.66 / 16, 7.0 / 16,
-                .93 / 16, .0067F, 0xFFFFFF, pose, buffers, packedLight);
             icon(price, 11.85 / 16, 7.0 / 16, .92 / 16, .91 / 16,
                 machine, pose, buffers, packedLight, packedOverlay);
         }
@@ -81,6 +79,11 @@ public final class GachaponRenderer implements BlockEntityRenderer<GachaponBlock
                 crankModel, 1, 1, 1, packedLight, packedOverlay, ModelData.EMPTY, layer);
         }
         pose.popPose();
+        if (!price.isEmpty()) {
+            // Draw text after the item batch so the font does not flush it mid-display.
+            text(Component.literal(price.getCount() + " X"), 13.66 / 16, 7.0 / 16,
+                .93 / 16, .0067F, 0xFFFFFF, pose, buffers, packedLight);
+        }
         pose.popPose();
     }
 
@@ -117,8 +120,10 @@ public final class GachaponRenderer implements BlockEntityRenderer<GachaponBlock
         // GUI perspective gives even readable icons for tools, blocks and custom items. Depth is
         // compressed so tall 3D item models cannot protrude through the neighbouring machine.
         pose.scale((float) size, (float) size, .005F);
-        Minecraft.getInstance().getItemRenderer().renderStatic(item, ItemDisplayContext.GUI,
-            light, overlay, pose, buffers, machine.getLevel(), 0);
+        if (!prizeMeshes.render(item, pose, buffers, light, overlay)) {
+            Minecraft.getInstance().getItemRenderer().renderStatic(item, ItemDisplayContext.GUI,
+                light, overlay, pose, buffers, machine.getLevel(), 0);
+        }
         pose.popPose();
     }
 
