@@ -99,9 +99,15 @@ and five texture atlases for materials, hardware, branding, circular displays,
 and upper displays. The MTL ambient channels retain full brightness on the lit
 surfaces; the cutout render type preserves the DX badge's transparent outline.
 Internal surfaces are removed before the continuous profile and section split.
-The complete authoring mesh and item contain **35,953 faces**. Clipping at the
-boundaries of the six block cells yields **36,492 section faces**. Adjacent
-surfaces share transition vertices, avoiding coplanar overlap and visible seams.
+The complete authoring mesh contains **20,112 faces**. Its optimized native
+exports contain **17,697 world faces** and **17,089 item faces**, down from
+24,182 and 23,826 respectively. The sixteen buttons retain all 64 socket, cap,
+lens and lip layers as closed curved prisms using their original arc outlines.
+The enclosure and hardware share a half-unit bend grid, so tiny screw and
+socket endpoints no longer subdivide every large panel. Maximum displacement
+from the previous analytic curve is less than **0.0011 model units**, and the
+overall bounds and all five runtime texture files are unchanged. Shared
+transition vertices keep adjacent hardware and enclosure surfaces joined.
 
 Regenerate the canonical model with Python and Pillow:
 
@@ -176,6 +182,28 @@ supplies material bindings directly; it does not exercise client resource-manage
 startup or texture-atlas upload. Its report is
 `build/verification/maimai-obj-bake-audit.json`.
 
-The rendered preview was checked against the supplied references. In-game visual
-inspection and full-pack compatibility are separate checks and were not run for
-this addition. The original playable instance and its saves remain untouched.
+The original profile preview was checked against the supplied references.
+The later optimization received the native checks recorded below. The original
+playable instance and its saves remain untouched.
+
+## Optimization client verification — 2026-10-07
+
+The integrated build and asset audit passed. All 18 texture PNGs across maimai,
+Taiko and Chrono Circle retain their original hashes; 68 relevant packaged assets
+match the current source files. The catalog optimizer reports zero pending changes.
+
+The disposable Minecraft client verified all **48 native block states** and
+the complete item model for this cabinet, with finite vertices/UVs and no missing
+textures. Placement and resource reload passed. Six fixed camera views were
+compared before and after with Sodium 0.8.13, Iris 1.8.14-beta.1 and Complementary
+Reimagined r5.9.3. No custom per-frame cabinet renderer was added.
+
+See the [optimized cabinet](maimai-optimized-quarter.png) and
+[control detail](maimai-optimized-controls.png). Reports are in the ignored
+`build/verification/top-three-audit.json` and
+`runs/top-three-after-visual-probe/native-report.json`. These are geometry and
+appearance checks, not an FPS benchmark. Gameplay Java did not change.
+
+Original files are preserved at Git tag
+`backup/top-three-before-optimization-20261007-104418` and in a verified external
+ZIP archive of all 121 original files. Rollback should revert only this optimization.

@@ -1,20 +1,19 @@
-"""Build the Chrono Circle cabinet with native Java cuboids.
+"""Build the Chrono Circle cabinet with native static meshes.
 
 Source illustrations are packed unchanged and mapped using their native aspect.
 The tilted clock panel, twelve rim buttons, character hood and floor platform follow the supplied references.
 """
 from __future__ import annotations
-import base64
 import copy
 import json
 import math
-import uuid
 from pathlib import Path
 from PIL import Image
 from chrono_circle_shell_geometry import build_shell
 from chrono_circle_upper_geometry import build_upper
 from chrono_circle_textures import build_textures
 from wacca_surface_geometry import optimize_surfaces
+from chrono_circle_mesh_geometry import build_controls, export_chrono
 
 ROOT=Path(__file__).resolve().parents[1]
 ART=ROOT/'art/chrono_circle'
@@ -102,6 +101,7 @@ def polygon(name,points,z0,z1,material,*,group='Sculpted panels',glow=False,fron
 
 
 build_shell(cube,polygon)
+smooth_meshes,smooth_details=build_controls(uv,source_scales)
 build_upper(cube,polygon,ART)
 
 texture_paths={
@@ -152,102 +152,4 @@ elements.extend(marquee)
 surface_details['alpha_elements']=len(marquee)
 surface_details['total_exported_faces']=sum(len(e['faces']) for e in elements)
 
-def strip_element(element):
-    return {k:copy.deepcopy(v) for k,v in element.items() if not k.startswith('_')}
-
-def write_json(path, data):
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8')
-
-part_names = ['base','console','marquee']
-parts = {part:[] for part in part_names}
-for source in elements:
-    e=strip_element(source)
-    center=(e['from'][1]+e['to'][1])/2
-    index=min(2,max(0,int(center//16)))
-    for key in ('from','to'): e[key][1]=round(e[key][1]-index*16,5)
-    if 'rotation' in e: e['rotation']['origin'][1]-=index*16
-    for coords in (e['from'],e['to']):
-        assert all(-16 <= v <= 32 for v in coords), (e['name'],coords)
-    parts[part_names[index]].append(e)
-for part in part_names:
-    write_json(MODEL / ('chrono_circle_'+part+'.json'),
-               {'parent':'minecraft:block/block','ambientocclusion':True,'render_type':'minecraft:cutout_mipped_all',
-                'textures':texture_paths,'elements':parts[part]})
-variants={}
-for facing,rotation in (('north',0),('east',90),('south',180),('west',270)):
-    for part in part_names:
-        variant={'model':'funpackcustom:block/chrono_circle_'+part}
-        if rotation: variant['y']=rotation
-        variants['facing='+facing+',part='+part]=variant
-write_json(ASSETS / 'blockstates/chrono_circle.json', {'variants':variants})
-
-# An explicitly scaled complete model for inventory rendering (vanilla element bounds).
-item_elements=[]
-for source in elements:
-    e=strip_element(source)
-    for key in ('from','to'):
-        e[key]=[round(e[key][0]*0.35+5.2,5),round(e[key][1]*0.35,5),round(e[key][2]*0.35+5.2,5)]
-    if 'rotation' in e:
-        o=e['rotation']['origin'];e['rotation']['origin']=[o[0]*.35+5.2,o[1]*.35,o[2]*.35+5.2]
-    item_elements.append(e)
-write_json(ASSETS / 'models/item/chrono_circle.json',
-           {'ambientocclusion':False,'gui_light':'front','render_type':'minecraft:cutout_mipped_all','textures':texture_paths,'elements':item_elements,
-            'display':{'gui':{'rotation':[15,225,0],'translation':[0,0,0],'scale':[.95,.95,.95]},
-                       'ground':{'translation':[0,2,0],'scale':[.6,.6,.6]},
-                       'fixed':{'rotation':[0,180,0],'scale':[1,1,1]},
-                       'thirdperson_righthand':{'rotation':[75,45,0],'translation':[0,3,0],'scale':[.45,.45,.45]},
-                       'firstperson_righthand':{'rotation':[0,45,0],'translation':[0,2,0],'scale':[.5,.5,.5]}}})
-
-artwork=TEXTURES / 'chrono_circle_display.png'
-if not artwork.exists():
-    raise SystemExit('Missing original artwork sheet: '+str(artwork))
-im=Image.open(artwork)
-assert all(n & (n-1) == 0 for n in im.size), 'Artwork must have power-of-two dimensions'
-
-# Blockbench's free format preserves the complete cabinet and named groups.
-texture_specs = [(key,TEXTURES/(value.split('/')[-1]+'.png')) for key,value in texture_paths.items() if key!='particle']
-texture_indices = {'#'+key:i for i,(key,path) in enumerate(texture_specs)}
-texture_sizes = [Image.open(path).size for key,path in texture_specs]
-bb_elements=[]
-groups={}
-for source in elements:
-    e=strip_element(source)
-    uid=str(uuid.uuid5(uuid.NAMESPACE_URL,'funpackcustom/chrono_circle/'+e['name']+'/'+str(e['from'])))
-    rot=e.get('rotation')
-    rotation=[0,0,0]
-    origin=[(a+b)/2 for a,b in zip(e['from'],e['to'])]
-    if rot:
-        rotation['xyz'.index(rot['axis'])]=rot['angle'];origin=rot['origin']
-    bbfaces={}
-    for direction,face in e['faces'].items():
-        index=texture_indices[face['texture']]
-        width,height=texture_sizes[index]
-        bbfaces[direction]={'uv':[v*(width if i%2==0 else height)/16 for i,v in enumerate(face['uv'])], 'texture':index}
-    for direction in ('north','east','south','west','up','down'):
-        if direction not in bbfaces:
-            bbfaces[direction]={'uv':[0,0,0,0],'texture':None}
-    bb_elements.append({'name':e['name'],'type':'cube','uuid':uid,'from':e['from'],'to':e['to'],
-                        'origin':origin,'rotation':rotation,'faces':bbfaces,'box_uv':False,
-                        'color':1,'rescale':False,'autouv':0,'visibility':True,'export':True,
-                        'shade':e.get('shade',True)})
-    groups.setdefault(source['_group'],[]).append(uid)
-bbtextures=[]
-for i,(identifier,path) in enumerate(texture_specs):
-    texture=Image.open(path)
-    bbtextures.append({'path':str(path),'name':path.name,'folder':'block','namespace':'funpackcustom',
-                       'id':str(i),'uuid':str(uuid.uuid5(uuid.NAMESPACE_URL,'chrono_circle/'+identifier)),
-                       'width':texture.width,'height':texture.height,'uv_width':texture.width,'uv_height':texture.height,
-                       'relative_path':'../../src/main/resources/assets/funpackcustom/textures/block/'+path.name,
-                       'source':'data:image/png;base64,'+base64.b64encode(path.read_bytes()).decode(),
-                       'mode':'bitmap','particle':i==0,'render_mode':'default','visible':True})
-write_json(ART/'chrono_circle.bbmodel',
-           {'meta':{'format_version':'4.10','model_format':'free','box_uv':False},
-            'name':'Chrono Circle','model_identifier':'chrono_circle','visible_box':[2,4,1.5],
-            'resolution':{'width':256,'height':256},'elements':bb_elements,'textures':bbtextures,
-            'outliner':[{'name':name,'uuid':str(uuid.uuid5(uuid.NAMESPACE_URL,'chrono_circle/group/'+name)),
-                         'origin':[8,0,8],'children':children} for name,children in groups.items()]})
-write_json(ART/'geometry.json', {'textures':texture_paths,'elements':elements,'surface_optimization':surface_details})
-print('Generated',len(elements),'surface elements; section counts:',{name:len(values) for name,values in parts.items()})
-print('Exterior surfaces:',surface_details)
-print('Editable model:',ART/'chrono_circle.bbmodel')
+export_chrono(elements,smooth_meshes,texture_paths,surface_details,smooth_details,ROOT)

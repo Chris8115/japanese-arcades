@@ -1,4 +1,4 @@
-"""Build maimai DX from cuboids, then export its smoothly reclining exterior.
+"""Build maimai DX from cuboids and curved button prisms, then export its exterior.
 
 Source illustrations are packed unchanged and mapped using their native aspect.
 The paired eight-button rings, two displays and shared wide canopy follow the
@@ -15,6 +15,7 @@ from maimai_upper_geometry import build_upper
 from maimai_textures import build_textures
 from wacca_surface_geometry import optimize_surfaces
 from maimai_mesh_export import export_mesh_assets
+from maimai_button_geometry import curved_button
 
 ROOT=Path(__file__).resolve().parents[1]
 ART=ROOT/'art/maimai'
@@ -44,6 +45,7 @@ def uv(name):
 
 
 elements=[]
+button_meshes=[]
 
 
 def cube(name,start,end,material='black',*,north=None,east=None,west=None,south=None,
@@ -70,6 +72,10 @@ def cube(name,start,end,material='black',*,north=None,east=None,west=None,south=
 
 
 def polygon(name,points,z0,z1,material,*,group='Sculpted panels',glow=False,front=None,rotation=None,step=.25):
+    if group=='Sixteen separate ring buttons':
+        assert front is None and rotation is None
+        button_meshes.extend(curved_button(name,points,z0,z1,material,uv,glow))
+        return
     minx,maxx=min(x for x,y in points),max(x for x,y in points)
     miny,maxy=min(y for x,y in points),max(y for x,y in points)
     count=max(1,math.ceil((maxy-miny)/step));dy=(maxy-miny)/count
@@ -154,4 +160,4 @@ surface_details['total_exported_faces']=sum(len(e['faces']) for e in elements)
 
 # The exact shallow recline needs arbitrary surface angles. NeoForge's bundled
 # OBJ loader accepts those faces directly, with no additional Java renderer.
-export_mesh_assets(elements, texture_paths, surface_details, ROOT)
+export_mesh_assets(elements, texture_paths, surface_details, ROOT, button_meshes)

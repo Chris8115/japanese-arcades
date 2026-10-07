@@ -6,7 +6,8 @@ import uuid
 from collections import defaultdict
 
 from PIL import Image
-from maimai_profile_geometry import shape_point
+from maimai_profile_geometry import shape_point, BEND_LEVELS
+from obj_mesh_optimizer import optimize_obj
 
 FACE_INDICES = {'north': (2,1,0,3), 'east': (6,5,1,2), 'south': (7,4,5,6),
                 'west': (3,0,4,7), 'up': (3,7,6,2), 'down': (4,0,1,5)}
@@ -69,12 +70,10 @@ def cube_vertices(e):
 
 def make_meshes(elements):
     meshes=[]
-    # Every meeting surface must use the same secant endpoints through the
-    # curved bend, including the small sockets and headphone hardware. Without
-    # this shared grid, a long edge and its subdivided neighbor can separate.
-    curve_levels=sorted({13+i*.5 for i in range(13)} |
-                        {round(v[1],8) for e in elements for v in cube_vertices(e)
-                         if 13<v[1]<19})
+    # The shape function interpolates these same secants for every vertex,
+    # including tiny hardware endpoints between grid levels. Hardware remains
+    # joined without splitting the entire cabinet at all of its local edges.
+    curve_levels=BEND_LEVELS
     for e in elements:
         vertices=cube_vertices(e)
         for direction,indices in FACE_INDICES.items():
@@ -121,12 +120,20 @@ def write_obj(path,meshes,transform):
             lines.append('vt %.9f %.9f'%(u/16,1-v/16))
         lines.append('f '+' '.join('%d/%d'%(index+i,index+i) for i in range(len(mesh['vertices']))))
         index+=len(mesh['vertices'])
-    path.write_text('\n'.join(lines)+'\n',encoding='utf-8')
+    optimized,statistics=optimize_obj('\n'.join(lines)+'\n')
+    path.write_text(optimized,encoding='utf-8')
+    return statistics
 
 
-def export_mesh_assets(elements,textures,statistics,root):
+def export_mesh_assets(elements,textures,statistics,root,raw_meshes=()):
     art=root/'art/maimai';assets=root/'src/main/resources/assets/funpackcustom'
     block=assets/'models/block';mesh=make_meshes(elements)
+    for face in raw_meshes:
+        for band,part in enumerate(pieces(list(zip(face['vertices'],face['uv'])),1,BEND_LEVELS)):
+            shaped=[(shape_point(p,face['group']),uv) for p,uv in part]
+            for fragment,poly in enumerate(quads(shaped)):
+                mesh.append({**face,'name':face['name']+' bend %d-%d'%(band,fragment),
+                             'vertices':[p for p,uv in poly],'uv':[uv for p,uv in poly]})
     names=[side+'_'+part for side in ('primary','secondary') for part in ('base','console','marquee')]
     parts={name:[] for name in names}
     for face in mesh:
@@ -147,9 +154,10 @@ def export_mesh_assets(elements,textures,statistics,root):
                 'ambientocclusion':True,'render_type':'minecraft:cutout_mipped_all',
                 'textures':textures}
 
+    optimized={}
     for i,(name,faces) in enumerate(parts.items()):
         col,row=i//3,i%3
-        write_obj(block/('maimai_'+name+'.obj'),faces,
+        optimized[name]=write_obj(block/('maimai_'+name+'.obj'),faces,
                   lambda v,col=col,row=row: [(v[0]-16*col)/16,(v[1]-16*row)/16,v[2]/16])
         write_json(block/('maimai_'+name+'.json'),wrapper('block/maimai_'+name+'.obj'))
     materials=[]
@@ -166,7 +174,7 @@ def export_mesh_assets(elements,textures,statistics,root):
                 if rotation:variant['y']=rotation
                 variants['facing='+facing+',part='+part+',side='+side]=variant
     write_json(assets/'blockstates/maimai.json',{'variants':variants})
-    write_obj(assets/'models/item/maimai.obj',mesh,
+    optimized['item']=write_obj(assets/'models/item/maimai.obj',mesh,
               lambda v:[((v[0]-16)*.33+8)/16,v[1]*.33/16,((v[2]-1)*.33+8)/16])
     item=wrapper('item/maimai.obj');item.update({'ambientocclusion':False,'gui_light':'front',
         'display':{'gui':{'rotation':[15,225,0],'translation':[0,0,0],'scale':[.95,.95,.95]},
@@ -205,5 +213,9 @@ def export_mesh_assets(elements,textures,statistics,root):
                      'origin':[16,0,8],'children':children} for name,children in groups.items()]})
     statistics['smooth_profile_faces']=len(mesh)
     statistics['runtime_section_faces']={name:len(faces) for name,faces in parts.items()}
+    statistics['optimized_native']=optimized
+    statistics['shared_bend_levels']=list(BEND_LEVELS)
+    statistics['closed_button_layer_faces']=len(raw_meshes)
     write_json(art/'geometry.json',{'textures':textures,'meshes':mesh,'surface_optimization':statistics})
     print('Exported',len(mesh),'smooth faces; runtime sections:',statistics['runtime_section_faces'])
+    print('Optimized runtime faces:',{key:value['output_faces'] for key,value in optimized.items()})

@@ -48,7 +48,7 @@ reloads only models and textures.
 | --- | --- |
 | [chrono_circle.bbmodel](chrono_circle.bbmodel) | Complete editable Blockbench model with embedded textures and named groups |
 | [chrono_circle.blend](chrono_circle.blend) | Packed Blender studio preview scene |
-| [geometry.json](geometry.json) | Complete exported cuboids, face UVs, and surface-pass statistics |
+| [geometry.json](geometry.json) | Complete native mesh faces, UVs, retained cuboid sources, and optimization statistics |
 | [chrono_circle-front.png](chrono_circle-front.png) | Overall three-quarter preview |
 | [display-artwork-source.png](display-artwork-source.png) | Original purple witch attract-screen illustration |
 | [header-artwork-source.png](header-artwork-source.png) | Original ensemble poster for the upper character booth |
@@ -76,22 +76,29 @@ python scripts/make_chrono_circle_model.py
 blender --background --python scripts/render_chrono_circle_model.py
 ```
 
-The generator uses `scripts/chrono_circle_shell_geometry.py` and
-`scripts/chrono_circle_upper_geometry.py`. A shared surface pass removes hidden
-faces and clips overlapping opaque surfaces, including a pass for each shared
-rotation group so the tilted circular assembly has no overlapping internal
-faces. The runtime model uses native cuboids and per-face full-bright data,
-without a custom renderer.
+The generator uses `scripts/chrono_circle_shell_geometry.py`,
+`scripts/chrono_circle_upper_geometry.py`, and
+`scripts/chrono_circle_mesh_geometry.py`. A shared surface pass removes hidden
+faces and clips overlapping opaque cuboid surfaces. The clock's circular layers
+use 96 shared radial segments; each raised button follows four segments across
+its short arc. This replaces tiny scanline cuboids and buried ring walls while
+retaining the original radii, layer depths, twelve-button arrangement, 22.5-degree
+inclination, and projected artwork. Static NeoForge OBJ models supply native
+lighting and full-bright materials without a custom renderer.
 
-The final export contains **13,794 elements and 14,920 rendered faces** across
-three section models and five shared textures. Elements may retain only their
-visible face fragments after surface clipping; the element count is not a
-polygon count.
+The optimized export contains **7,008 world faces** across three sections:
+**2,390 base**, **3,105 console**, and **1,513 marquee**. The item has **6,786
+faces**. This reduces the former 14,920-face world/item models by **53.0%** and
+**54.5%**, respectively. The editable source contains 6,834 faces before section
+clipping and conservative coplanar merges. Its five shared runtime textures and
+two original illustrations remain byte-for-byte unchanged. The outer cabinet
+bounds, hood, lower housing, floor platform, and native placement stay unchanged.
 
 The renderer reads the exported game geometry and texture atlases, produces
 `chrono_circle-{front,back,side,controls,screen,marquee}.png`, and saves the packed
 Blender scene. Append `-- --front-only` for a front preview or `-- --detail-only`
-for controls, screen, and marquee views. Studio lighting differs from Minecraft.
+for controls, screen, and marquee views. Add `--quick` after `--` for 12-sample
+previews. Studio lighting differs from Minecraft.
 
 The generator is the canonical model source. Save manual Blockbench edits
 separately or transfer them into the generator before regeneration replaces the
@@ -108,6 +115,13 @@ from `NostalgiaCabinetBlock.java`. All cabinets share
 retaining the existing saved-data and block-entity IDs.
 
 ## Runtime verification
+
+The 2026-10-07 optimization audit confirms identical cabinet bounds and image
+hashes, valid planar triangle/quad geometry and UVs, and no duplicate, degenerate,
+or nonfinite faces. Six refreshed studio views check the smoother controls and
+the retained body/hood/platform. Integrated native client and package verification followed these asset checks,
+as recorded below. No FPS improvement is claimed from geometry counts alone.
+The checks below describe the original cabinet integration.
 
 Four Chrono Circle integration tests exercise actual placement and interaction
 through every section, single-drop removal, saved-disc placement and playback
@@ -135,5 +149,28 @@ vertex is 47.91 model units, within three blocks. The final front studio view
 was inspected for the clear sign, visible character group, smooth door faces,
 and illuminated floor clock.
 
-These checks do not verify in-world appearance or full-pack client compatibility.
-Studio views use the exported runtime geometry and UVs with different lighting.
+Those original checks did not include in-world appearance; the optimization
+was later inspected in the native client as described below. Studio lighting
+differs from Minecraft. Full-pack compatibility was not retested for this edit.
+
+## Optimization client verification — 2026-10-07
+
+The integrated build and asset audit passed. All 18 texture PNGs across maimai,
+Taiko and Chrono Circle retain their original hashes; 68 relevant packaged assets
+match the current source files. The catalog optimizer reports zero pending changes.
+
+The disposable Minecraft client verified all **24 native block states** and
+the complete item model for this cabinet, with finite vertices/UVs and no missing
+textures. Placement and resource reload passed. Six fixed camera views were
+compared before and after with Sodium 0.8.13, Iris 1.8.14-beta.1 and Complementary
+Reimagined r5.9.3. No custom per-frame cabinet renderer was added.
+
+See the [optimized cabinet](chrono_circle-optimized-quarter.png) and
+[control detail](chrono_circle-optimized-controls.png). Reports are in the ignored
+`build/verification/top-three-audit.json` and
+`runs/top-three-after-visual-probe/native-report.json`. These are geometry and
+appearance checks, not an FPS benchmark. Gameplay Java did not change.
+
+Original files are preserved at Git tag
+`backup/top-three-before-optimization-20261007-104418` and in a verified external
+ZIP archive of all 121 original files. Rollback should revert only this optimization.

@@ -1,0 +1,53 @@
+{
+  "baseline_backup_tag": "backup/top-three-before-optimization-20261007-104418",
+  "world_faces_before": 14920,
+  "world_faces_after": 7008,
+  "item_faces_before": 14920,
+  "item_faces_after": 6786,
+  "native_part_faces": {
+    "base": 2390,
+    "console": 3105,
+    "marquee": 1513,
+    "item": 6786
+  },
+  "source_faces": 6834,
+  "identical_bounds": [
+    [
+      -2.4,
+      18.4
+    ],
+    [
+      0.12,
+      47.91
+    ],
+    [
+      -14.7,
+      15.481
+    ]
+  ],
+  "unchanged_noncontrol_faces": 4748,
+  "unchanged_image_sha256": {
+    "src/main/resources/assets/funpackcustom/textures/block/chrono_circle_branding.png": "c2d5a52e6713c1b711cadd3d57e86bb384c2e88956989b4cd69af071afaadd81",
+    "src/main/resources/assets/funpackcustom/textures/block/chrono_circle_details.png": "a9fd520a771a4cac2f2e7c106cef86ddf9504546e129da259703f5c5a89f8bda",
+    "src/main/resources/assets/funpackcustom/textures/block/chrono_circle_display.png": "7f75f251e8fdcb5308cb45b5af20331ce962b745cf05602df8b7151837523f38",
+    "src/main/resources/assets/funpackcustom/textures/block/chrono_circle_header.png": "e8a0fdf2fb69c2a395d04d95f24c76c641073cf20bc0907f710cc616e1e18d45",
+    "src/main/resources/assets/funpackcustom/textures/block/chrono_circle_materials.png": "1ef12ed9361e4fbd09709880288c8ecad6ffe101dd3d1344ff94ecd8330d7f15",
+    "art/chrono_circle/display-artwork-source.png": "848fd8688354ef325aef5f5d9cddb9dd08c63c4909d09d28802a08e32cf28605",
+    "art/chrono_circle/header-artwork-source.png": "45263d215202bc19d05b62b2c3e1a3d3771b638f62d912b95978a9cd708fd9f9"
+  },
+  "invalid_geometry_faces": 0,
+  "duplicate_faces": 0,
+  "invalid_uvs": 0,
+  "audited_forward_faces": 336,
+  "original_inclination_degrees": 22.5,
+  "button_count": 12,
+  "studio_views_regenerated": [
+    "front",
+    "back",
+    "side",
+    "controls",
+    "screen",
+    "marquee"
+  ],
+  "runtime_verification": "Delegated to root; no FPS improvement claimed from asset counts alone."
+}

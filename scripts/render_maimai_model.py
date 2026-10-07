@@ -3,14 +3,17 @@
 Run with Blender --background --python scripts/render_maimai_model.py.
 Append -- --front-only for a quick front preview or -- --detail-only for the
 controls, screen and marquee. --profile-only renders front and side views.
+--quick uses sixteen samples for inexpensive visual checks.
 Every mode saves a packed editable .blend scene.
 """
 import json
 import sys
+from collections import defaultdict
 from pathlib import Path
 
 import bpy
 from mathutils import Vector
+bpy.context.preferences.filepaths.save_version=0
 
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / 'art/maimai'
@@ -21,7 +24,7 @@ bpy.ops.object.select_all(action='SELECT')
 bpy.ops.object.delete(use_global=False)
 scene = bpy.context.scene
 scene.render.engine = 'CYCLES'
-scene.cycles.samples = 48
+scene.cycles.samples = 16 if '--quick' in sys.argv else 48
 scene.cycles.use_denoising = True
 scene.render.resolution_x = 1400
 scene.render.resolution_y = 1500
@@ -69,17 +72,25 @@ def world(v):
     return ((16-v[0])/16, (v[2]-8)/16, v[1]/16)
 
 
+groups=defaultdict(list)
 for surface in data['meshes']:
-    mesh = bpy.data.meshes.new(surface['name'])
-    vertices = [world(v) for v in surface['vertices']]
-    mesh.from_pydata(vertices, [], [list(range(len(vertices)))])
+    groups[(surface['group'],surface['texture'],surface['glow'])].append(surface)
+for (group,texture,glow),surfaces in groups.items():
+    mesh = bpy.data.meshes.new(group+' '+texture)
+    vertices=[];faces=[]
+    for surface in surfaces:
+        first=len(vertices)
+        vertices.extend(world(v) for v in surface['vertices'])
+        faces.append(list(range(first,len(vertices))))
+    mesh.from_pydata(vertices, [], faces)
     mesh.update()
-    obj = bpy.data.objects.new(surface['name'], mesh)
+    obj = bpy.data.objects.new(group+' '+texture+(' lit' if glow else ''), mesh)
     bpy.context.collection.objects.link(obj)
-    mesh.materials.append(texture_material(surface['texture'][1:], surface['glow']))
+    mesh.materials.append(texture_material(texture[1:],glow))
     uv_layer = mesh.uv_layers.new(name='Cabinet UV')
-    for loop, (u, v) in zip(mesh.polygons[0].loop_indices, surface['uv']):
-        uv_layer.data[loop].uv = (u/16, 1-v/16)
+    for polygon,surface in zip(mesh.polygons,surfaces):
+        for loop,(u,v) in zip(polygon.loop_indices,surface['uv']):
+            uv_layer.data[loop].uv=(u/16,1-v/16)
 
 
 # Studio objects are separate from the exported cabinet model.

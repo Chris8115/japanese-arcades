@@ -1,0 +1,100 @@
+{
+  "date": "2026-10-07",
+  "backup_tag": "backup/top-three-before-optimization-20261007-104418",
+  "world_faces": {
+    "before": 20130,
+    "after": 14750,
+    "reduction_percent": 26.73
+  },
+  "item_faces": {
+    "before": 18382,
+    "after": 13174,
+    "reduction_percent": 28.33
+  },
+  "source_groups_before": {
+    "Cabinet": 1767,
+    "Festival cabinet art": 302,
+    "Ribbed festival lanterns": 5376,
+    "Two-player decorated podium": 809,
+    "Drum 8": 2636,
+    "Drum 24": 2636,
+    "Carved wooden drum cradles": 3800,
+    "Tethered wooden drumsticks": 1056
+  },
+  "source_groups_after": {
+    "Cabinet": 1239,
+    "Festival cabinet art": 254,
+    "Ribbed festival lanterns": 3744,
+    "Two-player decorated podium": 641,
+    "Drum 8": 1948,
+    "Drum 24": 1948,
+    "Carved wooden drum cradles": 2440,
+    "Tethered wooden drumsticks": 960
+  },
+  "protected_drum_faces_unchanged": 2176,
+  "drum_hit_geometry_unchanged": true,
+  "bounds_unchanged": true,
+  "texture_sha256_unchanged": {
+    "taiko_front.png": "e152da27187f994c8c0eceb479d3ed92e89d618a04071d5845bbfc785a3703d2",
+    "taiko_instructions.png": "5156d11b3599ca6b3d86954739a8fd66b217b816f25e6a23953eddb7ec70ae07",
+    "taiko_lantern.png": "7ade434fd1523e533b56dfb77348ff662e4e7c083825118f079ece1078e10503",
+    "taiko_marquee.png": "f128727f4a94ad52ceb4d540a82fbdb2de0d8a1771d829427300b73002ef3d4a",
+    "taiko_materials.png": "4cec696e125a6d481df737cebae64d43f82081a4ac1b03898cefa4b785d28058",
+    "taiko_podium_side.png": "0c35f3ad0a91bb975d859376c91b7d6e2849cf9910918b31b96992e759311dc2",
+    "taiko_screen.png": "b2ad2c15f10cfaaaa3d30a02667d03e9a45fbebc59e893a43453b6ca07eda8f4",
+    "taiko_side.png": "16357bab87b2aef3651b8fdfa1e822b7345c54275773b5bb78391f17720ec685"
+  },
+  "scoped_obj_optimization_idempotent": true,
+  "runtime_exports": {
+    "src/main/resources/assets/funpackcustom/models/block/taiko_primary_drums.obj": {
+      "before": 2986,
+      "after": 2206
+    },
+    "src/main/resources/assets/funpackcustom/models/block/taiko_primary_drum_base.obj": {
+      "before": 2916,
+      "after": 2184
+    },
+    "src/main/resources/assets/funpackcustom/models/block/taiko_primary_rear_base.obj": {
+      "before": 151,
+      "after": 109
+    },
+    "src/main/resources/assets/funpackcustom/models/block/taiko_primary_rear_console.obj": {
+      "before": 1846,
+      "after": 1382
+    },
+    "src/main/resources/assets/funpackcustom/models/block/taiko_primary_rear_marquee.obj": {
+      "before": 2239,
+      "after": 1569
+    },
+    "src/main/resources/assets/funpackcustom/models/block/taiko_secondary_drums.obj": {
+      "before": 2990,
+      "after": 2206
+    },
+    "src/main/resources/assets/funpackcustom/models/block/taiko_secondary_drum_base.obj": {
+      "before": 2772,
+      "after": 2040
+    },
+    "src/main/resources/assets/funpackcustom/models/block/taiko_secondary_rear_base.obj": {
+      "before": 151,
+      "after": 109
+    },
+    "src/main/resources/assets/funpackcustom/models/block/taiko_secondary_rear_console.obj": {
+      "before": 1840,
+      "after": 1376
+    },
+    "src/main/resources/assets/funpackcustom/models/block/taiko_secondary_rear_marquee.obj": {
+      "before": 2239,
+      "after": 1569
+    },
+    "src/main/resources/assets/funpackcustom/models/item/taiko.obj": {
+      "before": 18382,
+      "after": 13174
+    }
+  },
+  "changes": [
+    "Use 32 radial lantern segments instead of 48; retain all 19 raised ribs and their profiles.",
+    "Remove buried rear caps from tacks, latches and flower petals; reduce subdivisions on tiny circular hardware.",
+    "Simplify small cradle scroll circumferences and rounded trim corner arcs.",
+    "Preserve all 64-sided drum body, head and rim geometry, transforms, materials, UVs and hit planes."
+  ]
+}

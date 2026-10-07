@@ -5,6 +5,7 @@ Meshes are clipped into a two-wide, two-deep ten-cell multiblock with seamless
 UV interpolation. Artwork is generated separately by taiko_textures.py.
 """
 import base64
+import argparse
 import json
 import math
 import uuid
@@ -13,6 +14,7 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw
 from ddr_mesh_export import pieces, quads
+from obj_mesh_optimizer import optimize_obj
 from taiko_textures import build_textures
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -21,7 +23,10 @@ ASSETS=ROOT/'src/main/resources/assets/funpackcustom'
 TEX=ASSETS/'textures/block'
 for path in (ART,TEX,ASSETS/'models/block',ASSETS/'models/item',ASSETS/'blockstates'):
     path.mkdir(parents=True,exist_ok=True)
-build_textures(TEX)
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--reuse-textures',action='store_true',help='Regenerate only geometry, preserving existing texture pixels.')
+args=parser.parse_args()
+if not args.reuse_textures:build_textures(TEX)
 
 COLORS={'cream':'#ece0af','head':'#f0e4bc','rim':'#d9c996','orange':'#ac501c',
     'orange_light':'#c5732c','orange_dark':'#743710','wood':'#60331c','wood_light':'#996033',
@@ -31,7 +36,7 @@ KEYS=list(COLORS)
 atlas=Image.new('RGB',(256,256));d=ImageDraw.Draw(atlas)
 for i,col in enumerate(COLORS.values()):
     x,y=(i%4)*64,(i//4)*64;d.rectangle((x,y,x+63,y+63),fill=col)
-atlas.save(TEX/'taiko_materials.png')
+if not args.reuse_textures:atlas.save(TEX/'taiko_materials.png')
 
 surfaces=[];group='Cabinet'
 def tile(material):
@@ -46,7 +51,7 @@ def box(name,lo,hi,material='white'):
     for side,ids in {'north':(3,2,1,0),'south':(4,5,6,7),'west':(0,4,7,3),
         'east':(1,2,6,5),'up':(3,7,6,2),'down':(0,1,5,4)}.items():
         face(name+' '+side,[v[i] for i in ids],material)
-def roundrect(x0,y0,x1,y1,r,n=5):
+def roundrect(x0,y0,x1,y1,r,n=3):
     r=min(r,(x1-x0)/2,(y1-y0)/2);out=[]
     for cx,cy,start in ((x1-r,y1-r,0),(x0+r,y1-r,90),(x0+r,y0+r,180),(x1-r,y0+r,270)):
         for i in range(n+1):
@@ -54,12 +59,12 @@ def roundrect(x0,y0,x1,y1,r,n=5):
             if not out or math.dist(p,out[-1])>1e-8:out.append(p)
     if math.dist(out[0],out[-1])<1e-8:out.pop()
     return out
-def prism(name,outline,z0,z1,material='white',glow=False,front=True):
+def prism(name,outline,z0,z1,material='white',glow=False,front=True,back=True):
     cx=sum(p[0] for p in outline)/len(outline);cy=sum(p[1] for p in outline)/len(outline)
     for i,p in enumerate(outline):
         q=outline[(i+1)%len(outline)]
         if front:face(name+' front '+str(i),[(cx,cy,z0),(*q,z0),(*p,z0)],material,glow=glow)
-        face(name+' back '+str(i),[(cx,cy,z1),(*p,z1),(*q,z1)],material)
+        if back:face(name+' back '+str(i),[(cx,cy,z1),(*p,z1),(*q,z1)],material)
         face(name+' edge '+str(i),[(*p,z0),(*q,z0),(*q,z1),(*p,z1)],material)
 def rounded(name,rect,z0,z1,r=.2,material='white',glow=False):
     prism(name,roundrect(*rect,r),z0,z1,material,glow)
@@ -84,8 +89,8 @@ def sculpted_prism(name,outline,z0,z1,material='wood'):
     for i,p in enumerate(outline):
         q=outline[(i+1)%len(outline)]
         face(name+' edge '+str(i),[(*p,z0),(*q,z0),(*q,z1),(*p,z1)],material)
-def disc(name,x,y,r,z0,z1,material='silver',count=40):
-    prism(name,[(x+r*math.cos(i*math.tau/count),y+r*math.sin(i*math.tau/count)) for i in range(count)],z0,z1,material)
+def disc(name,x,y,r,z0,z1,material='silver',count=40,back=True):
+    prism(name,[(x+r*math.cos(i*math.tau/count),y+r*math.sin(i*math.tau/count)) for i in range(count)],z0,z1,material,back=back)
 def decal(name,rect,z,texture,region=(0,0,16,16),glow=False):
     x0,y0,x1,y1=rect;u0,v0,u1,v1=region
     face(name,[(x1,y1,z),(x1,y0,z),(x0,y0,z),(x0,y1,z)],texture=texture,
@@ -168,14 +173,16 @@ def vertical_lathe(name,cx,cy,cz,profile,material='lantern',count=48,glow=False)
                 (cx+r*math.cos(b),cy+y,cz+r*math.sin(b))],material,glow=glow)
 for cx in (4.25,27.75):
     cy,cz=33.65,3.80
-    vertical_lathe('Lantern paper body '+str(cx),cx,cy,cz,lantern_profile,'lantern',48,True)
+    # A 32-sided circumference still deviates by less than .016 model units
+    # from a circle. Keep all 19 physical ribs and the exact vertical profile.
+    vertical_lathe('Lantern paper body '+str(cx),cx,cy,cz,lantern_profile,'lantern',32,True)
     for j in range(19):
         y=-3.82+j*.423;r=lantern_radius(y)
         # The illuminated paper ribs share the lantern's fullbright treatment.
         # Shaded ribs on an emissive body become black scanlines in dim worlds.
-        vertical_lathe('Lantern raised rib %s %d'%(cx,j),cx,cy,cz,[(y-.055,r+.018),(y,r+.09),(y+.055,r+.018)],'cream',48,True)
+        vertical_lathe('Lantern raised rib %s %d'%(cx,j),cx,cy,cz,[(y-.055,r+.018),(y,r+.09),(y+.055,r+.018)],'cream',32,True)
     for low,high in ((-4.55,-4.05),(4.05,4.53)):
-        vertical_lathe('Red lantern cap %s %s'%(cx,low),cx,cy,cz,[(low,1.12),(low+.08,1.23),(high-.08,1.23),(high,1.12)],'red',40)
+        vertical_lathe('Red lantern cap %s %s'%(cx,low),cx,cy,cz,[(low,1.12),(low+.08,1.23),(high-.08,1.23),(high,1.12)],'red',32)
     # Curved crest follows the lantern instead of floating on a flat sticker.
     count=12;radius=2.40
     for row in range(count):
@@ -242,11 +249,13 @@ for center_x in (8.0,24.0):
         face('Unprinted cream drumhead %s %d'%(center_x,i),[(0,0,-.105),(6.1*math.cos(b),6.1*math.sin(b),-.06),(6.1*math.cos(a),6.1*math.sin(a),-.06)],'head')
     for i in range(40):
         a=i*math.tau/40
-        disc('Black rim tack %s %d'%(center_x,i),6.57*math.cos(a),6.57*math.sin(a),.085,-.064,-.044,'black',10)
+        # The rear cap is buried inside the cream rim. Eight sides are ample
+        # for these .085-unit studs; their count, positions and radii are unchanged.
+        disc('Black rim tack %s %d'%(center_x,i),6.57*math.cos(a),6.57*math.sin(a),.085,-.064,-.044,'black',8,back=False)
     for i in range(8):
         a=i*math.tau/8
         x,y=6.53*math.cos(a),6.53*math.sin(a)
-        disc('Rim silver latch %s %d'%(center_x,i),x,y,.16,-.076,-.049,'silver',12)
+        disc('Rim silver latch %s %d'%(center_x,i),x,y,.16,-.076,-.049,'silver',10,back=False)
     # Black iron side grips on the barrel, just behind the head.
     for sx in (-1,1):
         box('Iron barrel side mount %s %s'%(center_x,sx),(sx*6.93-.10,-.64,3.45),(sx*6.93+.10,.64,4.99),'black')
@@ -270,15 +279,16 @@ for cx in (8.0,24.0):
         for sx in (-1,1):
             # Ornamental hook curves, raised in relief on the front-facing wood.
             px=cx+sx*5.1
-            disc('Cradle spiral backing %s %s %s'%(cx,z,sx),px,15.84,.93,z-.025,z+.58,'wood',32)
-            ring('Cradle scroll rim %s %s %s'%(cx,z,sx),px,15.84,.73,.57,z-.043,'wood_light',36)
-            ring('Cradle scroll inner %s %s %s'%(cx,z,sx),px,15.84,.44,.29,z-.051,'gold',32)
-            disc('Cradle scroll center %s %s %s'%(cx,z,sx),px,15.84,.18,z-.055,z-.028,'wood_light',20)
-        disc('Cradle flower boss %s %s'%(cx,z),cx,15.05,.66,z-.065,z+.60,'wood_light',32)
-        ring('Cradle flower outline %s %s'%(cx,z),cx,15.05,.49,.37,z-.078,'wood',32)
+            disc('Cradle spiral backing %s %s %s'%(cx,z,sx),px,15.84,.93,z-.025,z+.58,'wood',24)
+            ring('Cradle scroll rim %s %s %s'%(cx,z,sx),px,15.84,.73,.57,z-.043,'wood_light',24)
+            ring('Cradle scroll inner %s %s %s'%(cx,z,sx),px,15.84,.44,.29,z-.051,'gold',24)
+            disc('Cradle scroll center %s %s %s'%(cx,z,sx),px,15.84,.18,z-.055,z-.028,'wood_light',12)
+        disc('Cradle flower boss %s %s'%(cx,z),cx,15.05,.66,z-.065,z+.60,'wood_light',24)
+        ring('Cradle flower outline %s %s'%(cx,z),cx,15.05,.49,.37,z-.078,'wood',24)
         for j in range(8):
             a=j*math.tau/8
-            disc('Cradle flower petal %s %s %d'%(cx,z,j),cx+.40*math.cos(a),15.05+.40*math.sin(a),.16,z-.08,z-.064,'gold',12)
+            # Each petal's back is entirely inside the round wooden flower boss.
+            disc('Cradle flower petal %s %s %d'%(cx,z,j),cx+.40*math.cos(a),15.05+.40*math.sin(a),.16,z-.08,z-.064,'gold',8,back=False)
     for sx in (-1,1):
         box('Cradle raised drum rest %s %s'%(cx,sx),(cx+sx*4.6-.55,14.95,-5.23),(cx+sx*4.6+.55,17.0,-3.31),'wood')
     outward_yaw(start,cx)
@@ -300,6 +310,7 @@ for cx in (8.0,24.0):
 def write_json(path,data):path.write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8')
 textures={key:'funpackcustom:block/taiko_'+key for key in ('materials','marquee','screen','front','instructions','side','lantern','podium_side')}
 textures['particle']=textures['materials']
+export_statistics={}
 def write_obj(path,faces,transform):
     out=['# Classic lantern Taiko cabinet. Coordinates in blocks.','mtllib funpackcustom:models/block/taiko.mtl'];idx=1;last=None
     for f in faces:
@@ -308,7 +319,11 @@ def write_obj(path,faces,transform):
         out.extend('v '+' '.join('%.9f'%v for v in transform(p)) for p in f['vertices'])
         out.extend('vt %.9f %.9f'%(u/16,1-v/16) for u,v in f['uv'])
         out.append('f '+' '.join('%d/%d'%(idx+i,idx+i) for i in range(len(f['vertices']))));idx+=len(f['vertices'])
-    path.write_text('\n'.join(out)+'\n',encoding='utf-8')
+    # Keep the per-cabinet generator reproducible without rewriting other models.
+    optimized,audit=optimize_obj('\n'.join(out)+'\n')
+    assert not audit.get('skipped'),(path,audit)
+    path.write_text(optimized,encoding='utf-8')
+    export_statistics[path.relative_to(ASSETS).as_posix()]=audit
 def wrapper(name):return {'parent':'minecraft:block/block','loader':'neoforge:obj','model':'funpackcustom:models/'+name,
     'automatic_culling':False,'shade_quads':True,'flip_v':True,'emissive_ambient':True,'ambientocclusion':True,
     'render_type':'minecraft:cutout_mipped_all','textures':textures}
@@ -348,7 +363,9 @@ item=wrapper('item/taiko.obj');item.update({'ambientocclusion':False,'gui_light'
     'fixed':{'rotation':[0,180,0],'scale':[1,1,1]},'thirdperson_righthand':{'rotation':[75,45,0],'translation':[0,3,0],'scale':[.45,.45,.45]},
     'firstperson_righthand':{'rotation':[0,45,0],'translation':[0,2,0],'scale':[.5,.5,.5]}}})
 write_json(ASSETS/'models/item/taiko.json',item)
-stats={'source_faces':len(surfaces),'runtime_section_faces':{key:len(value) for key,value in parts.items()}}
+stats={'source_faces':len(surfaces),'authored_section_faces':{key:len(value) for key,value in parts.items()},
+    'runtime_section_faces':{key:export_statistics['models/block/taiko_'+key+'.obj']['output_faces'] for key in parts},
+    'item_faces':export_statistics['models/item/taiko.obj']['output_faces']}
 bounds=[[min(p[i] for f in surfaces for p in f['vertices']),max(p[i] for f in surfaces for p in f['vertices'])] for i in range(3)]
 YAW=math.radians(8)
 write_json(ART/'geometry.json',{'textures':textures,'meshes':surfaces,'bounds':bounds,'statistics':stats,

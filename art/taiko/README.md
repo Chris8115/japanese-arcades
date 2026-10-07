@@ -118,16 +118,66 @@ translates each fragment into one of its ten occupied cells. All 40 blockstate
 orientations and the complete item model use NeoForge's native OBJ loader.
 There is no per-frame block-entity rendering cost for the static cabinet.
 
-The final native NeoForge 21.1.252 bake audit passed **99,078 baked quads**
+The initial native NeoForge 21.1.252 bake audit passed **99,078 baked quads**
 across those 40 rotated block models and the item. It checked every source
 face survived, coordinates stayed finite, UVs and texture V orientation stayed
 correct, and the screen, marquee, and lantern faces retained fullbright light.
-The whole authoring/item model has **18,382 source faces**. The isolated bake
+That result predates the geometry reduction described below. The isolated bake
 audit is separate from the live-client resource and texture-atlas checks.
+
+### Geometry reduction, 2026-10-07
+
+The assembled world model now contains **14,750 faces**, reduced from **20,130**
+(**26.73%**). The complete item and authoring model contains **13,174 faces**,
+reduced from **18,382** (**28.33%**). The savings come from excessive radial
+subdivisions on small details, not from simplifying the playable drum surfaces:
+
+- Lantern bodies and all 19 raised ribs use 32 radial segments instead of 48.
+  Their vertical profile, rib depth, curved crest, and fullbright materials remain.
+- All 40 black tacks and eight silver latches per drum remain in place. Their
+  tiny circular outlines use fewer segments, and buried rear caps are omitted.
+- Wooden cradle scrolls, the eight petals on each flower boss, and small rounded
+  cabinet corners retain their shapes with fewer subdivisions. Buried petal backs
+  are omitted.
+- All **2,176 source faces** defining the 64-sided barrel bodies, membranes,
+  head skirts, front rims, and playable drumheads are exactly unchanged, including
+  their vertices, UVs, materials, and lighting flags. Drum hit geometry and overall
+  bounds also match the backup exactly. All eight texture PNG hashes are unchanged.
+
+[optimization-audit.json](optimization-audit.json) records the before/after counts,
+per-export results, unchanged texture hashes, and protected-geometry checks.
+Every Taiko OBJ also passes the conservative optimizer's idempotence check.
 
 To regenerate the model, run `scripts/make_taiko_model.py` with Python and
 Pillow. It calls `scripts/taiko_textures.py` for the original signs and cabinet
-art, and uses the existing `ddr_mesh_export` clipping helpers. To regenerate
+art, and uses the existing `ddr_mesh_export` clipping helpers. Add
+`--reuse-textures` to update geometry while preserving the existing PNGs. Each
+Taiko OBJ is conservatively optimized within this generator, without rewriting
+other machines. To regenerate
 the previews and packed Blender project, run Blender in background mode with
 `--python scripts/render_taiko_model.py`. Add `-- --single-only` to render
-only the main three-quarter preview. Other cabinet assets are not modified.
+only the main three-quarter preview. `--samples 16` provides a faster preview;
+`--resolution-percent 75` also reduces its dimensions. Other cabinet assets are
+not modified.
+
+## Optimization client verification — 2026-10-07
+
+The integrated build and asset audit passed. All 18 texture PNGs across maimai,
+Taiko and Chrono Circle retain their original hashes; 68 relevant packaged assets
+match the current source files. The catalog optimizer reports zero pending changes.
+
+The disposable Minecraft client verified all **240 native block states** and
+the complete item model for this cabinet, with finite vertices/UVs and no missing
+textures. Placement and resource reload passed. Six fixed camera views were
+compared before and after with Sodium 0.8.13, Iris 1.8.14-beta.1 and Complementary
+Reimagined r5.9.3. No custom per-frame cabinet renderer was added.
+
+See the [optimized cabinet](taiko-optimized-quarter.png) and
+[control detail](taiko-optimized-controls.png). Reports are in the ignored
+`build/verification/top-three-audit.json` and
+`runs/top-three-after-visual-probe/native-report.json`. These are geometry and
+appearance checks, not an FPS benchmark. Gameplay Java did not change.
+
+Original files are preserved at Git tag
+`backup/top-three-before-optimization-20261007-104418` and in a verified external
+ZIP archive of all 121 original files. Rollback should revert only this optimization.

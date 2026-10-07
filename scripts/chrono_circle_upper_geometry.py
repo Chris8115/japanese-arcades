@@ -18,65 +18,8 @@ def build_upper(cube, polygon, art_dir):
     polygon('Ivory clock face with rainbow markings',inset,.16,.315,'ivory',
             front=('details',face_uv),rotation=slope,group='Printed clock face',step=.25)
 
-    def circle_band(name,inner,outer,z0,z1,material,glow=False,texture=None,step=.25):
-        rows=math.ceil(outer*2/step)
-        for row in range(rows):
-            y0=cy-outer+row*2*outer/rows
-            y1=cy-outer+(row+1)*2*outer/rows
-            ym=(y0+y1)/2-cy
-            half=math.sqrt(max(0,outer*outer-ym*ym))
-            hole=math.sqrt(max(0,inner*inner-ym*ym)) if abs(ym)<inner else 0
-            spans=[(-half,half)] if hole==0 else [(-half,-hole),(hole,half)]
-            for segment,(a,b) in enumerate(spans):
-                if b-a<.015:continue
-                uv=None
-                if texture:
-                    tex,(u0,v0,u1,v1)=texture
-                    uv=(tex,[u0+(a+outer)/(outer*2)*(u1-u0),
-                        v0+(cy+outer-y1)/(outer*2)*(v1-v0),
-                        u0+(b+outer)/(outer*2)*(u1-u0),
-                        v0+(cy+outer-y0)/(outer*2)*(v1-v0)])
-                cube(name+' row '+str((row,segment)),(cx+a,y0,z0),(cx+b,y1,z1),
-                     material,north=uv,rotation=slope,glow=glow,group='Circular control assembly')
-
-    # Annular layers have disjoint radial interiors and separate front depths.
-    # Shared row boundaries meet exactly, without overlaid coplanar strips.
-    circle_band('Outer silver circular retaining rim',8.37,8.70,-.36,.23,'silver')
-    circle_band('Outer charcoal ring shoulder',8.04,8.42,-.72,.22,'charcoal')
-    circle_band('Continuous black twelve-button wheel',6.08,8.14,-.94,-.02,'black')
-    circle_band('Inner polished screen retaining ring',5.91,6.17,-.37,-.18,'silver')
-    circle_band('Circular screen black gasket',5.83,5.96,-.26,-.06,'rubber')
-    circle_band('Round illuminated Chrono Circle LCD',0,5.84,-.105,.04,'black',
-                glow=('north',),texture=('display',[0,0,16,16]),step=.20)
-
-    def arc_points(inner,outer,center,halfangle):
-        angles=[center-halfangle+2*halfangle*i/8 for i in range(9)]
-        outer_points=[(cx+outer*math.cos(math.radians(a)),cy+outer*math.sin(math.radians(a))) for a in angles]
-        inner_points=[(cx+inner*math.cos(math.radians(a)),cy+inner*math.sin(math.radians(a))) for a in reversed(angles)]
-        return outer_points+inner_points
-
-    for i in range(12):
-        angle=90-i*30
-        label='Clock button %02d '%(i+1)
-        polygon(label+'separate black socket',arc_points(6.32,8.06,angle,11.10),
-                -1.09,-.905,'rubber',rotation=slope,group='Twelve chrome buttons',step=.25)
-        polygon(label+'raised chrome edge',arc_points(6.47,7.94,angle,9.65),
-                -1.31,-1.075,'silver',rotation=slope,group='Twelve chrome buttons',step=.22)
-        polygon(label+'dark lens separator',arc_points(6.58,7.84,angle,8.55),
-                -1.43,-1.295,'steel',rotation=slope,group='Twelve chrome buttons',step=.22)
-        polygon(label+'curved white lens',arc_points(6.70,7.73,angle,7.60),
-                -1.57,-1.415,'ivory',front=('details',[12.125,8.125,15.875,11.875]),
-                rotation=slope,group='Twelve chrome buttons',step=.22)
-
-    # A shallow outer groove is physical and luminous; clock numerals and fine
-    # ornamental tick marks remain on the manufactured faceplate texture.
-    colors=('cyan','green','yellow','orange','pink','purple','blue','cyan')
-    for i in range(24):
-        angle=90-i*15
-        color=colors[min(7,int(i/3))]
-        polygon('Rainbow clock outer light segment %02d'%i,
-                arc_points(9.17,9.26,angle,6.7),.105,.165,color,
-                rotation=slope,glow=('north',),group='Rainbow clock light groove',step=.22)
+    # Native radial geometry keeps the same controls and exact shared slope,
+    # without scanline cuboids or buried ring faces.
     for x,y in ((-1.60,17.30),(17.50,17.30),(-1.70,34.73),(17.57,34.73),
                 (1.55,16.22),(14.28,16.22),(1.50,35.77),(14.37,35.77)):
         cube('Faceplate silver fastener '+str((x,y)),(x,y,.065),(x+.13,y+.13,.17),

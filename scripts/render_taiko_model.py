@@ -1,4 +1,5 @@
 """Render the actual exported Taiko mesh and save an editable Blender scene."""
+import argparse
 import json
 import sys
 from pathlib import Path
@@ -8,11 +9,17 @@ from mathutils import Vector
 
 ROOT=Path(__file__).resolve().parents[1]
 ART=ROOT/'art/taiko';TEX=ROOT/'src/main/resources/assets/funpackcustom/textures/block'
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--single-only',action='store_true')
+parser.add_argument('--samples',type=int,default=40)
+parser.add_argument('--resolution-percent',type=int,default=100)
+args=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
+assert args.samples>0 and 1<=args.resolution_percent<=100
 data=json.loads((ART/'geometry.json').read_text(encoding='utf-8'))
 bpy.context.preferences.filepaths.save_version=0
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
-scene=bpy.context.scene;scene.render.engine='CYCLES';scene.cycles.samples=40;scene.cycles.use_denoising=True
-scene.render.resolution_x=1500;scene.render.resolution_y=1750;scene.render.resolution_percentage=100
+scene=bpy.context.scene;scene.render.engine='CYCLES';scene.cycles.samples=args.samples;scene.cycles.use_denoising=True
+scene.render.resolution_x=1500;scene.render.resolution_y=1750;scene.render.resolution_percentage=args.resolution_percent
 scene.render.image_settings.file_format='PNG';scene.view_settings.view_transform='AgX';scene.view_settings.exposure=-.40
 scene.world.color=(.19,.19,.19)
 materials={}
@@ -60,7 +67,7 @@ def render(name,loc,target,scale):
     camera.location=loc;camera.rotation_euler=(Vector(target)-camera.location).to_track_quat('-Z','Y').to_euler();camdata.ortho_scale=scale
     scene.render.filepath=str(ART/name);bpy.ops.render.render(write_still=True)
 render('taiko.png',(4.7,-8,4.9),(0,-.10,1.46),3.86)
-if '--single-only' not in sys.argv:
+if not args.single_only:
     render('taiko-front.png',(0,-8,3.0),(0,-.10,1.5),3.6)
     render('taiko-drums.png',(2.6,-5,3.9),(0,-.38,1.35),2.8)
 camera.location=(4.7,-8,4.9);camera.rotation_euler=(Vector((0,-.10,1.46))-camera.location).to_track_quat('-Z','Y').to_euler();camdata.ortho_scale=3.86
