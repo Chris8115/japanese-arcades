@@ -51,6 +51,15 @@ Hold right-click to crank and receive one capsule containing the entire selected
 reward amount. Walking away pauses the crank and resets it after five seconds
 without payment. The price and prize item icons update on the machine itself.
 
+The [Claw Machine](art/claw_machine/README.md) occupies a supported **three-wide,
+two-deep, three-tall** space. Right-click for transparent bottom controls; use
+WASD/arrows to aim and Space to drop. Shift-right-click empty-handed for operator
+access, a physical currency price, the spatial 3×3 prize grid and payout settings.
+Each slot offers its whole stack. The moving claw can slip a prize into an empty
+position or carry it to the chute. Operators can set a fixed win chance or ramp
+it to a guaranteed Nth attempt; a win resets the ramp. Only a stocked Drop costs
+currency, and paid attempts finish after the player leaves.
+
 [Arcade Ordering Kiosk](art/arcade_kiosk/README.md) provides a survival route to the
 machines. Craft the two-block-tall kiosk with iron, glass, gold and redstone, then
 select a machine to see its material costs. The **Order** button exchanges those
@@ -59,7 +68,7 @@ dropping it nearby if full. The **Machines** and **Prizes** tabs can be extended
 new content is added. The **Passes** tab issues Arcade Passes, loads Credits from
 iron, gold, emeralds or diamonds, and combines balances between cards placed in
 real **From** and **To** slots. Both cards return when the kiosk closes. Use a pass
-on a full-size arcade cabinet to spend Credits and earn randomized Prize Points,
+on a music arcade cabinet to spend Credits and earn randomized Prize Points,
 then redeem them in **Prizes** for placeable Miku and Teto figures or a
 [WACCA wall poster](art/wacca_poster/README.md). Prices, rank
 weights and machine profiles are server-configurable. See the
@@ -83,7 +92,7 @@ Use **Terminal > Run Task** for the `Fun:` tasks, or open a terminal here:
 - `SyncPack` refreshes the copied mods, configs, resource packs, and pack scripts from the live pack.
 - `Prepare` downloads game assets and prepares client/server launch files.
 - `Server` launches a small dedicated server for checking server compatibility.
-- `GameTest` runs 112 cabinet, gachapon, ordering and Arcade Pass economy integration tests in a disposable test world and exits.
+- `GameTest` runs 125 cabinet, claw machine, gachapon, poster, ordering and Arcade Pass economy integration tests in a disposable test world and exits.
 - `Data` runs our data generators once we add them.
 
 The script selects Java 21 locally. Your default Java installation remains available to other projects.

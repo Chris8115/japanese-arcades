@@ -196,6 +196,19 @@ public final class FunPackCustom {
         MENUS.register("gachapon", () -> IMenuTypeExtension.create(GachaponMenu::new));
     public static final DeferredHolder<MenuType<?>, MenuType<GachaponAccessMenu>> GACHAPON_ACCESS_MENU =
         MENUS.register("gachapon_access", () -> IMenuTypeExtension.create(GachaponAccessMenu::new));
+    public static final DeferredBlock<ClawMachineBlock> CLAW_MACHINE = BLOCKS.registerBlock(
+        "claw_machine", ClawMachineBlock::new,
+        BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(2.5F, 1200.0F)
+            .sound(SoundType.METAL).noOcclusion().lightLevel(state -> state.getValue(ClawMachineBlock.PART) >= 12 ? 10 : 4));
+    public static final DeferredItem<?> CLAW_MACHINE_ITEM = ITEMS.registerSimpleBlockItem("claw_machine", CLAW_MACHINE, new Item.Properties());
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ClawMachineBlockEntity>> CLAW_MACHINE_ENTITY =
+        BLOCK_ENTITIES.register("claw_machine", () -> BlockEntityType.Builder.of(ClawMachineBlockEntity::new, CLAW_MACHINE.get()).build(null));
+    public static final DeferredHolder<MenuType<?>, MenuType<ClawMachineMenu>> CLAW_MACHINE_MENU =
+        MENUS.register("claw_machine", () -> IMenuTypeExtension.create(ClawMachineMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<ClawMachineMenu>> CLAW_MACHINE_PLAY_MENU =
+        MENUS.register("claw_machine_play", () -> IMenuTypeExtension.create(ClawMachineMenu::playFromNetwork));
+    public static final DeferredHolder<MenuType<?>, MenuType<ClawMachineAccessMenu>> CLAW_MACHINE_ACCESS_MENU =
+        MENUS.register("claw_machine_access", () -> IMenuTypeExtension.create(ClawMachineAccessMenu::new));
     public static final DeferredBlock<ArcadeKioskBlock> ARCADE_KIOSK = BLOCKS.registerBlock(
         "arcade_kiosk", ArcadeKioskBlock::new,
         BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(2.5F, 6.0F)
@@ -224,6 +237,7 @@ public final class FunPackCustom {
                 output.accept(INITIAL_D_ITEM.get());
                 output.accept(JUBEAT_ITEM.get());
                 output.accept(GACHAPON_ITEM.get());
+                output.accept(CLAW_MACHINE_ITEM.get());
                 output.accept(ARCADE_KIOSK_ITEM.get());
                 output.accept(ARCADE_PASS.get());
                 output.accept(HATSUNE_MIKU_FIGURE_ITEM.get());
@@ -242,8 +256,10 @@ public final class FunPackCustom {
         COMPONENTS.register(modEventBus);
         modContainer.registerConfig(ModConfig.Type.SERVER, ArcadeEconomyConfig.SPEC, "funpackcustom-arcade-economy.toml");
         modEventBus.addListener(GachaponNetwork::register);
+        modEventBus.addListener(ClawMachineNetwork::register);
         modEventBus.addListener(ArcadeKioskNetwork::register);
         NeoForge.EVENT_BUS.register(GachaponProtection.class);
+        NeoForge.EVENT_BUS.register(ClawMachineProtection.class);
         NeoForge.EVENT_BUS.register(TaikoDrumInteraction.class);
         NeoForge.EVENT_BUS.register(InitialDSeatEntity.class);
         NeoForge.EVENT_BUS.register(ArcadePlayInteraction.class);
