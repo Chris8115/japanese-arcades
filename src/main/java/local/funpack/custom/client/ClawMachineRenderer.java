@@ -31,6 +31,7 @@ public final class ClawMachineRenderer implements BlockEntityRenderer<ClawMachin
     private static final int SILVER = 0xBCCDD6, DARK = 0x263B4B, CYAN = 0x59ECF4;
     private static final int PINK = 0xEEA1CC, RUBBER = 0x26313A;
     private final Font font;
+    private final ClawPrizeMeshes prizeMeshes = new ClawPrizeMeshes();
     private final Map<ClawMachineBlockEntity, Sample> samples = new WeakHashMap<>();
 
     public ClawMachineRenderer(BlockEntityRendererProvider.Context context) { font = context.getFont(); }
@@ -47,12 +48,14 @@ public final class ClawMachineRenderer implements BlockEntityRenderer<ClawMachin
         pose.translate(-.5, 0, -.5);
         pose.scale(1F / 16, 1F / 16, 1F / 16);
 
+        ItemStack[] stock = new ItemStack[9];
         for (int slot = 0; slot < 9; slot++) {
             ItemStack reward = machine.getRewardDisplay(slot);
+            stock[slot] = reward;
             if (!reward.isEmpty()) {
                 float x = modelX(ClawMachineBlockEntity.slotX(slot));
                 float z = modelZ(ClawMachineBlockEntity.slotZ(slot));
-                prize(reward, x, 20.5F, z, machine, pose, buffers, light, overlay, slot);
+                icon(reward, x, 20.5F, z, 4.6F, 3.4F, machine, pose, buffers, light, overlay, slot);
             }
         }
 
@@ -96,14 +99,23 @@ public final class ClawMachineRenderer implements BlockEntityRenderer<ClawMachin
         if (!held.isEmpty()) {
             // The full reserved stack travels together. Slipping uses a separate server pose,
             // leaving the released claw overhead while the prize falls to its new stock cell.
-            prize(held, modelX(state[4]), modelY(state[5]), modelZ(state[6]),
-                machine, pose, buffers, light, overlay, 19);
+            icon(held, modelX(state[4]), modelY(state[5]), modelZ(state[6]),
+                4.6F, 3.4F, machine, pose, buffers, light, overlay, 19);
         }
         ItemStack price = machine.getPrice();
         if (!price.isEmpty()) {
-            text(Component.literal(price.getCount() + " X"), 32, 16.1F, .075F,
+            icon(price, 19.2F, 16.1F, .06F, 1.75F, .15F, machine, pose, buffers, light, overlay, 23);
+        }
+        // Keep labels together: switching to the font between each stocked item flushes
+        // Minecraft's shared item buffer, uploading/drawing every cabinet separately.
+        for (int slot = 0; slot < stock.length; slot++) {
+            prizeCount(stock[slot], modelX(ClawMachineBlockEntity.slotX(slot)), 20.5F,
+                modelZ(ClawMachineBlockEntity.slotZ(slot)), pose, buffers, light);
+        }
+        prizeCount(held, modelX(state[4]), modelY(state[5]), modelZ(state[6]), pose, buffers, light);
+        if (!price.isEmpty()) {
+            text(Component.literal(price.getCount() + " X"), 26, 16.1F, .075F,
                 .16F, 0x173849, pose, buffers, 0xF000F0);
-            icon(price, 25.2F, 16.1F, .06F, 1.75F, .15F, machine, pose, buffers, light, overlay, 23);
         }
         pose.popPose();
     }
@@ -136,9 +148,8 @@ public final class ClawMachineRenderer implements BlockEntityRenderer<ClawMachin
         }
     }
 
-    private void prize(ItemStack stack, float x, float y, float z, ClawMachineBlockEntity machine,
-                       PoseStack pose, MultiBufferSource buffers, int light, int overlay, int seed) {
-        icon(stack, x, y, z, 4.6F, 3.4F, machine, pose, buffers, light, overlay, seed);
+    private void prizeCount(ItemStack stack, float x, float y, float z,
+                            PoseStack pose, MultiBufferSource buffers, int light) {
         if (stack.getCount() > 1) {
             text(Component.literal("x" + stack.getCount()), x, y - 1.8F, z - 2.4F,
                 .12F, 0x173849, pose, buffers, light);
@@ -152,8 +163,10 @@ public final class ClawMachineRenderer implements BlockEntityRenderer<ClawMachin
         pose.translate(x, y, z);
         pose.mulPose(Axis.YP.rotationDegrees(180));
         pose.scale(size, size, depth);
-        Minecraft.getInstance().getItemRenderer().renderStatic(stack, ItemDisplayContext.GUI,
-            light, overlay, pose, buffers, machine.getLevel(), seed);
+        if (!prizeMeshes.render(stack, pose, buffers, light, overlay)) {
+            Minecraft.getInstance().getItemRenderer().renderStatic(stack, ItemDisplayContext.GUI,
+                light, overlay, pose, buffers, machine.getLevel(), seed);
+        }
         pose.popPose();
     }
 

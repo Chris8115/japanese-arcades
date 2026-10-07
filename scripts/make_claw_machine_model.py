@@ -94,12 +94,12 @@ box('Chute bottom return',(3,3.9,.65),(13,4.25,6.4),'shade',group='Front service
 # their inward side faces (which would shimmer from either oblique view).
 box('Chute interior left wall',(2.75,4,1.85),(3,17.55,6.4),'shade',group='Front service and chute')
 box('Chute interior right wall',(13,4,1.85),(13.25,17.55,6.4),'shade',group='Front service and chute')
-# Four ceiling strips close the space around the unchanged X4..12/Z1.8..5.8
-# opening, with their undersides visible from inside the prize-out port.
+# Four ceiling strips enclose the X4..12/Z1.8..4.6 top opening. The rear
+# collar separates it from the nearest prize pad without moving that prize.
 box('Chute ceiling left',(3,17.25,.68),(4,17.45,6.4),'shade',group='Front service and chute')
 box('Chute ceiling right',(12,17.25,.68),(13,17.45,6.4),'shade',group='Front service and chute')
 box('Chute ceiling front',(4,17.25,.68),(12,17.45,1.8),'shade',group='Front service and chute')
-box('Chute ceiling rear',(4,17.25,5.8),(12,17.45,6.4),'shade',group='Front service and chute')
+box('Chute ceiling rear',(4,17.25,4.6),(12,17.45,6.4),'shade',group='Front service and chute')
 for x in (2.55,13):box('Prize door pink side '+str(x),(x,3.6,.42),(x+.45,11.95,.66),'pink',group='Front service and chute')
 box('Prize door pink top',(2.55,11.5,.42),(13.45,12.1,.66),'pink',group='Front service and chute')
 box('Prize out printed flap',(3.1,4.0,.36),(12.9,6.1,.53),'pink',north=('prize_out',[0,0,16,16]),group='Front service and chute')
@@ -118,11 +118,13 @@ for side,x0,x1 in (('left',.50,.68),('right',47.32,47.50)):
 # Cover the full pedestal rim. A .02-unit cap overhang prevents coplanar side
 # faces at the shell/posts, while staying within the original outer trim bounds.
 # The lower pedestal intentionally has no solid top across the chute opening.
-box('Prize floor rear',(.63,17.45,5.8),(47.37,18,30.67),'paper',group='Glass display floor')
-box('Prize floor front left',(.63,17.45,1.8),(4,18,5.8),'paper',group='Glass display floor')
-box('Prize floor front right',(12,17.45,1.8),(47.37,18,5.8),'paper',group='Glass display floor')
-for x in (4,11.75):box('Chute aperture side '+str(x),(x,17.8,1.8),(x+.25,18.13,5.8),'silver',group='Glass display floor')
-box('Chute aperture back',(4,17.8,5.55),(12,18.13,5.8),'silver',group='Glass display floor')
+box('Prize floor rear',(.63,17.45,4.6),(47.37,18,30.67),'paper',group='Glass display floor')
+box('Prize floor front left',(.63,17.45,1.8),(4,18,4.6),'paper',group='Glass display floor')
+box('Prize floor front right',(12,17.45,1.8),(47.37,18,4.6),'paper',group='Glass display floor')
+# The U-shaped rim ends behind the pink belt and ahead of the front stock row.
+# Side bars meet the rear bar edge-to-edge, avoiding overlapping top faces.
+for x in (4,11.75):box('Chute aperture side '+str(x),(x,17.8,2.3),(x+.25,18.13,4.4),'silver',group='Glass display floor')
+box('Chute aperture back',(4,17.8,4.4),(12,18.13,4.6),'silver',group='Glass display floor')
 for row in range(3):
     for col in range(3):
         x,z=8+16*col,24-8*row
@@ -154,15 +156,17 @@ for x in (.48,47.38):box('Side marquee '+str(x),(x,43.75,3),(x+.14,45.95,28.4),'
 for z in (5.0,27.0):box('Fixed ceiling running rail '+str(z),(3,41.4,z),(45,41.85,z+.5),'silver',group='Static gantry rails')
 for x in (3,44.5):box('Fixed gantry length rail '+str(x),(x,41.7,3),(x+.5,42.15,29),'dark',group='Static gantry rails')
 
-# Forward operator deck, actual buttons and a small inset screen.
-box('Control deck support',(18.5,14.8,.1),(39.5,17.5,4.4),'shade',group='Player controls')
-box('Control deck white cap',(18.2,17.45,0),(39.8,17.85,4.65),'white',group='Player controls')
-box('Control screen bezel',(29.2,17.83,.65),(38.2,18.05,3.8),'black',group='Player controls')
-box('Control screen',(29.5,18.055,.88),(37.9,18.075,3.57),'blue',up=('controls',[16,16,0,0]),glow=('up',),group='Player controls')
-box('Joystick chrome stem',(22.45,17.85,1.8),(22.85,19.15,2.2),'silver',group='Player controls')
-box('Joystick cyan handle',(21.95,18.85,1.3),(23.35,19.7,2.7),'cyan',group='Player controls')
-box('Drop button silver socket',(25.3,17.85,1.3),(27.2,18.04,3.0),'silver',group='Player controls')
-box('Drop pink button',(25.55,18.03,1.55),(26.95,18.38,2.75),'hotpink',group='Player controls')
+# A centered operator deck clears the reflected front-left chute completely.
+# Its white cap rises above the belt, so the screen bezel has its own surface
+# rather than sharing the belt's Y18.05 top plane.
+box('Control deck support',(12.5,14.8,.1),(33.5,17.5,4.4),'shade',group='Player controls')
+box('Control deck white cap',(12.2,17.45,0),(33.8,18.10,4.65),'white',group='Player controls')
+box('Control screen bezel',(23.2,18.08,.65),(32.2,18.30,3.8),'black',group='Player controls')
+box('Control screen',(23.5,18.305,.88),(31.9,18.325,3.57),'blue',up=('controls',[16,16,0,0]),glow=('up',),group='Player controls')
+box('Joystick chrome stem',(16.45,18.10,1.8),(16.85,19.40,2.2),'silver',group='Player controls')
+box('Joystick cyan handle',(15.95,19.10,1.3),(17.35,19.95,2.7),'cyan',group='Player controls')
+box('Drop button silver socket',(19.3,18.10,1.3),(21.2,18.29,3.0),'silver',group='Player controls')
+box('Drop pink button',(19.55,18.28,1.55),(20.95,18.63,2.75),'hotpink',group='Player controls')
 
 # The viewer stands north looking south: high model X is the viewer's left.
 # Reflect the authored service/chute assembly, while retaining readable labels.
