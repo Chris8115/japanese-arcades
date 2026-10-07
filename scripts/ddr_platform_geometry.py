@@ -30,7 +30,7 @@ def build_platform(cube, polygon, mesh):
         faces += [[n,n+i,n+i+1] for i in range(1,n-1)]
         convex(name,vertices,faces,material,group)
 
-    def cylinder(name,cx,cz,y0,y1,radius,material,group,sides=12):
+    def cylinder(name,cx,cz,y0,y1,radius,material,group,sides=8):
         points=[(cx+radius*math.cos(i*math.tau/sides),
                  cz+radius*math.sin(i*math.tau/sides)) for i in range(sides)]
         plate(name,points,y0,y1,material,group)
@@ -130,21 +130,22 @@ def build_platform(cube, polygon, mesh):
 
     def rail(player,cx):
         z=-27.5;radius=.40;bend=1.60;shoulder_y=18.50;top_y=20.10
+        bend_steps=5
         # Centerline with tangent vectors, shared across red and black pieces.
         path=[(cx-5.8,2.48,0.,1.,False),
               (cx-5.8,17.70,0.,1.,False),
               (cx-5.8,shoulder_y,0.,1.,True)]
-        for i in range(1,9):
-            a=math.pi-i*(math.pi/2)/8
+        for i in range(1,bend_steps+1):
+            a=math.pi-i*(math.pi/2)/bend_steps
             path.append((cx-4.2+bend*math.cos(a),shoulder_y+bend*math.sin(a),
                          math.sin(a),-math.cos(a),True))
         path.append((cx+4.2,top_y,1.,0.,True))
-        for i in range(1,9):
-            a=math.pi/2-i*(math.pi/2)/8
+        for i in range(1,bend_steps+1):
+            a=math.pi/2-i*(math.pi/2)/bend_steps
             path.append((cx+4.2+bend*math.cos(a),shoulder_y+bend*math.sin(a),
                          math.sin(a),-math.cos(a),True))
         path.extend(((cx+5.8,17.70,0.,-1.,True),(cx+5.8,2.48,0.,-1.,False)))
-        vertices=[];sides=12
+        vertices=[];sides=8
         for x,y,tx,ty,black in path:
             for j in range(sides):
                 theta=math.tau*j/sides

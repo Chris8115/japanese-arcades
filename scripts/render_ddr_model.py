@@ -1,6 +1,6 @@
 """Render the exact DDR SuperNOVA game geometry and packed UVs.
 
-Run with Blender --background --python scripts/render_ddr_supernova_model.py.
+Run with Blender --background --python scripts/render_ddr_model.py.
 Append -- --front-only for a quick front preview or -- --detail-only for the
 controls, screen and marquee. --profile-only renders front and side views.
 Every mode saves a packed editable .blend scene.
@@ -23,7 +23,9 @@ bpy.ops.object.select_all(action='SELECT')
 bpy.ops.object.delete(use_global=False)
 scene = bpy.context.scene
 scene.render.engine = 'CYCLES'
-scene.cycles.samples = 48
+scene.render.threads_mode = 'FIXED'
+scene.render.threads = 4
+scene.cycles.samples = 12 if '--quick' in sys.argv else 48
 scene.cycles.use_denoising = True
 scene.render.resolution_x = 1400
 scene.render.resolution_y = 1500

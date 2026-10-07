@@ -15,6 +15,8 @@ from ddr_platform_geometry import build_platform
 from ddr_textures import build_textures
 from wacca_surface_geometry import optimize_surfaces
 from ddr_mesh_export import export_mesh_assets
+from obj_mesh_optimizer import optimize_obj
+from collections import Counter
 
 ROOT=Path(__file__).resolve().parents[1]
 ART=ROOT/'art/ddr_supernova'
@@ -181,3 +183,31 @@ surface_details['total_exported_faces']=sum(len(e['faces']) for e in elements)
 
 # NeoForge's bundled OBJ loader preserves the CRT tilt and rounded rail tubes.
 export_mesh_assets(elements, raw_meshes, texture_paths, surface_details, ROOT)
+
+# Keep this post-pass local to DDR: the shared exporter is also imported by
+# other cabinets. Every regeneration retains safe coplanar merges and indexed
+# declarations instead of relying on a later whole-catalog optimization run.
+sections=('cabinet_base','cabinet_console','cabinet_marquee','stage_rear','stage_front','rail')
+names=[side+'_'+section for side in ('primary','secondary') for section in sections]
+paths={name:MODEL/('ddr_supernova_'+name+'.obj') for name in names}
+paths['item']=ASSETS/'models/item/ddr_supernova.obj'
+optimized={}
+for name,path in paths.items():
+    output,statistics=optimize_obj(path.read_text(encoding='utf-8'))
+    assert 'skipped' not in statistics,(name,statistics)
+    path.write_text(output,encoding='utf-8')
+    optimized[name]=statistics
+geometry=json.loads((ART/'geometry.json').read_text(encoding='utf-8'))
+statistics=geometry['surface_optimization']
+statistics['raw_runtime_section_faces']=statistics['runtime_section_faces']
+statistics['runtime_section_faces']={name:optimized[name]['output_faces'] for name in names}
+statistics['item_faces']=optimized['item']['output_faces']
+geometry['statistics']={'authoring_faces':len(geometry['meshes']),
+    'source_group_faces':dict(Counter(face['group'] for face in geometry['meshes'])),
+    'optimized':optimized,'world_faces':sum(optimized[name]['output_faces'] for name in names),
+    'item_faces':optimized['item']['output_faces']}
+geometry['subdivision_settings']={'large_woofer_sides':32,'small_speaker_lamp_sides':24,
+    'tiny_lock_sides':12,'rail_cross_section_sides':8,'rail_quarter_bend_steps':5,
+    'rail_socket_sides':8,'flange_bolt_sides':6}
+(ART/'geometry.json').write_text(json.dumps(geometry,indent=2)+'\n',encoding='utf-8')
+print('Optimized DDR: world',geometry['statistics']['world_faces'],'faces; item',geometry['statistics']['item_faces'])

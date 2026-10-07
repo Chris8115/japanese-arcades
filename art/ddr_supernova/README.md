@@ -86,10 +86,25 @@ The cabinet's section collision narrows independently of the platform, and the
 low cable has its own small shape. Rail collision follows the posts, rounded
 shoulders, grip, and mounting flanges, leaving both player areas open.
 
-The final mesh has **6,867 authoring faces**, **7,395 faces across twelve runtime
-sections**, and **6,867 item faces**. The section split preserves the same
-surface area, vertex positions, and interpolated UVs. The geometry audit found
-zero positive-area coplanar overlaps among 15,924 candidates.
+The optimized mesh has **4,703 authoring faces**, **5,114 faces across twelve
+runtime sections**, and **4,647 item faces**. Compared with the saved preceding
+runtime models (7,222 world / 6,739 item), this removes **29.2%** of world faces
+and **31.0%** of item faces. Counts cover the complete cabinet and both stages,
+including rails and all fixed hardware.
+
+Large woofers use 32 radial segments, smaller speakers/lamps use 24, and the
+tiny cashbox lock uses 12. The rails use eight sides around the thin tube and
+five segments across each quarter-circle shoulder; their mounting sockets
+use eight sides. Radii, centers, depth, continuous U silhouettes and red/black
+material transitions remain intact. The shared six-sided flange bolts are
+unchanged. Source speaker/lamp faces fall from 3,552 to 1,764; rails from 552
+to 272; sockets from 256 to 160. All remaining 2,507 source faces retain their
+exact geometry, UVs and materials.
+
+The final section split preserves surface area, vertex positions and interpolated
+UVs. A DDR-only post-export pass merges compatible coplanar faces and indexes
+repeated declarations. It does not alter the shared exporter or other cabinets.
+`geometry.json` records actual optimized section/item counts and subdivisions.
 
 Editable sources:
 
@@ -118,7 +133,25 @@ Previews: [front](ddr_supernova-front.png), [back](ddr_supernova-back.png),
 [side](ddr_supernova-side.png), [platform](ddr_supernova-platform.png),
 [screen](ddr_supernova-screen.png), and [marquee](ddr_supernova-marquee.png).
 
+Regenerate with `python scripts/make_ddr_model.py`, then render with
+`blender --background --python scripts/render_ddr_model.py -- --quick` for
+four-thread, 12-sample previews. Omit `--quick` for the default 48 samples.
+Every mode updates the packed `.blend` without creating extra `.blend1` files.
+
 ## Verification
+
+The 2026-10-07 reduction audit confirms identical full bounds and all seven
+runtime/source image hashes, valid planar geometry/UVs and no duplicate,
+degenerate or nonfinite source faces. The other 2,507 source faces match the
+backup exactly. [optimization-audit.json](optimization-audit.json) records the
+checks and before/after group counts. The independent report at
+`build/verification/ddr-reduction-independent-audit.json` passes all thirteen
+runtime meshes, preserved fitting radii/depth/printed UVs, closed outward-facing
+rails, exact unaffected meshes, unchanged textures and collision code. Its
+native counts confirm **7,222 → 5,114 world** and **6,739 → 4,647 item** faces.
+Native client/package verification is handled separately; the historical
+integration checks below precede this optimization. Face-count reduction alone
+is not a measured FPS improvement.
 
 The final Build passed and **all 47 integration tests passed on
 2026-10-06**, including the previous forty. Seven new DDR tests cover:

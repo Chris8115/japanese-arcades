@@ -19,7 +19,10 @@ def build_cabinet(cube, polygon, mesh, art_dir):
     def disc(name,cx,cy,r,z0,z1,material,texture=None,glow=False):
         # Real circular rims and lenses match the rounded stage rails. Keep
         # the front UV radial so printed speaker mesh remains undistorted.
-        count=64 if r>1 else 32
+        # Large woofers keep a smooth 32-sided outline. Smaller fittings occupy
+        # far fewer screen pixels; their original radii and depths do not need
+        # the same subdivision count as the large speaker surrounds.
+        count=32 if r>3 else 12 if r<.3 else 24
         # The cabinet is .78 as wide as the initial construction grid. Apply
         # the same factor vertically here so its exported fittings stay round.
         ry=r*.78

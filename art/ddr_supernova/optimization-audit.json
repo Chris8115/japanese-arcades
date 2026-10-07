@@ -1,0 +1,72 @@
+{
+  "baseline_backup_tag": "backup/ddr-before-hardware-reduction-20261007-114654",
+  "baseline_commit": "f4846119f2432218a4d2614b8f50134e64adcbdc",
+  "world_faces_before": 7222,
+  "world_faces_after": 5114,
+  "item_faces_before": 6739,
+  "item_faces_after": 4647,
+  "source_faces_before": 6867,
+  "source_faces_after": 4703,
+  "identical_bounds": [
+    [
+      -2.988999999999997,
+      34.989
+    ],
+    [
+      0.06,
+      48.0
+    ],
+    [
+      -32.0,
+      15.48
+    ]
+  ],
+  "retained_exact_faces": 2507,
+  "changed_group_faces": {
+    "Cabinet speakers and lamps": {
+      "before": 3552,
+      "after": 1764
+    },
+    "Four bolted rail sockets": {
+      "before": 256,
+      "after": 160
+    },
+    "Four red tubular rail posts": {
+      "before": 96,
+      "after": 64
+    },
+    "Two rounded black U grips": {
+      "before": 456,
+      "after": 208
+    }
+  },
+  "unchanged_image_sha256": {
+    "ddr_supernova_details.png": "8ba72cb5b295fb811911b1ccf1dcd6ed90856d1ffd68b214f651d063a567730f",
+    "ddr_supernova_display.png": "95edc87b57dad1bd8ff2c5ef8202957facaa4a5861ef8fb5468826c9cb60a261",
+    "ddr_supernova_header.png": "2efd92540d28c6e9e86b7cb4c15545ce8a57cb61b011b7ffea71a41f1f856f65",
+    "ddr_supernova_materials.png": "25b5d7a1cbb0bb4f8f6d69f01cb56960fb6bcf4568a2d771798668c7999d5f40",
+    "display-artwork-source.png": "e95be1c47cb5cf6a1aaaaa659a9abfa7444282be1b3a07de65eddbd50392c5d7",
+    "header-artwork-source.png": "35b969a9806e45178b2cb14fe95c88b24741c33ea1a6019c8909a8f840014098",
+    "header-artwork-wide-source.png": "b0c5b421c203b3ae395a812b2a223f8b3234fd5dd01977bb15d949e753275f5e"
+  },
+  "invalid_geometry_faces": 0,
+  "duplicate_faces": 0,
+  "invalid_uvs": 0,
+  "runtime_verification": {
+    "result": "PASS",
+    "build": "dev.cmd Build",
+    "native_states": 288,
+    "native_state_quads": 122736,
+    "native_item_quads": 4647,
+    "visual_views": 7,
+    "resource_reload": "PASS",
+    "static_renderer": true,
+    "packaged_assets": 32,
+    "obj_optimizer_idempotent": true,
+    "release_sha256": "3d538c9c0e1d26d3f0a3364cdcc53a50f8038daf7434bf3b56985112e1d9709e",
+    "preview_files": [
+      "ddr-optimized-rails.png",
+      "ddr-optimized-cabinet.png"
+    ]
+  }
+}
