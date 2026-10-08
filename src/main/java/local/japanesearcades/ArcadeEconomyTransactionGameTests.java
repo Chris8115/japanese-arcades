@@ -261,14 +261,14 @@ public final class ArcadeEconomyTransactionGameTests {
     public static void arcadeEveryConfiguredPrizeChargesOnlyItsPointPrice(GameTestHelper helper) {
         ServerPlayer player = createPlayer(helper, "PassPrizes", GameType.SURVIVAL);
         ArcadeKioskMenu menu = setup(helper, player);
-        helper.assertTrue(ArcadePrizeCatalog.entries().size() == 38
+        helper.assertTrue(ArcadePrizeCatalog.entries().size() == 114
             && ArcadePrizeCatalog.find(id("hatsune_miku_figure")).isPresent()
             && ArcadePrizeCatalog.find(id("kasane_teto_figure")).isPresent()
             && ArcadePrizeCatalog.find(id("wacca_poster")).isPresent()
             && ArcadePrizeCatalog.find(id("hatsune_miku_cutout")).isPresent()
             && ArcadePrizeCatalog.find(id("kasane_teto_cutout")).isPresent()
             && ArcadePrizeCatalog.find(id("mech_suit")).isPresent(),
-            "The shop must retain its collectibles, glow sticks, mech reward and all twenty posters");
+            "The shop must retain its figures, glow sticks, mech reward, twenty posters and all 82 vanilla mob prizes");
         for (String mob : MobFigureBlock.MOBS) {
             helper.assertTrue(ArcadePrizeCatalog.find(id("boxed_" + mob + "_figure")).isPresent()
                 && ArcadePrizeCatalog.find(id(mob + "_figure")).isEmpty()

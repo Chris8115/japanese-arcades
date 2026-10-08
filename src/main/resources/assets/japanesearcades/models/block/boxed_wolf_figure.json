@@ -1,0 +1,16 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "neoforge:obj",
+  "model": "japanesearcades:models/block/boxed_wolf_figure.obj",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": false,
+  "emissive_ambient": false,
+  "ambientocclusion": true,
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "skin0": "japanesearcades:block/mob_figures/minecraft/entity/wolf/wolf",
+    "package": "japanesearcades:block/wolf_figure_package",
+    "particle": "japanesearcades:block/wolf_figure_package"
+  }
+}

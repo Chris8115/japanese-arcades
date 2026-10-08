@@ -1,0 +1,19 @@
+newmtl skin0
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #skin0
+
+newmtl skin1
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #skin1
+
+newmtl skin2
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #skin2
+
+newmtl package
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #package

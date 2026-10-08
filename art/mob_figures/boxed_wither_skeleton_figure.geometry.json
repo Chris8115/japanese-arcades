@@ -1,0 +1,12295 @@
+{
+  "textures": {
+    "skin0": "japanesearcades:block/mob_figures/minecraft/entity/skeleton/wither_skeleton",
+    "skin1": "japanesearcades:block/mob_figures/minecraft/item/stone_sword",
+    "package": "japanesearcades:block/wither_skeleton_figure_package",
+    "particle": "japanesearcades:block/wither_skeleton_figure_package"
+  },
+  "meshes": [
+    {
+      "name": "Printed frame and window glints north",
+      "group": "Printed frame and window glints",
+      "texture": "#package",
+      "vertices": [
+        [
+          13,
+          14,
+          4
+        ],
+        [
+          13,
+          0,
+          4
+        ],
+        [
+          3,
+          0,
+          4
+        ],
+        [
+          3,
+          14,
+          4
+        ]
+      ],
+      "uv": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          7.0
+        ],
+        [
+          5.0,
+          7.0
+        ],
+        [
+          5.0,
+          0.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Inside printed front frame south",
+      "group": "Inside printed front frame",
+      "texture": "#package",
+      "vertices": [
+        [
+          3,
+          14,
+          4.015
+        ],
+        [
+          3,
+          0,
+          4.015
+        ],
+        [
+          13,
+          0,
+          4.015
+        ],
+        [
+          13,
+          14,
+          4.015
+        ]
+      ],
+      "uv": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          7.0
+        ],
+        [
+          5.0,
+          7.0
+        ],
+        [
+          5.0,
+          0.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Cardboard back north",
+      "group": "Cardboard back",
+      "texture": "#package",
+      "vertices": [
+        [
+          13,
+          14,
+          11.7
+        ],
+        [
+          13,
+          0,
+          11.7
+        ],
+        [
+          3,
+          0,
+          11.7
+        ],
+        [
+          3,
+          14,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          4.0,
+          11.0
+        ],
+        [
+          4.0,
+          15.0
+        ],
+        [
+          9.0,
+          15.0
+        ],
+        [
+          9.0,
+          11.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Cardboard back south",
+      "group": "Cardboard back",
+      "texture": "#package",
+      "vertices": [
+        [
+          3,
+          14,
+          12
+        ],
+        [
+          3,
+          0,
+          12
+        ],
+        [
+          13,
+          0,
+          12
+        ],
+        [
+          13,
+          14,
+          12
+        ]
+      ],
+      "uv": [
+        [
+          5.0,
+          0.0
+        ],
+        [
+          5.0,
+          7.0
+        ],
+        [
+          10.0,
+          7.0
+        ],
+        [
+          10.0,
+          0.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Cardboard back east",
+      "group": "Cardboard back",
+      "texture": "#package",
+      "vertices": [
+        [
+          13,
+          14,
+          12
+        ],
+        [
+          13,
+          0,
+          12
+        ],
+        [
+          13,
+          0,
+          11.7
+        ],
+        [
+          13,
+          14,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Cardboard back west",
+      "group": "Cardboard back",
+      "texture": "#package",
+      "vertices": [
+        [
+          3,
+          14,
+          11.7
+        ],
+        [
+          3,
+          0,
+          11.7
+        ],
+        [
+          3,
+          0,
+          12
+        ],
+        [
+          3,
+          14,
+          12
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Cardboard back up",
+      "group": "Cardboard back",
+      "texture": "#package",
+      "vertices": [
+        [
+          3,
+          14,
+          11.7
+        ],
+        [
+          3,
+          14,
+          12
+        ],
+        [
+          13,
+          14,
+          12
+        ],
+        [
+          13,
+          14,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Cardboard back down",
+      "group": "Cardboard back",
+      "texture": "#package",
+      "vertices": [
+        [
+          3,
+          0,
+          12
+        ],
+        [
+          3,
+          0,
+          11.7
+        ],
+        [
+          13,
+          0,
+          11.7
+        ],
+        [
+          13,
+          0,
+          12
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Cardboard left wall north",
+      "group": "Cardboard left wall",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.3,
+          14,
+          4.02
+        ],
+        [
+          3.3,
+          0,
+          4.02
+        ],
+        [
+          3,
+          0,
+          4.02
+        ],
+        [
+          3,
+          14,
+          4.02
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Cardboard left wall south",
+      "group": "Cardboard left wall",
+      "texture": "#package",
+      "vertices": [
+        [
+          3,
+          14,
+          11.7
+        ],
+        [
+          3,
+          0,
+          11.7
+        ],
+        [
+          3.3,
+          0,
+          11.7
+        ],
+        [
+          3.3,
+          14,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Cardboard left wall east",
+      "group": "Cardboard left wall",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.3,
+          14,
+          11.7
+        ],
+        [
+          3.3,
+          0,
+          11.7
+        ],
+        [
+          3.3,
+          0,
+          4.02
+        ],
+        [
+          3.3,
+          14,
+          4.02
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Cardboard left wall west",
+      "group": "Cardboard left wall",
+      "texture": "#package",
+      "vertices": [
+        [
+          3,
+          14,
+          4.02
+        ],
+        [
+          3,
+          0,
+          4.02
+        ],
+        [
+          3,
+          0,
+          11.7
+        ],
+        [
+          3,
+          14,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          10.0,
+          0.0
+        ],
+        [
+          10.0,
+          7.0
+        ],
+        [
+          14.0,
+          7.0
+        ],
+        [
+          14.0,
+          0.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Cardboard left wall up",
+      "group": "Cardboard left wall",
+      "texture": "#package",
+      "vertices": [
+        [
+          3,
+          14,
+          4.02
+        ],
+        [
+          3,
+          14,
+          11.7
+        ],
+        [
+          3.3,
+          14,
+          11.7
+        ],
+        [
+          3.3,
+          14,
+          4.02
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Cardboard left wall down",
+      "group": "Cardboard left wall",
+      "texture": "#package",
+      "vertices": [
+        [
+          3,
+          0,
+          11.7
+        ],
+        [
+          3,
+          0,
+          4.02
+        ],
+        [
+          3.3,
+          0,
+          4.02
+        ],
+        [
+          3.3,
+          0,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Cardboard right wall north",
+      "group": "Cardboard right wall",
+      "texture": "#package",
+      "vertices": [
+        [
+          13,
+          14,
+          4.02
+        ],
+        [
+          13,
+          0,
+          4.02
+        ],
+        [
+          12.7,
+          0,
+          4.02
+        ],
+        [
+          12.7,
+          14,
+          4.02
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Cardboard right wall south",
+      "group": "Cardboard right wall",
+      "texture": "#package",
+      "vertices": [
+        [
+          12.7,
+          14,
+          11.7
+        ],
+        [
+          12.7,
+          0,
+          11.7
+        ],
+        [
+          13,
+          0,
+          11.7
+        ],
+        [
+          13,
+          14,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Cardboard right wall east",
+      "group": "Cardboard right wall",
+      "texture": "#package",
+      "vertices": [
+        [
+          13,
+          14,
+          11.7
+        ],
+        [
+          13,
+          0,
+          11.7
+        ],
+        [
+          13,
+          0,
+          4.02
+        ],
+        [
+          13,
+          14,
+          4.02
+        ]
+      ],
+      "uv": [
+        [
+          0.0,
+          7.0
+        ],
+        [
+          0.0,
+          14.0
+        ],
+        [
+          4.0,
+          14.0
+        ],
+        [
+          4.0,
+          7.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Cardboard right wall west",
+      "group": "Cardboard right wall",
+      "texture": "#package",
+      "vertices": [
+        [
+          12.7,
+          14,
+          4.02
+        ],
+        [
+          12.7,
+          0,
+          4.02
+        ],
+        [
+          12.7,
+          0,
+          11.7
+        ],
+        [
+          12.7,
+          14,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Cardboard right wall up",
+      "group": "Cardboard right wall",
+      "texture": "#package",
+      "vertices": [
+        [
+          12.7,
+          14,
+          4.02
+        ],
+        [
+          12.7,
+          14,
+          11.7
+        ],
+        [
+          13,
+          14,
+          11.7
+        ],
+        [
+          13,
+          14,
+          4.02
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Cardboard right wall down",
+      "group": "Cardboard right wall",
+      "texture": "#package",
+      "vertices": [
+        [
+          12.7,
+          0,
+          11.7
+        ],
+        [
+          12.7,
+          0,
+          4.02
+        ],
+        [
+          13,
+          0,
+          4.02
+        ],
+        [
+          13,
+          0,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Top lid north",
+      "group": "Top lid",
+      "texture": "#package",
+      "vertices": [
+        [
+          12.7,
+          14,
+          4.02
+        ],
+        [
+          12.7,
+          13.7,
+          4.02
+        ],
+        [
+          3.3,
+          13.7,
+          4.02
+        ],
+        [
+          3.3,
+          14,
+          4.02
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Top lid south",
+      "group": "Top lid",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.3,
+          14,
+          11.7
+        ],
+        [
+          3.3,
+          13.7,
+          11.7
+        ],
+        [
+          12.7,
+          13.7,
+          11.7
+        ],
+        [
+          12.7,
+          14,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Top lid east",
+      "group": "Top lid",
+      "texture": "#package",
+      "vertices": [
+        [
+          12.7,
+          14,
+          11.7
+        ],
+        [
+          12.7,
+          13.7,
+          11.7
+        ],
+        [
+          12.7,
+          13.7,
+          4.02
+        ],
+        [
+          12.7,
+          14,
+          4.02
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Top lid west",
+      "group": "Top lid",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.3,
+          14,
+          4.02
+        ],
+        [
+          3.3,
+          13.7,
+          4.02
+        ],
+        [
+          3.3,
+          13.7,
+          11.7
+        ],
+        [
+          3.3,
+          14,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Top lid up",
+      "group": "Top lid",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.3,
+          14,
+          4.02
+        ],
+        [
+          3.3,
+          14,
+          11.7
+        ],
+        [
+          12.7,
+          14,
+          11.7
+        ],
+        [
+          12.7,
+          14,
+          4.02
+        ]
+      ],
+      "uv": [
+        [
+          4.0,
+          7.0
+        ],
+        [
+          4.0,
+          11.0
+        ],
+        [
+          9.0,
+          11.0
+        ],
+        [
+          9.0,
+          7.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Top lid down",
+      "group": "Top lid",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.3,
+          13.7,
+          11.7
+        ],
+        [
+          3.3,
+          13.7,
+          4.02
+        ],
+        [
+          12.7,
+          13.7,
+          4.02
+        ],
+        [
+          12.7,
+          13.7,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Bottom lid north",
+      "group": "Bottom lid",
+      "texture": "#package",
+      "vertices": [
+        [
+          12.7,
+          0.3,
+          4.02
+        ],
+        [
+          12.7,
+          0,
+          4.02
+        ],
+        [
+          3.3,
+          0,
+          4.02
+        ],
+        [
+          3.3,
+          0.3,
+          4.02
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Bottom lid south",
+      "group": "Bottom lid",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.3,
+          0.3,
+          11.7
+        ],
+        [
+          3.3,
+          0,
+          11.7
+        ],
+        [
+          12.7,
+          0,
+          11.7
+        ],
+        [
+          12.7,
+          0.3,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Bottom lid east",
+      "group": "Bottom lid",
+      "texture": "#package",
+      "vertices": [
+        [
+          12.7,
+          0.3,
+          11.7
+        ],
+        [
+          12.7,
+          0,
+          11.7
+        ],
+        [
+          12.7,
+          0,
+          4.02
+        ],
+        [
+          12.7,
+          0.3,
+          4.02
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Bottom lid west",
+      "group": "Bottom lid",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.3,
+          0.3,
+          4.02
+        ],
+        [
+          3.3,
+          0,
+          4.02
+        ],
+        [
+          3.3,
+          0,
+          11.7
+        ],
+        [
+          3.3,
+          0.3,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Bottom lid up",
+      "group": "Bottom lid",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.3,
+          0.3,
+          4.02
+        ],
+        [
+          3.3,
+          0.3,
+          11.7
+        ],
+        [
+          12.7,
+          0.3,
+          11.7
+        ],
+        [
+          12.7,
+          0.3,
+          4.02
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Bottom lid down",
+      "group": "Bottom lid",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.3,
+          0,
+          11.7
+        ],
+        [
+          3.3,
+          0,
+          4.02
+        ],
+        [
+          12.7,
+          0,
+          4.02
+        ],
+        [
+          12.7,
+          0,
+          11.7
+        ]
+      ],
+      "uv": [
+        [
+          9.0,
+          7.0
+        ],
+        [
+          9.0,
+          11.0
+        ],
+        [
+          14.0,
+          11.0
+        ],
+        [
+          14.0,
+          7.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Retained inner cardboard tray north",
+      "group": "Retained inner cardboard tray",
+      "texture": "#package",
+      "vertices": [
+        [
+          12.6,
+          0.59,
+          4.3
+        ],
+        [
+          12.6,
+          0.3,
+          4.3
+        ],
+        [
+          3.4,
+          0.3,
+          4.3
+        ],
+        [
+          3.4,
+          0.59,
+          4.3
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Retained inner cardboard tray south",
+      "group": "Retained inner cardboard tray",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.4,
+          0.59,
+          11.65
+        ],
+        [
+          3.4,
+          0.3,
+          11.65
+        ],
+        [
+          12.6,
+          0.3,
+          11.65
+        ],
+        [
+          12.6,
+          0.59,
+          11.65
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Retained inner cardboard tray east",
+      "group": "Retained inner cardboard tray",
+      "texture": "#package",
+      "vertices": [
+        [
+          12.6,
+          0.59,
+          11.65
+        ],
+        [
+          12.6,
+          0.3,
+          11.65
+        ],
+        [
+          12.6,
+          0.3,
+          4.3
+        ],
+        [
+          12.6,
+          0.59,
+          4.3
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Retained inner cardboard tray west",
+      "group": "Retained inner cardboard tray",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.4,
+          0.59,
+          4.3
+        ],
+        [
+          3.4,
+          0.3,
+          4.3
+        ],
+        [
+          3.4,
+          0.3,
+          11.65
+        ],
+        [
+          3.4,
+          0.59,
+          11.65
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Retained inner cardboard tray up",
+      "group": "Retained inner cardboard tray",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.4,
+          0.59,
+          4.3
+        ],
+        [
+          3.4,
+          0.59,
+          11.65
+        ],
+        [
+          12.6,
+          0.59,
+          11.65
+        ],
+        [
+          12.6,
+          0.59,
+          4.3
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Retained inner cardboard tray down",
+      "group": "Retained inner cardboard tray",
+      "texture": "#package",
+      "vertices": [
+        [
+          3.4,
+          0.3,
+          11.65
+        ],
+        [
+          3.4,
+          0.3,
+          4.3
+        ],
+        [
+          12.6,
+          0.3,
+          4.3
+        ],
+        [
+          12.6,
+          0.3,
+          11.65
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          1.0
+        ],
+        [
+          14.25,
+          1.25
+        ],
+        [
+          14.75,
+          1.25
+        ],
+        [
+          14.75,
+          1.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Display plinth north",
+      "group": "Display plinth",
+      "texture": "#package",
+      "vertices": [
+        [
+          11.6,
+          1.06,
+          4.4
+        ],
+        [
+          11.6,
+          0.6,
+          4.4
+        ],
+        [
+          4.4,
+          0.6,
+          4.4
+        ],
+        [
+          4.4,
+          1.06,
+          4.4
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.25
+        ],
+        [
+          14.25,
+          0.5
+        ],
+        [
+          14.75,
+          0.5
+        ],
+        [
+          14.75,
+          0.25
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Display plinth south",
+      "group": "Display plinth",
+      "texture": "#package",
+      "vertices": [
+        [
+          4.4,
+          1.06,
+          11.6
+        ],
+        [
+          4.4,
+          0.6,
+          11.6
+        ],
+        [
+          11.6,
+          0.6,
+          11.6
+        ],
+        [
+          11.6,
+          1.06,
+          11.6
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.25
+        ],
+        [
+          14.25,
+          0.5
+        ],
+        [
+          14.75,
+          0.5
+        ],
+        [
+          14.75,
+          0.25
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Display plinth east",
+      "group": "Display plinth",
+      "texture": "#package",
+      "vertices": [
+        [
+          11.6,
+          1.06,
+          11.6
+        ],
+        [
+          11.6,
+          0.6,
+          11.6
+        ],
+        [
+          11.6,
+          0.6,
+          4.4
+        ],
+        [
+          11.6,
+          1.06,
+          4.4
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.25
+        ],
+        [
+          14.25,
+          0.5
+        ],
+        [
+          14.75,
+          0.5
+        ],
+        [
+          14.75,
+          0.25
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Display plinth west",
+      "group": "Display plinth",
+      "texture": "#package",
+      "vertices": [
+        [
+          4.4,
+          1.06,
+          4.4
+        ],
+        [
+          4.4,
+          0.6,
+          4.4
+        ],
+        [
+          4.4,
+          0.6,
+          11.6
+        ],
+        [
+          4.4,
+          1.06,
+          11.6
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.25
+        ],
+        [
+          14.25,
+          0.5
+        ],
+        [
+          14.75,
+          0.5
+        ],
+        [
+          14.75,
+          0.25
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Display plinth up",
+      "group": "Display plinth",
+      "texture": "#package",
+      "vertices": [
+        [
+          4.4,
+          1.06,
+          4.4
+        ],
+        [
+          4.4,
+          1.06,
+          11.6
+        ],
+        [
+          11.6,
+          1.06,
+          11.6
+        ],
+        [
+          11.6,
+          1.06,
+          4.4
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.25
+        ],
+        [
+          14.25,
+          0.5
+        ],
+        [
+          14.75,
+          0.5
+        ],
+        [
+          14.75,
+          0.25
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Display plinth down",
+      "group": "Display plinth",
+      "texture": "#package",
+      "vertices": [
+        [
+          4.4,
+          0.6,
+          11.6
+        ],
+        [
+          4.4,
+          0.6,
+          4.4
+        ],
+        [
+          11.6,
+          0.6,
+          4.4
+        ],
+        [
+          11.6,
+          0.6,
+          11.6
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.25
+        ],
+        [
+          14.25,
+          0.5
+        ],
+        [
+          14.75,
+          0.5
+        ],
+        [
+          14.75,
+          0.25
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Accent plinth rim north",
+      "group": "Accent plinth rim",
+      "texture": "#package",
+      "vertices": [
+        [
+          11.5,
+          1.24,
+          4.5
+        ],
+        [
+          11.5,
+          1.06,
+          4.5
+        ],
+        [
+          4.5,
+          1.06,
+          4.5
+        ],
+        [
+          4.5,
+          1.24,
+          4.5
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          6.25
+        ],
+        [
+          14.25,
+          6.5
+        ],
+        [
+          14.75,
+          6.5
+        ],
+        [
+          14.75,
+          6.25
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Accent plinth rim south",
+      "group": "Accent plinth rim",
+      "texture": "#package",
+      "vertices": [
+        [
+          4.5,
+          1.24,
+          11.5
+        ],
+        [
+          4.5,
+          1.06,
+          11.5
+        ],
+        [
+          11.5,
+          1.06,
+          11.5
+        ],
+        [
+          11.5,
+          1.24,
+          11.5
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          6.25
+        ],
+        [
+          14.25,
+          6.5
+        ],
+        [
+          14.75,
+          6.5
+        ],
+        [
+          14.75,
+          6.25
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Accent plinth rim east",
+      "group": "Accent plinth rim",
+      "texture": "#package",
+      "vertices": [
+        [
+          11.5,
+          1.24,
+          11.5
+        ],
+        [
+          11.5,
+          1.06,
+          11.5
+        ],
+        [
+          11.5,
+          1.06,
+          4.5
+        ],
+        [
+          11.5,
+          1.24,
+          4.5
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          6.25
+        ],
+        [
+          14.25,
+          6.5
+        ],
+        [
+          14.75,
+          6.5
+        ],
+        [
+          14.75,
+          6.25
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Accent plinth rim west",
+      "group": "Accent plinth rim",
+      "texture": "#package",
+      "vertices": [
+        [
+          4.5,
+          1.24,
+          4.5
+        ],
+        [
+          4.5,
+          1.06,
+          4.5
+        ],
+        [
+          4.5,
+          1.06,
+          11.5
+        ],
+        [
+          4.5,
+          1.24,
+          11.5
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          6.25
+        ],
+        [
+          14.25,
+          6.5
+        ],
+        [
+          14.75,
+          6.5
+        ],
+        [
+          14.75,
+          6.25
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Accent plinth rim up",
+      "group": "Accent plinth rim",
+      "texture": "#package",
+      "vertices": [
+        [
+          4.5,
+          1.24,
+          4.5
+        ],
+        [
+          4.5,
+          1.24,
+          11.5
+        ],
+        [
+          11.5,
+          1.24,
+          11.5
+        ],
+        [
+          11.5,
+          1.24,
+          4.5
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          6.25
+        ],
+        [
+          14.25,
+          6.5
+        ],
+        [
+          14.75,
+          6.5
+        ],
+        [
+          14.75,
+          6.25
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Accent plinth rim down",
+      "group": "Accent plinth rim",
+      "texture": "#package",
+      "vertices": [
+        [
+          4.5,
+          1.06,
+          11.5
+        ],
+        [
+          4.5,
+          1.06,
+          4.5
+        ],
+        [
+          11.5,
+          1.06,
+          4.5
+        ],
+        [
+          11.5,
+          1.06,
+          11.5
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          6.25
+        ],
+        [
+          14.25,
+          6.5
+        ],
+        [
+          14.75,
+          6.5
+        ],
+        [
+          14.75,
+          6.25
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Dark inset top north",
+      "group": "Dark inset top",
+      "texture": "#package",
+      "vertices": [
+        [
+          11.3,
+          1.33,
+          4.7
+        ],
+        [
+          11.3,
+          1.24,
+          4.7
+        ],
+        [
+          4.7,
+          1.24,
+          4.7
+        ],
+        [
+          4.7,
+          1.33,
+          4.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.25
+        ],
+        [
+          14.25,
+          0.5
+        ],
+        [
+          14.75,
+          0.5
+        ],
+        [
+          14.75,
+          0.25
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Dark inset top south",
+      "group": "Dark inset top",
+      "texture": "#package",
+      "vertices": [
+        [
+          4.7,
+          1.33,
+          11.3
+        ],
+        [
+          4.7,
+          1.24,
+          11.3
+        ],
+        [
+          11.3,
+          1.24,
+          11.3
+        ],
+        [
+          11.3,
+          1.33,
+          11.3
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.25
+        ],
+        [
+          14.25,
+          0.5
+        ],
+        [
+          14.75,
+          0.5
+        ],
+        [
+          14.75,
+          0.25
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Dark inset top east",
+      "group": "Dark inset top",
+      "texture": "#package",
+      "vertices": [
+        [
+          11.3,
+          1.33,
+          11.3
+        ],
+        [
+          11.3,
+          1.24,
+          11.3
+        ],
+        [
+          11.3,
+          1.24,
+          4.7
+        ],
+        [
+          11.3,
+          1.33,
+          4.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.25
+        ],
+        [
+          14.25,
+          0.5
+        ],
+        [
+          14.75,
+          0.5
+        ],
+        [
+          14.75,
+          0.25
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Dark inset top west",
+      "group": "Dark inset top",
+      "texture": "#package",
+      "vertices": [
+        [
+          4.7,
+          1.33,
+          4.7
+        ],
+        [
+          4.7,
+          1.24,
+          4.7
+        ],
+        [
+          4.7,
+          1.24,
+          11.3
+        ],
+        [
+          4.7,
+          1.33,
+          11.3
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.25
+        ],
+        [
+          14.25,
+          0.5
+        ],
+        [
+          14.75,
+          0.5
+        ],
+        [
+          14.75,
+          0.25
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Dark inset top up",
+      "group": "Dark inset top",
+      "texture": "#package",
+      "vertices": [
+        [
+          4.7,
+          1.33,
+          4.7
+        ],
+        [
+          4.7,
+          1.33,
+          11.3
+        ],
+        [
+          11.3,
+          1.33,
+          11.3
+        ],
+        [
+          11.3,
+          1.33,
+          4.7
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.25
+        ],
+        [
+          14.25,
+          0.5
+        ],
+        [
+          14.75,
+          0.5
+        ],
+        [
+          14.75,
+          0.25
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Dark inset top down",
+      "group": "Dark inset top",
+      "texture": "#package",
+      "vertices": [
+        [
+          4.7,
+          1.24,
+          11.3
+        ],
+        [
+          4.7,
+          1.24,
+          4.7
+        ],
+        [
+          11.3,
+          1.24,
+          4.7
+        ],
+        [
+          11.3,
+          1.24,
+          11.3
+        ]
+      ],
+      "uv": [
+        [
+          14.25,
+          0.25
+        ],
+        [
+          14.25,
+          0.5
+        ],
+        [
+          14.75,
+          0.5
+        ],
+        [
+          14.75,
+          0.25
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "Printed collection nameplate north",
+      "group": "Printed collection nameplate",
+      "texture": "#package",
+      "vertices": [
+        [
+          10.95,
+          1.0,
+          4.395
+        ],
+        [
+          10.95,
+          0.6599999999999999,
+          4.395
+        ],
+        [
+          5.05,
+          0.6599999999999999,
+          4.395
+        ],
+        [
+          5.05,
+          1.0,
+          4.395
+        ]
+      ],
+      "uv": [
+        [
+          9.0,
+          11.0
+        ],
+        [
+          9.0,
+          12.0
+        ],
+        [
+          14.0,
+          12.0
+        ],
+        [
+          14.0,
+          11.0
+        ]
+      ],
+      "glow": false
+    },
+    {
+      "name": "wither_skeleton surface 0-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.6628517,
+          11.619255299999999,
+          11.0494238
+        ],
+        [
+          9.2347738,
+          11.619255299999999,
+          11.0494238
+        ],
+        [
+          9.2347738,
+          11.619255299999999,
+          8.4775018
+        ],
+        [
+          6.6628517,
+          11.619255299999999,
+          8.4775018
+        ]
+      ],
+      "uv": [
+        [
+          4.0,
+          0.0
+        ],
+        [
+          2.0,
+          0.0
+        ],
+        [
+          2.0,
+          4.0
+        ],
+        [
+          4.0,
+          4.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 0-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.6628517,
+          11.619255299999999,
+          8.4775018
+        ],
+        [
+          9.2347738,
+          11.619255299999999,
+          8.4775018
+        ],
+        [
+          9.2347738,
+          11.619255299999999,
+          11.0494238
+        ],
+        [
+          6.6628517,
+          11.619255299999999,
+          11.0494238
+        ]
+      ],
+      "uv": [
+        [
+          4.0,
+          4.0
+        ],
+        [
+          2.0,
+          4.0
+        ],
+        [
+          2.0,
+          0.0
+        ],
+        [
+          4.0,
+          0.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 1-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.6628517,
+          9.0473327,
+          8.4775018
+        ],
+        [
+          9.2347738,
+          9.0473327,
+          8.4775018
+        ],
+        [
+          9.2347738,
+          9.0473327,
+          11.0494238
+        ],
+        [
+          6.6628517,
+          9.0473327,
+          11.0494238
+        ]
+      ],
+      "uv": [
+        [
+          6.0,
+          4.0
+        ],
+        [
+          4.0,
+          4.0
+        ],
+        [
+          4.0,
+          0.0
+        ],
+        [
+          6.0,
+          0.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 1-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.6628517,
+          9.0473327,
+          11.0494238
+        ],
+        [
+          9.2347738,
+          9.0473327,
+          11.0494238
+        ],
+        [
+          9.2347738,
+          9.0473327,
+          8.4775018
+        ],
+        [
+          6.6628517,
+          9.0473327,
+          8.4775018
+        ]
+      ],
+      "uv": [
+        [
+          6.0,
+          0.0
+        ],
+        [
+          4.0,
+          0.0
+        ],
+        [
+          4.0,
+          4.0
+        ],
+        [
+          6.0,
+          4.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 2-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          9.2347738,
+          11.619255299999999,
+          8.4775018
+        ],
+        [
+          9.2347738,
+          11.619255299999999,
+          11.0494238
+        ],
+        [
+          9.2347738,
+          9.0473327,
+          11.0494238
+        ],
+        [
+          9.2347738,
+          9.0473327,
+          8.4775018
+        ]
+      ],
+      "uv": [
+        [
+          2.0,
+          4.0
+        ],
+        [
+          0.0,
+          4.0
+        ],
+        [
+          0.0,
+          8.0
+        ],
+        [
+          2.0,
+          8.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 2-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          9.2347738,
+          9.0473327,
+          8.4775018
+        ],
+        [
+          9.2347738,
+          9.0473327,
+          11.0494238
+        ],
+        [
+          9.2347738,
+          11.619255299999999,
+          11.0494238
+        ],
+        [
+          9.2347738,
+          11.619255299999999,
+          8.4775018
+        ]
+      ],
+      "uv": [
+        [
+          2.0,
+          8.0
+        ],
+        [
+          0.0,
+          8.0
+        ],
+        [
+          0.0,
+          4.0
+        ],
+        [
+          2.0,
+          4.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 3-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.6628517,
+          11.619255299999999,
+          8.4775018
+        ],
+        [
+          9.2347738,
+          11.619255299999999,
+          8.4775018
+        ],
+        [
+          9.2347738,
+          9.0473327,
+          8.4775018
+        ],
+        [
+          6.6628517,
+          9.0473327,
+          8.4775018
+        ]
+      ],
+      "uv": [
+        [
+          4.0,
+          4.0
+        ],
+        [
+          2.0,
+          4.0
+        ],
+        [
+          2.0,
+          8.0
+        ],
+        [
+          4.0,
+          8.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 3-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.6628517,
+          9.0473327,
+          8.4775018
+        ],
+        [
+          9.2347738,
+          9.0473327,
+          8.4775018
+        ],
+        [
+          9.2347738,
+          11.619255299999999,
+          8.4775018
+        ],
+        [
+          6.6628517,
+          11.619255299999999,
+          8.4775018
+        ]
+      ],
+      "uv": [
+        [
+          4.0,
+          8.0
+        ],
+        [
+          2.0,
+          8.0
+        ],
+        [
+          2.0,
+          4.0
+        ],
+        [
+          4.0,
+          4.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 4-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.6628517,
+          11.619255299999999,
+          11.0494238
+        ],
+        [
+          6.6628517,
+          11.619255299999999,
+          8.4775018
+        ],
+        [
+          6.6628517,
+          9.0473327,
+          8.4775018
+        ],
+        [
+          6.6628517,
+          9.0473327,
+          11.0494238
+        ]
+      ],
+      "uv": [
+        [
+          6.0,
+          4.0
+        ],
+        [
+          4.0,
+          4.0
+        ],
+        [
+          4.0,
+          8.0
+        ],
+        [
+          6.0,
+          8.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 4-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.6628517,
+          9.0473327,
+          11.0494238
+        ],
+        [
+          6.6628517,
+          9.0473327,
+          8.4775018
+        ],
+        [
+          6.6628517,
+          11.619255299999999,
+          8.4775018
+        ],
+        [
+          6.6628517,
+          11.619255299999999,
+          11.0494238
+        ]
+      ],
+      "uv": [
+        [
+          6.0,
+          8.0
+        ],
+        [
+          4.0,
+          8.0
+        ],
+        [
+          4.0,
+          4.0
+        ],
+        [
+          6.0,
+          4.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 5-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          9.2347738,
+          11.619255299999999,
+          11.0494238
+        ],
+        [
+          6.6628517,
+          11.619255299999999,
+          11.0494238
+        ],
+        [
+          6.6628517,
+          9.0473327,
+          11.0494238
+        ],
+        [
+          9.2347738,
+          9.0473327,
+          11.0494238
+        ]
+      ],
+      "uv": [
+        [
+          8.0,
+          4.0
+        ],
+        [
+          6.0,
+          4.0
+        ],
+        [
+          6.0,
+          8.0
+        ],
+        [
+          8.0,
+          8.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 5-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          9.2347738,
+          9.0473327,
+          11.0494238
+        ],
+        [
+          6.6628517,
+          9.0473327,
+          11.0494238
+        ],
+        [
+          6.6628517,
+          11.619255299999999,
+          11.0494238
+        ],
+        [
+          9.2347738,
+          11.619255299999999,
+          11.0494238
+        ]
+      ],
+      "uv": [
+        [
+          8.0,
+          8.0
+        ],
+        [
+          6.0,
+          8.0
+        ],
+        [
+          6.0,
+          4.0
+        ],
+        [
+          8.0,
+          4.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 6-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.6628517,
+          9.0473327,
+          10.4064433
+        ],
+        [
+          9.2347738,
+          9.0473327,
+          10.4064433
+        ],
+        [
+          9.2347738,
+          9.0473327,
+          9.1204823
+        ],
+        [
+          6.6628517,
+          9.0473327,
+          9.1204823
+        ]
+      ],
+      "uv": [
+        [
+          7.0,
+          8.0
+        ],
+        [
+          5.0,
+          8.0
+        ],
+        [
+          5.0,
+          10.0
+        ],
+        [
+          7.0,
+          10.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 6-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.6628517,
+          9.0473327,
+          9.1204823
+        ],
+        [
+          9.2347738,
+          9.0473327,
+          9.1204823
+        ],
+        [
+          9.2347738,
+          9.0473327,
+          10.4064433
+        ],
+        [
+          6.6628517,
+          9.0473327,
+          10.4064433
+        ]
+      ],
+      "uv": [
+        [
+          7.0,
+          10.0
+        ],
+        [
+          5.0,
+          10.0
+        ],
+        [
+          5.0,
+          8.0
+        ],
+        [
+          7.0,
+          8.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 7-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.6628517,
+          5.1894496,
+          9.1204823
+        ],
+        [
+          9.2347738,
+          5.1894496,
+          9.1204823
+        ],
+        [
+          9.2347738,
+          5.1894496,
+          10.4064433
+        ],
+        [
+          6.6628517,
+          5.1894496,
+          10.4064433
+        ]
+      ],
+      "uv": [
+        [
+          9.0,
+          10.0
+        ],
+        [
+          7.0,
+          10.0
+        ],
+        [
+          7.0,
+          8.0
+        ],
+        [
+          9.0,
+          8.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 7-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.6628517,
+          5.1894496,
+          10.4064433
+        ],
+        [
+          9.2347738,
+          5.1894496,
+          10.4064433
+        ],
+        [
+          9.2347738,
+          5.1894496,
+          9.1204823
+        ],
+        [
+          6.6628517,
+          5.1894496,
+          9.1204823
+        ]
+      ],
+      "uv": [
+        [
+          9.0,
+          8.0
+        ],
+        [
+          7.0,
+          8.0
+        ],
+        [
+          7.0,
+          10.0
+        ],
+        [
+          9.0,
+          10.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 8-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          9.2347738,
+          9.0473327,
+          9.1204823
+        ],
+        [
+          9.2347738,
+          9.0473327,
+          10.4064433
+        ],
+        [
+          9.2347738,
+          5.1894496,
+          10.4064433
+        ],
+        [
+          9.2347738,
+          5.1894496,
+          9.1204823
+        ]
+      ],
+      "uv": [
+        [
+          5.0,
+          10.0
+        ],
+        [
+          4.0,
+          10.0
+        ],
+        [
+          4.0,
+          16.0
+        ],
+        [
+          5.0,
+          16.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 8-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          9.2347738,
+          5.1894496,
+          9.1204823
+        ],
+        [
+          9.2347738,
+          5.1894496,
+          10.4064433
+        ],
+        [
+          9.2347738,
+          9.0473327,
+          10.4064433
+        ],
+        [
+          9.2347738,
+          9.0473327,
+          9.1204823
+        ]
+      ],
+      "uv": [
+        [
+          5.0,
+          16.0
+        ],
+        [
+          4.0,
+          16.0
+        ],
+        [
+          4.0,
+          10.0
+        ],
+        [
+          5.0,
+          10.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 9-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.6628517,
+          9.0473327,
+          9.1204823
+        ],
+        [
+          9.2347738,
+          9.0473327,
+          9.1204823
+        ],
+        [
+          9.2347738,
+          5.1894496,
+          9.1204823
+        ],
+        [
+          6.6628517,
+          5.1894496,
+          9.1204823
+        ]
+      ],
+      "uv": [
+        [
+          7.0,
+          10.0
+        ],
+        [
+          5.0,
+          10.0
+        ],
+        [
+          5.0,
+          16.0
+        ],
+        [
+          7.0,
+          16.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 9-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.6628517,
+          5.1894496,
+          9.1204823
+        ],
+        [
+          9.2347738,
+          5.1894496,
+          9.1204823
+        ],
+        [
+          9.2347738,
+          9.0473327,
+          9.1204823
+        ],
+        [
+          6.6628517,
+          9.0473327,
+          9.1204823
+        ]
+      ],
+      "uv": [
+        [
+          7.0,
+          16.0
+        ],
+        [
+          5.0,
+          16.0
+        ],
+        [
+          5.0,
+          10.0
+        ],
+        [
+          7.0,
+          10.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 10-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.6628517,
+          9.0473327,
+          10.4064433
+        ],
+        [
+          6.6628517,
+          9.0473327,
+          9.1204823
+        ],
+        [
+          6.6628517,
+          5.1894496,
+          9.1204823
+        ],
+        [
+          6.6628517,
+          5.1894496,
+          10.4064433
+        ]
+      ],
+      "uv": [
+        [
+          8.0,
+          10.0
+        ],
+        [
+          7.0,
+          10.0
+        ],
+        [
+          7.0,
+          16.0
+        ],
+        [
+          8.0,
+          16.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 10-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.6628517,
+          5.1894496,
+          10.4064433
+        ],
+        [
+          6.6628517,
+          5.1894496,
+          9.1204823
+        ],
+        [
+          6.6628517,
+          9.0473327,
+          9.1204823
+        ],
+        [
+          6.6628517,
+          9.0473327,
+          10.4064433
+        ]
+      ],
+      "uv": [
+        [
+          8.0,
+          16.0
+        ],
+        [
+          7.0,
+          16.0
+        ],
+        [
+          7.0,
+          10.0
+        ],
+        [
+          8.0,
+          10.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 11-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          9.2347738,
+          9.0473327,
+          10.4064433
+        ],
+        [
+          6.6628517,
+          9.0473327,
+          10.4064433
+        ],
+        [
+          6.6628517,
+          5.1894496,
+          10.4064433
+        ],
+        [
+          9.2347738,
+          5.1894496,
+          10.4064433
+        ]
+      ],
+      "uv": [
+        [
+          10.0,
+          10.0
+        ],
+        [
+          8.0,
+          10.0
+        ],
+        [
+          8.0,
+          16.0
+        ],
+        [
+          10.0,
+          16.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 11-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          9.2347738,
+          5.1894496,
+          10.4064433
+        ],
+        [
+          6.6628517,
+          5.1894496,
+          10.4064433
+        ],
+        [
+          6.6628517,
+          9.0473327,
+          10.4064433
+        ],
+        [
+          9.2347738,
+          9.0473327,
+          10.4064433
+        ]
+      ],
+      "uv": [
+        [
+          10.0,
+          16.0
+        ],
+        [
+          8.0,
+          16.0
+        ],
+        [
+          8.0,
+          10.0
+        ],
+        [
+          10.0,
+          10.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 12-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          9.1721889,
+          9.012025,
+          10.084953
+        ],
+        [
+          9.8119572,
+          9.0762162,
+          10.084953
+        ],
+        [
+          9.8119572,
+          9.0762162,
+          9.4419725
+        ],
+        [
+          9.1721889,
+          9.012025,
+          9.4419725
+        ]
+      ],
+      "uv": [
+        [
+          11.0,
+          8.0
+        ],
+        [
+          10.5,
+          8.0
+        ],
+        [
+          10.5,
+          9.0
+        ],
+        [
+          11.0,
+          9.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 12-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          9.1721889,
+          9.012025,
+          9.4419725
+        ],
+        [
+          9.8119572,
+          9.0762162,
+          9.4419725
+        ],
+        [
+          9.8119572,
+          9.0762162,
+          10.084953
+        ],
+        [
+          9.1721889,
+          9.012025,
+          10.084953
+        ]
+      ],
+      "uv": [
+        [
+          11.0,
+          9.0
+        ],
+        [
+          10.5,
+          9.0
+        ],
+        [
+          10.5,
+          8.0
+        ],
+        [
+          11.0,
+          8.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 13-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          9.5573345,
+          5.1734154,
+          9.4419725
+        ],
+        [
+          10.1971028,
+          5.2376065999999994,
+          9.4419725
+        ],
+        [
+          10.1971028,
+          5.2376065999999994,
+          10.084953
+        ],
+        [
+          9.5573345,
+          5.1734154,
+          10.084953
+        ]
+      ],
+      "uv": [
+        [
+          11.5,
+          9.0
+        ],
+        [
+          11.0,
+          9.0
+        ],
+        [
+          11.0,
+          8.0
+        ],
+        [
+          11.5,
+          8.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 13-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          9.5573345,
+          5.1734154,
+          10.084953
+        ],
+        [
+          10.1971028,
+          5.2376065999999994,
+          10.084953
+        ],
+        [
+          10.1971028,
+          5.2376065999999994,
+          9.4419725
+        ],
+        [
+          9.5573345,
+          5.1734154,
+          9.4419725
+        ]
+      ],
+      "uv": [
+        [
+          11.5,
+          8.0
+        ],
+        [
+          11.0,
+          8.0
+        ],
+        [
+          11.0,
+          9.0
+        ],
+        [
+          11.5,
+          9.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 14-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          9.8119572,
+          9.0762162,
+          9.4419725
+        ],
+        [
+          9.8119572,
+          9.0762162,
+          10.084953
+        ],
+        [
+          10.1971028,
+          5.2376065999999994,
+          10.084953
+        ],
+        [
+          10.1971028,
+          5.2376065999999994,
+          9.4419725
+        ]
+      ],
+      "uv": [
+        [
+          10.5,
+          9.0
+        ],
+        [
+          10.0,
+          9.0
+        ],
+        [
+          10.0,
+          15.0
+        ],
+        [
+          10.5,
+          15.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 14-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          10.1971028,
+          5.2376065999999994,
+          9.4419725
+        ],
+        [
+          10.1971028,
+          5.2376065999999994,
+          10.084953
+        ],
+        [
+          9.8119572,
+          9.0762162,
+          10.084953
+        ],
+        [
+          9.8119572,
+          9.0762162,
+          9.4419725
+        ]
+      ],
+      "uv": [
+        [
+          10.5,
+          15.0
+        ],
+        [
+          10.0,
+          15.0
+        ],
+        [
+          10.0,
+          9.0
+        ],
+        [
+          10.5,
+          9.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 15-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          9.1721889,
+          9.012025,
+          9.4419725
+        ],
+        [
+          9.8119572,
+          9.0762162,
+          9.4419725
+        ],
+        [
+          10.1971028,
+          5.2376065999999994,
+          9.4419725
+        ],
+        [
+          9.5573345,
+          5.1734154,
+          9.4419725
+        ]
+      ],
+      "uv": [
+        [
+          11.0,
+          9.0
+        ],
+        [
+          10.5,
+          9.0
+        ],
+        [
+          10.5,
+          15.0
+        ],
+        [
+          11.0,
+          15.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 15-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          9.5573345,
+          5.1734154,
+          9.4419725
+        ],
+        [
+          10.1971028,
+          5.2376065999999994,
+          9.4419725
+        ],
+        [
+          9.8119572,
+          9.0762162,
+          9.4419725
+        ],
+        [
+          9.1721889,
+          9.012025,
+          9.4419725
+        ]
+      ],
+      "uv": [
+        [
+          11.0,
+          15.0
+        ],
+        [
+          10.5,
+          15.0
+        ],
+        [
+          10.5,
+          9.0
+        ],
+        [
+          11.0,
+          9.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 16-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          9.1721889,
+          9.012025,
+          10.084953
+        ],
+        [
+          9.1721889,
+          9.012025,
+          9.4419725
+        ],
+        [
+          9.5573345,
+          5.1734154,
+          9.4419725
+        ],
+        [
+          9.5573345,
+          5.1734154,
+          10.084953
+        ]
+      ],
+      "uv": [
+        [
+          11.5,
+          9.0
+        ],
+        [
+          11.0,
+          9.0
+        ],
+        [
+          11.0,
+          15.0
+        ],
+        [
+          11.5,
+          15.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 16-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          9.5573345,
+          5.1734154,
+          10.084953
+        ],
+        [
+          9.5573345,
+          5.1734154,
+          9.4419725
+        ],
+        [
+          9.1721889,
+          9.012025,
+          9.4419725
+        ],
+        [
+          9.1721889,
+          9.012025,
+          10.084953
+        ]
+      ],
+      "uv": [
+        [
+          11.5,
+          15.0
+        ],
+        [
+          11.0,
+          15.0
+        ],
+        [
+          11.0,
+          9.0
+        ],
+        [
+          11.5,
+          9.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 17-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          9.8119572,
+          9.0762162,
+          10.084953
+        ],
+        [
+          9.1721889,
+          9.012025,
+          10.084953
+        ],
+        [
+          9.5573345,
+          5.1734154,
+          10.084953
+        ],
+        [
+          10.1971028,
+          5.2376065999999994,
+          10.084953
+        ]
+      ],
+      "uv": [
+        [
+          12.0,
+          9.0
+        ],
+        [
+          11.5,
+          9.0
+        ],
+        [
+          11.5,
+          15.0
+        ],
+        [
+          12.0,
+          15.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 17-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          10.1971028,
+          5.2376065999999994,
+          10.084953
+        ],
+        [
+          9.5573345,
+          5.1734154,
+          10.084953
+        ],
+        [
+          9.1721889,
+          9.012025,
+          10.084953
+        ],
+        [
+          9.8119572,
+          9.0762162,
+          10.084953
+        ]
+      ],
+      "uv": [
+        [
+          12.0,
+          15.0
+        ],
+        [
+          11.5,
+          15.0
+        ],
+        [
+          11.5,
+          9.0
+        ],
+        [
+          12.0,
+          9.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 18-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.7254366,
+          9.012025,
+          9.4419725
+        ],
+        [
+          6.0856683,
+          9.0762162,
+          9.4419725
+        ],
+        [
+          6.0856683,
+          9.0762162,
+          10.084953
+        ],
+        [
+          6.7254366,
+          9.012025,
+          10.084953
+        ]
+      ],
+      "uv": [
+        [
+          11.0,
+          9.0
+        ],
+        [
+          10.5,
+          9.0
+        ],
+        [
+          10.5,
+          8.0
+        ],
+        [
+          11.0,
+          8.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 18-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.7254366,
+          9.012025,
+          10.084953
+        ],
+        [
+          6.0856683,
+          9.0762162,
+          10.084953
+        ],
+        [
+          6.0856683,
+          9.0762162,
+          9.4419725
+        ],
+        [
+          6.7254366,
+          9.012025,
+          9.4419725
+        ]
+      ],
+      "uv": [
+        [
+          11.0,
+          8.0
+        ],
+        [
+          10.5,
+          8.0
+        ],
+        [
+          10.5,
+          9.0
+        ],
+        [
+          11.0,
+          9.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 19-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.340291,
+          5.1734154,
+          10.084953
+        ],
+        [
+          5.7005227,
+          5.2376065999999994,
+          10.084953
+        ],
+        [
+          5.7005227,
+          5.2376065999999994,
+          9.4419725
+        ],
+        [
+          6.340291,
+          5.1734154,
+          9.4419725
+        ]
+      ],
+      "uv": [
+        [
+          11.5,
+          8.0
+        ],
+        [
+          11.0,
+          8.0
+        ],
+        [
+          11.0,
+          9.0
+        ],
+        [
+          11.5,
+          9.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 19-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.340291,
+          5.1734154,
+          9.4419725
+        ],
+        [
+          5.7005227,
+          5.2376065999999994,
+          9.4419725
+        ],
+        [
+          5.7005227,
+          5.2376065999999994,
+          10.084953
+        ],
+        [
+          6.340291,
+          5.1734154,
+          10.084953
+        ]
+      ],
+      "uv": [
+        [
+          11.5,
+          9.0
+        ],
+        [
+          11.0,
+          9.0
+        ],
+        [
+          11.0,
+          8.0
+        ],
+        [
+          11.5,
+          8.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 20-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          5.7005227,
+          5.2376065999999994,
+          9.4419725
+        ],
+        [
+          5.7005227,
+          5.2376065999999994,
+          10.084953
+        ],
+        [
+          6.0856683,
+          9.0762162,
+          10.084953
+        ],
+        [
+          6.0856683,
+          9.0762162,
+          9.4419725
+        ]
+      ],
+      "uv": [
+        [
+          10.5,
+          15.0
+        ],
+        [
+          10.0,
+          15.0
+        ],
+        [
+          10.0,
+          9.0
+        ],
+        [
+          10.5,
+          9.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 20-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.0856683,
+          9.0762162,
+          9.4419725
+        ],
+        [
+          6.0856683,
+          9.0762162,
+          10.084953
+        ],
+        [
+          5.7005227,
+          5.2376065999999994,
+          10.084953
+        ],
+        [
+          5.7005227,
+          5.2376065999999994,
+          9.4419725
+        ]
+      ],
+      "uv": [
+        [
+          10.5,
+          9.0
+        ],
+        [
+          10.0,
+          9.0
+        ],
+        [
+          10.0,
+          15.0
+        ],
+        [
+          10.5,
+          15.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 21-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.340291,
+          5.1734154,
+          9.4419725
+        ],
+        [
+          5.7005227,
+          5.2376065999999994,
+          9.4419725
+        ],
+        [
+          6.0856683,
+          9.0762162,
+          9.4419725
+        ],
+        [
+          6.7254366,
+          9.012025,
+          9.4419725
+        ]
+      ],
+      "uv": [
+        [
+          11.0,
+          15.0
+        ],
+        [
+          10.5,
+          15.0
+        ],
+        [
+          10.5,
+          9.0
+        ],
+        [
+          11.0,
+          9.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 21-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.7254366,
+          9.012025,
+          9.4419725
+        ],
+        [
+          6.0856683,
+          9.0762162,
+          9.4419725
+        ],
+        [
+          5.7005227,
+          5.2376065999999994,
+          9.4419725
+        ],
+        [
+          6.340291,
+          5.1734154,
+          9.4419725
+        ]
+      ],
+      "uv": [
+        [
+          11.0,
+          9.0
+        ],
+        [
+          10.5,
+          9.0
+        ],
+        [
+          10.5,
+          15.0
+        ],
+        [
+          11.0,
+          15.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 22-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.340291,
+          5.1734154,
+          10.084953
+        ],
+        [
+          6.340291,
+          5.1734154,
+          9.4419725
+        ],
+        [
+          6.7254366,
+          9.012025,
+          9.4419725
+        ],
+        [
+          6.7254366,
+          9.012025,
+          10.084953
+        ]
+      ],
+      "uv": [
+        [
+          11.5,
+          15.0
+        ],
+        [
+          11.0,
+          15.0
+        ],
+        [
+          11.0,
+          9.0
+        ],
+        [
+          11.5,
+          9.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 22-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.7254366,
+          9.012025,
+          10.084953
+        ],
+        [
+          6.7254366,
+          9.012025,
+          9.4419725
+        ],
+        [
+          6.340291,
+          5.1734154,
+          9.4419725
+        ],
+        [
+          6.340291,
+          5.1734154,
+          10.084953
+        ]
+      ],
+      "uv": [
+        [
+          11.5,
+          9.0
+        ],
+        [
+          11.0,
+          9.0
+        ],
+        [
+          11.0,
+          15.0
+        ],
+        [
+          11.5,
+          15.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 23-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          5.7005227,
+          5.2376065999999994,
+          10.084953
+        ],
+        [
+          6.340291,
+          5.1734154,
+          10.084953
+        ],
+        [
+          6.7254366,
+          9.012025,
+          10.084953
+        ],
+        [
+          6.0856683,
+          9.0762162,
+          10.084953
+        ]
+      ],
+      "uv": [
+        [
+          12.0,
+          15.0
+        ],
+        [
+          11.5,
+          15.0
+        ],
+        [
+          11.5,
+          9.0
+        ],
+        [
+          12.0,
+          9.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 23-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.0856683,
+          9.0762162,
+          10.084953
+        ],
+        [
+          6.7254366,
+          9.012025,
+          10.084953
+        ],
+        [
+          6.340291,
+          5.1734154,
+          10.084953
+        ],
+        [
+          5.7005227,
+          5.2376065999999994,
+          10.084953
+        ]
+      ],
+      "uv": [
+        [
+          12.0,
+          9.0
+        ],
+        [
+          11.5,
+          9.0
+        ],
+        [
+          11.5,
+          15.0
+        ],
+        [
+          12.0,
+          15.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 24-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          8.2687037,
+          5.1878344,
+          10.0833416
+        ],
+        [
+          8.9116681,
+          5.191049,
+          10.0865564
+        ],
+        [
+          8.9148829,
+          5.1910649,
+          9.443584
+        ],
+        [
+          8.2719185,
+          5.1878502,
+          9.4403691
+        ]
+      ],
+      "uv": [
+        [
+          1.0,
+          8.0
+        ],
+        [
+          0.5,
+          8.0
+        ],
+        [
+          0.5,
+          9.0
+        ],
+        [
+          1.0,
+          9.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 24-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          8.2719185,
+          5.1878502,
+          9.4403691
+        ],
+        [
+          8.9148829,
+          5.1910649,
+          9.443584
+        ],
+        [
+          8.9116681,
+          5.191049,
+          10.0865564
+        ],
+        [
+          8.2687037,
+          5.1878344,
+          10.0833416
+        ]
+      ],
+      "uv": [
+        [
+          1.0,
+          9.0
+        ],
+        [
+          0.5,
+          9.0
+        ],
+        [
+          0.5,
+          8.0
+        ],
+        [
+          1.0,
+          8.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 25-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          8.2912078,
+          1.3300158,
+          9.4403691
+        ],
+        [
+          8.9341722,
+          1.3332307,
+          9.443584
+        ],
+        [
+          8.9309574,
+          1.3332148,
+          10.0865564
+        ],
+        [
+          8.287993,
+          1.33,
+          10.0833416
+        ]
+      ],
+      "uv": [
+        [
+          1.5,
+          9.0
+        ],
+        [
+          1.0,
+          9.0
+        ],
+        [
+          1.0,
+          8.0
+        ],
+        [
+          1.5,
+          8.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 25-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          8.287993,
+          1.33,
+          10.0833416
+        ],
+        [
+          8.9309574,
+          1.3332148,
+          10.0865564
+        ],
+        [
+          8.9341722,
+          1.3332307,
+          9.443584
+        ],
+        [
+          8.2912078,
+          1.3300158,
+          9.4403691
+        ]
+      ],
+      "uv": [
+        [
+          1.5,
+          8.0
+        ],
+        [
+          1.0,
+          8.0
+        ],
+        [
+          1.0,
+          9.0
+        ],
+        [
+          1.5,
+          9.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 26-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          8.9148829,
+          5.1910649,
+          9.443584
+        ],
+        [
+          8.9116681,
+          5.191049,
+          10.0865564
+        ],
+        [
+          8.9309574,
+          1.3332148,
+          10.0865564
+        ],
+        [
+          8.9341722,
+          1.3332307,
+          9.443584
+        ]
+      ],
+      "uv": [
+        [
+          0.5,
+          9.0
+        ],
+        [
+          0.0,
+          9.0
+        ],
+        [
+          0.0,
+          15.0
+        ],
+        [
+          0.5,
+          15.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 26-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          8.9341722,
+          1.3332307,
+          9.443584
+        ],
+        [
+          8.9309574,
+          1.3332148,
+          10.0865564
+        ],
+        [
+          8.9116681,
+          5.191049,
+          10.0865564
+        ],
+        [
+          8.9148829,
+          5.1910649,
+          9.443584
+        ]
+      ],
+      "uv": [
+        [
+          0.5,
+          15.0
+        ],
+        [
+          0.0,
+          15.0
+        ],
+        [
+          0.0,
+          9.0
+        ],
+        [
+          0.5,
+          9.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 27-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          8.2719185,
+          5.1878502,
+          9.4403691
+        ],
+        [
+          8.9148829,
+          5.1910649,
+          9.443584
+        ],
+        [
+          8.9341722,
+          1.3332307,
+          9.443584
+        ],
+        [
+          8.2912078,
+          1.3300158,
+          9.4403691
+        ]
+      ],
+      "uv": [
+        [
+          1.0,
+          9.0
+        ],
+        [
+          0.5,
+          9.0
+        ],
+        [
+          0.5,
+          15.0
+        ],
+        [
+          1.0,
+          15.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 27-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          8.2912078,
+          1.3300158,
+          9.4403691
+        ],
+        [
+          8.9341722,
+          1.3332307,
+          9.443584
+        ],
+        [
+          8.9148829,
+          5.1910649,
+          9.443584
+        ],
+        [
+          8.2719185,
+          5.1878502,
+          9.4403691
+        ]
+      ],
+      "uv": [
+        [
+          1.0,
+          15.0
+        ],
+        [
+          0.5,
+          15.0
+        ],
+        [
+          0.5,
+          9.0
+        ],
+        [
+          1.0,
+          9.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 28-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          8.2687037,
+          5.1878344,
+          10.0833416
+        ],
+        [
+          8.2719185,
+          5.1878502,
+          9.4403691
+        ],
+        [
+          8.2912078,
+          1.3300158,
+          9.4403691
+        ],
+        [
+          8.287993,
+          1.33,
+          10.0833416
+        ]
+      ],
+      "uv": [
+        [
+          1.5,
+          9.0
+        ],
+        [
+          1.0,
+          9.0
+        ],
+        [
+          1.0,
+          15.0
+        ],
+        [
+          1.5,
+          15.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 28-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          8.287993,
+          1.33,
+          10.0833416
+        ],
+        [
+          8.2912078,
+          1.3300158,
+          9.4403691
+        ],
+        [
+          8.2719185,
+          5.1878502,
+          9.4403691
+        ],
+        [
+          8.2687037,
+          5.1878344,
+          10.0833416
+        ]
+      ],
+      "uv": [
+        [
+          1.5,
+          15.0
+        ],
+        [
+          1.0,
+          15.0
+        ],
+        [
+          1.0,
+          9.0
+        ],
+        [
+          1.5,
+          9.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 29-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          8.9116681,
+          5.191049,
+          10.0865564
+        ],
+        [
+          8.2687037,
+          5.1878344,
+          10.0833416
+        ],
+        [
+          8.287993,
+          1.33,
+          10.0833416
+        ],
+        [
+          8.9309574,
+          1.3332148,
+          10.0865564
+        ]
+      ],
+      "uv": [
+        [
+          2.0,
+          9.0
+        ],
+        [
+          1.5,
+          9.0
+        ],
+        [
+          1.5,
+          15.0
+        ],
+        [
+          2.0,
+          15.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 29-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          8.9309574,
+          1.3332148,
+          10.0865564
+        ],
+        [
+          8.287993,
+          1.33,
+          10.0833416
+        ],
+        [
+          8.2687037,
+          5.1878344,
+          10.0833416
+        ],
+        [
+          8.9116681,
+          5.191049,
+          10.0865564
+        ]
+      ],
+      "uv": [
+        [
+          2.0,
+          15.0
+        ],
+        [
+          1.5,
+          15.0
+        ],
+        [
+          1.5,
+          9.0
+        ],
+        [
+          2.0,
+          9.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 30-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          7.625707,
+          5.1878502,
+          9.4403691
+        ],
+        [
+          6.9827426,
+          5.1910649,
+          9.443584
+        ],
+        [
+          6.9859574,
+          5.191049,
+          10.0865564
+        ],
+        [
+          7.6289218,
+          5.1878344,
+          10.0833416
+        ]
+      ],
+      "uv": [
+        [
+          1.0,
+          9.0
+        ],
+        [
+          0.5,
+          9.0
+        ],
+        [
+          0.5,
+          8.0
+        ],
+        [
+          1.0,
+          8.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 30-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          7.6289218,
+          5.1878344,
+          10.0833416
+        ],
+        [
+          6.9859574,
+          5.191049,
+          10.0865564
+        ],
+        [
+          6.9827426,
+          5.1910649,
+          9.443584
+        ],
+        [
+          7.625707,
+          5.1878502,
+          9.4403691
+        ]
+      ],
+      "uv": [
+        [
+          1.0,
+          8.0
+        ],
+        [
+          0.5,
+          8.0
+        ],
+        [
+          0.5,
+          9.0
+        ],
+        [
+          1.0,
+          9.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 31-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          7.6096324,
+          1.33,
+          10.0833416
+        ],
+        [
+          6.9666681,
+          1.3332148,
+          10.0865564
+        ],
+        [
+          6.9634533,
+          1.3332307,
+          9.443584
+        ],
+        [
+          7.6064176,
+          1.3300158,
+          9.4403691
+        ]
+      ],
+      "uv": [
+        [
+          1.5,
+          8.0
+        ],
+        [
+          1.0,
+          8.0
+        ],
+        [
+          1.0,
+          9.0
+        ],
+        [
+          1.5,
+          9.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 31-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          7.6064176,
+          1.3300158,
+          9.4403691
+        ],
+        [
+          6.9634533,
+          1.3332307,
+          9.443584
+        ],
+        [
+          6.9666681,
+          1.3332148,
+          10.0865564
+        ],
+        [
+          7.6096324,
+          1.33,
+          10.0833416
+        ]
+      ],
+      "uv": [
+        [
+          1.5,
+          9.0
+        ],
+        [
+          1.0,
+          9.0
+        ],
+        [
+          1.0,
+          8.0
+        ],
+        [
+          1.5,
+          8.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 32-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.9634533,
+          1.3332307,
+          9.443584
+        ],
+        [
+          6.9666681,
+          1.3332148,
+          10.0865564
+        ],
+        [
+          6.9859574,
+          5.191049,
+          10.0865564
+        ],
+        [
+          6.9827426,
+          5.1910649,
+          9.443584
+        ]
+      ],
+      "uv": [
+        [
+          0.5,
+          15.0
+        ],
+        [
+          0.0,
+          15.0
+        ],
+        [
+          0.0,
+          9.0
+        ],
+        [
+          0.5,
+          9.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 32-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.9827426,
+          5.1910649,
+          9.443584
+        ],
+        [
+          6.9859574,
+          5.191049,
+          10.0865564
+        ],
+        [
+          6.9666681,
+          1.3332148,
+          10.0865564
+        ],
+        [
+          6.9634533,
+          1.3332307,
+          9.443584
+        ]
+      ],
+      "uv": [
+        [
+          0.5,
+          9.0
+        ],
+        [
+          0.0,
+          9.0
+        ],
+        [
+          0.0,
+          15.0
+        ],
+        [
+          0.5,
+          15.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 33-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          7.6064176,
+          1.3300158,
+          9.4403691
+        ],
+        [
+          6.9634533,
+          1.3332307,
+          9.443584
+        ],
+        [
+          6.9827426,
+          5.1910649,
+          9.443584
+        ],
+        [
+          7.625707,
+          5.1878502,
+          9.4403691
+        ]
+      ],
+      "uv": [
+        [
+          1.0,
+          15.0
+        ],
+        [
+          0.5,
+          15.0
+        ],
+        [
+          0.5,
+          9.0
+        ],
+        [
+          1.0,
+          9.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 33-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          7.625707,
+          5.1878502,
+          9.4403691
+        ],
+        [
+          6.9827426,
+          5.1910649,
+          9.443584
+        ],
+        [
+          6.9634533,
+          1.3332307,
+          9.443584
+        ],
+        [
+          7.6064176,
+          1.3300158,
+          9.4403691
+        ]
+      ],
+      "uv": [
+        [
+          1.0,
+          9.0
+        ],
+        [
+          0.5,
+          9.0
+        ],
+        [
+          0.5,
+          15.0
+        ],
+        [
+          1.0,
+          15.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 34-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          7.6096324,
+          1.33,
+          10.0833416
+        ],
+        [
+          7.6064176,
+          1.3300158,
+          9.4403691
+        ],
+        [
+          7.625707,
+          5.1878502,
+          9.4403691
+        ],
+        [
+          7.6289218,
+          5.1878344,
+          10.0833416
+        ]
+      ],
+      "uv": [
+        [
+          1.5,
+          15.0
+        ],
+        [
+          1.0,
+          15.0
+        ],
+        [
+          1.0,
+          9.0
+        ],
+        [
+          1.5,
+          9.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 34-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          7.6289218,
+          5.1878344,
+          10.0833416
+        ],
+        [
+          7.625707,
+          5.1878502,
+          9.4403691
+        ],
+        [
+          7.6064176,
+          1.3300158,
+          9.4403691
+        ],
+        [
+          7.6096324,
+          1.33,
+          10.0833416
+        ]
+      ],
+      "uv": [
+        [
+          1.5,
+          9.0
+        ],
+        [
+          1.0,
+          9.0
+        ],
+        [
+          1.0,
+          15.0
+        ],
+        [
+          1.5,
+          15.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 35-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.9666681,
+          1.3332148,
+          10.0865564
+        ],
+        [
+          7.6096324,
+          1.33,
+          10.0833416
+        ],
+        [
+          7.6289218,
+          5.1878344,
+          10.0833416
+        ],
+        [
+          6.9859574,
+          5.191049,
+          10.0865564
+        ]
+      ],
+      "uv": [
+        [
+          2.0,
+          15.0
+        ],
+        [
+          1.5,
+          15.0
+        ],
+        [
+          1.5,
+          9.0
+        ],
+        [
+          2.0,
+          9.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 35-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.9859574,
+          5.191049,
+          10.0865564
+        ],
+        [
+          7.6289218,
+          5.1878344,
+          10.0833416
+        ],
+        [
+          7.6096324,
+          1.33,
+          10.0833416
+        ],
+        [
+          6.9666681,
+          1.3332148,
+          10.0865564
+        ]
+      ],
+      "uv": [
+        [
+          2.0,
+          9.0
+        ],
+        [
+          1.5,
+          9.0
+        ],
+        [
+          1.5,
+          15.0
+        ],
+        [
+          2.0,
+          15.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 36-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.5021066,
+          11.78,
+          11.2101689
+        ],
+        [
+          9.3955189,
+          11.78,
+          11.2101689
+        ],
+        [
+          9.3955189,
+          11.78,
+          8.3167567
+        ],
+        [
+          6.5021066,
+          11.78,
+          8.3167567
+        ]
+      ],
+      "uv": [
+        [
+          12.0,
+          0.0
+        ],
+        [
+          10.0,
+          0.0
+        ],
+        [
+          10.0,
+          4.0
+        ],
+        [
+          12.0,
+          4.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 36-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.5021066,
+          11.78,
+          8.3167567
+        ],
+        [
+          9.3955189,
+          11.78,
+          8.3167567
+        ],
+        [
+          9.3955189,
+          11.78,
+          11.2101689
+        ],
+        [
+          6.5021066,
+          11.78,
+          11.2101689
+        ]
+      ],
+      "uv": [
+        [
+          12.0,
+          4.0
+        ],
+        [
+          10.0,
+          4.0
+        ],
+        [
+          10.0,
+          0.0
+        ],
+        [
+          12.0,
+          0.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 37-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.5021066,
+          8.8865875,
+          8.3167567
+        ],
+        [
+          9.3955189,
+          8.8865875,
+          8.3167567
+        ],
+        [
+          9.3955189,
+          8.8865875,
+          11.2101689
+        ],
+        [
+          6.5021066,
+          8.8865875,
+          11.2101689
+        ]
+      ],
+      "uv": [
+        [
+          14.0,
+          4.0
+        ],
+        [
+          12.0,
+          4.0
+        ],
+        [
+          12.0,
+          0.0
+        ],
+        [
+          14.0,
+          0.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 37-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.5021066,
+          8.8865875,
+          11.2101689
+        ],
+        [
+          9.3955189,
+          8.8865875,
+          11.2101689
+        ],
+        [
+          9.3955189,
+          8.8865875,
+          8.3167567
+        ],
+        [
+          6.5021066,
+          8.8865875,
+          8.3167567
+        ]
+      ],
+      "uv": [
+        [
+          14.0,
+          0.0
+        ],
+        [
+          12.0,
+          0.0
+        ],
+        [
+          12.0,
+          4.0
+        ],
+        [
+          14.0,
+          4.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 38-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          9.3955189,
+          11.78,
+          8.3167567
+        ],
+        [
+          9.3955189,
+          11.78,
+          11.2101689
+        ],
+        [
+          9.3955189,
+          8.8865875,
+          11.2101689
+        ],
+        [
+          9.3955189,
+          8.8865875,
+          8.3167567
+        ]
+      ],
+      "uv": [
+        [
+          10.0,
+          4.0
+        ],
+        [
+          8.0,
+          4.0
+        ],
+        [
+          8.0,
+          8.0
+        ],
+        [
+          10.0,
+          8.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 38-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          9.3955189,
+          8.8865875,
+          8.3167567
+        ],
+        [
+          9.3955189,
+          8.8865875,
+          11.2101689
+        ],
+        [
+          9.3955189,
+          11.78,
+          11.2101689
+        ],
+        [
+          9.3955189,
+          11.78,
+          8.3167567
+        ]
+      ],
+      "uv": [
+        [
+          10.0,
+          8.0
+        ],
+        [
+          8.0,
+          8.0
+        ],
+        [
+          8.0,
+          4.0
+        ],
+        [
+          10.0,
+          4.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 39-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.5021066,
+          11.78,
+          8.3167567
+        ],
+        [
+          9.3955189,
+          11.78,
+          8.3167567
+        ],
+        [
+          9.3955189,
+          8.8865875,
+          8.3167567
+        ],
+        [
+          6.5021066,
+          8.8865875,
+          8.3167567
+        ]
+      ],
+      "uv": [
+        [
+          12.0,
+          4.0
+        ],
+        [
+          10.0,
+          4.0
+        ],
+        [
+          10.0,
+          8.0
+        ],
+        [
+          12.0,
+          8.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 39-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.5021066,
+          8.8865875,
+          8.3167567
+        ],
+        [
+          9.3955189,
+          8.8865875,
+          8.3167567
+        ],
+        [
+          9.3955189,
+          11.78,
+          8.3167567
+        ],
+        [
+          6.5021066,
+          11.78,
+          8.3167567
+        ]
+      ],
+      "uv": [
+        [
+          12.0,
+          8.0
+        ],
+        [
+          10.0,
+          8.0
+        ],
+        [
+          10.0,
+          4.0
+        ],
+        [
+          12.0,
+          4.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 40-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.5021066,
+          11.78,
+          11.2101689
+        ],
+        [
+          6.5021066,
+          11.78,
+          8.3167567
+        ],
+        [
+          6.5021066,
+          8.8865875,
+          8.3167567
+        ],
+        [
+          6.5021066,
+          8.8865875,
+          11.2101689
+        ]
+      ],
+      "uv": [
+        [
+          14.0,
+          4.0
+        ],
+        [
+          12.0,
+          4.0
+        ],
+        [
+          12.0,
+          8.0
+        ],
+        [
+          14.0,
+          8.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 40-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          6.5021066,
+          8.8865875,
+          11.2101689
+        ],
+        [
+          6.5021066,
+          8.8865875,
+          8.3167567
+        ],
+        [
+          6.5021066,
+          11.78,
+          8.3167567
+        ],
+        [
+          6.5021066,
+          11.78,
+          11.2101689
+        ]
+      ],
+      "uv": [
+        [
+          14.0,
+          8.0
+        ],
+        [
+          12.0,
+          8.0
+        ],
+        [
+          12.0,
+          4.0
+        ],
+        [
+          14.0,
+          4.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 41-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          9.3955189,
+          11.78,
+          11.2101689
+        ],
+        [
+          6.5021066,
+          11.78,
+          11.2101689
+        ],
+        [
+          6.5021066,
+          8.8865875,
+          11.2101689
+        ],
+        [
+          9.3955189,
+          8.8865875,
+          11.2101689
+        ]
+      ],
+      "uv": [
+        [
+          16.0,
+          4.0
+        ],
+        [
+          14.0,
+          4.0
+        ],
+        [
+          14.0,
+          8.0
+        ],
+        [
+          16.0,
+          8.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 41-0 reverse",
+      "group": "Wither Skeleton",
+      "texture": "#skin0",
+      "vertices": [
+        [
+          9.3955189,
+          8.8865875,
+          11.2101689
+        ],
+        [
+          6.5021066,
+          8.8865875,
+          11.2101689
+        ],
+        [
+          6.5021066,
+          11.78,
+          11.2101689
+        ],
+        [
+          9.3955189,
+          11.78,
+          11.2101689
+        ]
+      ],
+      "uv": [
+        [
+          16.0,
+          8.0
+        ],
+        [
+          14.0,
+          8.0
+        ],
+        [
+          14.0,
+          4.0
+        ],
+        [
+          16.0,
+          4.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 42-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          10.0491121,
+          4.8770099,
+          4.7898311
+        ],
+        [
+          9.6915536,
+          8.4406682,
+          7.2976601
+        ],
+        [
+          9.9419188,
+          5.945368299999999,
+          10.8792115
+        ],
+        [
+          10.2994773,
+          2.3817098,
+          8.3713825
+        ]
+      ],
+      "uv": [
+        [
+          15.998046875,
+          0.001953125
+        ],
+        [
+          15.998046875,
+          15.998046875
+        ],
+        [
+          0.001953125,
+          15.998046875
+        ],
+        [
+          0.001953125,
+          0.001953125
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 43-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          10.0275758,
+          2.3544288,
+          8.3713825
+        ],
+        [
+          9.6700173,
+          5.9180873,
+          10.8792115
+        ],
+        [
+          9.4196521,
+          8.4133872,
+          7.2976601
+        ],
+        [
+          9.7772107,
+          4.8497289,
+          4.7898311
+        ]
+      ],
+      "uv": [
+        [
+          0.001953125,
+          0.001953125
+        ],
+        [
+          0.001953125,
+          15.998046875
+        ],
+        [
+          15.998046875,
+          15.998046875
+        ],
+        [
+          15.998046875,
+          0.001953125
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 44-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          10.0960366,
+          4.4093314999999995,
+          5.4610986
+        ],
+        [
+          9.8241351,
+          4.3820505,
+          5.4610986
+        ],
+        [
+          9.7772107,
+          4.8497289,
+          4.7898311
+        ],
+        [
+          10.0491121,
+          4.8770099,
+          4.7898311
+        ]
+      ],
+      "uv": [
+        [
+          13.0,
+          0.0
+        ],
+        [
+          13.0,
+          1.0
+        ],
+        [
+          15.99951171875,
+          1.0
+        ],
+        [
+          15.99951171875,
+          0.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 45-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          10.0960366,
+          4.4093314999999995,
+          5.4610986
+        ],
+        [
+          10.0737272,
+          4.6316793999999994,
+          5.6175704
+        ],
+        [
+          9.8018258,
+          4.6043984,
+          5.6175704
+        ],
+        [
+          9.8241351,
+          4.3820505,
+          5.4610986
+        ]
+      ],
+      "uv": [
+        [
+          14.0,
+          0.0
+        ],
+        [
+          14.0,
+          1.0
+        ],
+        [
+          13.0,
+          1.0
+        ],
+        [
+          13.0,
+          0.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 46-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          9.7772107,
+          4.8497289,
+          4.7898311
+        ],
+        [
+          9.7101957,
+          5.5176431,
+          5.2598576
+        ],
+        [
+          9.9820972,
+          5.544924099999999,
+          5.2598576
+        ],
+        [
+          10.0491121,
+          4.8770099,
+          4.7898311
+        ]
+      ],
+      "uv": [
+        [
+          16.0,
+          0.00048828125
+        ],
+        [
+          16.0,
+          3.0
+        ],
+        [
+          15.0,
+          3.0
+        ],
+        [
+          15.0,
+          0.00048828125
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 47-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          10.0893789,
+          4.4756852,
+          5.8414721
+        ],
+        [
+          9.8174774,
+          4.4484042,
+          5.8414721
+        ],
+        [
+          9.8018258,
+          4.6043984,
+          5.6175704
+        ],
+        [
+          10.0737272,
+          4.6316793999999994,
+          5.6175704
+        ]
+      ],
+      "uv": [
+        [
+          12.0,
+          1.0
+        ],
+        [
+          12.0,
+          2.0
+        ],
+        [
+          13.0,
+          2.0
+        ],
+        [
+          13.0,
+          1.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 48-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          10.0893789,
+          4.4756852,
+          5.8414721
+        ],
+        [
+          10.0670259,
+          4.6984683,
+          5.9982494
+        ],
+        [
+          9.7951246,
+          4.6711873,
+          5.9982494
+        ],
+        [
+          9.8174774,
+          4.4484042,
+          5.8414721
+        ]
+      ],
+      "uv": [
+        [
+          13.0,
+          1.0
+        ],
+        [
+          13.0,
+          2.0
+        ],
+        [
+          12.0,
+          2.0
+        ],
+        [
+          12.0,
+          1.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 49-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          10.0826776,
+          4.5424739999999995,
+          6.222151
+        ],
+        [
+          9.8107763,
+          4.515193,
+          6.222151
+        ],
+        [
+          9.7951246,
+          4.6711873,
+          5.9982494
+        ],
+        [
+          10.0670259,
+          4.6984683,
+          5.9982494
+        ]
+      ],
+      "uv": [
+        [
+          11.0,
+          2.0
+        ],
+        [
+          11.0,
+          3.0
+        ],
+        [
+          12.0,
+          3.0
+        ],
+        [
+          12.0,
+          2.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 50-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          10.0826776,
+          4.5424739999999995,
+          6.222151
+        ],
+        [
+          10.0603249,
+          4.7652570999999995,
+          6.3789287
+        ],
+        [
+          9.7884234,
+          4.7379761,
+          6.3789287
+        ],
+        [
+          9.8107763,
+          4.515193,
+          6.222151
+        ]
+      ],
+      "uv": [
+        [
+          12.0,
+          2.0
+        ],
+        [
+          12.0,
+          3.0
+        ],
+        [
+          11.0,
+          3.0
+        ],
+        [
+          11.0,
+          2.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 51-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          9.7258168,
+          5.3619534,
+          5.4833223
+        ],
+        [
+          9.9977183,
+          5.389234399999999,
+          5.4833223
+        ],
+        [
+          9.9820972,
+          5.544924099999999,
+          5.2598576
+        ],
+        [
+          9.7101957,
+          5.5176431,
+          5.2598576
+        ]
+      ],
+      "uv": [
+        [
+          15.0,
+          2.0
+        ],
+        [
+          15.0,
+          3.0
+        ],
+        [
+          16.0,
+          3.0
+        ],
+        [
+          16.0,
+          2.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 52-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          10.0759765,
+          4.609262599999999,
+          6.6028303
+        ],
+        [
+          9.8040751,
+          4.5819816,
+          6.6028303
+        ],
+        [
+          9.7884234,
+          4.7379761,
+          6.3789287
+        ],
+        [
+          10.0603249,
+          4.7652570999999995,
+          6.3789287
+        ]
+      ],
+      "uv": [
+        [
+          10.0,
+          3.0
+        ],
+        [
+          10.0,
+          4.0
+        ],
+        [
+          11.0,
+          4.0
+        ],
+        [
+          11.0,
+          3.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 53-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          10.0759765,
+          4.609262599999999,
+          6.6028303
+        ],
+        [
+          10.0536236,
+          4.832045699999999,
+          6.7596079
+        ],
+        [
+          9.7817222,
+          4.8047647,
+          6.7596079
+        ],
+        [
+          9.8040751,
+          4.5819816,
+          6.6028303
+        ]
+      ],
+      "uv": [
+        [
+          11.0,
+          3.0
+        ],
+        [
+          11.0,
+          4.0
+        ],
+        [
+          10.0,
+          4.0
+        ],
+        [
+          10.0,
+          3.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 54-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          9.7191156,
+          5.428742199999999,
+          5.8640013
+        ],
+        [
+          9.991017,
+          5.4560232,
+          5.8640013
+        ],
+        [
+          9.9753653,
+          5.6120174,
+          5.6400999
+        ],
+        [
+          9.703464,
+          5.5847364,
+          5.6400999
+        ]
+      ],
+      "uv": [
+        [
+          14.0,
+          3.0
+        ],
+        [
+          14.0,
+          4.0
+        ],
+        [
+          15.0,
+          4.0
+        ],
+        [
+          15.0,
+          3.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 55-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          9.7258168,
+          5.3619534,
+          5.4833223
+        ],
+        [
+          9.703464,
+          5.5847364,
+          5.6400999
+        ],
+        [
+          9.9753653,
+          5.6120174,
+          5.6400999
+        ],
+        [
+          9.9977183,
+          5.389234399999999,
+          5.4833223
+        ]
+      ],
+      "uv": [
+        [
+          15.0,
+          3.0
+        ],
+        [
+          15.0,
+          4.0
+        ],
+        [
+          14.0,
+          4.0
+        ],
+        [
+          14.0,
+          3.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 56-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          10.0692752,
+          4.6760513999999995,
+          6.9835096
+        ],
+        [
+          9.7973739,
+          4.6487704,
+          6.9835096
+        ],
+        [
+          9.7817222,
+          4.8047647,
+          6.7596079
+        ],
+        [
+          10.0536236,
+          4.832045699999999,
+          6.7596079
+        ]
+      ],
+      "uv": [
+        [
+          9.0,
+          4.0
+        ],
+        [
+          9.0,
+          5.0
+        ],
+        [
+          10.0,
+          5.0
+        ],
+        [
+          10.0,
+          4.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 57-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          10.0692752,
+          4.6760513999999995,
+          6.9835096
+        ],
+        [
+          10.0469225,
+          4.8988344999999995,
+          7.1402869
+        ],
+        [
+          9.775021,
+          4.871553499999999,
+          7.1402869
+        ],
+        [
+          9.7973739,
+          4.6487704,
+          6.9835096
+        ]
+      ],
+      "uv": [
+        [
+          10.0,
+          4.0
+        ],
+        [
+          10.0,
+          5.0
+        ],
+        [
+          9.0,
+          5.0
+        ],
+        [
+          9.0,
+          4.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 58-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          9.7124144,
+          5.4955308,
+          6.2446806
+        ],
+        [
+          9.9843159,
+          5.5228117999999995,
+          6.2446806
+        ],
+        [
+          9.9686642,
+          5.6788063,
+          6.0207789
+        ],
+        [
+          9.6967628,
+          5.651525299999999,
+          6.0207789
+        ]
+      ],
+      "uv": [
+        [
+          13.0,
+          4.0
+        ],
+        [
+          13.0,
+          5.0
+        ],
+        [
+          14.0,
+          5.0
+        ],
+        [
+          14.0,
+          4.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 59-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          9.7191156,
+          5.428742199999999,
+          5.8640013
+        ],
+        [
+          9.6967628,
+          5.651525299999999,
+          6.0207789
+        ],
+        [
+          9.9686642,
+          5.6788063,
+          6.0207789
+        ],
+        [
+          9.991017,
+          5.4560232,
+          5.8640013
+        ]
+      ],
+      "uv": [
+        [
+          14.0,
+          4.0
+        ],
+        [
+          14.0,
+          5.0
+        ],
+        [
+          13.0,
+          5.0
+        ],
+        [
+          13.0,
+          4.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 60-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          10.0625741,
+          4.742840299999999,
+          7.3641886
+        ],
+        [
+          9.7906727,
+          4.7155593,
+          7.3641886
+        ],
+        [
+          9.775021,
+          4.871553499999999,
+          7.1402869
+        ],
+        [
+          10.0469225,
+          4.8988344999999995,
+          7.1402869
+        ]
+      ],
+      "uv": [
+        [
+          8.0,
+          5.0
+        ],
+        [
+          8.0,
+          6.0
+        ],
+        [
+          9.0,
+          6.0
+        ],
+        [
+          9.0,
+          5.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 61-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          10.0625741,
+          4.742840299999999,
+          7.3641886
+        ],
+        [
+          9.8613984,
+          6.7478875,
+          8.7751869
+        ],
+        [
+          9.5894969,
+          6.7206065,
+          8.7751869
+        ],
+        [
+          9.7906727,
+          4.7155593,
+          7.3641886
+        ]
+      ],
+      "uv": [
+        [
+          9.0,
+          5.0
+        ],
+        [
+          9.0,
+          14.0
+        ],
+        [
+          8.0,
+          14.0
+        ],
+        [
+          8.0,
+          5.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 62-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          9.7057131,
+          5.5623192999999995,
+          6.6253598
+        ],
+        [
+          9.9776146,
+          5.5896003,
+          6.6253598
+        ],
+        [
+          9.9619629,
+          5.7455948999999995,
+          6.4014582
+        ],
+        [
+          9.6900615,
+          5.7183139,
+          6.4014582
+        ]
+      ],
+      "uv": [
+        [
+          12.0,
+          5.0
+        ],
+        [
+          12.0,
+          6.0
+        ],
+        [
+          13.0,
+          6.0
+        ],
+        [
+          13.0,
+          5.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 63-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          9.7124144,
+          5.4955308,
+          6.2446806
+        ],
+        [
+          9.6900615,
+          5.7183139,
+          6.4014582
+        ],
+        [
+          9.9619629,
+          5.7455948999999995,
+          6.4014582
+        ],
+        [
+          9.9843159,
+          5.5228117999999995,
+          6.2446806
+        ]
+      ],
+      "uv": [
+        [
+          13.0,
+          5.0
+        ],
+        [
+          13.0,
+          6.0
+        ],
+        [
+          12.0,
+          6.0
+        ],
+        [
+          12.0,
+          5.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 64-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          10.1341311,
+          4.0296568,
+          8.8643758
+        ],
+        [
+          9.8622295,
+          4.0023758,
+          8.8643758
+        ],
+        [
+          9.7683197,
+          4.9383418,
+          7.5209662
+        ],
+        [
+          10.0402212,
+          4.965622799999999,
+          7.5209662
+        ]
+      ],
+      "uv": [
+        [
+          2.0,
+          6.0
+        ],
+        [
+          2.0,
+          7.0
+        ],
+        [
+          8.0,
+          7.0
+        ],
+        [
+          8.0,
+          6.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 65-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          10.1341311,
+          4.0296568,
+          8.8643758
+        ],
+        [
+          9.977661,
+          5.5891383999999995,
+          9.9618189
+        ],
+        [
+          9.7057595,
+          5.5618574,
+          9.9618189
+        ],
+        [
+          9.8622295,
+          4.0023758,
+          8.8643758
+        ]
+      ],
+      "uv": [
+        [
+          3.0,
+          6.0
+        ],
+        [
+          3.0,
+          13.0
+        ],
+        [
+          2.0,
+          13.0
+        ],
+        [
+          2.0,
+          6.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 66-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          9.8309262,
+          4.3143646,
+          8.4165725
+        ],
+        [
+          9.6521034,
+          6.096629,
+          9.6707933
+        ],
+        [
+          9.9240048,
+          6.1239099999999995,
+          9.6707933
+        ],
+        [
+          10.1028278,
+          4.3416456,
+          8.4165725
+        ]
+      ],
+      "uv": [
+        [
+          4.0,
+          6.0
+        ],
+        [
+          4.0,
+          14.0
+        ],
+        [
+          3.0,
+          14.0
+        ],
+        [
+          3.0,
+          6.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 67-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          10.0558728,
+          4.8096286,
+          7.7448678
+        ],
+        [
+          10.0335201,
+          5.0324117,
+          7.9016454
+        ],
+        [
+          9.7616185,
+          5.0051307,
+          7.9016454
+        ],
+        [
+          9.7839714,
+          4.7823476,
+          7.7448678
+        ]
+      ],
+      "uv": [
+        [
+          8.0,
+          6.0
+        ],
+        [
+          8.0,
+          7.0
+        ],
+        [
+          7.0,
+          7.0
+        ],
+        [
+          7.0,
+          6.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 68-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          9.6990119,
+          5.629107899999999,
+          7.0060388
+        ],
+        [
+          9.9709135,
+          5.6563889,
+          7.0060388
+        ],
+        [
+          9.9552619,
+          5.8123834,
+          6.7821372
+        ],
+        [
+          9.6833603,
+          5.7851023999999995,
+          6.7821372
+        ]
+      ],
+      "uv": [
+        [
+          11.0,
+          6.0
+        ],
+        [
+          11.0,
+          7.0
+        ],
+        [
+          12.0,
+          7.0
+        ],
+        [
+          12.0,
+          6.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 69-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          9.7057131,
+          5.5623192999999995,
+          6.6253598
+        ],
+        [
+          9.6833603,
+          5.7851023999999995,
+          6.7821372
+        ],
+        [
+          9.9552619,
+          5.8123834,
+          6.7821372
+        ],
+        [
+          9.9776146,
+          5.5896003,
+          6.6253598
+        ]
+      ],
+      "uv": [
+        [
+          12.0,
+          6.0
+        ],
+        [
+          12.0,
+          7.0
+        ],
+        [
+          11.0,
+          7.0
+        ],
+        [
+          11.0,
+          6.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 70-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          9.8175238,
+          4.447942,
+          9.177931
+        ],
+        [
+          10.0894253,
+          4.475223,
+          9.177931
+        ],
+        [
+          9.9485606,
+          5.879172,
+          7.1628167
+        ],
+        [
+          9.6766591,
+          5.851890999999999,
+          7.1628167
+        ]
+      ],
+      "uv": [
+        [
+          2.0,
+          7.0
+        ],
+        [
+          2.0,
+          8.0
+        ],
+        [
+          11.0,
+          8.0
+        ],
+        [
+          11.0,
+          7.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 71-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          10.0804749,
+          4.5644287,
+          8.5733501
+        ],
+        [
+          9.8085734,
+          4.5371477,
+          8.5733501
+        ],
+        [
+          9.7616185,
+          5.0051307,
+          7.9016454
+        ],
+        [
+          10.0335201,
+          5.0324117,
+          7.9016454
+        ]
+      ],
+      "uv": [
+        [
+          4.0,
+          7.0
+        ],
+        [
+          4.0,
+          8.0
+        ],
+        [
+          7.0,
+          8.0
+        ],
+        [
+          7.0,
+          7.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 72-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          9.7929218,
+          4.6931419,
+          8.3494486
+        ],
+        [
+          9.6588046,
+          6.029840399999999,
+          9.2901141
+        ],
+        [
+          9.930706,
+          6.0571214,
+          9.2901141
+        ],
+        [
+          10.0648233,
+          4.7204229,
+          8.3494486
+        ]
+      ],
+      "uv": [
+        [
+          5.0,
+          7.0
+        ],
+        [
+          5.0,
+          13.0
+        ],
+        [
+          4.0,
+          13.0
+        ],
+        [
+          4.0,
+          7.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 73-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          10.0491718,
+          4.876417399999999,
+          8.1255469
+        ],
+        [
+          9.9150545,
+          6.2131153999999995,
+          9.0662124
+        ],
+        [
+          9.643153,
+          6.1858344,
+          9.0662124
+        ],
+        [
+          9.7772702,
+          4.8491364,
+          8.1255469
+        ]
+      ],
+      "uv": [
+        [
+          7.0,
+          7.0
+        ],
+        [
+          7.0,
+          13.0
+        ],
+        [
+          6.0,
+          13.0
+        ],
+        [
+          6.0,
+          7.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 74-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          9.6990119,
+          5.629107899999999,
+          7.0060388
+        ],
+        [
+          9.6766591,
+          5.851890999999999,
+          7.1628167
+        ],
+        [
+          9.9485606,
+          5.879172,
+          7.1628167
+        ],
+        [
+          9.9709135,
+          5.6563889,
+          7.0060388
+        ]
+      ],
+      "uv": [
+        [
+          11.0,
+          7.0
+        ],
+        [
+          11.0,
+          8.0
+        ],
+        [
+          10.0,
+          8.0
+        ],
+        [
+          10.0,
+          7.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 75-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          10.0737736,
+          4.6312175,
+          8.9540294
+        ],
+        [
+          9.9843621,
+          5.5223496,
+          9.5811397
+        ],
+        [
+          9.7124607,
+          5.4950686,
+          9.5811397
+        ],
+        [
+          9.8018722,
+          4.6039365,
+          8.9540294
+        ]
+      ],
+      "uv": [
+        [
+          4.0,
+          8.0
+        ],
+        [
+          4.0,
+          12.0
+        ],
+        [
+          3.0,
+          12.0
+        ],
+        [
+          3.0,
+          8.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 76-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          10.0424703,
+          4.943206,
+          8.5062262
+        ],
+        [
+          9.7705689,
+          4.915925,
+          8.5062262
+        ],
+        [
+          9.7549173,
+          5.0719195,
+          8.2823245
+        ],
+        [
+          10.0268188,
+          5.099200499999999,
+          8.2823245
+        ]
+      ],
+      "uv": [
+        [
+          5.0,
+          8.0
+        ],
+        [
+          5.0,
+          9.0
+        ],
+        [
+          6.0,
+          9.0
+        ],
+        [
+          6.0,
+          8.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 77-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          9.6856096,
+          5.762685599999999,
+          7.7673973
+        ],
+        [
+          9.9575109,
+          5.7899666,
+          7.7673973
+        ],
+        [
+          9.9418592,
+          5.9459611,
+          7.5434957
+        ],
+        [
+          9.6699579,
+          5.9186800999999996,
+          7.5434957
+        ]
+      ],
+      "uv": [
+        [
+          9.0,
+          8.0
+        ],
+        [
+          9.0,
+          9.0
+        ],
+        [
+          10.0,
+          9.0
+        ],
+        [
+          10.0,
+          8.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 78-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          9.6923108,
+          5.6958965,
+          7.3867183
+        ],
+        [
+          9.5581936,
+          7.032595,
+          8.3273837
+        ],
+        [
+          9.8300951,
+          7.059876,
+          8.3273837
+        ],
+        [
+          9.9642122,
+          5.723177499999999,
+          7.3867183
+        ]
+      ],
+      "uv": [
+        [
+          10.0,
+          8.0
+        ],
+        [
+          10.0,
+          14.0
+        ],
+        [
+          9.0,
+          14.0
+        ],
+        [
+          9.0,
+          8.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 79-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          9.7571665,
+          5.0495027,
+          9.2675846
+        ],
+        [
+          10.0290679,
+          5.0767837,
+          9.2675846
+        ],
+        [
+          9.9351582,
+          6.0127497,
+          7.9241749
+        ],
+        [
+          9.6632567,
+          5.985468699999999,
+          7.9241749
+        ]
+      ],
+      "uv": [
+        [
+          3.0,
+          9.0
+        ],
+        [
+          3.0,
+          10.0
+        ],
+        [
+          9.0,
+          10.0
+        ],
+        [
+          9.0,
+          9.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 80-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          9.6856096,
+          5.762685599999999,
+          7.7673973
+        ],
+        [
+          9.6185509,
+          6.431034299999999,
+          8.23773
+        ],
+        [
+          9.8904524,
+          6.4583153,
+          8.23773
+        ],
+        [
+          9.9575109,
+          5.7899666,
+          7.7673973
+        ]
+      ],
+      "uv": [
+        [
+          9.0,
+          9.0
+        ],
+        [
+          9.0,
+          12.0
+        ],
+        [
+          8.0,
+          12.0
+        ],
+        [
+          8.0,
+          9.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 81-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          10.0134163,
+          5.232777899999999,
+          9.0436829
+        ],
+        [
+          9.9910633,
+          5.455560999999999,
+          9.2004605
+        ],
+        [
+          9.7191619,
+          5.42828,
+          9.2004605
+        ],
+        [
+          9.7415148,
+          5.2054969,
+          9.0436829
+        ]
+      ],
+      "uv": [
+        [
+          5.0,
+          10.0
+        ],
+        [
+          5.0,
+          11.0
+        ],
+        [
+          4.0,
+          11.0
+        ],
+        [
+          4.0,
+          10.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 82-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          9.6789084,
+          5.8294742,
+          8.1480766
+        ],
+        [
+          9.6565554,
+          6.0522572,
+          8.3048542
+        ],
+        [
+          9.9284569,
+          6.0795382,
+          8.3048542
+        ],
+        [
+          9.9508098,
+          5.856755199999999,
+          8.1480766
+        ]
+      ],
+      "uv": [
+        [
+          8.0,
+          10.0
+        ],
+        [
+          8.0,
+          11.0
+        ],
+        [
+          7.0,
+          11.0
+        ],
+        [
+          7.0,
+          10.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 83-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          10.006715,
+          5.2995668,
+          9.4243622
+        ],
+        [
+          9.7348135,
+          5.2722858,
+          9.4243622
+        ],
+        [
+          9.6409038,
+          6.208251799999999,
+          8.0809525
+        ],
+        [
+          9.9128052,
+          6.2355328,
+          8.0809525
+        ]
+      ],
+      "uv": [
+        [
+          3.0,
+          11.0
+        ],
+        [
+          3.0,
+          12.0
+        ],
+        [
+          9.0,
+          12.0
+        ],
+        [
+          9.0,
+          11.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 84-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          9.6811575,
+          5.807057299999999,
+          9.1333365
+        ],
+        [
+          9.953059,
+          5.8343383,
+          9.1333365
+        ],
+        [
+          9.9374073,
+          5.9903322999999995,
+          8.9094348
+        ],
+        [
+          9.6655059,
+          5.9630513,
+          8.9094348
+        ]
+      ],
+      "uv": [
+        [
+          5.0,
+          11.0
+        ],
+        [
+          5.0,
+          12.0
+        ],
+        [
+          6.0,
+          12.0
+        ],
+        [
+          6.0,
+          11.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 85-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          10.0000138,
+          5.3663552999999995,
+          9.8050413
+        ],
+        [
+          9.7281123,
+          5.3390743,
+          9.8050413
+        ],
+        [
+          9.6028993,
+          6.5870288,
+          8.0138285
+        ],
+        [
+          9.8748007,
+          6.6143098,
+          8.0138285
+        ]
+      ],
+      "uv": [
+        [
+          2.0,
+          12.0
+        ],
+        [
+          2.0,
+          13.0
+        ],
+        [
+          10.0,
+          13.0
+        ],
+        [
+          10.0,
+          12.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 86-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          9.6744562,
+          5.8738459,
+          9.5140157
+        ],
+        [
+          9.9463577,
+          5.9011268999999995,
+          9.5140157
+        ],
+        [
+          9.8837512,
+          6.5251044,
+          8.6184093
+        ],
+        [
+          9.6118497,
+          6.4978234,
+          8.6184093
+        ]
+      ],
+      "uv": [
+        [
+          4.0,
+          12.0
+        ],
+        [
+          4.0,
+          13.0
+        ],
+        [
+          8.0,
+          13.0
+        ],
+        [
+          8.0,
+          12.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 87-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          10.0089337,
+          5.277454199999999,
+          10.4091849
+        ],
+        [
+          9.7370323,
+          5.2501732,
+          10.4091849
+        ],
+        [
+          9.7057595,
+          5.5618574,
+          9.9618189
+        ],
+        [
+          9.977661,
+          5.5891383999999995,
+          9.9618189
+        ]
+      ],
+      "uv": [
+        [
+          0.00048828125,
+          13.0
+        ],
+        [
+          0.00048828125,
+          14.0
+        ],
+        [
+          2.0,
+          14.0
+        ],
+        [
+          2.0,
+          13.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 88-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          10.0089337,
+          5.277454199999999,
+          10.4091849
+        ],
+        [
+          9.9419188,
+          5.945368299999999,
+          10.8792115
+        ],
+        [
+          9.6700173,
+          5.9180873,
+          10.8792115
+        ],
+        [
+          9.7370323,
+          5.2501732,
+          10.4091849
+        ]
+      ],
+      "uv": [
+        [
+          1.0,
+          13.0
+        ],
+        [
+          1.0,
+          15.99951171875
+        ],
+        [
+          0.0,
+          15.99951171875
+        ],
+        [
+          0.0,
+          13.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 89-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          9.667755,
+          5.9406345,
+          9.8946949
+        ],
+        [
+          9.9396565,
+          5.967915499999999,
+          9.8946949
+        ],
+        [
+          9.8300951,
+          7.059876,
+          8.3273837
+        ],
+        [
+          9.5581936,
+          7.032595,
+          8.3273837
+        ]
+      ],
+      "uv": [
+        [
+          3.0,
+          13.0
+        ],
+        [
+          3.0,
+          14.0
+        ],
+        [
+          10.0,
+          14.0
+        ],
+        [
+          10.0,
+          13.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 90-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          9.667755,
+          5.9406345,
+          9.8946949
+        ],
+        [
+          9.6230929,
+          6.3857658,
+          10.2079439
+        ],
+        [
+          9.8949944,
+          6.4130468,
+          10.2079439
+        ],
+        [
+          9.9396565,
+          5.967915499999999,
+          9.8946949
+        ]
+      ],
+      "uv": [
+        [
+          3.0,
+          14.0
+        ],
+        [
+          3.0,
+          16.0
+        ],
+        [
+          2.0,
+          16.0
+        ],
+        [
+          2.0,
+          14.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "wither_skeleton surface 91-0",
+      "group": "Wither Skeleton",
+      "texture": "#skin1",
+      "vertices": [
+        [
+          9.6700173,
+          5.9180873,
+          10.8792115
+        ],
+        [
+          9.9419188,
+          5.945368299999999,
+          10.8792115
+        ],
+        [
+          9.8949944,
+          6.4130468,
+          10.2079439
+        ],
+        [
+          9.6230929,
+          6.3857658,
+          10.2079439
+        ]
+      ],
+      "uv": [
+        [
+          0.00048828125,
+          15.0
+        ],
+        [
+          0.00048828125,
+          16.0
+        ],
+        [
+          3.0,
+          16.0
+        ],
+        [
+          3.0,
+          15.0
+        ]
+      ],
+      "glow": false,
+      "colors": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ]
+      ]
+    }
+  ],
+  "bounds": [
+    [
+      3,
+      13
+    ],
+    [
+      0,
+      14
+    ],
+    [
+      4,
+      12
+    ]
+  ],
+  "face_count": 191
+}

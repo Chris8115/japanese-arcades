@@ -30,7 +30,19 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 /** Three persistent, decorative forms of each collectible: loose, empty box and boxed. */
 public final class MobFigureBlock extends HorizontalDirectionalBlock {
     public enum Form { FIGURE, BOX, BOXED }
-    public static final List<String> MOBS = List.of("creeper", "zombie", "skeleton", "enderman", "slime", "axolotl");
+    /** All 82 vanilla 1.21.1 Mob entity types; original six retain their collection order. */
+    public static final List<String> MOBS = List.of(
+        "creeper", "zombie", "skeleton", "enderman", "slime", "axolotl",
+        "allay", "armadillo", "bat", "bee", "blaze", "bogged", "breeze", "camel", "cat", "cave_spider",
+        "chicken", "cod", "cow", "dolphin", "donkey", "drowned", "elder_guardian", "ender_dragon", "endermite",
+        "evoker", "fox", "frog", "ghast", "giant", "glow_squid", "goat", "guardian", "hoglin", "horse", "husk",
+        "illusioner", "iron_golem", "llama", "magma_cube", "mooshroom", "mule", "ocelot", "panda", "parrot",
+        "phantom", "pig", "piglin", "piglin_brute", "pillager", "polar_bear", "pufferfish", "rabbit", "ravager",
+        "salmon", "sheep", "shulker", "silverfish", "skeleton_horse", "sniffer", "snow_golem", "spider", "squid",
+        "stray", "strider", "tadpole", "trader_llama", "tropical_fish", "turtle", "vex", "villager", "vindicator",
+        "wandering_trader", "warden", "witch", "wither", "wither_skeleton", "wolf", "zoglin", "zombie_horse",
+        "zombie_villager", "zombified_piglin"
+    );
     public static final MapCodec<MobFigureBlock> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
         Codec.STRING.fieldOf("mob").forGetter(block -> block.mob),
         Codec.STRING.xmap(Form::valueOf, Form::name).fieldOf("form").forGetter(block -> block.form),

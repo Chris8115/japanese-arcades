@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "japanesearcades:block/iron_golem_figure_box"
+    },
+    "facing=east": {
+      "model": "japanesearcades:block/iron_golem_figure_box",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "japanesearcades:block/iron_golem_figure_box",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "japanesearcades:block/iron_golem_figure_box",
+      "y": 270
+    }
+  }
+}

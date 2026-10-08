@@ -7,8 +7,10 @@ import java.util.List;
 import java.util.function.Consumer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
+import net.minecraft.nbt.NbtUtils;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntityType;
@@ -98,6 +100,13 @@ public final class MobFigureGameTests {
                         && bounds.minZ == minZ && bounds.maxZ == 1-minZ
                         && bounds.minY == 0 && bounds.maxY == (loose ? 11.5 : 14)/16.0,
                         "Collectible collision did not match its placed form or facing: " + item + " " + facing);
+                    var saved = NbtUtils.writeBlockState(state);
+                    helper.setBlock(BASE, Blocks.AIR);
+                    var restored = NbtUtils.readBlockState(helper.getLevel().holderLookup(Registries.BLOCK), saved);
+                    helper.getLevel().setBlock(pos, restored, 3);
+                    helper.assertTrue(restored.equals(state)
+                        && restored.getBlock().getCloneItemStack(helper.getLevel(), pos, restored).is(item),
+                        "Saved collectible lost its mob, form, facing or pick-block item: " + item + " " + facing);
                     helper.getLevel().setBlock(pos, state.rotate(Rotation.CLOCKWISE_90), 3);
                     helper.assertBlockProperty(BASE, MobFigureBlock.FACING, facing.getClockWise());
                     helper.getLevel().setBlock(pos, state.mirror(Mirror.LEFT_RIGHT), 3);

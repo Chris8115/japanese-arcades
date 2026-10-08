@@ -1,4 +1,4 @@
-"""Reproducible static block models for the six arcade mob collectibles.
+"""Reproducible static models for all Minecraft 1.21.1 mob collectibles.
 
 Run with Python/Pillow. Vanilla entity PNGs are copied byte-for-byte from the
 local 1.21.1 client JAR (or retained existing copies); no entity renderer runs.
@@ -11,18 +11,18 @@ import hashlib
 import json
 import uuid
 import zipfile
+import sys
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
+from mob_figure_catalog import MOBS
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / 'src/main/resources/assets/japanesearcades'
 TEX = ASSETS / 'textures/block'
 ART = ROOT / 'art/mob_figures'
 LOOT = ROOT / 'src/main/resources/data/japanesearcades/loot_table/blocks'
-MOBS = [('creeper', '#97d85e', 'OVERWORLD'), ('zombie', '#53c7ba', 'OVERWORLD'),
-        ('skeleton', '#e3d6bd', 'OVERWORLD'), ('enderman', '#bc8ef1', 'THE END'),
-        ('slime', '#a9ed77', 'SWAMP'), ('axolotl', '#f9a7c9', 'LUSH CAVES')]
+LEGACY_MOBS = ('creeper', 'zombie', 'skeleton', 'enderman', 'slime', 'axolotl')
 PANELS = {'front': (0, 0, 320, 448), 'back': (320, 0, 640, 448),
           'left': (640, 0, 896, 448), 'right': (0, 448, 256, 896),
           'top': (256, 448, 576, 704), 'bottom': (576, 448, 896, 704),
@@ -56,6 +56,7 @@ def lettering(draw, text, xy, size, fill, max_width=None, anchor='mm'):
 
 def make_package(mob, accent, number, biome):
     """Print dieline-like artwork; the central front panel is truly transparent."""
+    title = mob.replace('_', ' ').upper()
     im = Image.new('RGBA', (1024, 1024), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
     navy, paper, gold = SWATCHES['navy'], SWATCHES['paper'], SWATCHES['gold']
@@ -71,7 +72,7 @@ def make_package(mob, accent, number, biome):
     lettering(d, 'ARCADE PRIZE  /  SERIES 01', (139, 49), 10, accent)
     d.rectangle((267, 15, 302, 52), fill=accent)
     lettering(d, f'{number:02}', (285, 35), 23, navy)
-    lettering(d, mob.upper(), (160, 409), 32, paper, 270)
+    lettering(d, title, (160, 409), 32, paper, 270)
     lettering(d, 'MINIATURE DISPLAY FIGURE', (160, 432), 10, accent)
     # Small opaque glints imply the clear packaging film without a translucent
     # full-sheet overdraw layer or obscuring the actual 3D collectible.
@@ -83,15 +84,18 @@ def make_package(mob, accent, number, biome):
     d.rectangle((x, 0, x+319, 447), fill=paper)
     d.rectangle((x, 0, x+319, 76), fill=navy)
     lettering(d, 'MOB COLLECTION', (x+160, 29), 25, paper)
-    lettering(d, f'NO. {number:02}  /  {mob.upper()}', (x+160, 55), 14, accent)
+    lettering(d, f'NO. {number:02}  /  {title}', (x+160, 55), 14, accent, 294)
     d.rectangle((x+22, 100, x+297, 248), fill=accent)
     lettering(d, f'{number:02}', (x+160, 172), 126, navy)
     lettering(d, biome, (x+160, 273), 17, navy)
-    lettering(d, 'COLLECT ALL SIX', (x+160, 312), 20, navy)
+    lettering(d, f'COLLECT ALL {len(MOBS)}', (x+160, 312), 20, navy)
     for i in range(6):
+        badge = ((number-1)//6)*6+i+1
+        if badge > len(MOBS):
+            continue
         xx = x+27+i*46
-        d.rectangle((xx, 335, xx+35, 370), fill=navy if i+1 == number else '#bac3bd')
-        lettering(d, f'{i+1:02}', (xx+18, 353), 17, paper)
+        d.rectangle((xx, 335, xx+35, 370), fill=navy if badge == number else '#bac3bd')
+        lettering(d, f'{badge:02}', (xx+18, 353), 17, paper)
     lettering(d, 'FUN PACK ARCADE', (x+118, 404), 13, navy)
     lettering(d, 'DISPLAY SERIES 01', (x+118, 425), 10, navy)
     for i in range(26):
@@ -108,14 +112,14 @@ def make_package(mob, accent, number, biome):
         lettering(d, 'COLLECTION', ((x0+x1)/2, y0+79), 24, navy)
         lettering(d, f'{number:02}', ((x0+x1)/2, y0+220), 132, navy)
         d.rectangle((x0+15, y0+328, x1-16, y0+386), fill=navy)
-        lettering(d, mob.upper(), ((x0+x1)/2, y0+357), 30, paper, 206)
+        lettering(d, title, ((x0+x1)/2, y0+357), 30, paper, 206)
         lettering(d, 'ARCADE PRIZE', ((x0+x1)/2, y0+421), 15, navy)
     for side in ('top', 'bottom'):
         x0, y0, x1, y1 = PANELS[side]
         d.rectangle((x0, y0, x1-1, y1-1), fill=navy)
         d.rectangle((x0+10, y0+10, x1-11, y1-11), outline=accent, width=3)
         lettering(d, 'MOB COLLECTION', ((x0+x1)/2, y0+91), 26, paper, 290)
-        lettering(d, f'{number:02}  /  {mob.upper()}', ((x0+x1)/2, y0+137), 23, accent)
+        lettering(d, f'{number:02}  /  {title}', ((x0+x1)/2, y0+137), 23, accent, 290)
         lettering(d, 'FUN PACK ARCADE', ((x0+x1)/2, y0+185), 13, paper)
     x0, y0, x1, y1 = PANELS['inner']
     d.rectangle((x0, y0, x1-1, y1-1), fill='#dce2db')
@@ -127,7 +131,7 @@ def make_package(mob, accent, number, biome):
     x0, y0, x1, y1 = PANELS['plaque']
     d.rectangle((x0, y0, x1-1, y1-1), fill=navy)
     d.rectangle((x0+3, y0+3, x1-4, y1-4), outline=accent, width=3)
-    lettering(d, f'{number:02}  {mob.upper()}', ((x0+x1)/2, (y0+y1)/2), 37, paper, 292)
+    lettering(d, f'{number:02}  {title}', ((x0+x1)/2, (y0+y1)/2), 37, paper, 292)
     for i, color in enumerate([*SWATCHES.values(), accent]):
         d.rectangle((900, i*48, 963, i*48+47), fill=color)
     # Two-by-two supersampling keeps printed type legible at modest VRAM cost.
@@ -159,7 +163,7 @@ class Geometry:
     def __init__(self, mob):
         self.mob = mob
         self.elements = []
-        self.texture_size = Image.open(TEX/(mob+'_figure_skin.png')).size
+        self.texture_size = Image.open(TEX/(mob+'_figure_skin.png')).size if mob in LEGACY_MOBS else (64, 64)
 
     def cube(self, name, start, end, material='skin', uv=None, colors=None):
         faces = {}
@@ -367,6 +371,9 @@ def main():
     sources=[]
     archive=zipfile.ZipFile(args.minecraft_jar) if args.minecraft_jar.exists() else None
     for number,(mob,accent,biome) in enumerate(MOBS,1):
+        make_package(mob,accent,number,biome)
+        if mob not in LEGACY_MOBS:
+            continue
         basename='axolotl_lucy' if mob=='axolotl' else mob
         source='assets/minecraft/textures/entity/'+mob+'/'+basename+'.png'
         dest=TEX/(mob+'_figure_skin.png')
@@ -378,10 +385,13 @@ def main():
             dest=TEX/'enderman_figure_eyes.png'
             if archive:dest.write_bytes(archive.read('assets/minecraft/textures/entity/enderman/enderman_eyes.png'))
             if not dest.exists():raise FileNotFoundError('Missing copied Enderman eyes texture')
-        make_package(mob,accent,number,biome)
     if archive:archive.close()
     audit=[]
     for mob,accent,biome in MOBS:
+        if mob not in LEGACY_MOBS:
+            from mob_figure_meshes import export_captured_mob
+            audit.extend(export_captured_mob(mob, sys.modules[__name__]))
+            continue
         loose=figure(mob)
         audit.append(export(mob+'_figure',mob,loose))
         empty=packaging(mob)
@@ -392,7 +402,7 @@ def main():
             e['from'][1]+=.6;e['to'][1]+=.6
             full.elements.append(e)
         audit.append(export('boxed_'+mob+'_figure',mob,full,True))
-    write(ART/'model-audit.json',{'format':'static vanilla block JSON','source_minecraft_version':'1.21.1',
+    write(ART/'model-audit.json',{'format':'static baked block models (legacy cuboids and captured vanilla meshes)','source_minecraft_version':'1.21.1',
         'render_type':'minecraft:cutout','textures_copied_without_modification':sources,'models':audit})
 
 
