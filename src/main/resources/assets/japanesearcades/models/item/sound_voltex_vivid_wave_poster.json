@@ -3,11 +3,12 @@
   "gui_light": "front",
   "textures": {
     "poster": "japanesearcades:item/sound_voltex_vivid_wave_poster",
-    "particle": "japanesearcades:item/sound_voltex_vivid_wave_poster"
+    "particle": "japanesearcades:item/sound_voltex_vivid_wave_poster",
+    "frame": "japanesearcades:item/poster_frame_black"
   },
   "elements": [
     {
-      "name": "SOUND VOLTEX VIVID WAVE poster print",
+      "name": "Black outer edges",
       "from": [
         2.5452880859375,
         0.5,
@@ -20,41 +21,188 @@
       ],
       "faces": {
         "east": {
-          "texture": "#poster",
+          "texture": "#frame",
           "uv": [
             0,
             0,
-            0.015625,
-            0.015625
+            16,
+            16
           ]
         },
         "west": {
-          "texture": "#poster",
+          "texture": "#frame",
           "uv": [
             0,
             0,
-            0.015625,
-            0.015625
+            16,
+            16
           ]
         },
         "up": {
-          "texture": "#poster",
+          "texture": "#frame",
           "uv": [
             0,
             0,
-            0.015625,
-            0.015625
+            16,
+            16
           ]
         },
         "down": {
-          "texture": "#poster",
+          "texture": "#frame",
           "uv": [
             0,
             0,
-            0.015625,
-            0.015625
+            16,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "name": "Left",
+      "from": [
+        2.5452880859375,
+        0.5,
+        7.94
+      ],
+      "to": [
+        3.0362121582031247,
+        15.5,
+        8.06
+      ],
+      "faces": {
+        "north": {
+          "texture": "#frame",
+          "uv": [
+            0,
+            0,
+            16,
+            16
           ]
         },
+        "south": {
+          "texture": "#frame",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "name": "Right",
+      "from": [
+        12.963787841796876,
+        0.5,
+        7.94
+      ],
+      "to": [
+        13.4547119140625,
+        15.5,
+        8.06
+      ],
+      "faces": {
+        "north": {
+          "texture": "#frame",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#frame",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "name": "Bottom",
+      "from": [
+        3.0362121582031247,
+        0.5,
+        7.94
+      ],
+      "to": [
+        12.963787841796876,
+        1.1749999999999998,
+        8.06
+      ],
+      "faces": {
+        "north": {
+          "texture": "#frame",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#frame",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "name": "Top",
+      "from": [
+        3.0362121582031247,
+        14.825,
+        7.94
+      ],
+      "to": [
+        12.963787841796876,
+        15.5,
+        8.06
+      ],
+      "faces": {
+        "north": {
+          "texture": "#frame",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#frame",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "name": "SOUND VOLTEX VIVID WAVE print",
+      "from": [
+        3.0362121582031247,
+        1.1749999999999998,
+        7.94
+      ],
+      "to": [
+        12.963787841796876,
+        14.825,
+        8.06
+      ],
+      "faces": {
         "north": {
           "texture": "#poster",
           "uv": [

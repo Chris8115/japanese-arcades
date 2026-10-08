@@ -1,0 +1,15 @@
+{
+  "asset": "maimai_universe_poster",
+  "created_date": "2026-10-08",
+  "method": "built-in image_gen image edit",
+  "input_role": "Photograph of user-supplied printed arcade poster; edit target",
+  "source_archived_path": "art/arcade_posters/expansion/sources/maimai_universe_poster.webp",
+  "output_path": "art/arcade_posters/expansion/cleaned/maimai_universe_poster.png",
+  "transparent_background": false,
+  "prompt": "Use case: precise-object-edit. Asset type: faithful restored rectangular arcade-poster texture for a Minecraft decoration. Input image 1 is the sole edit target, a photograph of the original printed poster. Extract ONLY the entire printed poster and perspective-correct it into a perfectly straight-on, flat rectangular digital scan. Portrait aspect ratio about 0.707 width/height. The printed image must fill the canvas edge-to-edge with no added margins or frame. Remove all floor, cups, paper weights, glass glare, physical shadows, folds and perspective distortion. Restore even clean print lighting and original saturated colors. Preserve the exact original characters, faces, costumes, poses, composition, game logos, small thumbnails, Japanese writing and all readable typography as closely as possible. Do not redesign, restyle or invent new art. Reconstruct only areas obscured by glare or objects. No 3D mockup, border, new text or watermark. The major title must remain exactly \"maimai でらっくす UNiVERSE\". Keep the central two anime mascots, surrounding song cover thumbnails and captions, the paired white arcade cabinets in the center, the large colorful UNiVERSE logo lower-center, round cartoon mascots, pale blue space-and-star pattern, and bottom dark blue social link strip with SEGA at right. Remove specular white glare running through the lower logo and bottom strip while reconstructing their original printed pixels faithfully.",
+  "inspection": "Visually inspected generated output: full rectangular artwork; no floor, cups, perspective distortion, glare, poles or added frame. Major illustration, layout and game branding retained. Generative restoration may alter fine lettering and small details; source photograph is preserved for comparison.",
+  "source_sha256": "6e015f3884b269c7c9f483d740672d66be628ed1b4a680c277493ddd49e69108",
+  "output_sha256": "1ba76928166fefdfa34b6700ef1c688e5435bac87ad3deea5d21c3417df9e44b",
+  "output_width": 1054,
+  "output_height": 1492
+}

@@ -1,0 +1,15 @@
+{
+  "asset": "we_love_music_game_poster",
+  "created_date": "2026-10-08",
+  "method": "built-in image_gen image edit",
+  "input_role": "Photograph of user-supplied printed arcade poster; edit target",
+  "source_archived_path": "art/arcade_posters/expansion/sources/we_love_music_game_poster.webp",
+  "output_path": "art/arcade_posters/expansion/cleaned/we_love_music_game_poster.png",
+  "transparent_background": false,
+  "prompt": "Use case: precise-object-edit. Asset type: faithful restored rectangular arcade-poster texture for a Minecraft decoration. Input image 1 is the sole edit target, a photograph of the original printed poster. Extract ONLY the entire printed poster and perspective-correct it into a perfectly straight-on, flat rectangular digital scan. Portrait aspect ratio about 0.707 width/height. The printed image must fill the canvas edge-to-edge with no added margins or frame. Remove all floor, cups, paper weights, glass glare, physical shadows, folds and perspective distortion. Restore even clean print lighting and original saturated colors. Preserve the exact original characters, faces, costumes, poses, composition, game logos, small thumbnails, Japanese writing and all readable typography as closely as possible. Do not redesign, restyle or invent new art. Reconstruct only areas obscured by glare or objects. No 3D mockup, border, new text or watermark. The major title must remain exactly \"We Love Music Game\". Input is a printed hanging scroll photographed on the floor. Keep Hatsune Miku and every cartoon mascot in the exact original illustrated pose, the three arcade cabinets behind her, the printed brand logos along the top blue strip, the large colorful 'We Love Music Game' title in the lower half, cyan/purple geometric star background, and hot pink printed top and bottom design areas. Remove physical cylindrical roll bars/poles, cords, floor and both cups; flatten curled upper and lower printed edges. Do not remove the pink graphic artwork just because poles are pink.",
+  "inspection": "Visually inspected generated output: full rectangular artwork; no floor, cups, perspective distortion, glare, poles or added frame. Major illustration, layout and game branding retained. Generative restoration may alter fine lettering and small details; source photograph is preserved for comparison.",
+  "source_sha256": "363d8039ff55c50f3ecb350f4a4c12bc8e347f268ccc3c5a975e4744de817a50",
+  "output_sha256": "77d3caad189b82cea90c1aaa9bb510eab360d9720981c86b6622c76f44311f4e",
+  "output_width": 1055,
+  "output_height": 1491
+}

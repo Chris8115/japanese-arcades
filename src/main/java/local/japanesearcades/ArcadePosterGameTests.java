@@ -195,12 +195,19 @@ public final class ArcadePosterGameTests {
         helper.succeed();
     }
 
-    @GameTest(template = "nostalgia_test", timeoutTicks = 140)
+    @GameTest(template = "nostalgia_test", timeoutTicks = 260)
     public static void everyUnsupportedArtworkDropsItsOwnCollectible(GameTestHelper helper) {
         var player = player(helper, "PosterSupport", GameType.SURVIVAL);
-        for (int index = 0; index < JapaneseArcades.ARCADE_POSTERS.size(); index++) {
+        unsupportedBatch(helper, player, 0);
+    }
+
+    private static void unsupportedBatch(GameTestHelper helper, ServerPlayer player, int first) {
+        int end = Math.min(first + 12, JapaneseArcades.ARCADE_POSTERS.size());
+        for (int index = first; index < end; index++) {
             var print = JapaneseArcades.ARCADE_POSTERS.get(index);
-            var wall = new BlockPos(index % 6, 3, 2 + (index / 6) * 3);
+            int slot = index - first;
+            // Reuse two rows inside the seven-block fixture instead of reaching into neighboring tests.
+            var wall = new BlockPos(slot % 6, 3, 2 + (slot / 6) * 3);
             wall(helper, wall, true);
             player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(print.item().get()));
             helper.assertTrue(place(helper, player, Direction.NORTH, wall).consumesAction(), "Supported gallery placement failed");
@@ -208,11 +215,13 @@ public final class ArcadePosterGameTests {
         }
         helper.runAfterDelay(110, () -> {
             helper.assertTrue(posters(helper).isEmpty(), "Unsupported gallery poster survived");
-            for (var print : JapaneseArcades.ARCADE_POSTERS) {
+            for (var print : JapaneseArcades.ARCADE_POSTERS.subList(first, end)) {
                 helper.assertItemEntityCountIs(print.item().get(), WALL, 5, 1);
             }
             helper.assertItemEntityCountIs(Items.PAINTING, WALL, 5, 0);
-            helper.succeed();
+            helper.getEntities(EntityType.ITEM, WALL, 5).forEach(ItemEntity::discard);
+            if (end < JapaneseArcades.ARCADE_POSTERS.size()) { unsupportedBatch(helper, player, end); }
+            else { helper.succeed(); }
         });
     }
 }

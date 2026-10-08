@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "asset": "chunithm_luminous_plus_poster",
+  "mode": "built-in image_gen edit",
+  "source_role": "User-supplied photographed poster; immutable source bytes preserved",
+  "source_file": "../sources/chunithm_luminous_plus_poster.webp",
+  "output_file": "../cleaned/chunithm_luminous_plus_poster.png",
+  "prompt": "Use case: precise-object-edit. Asset type: exact restoration of a photographed Japanese arcade promotional poster into a flat digital game texture.\nInput image: the one referenced image is the EDIT TARGET, not a style reference.\nPrimary request: Extract only the complete original printed poster from this photograph. Correct all camera perspective so the paper is a perfectly straight-on upright rectangle. Remove photographed silver metal frame, surrounding wall or floor, cups/weights, glare, reflections, uneven illumination, paper curling and folds. Where those physical intrusions obscure print, reconstruct only the obscured small portions by closely continuing the existing illustration.\nSubject invariants: Pink pastel CHUNITHM poster with the pink-haired hoodie character on the right, grouped characters on the left and upper middle, vertical Japanese headline on the right, large logo near the lower center, arcade cabinets at both bottom corners, and orange first-play banner.\nText invariants: Preserve all Japanese lettering, small captions, logos and placement as faithfully as possible. The large game title must remain exactly \"CHUNITHM Luminous PLUS\". Do not rewrite, translate, modernize or redesign any printing.\nComposition: Single portrait poster, approximately Japanese B poster proportions (width/height 0.707), artwork fills canvas edge to edge, all original printed edges and footer included. No outside margins, no added black frame, no extra objects, no mockup, no watermark.\nStyle: Restore existing illustration and printed colors accurately, clean even digital-print lighting. Keep the original characters, faces, outfits, linework, shapes, layout, typography and palette unchanged apart from the perspective and damage cleanup.",
+  "review": "Visually reviewed against supplied photograph. Full printed composition retained, perspective corrected, surrounding frame/wall/floor/cups removed, glare removed. No added black border. Generated restoration can approximate small lettering and fine illustration details; original bytes preserved for comparison.",
+  "generated_on": "2026-10-08",
+  "source_sha256": "f9079e8f3eb0c6eb78262bfd9b64ce7d03a0844eabf3525f9d6582919a1fd3e4",
+  "output_sha256": "a6ea7cbaa77a66480f4009986a8edac2ee76ea79661b4637183914a6ac2d0137",
+  "output_dimensions": [
+    1055,
+    1490
+  ]
+}

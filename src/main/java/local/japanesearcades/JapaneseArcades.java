@@ -98,7 +98,10 @@ public final class JapaneseArcades {
     public static final List<ArcadePosterSet> ARCADE_POSTERS = List.of(
         "nostalgia_poster", "nostalgia_op2_poster", "nostalgia_forte_poster",
         "sound_voltex_exceed_gear_poster", "sound_voltex_vivid_wave_poster", "taiko_drum_n_fun_poster",
-        "wacca_s_poster", "wacca_reverse_poster", "wacca_lily_poster", "wacca_lily_r_poster", "jubeat_festo_poster"
+        "wacca_s_poster", "wacca_reverse_poster", "wacca_lily_poster", "wacca_lily_r_poster", "jubeat_festo_poster",
+        "project_diva_arcade_poster", "chunithm_luminous_plus_poster", "sound_voltex_exceed_gear_ensemble_poster",
+        "maimai_splash_poster", "sega_cygames_poster", "maimai_universe_poster", "chunithm_paradise_poster",
+        "we_love_music_game_poster"
     ).stream().map(path -> new ArcadePosterSet(path,
         ITEMS.registerItem(path, properties -> new ArcadePosterItem(properties, path), new Item.Properties()))).toList();
     public static final DeferredHolder<EntityType<?>, EntityType<ArcadePosterEntity>> ARCADE_POSTER_ENTITY =

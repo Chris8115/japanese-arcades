@@ -1,0 +1,15 @@
+{
+  "asset": "sega_cygames_poster",
+  "created_date": "2026-10-08",
+  "method": "built-in image_gen image edit",
+  "input_role": "Photograph of user-supplied printed arcade poster; edit target",
+  "source_archived_path": "art/arcade_posters/expansion/sources/sega_cygames_poster.webp",
+  "output_path": "art/arcade_posters/expansion/cleaned/sega_cygames_poster.png",
+  "transparent_background": false,
+  "prompt": "Use case: precise-object-edit. Asset type: faithful restored rectangular arcade-poster texture for a Minecraft decoration. Input image 1 is the sole edit target, a photograph of the original printed poster. Extract ONLY the entire printed poster and perspective-correct it into a perfectly straight-on, flat rectangular digital scan. Portrait aspect ratio about 0.707 width/height. The printed image must fill the canvas edge-to-edge with no added margins or frame. Remove all floor, cups, paper weights, glass glare, physical shadows, folds and perspective distortion. Restore even clean print lighting and original saturated colors. Preserve the exact original characters, faces, costumes, poses, composition, game logos, small thumbnails, Japanese writing and all readable typography as closely as possible. Do not redesign, restyle or invent new art. Reconstruct only areas obscured by glare or objects. No 3D mockup, border, new text or watermark. The major title must remain exactly \"SEGA音ゲー×Cygames / 夢のコラボレーション\". Keep the three columns: Granblue Fantasy characters above CHUNITHM cabinet left, Shadowverse above maimai cabinet center, Princess Connect Re:Dive above ONGEKI cabinet right. Preserve all three title logos at the top, all three arcade cabinet pictures, the large gold Japanese collaboration headline in the lower third, blue sky and pale yellow bottom, bottom-center URL box and SEGA lower-right.",
+  "inspection": "Visually inspected generated output: full rectangular artwork; no floor, cups, perspective distortion, glare, poles or added frame. Major illustration, layout and game branding retained. Generative restoration may alter fine lettering and small details; source photograph is preserved for comparison.",
+  "source_sha256": "a0952e96905642afb5293e5b5603672f65539143c86e63878d1448ef0ac462e5",
+  "output_sha256": "dee66efcc57f2dc1e0366344e7a4e6b2688cf2e7d6605a4561b2c84e7b697c50",
+  "output_width": 1054,
+  "output_height": 1492
+}

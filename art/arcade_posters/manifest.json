@@ -1,5 +1,5 @@
 {
-  "poster_count": 11,
+  "poster_count": 19,
   "posters": [
     {
       "id": "nostalgia_poster",
@@ -14,6 +14,15 @@
           528,
           704
         ]
+      },
+      "artwork": {
+        "file": "art/arcade_posters/sources/nostalgia_poster.jpg",
+        "sha256": "b03ec59704789d05fe6cc1b72dcf70b0db7fc203e539fd33d7bc88fabca6320a",
+        "dimensions": [
+          528,
+          704
+        ],
+        "restored_with_imagegen": false
       },
       "output": {
         "texture": "japanesearcades:painting/nostalgia_poster",
@@ -61,11 +70,12 @@
           15.0,
           0.1200000000000001
         ],
-        "item_faces": 6,
-        "placed_faces": 12,
-        "placed_face_source": "Shared vanilla PaintingRenderer: 1 x 2 cells, 6 quads per cell"
+        "item_faces": 14,
+        "art_scale": 0.91,
+        "placed_faces": 10,
+        "placed_face_source": "Black back + 4 outer edges + 4 front frame strips + inset art"
       },
-      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA item dimensions, 6 item faces"
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA outer dimensions, 14 item faces"
     },
     {
       "id": "nostalgia_op2_poster",
@@ -80,6 +90,15 @@
           528,
           704
         ]
+      },
+      "artwork": {
+        "file": "art/arcade_posters/sources/nostalgia_op2_poster.jpg",
+        "sha256": "01c06b3041c671011750a522bf12d480b3ae595a5c6cbcc601b49541762498b2",
+        "dimensions": [
+          528,
+          704
+        ],
+        "restored_with_imagegen": false
       },
       "output": {
         "texture": "japanesearcades:painting/nostalgia_op2_poster",
@@ -127,11 +146,12 @@
           15.0,
           0.1200000000000001
         ],
-        "item_faces": 6,
-        "placed_faces": 12,
-        "placed_face_source": "Shared vanilla PaintingRenderer: 1 x 2 cells, 6 quads per cell"
+        "item_faces": 14,
+        "art_scale": 0.91,
+        "placed_faces": 10,
+        "placed_face_source": "Black back + 4 outer edges + 4 front frame strips + inset art"
       },
-      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA item dimensions, 6 item faces"
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA outer dimensions, 14 item faces"
     },
     {
       "id": "nostalgia_forte_poster",
@@ -146,6 +166,15 @@
           528,
           704
         ]
+      },
+      "artwork": {
+        "file": "art/arcade_posters/sources/nostalgia_forte_poster.jpg",
+        "sha256": "8cf4ad5d11a774c469f0f9f5c1217caf9d7a5dc912ad964389c801af80efa90c",
+        "dimensions": [
+          528,
+          704
+        ],
+        "restored_with_imagegen": false
       },
       "output": {
         "texture": "japanesearcades:painting/nostalgia_forte_poster",
@@ -193,11 +222,12 @@
           15.0,
           0.1200000000000001
         ],
-        "item_faces": 6,
-        "placed_faces": 12,
-        "placed_face_source": "Shared vanilla PaintingRenderer: 1 x 2 cells, 6 quads per cell"
+        "item_faces": 14,
+        "art_scale": 0.91,
+        "placed_faces": 10,
+        "placed_face_source": "Black back + 4 outer edges + 4 front frame strips + inset art"
       },
-      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA item dimensions, 6 item faces"
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA outer dimensions, 14 item faces"
     },
     {
       "id": "sound_voltex_exceed_gear_poster",
@@ -212,6 +242,15 @@
           528,
           704
         ]
+      },
+      "artwork": {
+        "file": "art/arcade_posters/sources/sound_voltex_exceed_gear_poster.jpg",
+        "sha256": "e76e8f3b56802f0cadc2f719cc102cbe9923225c2d861a80e7f1e6d51efae791",
+        "dimensions": [
+          528,
+          704
+        ],
+        "restored_with_imagegen": false
       },
       "output": {
         "texture": "japanesearcades:painting/sound_voltex_exceed_gear_poster",
@@ -259,11 +298,12 @@
           15.0,
           0.1200000000000001
         ],
-        "item_faces": 6,
-        "placed_faces": 12,
-        "placed_face_source": "Shared vanilla PaintingRenderer: 1 x 2 cells, 6 quads per cell"
+        "item_faces": 14,
+        "art_scale": 0.91,
+        "placed_faces": 10,
+        "placed_face_source": "Black back + 4 outer edges + 4 front frame strips + inset art"
       },
-      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA item dimensions, 6 item faces"
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA outer dimensions, 14 item faces"
     },
     {
       "id": "sound_voltex_vivid_wave_poster",
@@ -278,6 +318,15 @@
           528,
           704
         ]
+      },
+      "artwork": {
+        "file": "art/arcade_posters/sources/sound_voltex_vivid_wave_poster.jpg",
+        "sha256": "d15184cc9691c90cfaa3ed6ccce9f1f1d2b7bae2c78d005f628ac192e87e9652",
+        "dimensions": [
+          528,
+          704
+        ],
+        "restored_with_imagegen": false
       },
       "output": {
         "texture": "japanesearcades:painting/sound_voltex_vivid_wave_poster",
@@ -325,11 +374,12 @@
           15.0,
           0.1200000000000001
         ],
-        "item_faces": 6,
-        "placed_faces": 12,
-        "placed_face_source": "Shared vanilla PaintingRenderer: 1 x 2 cells, 6 quads per cell"
+        "item_faces": 14,
+        "art_scale": 0.91,
+        "placed_faces": 10,
+        "placed_face_source": "Black back + 4 outer edges + 4 front frame strips + inset art"
       },
-      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA item dimensions, 6 item faces"
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA outer dimensions, 14 item faces"
     },
     {
       "id": "taiko_drum_n_fun_poster",
@@ -344,6 +394,15 @@
           528,
           704
         ]
+      },
+      "artwork": {
+        "file": "art/arcade_posters/sources/taiko_drum_n_fun_poster.jpg",
+        "sha256": "e76763af74d4c7a69bfb6398ac36bb40dc66d4f5e4cb3db6bec63b2fcb2b6365",
+        "dimensions": [
+          528,
+          704
+        ],
+        "restored_with_imagegen": false
       },
       "output": {
         "texture": "japanesearcades:painting/taiko_drum_n_fun_poster",
@@ -391,11 +450,12 @@
           15.0,
           0.1200000000000001
         ],
-        "item_faces": 6,
-        "placed_faces": 12,
-        "placed_face_source": "Shared vanilla PaintingRenderer: 1 x 2 cells, 6 quads per cell"
+        "item_faces": 14,
+        "art_scale": 0.91,
+        "placed_faces": 10,
+        "placed_face_source": "Black back + 4 outer edges + 4 front frame strips + inset art"
       },
-      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA item dimensions, 6 item faces"
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA outer dimensions, 14 item faces"
     },
     {
       "id": "wacca_s_poster",
@@ -410,6 +470,15 @@
           528,
           704
         ]
+      },
+      "artwork": {
+        "file": "art/arcade_posters/sources/wacca_s_poster.jpg",
+        "sha256": "6d245155e90b966129cc18cc3683e4a17f99cfecb0948bccb5ae019719882309",
+        "dimensions": [
+          528,
+          704
+        ],
+        "restored_with_imagegen": false
       },
       "output": {
         "texture": "japanesearcades:painting/wacca_s_poster",
@@ -457,11 +526,12 @@
           15.0,
           0.1200000000000001
         ],
-        "item_faces": 6,
-        "placed_faces": 12,
-        "placed_face_source": "Shared vanilla PaintingRenderer: 1 x 2 cells, 6 quads per cell"
+        "item_faces": 14,
+        "art_scale": 0.91,
+        "placed_faces": 10,
+        "placed_face_source": "Black back + 4 outer edges + 4 front frame strips + inset art"
       },
-      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA item dimensions, 6 item faces"
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA outer dimensions, 14 item faces"
     },
     {
       "id": "wacca_reverse_poster",
@@ -476,6 +546,15 @@
           528,
           704
         ]
+      },
+      "artwork": {
+        "file": "art/arcade_posters/sources/wacca_reverse_poster.jpg",
+        "sha256": "33cdad916dc164b9772f82ea414c9dce7468d4ac4d2f58b7a804c15d52b73ef9",
+        "dimensions": [
+          528,
+          704
+        ],
+        "restored_with_imagegen": false
       },
       "output": {
         "texture": "japanesearcades:painting/wacca_reverse_poster",
@@ -523,11 +602,12 @@
           15.0,
           0.1200000000000001
         ],
-        "item_faces": 6,
-        "placed_faces": 12,
-        "placed_face_source": "Shared vanilla PaintingRenderer: 1 x 2 cells, 6 quads per cell"
+        "item_faces": 14,
+        "art_scale": 0.91,
+        "placed_faces": 10,
+        "placed_face_source": "Black back + 4 outer edges + 4 front frame strips + inset art"
       },
-      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA item dimensions, 6 item faces"
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA outer dimensions, 14 item faces"
     },
     {
       "id": "wacca_lily_poster",
@@ -542,6 +622,15 @@
           528,
           704
         ]
+      },
+      "artwork": {
+        "file": "art/arcade_posters/sources/wacca_lily_poster.jpg",
+        "sha256": "c8a61a24eac0d45deffbb1c2569a37954a6f6e9aaf87111dd89c445fd3514374",
+        "dimensions": [
+          528,
+          704
+        ],
+        "restored_with_imagegen": false
       },
       "output": {
         "texture": "japanesearcades:painting/wacca_lily_poster",
@@ -589,11 +678,12 @@
           15.0,
           0.1200000000000001
         ],
-        "item_faces": 6,
-        "placed_faces": 12,
-        "placed_face_source": "Shared vanilla PaintingRenderer: 1 x 2 cells, 6 quads per cell"
+        "item_faces": 14,
+        "art_scale": 0.91,
+        "placed_faces": 10,
+        "placed_face_source": "Black back + 4 outer edges + 4 front frame strips + inset art"
       },
-      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA item dimensions, 6 item faces"
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA outer dimensions, 14 item faces"
     },
     {
       "id": "wacca_lily_r_poster",
@@ -608,6 +698,15 @@
           528,
           704
         ]
+      },
+      "artwork": {
+        "file": "art/arcade_posters/sources/wacca_lily_r_poster.jpg",
+        "sha256": "4a01f7972036311b9f36723d724f886f090bc214d594d574bee91eae16daeafc",
+        "dimensions": [
+          528,
+          704
+        ],
+        "restored_with_imagegen": false
       },
       "output": {
         "texture": "japanesearcades:painting/wacca_lily_r_poster",
@@ -655,11 +754,12 @@
           15.0,
           0.1200000000000001
         ],
-        "item_faces": 6,
-        "placed_faces": 12,
-        "placed_face_source": "Shared vanilla PaintingRenderer: 1 x 2 cells, 6 quads per cell"
+        "item_faces": 14,
+        "art_scale": 0.91,
+        "placed_faces": 10,
+        "placed_face_source": "Black back + 4 outer edges + 4 front frame strips + inset art"
       },
-      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA item dimensions, 6 item faces"
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA outer dimensions, 14 item faces"
     },
     {
       "id": "jubeat_festo_poster",
@@ -674,6 +774,15 @@
           528,
           704
         ]
+      },
+      "artwork": {
+        "file": "art/arcade_posters/sources/jubeat_festo_poster.jpg",
+        "sha256": "441c1e3ae54c3a0ed149e30f9dad079410de5d783c53e9f9ed8f05e6e8471718",
+        "dimensions": [
+          528,
+          704
+        ],
+        "restored_with_imagegen": false
       },
       "output": {
         "texture": "japanesearcades:painting/jubeat_festo_poster",
@@ -721,11 +830,620 @@
           15.0,
           0.1200000000000001
         ],
-        "item_faces": 6,
-        "placed_faces": 12,
-        "placed_face_source": "Shared vanilla PaintingRenderer: 1 x 2 cells, 6 quads per cell"
+        "item_faces": 14,
+        "art_scale": 0.91,
+        "placed_faces": 10,
+        "placed_face_source": "Black back + 4 outer edges + 4 front frame strips + inset art"
       },
-      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA item dimensions, 6 item faces"
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA outer dimensions, 14 item faces"
+    },
+    {
+      "id": "project_diva_arcade_poster",
+      "title": "Project DIVA Arcade",
+      "author": "SEGA",
+      "source": {
+        "file": "art/arcade_posters/expansion/sources/project_diva_arcade_poster.webp",
+        "attachment_filename": "project_diva_arcade_poster.webp",
+        "sha256": "b5f2e86230d40353fb7b5f70aae59eb02099f3160cc752f97be9ea85dd1f0715",
+        "bytes": 135398,
+        "dimensions": [
+          906,
+          1282
+        ]
+      },
+      "artwork": {
+        "file": "art/arcade_posters/expansion/sources/project_diva_arcade_poster.webp",
+        "sha256": "b5f2e86230d40353fb7b5f70aae59eb02099f3160cc752f97be9ea85dd1f0715",
+        "dimensions": [
+          906,
+          1282
+        ],
+        "restored_with_imagegen": false
+      },
+      "output": {
+        "texture": "japanesearcades:painting/project_diva_arcade_poster",
+        "item_texture": "japanesearcades:item/project_diva_arcade_poster",
+        "sha256": "688f27e54894f2c713c0faff71635fb004b9ed47d677f5c20a06fdd0b12b8e93",
+        "item_sha256": "688f27e54894f2c713c0faff71635fb004b9ed47d677f5c20a06fdd0b12b8e93",
+        "dimensions": [
+          512,
+          704
+        ]
+      },
+      "packing": {
+        "operation": "Uniform full-image downsample with centered black letterboxing",
+        "artwork_scale": 0.5491419656786272,
+        "resampling": "Pillow LANCZOS",
+        "scaled_dimensions": [
+          498,
+          704
+        ],
+        "offset": [
+          7,
+          0
+        ],
+        "padding_left_top_right_bottom": [
+          7,
+          0,
+          7,
+          0
+        ],
+        "artwork_height_rounding": "Nearest whole pixel",
+        "supported_mip_levels": 6,
+        "raster_aspect_rounding_error_percent": 0.0030517578125
+      },
+      "geometry": {
+        "visual_dimensions_blocks": [
+          1.0,
+          1.3749580396106076
+        ],
+        "wall_support_grid_blocks": [
+          1,
+          2
+        ],
+        "item_dimensions": [
+          10.909423828125,
+          15.0,
+          0.1200000000000001
+        ],
+        "item_faces": 14,
+        "art_scale": 0.91,
+        "placed_faces": 10,
+        "placed_face_source": "Black back + 4 outer edges + 4 front frame strips + inset art"
+      },
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA outer dimensions, 14 item faces"
+    },
+    {
+      "id": "chunithm_luminous_plus_poster",
+      "title": "CHUNITHM Luminous PLUS",
+      "author": "SEGA",
+      "source": {
+        "file": "art/arcade_posters/expansion/sources/chunithm_luminous_plus_poster.webp",
+        "attachment_filename": "chunithm_luminous_plus_poster.webp",
+        "sha256": "f9079e8f3eb0c6eb78262bfd9b64ce7d03a0844eabf3525f9d6582919a1fd3e4",
+        "bytes": 113690,
+        "dimensions": [
+          854,
+          1139
+        ]
+      },
+      "artwork": {
+        "file": "art/arcade_posters/expansion/cleaned/chunithm_luminous_plus_poster.png",
+        "sha256": "a6ea7cbaa77a66480f4009986a8edac2ee76ea79661b4637183914a6ac2d0137",
+        "dimensions": [
+          1055,
+          1490
+        ],
+        "restored_with_imagegen": true
+      },
+      "output": {
+        "texture": "japanesearcades:painting/chunithm_luminous_plus_poster",
+        "item_texture": "japanesearcades:item/chunithm_luminous_plus_poster",
+        "sha256": "cad4c66d25568163bad2a73a6d8a3fa34efe546d6ac188f7274c6e6b83bd9409",
+        "item_sha256": "cad4c66d25568163bad2a73a6d8a3fa34efe546d6ac188f7274c6e6b83bd9409",
+        "dimensions": [
+          512,
+          704
+        ]
+      },
+      "packing": {
+        "operation": "Uniform full-image downsample with centered black letterboxing",
+        "artwork_scale": 0.47248322147651006,
+        "resampling": "Pillow LANCZOS",
+        "scaled_dimensions": [
+          498,
+          704
+        ],
+        "offset": [
+          7,
+          0
+        ],
+        "padding_left_top_right_bottom": [
+          7,
+          0,
+          7,
+          0
+        ],
+        "artwork_height_rounding": "Nearest whole pixel",
+        "supported_mip_levels": 6,
+        "raster_aspect_rounding_error_percent": 0.0030517578125
+      },
+      "geometry": {
+        "visual_dimensions_blocks": [
+          1.0,
+          1.3749580396106076
+        ],
+        "wall_support_grid_blocks": [
+          1,
+          2
+        ],
+        "item_dimensions": [
+          10.909423828125,
+          15.0,
+          0.1200000000000001
+        ],
+        "item_faces": 14,
+        "art_scale": 0.91,
+        "placed_faces": 10,
+        "placed_face_source": "Black back + 4 outer edges + 4 front frame strips + inset art"
+      },
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA outer dimensions, 14 item faces"
+    },
+    {
+      "id": "sound_voltex_exceed_gear_ensemble_poster",
+      "title": "SOUND VOLTEX EXCEED GEAR Ensemble",
+      "author": "KONAMI",
+      "source": {
+        "file": "art/arcade_posters/expansion/sources/sound_voltex_exceed_gear_ensemble_poster.webp",
+        "attachment_filename": "sound_voltex_exceed_gear_ensemble_poster.webp",
+        "sha256": "b287aa4f53cdc90193da3eb73dacf4a60938326d906b9e3aaed88e5cb5ac5512",
+        "bytes": 121786,
+        "dimensions": [
+          854,
+          1139
+        ]
+      },
+      "artwork": {
+        "file": "art/arcade_posters/expansion/cleaned/sound_voltex_exceed_gear_ensemble_poster.png",
+        "sha256": "b9386ac4a0ff70f23126552b32dc113a105463b964720d1df6c4212025eeb771",
+        "dimensions": [
+          1055,
+          1491
+        ],
+        "restored_with_imagegen": true
+      },
+      "output": {
+        "texture": "japanesearcades:painting/sound_voltex_exceed_gear_ensemble_poster",
+        "item_texture": "japanesearcades:item/sound_voltex_exceed_gear_ensemble_poster",
+        "sha256": "a460608a2c6167f147c3e86a40a01d33aab82da2d122e0f1010875f7e11c59b7",
+        "item_sha256": "a460608a2c6167f147c3e86a40a01d33aab82da2d122e0f1010875f7e11c59b7",
+        "dimensions": [
+          512,
+          704
+        ]
+      },
+      "packing": {
+        "operation": "Uniform full-image downsample with centered black letterboxing",
+        "artwork_scale": 0.4721663313212609,
+        "resampling": "Pillow LANCZOS",
+        "scaled_dimensions": [
+          498,
+          704
+        ],
+        "offset": [
+          7,
+          0
+        ],
+        "padding_left_top_right_bottom": [
+          7,
+          0,
+          7,
+          0
+        ],
+        "artwork_height_rounding": "Nearest whole pixel",
+        "supported_mip_levels": 6,
+        "raster_aspect_rounding_error_percent": 0.0030517578125
+      },
+      "geometry": {
+        "visual_dimensions_blocks": [
+          1.0,
+          1.3749580396106076
+        ],
+        "wall_support_grid_blocks": [
+          1,
+          2
+        ],
+        "item_dimensions": [
+          10.909423828125,
+          15.0,
+          0.1200000000000001
+        ],
+        "item_faces": 14,
+        "art_scale": 0.91,
+        "placed_faces": 10,
+        "placed_face_source": "Black back + 4 outer edges + 4 front frame strips + inset art"
+      },
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA outer dimensions, 14 item faces"
+    },
+    {
+      "id": "maimai_splash_poster",
+      "title": "maimai Splash",
+      "author": "SEGA",
+      "source": {
+        "file": "art/arcade_posters/expansion/sources/maimai_splash_poster.webp",
+        "attachment_filename": "maimai_splash_poster.webp",
+        "sha256": "57eb060a77ea8c9058cf37dd8d90c25d7dda9729e0afc8a536d3abcd087d04e1",
+        "bytes": 152754,
+        "dimensions": [
+          854,
+          1139
+        ]
+      },
+      "artwork": {
+        "file": "art/arcade_posters/expansion/cleaned/maimai_splash_poster.png",
+        "sha256": "955807bdc92a229fd2b7b62237ac98672b8dbe5db5c0b74abeed5120a45adc8b",
+        "dimensions": [
+          1055,
+          1491
+        ],
+        "restored_with_imagegen": true
+      },
+      "output": {
+        "texture": "japanesearcades:painting/maimai_splash_poster",
+        "item_texture": "japanesearcades:item/maimai_splash_poster",
+        "sha256": "5e6cf20c6b25b2cf3e34885c7d444ecbad899c0f613410bdf04d5e6b21d5d2b2",
+        "item_sha256": "5e6cf20c6b25b2cf3e34885c7d444ecbad899c0f613410bdf04d5e6b21d5d2b2",
+        "dimensions": [
+          512,
+          704
+        ]
+      },
+      "packing": {
+        "operation": "Uniform full-image downsample with centered black letterboxing",
+        "artwork_scale": 0.4721663313212609,
+        "resampling": "Pillow LANCZOS",
+        "scaled_dimensions": [
+          498,
+          704
+        ],
+        "offset": [
+          7,
+          0
+        ],
+        "padding_left_top_right_bottom": [
+          7,
+          0,
+          7,
+          0
+        ],
+        "artwork_height_rounding": "Nearest whole pixel",
+        "supported_mip_levels": 6,
+        "raster_aspect_rounding_error_percent": 0.0030517578125
+      },
+      "geometry": {
+        "visual_dimensions_blocks": [
+          1.0,
+          1.3749580396106076
+        ],
+        "wall_support_grid_blocks": [
+          1,
+          2
+        ],
+        "item_dimensions": [
+          10.909423828125,
+          15.0,
+          0.1200000000000001
+        ],
+        "item_faces": 14,
+        "art_scale": 0.91,
+        "placed_faces": 10,
+        "placed_face_source": "Black back + 4 outer edges + 4 front frame strips + inset art"
+      },
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA outer dimensions, 14 item faces"
+    },
+    {
+      "id": "sega_cygames_poster",
+      "title": "SEGA Rhythm Games × Cygames",
+      "author": "SEGA / Cygames",
+      "source": {
+        "file": "art/arcade_posters/expansion/sources/sega_cygames_poster.webp",
+        "attachment_filename": "sega_cygames_poster.webp",
+        "sha256": "a0952e96905642afb5293e5b5603672f65539143c86e63878d1448ef0ac462e5",
+        "bytes": 127554,
+        "dimensions": [
+          854,
+          1139
+        ]
+      },
+      "artwork": {
+        "file": "art/arcade_posters/expansion/cleaned/sega_cygames_poster.png",
+        "sha256": "dee66efcc57f2dc1e0366344e7a4e6b2688cf2e7d6605a4561b2c84e7b697c50",
+        "dimensions": [
+          1054,
+          1492
+        ],
+        "restored_with_imagegen": true
+      },
+      "output": {
+        "texture": "japanesearcades:painting/sega_cygames_poster",
+        "item_texture": "japanesearcades:item/sega_cygames_poster",
+        "sha256": "eef18f413dd6e102a56f3d0bb791f45b24d5c2f33fd5f6af5b78f1c9e7e69f14",
+        "item_sha256": "eef18f413dd6e102a56f3d0bb791f45b24d5c2f33fd5f6af5b78f1c9e7e69f14",
+        "dimensions": [
+          512,
+          704
+        ]
+      },
+      "packing": {
+        "operation": "Uniform full-image downsample with centered black letterboxing",
+        "artwork_scale": 0.4718498659517426,
+        "resampling": "Pillow LANCZOS",
+        "scaled_dimensions": [
+          497,
+          704
+        ],
+        "offset": [
+          7,
+          0
+        ],
+        "padding_left_top_right_bottom": [
+          7,
+          0,
+          8,
+          0
+        ],
+        "artwork_height_rounding": "Nearest whole pixel",
+        "supported_mip_levels": 6,
+        "raster_aspect_rounding_error_percent": 0.0030517578125
+      },
+      "geometry": {
+        "visual_dimensions_blocks": [
+          1.0,
+          1.3749580396106076
+        ],
+        "wall_support_grid_blocks": [
+          1,
+          2
+        ],
+        "item_dimensions": [
+          10.909423828125,
+          15.0,
+          0.1200000000000001
+        ],
+        "item_faces": 14,
+        "art_scale": 0.91,
+        "placed_faces": 10,
+        "placed_face_source": "Black back + 4 outer edges + 4 front frame strips + inset art"
+      },
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA outer dimensions, 14 item faces"
+    },
+    {
+      "id": "maimai_universe_poster",
+      "title": "maimai UNiVERSE",
+      "author": "SEGA",
+      "source": {
+        "file": "art/arcade_posters/expansion/sources/maimai_universe_poster.webp",
+        "attachment_filename": "maimai_universe_poster.webp",
+        "sha256": "6e015f3884b269c7c9f483d740672d66be628ed1b4a680c277493ddd49e69108",
+        "bytes": 137008,
+        "dimensions": [
+          854,
+          1139
+        ]
+      },
+      "artwork": {
+        "file": "art/arcade_posters/expansion/cleaned/maimai_universe_poster.png",
+        "sha256": "1ba76928166fefdfa34b6700ef1c688e5435bac87ad3deea5d21c3417df9e44b",
+        "dimensions": [
+          1054,
+          1492
+        ],
+        "restored_with_imagegen": true
+      },
+      "output": {
+        "texture": "japanesearcades:painting/maimai_universe_poster",
+        "item_texture": "japanesearcades:item/maimai_universe_poster",
+        "sha256": "39e63b6f4fbcb459b1ba2eb86f375c3dbb3d2390c3c0f1b7b53ef2d4f8d387c0",
+        "item_sha256": "39e63b6f4fbcb459b1ba2eb86f375c3dbb3d2390c3c0f1b7b53ef2d4f8d387c0",
+        "dimensions": [
+          512,
+          704
+        ]
+      },
+      "packing": {
+        "operation": "Uniform full-image downsample with centered black letterboxing",
+        "artwork_scale": 0.4718498659517426,
+        "resampling": "Pillow LANCZOS",
+        "scaled_dimensions": [
+          497,
+          704
+        ],
+        "offset": [
+          7,
+          0
+        ],
+        "padding_left_top_right_bottom": [
+          7,
+          0,
+          8,
+          0
+        ],
+        "artwork_height_rounding": "Nearest whole pixel",
+        "supported_mip_levels": 6,
+        "raster_aspect_rounding_error_percent": 0.0030517578125
+      },
+      "geometry": {
+        "visual_dimensions_blocks": [
+          1.0,
+          1.3749580396106076
+        ],
+        "wall_support_grid_blocks": [
+          1,
+          2
+        ],
+        "item_dimensions": [
+          10.909423828125,
+          15.0,
+          0.1200000000000001
+        ],
+        "item_faces": 14,
+        "art_scale": 0.91,
+        "placed_faces": 10,
+        "placed_face_source": "Black back + 4 outer edges + 4 front frame strips + inset art"
+      },
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA outer dimensions, 14 item faces"
+    },
+    {
+      "id": "chunithm_paradise_poster",
+      "title": "CHUNITHM PARADISE",
+      "author": "SEGA",
+      "source": {
+        "file": "art/arcade_posters/expansion/sources/chunithm_paradise_poster.webp",
+        "attachment_filename": "chunithm_paradise_poster.webp",
+        "sha256": "43d110fc07a1e506a58bd968cbce8157b126164e5470cb2e2b522cc1025b4fc4",
+        "bytes": 134000,
+        "dimensions": [
+          854,
+          1139
+        ]
+      },
+      "artwork": {
+        "file": "art/arcade_posters/expansion/cleaned/chunithm_paradise_poster.png",
+        "sha256": "a7168c16acb892a47d6f8c5388f9b1558b342648333e6142a602f5851749eed3",
+        "dimensions": [
+          1054,
+          1492
+        ],
+        "restored_with_imagegen": true
+      },
+      "output": {
+        "texture": "japanesearcades:painting/chunithm_paradise_poster",
+        "item_texture": "japanesearcades:item/chunithm_paradise_poster",
+        "sha256": "53fcb1d1c4d2a49ccccee62e85f6c54c15b99469e7dc71f983a52f3425cc3bff",
+        "item_sha256": "53fcb1d1c4d2a49ccccee62e85f6c54c15b99469e7dc71f983a52f3425cc3bff",
+        "dimensions": [
+          512,
+          704
+        ]
+      },
+      "packing": {
+        "operation": "Uniform full-image downsample with centered black letterboxing",
+        "artwork_scale": 0.4718498659517426,
+        "resampling": "Pillow LANCZOS",
+        "scaled_dimensions": [
+          497,
+          704
+        ],
+        "offset": [
+          7,
+          0
+        ],
+        "padding_left_top_right_bottom": [
+          7,
+          0,
+          8,
+          0
+        ],
+        "artwork_height_rounding": "Nearest whole pixel",
+        "supported_mip_levels": 6,
+        "raster_aspect_rounding_error_percent": 0.0030517578125
+      },
+      "geometry": {
+        "visual_dimensions_blocks": [
+          1.0,
+          1.3749580396106076
+        ],
+        "wall_support_grid_blocks": [
+          1,
+          2
+        ],
+        "item_dimensions": [
+          10.909423828125,
+          15.0,
+          0.1200000000000001
+        ],
+        "item_faces": 14,
+        "art_scale": 0.91,
+        "placed_faces": 10,
+        "placed_face_source": "Black back + 4 outer edges + 4 front frame strips + inset art"
+      },
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA outer dimensions, 14 item faces"
+    },
+    {
+      "id": "we_love_music_game_poster",
+      "title": "We Love Music Game",
+      "author": "SEGA",
+      "source": {
+        "file": "art/arcade_posters/expansion/sources/we_love_music_game_poster.webp",
+        "attachment_filename": "we_love_music_game_poster.webp",
+        "sha256": "363d8039ff55c50f3ecb350f4a4c12bc8e347f268ccc3c5a975e4744de817a50",
+        "bytes": 131228,
+        "dimensions": [
+          854,
+          1139
+        ]
+      },
+      "artwork": {
+        "file": "art/arcade_posters/expansion/cleaned/we_love_music_game_poster.png",
+        "sha256": "77d3caad189b82cea90c1aaa9bb510eab360d9720981c86b6622c76f44311f4e",
+        "dimensions": [
+          1055,
+          1491
+        ],
+        "restored_with_imagegen": true
+      },
+      "output": {
+        "texture": "japanesearcades:painting/we_love_music_game_poster",
+        "item_texture": "japanesearcades:item/we_love_music_game_poster",
+        "sha256": "84c1be840c59b0b1a9364d4e138a51cacde1b8ea757f6dfca4a318f5b54eed92",
+        "item_sha256": "84c1be840c59b0b1a9364d4e138a51cacde1b8ea757f6dfca4a318f5b54eed92",
+        "dimensions": [
+          512,
+          704
+        ]
+      },
+      "packing": {
+        "operation": "Uniform full-image downsample with centered black letterboxing",
+        "artwork_scale": 0.4721663313212609,
+        "resampling": "Pillow LANCZOS",
+        "scaled_dimensions": [
+          498,
+          704
+        ],
+        "offset": [
+          7,
+          0
+        ],
+        "padding_left_top_right_bottom": [
+          7,
+          0,
+          7,
+          0
+        ],
+        "artwork_height_rounding": "Nearest whole pixel",
+        "supported_mip_levels": 6,
+        "raster_aspect_rounding_error_percent": 0.0030517578125
+      },
+      "geometry": {
+        "visual_dimensions_blocks": [
+          1.0,
+          1.3749580396106076
+        ],
+        "wall_support_grid_blocks": [
+          1,
+          2
+        ],
+        "item_dimensions": [
+          10.909423828125,
+          15.0,
+          0.1200000000000001
+        ],
+        "item_faces": 14,
+        "art_scale": 0.91,
+        "placed_faces": 10,
+        "placed_face_source": "Black back + 4 outer edges + 4 front frame strips + inset art"
+      },
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA outer dimensions, 14 item faces"
     }
   ]
 }

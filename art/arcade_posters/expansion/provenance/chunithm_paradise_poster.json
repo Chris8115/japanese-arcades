@@ -1,0 +1,15 @@
+{
+  "asset": "chunithm_paradise_poster",
+  "created_date": "2026-10-08",
+  "method": "built-in image_gen image edit",
+  "input_role": "Photograph of user-supplied printed arcade poster; edit target",
+  "source_archived_path": "art/arcade_posters/expansion/sources/chunithm_paradise_poster.webp",
+  "output_path": "art/arcade_posters/expansion/cleaned/chunithm_paradise_poster.png",
+  "transparent_background": false,
+  "prompt": "Use case: precise-object-edit. Asset type: faithful restored rectangular arcade-poster texture for a Minecraft decoration. Input image 1 is the sole edit target, a photograph of the original printed poster. Extract ONLY the entire printed poster and perspective-correct it into a perfectly straight-on, flat rectangular digital scan. Portrait aspect ratio about 0.707 width/height. The printed image must fill the canvas edge-to-edge with no added margins or frame. Remove all floor, cups, paper weights, glass glare, physical shadows, folds and perspective distortion. Restore even clean print lighting and original saturated colors. Preserve the exact original characters, faces, costumes, poses, composition, game logos, small thumbnails, Japanese writing and all readable typography as closely as possible. Do not redesign, restyle or invent new art. Reconstruct only areas obscured by glare or objects. No 3D mockup, border, new text or watermark. The major title must remain exactly \"CHUNITHM PARADISE\". Keep every illustrated band member in their original pose, instruments and arrangement, the white background with pink/orange/pale teal paint splashes, black vertical Japanese slogans at right and lower left, large CHUNITHM PARADISE logo lower-center, two black arcade cabinets lower-right, and footer social boxes with SEGA at left. Remove the bright glare crossing the lower logo while faithfully restoring its original letterforms.",
+  "inspection": "Visually inspected generated output: full rectangular artwork; no floor, cups, perspective distortion, glare, poles or added frame. Major illustration, layout and game branding retained. Generative restoration may alter fine lettering and small details; source photograph is preserved for comparison.",
+  "source_sha256": "43d110fc07a1e506a58bd968cbce8157b126164e5470cb2e2b522cc1025b4fc4",
+  "output_sha256": "a7168c16acb892a47d6f8c5388f9b1558b342648333e6142a602f5851749eed3",
+  "output_width": 1054,
+  "output_height": 1492
+}

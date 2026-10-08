@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "asset": "maimai_splash_poster",
+  "mode": "built-in image_gen edit",
+  "source_role": "User-supplied photographed poster; immutable source bytes preserved",
+  "source_file": "../sources/maimai_splash_poster.webp",
+  "output_file": "../cleaned/maimai_splash_poster.png",
+  "prompt": "Use case: precise-object-edit. Asset type: exact restoration of a photographed Japanese arcade promotional poster into a flat digital game texture.\nInput image: the one referenced image is the EDIT TARGET, not a style reference.\nPrimary request: Extract only the complete original printed poster from this photograph. Correct all camera perspective so the paper is a perfectly straight-on upright rectangle. Remove photographed silver metal frame, surrounding wall or floor, cups/weights, glare, reflections, uneven illumination, paper curling and folds. Where those physical intrusions obscure print, reconstruct only the obscured small portions by closely continuing the existing illustration.\nSubject invariants: Green and yellow citrus soda themed maimai Splash poster with red-haired anime girl at top-center, Japanese song thumbnails and announcements throughout, twin white arcade cabinets at middle left, large blue/yellow Splash logo at center-bottom, colorful thumbnails below, navy social-links/footer strip and SEGA logo at lower right. Preserve every tile and headline placement.\nText invariants: Preserve all Japanese lettering, small captions, logos and placement as faithfully as possible. The large game title must remain exactly \"maimai でらっくす Splash\". Do not rewrite, translate, modernize or redesign any printing.\nComposition: Single portrait poster, approximately Japanese B poster proportions (width/height 0.707), artwork fills canvas edge to edge, all original printed edges and footer included. No outside margins, no added black frame, no extra objects, no mockup, no watermark.\nStyle: Restore existing illustration and printed colors accurately, clean even digital-print lighting. Keep the original characters, faces, outfits, linework, shapes, layout, typography and palette unchanged apart from the perspective and damage cleanup.",
+  "review": "Visually reviewed against supplied photograph. Full printed composition retained, perspective corrected, surrounding frame/wall/floor/cups removed, glare removed. No added black border. Generated restoration can approximate small lettering and fine illustration details; original bytes preserved for comparison.",
+  "generated_on": "2026-10-08",
+  "source_sha256": "57eb060a77ea8c9058cf37dd8d90c25d7dda9729e0afc8a536d3abcd087d04e1",
+  "output_sha256": "955807bdc92a229fd2b7b62237ac98672b8dbe5db5c0b74abeed5120a45adc8b",
+  "output_dimensions": [
+    1055,
+    1491
+  ]
+}
