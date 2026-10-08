@@ -66,7 +66,7 @@ final class DisplayItemMeshes {
             return false;
         }
         ItemRenderer renderer = Minecraft.getInstance().getItemRenderer();
-        BakedModel model = renderer.getItemModelShaper().getItemModel(stack);
+        BakedModel model = CabinetInventoryModels.full(renderer.getItemModelShaper().getItemModel(stack));
         ModelKey key = new ModelKey(model, context);
         if (model.isCustomRenderer() || model.getOverrides() != ItemOverrides.EMPTY || nativeModels.contains(key)) { return false; }
         Mesh mesh = meshes.get(key);

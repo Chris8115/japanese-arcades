@@ -76,7 +76,7 @@ public final class CustomDisplayBoxRenderer implements BlockEntityRenderer<Custo
                 // removes these nested meshes. Keep the cache, with native GPU culling.
                 ItemDisplayContext context = data.straightOn() ? ItemDisplayContext.NONE : ItemDisplayContext.GUI;
                 if (!DisplayItemMeshes.INSTANCE.render(contents, pose, buffers, light, overlay, cullFromEye, context)) {
-                    mc.getItemRenderer().renderStatic(contents, context, light, overlay, pose, buffers, mc.level, 0);
+                    CabinetInventoryModels.renderFull(contents, context, light, overlay, pose, buffers, mc.level, 0);
                 }
                 pose.popPose();
             }

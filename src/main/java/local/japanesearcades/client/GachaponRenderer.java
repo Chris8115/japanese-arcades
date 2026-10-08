@@ -121,7 +121,7 @@ public final class GachaponRenderer implements BlockEntityRenderer<GachaponBlock
         // compressed so tall 3D item models cannot protrude through the neighbouring machine.
         pose.scale((float) size, (float) size, .005F);
         if (!prizeMeshes.render(item, pose, buffers, light, overlay)) {
-            Minecraft.getInstance().getItemRenderer().renderStatic(item, ItemDisplayContext.GUI,
+            CabinetInventoryModels.renderFull(item, ItemDisplayContext.GUI,
                 light, overlay, pose, buffers, machine.getLevel(), 0);
         }
         pose.popPose();

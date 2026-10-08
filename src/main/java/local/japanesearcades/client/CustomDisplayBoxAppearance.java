@@ -37,7 +37,7 @@ final class CustomDisplayBoxAppearance {
         if (found != null) { return found; }
         Minecraft mc = Minecraft.getInstance();
         var renderer = mc.getItemRenderer();
-        var model = renderer.getModel(stack, mc.level, mc.player, 0);
+        var model = CabinetInventoryModels.full(renderer.getModel(stack, mc.level, mc.player, 0));
         Capture capture = new Capture();
         // Custom renderers can change GL state or recurse. Their particle sprite provides a
         // stable fallback color; the ordinary native renderer still displays the actual item.

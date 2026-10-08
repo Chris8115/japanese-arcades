@@ -1,0 +1,173 @@
+{
+  "nostalgia_op3": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "99bb638ed182faa46cef0cfeb33e573d31a80fc90acffe9acfe4d42d76a99563"
+  },
+  "beatstream": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "4f00dd7079a557d26f402e498127314c3bd3e9dc9e16e68b14c248ab5d7d7d1a"
+  },
+  "sound_voltex_valkyrie": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "24dbd8388805e424e060d051748339ae0629e0bfdcdc7e6a2eb845445f09e6e1"
+  },
+  "sound_voltex_nemsys": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "5870d2b6bdfd371d5e83a25141dd426563a72e2249e3fcc18f42f6fd19628e29"
+  },
+  "beatmania_iidx_lightning": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "2e90881c7aebc0ba252c92ed2c5b17d01294fff67ef5e534535a866eeb149c3a"
+  },
+  "wacca": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "a73abeb14f0019493c9bd85c6e869128b5b17696ef8b07a41a8ceab777397735"
+  },
+  "chunithm": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "e6d932dbfcea193c307049a8fd47ca1221d12d17d075795ed62c6c9e8ab13ca2"
+  },
+  "ongeki": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "a3d9591de55a39a67ddaa6892b68d5ef87526ba066dced1ee1dfe66a21ba8e6f"
+  },
+  "groove_coaster": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "959eb1737fef129cd8a4879f70e5f9bbc4a9b4c0970068011fa05816239a8b3b"
+  },
+  "museca": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "023e93b231111e27bb79f55547ba42e63bf2be51d5224d0b1127238a4339c77b"
+  },
+  "project_diva": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "efddfff66b92f36a81687e647bb15dbe364c3a14e78f86ad3ef40ba6d82372e8"
+  },
+  "chrono_circle": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "75fd66e8ba6d9052f54a77719ee848540c6179918b485bb501a03ac52f5270dc"
+  },
+  "music_diver": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "6ecb92305520980641e28c68786174f2de082a33c0b1622ccfa57bccfc8aeee2"
+  },
+  "popn_music": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "5a48143b88dee44c16e001a4f7b00543873353d762a8997b5ca44f7e51460845"
+  },
+  "maimai": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "0aed6aa2e6d402e583a8610dff9deca2242452a623ab3def3e26eedb41ed5380"
+  },
+  "ddr_supernova": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "58cba853d66cb565773a18c63f6f6aecde6312d8384f9a982eb713dedf7f9bf2"
+  },
+  "taiko": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "4662cbd4488dffc53b73cc371f8850d3e59e0ad45cadb69da815bec2e6ff2c6e"
+  },
+  "initial_d": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "d94592c4c66f0b372dc81e27f3fc716908f162e4664b377b048d55e765ba65aa"
+  },
+  "jubeat": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "c7b2b03ad3712dc07623df6474617c2314f3b2504a01a9a5a1e22fbfc7960d9a"
+  }
+}

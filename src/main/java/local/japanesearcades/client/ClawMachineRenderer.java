@@ -164,7 +164,7 @@ public final class ClawMachineRenderer implements BlockEntityRenderer<ClawMachin
         pose.mulPose(Axis.YP.rotationDegrees(180));
         pose.scale(size, size, depth);
         if (!prizeMeshes.render(stack, pose, buffers, light, overlay)) {
-            Minecraft.getInstance().getItemRenderer().renderStatic(stack, ItemDisplayContext.GUI,
+            CabinetInventoryModels.renderFull(stack, ItemDisplayContext.GUI,
                 light, overlay, pose, buffers, machine.getLevel(), seed);
         }
         pose.popPose();

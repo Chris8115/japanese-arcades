@@ -236,7 +236,9 @@ public final class TaikoCabinetBlock extends NostalgiaCabinetBlock {
         Section section = state.getValue(SECTION);
         int key = facing.ordinal()*10 + side.ordinal()*5 + section.ordinal();
         synchronized (shapeCache) {
-            return shapeCache.computeIfAbsent(key, ignored -> buildShape(facing, side, section));
+            // Preserve the exact barrel slices while avoiding full-grid rescans
+            // whenever vanilla draws the outline or raycasts the targeted drum.
+            return shapeCache.computeIfAbsent(key, ignored -> CachedCabinetShape.of(buildShape(facing, side, section)));
         }
     }
 

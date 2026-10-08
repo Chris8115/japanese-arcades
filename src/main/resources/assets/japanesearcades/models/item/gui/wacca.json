@@ -1,0 +1,35 @@
+{
+  "ambientocclusion": false,
+  "gui_light": "front",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "icon": "japanesearcades:item/gui/wacca",
+    "particle": "japanesearcades:item/gui/wacca"
+  },
+  "elements": [
+    {
+      "from": [
+        -4,
+        -4,
+        8
+      ],
+      "to": [
+        20,
+        20,
+        8
+      ],
+      "shade": false,
+      "faces": {
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#icon"
+        }
+      }
+    }
+  ]
+}
