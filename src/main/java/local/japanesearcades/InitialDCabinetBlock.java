@@ -35,6 +35,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public final class InitialDCabinetBlock extends NostalgiaCabinetBlock {
     public static final MapCodec<InitialDCabinetBlock> CODEC = simpleCodec(InitialDCabinetBlock::new);
     public static final EnumProperty<Section> SECTION = EnumProperty.create("section", Section.class);
+    private final java.util.Map<Integer, VoxelShape> shapeCache = new java.util.concurrent.ConcurrentHashMap<>();
 
     public InitialDCabinetBlock(Properties properties) {
         super(properties);
@@ -176,7 +177,13 @@ public final class InitialDCabinetBlock extends NostalgiaCabinetBlock {
     }
     @Override protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         Direction facing = state.getValue(FACING);
-        return switch (state.getValue(SECTION)) {
+        Section section = state.getValue(SECTION);
+        int key = facing.ordinal()*7 + section.ordinal();
+        return shapeCache.computeIfAbsent(key, ignored -> CachedCabinetShape.of(buildShape(facing, section)));
+    }
+
+    static VoxelShape buildShape(Direction facing, Section section) {
+        return switch (section) {
             case CABINET_BASE -> Shapes.or(box(facing, .64, .05, 3.6, 15.36, 15.2, 15.1),
                 box(facing, .64, 15.2, 2.8, 15.36, 16, 14.87));
             case CABINET_CONSOLE -> Shapes.or(box(facing, .64, 0, .6, 15.36, 4, 14.87),

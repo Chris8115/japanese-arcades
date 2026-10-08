@@ -1,0 +1,87 @@
+{
+  "cabinet": "museca",
+  "generator": "make_museca_model.py",
+  "changed": true,
+  "method": "Integer pixel crop; remapped source-pixel UV coordinates; no resampling or geometry changes",
+  "pixels_saved": 915456,
+  "textures": {
+    "japanesearcades:block/museca_display": {
+      "before_size": [
+        1024,
+        2048
+      ],
+      "after_size": [
+        960,
+        1696
+      ],
+      "rectangle": [
+        0,
+        0,
+        960,
+        1696
+      ],
+      "sampled_pixel_bounds": [
+        0.0,
+        0.0,
+        940.0,
+        1672.0
+      ],
+      "source_rgba_sha256": "f0b03bee7f16a5fdd4c7ac5bf8b9f2a978df58c76277f6c92cd11c9d45e70f72",
+      "retained_rgba_sha256": "88fdc568cec6ad0352b364fdb707283d0f501421434e2c6f2856b3431e15d9ac",
+      "pixels_saved": 468992,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": false,
+      "uv_points_checked": 18,
+      "max_pixel_coordinate_error": 0,
+      "model_references": [
+        "block/museca_console.json",
+        "block/museca_marquee.json",
+        "item/museca.json"
+      ]
+    },
+    "japanesearcades:block/museca_marquee": {
+      "before_size": [
+        2048,
+        1024
+      ],
+      "after_size": [
+        1664,
+        992
+      ],
+      "rectangle": [
+        0,
+        0,
+        1664,
+        992
+      ],
+      "sampled_pixel_bounds": [
+        0.0,
+        0.0,
+        1635.000000512,
+        962.0
+      ],
+      "source_rgba_sha256": "bca773d987ec1b93a29b144ea78ebd34f52e6bf18f0e2b4ff4e4858357226200",
+      "retained_rgba_sha256": "43bcb0d098885a387f2cab1fb9df0ab34a694e9939e81a074be24e2aa6d3e409",
+      "pixels_saved": 446464,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": false,
+      "uv_points_checked": 262,
+      "max_pixel_coordinate_error": 1.1368683772161603e-13,
+      "model_references": [
+        "block/museca_marquee.json",
+        "item/museca.json"
+      ]
+    }
+  },
+  "files": [
+    "art/museca/geometry.json",
+    "art/museca/museca.bbmodel",
+    "src/main/resources/assets/japanesearcades/models/block/museca_console.obj",
+    "src/main/resources/assets/japanesearcades/models/block/museca_marquee.obj",
+    "src/main/resources/assets/japanesearcades/models/item/museca.obj",
+    "src/main/resources/assets/japanesearcades/textures/block/museca_display.png",
+    "src/main/resources/assets/japanesearcades/textures/block/museca_marquee.png"
+  ]
+}

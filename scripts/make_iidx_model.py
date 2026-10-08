@@ -517,3 +517,7 @@ for f in surfaces:
     assert sum(v*v for v in cross)>1e-18,('Degenerate face',f['name'])
 print('beatmania IIDX LIGHTNING MODEL:',len(surfaces),'authoring faces; bounds',bounds)
 print('Optimized native meshes:',stats)
+
+# Trim unused artwork borders after all runtime and authoring exports exist.
+from compact_cabinet_textures import compact_cabinet
+compact_cabinet('iidx')

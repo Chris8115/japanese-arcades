@@ -66,6 +66,8 @@ public final class GachaponBlockEntity extends BlockEntity {
     private boolean crankActive;
     private int crankTicks;
     private boolean suppressUpdates;
+    // Retain inventory invalidation until the chunk broadcaster builds its next packet.
+    private boolean fullPublicUpdate = true;
 
     public GachaponBlockEntity(BlockPos pos, BlockState state) {
         super(JapaneseArcades.GACHAPON_ENTITY.get(), pos, state);
@@ -231,7 +233,7 @@ public final class GachaponBlockEntity extends BlockEntity {
             machine.completeRoll(player);
             machine.awaitingRelease.put(player.getUUID(), level.getGameTime());
             machine.cancelCrank();
-        } else if (machine.crankTicks % 2 == 0) { machine.sendPublicUpdate(); }
+        } else if (machine.crankTicks % 2 == 0) { machine.sendAnimationUpdate(); }
     }
 
     private void cancelCrank() {
@@ -373,6 +375,11 @@ public final class GachaponBlockEntity extends BlockEntity {
     }
 
     private void sendPublicUpdate() {
+        fullPublicUpdate = true;
+        sendAnimationUpdate();
+    }
+
+    private void sendAnimationUpdate() {
         if (level != null && !level.isClientSide) { level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 2); }
     }
 
@@ -407,6 +414,7 @@ public final class GachaponBlockEntity extends BlockEntity {
         holdingCrank = false;
         crankActive = false;
         passwordRevision++;
+        fullPublicUpdate = true;
     }
 
     /** Explicit allow-list: no ownership, credentials, collected money, or hidden inventory is sent to nearby clients. */
@@ -418,20 +426,38 @@ public final class GachaponBlockEntity extends BlockEntity {
             ItemStack item = inventory.getItem(REWARD_START + slot);
             if (!item.isEmpty()) { tag.put("Preview" + slot, item.copyWithCount(1).save(registries)); }
         }
-        tag.putInt("CrankTicks", crankTicks);
-        tag.putBoolean("CrankActive", crankActive);
+        writeAnimation(tag);
         return tag;
     }
 
+    private void writeAnimation(CompoundTag tag) {
+        tag.putInt("CrankTicks", crankTicks);
+        tag.putBoolean("CrankActive", crankActive);
+    }
+
     @Override
-    public ClientboundBlockEntityDataPacket getUpdatePacket() { return ClientboundBlockEntityDataPacket.create(this); }
+    public ClientboundBlockEntityDataPacket getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this, (entity, registries) -> {
+            if (fullPublicUpdate) {
+                fullPublicUpdate = false;
+                return getUpdateTag(registries);
+            }
+            // Chunk/initial tracking still uses the complete getUpdateTag snapshot above.
+            CompoundTag tag = new CompoundTag();
+            tag.putBoolean("AnimationOnly", true);
+            writeAnimation(tag);
+            return tag;
+        });
+    }
 
     @Override
     public void handleUpdateTag(CompoundTag tag, HolderLookup.Provider registries) {
-        publicPrice = tag.contains("Price") ? ItemStack.parse(registries, tag.getCompound("Price")).orElse(ItemStack.EMPTY) : ItemStack.EMPTY;
-        for (int slot = 0; slot < 9; slot++) {
-            publicRewards[slot] = tag.contains("Preview" + slot)
-                ? ItemStack.parse(registries, tag.getCompound("Preview" + slot)).orElse(ItemStack.EMPTY) : ItemStack.EMPTY;
+        if (!tag.getBoolean("AnimationOnly")) {
+            publicPrice = tag.contains("Price") ? ItemStack.parse(registries, tag.getCompound("Price")).orElse(ItemStack.EMPTY) : ItemStack.EMPTY;
+            for (int slot = 0; slot < 9; slot++) {
+                publicRewards[slot] = tag.contains("Preview" + slot)
+                    ? ItemStack.parse(registries, tag.getCompound("Preview" + slot)).orElse(ItemStack.EMPTY) : ItemStack.EMPTY;
+            }
         }
         crankTicks = Math.clamp(tag.getInt("CrankTicks"), 0, CRANK_DURATION);
         crankActive = tag.getBoolean("CrankActive");

@@ -1,0 +1,87 @@
+{
+  "cabinet": "ongeki",
+  "generator": "make_ongeki_model.py",
+  "changed": true,
+  "method": "Integer pixel crop; remapped source-pixel UV coordinates; no resampling or geometry changes",
+  "pixels_saved": 3014912,
+  "textures": {
+    "japanesearcades:block/ongeki_display": {
+      "before_size": [
+        1024,
+        2048
+      ],
+      "after_size": [
+        960,
+        1696
+      ],
+      "rectangle": [
+        0,
+        0,
+        960,
+        1696
+      ],
+      "sampled_pixel_bounds": [
+        0.0,
+        0.0,
+        940.999999488,
+        1672.0
+      ],
+      "source_rgba_sha256": "bee32055d59f5179af20e8d330c397a9dbe5eb4efb473ef850854ea677ab59c5",
+      "retained_rgba_sha256": "a92c0d9d635d80d91b14984c74815b153b214793b6c6c41664bb2ed369082d2a",
+      "pixels_saved": 468992,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": false,
+      "uv_points_checked": 16,
+      "max_pixel_coordinate_error": 0,
+      "model_references": [
+        "block/ongeki_console.json",
+        "block/ongeki_marquee.json",
+        "item/ongeki.json"
+      ]
+    },
+    "japanesearcades:block/ongeki_marquee": {
+      "before_size": [
+        4096,
+        1024
+      ],
+      "after_size": [
+        2192,
+        752
+      ],
+      "rectangle": [
+        0,
+        0,
+        2192,
+        752
+      ],
+      "sampled_pixel_bounds": [
+        0.0,
+        0.0,
+        2172.000002048,
+        724.0
+      ],
+      "source_rgba_sha256": "a30bce0cf8e3b68025983146f534ed663c4763f3cb63dde59a797288364811b2",
+      "retained_rgba_sha256": "62bae1cab4d2f4e4558b8c1c65839cb8f0f72a0f2ca137a75675f7233083a3d6",
+      "pixels_saved": 2545920,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": false,
+      "uv_points_checked": 12,
+      "max_pixel_coordinate_error": 0,
+      "model_references": [
+        "block/ongeki_marquee.json",
+        "item/ongeki.json"
+      ]
+    }
+  },
+  "files": [
+    "art/ongeki/geometry.json",
+    "art/ongeki/ongeki.bbmodel",
+    "src/main/resources/assets/japanesearcades/models/block/ongeki_console.obj",
+    "src/main/resources/assets/japanesearcades/models/block/ongeki_marquee.obj",
+    "src/main/resources/assets/japanesearcades/models/item/ongeki.obj",
+    "src/main/resources/assets/japanesearcades/textures/block/ongeki_display.png",
+    "src/main/resources/assets/japanesearcades/textures/block/ongeki_marquee.png"
+  ]
+}

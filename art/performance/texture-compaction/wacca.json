@@ -1,0 +1,87 @@
+{
+  "cabinet": "wacca",
+  "generator": "make_wacca_model.py",
+  "changed": true,
+  "method": "Integer pixel crop; remapped source-pixel UV coordinates; no resampling or geometry changes",
+  "pixels_saved": 5494528,
+  "textures": {
+    "japanesearcades:block/wacca_branding": {
+      "before_size": [
+        4096,
+        1024
+      ],
+      "after_size": [
+        1744,
+        720
+      ],
+      "rectangle": [
+        208,
+        32,
+        1952,
+        752
+      ],
+      "sampled_pixel_bounds": [
+        238.919999488,
+        48.191097856000056,
+        1933.079998464,
+        722.9822566400001
+      ],
+      "source_rgba_sha256": "3da1714894fc7433cd267910c6cc51bf6c588acf60b3a25165ed7468992c8e11",
+      "retained_rgba_sha256": "7c61240e57d256204e93d439ec7562311a7c7eba3ee5dfd045b7c2c37f213d97",
+      "pixels_saved": 2938624,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": false,
+      "uv_points_checked": 64,
+      "max_pixel_coordinate_error": 0,
+      "model_references": [
+        "block/wacca_marquee.json",
+        "item/wacca.json"
+      ]
+    },
+    "japanesearcades:block/wacca_display": {
+      "before_size": [
+        2048,
+        2048
+      ],
+      "after_size": [
+        1280,
+        1280
+      ],
+      "rectangle": [
+        0,
+        0,
+        1280,
+        1280
+      ],
+      "sampled_pixel_bounds": [
+        0.000954368,
+        0.000954368000066097,
+        1253.999044608,
+        1253.999044608
+      ],
+      "source_rgba_sha256": "541a6b334e5d30b13066feab38753cfe3fa3c30f2092c9528ac0989d684d32f5",
+      "retained_rgba_sha256": "c00ce0b5403269b91d009f7dcb82169880345c07fe7c9e99a5b377698730e5af",
+      "pixels_saved": 2555904,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": false,
+      "uv_points_checked": 555,
+      "max_pixel_coordinate_error": 1.1368683772161603e-13,
+      "model_references": [
+        "block/wacca_console.json",
+        "block/wacca_marquee.json",
+        "item/wacca.json"
+      ]
+    }
+  },
+  "files": [
+    "art/wacca/geometry.json",
+    "art/wacca/wacca.bbmodel",
+    "src/main/resources/assets/japanesearcades/models/block/wacca_console.obj",
+    "src/main/resources/assets/japanesearcades/models/block/wacca_marquee.obj",
+    "src/main/resources/assets/japanesearcades/models/item/wacca.obj",
+    "src/main/resources/assets/japanesearcades/textures/block/wacca_branding.png",
+    "src/main/resources/assets/japanesearcades/textures/block/wacca_display.png"
+  ]
+}

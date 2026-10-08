@@ -135,3 +135,7 @@ surface_details['alpha_elements']=len(marquee)
 surface_details['total_exported_faces']=sum(len(e['faces']) for e in elements)
 
 export_museca(elements,deck_meshes,texture_paths,surface_details,deck_details,ROOT)
+
+# Trim unused artwork borders after all runtime and authoring exports exist.
+from compact_cabinet_textures import compact_cabinet
+compact_cabinet('museca')

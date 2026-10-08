@@ -1,0 +1,87 @@
+{
+  "cabinet": "beatstream",
+  "generator": "make_beatstream_model.py",
+  "changed": true,
+  "method": "Integer pixel crop; remapped source-pixel UV coordinates; no resampling or geometry changes",
+  "pixels_saved": 983040,
+  "textures": {
+    "japanesearcades:block/beatstream_screens": {
+      "before_size": [
+        2048,
+        1024
+      ],
+      "after_size": [
+        1792,
+        912
+      ],
+      "rectangle": [
+        0,
+        0,
+        1792,
+        912
+      ],
+      "sampled_pixel_bounds": [
+        0.0,
+        0.0,
+        1774.0,
+        887.0
+      ],
+      "source_rgba_sha256": "45f4e7f182e7ad60d4b2f9081e90d2c2c2e3f8183a42aef9a417706f0481753d",
+      "retained_rgba_sha256": "4a30a2c84e25bafa4a8f80b3c36de4161eea3f2278dd7cf8abe4a0eb13d5c6e7",
+      "pixels_saved": 462848,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": false,
+      "uv_points_checked": 12,
+      "max_pixel_coordinate_error": 0,
+      "model_references": [
+        "block/beatstream_console.json",
+        "block/beatstream_marquee.json",
+        "item/beatstream.json"
+      ]
+    },
+    "japanesearcades:block/beatstream_topper": {
+      "before_size": [
+        2048,
+        1024
+      ],
+      "after_size": [
+        1792,
+        880
+      ],
+      "rectangle": [
+        0,
+        0,
+        1792,
+        880
+      ],
+      "sampled_pixel_bounds": [
+        12.0,
+        10.0,
+        1763.0,
+        858.0
+      ],
+      "source_rgba_sha256": "31808a5117d5a7173a34c432366d649c9bc54e79dca2e0ea639d4d8514c506a0",
+      "retained_rgba_sha256": "bf54faa6058a773456f19330b8bd88d3d949796a907c66330226c2e4b9a672ea",
+      "pixels_saved": 520192,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": true,
+      "uv_points_checked": 204,
+      "max_pixel_coordinate_error": 1.1368683772161603e-13,
+      "model_references": [
+        "block/beatstream_marquee.json",
+        "item/beatstream.json"
+      ]
+    }
+  },
+  "files": [
+    "art/beatstream/beatstream.bbmodel",
+    "art/beatstream/geometry.json",
+    "src/main/resources/assets/japanesearcades/models/block/beatstream_console.json",
+    "src/main/resources/assets/japanesearcades/models/block/beatstream_marquee.json",
+    "src/main/resources/assets/japanesearcades/models/item/beatstream.json",
+    "src/main/resources/assets/japanesearcades/textures/block/beatstream_screens.png",
+    "src/main/resources/assets/japanesearcades/textures/block/beatstream_topper.png"
+  ]
+}

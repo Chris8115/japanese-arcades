@@ -211,3 +211,7 @@ geometry['subdivision_settings']={'large_woofer_sides':32,'small_speaker_lamp_si
     'rail_socket_sides':8,'flange_bolt_sides':6}
 (ART/'geometry.json').write_text(json.dumps(geometry,indent=2)+'\n',encoding='utf-8')
 print('Optimized DDR: world',geometry['statistics']['world_faces'],'faces; item',geometry['statistics']['item_faces'])
+
+# Trim unused artwork borders after all runtime and authoring exports exist.
+from compact_cabinet_textures import compact_cabinet
+compact_cabinet('ddr')

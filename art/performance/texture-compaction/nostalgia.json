@@ -1,0 +1,88 @@
+{
+  "cabinet": "nostalgia",
+  "generator": "make_nostalgia_model.py",
+  "changed": true,
+  "method": "Integer pixel crop; remapped source-pixel UV coordinates; no resampling or geometry changes",
+  "pixels_saved": 4077312,
+  "textures": {
+    "japanesearcades:block/nostalgia_artwork": {
+      "before_size": [
+        2048,
+        2048
+      ],
+      "after_size": [
+        1280,
+        656
+      ],
+      "rectangle": [
+        0,
+        0,
+        1280,
+        656
+      ],
+      "sampled_pixel_bounds": [
+        0.0,
+        0.0,
+        1254.0,
+        627.0
+      ],
+      "source_rgba_sha256": "856f2b98669968fad81932ed3e0eb26e2da3a2c7182eb592d7d5e48b85cf846f",
+      "retained_rgba_sha256": "dbe1c9d4553ebe6c2580ac98ab6ca98447730fa44fb613523264ea65d741c1ee",
+      "pixels_saved": 3354624,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": false,
+      "uv_points_checked": 36,
+      "max_pixel_coordinate_error": 1.1368683772161603e-13,
+      "model_references": [
+        "block/nostalgia_op3_console.json",
+        "block/nostalgia_op3_marquee.json",
+        "item/nostalgia_op3.json"
+      ]
+    },
+    "japanesearcades:block/nostalgia_marquee": {
+      "before_size": [
+        2048,
+        1024
+      ],
+      "after_size": [
+        1456,
+        944
+      ],
+      "rectangle": [
+        32,
+        48,
+        1488,
+        992
+      ],
+      "sampled_pixel_bounds": [
+        53.0,
+        75.0,
+        1462.0,
+        971.0
+      ],
+      "source_rgba_sha256": "e3f236dcc69709e513e6b94cc06238d32e38c17738a0f8aef75d28ebc4d5ee3f",
+      "retained_rgba_sha256": "3860d93112ed657d14f46a635760cadba06d1ecaad609706305b1eacd46ac70b",
+      "pixels_saved": 722688,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": true,
+      "uv_points_checked": 1506,
+      "max_pixel_coordinate_error": 1.1368683772161603e-13,
+      "model_references": [
+        "block/nostalgia_op3_console.json",
+        "block/nostalgia_op3_marquee.json",
+        "item/nostalgia_op3.json"
+      ]
+    }
+  },
+  "files": [
+    "art/nostalgia-op3/geometry.json",
+    "art/nostalgia-op3/nostalgia-op3.bbmodel",
+    "src/main/resources/assets/japanesearcades/models/block/nostalgia_op3_console.json",
+    "src/main/resources/assets/japanesearcades/models/block/nostalgia_op3_marquee.json",
+    "src/main/resources/assets/japanesearcades/models/item/nostalgia_op3.json",
+    "src/main/resources/assets/japanesearcades/textures/block/nostalgia_artwork.png",
+    "src/main/resources/assets/japanesearcades/textures/block/nostalgia_marquee.png"
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "cabinet": "iidx",
+  "generator": "make_iidx_model.py",
+  "changed": true,
+  "method": "Integer pixel crop; remapped source-pixel UV coordinates; no resampling or geometry changes",
+  "pixels_saved": 4250624,
+  "textures": {
+    "japanesearcades:block/beatmania_iidx_lightning_banners": {
+      "before_size": [
+        2048,
+        2048
+      ],
+      "after_size": [
+        1104,
+        1472
+      ],
+      "rectangle": [
+        0,
+        0,
+        1104,
+        1472
+      ],
+      "sampled_pixel_bounds": [
+        0.0,
+        0.0,
+        1086.000001024,
+        1448.0
+      ],
+      "source_rgba_sha256": "f506d7a9c751c7287d2c24856e51e7efbde9fb053baed048554a24a55a36adc7",
+      "retained_rgba_sha256": "740a43850f3af6c2093f1c245305c8435a38a0dd7cbe659e1f7c810796f33f62",
+      "pixels_saved": 2569216,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": false,
+      "uv_points_checked": 22,
+      "max_pixel_coordinate_error": 0,
+      "model_references": [
+        "block/beatmania_iidx_lightning_primary_cabinet_marquee.json",
+        "block/beatmania_iidx_lightning_secondary_cabinet_marquee.json",
+        "item/beatmania_iidx_lightning.json"
+      ]
+    },
+    "japanesearcades:block/beatmania_iidx_lightning_display": {
+      "before_size": [
+        2048,
+        1024
+      ],
+      "after_size": [
+        1696,
+        960
+      ],
+      "rectangle": [
+        0,
+        0,
+        1696,
+        960
+      ],
+      "sampled_pixel_bounds": [
+        0.0,
+        0.0,
+        1672.0,
+        940.999999488
+      ],
+      "source_rgba_sha256": "b14940c7e3755bd4400b717d6641671716b63993c154c9f99c118bf6fe03daa9",
+      "retained_rgba_sha256": "168d0f5eac524cba07e115d7a95b59601b03e018528901dec5d4671a2be5d0a7",
+      "pixels_saved": 468992,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": false,
+      "uv_points_checked": 32,
+      "max_pixel_coordinate_error": 0,
+      "model_references": [
+        "block/beatmania_iidx_lightning_primary_cabinet_console.json",
+        "block/beatmania_iidx_lightning_primary_cabinet_marquee.json",
+        "block/beatmania_iidx_lightning_secondary_cabinet_console.json",
+        "block/beatmania_iidx_lightning_secondary_cabinet_marquee.json",
+        "item/beatmania_iidx_lightning.json"
+      ]
+    },
+    "japanesearcades:block/beatmania_iidx_lightning_marquee": {
+      "before_size": [
+        2048,
+        1024
+      ],
+      "after_size": [
+        2048,
+        432
+      ],
+      "rectangle": [
+        0,
+        176,
+        2048,
+        608
+      ],
+      "sampled_pixel_bounds": [
+        0.0,
+        192.49999974399998,
+        2043.000000512,
+        577.500000256
+      ],
+      "source_rgba_sha256": "00bb117a8c9fddf5e74112ba24a7f4c31337bc7677d6fe69b88891c6951401a5",
+      "retained_rgba_sha256": "212b1726b48c0b92f89f765c4ae47c795af167e28b6516ad129cb5efae8c351a",
+      "pixels_saved": 1212416,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": false,
+      "uv_points_checked": 16,
+      "max_pixel_coordinate_error": 0,
+      "model_references": [
+        "block/beatmania_iidx_lightning_primary_cabinet_marquee.json",
+        "block/beatmania_iidx_lightning_secondary_cabinet_marquee.json",
+        "item/beatmania_iidx_lightning.json"
+      ]
+    }
+  },
+  "files": [
+    "art/beatmania-iidx-lightning/beatmania-iidx-lightning.bbmodel",
+    "art/beatmania-iidx-lightning/geometry.json",
+    "src/main/resources/assets/japanesearcades/models/block/beatmania_iidx_lightning_primary_cabinet_console.obj",
+    "src/main/resources/assets/japanesearcades/models/block/beatmania_iidx_lightning_primary_cabinet_marquee.obj",
+    "src/main/resources/assets/japanesearcades/models/block/beatmania_iidx_lightning_secondary_cabinet_console.obj",
+    "src/main/resources/assets/japanesearcades/models/block/beatmania_iidx_lightning_secondary_cabinet_marquee.obj",
+    "src/main/resources/assets/japanesearcades/models/item/beatmania_iidx_lightning.obj",
+    "src/main/resources/assets/japanesearcades/textures/block/beatmania_iidx_lightning_banners.png",
+    "src/main/resources/assets/japanesearcades/textures/block/beatmania_iidx_lightning_display.png",
+    "src/main/resources/assets/japanesearcades/textures/block/beatmania_iidx_lightning_marquee.png"
+  ]
+}

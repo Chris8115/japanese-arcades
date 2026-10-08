@@ -33,6 +33,7 @@ public final class DdrCabinetBlock extends NostalgiaCabinetBlock {
     public static final EnumProperty<Side> SIDE = EnumProperty.create("side", Side.class);
     public static final EnumProperty<Section> SECTION = EnumProperty.create("section", Section.class);
     static final double STAGE_HEIGHT = 2.4 / 16.0;
+    private final java.util.Map<Integer, VoxelShape> shapeCache = new java.util.concurrent.ConcurrentHashMap<>();
 
     public DdrCabinetBlock(Properties properties) {
         super(properties);
@@ -210,6 +211,11 @@ public final class DdrCabinetBlock extends NostalgiaCabinetBlock {
         Direction facing = state.getValue(FACING);
         boolean primary = state.getValue(SIDE) == Side.PRIMARY;
         Section section = state.getValue(SECTION);
+        int key = facing.ordinal()*12 + (primary ? 0 : 6) + section.ordinal();
+        return shapeCache.computeIfAbsent(key, ignored -> CachedCabinetShape.of(buildShape(facing, primary, section)));
+    }
+
+    static VoxelShape buildShape(Direction facing, boolean primary, Section section) {
         double x0 = primary ? -3.1 : 0, x1 = primary ? 16 : 19.1;
         if (section == Section.CABINET_BASE) {
             return Shapes.or(cabinetBox(facing, primary, -.6, 0, -.3, 32.6, 16, 15.5),

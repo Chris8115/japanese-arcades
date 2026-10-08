@@ -195,19 +195,29 @@ public final class ClawMachineRenderer implements BlockEntityRenderer<ClawMachin
 
     private static void box(PoseStack pose, VertexConsumer out, float x0, float y0, float z0,
                             float x1, float y1, float z1, int color, int light, int overlay) {
-        float[][] v = {{x0,y0,z0},{x1,y0,z0},{x1,y1,z0},{x0,y1,z0},
-            {x0,y0,z1},{x1,y0,z1},{x1,y1,z1},{x0,y1,z1}};
-        int[][] sides = {{3,2,1,0},{6,7,4,5},{2,6,5,1},{7,3,0,4},{7,6,2,3},{0,1,5,4}};
-        float[][] normals = {{0,0,-1},{0,0,1},{1,0,0},{-1,0,0},{0,1,0},{0,-1,0}};
+        // The gantry draws 15+ boxes per frame. Emit the same vertices directly;
+        // rebuilding 23 coordinate/index/normal arrays per box creates avoidable GC.
+        face(pose, out, color, light, overlay, 0,0,-1, x0,y1,z0, x1,y1,z0, x1,y0,z0, x0,y0,z0);
+        face(pose, out, color, light, overlay, 0,0,1, x1,y1,z1, x0,y1,z1, x0,y0,z1, x1,y0,z1);
+        face(pose, out, color, light, overlay, 1,0,0, x1,y1,z0, x1,y1,z1, x1,y0,z1, x1,y0,z0);
+        face(pose, out, color, light, overlay, -1,0,0, x0,y1,z1, x0,y1,z0, x0,y0,z0, x0,y0,z1);
+        face(pose, out, color, light, overlay, 0,1,0, x0,y1,z1, x1,y1,z1, x1,y1,z0, x0,y1,z0);
+        face(pose, out, color, light, overlay, 0,-1,0, x0,y0,z0, x1,y0,z0, x1,y0,z1, x0,y0,z1);
+    }
+
+    private static void face(PoseStack pose, VertexConsumer out, int color, int light, int overlay,
+                             float nx, float ny, float nz,
+                             float ax, float ay, float az, float bx, float by, float bz,
+                             float cx, float cy, float cz, float dx, float dy, float dz) {
         int red = color >> 16 & 255, green = color >> 8 & 255, blue = color & 255;
-        for (int side = 0; side < 6; side++) {
-            for (int corner = 0; corner < 4; corner++) {
-                float[] point = v[sides[side][corner]], normal = normals[side];
-                out.addVertex(pose.last(), point[0], point[1], point[2]).setColor(red, green, blue, 255)
-                    .setUv(corner == 0 || corner == 3 ? 0 : 1, corner < 2 ? 0 : 1)
-                    .setOverlay(overlay).setLight(light).setNormal(pose.last(), normal[0], normal[1], normal[2]);
-            }
-        }
+        out.addVertex(pose.last(), ax, ay, az).setColor(red, green, blue, 255).setUv(0, 0)
+            .setOverlay(overlay).setLight(light).setNormal(pose.last(), nx, ny, nz);
+        out.addVertex(pose.last(), bx, by, bz).setColor(red, green, blue, 255).setUv(1, 0)
+            .setOverlay(overlay).setLight(light).setNormal(pose.last(), nx, ny, nz);
+        out.addVertex(pose.last(), cx, cy, cz).setColor(red, green, blue, 255).setUv(1, 1)
+            .setOverlay(overlay).setLight(light).setNormal(pose.last(), nx, ny, nz);
+        out.addVertex(pose.last(), dx, dy, dz).setColor(red, green, blue, 255).setUv(0, 1)
+            .setOverlay(overlay).setLight(light).setNormal(pose.last(), nx, ny, nz);
     }
 
     @Override

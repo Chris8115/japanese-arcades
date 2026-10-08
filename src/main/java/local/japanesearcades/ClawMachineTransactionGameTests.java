@@ -46,7 +46,7 @@ public final class ClawMachineTransactionGameTests {
         item.set(DataComponents.CUSTOM_NAME, Component.literal("Whole crane prize"));
         return item;
     }
-    private static ClawMachineBlockEntity configure(GameTestHelper helper, ServerPlayer owner, int chance, int guarantee) {
+    static ClawMachineBlockEntity configure(GameTestHelper helper, ServerPlayer owner, int chance, int guarantee) {
         return configure(helper, owner, chance, guarantee, Direction.NORTH);
     }
     private static ClawMachineBlockEntity configure(GameTestHelper helper, ServerPlayer owner, int chance, int guarantee, Direction facing) {
@@ -72,7 +72,7 @@ public final class ClawMachineTransactionGameTests {
         owner.getInventory().clearContent(); owner.getInventory().setItem(0, price(12));
         return machine;
     }
-    private static void ticks(ClawMachineBlockEntity machine, int ticks) {
+    static void ticks(ClawMachineBlockEntity machine, int ticks) {
         for (int tick = 0; tick < ticks; tick++) {
             ClawMachineBlockEntity.serverTick(machine.getLevel(), machine.getBlockPos(), machine.getBlockState(), machine);
         }
@@ -272,6 +272,39 @@ public final class ClawMachineTransactionGameTests {
         helper.assertTrue(drops(helper, Items.DIAMOND) == 17 && drops(helper, Items.DIRT) == 0,
             "Saved recovery did not return the original full stack exactly once");
         helper.succeed();
+    }
+
+    @GameTest(template = "nostalgia_test", timeoutTicks = 140)
+    public static void clawVetoedPayoutWaitsWithoutDirtyingChunkAndRetriesAtItsDeadline(GameTestHelper helper) {
+        ServerPlayer owner = createPlayer(helper, "ClawIdleRetry", GameType.SURVIVAL);
+        var machine = configure(helper, owner, 100, 0);
+        helper.assertTrue(machine.startSession(owner) && machine.drop(owner), "Paid retry test did not start");
+        AtomicInteger attempts = new AtomicInteger();
+        Consumer<EntityJoinLevelEvent> veto = event -> {
+            if (prizeSpawn(helper, event)) { attempts.incrementAndGet(); event.setCanceled(true); }
+        };
+        NeoForge.EVENT_BUS.addListener(veto);
+        try {
+            ticks(machine, 150);
+            helper.assertTrue(attempts.get() == 1 && machine.getPhase() == ClawMachineBlockEntity.Phase.DELIVERING,
+                "Initial blocked payout did not enter its retry wait");
+            var finalPose = machine.getUpdateTag(helper.getLevel().registryAccess());
+            var chunk = helper.getLevel().getChunkAt(machine.getBlockPos());
+            chunk.setUnsaved(false);
+            try {
+                ticks(machine, 80);
+                helper.assertTrue(!chunk.isUnsaved() && attempts.get() == 1
+                    && finalPose.equals(machine.getUpdateTag(helper.getLevel().registryAccess())),
+                    "Stationary payout wait dirtied the chunk, changed the pose, or retried before its deadline");
+            } finally { chunk.setUnsaved(true); }
+        } finally { NeoForge.EVENT_BUS.unregister(veto); }
+        helper.runAfterDelay(95, () -> helper.assertTrue(machine.getPhase() == ClawMachineBlockEntity.Phase.DELIVERING
+            && drops(helper, Items.DIAMOND) == 0, "Removing a spawn veto bypassed the original retry deadline"));
+        helper.runAfterDelay(105, () -> {
+            helper.assertTrue(machine.getPhase() == ClawMachineBlockEntity.Phase.IDLE && drops(helper, Items.DIAMOND) == 17
+                && paid(machine) == 3 && machine.getHeldDisplay().isEmpty(), "Retry did not deliver the reserved stack exactly once");
+            helper.succeed();
+        });
     }
 
     @GameTest(template = "nostalgia_test")

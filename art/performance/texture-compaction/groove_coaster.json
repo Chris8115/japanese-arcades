@@ -1,0 +1,50 @@
+{
+  "cabinet": "groove_coaster",
+  "generator": "make_groove_coaster_model.py",
+  "changed": true,
+  "method": "Integer pixel crop; remapped source-pixel UV coordinates; no resampling or geometry changes",
+  "pixels_saved": 468992,
+  "textures": {
+    "japanesearcades:block/groove_coaster_display": {
+      "before_size": [
+        1024,
+        2048
+      ],
+      "after_size": [
+        960,
+        1696
+      ],
+      "rectangle": [
+        0,
+        0,
+        960,
+        1696
+      ],
+      "sampled_pixel_bounds": [
+        0.0,
+        0.0,
+        941.0,
+        1672.0
+      ],
+      "source_rgba_sha256": "e743a89bca7669f6c5ab2f4f647d5e5429a28deea23b49285e66851a94e1f7d6",
+      "retained_rgba_sha256": "0fa43a9d3c4412b621a5283a9f975f9860db213896aba9bdcd9c80ce9391230d",
+      "pixels_saved": 468992,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": false,
+      "uv_points_checked": 6,
+      "max_pixel_coordinate_error": 0,
+      "model_references": [
+        "block/groove_coaster_console.json",
+        "item/groove_coaster.json"
+      ]
+    }
+  },
+  "files": [
+    "art/groove_coaster/geometry.json",
+    "art/groove_coaster/groove_coaster.bbmodel",
+    "src/main/resources/assets/japanesearcades/models/block/groove_coaster_console.json",
+    "src/main/resources/assets/japanesearcades/models/item/groove_coaster.json",
+    "src/main/resources/assets/japanesearcades/textures/block/groove_coaster_display.png"
+  ]
+}

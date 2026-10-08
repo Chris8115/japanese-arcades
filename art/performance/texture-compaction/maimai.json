@@ -1,0 +1,90 @@
+{
+  "cabinet": "maimai",
+  "generator": "make_maimai_model.py",
+  "changed": true,
+  "method": "Integer pixel crop; remapped source-pixel UV coordinates; no resampling or geometry changes",
+  "pixels_saved": 5101824,
+  "textures": {
+    "japanesearcades:block/maimai_display": {
+      "before_size": [
+        2048,
+        2048
+      ],
+      "after_size": [
+        1280,
+        1280
+      ],
+      "rectangle": [
+        0,
+        0,
+        1280,
+        1280
+      ],
+      "sampled_pixel_bounds": [
+        3.491528704,
+        0.0,
+        1250.508470272,
+        1254.000001024
+      ],
+      "source_rgba_sha256": "f02727cdbcb303011e3122bb6638ecaf09c4e648dffe54066f03dce7c1e874b6",
+      "retained_rgba_sha256": "7364eb3702c1f70a503c53c26db33781e5ecdf733aa40cdf1f5ee4df8e89735a",
+      "pixels_saved": 2555904,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": false,
+      "uv_points_checked": 1114,
+      "max_pixel_coordinate_error": 1.1368683772161603e-13,
+      "model_references": [
+        "block/maimai_primary_console.json",
+        "block/maimai_secondary_console.json",
+        "item/maimai.json"
+      ]
+    },
+    "japanesearcades:block/maimai_header": {
+      "before_size": [
+        4096,
+        1024
+      ],
+      "after_size": [
+        2192,
+        752
+      ],
+      "rectangle": [
+        0,
+        0,
+        2192,
+        752
+      ],
+      "sampled_pixel_bounds": [
+        0.0,
+        0.0,
+        2172.000002048,
+        724.0
+      ],
+      "source_rgba_sha256": "3e8e2e98e15c8255eaca08f2187b29b39e9c304c56217ea2e7cc7d1a623154c0",
+      "retained_rgba_sha256": "aa0c5edfb167f165660645b7ecc6cfbe2bd24c9a86d3eb7a0984431ca38e2656",
+      "pixels_saved": 2545920,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": false,
+      "uv_points_checked": 20,
+      "max_pixel_coordinate_error": 0,
+      "model_references": [
+        "block/maimai_primary_marquee.json",
+        "block/maimai_secondary_marquee.json",
+        "item/maimai.json"
+      ]
+    }
+  },
+  "files": [
+    "art/maimai/geometry.json",
+    "art/maimai/maimai.bbmodel",
+    "src/main/resources/assets/japanesearcades/models/block/maimai_primary_console.obj",
+    "src/main/resources/assets/japanesearcades/models/block/maimai_primary_marquee.obj",
+    "src/main/resources/assets/japanesearcades/models/block/maimai_secondary_console.obj",
+    "src/main/resources/assets/japanesearcades/models/block/maimai_secondary_marquee.obj",
+    "src/main/resources/assets/japanesearcades/models/item/maimai.obj",
+    "src/main/resources/assets/japanesearcades/textures/block/maimai_display.png",
+    "src/main/resources/assets/japanesearcades/textures/block/maimai_header.png"
+  ]
+}

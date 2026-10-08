@@ -86,6 +86,17 @@ public final class CabinetInventoryModels {
         return model instanceof InventoryModel inventory ? inventory.detailedModel() : model;
     }
 
+    /** Flat printed machine displays can reuse the same verified snapshot as GUI slots. */
+    static boolean renderFlatIcon(ItemStack stack, int light, int overlay, PoseStack pose,
+                                  MultiBufferSource buffers, @Nullable Level level) {
+        if (stack.isEmpty() || stack.hasFoil()) { return false; }
+        var renderer = Minecraft.getInstance().getItemRenderer();
+        BakedModel model = renderer.getModel(stack, level, null, 0);
+        if (!(model instanceof InventoryModel)) { return false; }
+        renderer.render(stack, ItemDisplayContext.GUI, false, pose, buffers, light, overlay, model);
+        return true;
+    }
+
     /** Equivalent to ItemRenderer.renderStatic, retaining native overrides and foil handling. */
     static void renderFull(ItemStack stack, ItemDisplayContext context, int light, int overlay,
                            PoseStack pose, MultiBufferSource buffers, @Nullable Level level, int seed) {

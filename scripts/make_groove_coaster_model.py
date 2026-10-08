@@ -232,3 +232,7 @@ write_json(ART/'geometry.json', {'textures':texture_paths,'elements':elements,'s
 print('Generated',len(elements),'surface elements; section counts:',{name:len(values) for name,values in parts.items()})
 print('Exterior surfaces:',surface_details)
 print('Editable model:',ART/'groove_coaster.bbmodel')
+
+# Trim unused artwork borders after all runtime and authoring exports exist.
+from compact_cabinet_textures import compact_cabinet
+compact_cabinet('groove_coaster')

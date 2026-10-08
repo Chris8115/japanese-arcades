@@ -1,0 +1,87 @@
+{
+  "cabinet": "nemsys",
+  "generator": "make_nemsys_model.py",
+  "changed": true,
+  "method": "Integer pixel crop; remapped source-pixel UV coordinates; no resampling or geometry changes",
+  "pixels_saved": 934144,
+  "textures": {
+    "japanesearcades:block/sound_voltex_nemsys_display": {
+      "before_size": [
+        1024,
+        2048
+      ],
+      "after_size": [
+        960,
+        1696
+      ],
+      "rectangle": [
+        0,
+        0,
+        960,
+        1696
+      ],
+      "sampled_pixel_bounds": [
+        0.0,
+        0.0,
+        940.999999488,
+        1672.0
+      ],
+      "source_rgba_sha256": "fc1798a7931567cb943bf726f8d2391c94b1dd7e96dec160e6058b899ba97cae",
+      "retained_rgba_sha256": "ca90b2a20de751593804d00b54c7bb559df2362b5b68582d262980be17b42b04",
+      "pixels_saved": 468992,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": false,
+      "uv_points_checked": 16,
+      "max_pixel_coordinate_error": 0,
+      "model_references": [
+        "block/sound_voltex_nemsys_console.json",
+        "block/sound_voltex_nemsys_marquee.json",
+        "item/sound_voltex_nemsys.json"
+      ]
+    },
+    "japanesearcades:block/sound_voltex_nemsys_marquee": {
+      "before_size": [
+        2048,
+        1024
+      ],
+      "after_size": [
+        2000,
+        816
+      ],
+      "rectangle": [
+        0,
+        0,
+        2000,
+        816
+      ],
+      "sampled_pixel_bounds": [
+        0.0,
+        0.0,
+        1983.000000512,
+        792.999999488
+      ],
+      "source_rgba_sha256": "c7c41922f892cf6d1de8d07e350f3e499c17717249ac9288c980af383f187f2c",
+      "retained_rgba_sha256": "79419952979e898388bd5143705c881c4f20e623db203578d394b4cb3bc11d5b",
+      "pixels_saved": 465152,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": false,
+      "uv_points_checked": 24,
+      "max_pixel_coordinate_error": 0,
+      "model_references": [
+        "block/sound_voltex_nemsys_marquee.json",
+        "item/sound_voltex_nemsys.json"
+      ]
+    }
+  },
+  "files": [
+    "art/sound-voltex-nemsys/geometry.json",
+    "art/sound-voltex-nemsys/sound-voltex-nemsys.bbmodel",
+    "src/main/resources/assets/japanesearcades/models/block/sound_voltex_nemsys_console.obj",
+    "src/main/resources/assets/japanesearcades/models/block/sound_voltex_nemsys_marquee.obj",
+    "src/main/resources/assets/japanesearcades/models/item/sound_voltex_nemsys.obj",
+    "src/main/resources/assets/japanesearcades/textures/block/sound_voltex_nemsys_display.png",
+    "src/main/resources/assets/japanesearcades/textures/block/sound_voltex_nemsys_marquee.png"
+  ]
+}

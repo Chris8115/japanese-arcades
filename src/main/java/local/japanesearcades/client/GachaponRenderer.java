@@ -120,7 +120,10 @@ public final class GachaponRenderer implements BlockEntityRenderer<GachaponBlock
         // GUI perspective gives even readable icons for tools, blocks and custom items. Depth is
         // compressed so tall 3D item models cannot protrude through the neighbouring machine.
         pose.scale((float) size, (float) size, .005F);
-        if (!prizeMeshes.render(item, pose, buffers, light, overlay)) {
+        // These are tiny, almost zero-depth printed icons. A cabinet's GUI snapshot
+        // preserves that presentation without replaying thousands of hidden faces.
+        if (!CabinetInventoryModels.renderFlatIcon(item, light, overlay, pose, buffers, machine.getLevel())
+            && !prizeMeshes.render(item, pose, buffers, light, overlay)) {
             CabinetInventoryModels.renderFull(item, ItemDisplayContext.GUI,
                 light, overlay, pose, buffers, machine.getLevel(), 0);
         }

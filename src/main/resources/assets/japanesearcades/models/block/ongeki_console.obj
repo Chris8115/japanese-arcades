@@ -1219,6 +1219,10 @@ vt 0.130457282 0.687500000
 # ONGEKI efficient native cabinet, coordinates in blocks.
 mtllib japanesearcades:models/block/ongeki.mtl
 usemtl materials_surface
+vt 0 0.6795158858867925
+vt 0 0.01415094339622647
+vt 0.9802083328 0.01415094339622647
+vt 0.9802083328 0.6795158858867925
 f 1/1 2/2 3/3 4/4
 f 5/5 6/6 7/7 8/8
 f 8/5 7/6 1/7 4/8
@@ -1252,7 +1256,7 @@ f 51/43 53/44 54/45 52/46
 f 50/43 49/47 55/48 56/41
 f 51/43 50/44 56/40 53/41
 usemtl display_glow
-f 57/49 58/50 59/51 60/52
+f 57/351 58/352 59/353 60/354
 usemtl materials_surface
 f 61/11 62/12 63/16 64/17
 f 65/11 66/12 67/16 68/17

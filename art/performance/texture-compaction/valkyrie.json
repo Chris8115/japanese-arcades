@@ -1,0 +1,87 @@
+{
+  "cabinet": "valkyrie",
+  "generator": "make_valkyrie_model.py",
+  "changed": true,
+  "method": "Integer pixel crop; remapped source-pixel UV coordinates; no resampling or geometry changes",
+  "pixels_saved": 3014912,
+  "textures": {
+    "japanesearcades:block/valkyrie_branding": {
+      "before_size": [
+        4096,
+        1024
+      ],
+      "after_size": [
+        2192,
+        752
+      ],
+      "rectangle": [
+        0,
+        0,
+        2192,
+        752
+      ],
+      "sampled_pixel_bounds": [
+        0.0,
+        0.0,
+        2172.0,
+        724.0
+      ],
+      "source_rgba_sha256": "97f2150ec8e53bafa280a4421925068912cb45191036b01257f12eb8a611e3f1",
+      "retained_rgba_sha256": "6cc652f0bbacd69ba3caa3695b2164c564717d81220e72e9f3ba37d1efe7b82d",
+      "pixels_saved": 2545920,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": false,
+      "uv_points_checked": 72,
+      "max_pixel_coordinate_error": 0,
+      "model_references": [
+        "block/sound_voltex_valkyrie_console.json",
+        "block/sound_voltex_valkyrie_marquee.json",
+        "item/sound_voltex_valkyrie.json"
+      ]
+    },
+    "japanesearcades:block/valkyrie_display": {
+      "before_size": [
+        1024,
+        2048
+      ],
+      "after_size": [
+        960,
+        1696
+      ],
+      "rectangle": [
+        0,
+        0,
+        960,
+        1696
+      ],
+      "sampled_pixel_bounds": [
+        0.0,
+        0.0,
+        941.0,
+        1672.0
+      ],
+      "source_rgba_sha256": "9d08b7d1cecf730202891374cf0e29fdf40c850f8cf9a802ce4bf51e0d55dc90",
+      "retained_rgba_sha256": "d42b7dd93260f27052d6b91b3806c2f146efdac7feab80481d57fa05c41b52e9",
+      "pixels_saved": 468992,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": false,
+      "uv_points_checked": 6,
+      "max_pixel_coordinate_error": 0,
+      "model_references": [
+        "block/sound_voltex_valkyrie_marquee.json",
+        "item/sound_voltex_valkyrie.json"
+      ]
+    }
+  },
+  "files": [
+    "art/sound-voltex-valkyrie/geometry.json",
+    "art/sound-voltex-valkyrie/sound-voltex-valkyrie.bbmodel",
+    "src/main/resources/assets/japanesearcades/models/block/sound_voltex_valkyrie_console.json",
+    "src/main/resources/assets/japanesearcades/models/block/sound_voltex_valkyrie_marquee.json",
+    "src/main/resources/assets/japanesearcades/models/item/sound_voltex_valkyrie.json",
+    "src/main/resources/assets/japanesearcades/textures/block/valkyrie_branding.png",
+    "src/main/resources/assets/japanesearcades/textures/block/valkyrie_display.png"
+  ]
+}

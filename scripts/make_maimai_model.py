@@ -161,3 +161,7 @@ surface_details['total_exported_faces']=sum(len(e['faces']) for e in elements)
 # The exact shallow recline needs arbitrary surface angles. NeoForge's bundled
 # OBJ loader accepts those faces directly, with no additional Java renderer.
 export_mesh_assets(elements, texture_paths, surface_details, ROOT, button_meshes)
+
+# Trim unused artwork borders after all runtime and authoring exports exist.
+from compact_cabinet_textures import compact_cabinet
+compact_cabinet('maimai')

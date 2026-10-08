@@ -231,3 +231,7 @@ for e in elements:
 elements,surface_details=optimize_surfaces(elements)
 
 export_wacca(elements,smooth_meshes+header_meshes,texture_paths,surface_details,smooth_details,ROOT)
+
+# Trim unused artwork borders after all runtime and authoring exports exist.
+from compact_cabinet_textures import compact_cabinet
+compact_cabinet('wacca')

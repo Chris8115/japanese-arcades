@@ -1,0 +1,86 @@
+{
+  "cabinet": "chrono_circle",
+  "generator": "make_chrono_circle_model.py",
+  "changed": true,
+  "method": "Integer pixel crop; remapped source-pixel UV coordinates; no resampling or geometry changes",
+  "pixels_saved": 5195776,
+  "textures": {
+    "japanesearcades:block/chrono_circle_display": {
+      "before_size": [
+        2048,
+        2048
+      ],
+      "after_size": [
+        1280,
+        1280
+      ],
+      "rectangle": [
+        0,
+        0,
+        1280,
+        1280
+      ],
+      "sampled_pixel_bounds": [
+        1.073629184,
+        1.0736291840000831,
+        1252.926369792,
+        1252.926369792
+      ],
+      "source_rgba_sha256": "e6362b057ee1153a9da37f0a5a8bd023e55718d117d684d1e0a0243ed18ada4d",
+      "retained_rgba_sha256": "71d7e50905463d599bf18b9219ff8856d73d4890a75312a6fa66467893a7c551",
+      "pixels_saved": 2555904,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": false,
+      "uv_points_checked": 482,
+      "max_pixel_coordinate_error": 1.1368683772161603e-13,
+      "model_references": [
+        "block/chrono_circle_console.json",
+        "item/chrono_circle.json"
+      ]
+    },
+    "japanesearcades:block/chrono_circle_header": {
+      "before_size": [
+        2048,
+        2048
+      ],
+      "after_size": [
+        1472,
+        1056
+      ],
+      "rectangle": [
+        0,
+        0,
+        1472,
+        1056
+      ],
+      "sampled_pixel_bounds": [
+        0.0,
+        0.0,
+        1448.0,
+        1034.542149632
+      ],
+      "source_rgba_sha256": "8ecb44a04cd18fde2f958ef2f5f3afec9f61f04ddafea0f9a18ca0e23c640b14",
+      "retained_rgba_sha256": "2f08c5e3437203eb402be616c254a39d0a70552c09974abf9193efc6e7107203",
+      "pixels_saved": 2639872,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": false,
+      "uv_points_checked": 62,
+      "max_pixel_coordinate_error": 0,
+      "model_references": [
+        "block/chrono_circle_marquee.json",
+        "item/chrono_circle.json"
+      ]
+    }
+  },
+  "files": [
+    "art/chrono_circle/chrono_circle.bbmodel",
+    "art/chrono_circle/geometry.json",
+    "src/main/resources/assets/japanesearcades/models/block/chrono_circle_console.obj",
+    "src/main/resources/assets/japanesearcades/models/block/chrono_circle_marquee.obj",
+    "src/main/resources/assets/japanesearcades/models/item/chrono_circle.obj",
+    "src/main/resources/assets/japanesearcades/textures/block/chrono_circle_display.png",
+    "src/main/resources/assets/japanesearcades/textures/block/chrono_circle_header.png"
+  ]
+}

@@ -23,6 +23,12 @@ that reason and the measured face count to the user. Prefer efficient curved mes
 hidden-face removal, and texture detail before adding subdivisions. Audit the final exported
 models rather than relying on authoring counts or treating face count as an FPS measurement.
 
+Artwork sprites do not need power-of-two canvases. Preserve source detail while trimming
+unused padding; dimensions aligned to 16 retain the normal four mip levels. The supported
+cabinet generators call `scripts/compact_cabinet_textures.py` after export to remap runtime
+and editable UVs together. Keep lightweight GUI models for detailed items, and evaluate
+dynamic prize/box displays separately from static chunk-rendered machines.
+
 After functional code changes, run `./dev.cmd Build` and use appropriate runtime verification.
 Cabinet placement, disc playback, persistence, and removal integration tests run with `./dev.cmd GameTest`.
 Do not add placeholder tests that only mirror declarations.

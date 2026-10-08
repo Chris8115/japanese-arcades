@@ -1,0 +1,86 @@
+{
+  "cabinet": "chunithm",
+  "generator": "make_chunithm_model.py",
+  "changed": true,
+  "method": "Integer pixel crop; remapped source-pixel UV coordinates; no resampling or geometry changes",
+  "pixels_saved": 3835904,
+  "textures": {
+    "japanesearcades:block/chunithm_branding": {
+      "before_size": [
+        4096,
+        1024
+      ],
+      "after_size": [
+        1616,
+        512
+      ],
+      "rectangle": [
+        272,
+        112,
+        1888,
+        624
+      ],
+      "sampled_pixel_bounds": [
+        299.0,
+        137.0,
+        1867.0,
+        594.0
+      ],
+      "source_rgba_sha256": "e0b4b568e437842d4c244d6f0b1b42dd39b7045c481d9cd1377f947c7c88b044",
+      "retained_rgba_sha256": "fdceb834a8fd44a7f4438d2e2e3430dadbccb15d00c0d4c927fec24ca49b4c3e",
+      "pixels_saved": 3366912,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": true,
+      "uv_points_checked": 378,
+      "max_pixel_coordinate_error": 0,
+      "model_references": [
+        "block/chunithm_marquee.json",
+        "item/chunithm.json"
+      ]
+    },
+    "japanesearcades:block/chunithm_display": {
+      "before_size": [
+        2048,
+        1024
+      ],
+      "after_size": [
+        1696,
+        960
+      ],
+      "rectangle": [
+        0,
+        0,
+        1696,
+        960
+      ],
+      "sampled_pixel_bounds": [
+        0.0,
+        0.0,
+        1672.0,
+        941.0
+      ],
+      "source_rgba_sha256": "b3d6059c669d02756fba26b62357cbab88996e0a0b172182abd65fadf92bb01b",
+      "retained_rgba_sha256": "5ae2b51d67de1f8e6063576a22324498d72dfa52a1d64c93711438a9fd288d11",
+      "pixels_saved": 468992,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": false,
+      "uv_points_checked": 6,
+      "max_pixel_coordinate_error": 0,
+      "model_references": [
+        "block/chunithm_console.json",
+        "item/chunithm.json"
+      ]
+    }
+  },
+  "files": [
+    "art/chunithm/chunithm.bbmodel",
+    "art/chunithm/geometry.json",
+    "src/main/resources/assets/japanesearcades/models/block/chunithm_console.json",
+    "src/main/resources/assets/japanesearcades/models/block/chunithm_marquee.json",
+    "src/main/resources/assets/japanesearcades/models/item/chunithm.json",
+    "src/main/resources/assets/japanesearcades/textures/block/chunithm_branding.png",
+    "src/main/resources/assets/japanesearcades/textures/block/chunithm_display.png"
+  ]
+}

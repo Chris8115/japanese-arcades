@@ -31,6 +31,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public final class MaimaiCabinetBlock extends NostalgiaCabinetBlock {
     public static final MapCodec<MaimaiCabinetBlock> CODEC = simpleCodec(MaimaiCabinetBlock::new);
     public static final EnumProperty<Side> SIDE = EnumProperty.create("side", Side.class);
+    private final java.util.Map<Integer, VoxelShape> shapeCache = new java.util.concurrent.ConcurrentHashMap<>();
 
     public MaimaiCabinetBlock(Properties properties) {
         super(properties);
@@ -186,6 +187,11 @@ public final class MaimaiCabinetBlock extends NostalgiaCabinetBlock {
         Direction facing = state.getValue(FACING);
         boolean primary = state.getValue(SIDE) == Side.PRIMARY;
         Part part = state.getValue(PART);
+        int key = facing.ordinal()*6 + (primary ? 0 : 3) + part.ordinal();
+        return shapeCache.computeIfAbsent(key, ignored -> CachedCabinetShape.of(buildShape(facing, primary, part)));
+    }
+
+    static VoxelShape buildShape(Direction facing, boolean primary, Part part) {
         double overhang = switch (part) { case BASE -> 3.2; case CONSOLE -> 2.6; case MARQUEE -> 3.7; };
         double front = switch (part) { case BASE -> -1.0; case CONSOLE -> -1.15; case MARQUEE -> -1.4; };
         VoxelShape body = rotatedBox(facing, primary ? -overhang : 0, front,

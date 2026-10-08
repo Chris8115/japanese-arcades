@@ -72,6 +72,8 @@ public final class ClawMachineBlockEntity extends BlockEntity {
     private ItemStack held = ItemStack.EMPTY;
     private long nextDeliveryAttempt;
     private boolean suppressUpdates, deliveryAttempt, breakPending, inventoryDrained;
+    // Retain inventory invalidation until the chunk broadcaster builds its next packet.
+    private boolean fullPublicUpdate = true;
     private ItemStack publicPrice = ItemStack.EMPTY, publicHeld = ItemStack.EMPTY;
     private float publicX, publicZ = CHUTE_Z, publicY, publicGrip, publicHeldX, publicHeldZ, publicHeldY;
 
@@ -197,7 +199,7 @@ public final class ClawMachineBlockEntity extends BlockEntity {
         lastMovement = level.getGameTime();
         aimX = Math.clamp(aimX + (action == 0 ? .08F : action == 1 ? -.08F : 0), 0, 1);
         aimZ = Math.clamp(aimZ + (action == 3 ? -.08F : action == 2 ? .08F : 0), 0, 1);
-        sendPublicUpdate();
+        sendAnimationUpdate();
         return true;
     }
     public void cancelSession(Player player) {
@@ -306,6 +308,11 @@ public final class ClawMachineBlockEntity extends BlockEntity {
             return;
         }
         if (!machine.isPaid()) { return; }
+        // A vetoed payout stays in its final pose until its existing retry deadline.
+        if (machine.phase == Phase.DELIVERING && machine.phaseTicks >= phaseDuration(Phase.DELIVERING)) {
+            if (now >= machine.nextDeliveryAttempt) { machine.deliver(); }
+            return;
+        }
         machine.phaseTicks++;
         switch (machine.phase) {
             case DESCENDING -> { if (machine.phaseTicks >= phaseDuration(machine.phase)) { machine.setPhase(Phase.GRABBING); } }
@@ -328,7 +335,7 @@ public final class ClawMachineBlockEntity extends BlockEntity {
             default -> { }
         }
         machine.setChanged();
-        if (machine.phaseTicks % 2 == 0) { machine.sendPublicUpdate(); }
+        if (machine.phaseTicks % 2 == 0) { machine.sendAnimationUpdate(); }
     }
 
     private void restoreSlippedPrize() {
@@ -467,6 +474,10 @@ public final class ClawMachineBlockEntity extends BlockEntity {
         }
     }
     private void sendPublicUpdate() {
+        fullPublicUpdate = true;
+        sendAnimationUpdate();
+    }
+    private void sendAnimationUpdate() {
         if (level != null && !level.isClientSide && !isRemoved()) { level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 2); }
     }
     private static void tell(Player player, String key) { player.displayClientMessage(Component.translatable("message.japanesearcades.claw_machine." + key), true); }
@@ -505,6 +516,7 @@ public final class ClawMachineBlockEntity extends BlockEntity {
         finally { suppressUpdates = false; }
         operator = null; sessionId = null; sessionPlayer = null; phase = Phase.IDLE; phaseTicks = 0;
         held = ItemStack.EMPTY; nextDeliveryAttempt = 0; inventoryDrained = deliveryAttempt = breakPending = false;
+        fullPublicUpdate = true;
         if (tag.contains("PaidPhase")) {
             phase = Phase.values()[Math.clamp(tag.getInt("PaidPhase"), Phase.DESCENDING.ordinal(), Phase.DELIVERING.ordinal())];
             phaseTicks = Math.clamp(tag.getInt("PhaseTicks"), 0, phaseDuration(phase));
@@ -529,18 +541,35 @@ public final class ClawMachineBlockEntity extends BlockEntity {
             ItemStack reward = getRewardDisplay(slot);
             if (!reward.isEmpty()) { tag.put("Preview" + slot, reward.save(registries)); }
         }
+        writeAnimation(tag);
+        return tag;
+    }
+    private void writeAnimation(CompoundTag tag) {
         tag.putInt("Phase", phase.ordinal()); tag.putInt("PhaseTicks", phaseTicks);
         tag.putFloat("X", getClawX()); tag.putFloat("Z", getClawZ()); tag.putFloat("Y", getClawY()); tag.putFloat("Grip", getGrip());
         tag.putFloat("HeldX", getHeldX()); tag.putFloat("HeldZ", getHeldZ()); tag.putFloat("HeldY", getHeldY());
-        return tag;
     }
-    @Override public ClientboundBlockEntityDataPacket getUpdatePacket() { return ClientboundBlockEntityDataPacket.create(this); }
+    @Override public ClientboundBlockEntityDataPacket getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this, (entity, registries) -> {
+            if (fullPublicUpdate) {
+                fullPublicUpdate = false;
+                return getUpdateTag(registries);
+            }
+            // Chunk/initial tracking still uses the complete getUpdateTag snapshot above.
+            CompoundTag tag = new CompoundTag();
+            tag.putBoolean("AnimationOnly", true);
+            writeAnimation(tag);
+            return tag;
+        });
+    }
     @Override
     public void handleUpdateTag(CompoundTag tag, HolderLookup.Provider registries) {
-        publicPrice = tag.contains("Price") ? ItemStack.parse(registries, tag.getCompound("Price")).orElse(ItemStack.EMPTY) : ItemStack.EMPTY;
-        publicHeld = tag.contains("Held") ? ItemStack.parse(registries, tag.getCompound("Held")).orElse(ItemStack.EMPTY) : ItemStack.EMPTY;
-        for (int slot = 0; slot < 9; slot++) {
-            publicRewards[slot] = tag.contains("Preview" + slot) ? ItemStack.parse(registries, tag.getCompound("Preview" + slot)).orElse(ItemStack.EMPTY) : ItemStack.EMPTY;
+        if (!tag.getBoolean("AnimationOnly")) {
+            publicPrice = tag.contains("Price") ? ItemStack.parse(registries, tag.getCompound("Price")).orElse(ItemStack.EMPTY) : ItemStack.EMPTY;
+            publicHeld = tag.contains("Held") ? ItemStack.parse(registries, tag.getCompound("Held")).orElse(ItemStack.EMPTY) : ItemStack.EMPTY;
+            for (int slot = 0; slot < 9; slot++) {
+                publicRewards[slot] = tag.contains("Preview" + slot) ? ItemStack.parse(registries, tag.getCompound("Preview" + slot)).orElse(ItemStack.EMPTY) : ItemStack.EMPTY;
+            }
         }
         phase = Phase.values()[Math.clamp(tag.getInt("Phase"), 0, Phase.values().length - 1)]; phaseTicks = Math.max(0, tag.getInt("PhaseTicks"));
         publicX = tag.getFloat("X"); publicZ = tag.getFloat("Z"); publicY = tag.getFloat("Y"); publicGrip = tag.getFloat("Grip");

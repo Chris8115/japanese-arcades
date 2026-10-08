@@ -1,0 +1,90 @@
+{
+  "cabinet": "ddr",
+  "generator": "make_ddr_model.py",
+  "changed": true,
+  "method": "Integer pixel crop; remapped source-pixel UV coordinates; no resampling or geometry changes",
+  "pixels_saved": 5134336,
+  "textures": {
+    "japanesearcades:block/ddr_supernova_display": {
+      "before_size": [
+        2048,
+        2048
+      ],
+      "after_size": [
+        1472,
+        1104
+      ],
+      "rectangle": [
+        0,
+        0,
+        1472,
+        1104
+      ],
+      "sampled_pixel_bounds": [
+        0.0,
+        0.0,
+        1448.0,
+        1086.000001024
+      ],
+      "source_rgba_sha256": "a7bff9c2c4455938d494aeb7f3c051c38b3338bb45132898ebe4295fae254da6",
+      "retained_rgba_sha256": "fa59607e1e3ef634f1bdc10006f4bc88a0d44e0fe8d15c6e49f8f80ac7833327",
+      "pixels_saved": 2569216,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": false,
+      "uv_points_checked": 16,
+      "max_pixel_coordinate_error": 0,
+      "model_references": [
+        "block/ddr_supernova_primary_cabinet_console.json",
+        "block/ddr_supernova_secondary_cabinet_console.json",
+        "item/ddr_supernova.json"
+      ]
+    },
+    "japanesearcades:block/ddr_supernova_header": {
+      "before_size": [
+        2048,
+        2048
+      ],
+      "after_size": [
+        1376,
+        1184
+      ],
+      "rectangle": [
+        0,
+        0,
+        1376,
+        1184
+      ],
+      "sampled_pixel_bounds": [
+        0.0,
+        0.0,
+        1353.999998976,
+        1160.999999488
+      ],
+      "source_rgba_sha256": "a8d0bdcbbc84f7d5c614879580d1cc97ad1e01f5537bf3962754ae66fda397af",
+      "retained_rgba_sha256": "06dc111f8fe64507e321cb6500c897c2ea1b54f2bc784db2c8c3b0d2fa70d5b4",
+      "pixels_saved": 2565120,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": false,
+      "uv_points_checked": 16,
+      "max_pixel_coordinate_error": 0,
+      "model_references": [
+        "block/ddr_supernova_primary_cabinet_marquee.json",
+        "block/ddr_supernova_secondary_cabinet_marquee.json",
+        "item/ddr_supernova.json"
+      ]
+    }
+  },
+  "files": [
+    "art/ddr_supernova/ddr_supernova.bbmodel",
+    "art/ddr_supernova/geometry.json",
+    "src/main/resources/assets/japanesearcades/models/block/ddr_supernova_primary_cabinet_console.obj",
+    "src/main/resources/assets/japanesearcades/models/block/ddr_supernova_primary_cabinet_marquee.obj",
+    "src/main/resources/assets/japanesearcades/models/block/ddr_supernova_secondary_cabinet_console.obj",
+    "src/main/resources/assets/japanesearcades/models/block/ddr_supernova_secondary_cabinet_marquee.obj",
+    "src/main/resources/assets/japanesearcades/models/item/ddr_supernova.obj",
+    "src/main/resources/assets/japanesearcades/textures/block/ddr_supernova_display.png",
+    "src/main/resources/assets/japanesearcades/textures/block/ddr_supernova_header.png"
+  ]
+}

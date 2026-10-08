@@ -264,3 +264,7 @@ write_json(ART/'geometry.json', {'textures':texture_paths,'elements':elements,'m
 print('Generated',len(elements),'cuboids; section counts:',{name:len(values) for name,values in parts.items()})
 print('Rigid speaker and separator polygons:',len(mesh_faces))
 print('Editable model:',ART/'beatstream.bbmodel')
+
+# Trim unused artwork borders after all runtime and authoring exports exist.
+from compact_cabinet_textures import compact_cabinet
+compact_cabinet('beatstream')

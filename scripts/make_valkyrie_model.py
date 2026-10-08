@@ -468,3 +468,7 @@ write_json(ART/'sound-voltex-valkyrie.bbmodel',
 write_json(ART/'geometry.json', {'textures':texture_paths,'elements':elements})
 print('Generated',len(elements),'cuboids; section counts:',{name:len(values) for name,values in parts.items()})
 print('Editable model:',ART/'sound-voltex-valkyrie.bbmodel')
+
+# Trim unused artwork borders after all runtime and authoring exports exist.
+from compact_cabinet_textures import compact_cabinet
+compact_cabinet('valkyrie')

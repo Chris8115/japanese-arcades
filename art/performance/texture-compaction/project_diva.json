@@ -1,0 +1,86 @@
+{
+  "cabinet": "project_diva",
+  "generator": "make_project_diva_model.py",
+  "changed": true,
+  "method": "Integer pixel crop; remapped source-pixel UV coordinates; no resampling or geometry changes",
+  "pixels_saved": 980224,
+  "textures": {
+    "japanesearcades:block/project_diva_display": {
+      "before_size": [
+        2048,
+        1024
+      ],
+      "after_size": [
+        1696,
+        960
+      ],
+      "rectangle": [
+        0,
+        0,
+        1696,
+        960
+      ],
+      "sampled_pixel_bounds": [
+        0.0,
+        0.0,
+        1672.0,
+        941.0
+      ],
+      "source_rgba_sha256": "1e311e8449848a280b6084684216171e4bde93e3b10fdb7a56c2f2799747e7aa",
+      "retained_rgba_sha256": "a9b09b8ba6b8559d9e0e52d08f048609459b8de3327291644b6e6d231c10dde2",
+      "pixels_saved": 468992,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": false,
+      "uv_points_checked": 6,
+      "max_pixel_coordinate_error": 0,
+      "model_references": [
+        "block/project_diva_console.json",
+        "item/project_diva.json"
+      ]
+    },
+    "japanesearcades:block/project_diva_header": {
+      "before_size": [
+        2048,
+        1024
+      ],
+      "after_size": [
+        1680,
+        944
+      ],
+      "rectangle": [
+        0,
+        0,
+        1680,
+        944
+      ],
+      "sampled_pixel_bounds": [
+        8.27722752,
+        0.0,
+        1663.72277248,
+        920.5434784
+      ],
+      "source_rgba_sha256": "c6ac29b7d34965157e1f0aa4fe295f3d04727def762775bc3eb3367de460a427",
+      "retained_rgba_sha256": "3f0930436a9319f48d1aefe9779f7299e7fce83e9c91249ad71d0df6a819e1e0",
+      "pixels_saved": 511232,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": false,
+      "uv_points_checked": 126,
+      "max_pixel_coordinate_error": 2.842170943040401e-14,
+      "model_references": [
+        "block/project_diva_marquee.json",
+        "item/project_diva.json"
+      ]
+    }
+  },
+  "files": [
+    "art/project_diva/geometry.json",
+    "art/project_diva/project_diva.bbmodel",
+    "src/main/resources/assets/japanesearcades/models/block/project_diva_console.json",
+    "src/main/resources/assets/japanesearcades/models/block/project_diva_marquee.json",
+    "src/main/resources/assets/japanesearcades/models/item/project_diva.json",
+    "src/main/resources/assets/japanesearcades/textures/block/project_diva_display.png",
+    "src/main/resources/assets/japanesearcades/textures/block/project_diva_header.png"
+  ]
+}
