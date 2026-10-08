@@ -145,6 +145,17 @@ The WACCA poster uses the supplied artwork and hangs on a wall like a painting.
 | `hatsune_miku_figure` | Hatsune Miku Figure | 2,500 |
 | `kasane_teto_figure` | Kasane Teto Figure | 2,500 |
 | `wacca_poster` | WACCA Poster | 750 |
+| `nostalgia_poster` | Nostalgia Poster | 750 |
+| `nostalgia_op2_poster` | Nostalgia Op.2 Poster | 750 |
+| `nostalgia_forte_poster` | Nostalgia FORTE Poster | 750 |
+| `sound_voltex_exceed_gear_poster` | SOUND VOLTEX EXCEED GEAR Poster | 750 |
+| `sound_voltex_vivid_wave_poster` | SOUND VOLTEX VIVID WAVE Poster | 750 |
+| `taiko_drum_n_fun_poster` | Taiko no Tatsujin: Drum 'n' Fun! Poster | 750 |
+| `wacca_s_poster` | WACCA S Poster | 750 |
+| `wacca_reverse_poster` | WACCA Reverse Poster | 750 |
+| `wacca_lily_poster` | WACCA Lily Poster | 750 |
+| `wacca_lily_r_poster` | WACCA Lily R Poster | 750 |
+| `jubeat_festo_poster` | jubeat festo Poster | 750 |
 | `hatsune_miku_cutout` | Hatsune Miku Cardboard Cutout | 1,500 |
 | `kasane_teto_cutout` | Kasane Teto Cardboard Cutout | 1,500 |
 | `boxed_creeper_figure` | Boxed Creeper Figure | 1,000 |
@@ -166,6 +177,12 @@ tall, with support from two vertical wall blocks. It always displays the same ar
 item when broken in survival, so it can be rehung. Ordinary paintings do not
 randomly select it. The full source image is preserved without cropping,
 stretching or added borders; the poster's shape follows the artwork's proportions.
+
+The [eleven additional posters](../arcade_posters/README.md) share those exact
+physical dimensions and placement behavior. Their full supplied images fit
+within the print with narrow black padding so neither cropping nor distortion
+is needed. Each has its own prize item and configurable 750-point default price.
+The original WACCA poster's artwork and registered identities remain unchanged.
 
 Both models fit inside one block, below Y15/16. The block class uses a shared
 compact X2–14, Y0–15, Z3–13 collision/selection envelope and horizontal facing.

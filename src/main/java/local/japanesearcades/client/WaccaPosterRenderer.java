@@ -2,7 +2,7 @@ package local.japanesearcades.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import local.japanesearcades.WaccaPosterEntity;
+import local.japanesearcades.ArcadePosterEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -20,7 +20,7 @@ public final class WaccaPosterRenderer extends PaintingRenderer {
                        MultiBufferSource buffers, int packedLight) {
         poses.pushPose();
         try {
-            poses.scale(1.0F, (float)(WaccaPosterEntity.HEIGHT / poster.getVariant().value().height()), 1.0F);
+            poses.scale(1.0F, (float)(ArcadePosterEntity.HEIGHT / poster.getVariant().value().height()), 1.0F);
             RenderType paintingLayer = RenderType.entitySolid(getTextureLocation(poster));
             MultiBufferSource posterBuffers = layer -> layer == paintingLayer
                 ? new BlackBackingConsumer(buffers.getBuffer(layer)) : buffers.getBuffer(layer);

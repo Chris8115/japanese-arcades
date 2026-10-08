@@ -14,5 +14,6 @@ public final class WaccaPosterClient {
     @SubscribeEvent
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(JapaneseArcades.WACCA_POSTER_ENTITY.get(), WaccaPosterRenderer::new);
+        event.registerEntityRenderer(JapaneseArcades.ARCADE_POSTER_ENTITY.get(), WaccaPosterRenderer::new);
     }
 }

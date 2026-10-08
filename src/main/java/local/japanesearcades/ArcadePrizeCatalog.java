@@ -23,6 +23,7 @@ public final class ArcadePrizeCatalog {
         new Entry(id("kasane_teto_cutout"), JapaneseArcades.KASANE_TETO_CUTOUT_ITEM),
         new Entry(id("wacca_poster"), JapaneseArcades.WACCA_POSTER),
         new Entry(id("mech_suit"), JapaneseArcades.MECH_SUIT_ITEM)),
+        JapaneseArcades.ARCADE_POSTERS.stream().map(poster -> new Entry(id(poster.path()), poster.item())),
         JapaneseArcades.MOB_FIGURES.stream().map(figures -> new Entry(
             id(MobFigureBlock.path(figures.mob(), MobFigureBlock.Form.BOXED)), figures.boxedFigureItem())),
         JapaneseArcades.GLOW_STICKS.stream().map(stick -> new Entry(id(stick.path()), stick.item())))

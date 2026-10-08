@@ -1,0 +1,156 @@
+{
+  "ambientocclusion": false,
+  "gui_light": "front",
+  "textures": {
+    "poster": "japanesearcades:item/wacca_lily_poster",
+    "particle": "japanesearcades:item/wacca_lily_poster"
+  },
+  "elements": [
+    {
+      "name": "WACCA Lily poster print",
+      "from": [
+        2.5452880859375,
+        0.5,
+        7.94
+      ],
+      "to": [
+        13.4547119140625,
+        15.5,
+        8.06
+      ],
+      "faces": {
+        "east": {
+          "texture": "#poster",
+          "uv": [
+            0,
+            0,
+            0.015625,
+            0.015625
+          ]
+        },
+        "west": {
+          "texture": "#poster",
+          "uv": [
+            0,
+            0,
+            0.015625,
+            0.015625
+          ]
+        },
+        "up": {
+          "texture": "#poster",
+          "uv": [
+            0,
+            0,
+            0.015625,
+            0.015625
+          ]
+        },
+        "down": {
+          "texture": "#poster",
+          "uv": [
+            0,
+            0,
+            0.015625,
+            0.015625
+          ]
+        },
+        "north": {
+          "texture": "#poster",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#poster",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      }
+    }
+  ],
+  "display": {
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        3,
+        0
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        1
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -20,
+        0
+      ],
+      "translation": [
+        1,
+        1,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  }
+}

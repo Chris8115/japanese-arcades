@@ -88,7 +88,8 @@ iron, gold, emeralds or diamonds, and combines balances between cards placed in
 real **From** and **To** slots. Both cards return when the kiosk closes. Use a pass
 on a music arcade cabinet to spend Credits and earn randomized Prize Points,
 then redeem them in **Prizes** for placeable Miku and Teto figures, a
-[WACCA wall poster](art/wacca_poster/README.md), a
+[WACCA wall poster](art/wacca_poster/README.md),
+[eleven more arcade posters](art/arcade_posters/README.md), a
 [Minecraft-style Hatsune Miku cardboard cutout](art/hatsune_miku_cutout/README.md),
 a matching [Kasane Teto cutout](art/kasane_teto_cutout/README.md), or
 [boxed Minecraft mob figures](art/mob_figures/README.md). Creeper, Zombie,
@@ -98,6 +99,14 @@ Prices, rank
 weights and machine profiles are server-configurable. See the
 [Arcade Pass economy guide](art/arcade_economy/README.md) for controls, defaults,
 configuration, transferable-card data and future loot support.
+
+All twelve posters cost **750 Prize Points each** by default and have the same
+dimensions: **1 block wide and about 1⅜ blocks tall**. They include Nostalgia,
+Nostalgia Op.2 and FORTE, SOUND VOLTEX EXCEED GEAR and VIVID WAVE, Taiko no
+Tatsujin: Drum 'n' Fun!, WACCA S, Reverse, Lily and Lily R, and jubeat festo,
+alongside the original WACCA poster. Each is a separate collectible using its
+supplied artwork. Place one against two solid vertical wall blocks; breaking it
+in survival returns that same poster. The creative tab also contains them.
 
 The freestanding Miku and Teto cutouts each cost 1,500 Prize Points by default
 and can also be stocked in claw machines or gachapon. Both are about 1.6 blocks tall, with printed

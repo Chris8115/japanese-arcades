@@ -37,6 +37,17 @@
 	# Range: 1 ~ 1000000
 	kasane_teto_figure = 2500
 	wacca_poster = 750
+	nostalgia_poster = 750
+	nostalgia_op2_poster = 750
+	nostalgia_forte_poster = 750
+	sound_voltex_exceed_gear_poster = 750
+	sound_voltex_vivid_wave_poster = 750
+	taiko_drum_n_fun_poster = 750
+	wacca_s_poster = 750
+	wacca_reverse_poster = 750
+	wacca_lily_poster = 750
+	wacca_lily_r_poster = 750
+	jubeat_festo_poster = 750
 	hatsune_miku_cutout = 1500
 	kasane_teto_cutout = 1500
 	# High-tier pilotable reward

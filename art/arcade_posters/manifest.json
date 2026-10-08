@@ -1,0 +1,731 @@
+{
+  "poster_count": 11,
+  "posters": [
+    {
+      "id": "nostalgia_poster",
+      "title": "Nostalgia",
+      "author": "KONAMI",
+      "source": {
+        "file": "art/arcade_posters/sources/nostalgia_poster.jpg",
+        "attachment_filename": "nostalgia_poster.jpg",
+        "sha256": "b03ec59704789d05fe6cc1b72dcf70b0db7fc203e539fd33d7bc88fabca6320a",
+        "bytes": 52962,
+        "dimensions": [
+          528,
+          704
+        ]
+      },
+      "output": {
+        "texture": "japanesearcades:painting/nostalgia_poster",
+        "item_texture": "japanesearcades:item/nostalgia_poster",
+        "sha256": "59d6114e0d2c45677319185cab3784e34348bcc1162fd13726de041aae6e6123",
+        "item_sha256": "59d6114e0d2c45677319185cab3784e34348bcc1162fd13726de041aae6e6123",
+        "dimensions": [
+          512,
+          704
+        ]
+      },
+      "packing": {
+        "operation": "Uniform full-image downsample with centered black letterboxing",
+        "artwork_scale": 0.9696969696969697,
+        "resampling": "Pillow LANCZOS",
+        "scaled_dimensions": [
+          512,
+          683
+        ],
+        "offset": [
+          0,
+          10
+        ],
+        "padding_left_top_right_bottom": [
+          0,
+          10,
+          0,
+          11
+        ],
+        "artwork_height_rounding": "Nearest whole pixel",
+        "supported_mip_levels": 6,
+        "raster_aspect_rounding_error_percent": 0.0030517578125
+      },
+      "geometry": {
+        "visual_dimensions_blocks": [
+          1.0,
+          1.3749580396106076
+        ],
+        "wall_support_grid_blocks": [
+          1,
+          2
+        ],
+        "item_dimensions": [
+          10.909423828125,
+          15.0,
+          0.1200000000000001
+        ],
+        "item_faces": 6,
+        "placed_faces": 12,
+        "placed_face_source": "Shared vanilla PaintingRenderer: 1 x 2 cells, 6 quads per cell"
+      },
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA item dimensions, 6 item faces"
+    },
+    {
+      "id": "nostalgia_op2_poster",
+      "title": "Nostalgia Op.2",
+      "author": "KONAMI",
+      "source": {
+        "file": "art/arcade_posters/sources/nostalgia_op2_poster.jpg",
+        "attachment_filename": "nostalgia_op2_poster.jpg",
+        "sha256": "01c06b3041c671011750a522bf12d480b3ae595a5c6cbcc601b49541762498b2",
+        "bytes": 69184,
+        "dimensions": [
+          528,
+          704
+        ]
+      },
+      "output": {
+        "texture": "japanesearcades:painting/nostalgia_op2_poster",
+        "item_texture": "japanesearcades:item/nostalgia_op2_poster",
+        "sha256": "e5dc69eac131dd7b153a521d79e25c5385c9523628c30e0ca44bca460c2877ed",
+        "item_sha256": "e5dc69eac131dd7b153a521d79e25c5385c9523628c30e0ca44bca460c2877ed",
+        "dimensions": [
+          512,
+          704
+        ]
+      },
+      "packing": {
+        "operation": "Uniform full-image downsample with centered black letterboxing",
+        "artwork_scale": 0.9696969696969697,
+        "resampling": "Pillow LANCZOS",
+        "scaled_dimensions": [
+          512,
+          683
+        ],
+        "offset": [
+          0,
+          10
+        ],
+        "padding_left_top_right_bottom": [
+          0,
+          10,
+          0,
+          11
+        ],
+        "artwork_height_rounding": "Nearest whole pixel",
+        "supported_mip_levels": 6,
+        "raster_aspect_rounding_error_percent": 0.0030517578125
+      },
+      "geometry": {
+        "visual_dimensions_blocks": [
+          1.0,
+          1.3749580396106076
+        ],
+        "wall_support_grid_blocks": [
+          1,
+          2
+        ],
+        "item_dimensions": [
+          10.909423828125,
+          15.0,
+          0.1200000000000001
+        ],
+        "item_faces": 6,
+        "placed_faces": 12,
+        "placed_face_source": "Shared vanilla PaintingRenderer: 1 x 2 cells, 6 quads per cell"
+      },
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA item dimensions, 6 item faces"
+    },
+    {
+      "id": "nostalgia_forte_poster",
+      "title": "Nostalgia FORTE",
+      "author": "KONAMI",
+      "source": {
+        "file": "art/arcade_posters/sources/nostalgia_forte_poster.jpg",
+        "attachment_filename": "nostalgia_forte_poster.jpg",
+        "sha256": "8cf4ad5d11a774c469f0f9f5c1217caf9d7a5dc912ad964389c801af80efa90c",
+        "bytes": 58780,
+        "dimensions": [
+          528,
+          704
+        ]
+      },
+      "output": {
+        "texture": "japanesearcades:painting/nostalgia_forte_poster",
+        "item_texture": "japanesearcades:item/nostalgia_forte_poster",
+        "sha256": "2d2f5071ad04d1a52a3f15887ec4f64f8893ad67bd7bc14acefd8d5e826f53e6",
+        "item_sha256": "2d2f5071ad04d1a52a3f15887ec4f64f8893ad67bd7bc14acefd8d5e826f53e6",
+        "dimensions": [
+          512,
+          704
+        ]
+      },
+      "packing": {
+        "operation": "Uniform full-image downsample with centered black letterboxing",
+        "artwork_scale": 0.9696969696969697,
+        "resampling": "Pillow LANCZOS",
+        "scaled_dimensions": [
+          512,
+          683
+        ],
+        "offset": [
+          0,
+          10
+        ],
+        "padding_left_top_right_bottom": [
+          0,
+          10,
+          0,
+          11
+        ],
+        "artwork_height_rounding": "Nearest whole pixel",
+        "supported_mip_levels": 6,
+        "raster_aspect_rounding_error_percent": 0.0030517578125
+      },
+      "geometry": {
+        "visual_dimensions_blocks": [
+          1.0,
+          1.3749580396106076
+        ],
+        "wall_support_grid_blocks": [
+          1,
+          2
+        ],
+        "item_dimensions": [
+          10.909423828125,
+          15.0,
+          0.1200000000000001
+        ],
+        "item_faces": 6,
+        "placed_faces": 12,
+        "placed_face_source": "Shared vanilla PaintingRenderer: 1 x 2 cells, 6 quads per cell"
+      },
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA item dimensions, 6 item faces"
+    },
+    {
+      "id": "sound_voltex_exceed_gear_poster",
+      "title": "SOUND VOLTEX EXCEED GEAR",
+      "author": "KONAMI",
+      "source": {
+        "file": "art/arcade_posters/sources/sound_voltex_exceed_gear_poster.jpg",
+        "attachment_filename": "sound_voltex_exceed_gear_poster.jpg",
+        "sha256": "e76e8f3b56802f0cadc2f719cc102cbe9923225c2d861a80e7f1e6d51efae791",
+        "bytes": 94247,
+        "dimensions": [
+          528,
+          704
+        ]
+      },
+      "output": {
+        "texture": "japanesearcades:painting/sound_voltex_exceed_gear_poster",
+        "item_texture": "japanesearcades:item/sound_voltex_exceed_gear_poster",
+        "sha256": "3e8e444c3bd3ac0387236d80d0937e3897356328009a5341f8e49981b30ff416",
+        "item_sha256": "3e8e444c3bd3ac0387236d80d0937e3897356328009a5341f8e49981b30ff416",
+        "dimensions": [
+          512,
+          704
+        ]
+      },
+      "packing": {
+        "operation": "Uniform full-image downsample with centered black letterboxing",
+        "artwork_scale": 0.9696969696969697,
+        "resampling": "Pillow LANCZOS",
+        "scaled_dimensions": [
+          512,
+          683
+        ],
+        "offset": [
+          0,
+          10
+        ],
+        "padding_left_top_right_bottom": [
+          0,
+          10,
+          0,
+          11
+        ],
+        "artwork_height_rounding": "Nearest whole pixel",
+        "supported_mip_levels": 6,
+        "raster_aspect_rounding_error_percent": 0.0030517578125
+      },
+      "geometry": {
+        "visual_dimensions_blocks": [
+          1.0,
+          1.3749580396106076
+        ],
+        "wall_support_grid_blocks": [
+          1,
+          2
+        ],
+        "item_dimensions": [
+          10.909423828125,
+          15.0,
+          0.1200000000000001
+        ],
+        "item_faces": 6,
+        "placed_faces": 12,
+        "placed_face_source": "Shared vanilla PaintingRenderer: 1 x 2 cells, 6 quads per cell"
+      },
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA item dimensions, 6 item faces"
+    },
+    {
+      "id": "sound_voltex_vivid_wave_poster",
+      "title": "SOUND VOLTEX VIVID WAVE",
+      "author": "KONAMI",
+      "source": {
+        "file": "art/arcade_posters/sources/sound_voltex_vivid_wave_poster.jpg",
+        "attachment_filename": "sound_voltex_vivid_wave_poster.jpg",
+        "sha256": "d15184cc9691c90cfaa3ed6ccce9f1f1d2b7bae2c78d005f628ac192e87e9652",
+        "bytes": 96285,
+        "dimensions": [
+          528,
+          704
+        ]
+      },
+      "output": {
+        "texture": "japanesearcades:painting/sound_voltex_vivid_wave_poster",
+        "item_texture": "japanesearcades:item/sound_voltex_vivid_wave_poster",
+        "sha256": "d01b1c235eda49e76291407f9a14a60d086f0613d6558d93ba3659ca62556ff6",
+        "item_sha256": "d01b1c235eda49e76291407f9a14a60d086f0613d6558d93ba3659ca62556ff6",
+        "dimensions": [
+          512,
+          704
+        ]
+      },
+      "packing": {
+        "operation": "Uniform full-image downsample with centered black letterboxing",
+        "artwork_scale": 0.9696969696969697,
+        "resampling": "Pillow LANCZOS",
+        "scaled_dimensions": [
+          512,
+          683
+        ],
+        "offset": [
+          0,
+          10
+        ],
+        "padding_left_top_right_bottom": [
+          0,
+          10,
+          0,
+          11
+        ],
+        "artwork_height_rounding": "Nearest whole pixel",
+        "supported_mip_levels": 6,
+        "raster_aspect_rounding_error_percent": 0.0030517578125
+      },
+      "geometry": {
+        "visual_dimensions_blocks": [
+          1.0,
+          1.3749580396106076
+        ],
+        "wall_support_grid_blocks": [
+          1,
+          2
+        ],
+        "item_dimensions": [
+          10.909423828125,
+          15.0,
+          0.1200000000000001
+        ],
+        "item_faces": 6,
+        "placed_faces": 12,
+        "placed_face_source": "Shared vanilla PaintingRenderer: 1 x 2 cells, 6 quads per cell"
+      },
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA item dimensions, 6 item faces"
+    },
+    {
+      "id": "taiko_drum_n_fun_poster",
+      "title": "Taiko no Tatsujin: Drum 'n' Fun!",
+      "author": "Bandai Namco Entertainment",
+      "source": {
+        "file": "art/arcade_posters/sources/taiko_drum_n_fun_poster.jpg",
+        "attachment_filename": "taiko_drum_n_fun_poster.jpg",
+        "sha256": "e76763af74d4c7a69bfb6398ac36bb40dc66d4f5e4cb3db6bec63b2fcb2b6365",
+        "bytes": 106206,
+        "dimensions": [
+          528,
+          704
+        ]
+      },
+      "output": {
+        "texture": "japanesearcades:painting/taiko_drum_n_fun_poster",
+        "item_texture": "japanesearcades:item/taiko_drum_n_fun_poster",
+        "sha256": "f49d23a9806ed5aaed4a077704b86b8bfa40e958e1300071f4ca689a3c75fe2c",
+        "item_sha256": "f49d23a9806ed5aaed4a077704b86b8bfa40e958e1300071f4ca689a3c75fe2c",
+        "dimensions": [
+          512,
+          704
+        ]
+      },
+      "packing": {
+        "operation": "Uniform full-image downsample with centered black letterboxing",
+        "artwork_scale": 0.9696969696969697,
+        "resampling": "Pillow LANCZOS",
+        "scaled_dimensions": [
+          512,
+          683
+        ],
+        "offset": [
+          0,
+          10
+        ],
+        "padding_left_top_right_bottom": [
+          0,
+          10,
+          0,
+          11
+        ],
+        "artwork_height_rounding": "Nearest whole pixel",
+        "supported_mip_levels": 6,
+        "raster_aspect_rounding_error_percent": 0.0030517578125
+      },
+      "geometry": {
+        "visual_dimensions_blocks": [
+          1.0,
+          1.3749580396106076
+        ],
+        "wall_support_grid_blocks": [
+          1,
+          2
+        ],
+        "item_dimensions": [
+          10.909423828125,
+          15.0,
+          0.1200000000000001
+        ],
+        "item_faces": 6,
+        "placed_faces": 12,
+        "placed_face_source": "Shared vanilla PaintingRenderer: 1 x 2 cells, 6 quads per cell"
+      },
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA item dimensions, 6 item faces"
+    },
+    {
+      "id": "wacca_s_poster",
+      "title": "WACCA S",
+      "author": "Marvelous / HARDCORE TANO*C",
+      "source": {
+        "file": "art/arcade_posters/sources/wacca_s_poster.jpg",
+        "attachment_filename": "wacca_s_poster.jpg",
+        "sha256": "6d245155e90b966129cc18cc3683e4a17f99cfecb0948bccb5ae019719882309",
+        "bytes": 76209,
+        "dimensions": [
+          528,
+          704
+        ]
+      },
+      "output": {
+        "texture": "japanesearcades:painting/wacca_s_poster",
+        "item_texture": "japanesearcades:item/wacca_s_poster",
+        "sha256": "583a16c0ba6078a6d949b2497e0442053e36405482c3d1378d4d7b39bb170d9c",
+        "item_sha256": "583a16c0ba6078a6d949b2497e0442053e36405482c3d1378d4d7b39bb170d9c",
+        "dimensions": [
+          512,
+          704
+        ]
+      },
+      "packing": {
+        "operation": "Uniform full-image downsample with centered black letterboxing",
+        "artwork_scale": 0.9696969696969697,
+        "resampling": "Pillow LANCZOS",
+        "scaled_dimensions": [
+          512,
+          683
+        ],
+        "offset": [
+          0,
+          10
+        ],
+        "padding_left_top_right_bottom": [
+          0,
+          10,
+          0,
+          11
+        ],
+        "artwork_height_rounding": "Nearest whole pixel",
+        "supported_mip_levels": 6,
+        "raster_aspect_rounding_error_percent": 0.0030517578125
+      },
+      "geometry": {
+        "visual_dimensions_blocks": [
+          1.0,
+          1.3749580396106076
+        ],
+        "wall_support_grid_blocks": [
+          1,
+          2
+        ],
+        "item_dimensions": [
+          10.909423828125,
+          15.0,
+          0.1200000000000001
+        ],
+        "item_faces": 6,
+        "placed_faces": 12,
+        "placed_face_source": "Shared vanilla PaintingRenderer: 1 x 2 cells, 6 quads per cell"
+      },
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA item dimensions, 6 item faces"
+    },
+    {
+      "id": "wacca_reverse_poster",
+      "title": "WACCA Reverse",
+      "author": "Marvelous / HARDCORE TANO*C",
+      "source": {
+        "file": "art/arcade_posters/sources/wacca_reverse_poster.jpg",
+        "attachment_filename": "wacca_reverse_poster.jpg",
+        "sha256": "33cdad916dc164b9772f82ea414c9dce7468d4ac4d2f58b7a804c15d52b73ef9",
+        "bytes": 70295,
+        "dimensions": [
+          528,
+          704
+        ]
+      },
+      "output": {
+        "texture": "japanesearcades:painting/wacca_reverse_poster",
+        "item_texture": "japanesearcades:item/wacca_reverse_poster",
+        "sha256": "befde94163a8f165a6ff0498e395fe6df51ee7792eff6119f84e0322fec1d571",
+        "item_sha256": "befde94163a8f165a6ff0498e395fe6df51ee7792eff6119f84e0322fec1d571",
+        "dimensions": [
+          512,
+          704
+        ]
+      },
+      "packing": {
+        "operation": "Uniform full-image downsample with centered black letterboxing",
+        "artwork_scale": 0.9696969696969697,
+        "resampling": "Pillow LANCZOS",
+        "scaled_dimensions": [
+          512,
+          683
+        ],
+        "offset": [
+          0,
+          10
+        ],
+        "padding_left_top_right_bottom": [
+          0,
+          10,
+          0,
+          11
+        ],
+        "artwork_height_rounding": "Nearest whole pixel",
+        "supported_mip_levels": 6,
+        "raster_aspect_rounding_error_percent": 0.0030517578125
+      },
+      "geometry": {
+        "visual_dimensions_blocks": [
+          1.0,
+          1.3749580396106076
+        ],
+        "wall_support_grid_blocks": [
+          1,
+          2
+        ],
+        "item_dimensions": [
+          10.909423828125,
+          15.0,
+          0.1200000000000001
+        ],
+        "item_faces": 6,
+        "placed_faces": 12,
+        "placed_face_source": "Shared vanilla PaintingRenderer: 1 x 2 cells, 6 quads per cell"
+      },
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA item dimensions, 6 item faces"
+    },
+    {
+      "id": "wacca_lily_poster",
+      "title": "WACCA Lily",
+      "author": "Marvelous / HARDCORE TANO*C",
+      "source": {
+        "file": "art/arcade_posters/sources/wacca_lily_poster.jpg",
+        "attachment_filename": "wacca_lily_poster.jpg",
+        "sha256": "c8a61a24eac0d45deffbb1c2569a37954a6f6e9aaf87111dd89c445fd3514374",
+        "bytes": 80038,
+        "dimensions": [
+          528,
+          704
+        ]
+      },
+      "output": {
+        "texture": "japanesearcades:painting/wacca_lily_poster",
+        "item_texture": "japanesearcades:item/wacca_lily_poster",
+        "sha256": "df052fb1abf6ff5494dfb1df0fcc90880a30482f65360e383e2cf6d45969a869",
+        "item_sha256": "df052fb1abf6ff5494dfb1df0fcc90880a30482f65360e383e2cf6d45969a869",
+        "dimensions": [
+          512,
+          704
+        ]
+      },
+      "packing": {
+        "operation": "Uniform full-image downsample with centered black letterboxing",
+        "artwork_scale": 0.9696969696969697,
+        "resampling": "Pillow LANCZOS",
+        "scaled_dimensions": [
+          512,
+          683
+        ],
+        "offset": [
+          0,
+          10
+        ],
+        "padding_left_top_right_bottom": [
+          0,
+          10,
+          0,
+          11
+        ],
+        "artwork_height_rounding": "Nearest whole pixel",
+        "supported_mip_levels": 6,
+        "raster_aspect_rounding_error_percent": 0.0030517578125
+      },
+      "geometry": {
+        "visual_dimensions_blocks": [
+          1.0,
+          1.3749580396106076
+        ],
+        "wall_support_grid_blocks": [
+          1,
+          2
+        ],
+        "item_dimensions": [
+          10.909423828125,
+          15.0,
+          0.1200000000000001
+        ],
+        "item_faces": 6,
+        "placed_faces": 12,
+        "placed_face_source": "Shared vanilla PaintingRenderer: 1 x 2 cells, 6 quads per cell"
+      },
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA item dimensions, 6 item faces"
+    },
+    {
+      "id": "wacca_lily_r_poster",
+      "title": "WACCA Lily R",
+      "author": "Marvelous / HARDCORE TANO*C",
+      "source": {
+        "file": "art/arcade_posters/sources/wacca_lily_r_poster.jpg",
+        "attachment_filename": "wacca_lily_r_poster.jpg",
+        "sha256": "4a01f7972036311b9f36723d724f886f090bc214d594d574bee91eae16daeafc",
+        "bytes": 86604,
+        "dimensions": [
+          528,
+          704
+        ]
+      },
+      "output": {
+        "texture": "japanesearcades:painting/wacca_lily_r_poster",
+        "item_texture": "japanesearcades:item/wacca_lily_r_poster",
+        "sha256": "1824641f0e01682fb9ee7ea5f519b1944f93e81ce533f554a983e801d1bbd60e",
+        "item_sha256": "1824641f0e01682fb9ee7ea5f519b1944f93e81ce533f554a983e801d1bbd60e",
+        "dimensions": [
+          512,
+          704
+        ]
+      },
+      "packing": {
+        "operation": "Uniform full-image downsample with centered black letterboxing",
+        "artwork_scale": 0.9696969696969697,
+        "resampling": "Pillow LANCZOS",
+        "scaled_dimensions": [
+          512,
+          683
+        ],
+        "offset": [
+          0,
+          10
+        ],
+        "padding_left_top_right_bottom": [
+          0,
+          10,
+          0,
+          11
+        ],
+        "artwork_height_rounding": "Nearest whole pixel",
+        "supported_mip_levels": 6,
+        "raster_aspect_rounding_error_percent": 0.0030517578125
+      },
+      "geometry": {
+        "visual_dimensions_blocks": [
+          1.0,
+          1.3749580396106076
+        ],
+        "wall_support_grid_blocks": [
+          1,
+          2
+        ],
+        "item_dimensions": [
+          10.909423828125,
+          15.0,
+          0.1200000000000001
+        ],
+        "item_faces": 6,
+        "placed_faces": 12,
+        "placed_face_source": "Shared vanilla PaintingRenderer: 1 x 2 cells, 6 quads per cell"
+      },
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA item dimensions, 6 item faces"
+    },
+    {
+      "id": "jubeat_festo_poster",
+      "title": "jubeat festo",
+      "author": "KONAMI",
+      "source": {
+        "file": "art/arcade_posters/sources/jubeat_festo_poster.jpg",
+        "attachment_filename": "jubeat_festo_poster.jpg",
+        "sha256": "441c1e3ae54c3a0ed149e30f9dad079410de5d783c53e9f9ed8f05e6e8471718",
+        "bytes": 54494,
+        "dimensions": [
+          528,
+          704
+        ]
+      },
+      "output": {
+        "texture": "japanesearcades:painting/jubeat_festo_poster",
+        "item_texture": "japanesearcades:item/jubeat_festo_poster",
+        "sha256": "81fa4ec64aa3f00c08903f1fddc333f7b3a8b9cd0d58c9001c90caa96d2e591d",
+        "item_sha256": "81fa4ec64aa3f00c08903f1fddc333f7b3a8b9cd0d58c9001c90caa96d2e591d",
+        "dimensions": [
+          512,
+          704
+        ]
+      },
+      "packing": {
+        "operation": "Uniform full-image downsample with centered black letterboxing",
+        "artwork_scale": 0.9696969696969697,
+        "resampling": "Pillow LANCZOS",
+        "scaled_dimensions": [
+          512,
+          683
+        ],
+        "offset": [
+          0,
+          10
+        ],
+        "padding_left_top_right_bottom": [
+          0,
+          10,
+          0,
+          11
+        ],
+        "artwork_height_rounding": "Nearest whole pixel",
+        "supported_mip_levels": 6,
+        "raster_aspect_rounding_error_percent": 0.0030517578125
+      },
+      "geometry": {
+        "visual_dimensions_blocks": [
+          1.0,
+          1.3749580396106076
+        ],
+        "wall_support_grid_blocks": [
+          1,
+          2
+        ],
+        "item_dimensions": [
+          10.909423828125,
+          15.0,
+          0.1200000000000001
+        ],
+        "item_faces": 6,
+        "placed_faces": 12,
+        "placed_face_source": "Shared vanilla PaintingRenderer: 1 x 2 cells, 6 quads per cell"
+      },
+      "checks": "PASS: immutable source, full-image resize pixels, identical atlas copies, four atlas mip levels, exact WACCA item dimensions, 6 item faces"
+    }
+  ]
+}

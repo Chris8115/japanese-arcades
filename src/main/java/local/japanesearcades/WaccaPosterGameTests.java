@@ -154,6 +154,7 @@ public final class WaccaPosterGameTests {
         ServerPlayer player = player(helper, "PosterCreative", GameType.CREATIVE);
         wall(helper, Direction.NORTH, true);
         CompoundTag forged = new CompoundTag();
+        forged.putString("id", "minecraft:painting");
         forged.putString("variant", "minecraft:kebab");
         forged.putBoolean("Invulnerable", true);
         player.getMainHandItem().set(DataComponents.ENTITY_DATA, CustomData.of(forged));
