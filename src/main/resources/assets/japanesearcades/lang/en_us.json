@@ -578,5 +578,17 @@
   "kiosk.prize.category.posters.short": "Posters",
   "kiosk.prize.category.cutouts.short": "Cutouts",
   "kiosk.prize.category.glow_sticks.short": "Lights",
-  "kiosk.prize.category.special.short": "Special"
+  "kiosk.prize.category.special.short": "Special",
+  "block.japanesearcades.figure_display_unit": "Figure Display Unit",
+  "block.japanesearcades.figure_wall_shelf": "Figure Wall Shelf",
+  "container.japanesearcades.figure_display_unit": "Figure Display Unit",
+  "container.japanesearcades.figure_wall_shelf": "Figure Wall Shelf",
+  "tooltip.japanesearcades.figure_shelf.capacity": "%s display slots · 4 per row",
+  "tooltip.japanesearcades.figure_shelf.placement": "Place on floors or walls; stack units to build a display.",
+  "tooltip.japanesearcades.figure_shelf.wall_placement": "Mount on a solid wall.",
+  "tooltip.japanesearcades.figure_shelf.inventory": "Right-click to arrange collectibles.",
+  "shelf.gui.upper": "Upper",
+  "shelf.gui.lower": "Lower",
+  "shelf.gui.display": "Display",
+  "shelf.gui.hint": "One collectible per slot"
 }

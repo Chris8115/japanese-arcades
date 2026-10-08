@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "japanesearcades:block/figure_wall_shelf"
+    },
+    "facing=east": {
+      "model": "japanesearcades:block/figure_wall_shelf",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "japanesearcades:block/figure_wall_shelf",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "japanesearcades:block/figure_wall_shelf",
+      "y": 270
+    }
+  }
+}

@@ -88,6 +88,19 @@ public final class JapaneseArcades {
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CustomDisplayBoxBlockEntity>> CUSTOM_DISPLAY_BOX_ENTITY =
         BLOCK_ENTITIES.register("custom_display_box", () -> BlockEntityType.Builder.of(
             CustomDisplayBoxBlockEntity::new, CUSTOM_DISPLAY_BOX.get()).build(null));
+    public static final DeferredBlock<FigureShelfBlock> FIGURE_DISPLAY_UNIT = BLOCKS.registerBlock(
+        "figure_display_unit", properties -> new FigureShelfBlock(2, properties),
+        BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(1.5F).sound(SoundType.WOOD).noOcclusion());
+    public static final DeferredBlock<FigureShelfBlock> FIGURE_WALL_SHELF = BLOCKS.registerBlock(
+        "figure_wall_shelf", properties -> new FigureShelfBlock(1, properties),
+        BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(1.5F).sound(SoundType.WOOD).noOcclusion());
+    public static final DeferredItem<BlockItem> FIGURE_DISPLAY_UNIT_ITEM = ITEMS.registerSimpleBlockItem("figure_display_unit", FIGURE_DISPLAY_UNIT);
+    public static final DeferredItem<BlockItem> FIGURE_WALL_SHELF_ITEM = ITEMS.registerSimpleBlockItem("figure_wall_shelf", FIGURE_WALL_SHELF);
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<FigureShelfBlockEntity>> FIGURE_SHELF_ENTITY =
+        BLOCK_ENTITIES.register("figure_shelf", () -> BlockEntityType.Builder.of(
+            FigureShelfBlockEntity::new, FIGURE_DISPLAY_UNIT.get(), FIGURE_WALL_SHELF.get()).build(null));
+    public static final DeferredHolder<MenuType<?>, MenuType<FigureShelfMenu>> FIGURE_SHELF_MENU =
+        MENUS.register("figure_shelf", () -> IMenuTypeExtension.create(FigureShelfMenu::new));
     public static final DeferredItem<WaccaPosterItem> WACCA_POSTER = ITEMS.registerItem(
         "wacca_poster", WaccaPosterItem::new, new Item.Properties());
     public static final DeferredHolder<EntityType<?>, EntityType<WaccaPosterEntity>> WACCA_POSTER_ENTITY =
@@ -361,6 +374,8 @@ public final class JapaneseArcades {
                 for (GlowStickSet glowStick : GLOW_STICKS) { output.accept(glowStick.item().get()); }
                 output.accept(HATSUNE_MIKU_FIGURE_ITEM.get());
                 output.accept(KASANE_TETO_FIGURE_ITEM.get());
+                output.accept(FIGURE_DISPLAY_UNIT_ITEM.get());
+                output.accept(FIGURE_WALL_SHELF_ITEM.get());
                 output.accept(HATSUNE_MIKU_CUTOUT_ITEM.get());
                 output.accept(KASANE_TETO_CUTOUT_ITEM.get());
                 output.accept(WACCA_POSTER.get());
