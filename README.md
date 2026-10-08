@@ -116,6 +116,23 @@ normal Minecraft block lighting: no colored light or built-in held dynamic light
 The shared static models use **180 faces** per floor/held stick and **186** per
 wall-mounted stick, with no block entity or ticking renderer.
 
+The **Ivory Mech Suit** is a five-block-tall pilotable prize with white armor,
+gold trim, cyan lights, wing shields and two curved swords. Redeem its deployment
+item for **25,000 Prize Points** in the kiosk's Prizes tab, or stock it as an
+operator-selected claw/gachapon reward. Its point price is server-configurable
+under `prizes.mech_suit`. Right-click a clear floor with the item to deploy it,
+then right-click the suit to board. Use **WASD** to move, **Space** to rise,
+**R** to descend, and **Shift** to exit. The suit hovers when vertical controls
+are released. **Left-click** swings the left sword; **right-click** swings the
+right sword. Descend can be rebound in Controls; the HUD follows your bindings.
+The hull starts at **120**; each blade deals **12 damage** with its own cooldown.
+Using both ready blades together deals **24 damage** in a combined strike.
+Use iron ingots on an unoccupied suit to repair **20 hull** per ingot. A disabled
+suit remains as a repairable wreck. Sneak-right-click your empty suit to pack it;
+damage and its custom name survive packing. A packed suit can be given to another
+player, who becomes its owner on deployment. Airborne exits grant a temporary
+slow descent. The deployment item uses a lightweight icon in inventories.
+
 The separate [Custom Display Box](art/custom_display_box/README.md) displays one
 item with an automatically colored package and printed name. Craft four with
 eight paper around a glass pane. Place a box and right-click it with the item;

@@ -66,6 +66,11 @@ early reward; the existing figures, boxed mobs, cutouts and poster keep their
 prices. Glow sticks are ordinary items that operators can also stock in claw
 machines and gachapon. They have no crafting recipes.
 
+The **Ivory Mech Suit** is a high-tier reward costing **25,000 Prize Points**.
+Redeem its deployment item in the kiosk's Prizes tab; the server can change its
+price with `prizes.mech_suit`. Operators can also stock the item in claw machines
+and gachapon. It has no material crafting recipe.
+
 ## Configuration
 
 NeoForge generates **`japanesearcades-arcade-economy.toml`** as a SERVER config and

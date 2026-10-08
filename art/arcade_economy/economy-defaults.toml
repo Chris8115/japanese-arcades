@@ -39,6 +39,8 @@
 	wacca_poster = 750
 	hatsune_miku_cutout = 1500
 	kasane_teto_cutout = 1500
+	# High-tier pilotable reward
+	mech_suit = 25000
 	boxed_creeper_figure = 1000
 	boxed_zombie_figure = 1000
 	boxed_skeleton_figure = 1000

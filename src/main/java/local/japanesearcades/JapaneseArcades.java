@@ -51,6 +51,12 @@ public final class JapaneseArcades {
             .persistent(ArcadePassData.CODEC).networkSynchronized(ArcadePassData.STREAM_CODEC).build());
     public static final DeferredItem<ArcadePassItem> ARCADE_PASS = ITEMS.registerItem("arcade_pass", ArcadePassItem::new,
         new Item.Properties().stacksTo(1));
+    public static final DeferredItem<MechSuitItem> MECH_SUIT_ITEM = ITEMS.registerItem(
+        "mech_suit", MechSuitItem::new, new Item.Properties().stacksTo(1).rarity(net.minecraft.world.item.Rarity.EPIC).fireResistant());
+    public static final DeferredHolder<EntityType<?>, EntityType<MechSuitEntity>> MECH_SUIT =
+        ENTITIES.register("mech_suit", () -> EntityType.Builder.<MechSuitEntity>of(
+            MechSuitEntity::new, MobCategory.MISC).sized(2F, 5F).clientTrackingRange(10)
+            .updateInterval(1).build(MOD_ID + ":mech_suit"));
     public record GlowStickSet(String color, String path, DeferredBlock<GlowStickBlock> block, DeferredItem<BlockItem> item) {}
     public static final List<GlowStickSet> GLOW_STICKS = GlowStickBlock.COLORS.stream().map(JapaneseArcades::glowStick).toList();
     public static final DeferredBlock<ArcadePrizeBlock> HATSUNE_MIKU_FIGURE = prizeBlock("hatsune_miku_figure");
@@ -337,6 +343,7 @@ public final class JapaneseArcades {
                 output.accept(CLAW_MACHINE_ITEM.get());
                 output.accept(ARCADE_KIOSK_ITEM.get());
                 output.accept(ARCADE_PASS.get());
+                output.accept(MECH_SUIT_ITEM.get());
                 for (GlowStickSet glowStick : GLOW_STICKS) { output.accept(glowStick.item().get()); }
                 output.accept(HATSUNE_MIKU_FIGURE_ITEM.get());
                 output.accept(KASANE_TETO_FIGURE_ITEM.get());
@@ -366,6 +373,7 @@ public final class JapaneseArcades {
         modEventBus.addListener(GachaponNetwork::register);
         modEventBus.addListener(ClawMachineNetwork::register);
         modEventBus.addListener(ArcadeKioskNetwork::register);
+        modEventBus.addListener(MechSuitNetwork::register);
         NeoForge.EVENT_BUS.register(GachaponProtection.class);
         NeoForge.EVENT_BUS.register(ClawMachineProtection.class);
         NeoForge.EVENT_BUS.register(TaikoDrumInteraction.class);

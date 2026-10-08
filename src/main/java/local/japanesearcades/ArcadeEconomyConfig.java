@@ -51,6 +51,8 @@ public final class ArcadeEconomyConfig {
         PRICES.put("hatsune_miku_cutout", builder.defineInRange("hatsune_miku_cutout", 1500, 1, 1_000_000));
         PRICES.put("kasane_teto_cutout", builder.defineInRange("kasane_teto_cutout", 1500, 1, 1_000_000));
         PRICES.put("wacca_poster", builder.defineInRange("wacca_poster", 750, 1, 1_000_000));
+        PRICES.put("mech_suit", builder.comment("High-tier pilotable Ivory Mech Suit. Redeemed with Prize Points at the kiosk.")
+            .defineInRange("mech_suit", 25000, 1, 1_000_000));
         for (String mob : MobFigureBlock.MOBS) {
             String prize = MobFigureBlock.path(mob, MobFigureBlock.Form.BOXED);
             PRICES.put(prize, builder.defineInRange(prize, 1000, 1, 1_000_000));

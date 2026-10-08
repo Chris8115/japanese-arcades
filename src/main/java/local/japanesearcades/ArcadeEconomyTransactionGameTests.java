@@ -261,13 +261,14 @@ public final class ArcadeEconomyTransactionGameTests {
     public static void arcadeEveryConfiguredPrizeChargesOnlyItsPointPrice(GameTestHelper helper) {
         ServerPlayer player = createPlayer(helper, "PassPrizes", GameType.SURVIVAL);
         ArcadeKioskMenu menu = setup(helper, player);
-        helper.assertTrue(ArcadePrizeCatalog.entries().size() == 18
+        helper.assertTrue(ArcadePrizeCatalog.entries().size() == 19
             && ArcadePrizeCatalog.find(id("hatsune_miku_figure")).isPresent()
             && ArcadePrizeCatalog.find(id("kasane_teto_figure")).isPresent()
             && ArcadePrizeCatalog.find(id("wacca_poster")).isPresent()
             && ArcadePrizeCatalog.find(id("hatsune_miku_cutout")).isPresent()
-            && ArcadePrizeCatalog.find(id("kasane_teto_cutout")).isPresent(),
-            "The shop must retain its eleven collectibles and add all seven glow-stick colors");
+            && ArcadePrizeCatalog.find(id("kasane_teto_cutout")).isPresent()
+            && ArcadePrizeCatalog.find(id("mech_suit")).isPresent(),
+            "The shop must retain its collectibles and glow sticks alongside the high-tier mech reward");
         for (String mob : MobFigureBlock.MOBS) {
             helper.assertTrue(ArcadePrizeCatalog.find(id("boxed_" + mob + "_figure")).isPresent()
                 && ArcadePrizeCatalog.find(id(mob + "_figure")).isEmpty()
