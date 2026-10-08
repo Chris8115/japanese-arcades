@@ -1,4 +1,4 @@
-"""Import native GUI captures without changing the detailed cabinet models.
+"""Import native GUI captures without changing the detailed item models.
 
 Run the isolated native capture utility first, then pass its icons directory.
 These are screenshots of our own in-game meshes, not replacement artwork.
@@ -16,16 +16,20 @@ IDS = (
     'beatmania_iidx_lightning', 'wacca', 'chunithm', 'ongeki', 'groove_coaster',
     'museca', 'project_diva', 'chrono_circle', 'music_diver', 'popn_music',
     'maimai', 'ddr_supernova', 'taiko', 'initial_d', 'jubeat',
+    'arcade_kiosk', 'gachapon', 'hatsune_miku_figure', 'kasane_teto_figure',
 )
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('captures', type=Path)
+    parser.add_argument('--ids', nargs='+', choices=IDS,
+                        help='Import only these updated captures; preserve the other manifest entries.')
     args = parser.parse_args()
+    selected = tuple(dict.fromkeys(args.ids or IDS))
     from PIL import Image
     # Validate the entire set before updating assets.
-    for name in IDS:
+    for name in selected:
         with Image.open(args.captures / f'{name}.png') as image:
             if image.size != (256, 256) or image.mode != 'RGBA':
                 raise ValueError(f'{name}: expected a 256 x 256 RGBA native capture')
@@ -33,8 +37,9 @@ def main():
             if low != 0 or high != 255:
                 raise ValueError(f'{name}: capture must contain both clear and opaque pixels')
 
-    manifest = {}
-    for name in IDS:
+    destination = ROOT / 'art/inventory-icons/manifest.json'
+    manifest = json.loads(destination.read_text(encoding='utf-8')) if destination.exists() else {}
+    for name in selected:
         texture = ASSETS / f'textures/item/gui/{name}.png'
         model = ASSETS / f'models/item/gui/{name}.json'
         texture.parent.mkdir(parents=True, exist_ok=True)
@@ -55,10 +60,9 @@ def main():
         model.write_text(json.dumps(data, indent=2) + '\n', encoding='utf-8')
         manifest[name] = {'gui_faces': 1, 'size': [256, 256], 'canvas_gui_pixels': 24,
                           'sha256': hashlib.sha256(texture.read_bytes()).hexdigest()}
-    destination = ROOT / 'art/inventory-icons/manifest.json'
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
-    print(f'Imported {len(IDS)} native cabinet icons; one GUI face each.')
+    print(f'Imported {len(selected)} native item icons; one GUI face each.')
 
 
 if __name__ == '__main__':

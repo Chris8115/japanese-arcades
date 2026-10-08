@@ -169,5 +169,41 @@
     ],
     "canvas_gui_pixels": 24,
     "sha256": "9213213513c8129a997c5e244fdf4f3d58e02cd5e7650fd3e045644553ee1cb6"
+  },
+  "arcade_kiosk": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "f7c48847427590834af4b3d5f578ba6e97157404844db6e2fb3c9271b885fc6a"
+  },
+  "gachapon": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "040a2e7e60d045fb60423575eabbf1ecbc8adeeabd169a1ecb68407a119d4668"
+  },
+  "hatsune_miku_figure": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "a0b9d6f89fa483c182fb4edd29e381fd10e47dfdaa0c534243705e72908f9f9e"
+  },
+  "kasane_teto_figure": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "64ee6d18866376b67fbb6d3596bb6898dba18baa64b8fd946cab8b05d1395bfe"
   }
 }

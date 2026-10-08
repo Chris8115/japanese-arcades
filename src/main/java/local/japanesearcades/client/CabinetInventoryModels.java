@@ -25,16 +25,17 @@ import net.neoforged.neoforge.client.event.ModelEvent;
 import net.neoforged.neoforge.client.model.BakedModelWrapper;
 import org.jetbrains.annotations.Nullable;
 
-/** Native model snapshots keep tiny GUI icons from resubmitting an entire cabinet mesh. */
+/** Native model snapshots keep tiny GUI icons from resubmitting detailed static meshes. */
 @EventBusSubscriber(modid = JapaneseArcades.MOD_ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
 public final class CabinetInventoryModels {
-    // Snapshot assets are deliberately explicit: a new cabinet keeps its native model until
+    // Snapshot assets are deliberately explicit: a new item keeps its native model until
     // an icon has been captured and checked. No live registries are touched on the bake worker.
     private static final List<ResourceLocation> CABINETS = List.of(
         "nostalgia_op3", "beatstream", "sound_voltex_valkyrie", "sound_voltex_nemsys",
         "wacca", "chunithm", "ongeki", "groove_coaster", "museca", "project_diva",
         "chrono_circle", "music_diver", "popn_music", "maimai", "ddr_supernova",
-        "beatmania_iidx_lightning", "taiko", "initial_d", "jubeat").stream()
+        "beatmania_iidx_lightning", "taiko", "initial_d", "jubeat",
+        "arcade_kiosk", "gachapon", "hatsune_miku_figure", "kasane_teto_figure").stream()
         .map(name -> ResourceLocation.fromNamespaceAndPath(JapaneseArcades.MOD_ID, name)).toList();
 
     private CabinetInventoryModels() {}

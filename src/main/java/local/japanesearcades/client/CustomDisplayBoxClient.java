@@ -7,6 +7,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.ModelEvent;
+import net.neoforged.neoforge.client.event.RegisterRenderBuffersEvent;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 
@@ -17,7 +18,11 @@ public final class CustomDisplayBoxClient {
         event.registerBlockEntityRenderer(JapaneseArcades.CUSTOM_DISPLAY_BOX_ENTITY.get(), CustomDisplayBoxRenderer::new);
     }
     @SubscribeEvent public static void models(ModelEvent.RegisterAdditional event) { event.register(CustomDisplayBoxRenderer.SHELL); }
-    @SubscribeEvent public static void baked(ModelEvent.BakingCompleted event) { CustomDisplayBoxAppearance.clear(); }
+    @SubscribeEvent public static void baked(ModelEvent.BakingCompleted event) {
+        CustomDisplayBoxAppearance.clear();
+        CustomDisplayBoxGuiCache.clear();
+    }
+    @SubscribeEvent public static void buffers(RegisterRenderBuffersEvent event) { CustomDisplayBoxGuiCache.registerBuffers(event); }
     @SubscribeEvent public static void items(RegisterClientExtensionsEvent event) {
         event.registerItem(new IClientItemExtensions() {
             private BlockEntityWithoutLevelRenderer renderer;

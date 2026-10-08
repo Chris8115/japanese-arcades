@@ -43,7 +43,7 @@ public final class CustomDisplayBoxRenderer implements BlockEntityRenderer<Custo
         draw(box.data(), pose, buffers, light, overlay, true);
         pose.popPose();
     }
-    private static void draw(CustomDisplayBoxData data, PoseStack pose, MultiBufferSource buffers, int light, int overlay, boolean cullFromEye) {
+    static void draw(CustomDisplayBoxData data, PoseStack pose, MultiBufferSource buffers, int light, int overlay, boolean cullFromEye) {
         if (renderDepth >= 2) { return; }
         renderDepth++;
         try {
@@ -101,7 +101,10 @@ public final class CustomDisplayBoxRenderer implements BlockEntityRenderer<Custo
         ItemRenderer() { super(Minecraft.getInstance().getBlockEntityRenderDispatcher(), Minecraft.getInstance().getEntityModels()); }
         @Override public void renderByItem(ItemStack stack, ItemDisplayContext context, PoseStack pose,
                                            MultiBufferSource buffers, int light, int overlay) {
-            draw(CustomDisplayBoxData.from(stack), pose, buffers, light, overlay, false);
+            CustomDisplayBoxData data = CustomDisplayBoxData.from(stack);
+            if (context == ItemDisplayContext.GUI && renderDepth == 0
+                && CustomDisplayBoxGuiCache.render(stack, data, pose, buffers, light, overlay)) { return; }
+            draw(data, pose, buffers, light, overlay, false);
         }
     }
 }
