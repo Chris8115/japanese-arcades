@@ -49,8 +49,8 @@ filled capsules still come from stocked gachapon machines.
 
 ## Reward browser
 
-The Prizes tab has **114 rewards**: 82 boxed mob figures, 20 posters, seven glow
-sticks, two character figures, two cardboard cutouts and the mech suit. The
+The Prizes tab has **116 rewards**: 82 boxed mob figures, 20 posters, seven glow
+sticks, two character figures, four cardboard cutouts and the mech suit. The
 loose figures and empty boxes are obtained by unboxing; their separate item
 forms do not duplicate the shop catalogue.
 

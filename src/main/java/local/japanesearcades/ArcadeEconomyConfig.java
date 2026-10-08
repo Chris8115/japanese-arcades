@@ -50,6 +50,8 @@ public final class ArcadeEconomyConfig {
         PRICES.put("kasane_teto_figure", builder.defineInRange("kasane_teto_figure", 2500, 1, 1_000_000));
         PRICES.put("hatsune_miku_cutout", builder.defineInRange("hatsune_miku_cutout", 1500, 1, 1_000_000));
         PRICES.put("kasane_teto_cutout", builder.defineInRange("kasane_teto_cutout", 1500, 1, 1_000_000));
+        PRICES.put("kagamine_rin_cutout", builder.defineInRange("kagamine_rin_cutout", 1500, 1, 1_000_000));
+        PRICES.put("kagamine_len_cutout", builder.defineInRange("kagamine_len_cutout", 1500, 1, 1_000_000));
         PRICES.put("wacca_poster", builder.defineInRange("wacca_poster", 750, 1, 1_000_000));
         for (var poster : JapaneseArcades.ARCADE_POSTERS) {
             PRICES.put(poster.path(), builder.defineInRange(poster.path(), 750, 1, 1_000_000));

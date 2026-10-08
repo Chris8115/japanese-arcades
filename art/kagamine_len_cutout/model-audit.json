@@ -1,0 +1,626 @@
+{
+  "format": "static NeoForge OBJ baked meshes",
+  "source": {
+    "source_size": [
+      1024,
+      1536
+    ],
+    "alpha_bbox_pixels": [
+      72,
+      10,
+      846,
+      1494
+    ],
+    "grid": [
+      48,
+      92
+    ],
+    "back_rectangles": 78,
+    "outline_edge_quads": 214,
+    "art_width_model_units": 12.853664859626276,
+    "art_height_model_units": 24.644494382022472,
+    "top_model_units": 25.644494382022472,
+    "source_sha256": "7cffc2b369fc02924894296af6fd509e3aeb863ceb2cb5afa83474befcf1b3ef"
+  },
+  "rotation_contract": "0=south,4=west,8=north,12=east;22.5degrees per segment",
+  "inventory_faces": 323,
+  "complete_placed_faces": 349,
+  "placed_lower_faces": 191,
+  "placed_upper_faces": 158,
+  "whole_bounds": [
+    [
+      1.57316757,
+      14.42683243
+    ],
+    [
+      0,
+      25.64449438
+    ],
+    [
+      4.8,
+      11.2
+    ]
+  ],
+  "front_thickness_model_units": 0.6400000000000006,
+  "render_type": "minecraft:cutout_mipped_all",
+  "block_entity_renderer": false,
+  "ticking": false,
+  "placed_models": [
+    {
+      "model": "kagamine_len_cutout_lower_00",
+      "faces": 191,
+      "bounds": [
+        [
+          1.57316757,
+          14.42683243
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          4.8,
+          11.2
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_upper_00",
+      "faces": 158,
+      "bounds": [
+        [
+          1.57316757,
+          14.42683243
+        ],
+        [
+          0.0,
+          9.64449438
+        ],
+        [
+          7.68,
+          8.32
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_lower_01",
+      "faces": 191,
+      "bounds": [
+        [
+          1.93992236,
+          14.06007764
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          3.35977839,
+          12.64022161
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_upper_01",
+      "faces": 158,
+      "bounds": [
+        [
+          1.93992236,
+          13.81516024
+        ],
+        [
+          0.0,
+          9.64449438
+        ],
+        [
+          5.24491626,
+          10.75508374
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_lower_02",
+      "faces": 191,
+      "bounds": [
+        [
+          2.62598846,
+          13.37401154
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          2.62598846,
+          13.37401154
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_upper_02",
+      "faces": 158,
+      "bounds": [
+        [
+          3.22926904,
+          12.39202623
+        ],
+        [
+          0.0,
+          9.64449438
+        ],
+        [
+          3.22926904,
+          12.77073096
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_lower_03",
+      "faces": 191,
+      "bounds": [
+        [
+          3.35977839,
+          12.64022161
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          2.18483976,
+          14.06007764
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_upper_03",
+      "faces": 158,
+      "bounds": [
+        [
+          5.24491626,
+          10.55013022
+        ],
+        [
+          0.0,
+          9.64449438
+        ],
+        [
+          1.93992236,
+          14.06007764
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_lower_04",
+      "faces": 191,
+      "bounds": [
+        [
+          4.8,
+          11.2
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          1.57316757,
+          14.42683243
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_upper_04",
+      "faces": 158,
+      "bounds": [
+        [
+          7.68,
+          8.32
+        ],
+        [
+          0.0,
+          9.64449438
+        ],
+        [
+          1.57316757,
+          14.42683243
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_lower_05",
+      "faces": 191,
+      "bounds": [
+        [
+          3.35977839,
+          12.64022161
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          1.93992236,
+          14.06007764
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_upper_05",
+      "faces": 158,
+      "bounds": [
+        [
+          5.24491626,
+          10.75508374
+        ],
+        [
+          0.0,
+          9.64449438
+        ],
+        [
+          1.93992236,
+          13.81516024
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_lower_06",
+      "faces": 191,
+      "bounds": [
+        [
+          2.62598846,
+          13.37401154
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          2.62598846,
+          13.37401154
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_upper_06",
+      "faces": 158,
+      "bounds": [
+        [
+          3.22926904,
+          12.77073096
+        ],
+        [
+          0.0,
+          9.64449438
+        ],
+        [
+          3.22926904,
+          12.39202623
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_lower_07",
+      "faces": 191,
+      "bounds": [
+        [
+          1.93992236,
+          13.81516024
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          3.35977839,
+          12.64022161
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_upper_07",
+      "faces": 158,
+      "bounds": [
+        [
+          1.93992236,
+          14.06007764
+        ],
+        [
+          0.0,
+          9.64449438
+        ],
+        [
+          5.24491626,
+          10.55013022
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_lower_08",
+      "faces": 191,
+      "bounds": [
+        [
+          1.57316757,
+          14.42683243
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          4.8,
+          11.2
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_upper_08",
+      "faces": 158,
+      "bounds": [
+        [
+          1.57316757,
+          14.42683243
+        ],
+        [
+          0.0,
+          9.64449438
+        ],
+        [
+          7.68,
+          8.32
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_lower_09",
+      "faces": 191,
+      "bounds": [
+        [
+          1.93992236,
+          14.06007764
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          3.35977839,
+          12.64022161
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_upper_09",
+      "faces": 158,
+      "bounds": [
+        [
+          2.18483976,
+          14.06007764
+        ],
+        [
+          0.0,
+          9.64449438
+        ],
+        [
+          5.24491626,
+          10.75508374
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_lower_10",
+      "faces": 191,
+      "bounds": [
+        [
+          2.62598846,
+          13.37401154
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          2.62598846,
+          13.37401154
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_upper_10",
+      "faces": 158,
+      "bounds": [
+        [
+          3.60797377,
+          12.77073096
+        ],
+        [
+          0.0,
+          9.64449438
+        ],
+        [
+          3.22926904,
+          12.77073096
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_lower_11",
+      "faces": 191,
+      "bounds": [
+        [
+          3.35977839,
+          12.64022161
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          1.93992236,
+          13.81516024
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_upper_11",
+      "faces": 158,
+      "bounds": [
+        [
+          5.44986978,
+          10.75508374
+        ],
+        [
+          0.0,
+          9.64449438
+        ],
+        [
+          1.93992236,
+          14.06007764
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_lower_12",
+      "faces": 191,
+      "bounds": [
+        [
+          4.8,
+          11.2
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          1.57316757,
+          14.42683243
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_upper_12",
+      "faces": 158,
+      "bounds": [
+        [
+          7.68,
+          8.32
+        ],
+        [
+          0.0,
+          9.64449438
+        ],
+        [
+          1.57316757,
+          14.42683243
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_lower_13",
+      "faces": 191,
+      "bounds": [
+        [
+          3.35977839,
+          12.64022161
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          1.93992236,
+          14.06007764
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_upper_13",
+      "faces": 158,
+      "bounds": [
+        [
+          5.24491626,
+          10.75508374
+        ],
+        [
+          0.0,
+          9.64449438
+        ],
+        [
+          2.18483976,
+          14.06007764
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_lower_14",
+      "faces": 191,
+      "bounds": [
+        [
+          2.62598846,
+          13.37401154
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          2.62598846,
+          13.37401154
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_upper_14",
+      "faces": 158,
+      "bounds": [
+        [
+          3.22926904,
+          12.77073096
+        ],
+        [
+          0.0,
+          9.64449438
+        ],
+        [
+          3.60797377,
+          12.77073096
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_lower_15",
+      "faces": 191,
+      "bounds": [
+        [
+          2.18483976,
+          14.06007764
+        ],
+        [
+          0,
+          16.0
+        ],
+        [
+          3.35977839,
+          12.64022161
+        ]
+      ]
+    },
+    {
+      "model": "kagamine_len_cutout_upper_15",
+      "faces": 158,
+      "bounds": [
+        [
+          1.93992236,
+          14.06007764
+        ],
+        [
+          0.0,
+          9.64449438
+        ],
+        [
+          5.44986978,
+          10.75508374
+        ]
+      ]
+    }
+  ]
+}

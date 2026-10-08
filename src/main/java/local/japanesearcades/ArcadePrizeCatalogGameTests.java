@@ -42,6 +42,11 @@ public final class ArcadePrizeCatalogGameTests {
             && ids(ArcadePrizeCatalog.browse(offers, ArcadePrizeCatalog.Category.CUTOUTS,
             "miku", sort, -1, false)).equals(List.of(id("hatsune_miku_cutout"))),
             "The figure and cutout categories did not narrow the same character search independently");
+        helper.assertTrue(ids(ArcadePrizeCatalog.browse(offers, ArcadePrizeCatalog.Category.CUTOUTS,
+            "kagamine", sort, -1, false)).equals(List.of(id("kagamine_len_cutout"), id("kagamine_rin_cutout")))
+            && ids(ArcadePrizeCatalog.browse(offers, ArcadePrizeCatalog.Category.ALL,
+            "kagamine rin", sort, -1, false)).equals(List.of(id("kagamine_rin_cutout"))),
+            "The new cutouts must be discoverable together by family name and independently by full name");
         var named = List.of(namedOffer("wacca_poster", "Limited Lunar Collectible", 750));
         helper.assertTrue(ArcadePrizeCatalog.browse(named, ArcadePrizeCatalog.Category.ALL,
             "LUNAR", sort, -1, false).size() == 1,

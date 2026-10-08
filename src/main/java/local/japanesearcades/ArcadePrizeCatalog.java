@@ -51,6 +51,8 @@ public final class ArcadePrizeCatalog {
         new Entry(id("kasane_teto_figure"), JapaneseArcades.KASANE_TETO_FIGURE_ITEM, Category.CHARACTER_FIGURES),
         new Entry(id("hatsune_miku_cutout"), JapaneseArcades.HATSUNE_MIKU_CUTOUT_ITEM, Category.CUTOUTS),
         new Entry(id("kasane_teto_cutout"), JapaneseArcades.KASANE_TETO_CUTOUT_ITEM, Category.CUTOUTS),
+        new Entry(id("kagamine_rin_cutout"), JapaneseArcades.KAGAMINE_RIN_CUTOUT_ITEM, Category.CUTOUTS),
+        new Entry(id("kagamine_len_cutout"), JapaneseArcades.KAGAMINE_LEN_CUTOUT_ITEM, Category.CUTOUTS),
         new Entry(id("wacca_poster"), JapaneseArcades.WACCA_POSTER, Category.POSTERS),
         new Entry(id("mech_suit"), JapaneseArcades.MECH_SUIT_ITEM, Category.SPECIAL)),
         JapaneseArcades.ARCADE_POSTERS.stream().map(poster -> new Entry(id(poster.path()), poster.item(), Category.POSTERS)),

@@ -34,7 +34,8 @@ public final class CardboardCutoutGameTests {
     private static final BlockPos BASE = new BlockPos(3, 1, 3);
 
     private static List<CardboardCutoutBlock> cutouts() {
-        return List.of(JapaneseArcades.HATSUNE_MIKU_CUTOUT.get(), JapaneseArcades.KASANE_TETO_CUTOUT.get());
+        return List.of(JapaneseArcades.HATSUNE_MIKU_CUTOUT.get(), JapaneseArcades.KASANE_TETO_CUTOUT.get(),
+            JapaneseArcades.KAGAMINE_RIN_CUTOUT.get(), JapaneseArcades.KAGAMINE_LEN_CUTOUT.get());
     }
 
     private static boolean placeAbsolute(GameTestHelper helper, ServerPlayer player, CardboardCutoutBlock cutout, BlockPos pos, float yaw) {
@@ -236,34 +237,35 @@ public final class CardboardCutoutGameTests {
     }
 
     @GameTest(template = "nostalgia_test")
-    public static void mixedMikuAndTetoCutoutsRemainIndependentWhenEitherCharacterIsRemoved(GameTestHelper helper) {
+    public static void mixedCharacterCutoutsRemainIndependentWhenEitherCharacterIsRemoved(GameTestHelper helper) {
         for (GameType mode : new GameType[]{GameType.SURVIVAL, GameType.CREATIVE}) {
             ServerPlayer player = createPlayer(helper, "MixedCutouts" + mode.getName(), mode);
-            for (int first = 0; first < cutouts().size(); first++) {
-                var cutout = cutouts().get(first);
-                var neighbor = cutouts().get(1-first);
-                for (int half = 0; half < 2; half++) {
-                    place(helper, player, cutout, BASE, 3);
-                    place(helper, player, neighbor, BASE.east(), 11);
-                    if (player.isCreative()) removeCreative(helper, player, BASE.above(half));
-                    else helper.getLevel().destroyBlock(helper.absolutePos(BASE.above(half)), true, player);
-                    gone(helper, BASE);
-                    pair(helper, neighbor, BASE.east(), 11);
-                    if (player.isCreative()) {
-                        helper.assertTrue(helper.getEntities(EntityType.ITEM, BASE, 6).isEmpty(), "Creative removal of a mixed pair duplicated a reward");
-                    } else {
-                        exactlyOneDrop(helper, cutout);
+            for (var cutout : cutouts()) {
+                for (var neighbor : cutouts()) {
+                    if (cutout == neighbor) { continue; }
+                    for (int half = 0; half < 2; half++) {
+                        place(helper, player, cutout, BASE, 3);
+                        place(helper, player, neighbor, BASE.east(), 11);
+                        if (player.isCreative()) removeCreative(helper, player, BASE.above(half));
+                        else helper.getLevel().destroyBlock(helper.absolutePos(BASE.above(half)), true, player);
+                        gone(helper, BASE);
+                        pair(helper, neighbor, BASE.east(), 11);
+                        if (player.isCreative()) {
+                            helper.assertTrue(helper.getEntities(EntityType.ITEM, BASE, 6).isEmpty(), "Creative removal of a mixed pair duplicated a reward");
+                        } else {
+                            exactlyOneDrop(helper, cutout);
+                        }
+                        clearDrops(helper);
+                        if (player.isCreative()) removeCreative(helper, player, BASE.east().above(1-half));
+                        else helper.getLevel().destroyBlock(helper.absolutePos(BASE.east().above(1-half)), true, player);
+                        gone(helper, BASE.east());
+                        if (player.isCreative()) {
+                            helper.assertTrue(helper.getEntities(EntityType.ITEM, BASE, 6).isEmpty(), "Creative neighbor removal duplicated the other character");
+                        } else {
+                            exactlyOneDrop(helper, neighbor);
+                        }
+                        clearDrops(helper);
                     }
-                    clearDrops(helper);
-                    if (player.isCreative()) removeCreative(helper, player, BASE.east().above(1-half));
-                    else helper.getLevel().destroyBlock(helper.absolutePos(BASE.east().above(1-half)), true, player);
-                    gone(helper, BASE.east());
-                    if (player.isCreative()) {
-                        helper.assertTrue(helper.getEntities(EntityType.ITEM, BASE, 6).isEmpty(), "Creative neighbor removal duplicated the other character");
-                    } else {
-                        exactlyOneDrop(helper, neighbor);
-                    }
-                    clearDrops(helper);
                 }
             }
         }
@@ -273,25 +275,26 @@ public final class CardboardCutoutGameTests {
     @GameTest(template = "nostalgia_test")
     public static void mismatchedCharacterHalvesCannotFormASurvivingCutoutOrDuplicateItsPrize(GameTestHelper helper) {
         ServerPlayer player = createPlayer(helper, "MixedCutoutHalves", GameType.SURVIVAL);
-        for (int first = 0; first < cutouts().size(); first++) {
-            var lowerCharacter = cutouts().get(first);
-            var upperCharacter = cutouts().get(1-first);
-            for (int rotation : new int[]{0, 3, 8, 11}) {
-                place(helper, player, lowerCharacter, BASE, rotation);
-                var wrongUpper = upperCharacter.defaultBlockState().setValue(CardboardCutoutBlock.HALF, DoubleBlockHalf.UPPER)
-                    .setValue(CardboardCutoutBlock.ROTATION, rotation);
-                // Simulate mismatched structure/save data without allowing intermediate neighbor repair.
-                helper.getLevel().setBlock(helper.absolutePos(BASE.above()), wrongUpper, 18);
-                helper.assertTrue(!wrongUpper.canSurvive(helper.getLevel(), helper.absolutePos(BASE.above())),
-                    "A different character's lower half was accepted as the standee's matching support");
-                helper.assertBlockPresent(lowerCharacter, BASE);
-                helper.assertBlockPresent(upperCharacter, BASE.above());
-                // An ordinary neighboring state update must discard the unsupported upper half and its orphaned lower half.
-                var changedLower = helper.getBlockState(BASE).rotate(Rotation.CLOCKWISE_90);
-                helper.getLevel().setBlock(helper.absolutePos(BASE), changedLower, 3);
-                gone(helper, BASE);
-                exactlyOneDrop(helper, lowerCharacter);
-                clearDrops(helper);
+        for (var lowerCharacter : cutouts()) {
+            for (var upperCharacter : cutouts()) {
+                if (lowerCharacter == upperCharacter) { continue; }
+                for (int rotation : new int[]{0, 3, 8, 11}) {
+                    place(helper, player, lowerCharacter, BASE, rotation);
+                    var wrongUpper = upperCharacter.defaultBlockState().setValue(CardboardCutoutBlock.HALF, DoubleBlockHalf.UPPER)
+                        .setValue(CardboardCutoutBlock.ROTATION, rotation);
+                    // Simulate mismatched structure/save data without allowing intermediate neighbor repair.
+                    helper.getLevel().setBlock(helper.absolutePos(BASE.above()), wrongUpper, 18);
+                    helper.assertTrue(!wrongUpper.canSurvive(helper.getLevel(), helper.absolutePos(BASE.above())),
+                        "A different character's lower half was accepted as the standee's matching support");
+                    helper.assertBlockPresent(lowerCharacter, BASE);
+                    helper.assertBlockPresent(upperCharacter, BASE.above());
+                    // An ordinary neighboring state update must discard the unsupported upper half and its orphaned lower half.
+                    var changedLower = helper.getBlockState(BASE).rotate(Rotation.CLOCKWISE_90);
+                    helper.getLevel().setBlock(helper.absolutePos(BASE), changedLower, 3);
+                    gone(helper, BASE);
+                    exactlyOneDrop(helper, lowerCharacter);
+                    clearDrops(helper);
+                }
             }
         }
         helper.succeed();

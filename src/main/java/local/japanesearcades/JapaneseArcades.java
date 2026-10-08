@@ -71,6 +71,14 @@ public final class JapaneseArcades {
         "kasane_teto_cutout", KasaneTetoCutoutBlock::new,
         BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).strength(.5F).sound(SoundType.WOOD).noOcclusion());
     public static final DeferredItem<?> KASANE_TETO_CUTOUT_ITEM = ITEMS.registerSimpleBlockItem("kasane_teto_cutout", KASANE_TETO_CUTOUT);
+    public static final DeferredBlock<KagamineRinCutoutBlock> KAGAMINE_RIN_CUTOUT = BLOCKS.registerBlock(
+        "kagamine_rin_cutout", KagamineRinCutoutBlock::new,
+        BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(.5F).sound(SoundType.WOOD).noOcclusion());
+    public static final DeferredItem<?> KAGAMINE_RIN_CUTOUT_ITEM = ITEMS.registerSimpleBlockItem("kagamine_rin_cutout", KAGAMINE_RIN_CUTOUT);
+    public static final DeferredBlock<KagamineLenCutoutBlock> KAGAMINE_LEN_CUTOUT = BLOCKS.registerBlock(
+        "kagamine_len_cutout", KagamineLenCutoutBlock::new,
+        BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(.5F).sound(SoundType.WOOD).noOcclusion());
+    public static final DeferredItem<?> KAGAMINE_LEN_CUTOUT_ITEM = ITEMS.registerSimpleBlockItem("kagamine_len_cutout", KAGAMINE_LEN_CUTOUT);
     public record MobFigureSet(String mob, DeferredBlock<MobFigureBlock> figure,
             DeferredBlock<MobFigureBlock> emptyBox, DeferredBlock<MobFigureBlock> boxedFigure,
             DeferredItem<MobFigureItem> figureItem, DeferredItem<MobFigureItem> emptyBoxItem,
@@ -378,6 +386,8 @@ public final class JapaneseArcades {
                 output.accept(FIGURE_WALL_SHELF_ITEM.get());
                 output.accept(HATSUNE_MIKU_CUTOUT_ITEM.get());
                 output.accept(KASANE_TETO_CUTOUT_ITEM.get());
+                output.accept(KAGAMINE_RIN_CUTOUT_ITEM.get());
+                output.accept(KAGAMINE_LEN_CUTOUT_ITEM.get());
                 output.accept(WACCA_POSTER.get());
                 for (ArcadePosterSet poster : ARCADE_POSTERS) { output.accept(poster.item().get()); }
                 for (MobFigureSet figures : MOB_FIGURES) {
