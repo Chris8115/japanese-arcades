@@ -1,0 +1,25 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "neoforge:obj",
+  "model": "japanesearcades:models/block/popn_music_base.obj",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "emissive_ambient": true,
+  "ambientocclusion": true,
+  "render_type": "minecraft:cutout_mipped_all",
+  "textures": {
+    "materials": "japanesearcades:block/popn_music_materials",
+    "marquee": "japanesearcades:block/popn_music_marquee",
+    "screen": "japanesearcades:block/popn_music_screen",
+    "console": "japanesearcades:block/popn_music_console",
+    "console_edge": "japanesearcades:block/popn_music_console_edge",
+    "bezel": "japanesearcades:block/popn_music_bezel",
+    "side": "japanesearcades:block/popn_music_side",
+    "front": "japanesearcades:block/popn_music_front",
+    "speaker": "japanesearcades:block/popn_music_speaker",
+    "rainbow": "japanesearcades:block/popn_music_rainbow",
+    "details": "japanesearcades:block/popn_music_details",
+    "particle": "japanesearcades:block/popn_music_materials"
+  }
+}

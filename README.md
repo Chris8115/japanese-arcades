@@ -6,7 +6,7 @@ The mod is **Japanese Arcades**, version `0.1.0`. Its mod ID is
 `japanesearcades`. All items, blocks, resources, and configuration files use this namespace.
 This pre-release rename does not migrate IDs or configuration from older development builds.
 It registers `/japanesearcadesdev`, a small command to confirm that the mod is loaded.
-The **Japanese Arcades** creative tab includes eighteen cabinets with music-disc playback:
+The **Japanese Arcades** creative tab includes nineteen cabinets with music-disc playback:
 
 - [Nostalgia Op.3 Arcade Cabinet](art/nostalgia-op3/README.md)
 - [BeatStream Arcade Cabinet](art/beatstream/README.md)
@@ -20,6 +20,7 @@ The **Japanese Arcades** creative tab includes eighteen cabinets with music-disc
 - [Project DIVA Arcade Future Tone Cabinet](art/project_diva/README.md)
 - [Chrono Circle Arcade Cabinet](art/chrono_circle/README.md)
 - [MUSIC DIVER Arcade Cabinet](art/music-diver/README.md)
+- [pop'n music Arcade Cabinet](art/popn_music/README.md)
 - [maimai DX Twin Arcade Cabinet](art/maimai/README.md)
 - [DDR SuperNOVA Arcade Cabinet](art/ddr_supernova/README.md)
 - [Taiko no Tatsujin Arcade Cabinet](art/taiko/README.md)
@@ -140,7 +141,7 @@ Use **Terminal > Run Task** for the `Japanese Arcades:` tasks, or open a termina
 - `SyncPack` refreshes the copied mods, configs, resource packs, and pack scripts from the live pack.
 - `Prepare` downloads game assets and prepares client/server launch files.
 - `Server` launches a small dedicated server for checking server compatibility.
-- `GameTest` runs 170 cabinet, claw machine, gachapon, figure, cutout, display box, poster, ordering and Arcade Pass economy integration tests in a disposable test world and exits.
+- `GameTest` runs 190 cabinet, claw machine, gachapon, figure, cutout, display box, poster, ordering and Arcade Pass economy integration tests in a disposable test world and exits.
 - `Data` runs our data generators once we add them.
 
 The script selects Java 21 locally. Your default Java installation remains available to other projects.
@@ -221,7 +222,12 @@ and standing, stepping onto and walking across its low platform in every facing.
 MUSIC DIVER tests cover all-facing placement and obstructions, shared saved-disc
 playback, every section and support removal, neighboring-cabinet isolation,
 sloping-rim and marquee selection, and clear disc ejection beside the holster.
-All 148 passed on 2026-10-07.
+pop'n music tests cover all-facing placement and obstructions, saved-disc playback
+and reload, all-section interaction, single-drop teardown after every section or
+support is broken, creative neighbor isolation, deck/speaker/topper selection,
+open space before the monitor, and clear disc ejection. The
+shared catalog tests exercise its kiosk material order and Arcade Pass payment.
+All 190 passed on 2026-10-07, including pop'n music and concert glow sticks.
 Visual checks and full-pack compatibility remain separate from these server tests.
 
 `SyncPack` overwrites files that exist in the source pack's configuration. Close the development

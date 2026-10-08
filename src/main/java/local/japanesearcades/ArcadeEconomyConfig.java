@@ -42,7 +42,8 @@ public final class ArcadeEconomyConfig {
                 "ONGEKI uses its own machine ID: japanesearcades:ongeki|10|standard",
                 "SOUND VOLTEX NEMSYS uses its own machine ID: japanesearcades:sound_voltex_nemsys|10|standard",
                 "beatmania IIDX LIGHTNING MODEL uses its own machine ID: japanesearcades:beatmania_iidx_lightning|10|standard",
-                "MUSIC DIVER uses its own machine ID: japanesearcades:music_diver|10|standard")
+                "MUSIC DIVER uses its own machine ID: japanesearcades:music_diver|10|standard",
+                "pop'n music uses its own machine ID: japanesearcades:popn_music|10|standard")
             .defineListAllowEmpty("machineOverrides", List.of(), ArcadeEconomyConfig::validMachine);
         builder.pop().comment("Prize Point costs; ordinary material recipes are intentionally absent.").push("prizes");
         PRICES.put("hatsune_miku_figure", builder.defineInRange("hatsune_miku_figure", 2500, 1, 1_000_000));

@@ -53,6 +53,7 @@ public final class ArcadeOrderCatalog {
         machine("project_diva", JapaneseArcades.PROJECT_DIVA_ITEM, 16, 4, 1, 6, 6),
         machine("chrono_circle", JapaneseArcades.CHRONO_CIRCLE_ITEM, 18, 4, 1, 8, 8),
         machine("music_diver", JapaneseArcades.MUSIC_DIVER_ITEM, 18, 4, 1, 8, 8),
+        machine("popn_music", JapaneseArcades.POPN_MUSIC_ITEM, 16, 4, 1, 6, 6),
         machine("maimai", JapaneseArcades.MAIMAI_ITEM, 24, 6, 2, 8, 8),
         machine("ddr_supernova", JapaneseArcades.DDR_SUPERNOVA_ITEM, 24, 6, 2, 8, 8),
         machine("beatmania_iidx_lightning", JapaneseArcades.BEATMANIA_IIDX_LIGHTNING_ITEM, 24, 6, 2, 8, 8),

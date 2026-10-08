@@ -1,0 +1,33 @@
+{
+  "models": {
+    "models/block/popn_music_base.obj": {
+      "faces": 569,
+      "vertices": 585,
+      "triangles": 272,
+      "quads": 297
+    },
+    "models/block/popn_music_console.obj": {
+      "faces": 3194,
+      "vertices": 3228,
+      "triangles": 590,
+      "quads": 2604
+    },
+    "models/block/popn_music_marquee.obj": {
+      "faces": 1307,
+      "vertices": 1498,
+      "triangles": 262,
+      "quads": 1045
+    },
+    "models/item/popn_music.obj": {
+      "faces": 4928,
+      "vertices": 5023,
+      "triangles": 1118,
+      "quads": 3810
+    }
+  },
+  "errors": [],
+  "placed_faces": 5070,
+  "inventory_faces": 4928,
+  "release_sha256": "c7a81bb2bde9232a66e8b74a4335bac304493bf9563431230c18fee07af7598b",
+  "export_checks": "All final OBJ faces valid; finite positions, valid UVs, no zero-area polygons; optimization idempotent; model and texture references resolve; release assets match source."
+}

@@ -183,6 +183,11 @@ public final class JapaneseArcades {
         BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(2.0F, 6.0F)
             .sound(SoundType.METAL).noOcclusion().lightLevel(state ->
                 state.getValue(NostalgiaCabinetBlock.PART) == NostalgiaCabinetBlock.Part.BASE ? 4 : 13));
+    public static final DeferredBlock<PopnMusicCabinetBlock> POPN_MUSIC = BLOCKS.registerBlock(
+        "popn_music", PopnMusicCabinetBlock::new,
+        BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(2.0F, 6.0F)
+            .sound(SoundType.METAL).noOcclusion().lightLevel(state ->
+                state.getValue(NostalgiaCabinetBlock.PART) == NostalgiaCabinetBlock.Part.BASE ? 4 : 13));
     public static final DeferredBlock<MaimaiCabinetBlock> MAIMAI = BLOCKS.registerBlock(
         "maimai", MaimaiCabinetBlock::new,
         BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(2.0F, 6.0F)
@@ -231,7 +236,7 @@ public final class JapaneseArcades {
         BLOCK_ENTITIES.register("nostalgia_jukebox", () -> BlockEntityType.Builder.of(
             NostalgiaJukeboxBlockEntity::new, NOSTALGIA_OP3.get(), BEATSTREAM.get(), SOUND_VOLTEX_VALKYRIE.get(), SOUND_VOLTEX_NEMSYS.get(),
             WACCA.get(), CHUNITHM.get(), ONGEKI.get(), GROOVE_COASTER.get(), MUSECA.get(), PROJECT_DIVA.get(),
-            CHRONO_CIRCLE.get(), MUSIC_DIVER.get(), MAIMAI.get(), DDR_SUPERNOVA.get(), BEATMANIA_IIDX_LIGHTNING.get(), TAIKO.get(), INITIAL_D.get(), JUBEAT.get()).build(null));
+            CHRONO_CIRCLE.get(), MUSIC_DIVER.get(), POPN_MUSIC.get(), MAIMAI.get(), DDR_SUPERNOVA.get(), BEATMANIA_IIDX_LIGHTNING.get(), TAIKO.get(), INITIAL_D.get(), JUBEAT.get()).build(null));
     public static final DeferredItem<?> NOSTALGIA_OP3_ITEM =
         ITEMS.registerSimpleBlockItem("nostalgia_op3", NOSTALGIA_OP3, new Item.Properties());
     public static final DeferredItem<?> BEATSTREAM_ITEM =
@@ -256,6 +261,8 @@ public final class JapaneseArcades {
         ITEMS.registerSimpleBlockItem("chrono_circle", CHRONO_CIRCLE, new Item.Properties());
     public static final DeferredItem<?> MUSIC_DIVER_ITEM =
         ITEMS.registerSimpleBlockItem("music_diver", MUSIC_DIVER, new Item.Properties());
+    public static final DeferredItem<?> POPN_MUSIC_ITEM =
+        ITEMS.registerSimpleBlockItem("popn_music", POPN_MUSIC, new Item.Properties());
     public static final DeferredItem<?> MAIMAI_ITEM =
         ITEMS.registerSimpleBlockItem("maimai", MAIMAI, new Item.Properties());
     public static final DeferredItem<?> DDR_SUPERNOVA_ITEM =
@@ -319,6 +326,7 @@ public final class JapaneseArcades {
                 output.accept(PROJECT_DIVA_ITEM.get());
                 output.accept(CHRONO_CIRCLE_ITEM.get());
                 output.accept(MUSIC_DIVER_ITEM.get());
+                output.accept(POPN_MUSIC_ITEM.get());
                 output.accept(MAIMAI_ITEM.get());
                 output.accept(DDR_SUPERNOVA_ITEM.get());
                 output.accept(BEATMANIA_IIDX_LIGHTNING_ITEM.get());

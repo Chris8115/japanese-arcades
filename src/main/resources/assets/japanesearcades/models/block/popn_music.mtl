@@ -1,0 +1,59 @@
+newmtl bezel_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #bezel
+
+newmtl console_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #console
+
+newmtl console_edge_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #console_edge
+
+newmtl details_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #details
+
+newmtl details_glow
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #details
+
+newmtl front_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #front
+
+newmtl marquee_glow
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #marquee
+
+newmtl materials_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #materials
+
+newmtl rainbow_glow
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #rainbow
+
+newmtl screen_glow
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #screen
+
+newmtl side_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #side
+
+newmtl speaker_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #speaker
