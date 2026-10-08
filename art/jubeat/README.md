@@ -25,12 +25,10 @@ the plinth so the full front face reaches down close to the floor. The hidden
 portion below the plinth is omitted from the rendered mesh. Native composite models render the
 opaque structure and translucent glass separately, including the inventory item.
 
-The sixteen raised buttons run an idle light sequence: scattered buttons switch
-between cyan, blue, pink, purple, lime and amber. The 24-frame shuffled loop changes
-every six ticks (0.3 seconds), with three to six lit pads per frame and all sixteen
-positions participating. A native animated texture drives the lights without block
-updates or network traffic. The editable models and studio
-previews show the sequence's first frame.
+The sixteen raised buttons use the same neutral gray pad design, with no
+colored notes or animation. The pads use one 512-by-512 texture with
+no animation metadata. This replaces the former 24-frame light sequence and
+removes 23 MiB of decoded RGBA frame data; its atlas footprint stays 512-by-512.
 
 ## Placement and ordering
 
@@ -90,13 +88,18 @@ The small native client completed real kiosk ordering, survival placement,
 configured credit deduction and point awards, disc insertion/playback/ejection,
 and removal with adjacent cabinets intact. The item and all model textures
 rendered correctly, and the client exited with code 0.
-Native client checks confirm separate solid/translucent block layers, ordered item
-passes and all 24 loaded animation frames. Two control-deck screenshots taken one
-second apart show different lit positions and colors.
+The original native client checks confirmed separate solid/translucent block
+layers, ordered item passes, and the former animation. Each tile of the current
+static pad texture matches the original unlit gray pad. The editable models,
+studio previews and inventory icon use the same gray artwork; regenerated
+textures also remove any old animation metadata.
+The static-pad update passed the Java 21 build and a native client check:
+512-by-512 source pixels, one frame, no animation ticker, and sixteen identical
+gray tiles. The inventory icon was recaptured from the full native item model.
 
 The same release also completed those interactions in a copied modpack with all
 218 third-party mods and Complementary Reimagined enabled and exited with code 0.
-Transparent glass, ordered item layers and the changing pad lights were verified
+Transparent glass, ordered item layers and the then-animated pad lights were verified
 there as well. Both clients spent 10 Credits
 and awarded the configured randomized Prize Points on the selected pass. No Jubeat
 model or texture errors were reported. The original instance and saves were not
@@ -107,5 +110,5 @@ modified.
 - [Adjacent row](jubeat-row-in-game.png)
 - [Kiosk ordering and item model](jubeat-ordering.png)
 - [Transparent topper and speaker detail](jubeat-glass-in-game.png)
-- [Animated pads: first capture](jubeat-animation-a.png)
-- [Animated pads: one second later](jubeat-animation-b.png)
+- [Historical animation: first capture](jubeat-animation-a.png)
+- [Historical animation: one second later](jubeat-animation-b.png)

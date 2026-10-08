@@ -95,8 +95,7 @@ def main():
     stats={'source_faces':len(g.faces),'runtime_section_faces':{k:len(v) for k,v in parts.items()},
            'translucent_faces':sum(f['texture'] in GLASS_TEXTURES for f in g.faces)}
     write_json(ART/'geometry.json',{'textures':textures,'meshes':g.faces,'bounds':bounds,'statistics':stats,**metadata})
-    # Blockbench displays a single square frame; the runtime atlas uses the
-    # matching vertical animation strip and its .mcmeta timing.
+    # Blockbench and the runtime atlas use the same static pad artwork.
     specs=[(key,ART/'jubeat-pads-preview.png' if key=='pads' else path)
            for key,path in texture_files.items()]
     indices={'#'+key:i for i,(key,path) in enumerate(specs)}

@@ -50,8 +50,8 @@ BeatStream uses a copy of Nostalgia's chassis, with triangular illuminated speak
 grilles, a larger sloped touchscreen, a flat white control strip, and its own cutout topper.
 Jubeat keeps its entire shell, speakers and cube topper inside one block of
 width and depth, so independent cabinets can be placed directly side by side.
-Its glass display cubes contain recessed artwork, and its sixteen buttons run
-a multicolor idle animation. The small display above the buttons shares their slope.
+Its glass display cubes contain recessed artwork, and its sixteen buttons use
+static gray pad artwork. The small display above the buttons shares their slope.
 ONGEKI bright has a separate white outer arch, circular side panels, a recessed
 portrait monitor, two groups of three buttons, and a center lever. It uses the
 standard kiosk ordering, Arcade Pass rewards, and saved music-disc playback.

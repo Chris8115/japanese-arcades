@@ -1,7 +1,5 @@
 """Original utility graphics for the classic blue Jubeat cabinet model."""
 import math
-import json
-import random
 from pathlib import Path
 from PIL import Image,ImageDraw,ImageFont
 from jubeat_geometry import COLORS
@@ -13,36 +11,18 @@ def word(draw,xy,text,size,fill='white',bold=False):
     draw.text(xy,text,font=font(size,bold),fill=fill,anchor='mm',stroke_width=0)
 
 
-def build_pad_frames():
-    """A repeatable attract animation with changing positions and LED colors."""
-    rng=random.Random(0x4A554245)
-    palette=((47,217,244),(244,83,173),(188,223,60),
-             (155,96,240),(248,176,45),(71,130,245))
-    frames=[]
-    for frame in range(24):
-        count=rng.randint(3,6)
-        lit=dict(zip(rng.sample(range(16),count),rng.sample(palette,count)))
-        im=Image.new('RGB',(512,512),'#08131a');d=ImageDraw.Draw(im)
-        for row in range(4):
-            for col in range(4):
-                x,y=col*128,row*128;i=row*4+col
-                d.rectangle((x+4,y+4,x+123,y+123),fill='#263642',outline='#789399',width=3)
-                d.rectangle((x+10,y+10,x+117,y+117),fill='#36464d',outline='#12212b',width=2)
-                if i in lit:
-                    color=lit[i]
-                    dim=tuple(round(c*.64) for c in color)
-                    glow=tuple(round(c+(255-c)*.62) for c in color)
-                    highlight=tuple(round(c+(255-c)*.80) for c in color)
-                    d.rectangle((x+18,y+18,x+109,y+109),fill=dim,outline=glow,width=3)
-                    d.rectangle((x+27,y+27,x+100,y+100),fill=color,outline=highlight,width=2)
-                    d.line((x+30,y+62,x+97,y+62),fill=glow,width=3)
-                    d.line((x+64,y+29,x+64,y+98),fill=glow,width=3)
-                else:
-                    d.rectangle((x+24,y+24,x+103,y+103),outline='#60757b',width=3)
-                    d.line((x+26,y+29,x+99,y+29),fill='#c0cbd0',width=4)
-                d.line((x+12,y+112,x+115,y+112),fill='#a0b5bc',width=2)
-        frames.append(im)
-    return frames
+def build_pad_texture():
+    """Sixteen neutral, unlit pads with no colored notes or animation."""
+    im=Image.new('RGB',(512,512),'#08131a');d=ImageDraw.Draw(im)
+    for row in range(4):
+        for col in range(4):
+            x,y=col*128,row*128
+            d.rectangle((x+4,y+4,x+123,y+123),fill='#263642',outline='#789399',width=3)
+            d.rectangle((x+10,y+10,x+117,y+117),fill='#36464d',outline='#12212b',width=2)
+            d.rectangle((x+24,y+24,x+103,y+103),outline='#60757b',width=3)
+            d.line((x+26,y+29,x+99,y+29),fill='#c0cbd0',width=4)
+            d.line((x+12,y+112,x+115,y+112),fill='#a0b5bc',width=2)
+    return im
 
 def build_textures(destination):
     destination=Path(destination);destination.mkdir(parents=True,exist_ok=True)
@@ -122,16 +102,13 @@ def build_textures(destination):
     word(d,(256,375),'TOUCH THE MUSIC',19,'#c8eaf0')
     save('plaque_side',im)
 
-    frames=build_pad_frames()
-    im=Image.new('RGB',(512,512*len(frames)))
-    for index,frame in enumerate(frames):im.paste(frame,(0,index*512))
+    im=build_pad_texture()
     save('pads',im)
-    result['pads'].with_suffix('.png.mcmeta').write_text(json.dumps({
-        'animation':{'width':512,'height':512,'frametime':6,'interpolate':False}
-    },indent=2)+'\n',encoding='utf-8')
+    # Also clear the old metadata when regenerating an existing animated export.
+    result['pads'].with_suffix('.png.mcmeta').unlink(missing_ok=True)
     preview=Path(__file__).resolve().parents[1]/'art/jubeat/jubeat-pads-preview.png'
     preview.parent.mkdir(parents=True,exist_ok=True)
-    frames[0].save(preview)
+    im.save(preview)
     im=Image.new('RGB',(1024,128),'#091b37');d=ImageDraw.Draw(im)
     for x in range(0,1024,45):d.line((x,0,x+95,128),fill='#124d77',width=3)
     # The separate silver panel sits ahead of this narrow blue deck strip.
