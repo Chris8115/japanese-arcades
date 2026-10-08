@@ -9,9 +9,9 @@ import local.japanesearcades.ArcadeOrderCatalog;
 import local.japanesearcades.ArcadeEconomyConfig;
 import local.japanesearcades.ArcadePassData;
 import local.japanesearcades.ArcadePassItem;
-import local.japanesearcades.ArcadePrizeCatalog;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
@@ -37,7 +37,6 @@ public final class ArcadeKioskScreen extends AbstractContainerScreen<ArcadeKiosk
     private final List<EntryButton> entryButtons = new ArrayList<>();
     private ResourceLocation category;
     private List<ArcadeOrderCatalog.Entry> entries = List.of();
-    private List<ArcadePrizeCatalog.Entry> prizes = List.of();
     private final List<Button> exchangeButtons = new ArrayList<>();
     private Button transfer, issue;
     private int statusRevision, observedStateId;
@@ -49,6 +48,7 @@ public final class ArcadeKioskScreen extends AbstractContainerScreen<ArcadeKiosk
     private int cooldown;
     private boolean suppressStatus;
     private Button order;
+    private ArcadeRewardBrowser rewardBrowser;
 
     public ArcadeKioskScreen(ArcadeKioskMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
@@ -61,19 +61,29 @@ public final class ArcadeKioskScreen extends AbstractContainerScreen<ArcadeKiosk
 
     @Override
     protected void init() {
+        imageWidth = isPrizeTab() ? Math.min(440, width - 4) : 320;
+        imageHeight = isPrizeTab() ? Math.min(316, height - 4) : 236;
         super.init();
         entries = ArcadeOrderCatalog.entries(category);
-        prizes = ArcadePrizeCatalog.entries();
         selected = Mth.clamp(selected, 0, Math.max(0, entryCount() - 1));
         scroll = Mth.clamp(scroll, 0, Math.max(0, entryCount() - ROWS));
         entryButtons.clear();
         exchangeButtons.clear();
         List<ArcadeOrderCatalog.Category> categories = ArcadeOrderCatalog.categories();
-        int tabWidth = Math.min(110, 298 / Math.max(1, categories.size()));
+        int tabWidth = (imageWidth - 22) / Math.max(1, categories.size());
         for (int i = 0; i < categories.size(); i++) {
             ArcadeOrderCatalog.Category tab = categories.get(i);
             addRenderableWidget(new CategoryButton(leftPos + 11 + i * tabWidth, topPos + 24, tabWidth - 3, 17, tab));
         }
+        if (isPrizeTab()) {
+            order = transfer = issue = null;
+            if (rewardBrowser == null) rewardBrowser = new ArcadeRewardBrowser(this);
+            rewardBrowser.init(leftPos, topPos, imageWidth, imageHeight);
+            statusRevision = menu.getStatusRevision();
+            refreshPasses();
+            return;
+        }
+        menu.layoutClientSlots(79, 154, true, 17, 48, 171, 48);
         for (int row = 0; row < ROWS; row++) {
             EntryButton button = new EntryButton(leftPos + 11, topPos + 44 + row * ROW_HEIGHT, row);
             entryButtons.add(addRenderableWidget(button));
@@ -107,8 +117,7 @@ public final class ArcadeKioskScreen extends AbstractContainerScreen<ArcadeKiosk
         suppressStatus = true;
         confirmTransfer = false;
         minecraft.gameMode.handleInventoryButtonClick(menu.containerId, isPassTab() ? 2 : isPrizeTab() ? 1 : 0);
-        refreshRows();
-        updateOrderButton();
+        rebuildWidgets();
     }
 
     private ArcadeOrderCatalog.Entry selectedEntry() {
@@ -117,9 +126,9 @@ public final class ArcadeKioskScreen extends AbstractContainerScreen<ArcadeKiosk
 
     private boolean isPrizeTab() { return category.equals(ArcadeOrderCatalog.PRIZES); }
     private boolean isPassTab() { return category.equals(PASSES); }
-    private int entryCount() { return isPassTab() ? 0 : isPrizeTab() ? prizes.size() : entries.size(); }
-    private Component entryTitle(int index) { return isPrizeTab() ? prizes.get(index).title() : entries.get(index).title(); }
-    private ItemStack entryOutput(int index) { return isPrizeTab() ? prizes.get(index).output() : entries.get(index).output(); }
+    private int entryCount() { return isPassTab() || isPrizeTab() ? 0 : entries.size(); }
+    private Component entryTitle(int index) { return entries.get(index).title(); }
+    private ItemStack entryOutput(int index) { return entries.get(index).output(); }
 
     private void selectEntry(int index) {
         selected = Mth.clamp(index, 0, Math.max(0, entryCount() - 1));
@@ -146,22 +155,14 @@ public final class ArcadeKioskScreen extends AbstractContainerScreen<ArcadeKiosk
         if (order == null) return;
         ArcadeOrderCatalog.Entry entry = selectedEntry();
         order.visible = !isPassTab() && entryCount() > 0;
-        order.active = cooldown == 0 && minecraft.player != null && (isPrizeTab() ? prizeAffordable()
-            : entry != null && ArcadeOrderCatalog.canAfford(minecraft.player, entry));
+        order.active = cooldown == 0 && minecraft.player != null
+            && entry != null && ArcadeOrderCatalog.canAfford(minecraft.player, entry);
         order.setTooltip(order.visible && !order.active && cooldown == 0
-            ? Tooltip.create(Component.translatable(isPrizeTab() ? target() == null ? "kiosk.pass.no_pass" : "kiosk.prize.missing" : "kiosk.gui.missing")) : null);
+            ? Tooltip.create(Component.translatable("kiosk.gui.missing")) : null);
         updatePassWidgets();
     }
 
     private void orderSelected() {
-        if (isPrizeTab()) {
-            PassRef pass = target();
-            if (pass == null || !order.active) return;
-            PacketDistributor.sendToServer(new ArcadeKioskNetwork.PrizePayload(menu.containerId,
-                prizes.get(selected).id(), pass.slot(), pass.data().id(), pass.data().revision()));
-            sentAction();
-            return;
-        }
         ArcadeOrderCatalog.Entry entry = selectedEntry();
         if (entry == null || !order.active) return;
         PacketDistributor.sendToServer(new ArcadeKioskNetwork.OrderPayload(menu.containerId, entry.id()));
@@ -177,13 +178,31 @@ public final class ArcadeKioskScreen extends AbstractContainerScreen<ArcadeKiosk
             suppressStatus = false;
             confirmTransfer = false;
         }
+        if (isPrizeTab() && rewardBrowser != null) {
+            rewardBrowser.tick();
+            return;
+        }
         updateOrderButton();
+    }
+
+    <T extends AbstractWidget> T addBrowserWidget(T widget) { return addRenderableWidget(widget); }
+    boolean purchaseCoolingDown() { return cooldown > 0; }
+    void browserSelectionChanged() { suppressStatus = true; }
+    int browserStatus() { return suppressStatus ? 0 : menu.getStatus(); }
+    void redeemPrize(ResourceLocation prizeId) {
+        PassRef pass = target();
+        int price = ArcadeEconomyConfig.prizePrice(prizeId);
+        if (!isPrizeTab() || cooldown > 0 || pass == null || price < 1 || pass.data().prizePoints() < price) return;
+        PacketDistributor.sendToServer(new ArcadeKioskNetwork.PrizePayload(menu.containerId,
+            prizeId, pass.slot(), pass.data().id(), pass.data().revision()));
+        cooldown = 8;
+        suppressStatus = false;
     }
 
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        if ((isPassTab() && isHovering(16, 47, 18, 18, mouseX, mouseY))
-            || ((isPassTab() || isPrizeTab()) && isHovering(170, 47, 18, 18, mouseX, mouseY))) {
+        if (isPassTab() && (isHovering(16, 47, 18, 18, mouseX, mouseY)
+            || isHovering(170, 47, 18, 18, mouseX, mouseY))) {
             confirmTransfer = false;
         }
         return super.mouseClicked(mouseX, mouseY, button);
@@ -191,6 +210,8 @@ public final class ArcadeKioskScreen extends AbstractContainerScreen<ArcadeKiosk
 
     @Override
     public boolean mouseScrolled(double mouseX, double mouseY, double horizontal, double vertical) {
+        if (isPrizeTab() && rewardBrowser != null) return rewardBrowser.mouseScrolled(mouseX, mouseY, vertical)
+            || super.mouseScrolled(mouseX, mouseY, horizontal, vertical);
         if (!isPassTab() && isHovering(10, 43, 128, 98, mouseX, mouseY) && entryCount() > ROWS) {
             scroll = Mth.clamp(scroll - (int) Math.signum(vertical), 0, entryCount() - ROWS);
             refreshRows();
@@ -201,6 +222,8 @@ public final class ArcadeKioskScreen extends AbstractContainerScreen<ArcadeKiosk
 
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+        if (isPrizeTab() && rewardBrowser != null) return rewardBrowser.keyPressed(keyCode, scanCode, modifiers)
+            || super.keyPressed(keyCode, scanCode, modifiers);
         if (entryCount() > 0) {
             if (keyCode == GLFW.GLFW_KEY_DOWN || keyCode == GLFW.GLFW_KEY_UP) {
                 selectEntry(selected + (keyCode == GLFW.GLFW_KEY_DOWN ? 1 : -1));
@@ -224,6 +247,10 @@ public final class ArcadeKioskScreen extends AbstractContainerScreen<ArcadeKiosk
         graphics.fill(leftPos, topPos, leftPos + imageWidth, topPos + imageHeight, 0xFFE9EFF0);
         graphics.fill(leftPos, topPos, leftPos + imageWidth, topPos + 21, 0xFFFDFEFE);
         graphics.fill(leftPos, topPos, leftPos + imageWidth, topPos + 2, 0xFFBA3441);
+        if (isPrizeTab() && rewardBrowser != null) {
+            rewardBrowser.renderBackground(graphics);
+            return;
+        }
         graphics.fill(leftPos + 139, topPos + 43, leftPos + 310, topPos + 142, 0xFFF9FBFB);
         graphics.fill(leftPos + 11, topPos + 43, leftPos + 136, topPos + 140, 0xFFDDE6E8);
         graphics.fill(leftPos + 11, topPos + 142, leftPos + 309, topPos + 143, 0xFFC4D2D6);
@@ -240,13 +267,12 @@ public final class ArcadeKioskScreen extends AbstractContainerScreen<ArcadeKiosk
 
     @Override
     protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
+        if (isPrizeTab()) return;
         graphics.drawString(font, title, 11, 8, INK, false);
         graphics.drawString(font, playerInventoryTitle, inventoryLabelX, inventoryLabelY, INK, false);
         ArcadeOrderCatalog.Entry entry = selectedEntry();
         if (isPassTab()) {
             renderPasses(graphics);
-        } else if (isPrizeTab() && !prizes.isEmpty()) {
-            renderPrize(graphics);
         } else if (entry == null) {
             graphics.drawWordWrap(font, Component.translatable("kiosk.gui.empty"), 20, 61, 106, MUTED);
             graphics.drawWordWrap(font, Component.translatable("kiosk.gui.empty_hint"), 153, 69, 144, MUTED);
@@ -269,28 +295,25 @@ public final class ArcadeKioskScreen extends AbstractContainerScreen<ArcadeKiosk
         graphics.drawString(font, Component.translatable("kiosk.gui.status"), 12, 158, INK, false);
         int status = suppressStatus ? 0 : menu.getStatus();
         String idle = isPassTab() ? target() == null ? "kiosk.pass.no_pass" : "kiosk.pass.ready"
-            : isPrizeTab() ? target() == null ? "kiosk.pass.no_pass" : prizeAffordable() ? "kiosk.gui.ready" : "kiosk.prize.missing"
             : entry == null ? "kiosk.gui.empty" : ArcadeOrderCatalog.canAfford(minecraft.player, entry) ? "kiosk.gui.ready" : "kiosk.gui.missing";
         Component statusMessage = Component.translatable(status == 0 ? idle : "kiosk.gui.status." + status);
         int statusColor = status == 1 || status >= 4 && status <= 6 ? SUCCESS : status > 0 ? ERROR : MUTED;
         graphics.drawWordWrap(font, statusMessage, 12, 173, 57, statusColor);
-        graphics.drawWordWrap(font, Component.translatable(isPassTab() ? "kiosk.pass.hint" : isPrizeTab()
-            ? "kiosk.prize.hint" : "kiosk.gui.cost_hint"), 252, 162, 57, MUTED);
+        graphics.drawWordWrap(font, Component.translatable(isPassTab() ? "kiosk.pass.hint" : "kiosk.gui.cost_hint"), 252, 162, 57, MUTED);
     }
 
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
         super.render(graphics, mouseX, mouseY, partialTick);
         renderTooltip(graphics, mouseX, mouseY);
+        if (isPrizeTab() && rewardBrowser != null) {
+            rewardBrowser.renderTooltips(graphics, mouseX, mouseY);
+            return;
+        }
         if (isPassTab()) {
             if (source() != null && isHovering(37, 46, 117, 41, mouseX, mouseY))
                 graphics.renderComponentTooltip(font, passTooltip(source(), true), mouseX, mouseY);
             if (target() != null && isHovering(191, 46, 117, 41, mouseX, mouseY))
-                graphics.renderComponentTooltip(font, passTooltip(target(), false), mouseX, mouseY);
-        } else if (isPrizeTab() && !prizes.isEmpty()) {
-            if (isHovering(144, 68, 162, 12, mouseX, mouseY))
-                graphics.renderTooltip(font, prizes.get(selected).title(), mouseX, mouseY);
-            if (target() != null && (isHovering(191, 46, 117, 19, mouseX, mouseY) || isHovering(210, 86, 96, 37, mouseX, mouseY)))
                 graphics.renderComponentTooltip(font, passTooltip(target(), false), mouseX, mouseY);
         }
         ArcadeOrderCatalog.Entry entry = selectedEntry();
@@ -354,7 +377,7 @@ public final class ArcadeKioskScreen extends AbstractContainerScreen<ArcadeKiosk
     private void updatePassWidgets() {
         if (transfer == null) return;
         boolean tab = isPassTab();
-        menu.setPassSlotVisibility(tab, tab || isPrizeTab());
+        menu.setPassSlotVisibility(tab, tab);
         issue.visible = tab && !hasAnyPass && menu.getTargetPass().isEmpty(); issue.active = cooldown == 0;
         transfer.visible = tab && !issue.visible;
         PassRef from = source(), to = target();
@@ -376,12 +399,6 @@ public final class ArcadeKioskScreen extends AbstractContainerScreen<ArcadeKiosk
             button.setMessage(Component.literal(rateText));
             button.setTooltip(Tooltip.create(Component.translatable("kiosk.pass.exchange", new ItemStack(rate.material()).getHoverName(), rate.credits())));
         }
-    }
-
-    private boolean prizeAffordable() {
-        if (prizes.isEmpty() || target() == null) return false;
-        int cost = ArcadeEconomyConfig.prizePrice(prizes.get(selected).id());
-        return cost > 0 && target().data().prizePoints() >= cost;
     }
 
     private void exchange(int index) {
@@ -437,18 +454,6 @@ public final class ArcadeKioskScreen extends AbstractContainerScreen<ArcadeKiosk
         String hint = issue.visible ? "kiosk.pass.new_hint" : source() == null || target() == null ? "kiosk.pass.insert_both"
             : confirmTransfer ? "kiosk.pass.confirm_hint" : "kiosk.pass.transfer_hint";
         graphics.drawWordWrap(font, Component.translatable(hint), 14, 124, 139, MUTED);
-    }
-
-    private void renderPrize(GuiGraphics graphics) {
-        var prize = prizes.get(selected);
-        passHeading(graphics, target(), false, 192);
-        fit(graphics, prize.title(), 144, 70, 162, INK);
-        item(graphics, prize.output(), 153, 84, 38);
-        int cost = ArcadeEconomyConfig.prizePrice(prize.id());
-        graphics.drawString(font, Component.translatable("kiosk.prize.cost"), 211, 86, MUTED, false);
-        fit(graphics, Component.literal(NUMBERS.format(cost)), 211, 96, 95, prizeAffordable() ? SUCCESS : ERROR);
-        graphics.drawString(font, Component.translatable("kiosk.prize.balance"), 211, 109, MUTED, false);
-        fit(graphics, Component.literal(NUMBERS.format(target() == null ? 0 : target().data().prizePoints())), 211, 120, 95, TEAL);
     }
 
     private static void drawSlot(GuiGraphics graphics, int x, int y) {

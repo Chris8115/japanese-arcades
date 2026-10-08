@@ -60,6 +60,7 @@ public final class ArcadeKioskMenu extends AbstractContainerMenu {
     private final ContainerData data = new SimpleContainerData(2);
     private final SimpleContainer passes = new SimpleContainer(2);
     private boolean sourceVisible, targetVisible, closed;
+    private boolean inventoryVisible = true;
 
     public ArcadeKioskMenu(int id, Inventory inventory, RegistryFriendlyByteBuf buffer) {
         this(id, inventory, buffer.readBlockPos());
@@ -72,13 +73,44 @@ public final class ArcadeKioskMenu extends AbstractContainerMenu {
         viewer = inventory.player.getUUID();
         for (int row = 0; row < 3; row++) {
             for (int column = 0; column < 9; column++) {
-                addSlot(new Slot(inventory, 9 + row * 9 + column, 79 + column * 18, 154 + row * 18));
+                addSlot(new InventorySlot(inventory, 9 + row * 9 + column, 79 + column * 18, 154 + row * 18));
             }
         }
-        for (int column = 0; column < 9; column++) { addSlot(new Slot(inventory, column, 79 + column * 18, 212)); }
+        for (int column = 0; column < 9; column++) { addSlot(new InventorySlot(inventory, column, 79 + column * 18, 212)); }
         addSlot(new PassSlot(0, 17, 48));
         addSlot(new PassSlot(1, 171, 48));
         addDataSlots(data);
+    }
+
+    private final class InventorySlot extends Slot {
+        private InventorySlot(Inventory inventory, int index, int x, int y) { super(inventory, index, x, y); }
+        @Override public boolean isActive() { return !level.isClientSide || inventoryVisible; }
+    }
+
+    /** Screen coordinates only. Containers, slot numbers and server transactions stay fixed. */
+    public void layoutClientSlots(int inventoryX, int inventoryY, boolean showInventory,
+            int sourceX, int sourceY, int targetX, int targetY) {
+        if (!level.isClientSide) return;
+        inventoryVisible = showInventory;
+        for (int index = 0; index < 36; index++) {
+            Slot old = slots.get(index);
+            int row = index < 27 ? index / 9 : 3;
+            int column = index < 27 ? index % 9 : index - 27;
+            Slot replacement = new InventorySlot((Inventory) old.container, old.getContainerSlot(),
+                inventoryX + column * 18, inventoryY + (row == 3 ? 58 : row * 18));
+            replacement.index = index;
+            slots.set(index, replacement);
+        }
+        Slot source = new PassSlot(0, sourceX, sourceY);
+        source.index = SOURCE_PASS_SLOT;
+        slots.set(SOURCE_PASS_SLOT, source);
+        Slot target = new PassSlot(1, targetX, targetY);
+        target.index = TARGET_PASS_SLOT;
+        slots.set(TARGET_PASS_SLOT, target);
+    }
+
+    public void setClientInventoryVisible(boolean visible) {
+        if (level.isClientSide) inventoryVisible = visible;
     }
 
     private final class PassSlot extends Slot {

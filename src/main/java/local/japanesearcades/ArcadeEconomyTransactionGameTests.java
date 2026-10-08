@@ -279,7 +279,11 @@ public final class ArcadeEconomyTransactionGameTests {
             helper.assertTrue(ArcadePrizeCatalog.find(id(color + "_glow_stick")).isPresent(),
                 "Missing glow-stick reward in the real redemption test: " + color);
         }
-        for (var entry : ArcadePrizeCatalog.entries()) {
+        // Exercise real server redemption after browsing has reordered the rewards.
+        var browsed = ArcadePrizeCatalog.browse(ArcadePrizeCatalog.snapshot(), ArcadePrizeCatalog.Category.ALL,
+            "", ArcadePrizeCatalog.Sort.PRICE_DESCENDING, Long.MAX_VALUE, false);
+        for (var offer : browsed) {
+            var entry = offer.entry();
             player.getInventory().clearContent();
             int price = ArcadeEconomyConfig.prizePrice(entry.id());
             target(menu, pass(1234, price-1));

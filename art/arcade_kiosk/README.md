@@ -22,7 +22,7 @@ Iron       Iron       Iron
 This uses **4 iron ingots, 2 glass blocks, 2 redstone dust and 1 gold ingot** and
 produces one kiosk. Obtaining iron unlocks its recipe-book entry.
 
-The **Machines** tab lists all thirteen existing arcade/gachapon machines. Click
+The **Machines** tab lists the available arcade/gachapon machines. Click
 an entry to see its preview and **Need / Have** material counts. Green counts
 indicate enough of that ingredient; red counts identify shortages. **Order** is
 enabled when the player can afford the complete price. Browse by scrolling the
@@ -42,10 +42,58 @@ The **Passes** tab issues an Arcade Pass, trades iron/gold/emeralds/diamonds for
 Credits on a card placed in its **To** slot, and transfers all Credits and
 Prize Points from the physical **From** slot into **To** while keeping both
 cards. Cards return to the player when the kiosk closes. The **Prizes** tab
-sells placeable Miku and Teto figures for the inserted **To** pass's Prize Points. See the
+redeems rewards using the inserted pass's Prize Points. See the
 [Arcade Pass economy guide](../arcade_economy/README.md) for configurable prices
 and the complete play/reward loop. Empty gachapon capsules are not sold:
 filled capsules still come from stocked gachapon machines.
+
+## Reward browser
+
+The Prizes tab has **114 rewards**: 82 boxed mob figures, 20 posters, seven glow
+sticks, two character figures, two cardboard cutouts and the mech suit. The
+loose figures and empty boxes are obtained by unboxing; their separate item
+forms do not duplicate the shop catalogue.
+
+Browse **All, Mobs, Figures, Posters, Cutouts, Lights or Special**, search by
+name, and sort alphabetically or by point price in either direction. Search
+also recognizes item ID paths, ignores case/accents, and combines multiple words.
+**Affordable** limits results to the inserted pass's current points. Filters
+update when the pass balance or synchronized server prices change.
+
+The paged thumbnail grid shows names and point prices, with a larger preview,
+full reward name, pass balance and explicit **Redeem** action on the right.
+Hover cards or the selected preview for full names and prices. The layout
+adapts from a 320-by-240 GUI to a 440-by-316 panel, displaying six to eighteen
+rewards at once. It draws only the current page and one selected preview.
+
+Choose **Insert pass** / **Inventory** to open the inventory drawer, then
+shift-click an Arcade Pass into the visible pass slot. Choose **Browse** to
+return to the grid. Inventory slots are hidden and cannot be clicked through
+the grid. Closing the kiosk returns deposited passes as before.
+
+Use the mouse wheel/page buttons to browse pages, arrow keys to select cards,
+Page Up/Down and Home/End to jump, or Ctrl+F to focus search. Typing in search
+does not activate inventory/hotbar/drop bindings; Tab leaves the field and
+Escape releases search focus. A subsequent Escape closes the kiosk.
+
+Purchases still send stable reward IDs through the existing server-validated
+transaction path; filtering never changes the item a purchase refers to.
+
+![Reward browser with the mob figure category selected](reward-browser.png)
+
+Additional native screenshots show [search](reward-search.png), the
+[minimum-size browser](reward-browser-minimum.png), and the
+[inventory drawer](reward-inventory-drawer.png).
+
+The 2026-10-08 reward-browser update passed the Java 21 release build and all
+**211 dedicated-server GameTests**. An isolated native client passed **530
+checks** across all 114 rewards, including an actual filtered Warden purchase
+with exact point deductions, pass insertion/return, live affordability changes,
+keyboard navigation, selection preservation when resized to 320-by-240, pass
+exchange/transfer, and machine ordering. The client exited cleanly. This update
+was checked in the small client; the older full-pack checks below apply to the
+original kiosk. No build was installed in the original instance or its saves.
+See the [verification receipt](reward-browser-verification.json).
 
 ## Material prices
 
