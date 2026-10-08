@@ -6,7 +6,7 @@
       256
     ],
     "canvas_gui_pixels": 24,
-    "sha256": "99bb638ed182faa46cef0cfeb33e573d31a80fc90acffe9acfe4d42d76a99563"
+    "sha256": "44aa52d487fbbe13485d596e3c84b909304a905a83c64c1f99d834a5208162d1"
   },
   "beatstream": {
     "gui_faces": 1,
@@ -15,7 +15,7 @@
       256
     ],
     "canvas_gui_pixels": 24,
-    "sha256": "4f00dd7079a557d26f402e498127314c3bd3e9dc9e16e68b14c248ab5d7d7d1a"
+    "sha256": "f8880d8717791bf2ad9157b555d299e9c8ab6f5acb771ab9eff9af3614ee9d62"
   },
   "sound_voltex_valkyrie": {
     "gui_faces": 1,

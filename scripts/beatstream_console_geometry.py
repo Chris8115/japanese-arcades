@@ -9,15 +9,18 @@ def build_console(cube, uv):
         y1=17.65+8.65*(i+1)/28
         front=2.8+math.tan(math.radians(22.5))*(y0-19.1)+.72/math.cos(math.radians(22.5))
         cube('Touchscreen solid backing %02d'%i,(1.2,y0,front),(14.8,y1,9.05),group='Touchscreen enclosure')
-    cube('Control deck black undertray',(.4,17.1,.85),(15.6,18.34,5.8),group='White control strip')
+    # The black tray ends at the white deck's underside. Their front faces must
+    # not overlap on the same Z plane, even though most of the tray is hidden.
+    deck_bottom=18.12
+    cube('Control deck black undertray',(.4,17.1,.85),(15.6,deck_bottom,5.8),group='White control strip')
     for i in range(3):
         inset=(3-i)*.30
         z=i*.30
-        cube('Clipped deck underside %d'%i,(.4+inset,17.22,z),(15.6-inset,18.32,z+.31),group='White control strip')
-        cube('Clipped white deck %d'%i,(.25+inset,18.12,z),(15.75-inset,18.53,z+.31),'ivory',group='White control strip')
-    cube('Flat white front strip',(.25,18.12,.9),(15.75,18.53,2.08),'ivory',group='White control strip')
-    cube('White front folded edge',(1.16,17.93,.005),(14.84,18.26,.2),'ivory',group='White control strip')
-    cube('Silver front seam',(1.16,17.94,.001),(14.84,18.02,.07),'silver',group='White control strip')
+        cube('Clipped deck underside %d'%i,(.4+inset,17.22,z),(15.6-inset,deck_bottom,z+.31),group='White control strip')
+        cube('Clipped white deck %d'%i,(.25+inset,deck_bottom,z),(15.75-inset,18.53,z+.31),'ivory',group='White control strip')
+    cube('Flat white front strip',(.25,deck_bottom,.9),(15.75,18.53,2.08),'ivory',group='White control strip')
+    cube('White front folded edge',(1.16,17.93,-.035),(14.84,18.26,.2),'ivory',group='White control strip')
+    cube('Silver front seam',(1.16,17.94,-.058),(14.84,18.02,.07),'silver',group='White control strip')
     cube('Printed instruction strip',(1.18,18.531,.12),(14.82,18.565,.72),'ivory',up=('controls',[16,16,0,0]),group='White control strip')
     for x in (.53,15.28):
         cube('Front strip fixing '+str(x),(x,18.532,.97),(x+.14,18.563,1.11),'silver',group='White control strip')

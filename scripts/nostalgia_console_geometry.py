@@ -11,13 +11,15 @@ def build_console(cube, uv):
         y1=18.4+7.9*(i+1)/24
         front=2.8+math.tan(math.radians(22.5))*(y0-19.1)+.72/math.cos(math.radians(22.5))
         cube('Touchscreen solid wedge %02d'%i,(1.2,y0,front),(14.8,y1,9.05),group='Touchscreen enclosure')
-    cube('Keyboard black undertray',(.40,17.10,.85),(15.60,18.34,5.8),group='Keyboard deck')
+    # Meet the ivory deck instead of drawing overlapping black/ivory front faces.
+    deck_bottom=18.12
+    cube('Keyboard black undertray',(.40,17.10,.85),(15.60,deck_bottom,5.8),group='Keyboard deck')
     for i in range(3):
         inset=(3-i)*.30
         z=i*.30
-        cube('Clipped deck underside %d'%i,(.40+inset,17.22,z),(15.60-inset,18.32,z+.31),group='Keyboard deck')
-        cube('Clipped ivory deck %d'%i,(.25+inset,18.12,z),(15.75-inset,18.53,z+.31),'ivory',group='Keyboard deck')
-    cube('Ivory control deck',(.25,18.12,.9),(15.75,18.53,5.3),'ivory',group='Keyboard deck')
+        cube('Clipped deck underside %d'%i,(.40+inset,17.22,z),(15.60-inset,deck_bottom,z+.31),group='Keyboard deck')
+        cube('Clipped ivory deck %d'%i,(.25+inset,deck_bottom,z),(15.75-inset,18.53,z+.31),'ivory',group='Keyboard deck')
+    cube('Ivory control deck',(.25,deck_bottom,.9),(15.75,18.53,5.3),'ivory',group='Keyboard deck')
     cube('Keyboard front folded edge',(1.16,17.93,-.035),(14.84,18.26,.20),'ivory',
          north=('trim',[0,0,16,16]),group='Keyboard deck')
     cube('Thin champagne front seam',(1.16,17.94,-.058),(14.84,18.02,.07),'gold',group='Keyboard deck')
