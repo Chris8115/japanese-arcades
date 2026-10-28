@@ -85,16 +85,6 @@ Additional native screenshots show [search](reward-search.png), the
 [minimum-size browser](reward-browser-minimum.png), and the
 [inventory drawer](reward-inventory-drawer.png).
 
-The 2026-10-08 reward-browser update passed the Java 21 release build and all
-**211 dedicated-server GameTests**. An isolated native client passed **530
-checks** across all 114 rewards, including an actual filtered Warden purchase
-with exact point deductions, pass insertion/return, live affordability changes,
-keyboard navigation, selection preservation when resized to 320-by-240, pass
-exchange/transfer, and machine ordering. The client exited cleanly. This update
-was checked in the small client; the older full-pack checks below apply to the
-original kiosk. No build was installed in the original instance or its saves.
-See the [verification receipt](reward-browser-verification.json).
-
 ## Material prices
 
 | Machine | Iron | Gold | Diamond | Glass | Redstone |
@@ -119,7 +109,7 @@ catalog. The client sends only the selected entry and current menu identifier.
 ## Assets
 
 - `arcade_kiosk.bbmodel`: editable Blockbench mesh project with embedded artwork.
-- `arcade_kiosk.blend`: editable Blender scene, grouped by physical assembly,
+- `arcade_kiosk.blend` (generated locally): editable Blender scene, grouped by physical assembly,
   with packed original textures, lights, floor, and camera.
 - `geometry.json`: full source meshes, UVs, materials, bounds, and face counts.
 - PNG previews render the actual exported geometry with studio lighting.
@@ -156,47 +146,3 @@ startup or texture atlas upload; live-client validation is performed separately.
 
 There are **3,934 lower-half**, **1,136 upper-half**, and **4,816 whole-item**
 source faces. Split faces are clipped rather than duplicated across blocks.
-
-## Verification
-
-The Java 21 release build and all **103 dedicated-server GameTests** passed on
-2026-10-06. Nine kiosk tests cover both block halves in all directions, support
-and obstruction handling, every catalog purchase, split/offhand payments,
-invalid or stale requests, survival/creative overflow, canceled or substituted
-drop events, delayed pickup after save/reload, and the loaded shaped recipe.
-Ten additional kiosk economy tests cover pass issuance, exchanges, transfers,
-prize purchases, card persistence, transaction isolation and live rebalancing;
-six paid-play tests cover the cabinets and pass data. Four more tests cover real
-pass-slot interactions, stale reinsertion, viewer isolation, safe returns on
-close/removal/logout/death, canceled overflow recovery and mid-delivery card swaps.
-Current economy UI
-screenshots and checks are in the [economy guide](../arcade_economy/README.md).
-
-The packaged JAR was checked against all 16 relevant source resources, including
-models, textures, crafting/loot/advancement JSON, translations, and the pickaxe
-tag. Existing translations were preserved. All kiosk classes target Java 21.
-
-The original kiosk implementation's disposable small-client world verified
-the development status command, the actual kiosk model
-and screens, a disabled unaffordable order, a paid purchase with exact ingredient
-deductions, list scrolling and long titles, the empty Prizes tab, safe creative
-overflow followed by pickup after freeing a slot, and the minimum logical
-**320 x 240** screen size.
-
-The same checks also passed in a fresh world with the complete copied pack
-(218 copied mod JARs and its configuration/content folders), including JEI and
-the pack renderer. Both test clients exited cleanly. No original-instance
-files or saves were changed. The full-pack images are
-[the placed kiosk](kiosk-in-pack.png) and
-[ordering alongside JEI](kiosk-ordering-in-pack.png).
-
-These are actual Minecraft screenshots from the original kiosk implementation,
-before the Passes tab and collectible prize shop were added:
-
-![Kiosk in Minecraft](kiosk-in-game.png)
-
-![Ordering screen](kiosk-ordering.png)
-
-![Prizes category](kiosk-prizes.png)
-
-![Minimum logical screen size](kiosk-minimum-ui.png)

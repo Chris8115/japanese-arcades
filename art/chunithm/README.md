@@ -59,7 +59,7 @@ changes only.
 ## Files and artwork
 
 - [chunithm.bbmodel](chunithm.bbmodel): editable Blockbench Generic Model with named groups and embedded textures.
-- [chunithm.blend](chunithm.blend): editable Blender preview scene with packed textures.
+- `chunithm.blend` (generated locally): editable Blender preview scene with packed textures.
 - [Front](chunithm-front.png), [back](chunithm-back.png), and [side](chunithm-side.png): complete cabinet renders.
 - [Controls](chunithm-controls.png): sloped display, air sensors, slider, and lower housing close-up.
 - [LED tower](chunithm-tower.png): clear sensor wings, matrix, and speaker band close-up.
@@ -115,7 +115,7 @@ From the repository root on this machine:
 
 ```powershell
 & 'python' scripts/make_chunithm_model.py
-& 'C:/Program Files/Blender Foundation/Blender 5.0/blender.exe' -b --python scripts/render_chunithm_model.py
+blender -b --python scripts/render_chunithm_model.py
 .\dev.cmd Build
 ```
 
@@ -123,23 +123,3 @@ The renderer uses the actual exported cuboids and UVs with studio lighting. Its
 floor and lights are preview-only; Minecraft lighting and shaders can differ.
 `-- --front-only` renders just the front view, and `-- --detail-only` renders the
 three close-ups. Both options still save the packed Blender scene.
-
-## Runtime verification
-
-The runtime implementation built successfully, and all **17 native integration
-tests passed on 2026-10-06** using `dev.cmd GameTest` in a disposable world. The four
-Chunithm tests execute the shared scenarios against its actual registered block
-and item: placement and disc interaction through every section followed by
-single-drop removal; saved-disc placement, ticking, restoration, and ejection;
-creative removal beside an independently playing WACCA; and selection rays hitting
-the acrylic overhang in both upper sections across all four horizontal facings.
-The other thirteen tests cover Nostalgia, Valkyrie, and WACCA.
-
-The final six views were rendered from the exported geometry, and the packaged
-jar was checked for all model/texture resources. Native bounds, UVs, section and
-inventory transforms, and unchanged source artwork pixels were verified. A running
-Minecraft 1.21.1 development client loaded the assets without model/texture errors;
-the completed cabinet was also visually inspected in the development world.
-Full-pack compatibility was not re-tested in this pass. Logs for the runtime pass are
-`build/verification/chunithm-wing-build.log` and `build/verification/chunithm-wing-gametest.log`.
-No additional mod dependencies are required.

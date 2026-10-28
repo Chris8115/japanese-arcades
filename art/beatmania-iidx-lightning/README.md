@@ -41,12 +41,8 @@ the same right-click interactions as the other music cabinets.
   [side](beatmania-iidx-lightning-side.png), [controls](beatmania-iidx-lightning-controls.png),
   and [standing platform](beatmania-iidx-lightning-platform.png)
 - [Editable Blockbench model](beatmania-iidx-lightning.bbmodel)
-- [Editable Blender scene](beatmania-iidx-lightning.blend)
+- `beatmania-iidx-lightning.blend` (generated locally)
 - [Source geometry](geometry.json)
-- Native Minecraft views: [front](native-front.png), [three-quarter](native-three-quarter.png),
-  [side](native-side.png), [controls](native-controls.png), [platform](native-platform.png),
-  [rear](native-rear-quarter.png), and [ordering kiosk](native-kiosk.png)
-- [Shader preview](native-shader.png)
 - Original [screen artwork](display-artwork-source.png), [marquee artwork](marquee-artwork-source.png),
   [character banners](banners-artwork-source.png), and [exact generation prompts](imagegen-prompts.txt)
 
@@ -69,29 +65,3 @@ scene use `scripts/render_iidx_model.py`. Ordinary builds use the checked-in
 assets and do not require Python or Blender.
 Restart the development client to load the new cabinet registration; F3+T only
 reloads models and textures for an already registered cabinet.
-
-## Verification
-
-Build and all **141 server GameTests** passed on 2026-10-07. Eight new IIDX
-tests cover all directions and sections, shared saved playback, single cabinet
-and disc drops, neighboring-cabinet isolation, blocked placement, support loss,
-world limits and walking across the platform. Catalog-wide tests cover its
-material purchase and paid Arcade Pass use.
-
-An independent geometry audit checks finite, nondegenerate surfaces, UVs,
-texture references, collision coverage and the open space above the platform.
-It verifies the clear recess in front of the upper backing. The split world
-model preserves the item model's surface area.
-
-The isolated native client verified all 192 block states, complete textures,
-kiosk purchase with exact material deductions, survival placement, Arcade Pass
-debit and rewards, disc insertion/ejection, independent neighbors and single
-removal. GPU atlas samples confirmed actual turntable-frame changes before and
-after resource reload. Final native views include the corrected rear backing,
-side panels, visible woofer cones and e-amusement readers.
-
-A copied client with Sodium 0.8.13, Iris 1.8.14-beta.1 and Complementary
-Reimagined r5.9.3 (HIGH) also passed the model, texture-animation and resource
-reload checks. Straight-on and elevated views verified clearance between the
-lower screen artwork and its surround, and between the printed control deck
-and its housing. The original pack and its saves were not modified.

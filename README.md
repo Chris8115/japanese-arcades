@@ -194,16 +194,15 @@ tasks, or open a terminal here:
 
 - `Build` creates `build/libs/japanesearcades-0.1.0.jar` and a separate sources jar.
 - `Client` launches a small Minecraft test instance with just NeoForge and our mod.
-- `PackClient` launches a separate development copy of the full Fun pack with our mod loaded from source.
+- `PackClient` launches a separate development copy of your configured modpack with our mod loaded from source.
 - `SyncPack` refreshes the copied mods, configs, resource packs, and pack scripts from the live pack.
 - `Prepare` downloads game assets and prepares client/server launch files.
 - `Server` launches a small dedicated server for checking server compatibility.
 - `GameTest` runs 238 cabinet, claw machine, gachapon, figure, cutout, display box, poster, ordering and Arcade Pass economy integration tests in a disposable test world and exits.
 - `Data` runs our data generators once we add them.
 
-The script selects Java 21 locally. Your default Java installation remains available to other projects.
-`dev.local.json` stores this computer's JDK and pack paths; it is excluded from Git.
-On another computer, copy `dev.local.example.json` and fill in the actual paths.
+The script uses the Java 21 installation selected in your local configuration.
+`dev.local.json` stores your JDK and modpack paths and is excluded from Git.
 
 ## Write a feature
 
@@ -352,6 +351,17 @@ and operator-texture scripts are separate. The structure uses native chunk meshe
 and six existing cabinet inventories. It adds no building-wide renderer or tick
 loop; detailed cabinet models are reused unchanged.
 
+## Artwork source files
+
+Portable Blockbench models, geometry JSON, source textures, and generators live in
+`art/` and `scripts/`. Blender scenes are generated locally and are not tracked.
+See the [artwork workflow](art/README.md), the [sleeping fox rebuild instructions](art/sleeping_fox_plush/README.md),
+and the [curated screenshot gallery](art/branding/curseforge-gallery-v1/index.html).
+
+Before publishing source changes, run `python scripts/check_public_repository.py`
+to check for local paths, private identifiers, and generated files that do not belong
+in the public repository.
+
 ## Model export optimization
 
 Editable cabinet/figure sources stay under `art/` and their `scripts/make_*`
@@ -411,16 +421,6 @@ commit `7819b902a351b03fe71db00754d103b5a31c4ebf`.
 Its template license is retained in `TEMPLATE_LICENSE.txt`.
 The mod's license metadata is **All Rights Reserved**. The template license applies
 to the retained MDK template; it does not grant rights to third-party names or artwork.
-
-Setup verified on 2026-10-05: the release jar built with Java 21 bytecode; the full pack
-client loaded our mod and completed startup; the small server started on 127.0.0.1:25575,
-executed the development command, and saved its test world on shutdown. The Java debugger also reached
-its waiting state on port 5005. Gameplay compatibility of future features needs testing as we add them.
-
-The `japanesearcades` namespace rename was verified on 2026-10-07: the release
-build and all 179 required GameTests passed. A fresh native client found a naturally
-generated arcade, loaded its six cabinets and four paintings, and opened the
-Arcade Operator's trade screen. The packaged JAR contains no former namespace references.
 
 - [NeoForge 1.21.1 getting started](https://docs.neoforged.net/docs/1.21.1/gettingstarted/)
 - [NeoForge 1.21.1 concepts](https://docs.neoforged.net/docs/1.21.1/concepts/)

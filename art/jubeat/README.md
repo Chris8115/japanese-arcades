@@ -63,52 +63,7 @@ split at the block boundaries, with a complete scaled model for the item.
 Regenerate with `python scripts/make_jubeat_model.py`, then render the actual
 mesh with `blender --background --python scripts/render_jubeat_model.py`.
 
-![Jubeat mesh preview](jubeat.png)
+![Jubeat mesh preview](../branding/curseforge-gallery-v1/02-cabinet-closeups/17-jubeat-studio-render.png)
 
 The [side view](jubeat-side.png) shows the cabinet angles and separation;
 the [controls view](jubeat-controls.png) shows the sixteen individual panels.
-
-## Verification
-
-The final reference-based model passes the Java 21 build and all **108
-dedicated-server GameTests**, including Jubeat placement, saved playback,
-adjacent cabinets, collision and selection, support loss, kiosk ordering and
-Arcade Pass rewards. The display neck and tilted cubes have matching
-selection and collision shapes. Geometric checks also cover the lower cube's
-width and the open space under its sloping front.
-
-The native NeoForge OBJ loader baked **8,309 quads** across every block rotation
-and the item, with verified texture coordinates, emissive interiors, and separate
-opaque and translucent passes. All
-packaged Jubeat resources match the source assets. The visible model stays
-within X **0.45–15.55**, Y **0–41.3373**, Z **0.55–15.7873** model units
-(16 units per block); all sixteen raised pads remain square.
-
-The small native client completed real kiosk ordering, survival placement,
-configured credit deduction and point awards, disc insertion/playback/ejection,
-and removal with adjacent cabinets intact. The item and all model textures
-rendered correctly, and the client exited with code 0.
-The original native client checks confirmed separate solid/translucent block
-layers, ordered item passes, and the former animation. Each tile of the current
-static pad texture matches the original unlit gray pad. The editable models,
-studio previews and inventory icon use the same gray artwork; regenerated
-textures also remove any old animation metadata.
-The static-pad update passed the Java 21 build and a native client check:
-512-by-512 source pixels, one frame, no animation ticker, and sixteen identical
-gray tiles. The inventory icon was recaptured from the full native item model.
-
-The same release also completed those interactions in a copied modpack with all
-218 third-party mods and Complementary Reimagined enabled and exited with code 0.
-Transparent glass, ordered item layers and the then-animated pad lights were verified
-there as well. Both clients spent 10 Credits
-and awarded the configured randomized Prize Points on the selected pass. No Jubeat
-model or texture errors were reported. The original instance and saves were not
-modified.
-
-- [Native cabinet view](jubeat-in-game.png)
-- [Native side profile](jubeat-side-in-game.png)
-- [Adjacent row](jubeat-row-in-game.png)
-- [Kiosk ordering and item model](jubeat-ordering.png)
-- [Transparent topper and speaker detail](jubeat-glass-in-game.png)
-- [Historical animation: first capture](jubeat-animation-a.png)
-- [Historical animation: one second later](jubeat-animation-b.png)

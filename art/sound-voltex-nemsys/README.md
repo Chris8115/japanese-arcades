@@ -39,10 +39,8 @@ cabinet keeps its own disc and playback progress.
 - [Cabinet preview](sound-voltex-nemsys.png), [front](sound-voltex-nemsys-front.png),
   [side](sound-voltex-nemsys-side.png), and [controls](sound-voltex-nemsys-controls.png)
 - [Editable Blockbench model](sound-voltex-nemsys.bbmodel)
-- [Editable Blender scene](sound-voltex-nemsys.blend)
+- `sound-voltex-nemsys.blend` (generated locally)
 - [Source geometry](geometry.json)
-- Native Minecraft views: [front](native-front.png), [three-quarter](native-three-quarter.png),
-  [side](native-side.png), [controls](native-controls.png), and [kiosk](native-kiosk.png)
 - [Screen artwork](display-artwork-source.png), [topper artwork](marquee-artwork-source.png),
   and [exact generation prompts](imagegen-prompts.txt)
 
@@ -63,19 +61,3 @@ Regenerate with `python scripts/make_nemsys_model.py`, followed by
 `scripts/render_nemsys_model.py`. Normal builds use the checked-in assets and
 do not require Python or Blender. Restart the development client after installing
 a build that adds this cabinet; F3+T only reloads existing models and textures.
-
-## Verification
-
-Build and all **133 server GameTests** passed on 2026-10-07, including the new
-cabinet's disc interactions, persistence, placement rotations, blocked placement,
-wing/monitor selection, and single-item drops. Catalog-wide tests also cover
-its kiosk purchase and paid Arcade Pass use. An independent geometry audit
-found no duplicate or degenerate faces, invalid resource references, or UV errors;
-the split world mesh preserves the item mesh's surface area.
-
-The isolated native client verified all 24 block states, complete textures,
-kiosk purchase with material deductions, survival placement, paid pass rewards,
-disc insertion/ejection, neighbor isolation, and resource reload. Final native
-screenshots include the updated EXCEED GEAR marquee. A copied Sodium 0.8.13 /
-Iris 1.8.14-beta.1 client with Complementary Reimagined 5.9.3 also passed the
-model, visual, and reload checks. The original pack and its saves were not modified.

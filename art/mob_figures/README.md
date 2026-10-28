@@ -70,25 +70,3 @@ captures and exact vanilla texture hashes are documented in
 Run `python scripts/render_mob_figure_expansion.py` to render the actual
 exported meshes in Blender and generate [four collection sheets](expansion/previews/collection-01.jpg),
 82 individual thumbnails and six boxed/loose/empty detail compositions.
-The older `mob-collection.png`, `boxed-loose-empty.png` and `mob_collection.blend`
-illustrate the original six-figure collection.
-
-## Verification
-
-The build and all **202 GameTests** passed. The lifecycle tests iterate all
-82 mobs, all three forms and four facings, including state saving, pick-block,
-drops, opening/repacking, incorrect matches and failed overflow delivery.
-The kiosk tests purchase all 114 rewards, including all 82 boxed figures,
-and verify price charging, insufficient funds and duplicate requests.
-
-An independent NeoForge OBJ bake checked all new block rotations and item
-models: 1,140 states, 144,590 quads and 578,360 vertices. Colors, UVs, normals,
-lighting directions, bounds and texture references passed. The isolated native
-client also passed 2,218 checks covering all 246 models, 984 block facings,
-inventory models and the 82 kiosk entries, with no missing textures or atlas
-overflow. Verification receipts are under `expansion/verification`; native
-screenshots and the complete report are under `native_full_collection`.
-
-Runtime IDs remain `japanesearcades:boxed_<mob>_figure`,
-`japanesearcades:<mob>_figure` and `japanesearcades:<mob>_figure_box`.
-Builds and verification worlds are kept separate from the original play instance.

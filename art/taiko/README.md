@@ -53,44 +53,10 @@ Removing any occupied section removes its matched machine. Survival removal
 drops one cabinet plus its stored disc. Creative removal drops the stored
 disc without duplicating the cabinet. Adjacent machines remain independent.
 
-## Verification
-
-All **73 dedicated-server GameTests** passed on 2026-10-06. Six Taiko tests
-cover every occupied cell and orientation, neighboring machines, obstruction
-and support loss, shared saved-disc playback, unobstructed disc ejection,
-actual head/rim sound events, both mouse actions and hands, cooldowns, and
-rejection of blocked, distant, or invalid-tool interactions. The kiosk catalog
-test also pays the complete Taiko price and verifies one delivered cabinet.
-
-The final small Minecraft client passed actual left/right mouse interactions
-with empty hands and sticks after the outward drum rotation. It received exactly
-two bass-drum and two rim sounds from four hits; creative drumming preserved
-the cabinet. The real kiosk UI deducted the advertised materials and delivered
-one Taiko. The development status command also confirmed the release mod was loaded.
-
-Screenshots: [placed machine](taiko-in-game.png),
-[decorated side and drum angle](taiko-side-in-game.png),
-[ordering screen](taiko-ordering.png), and [completed order](taiko-order-receipt.png).
-
-The same interaction and ordering checks passed in the full copied pack with
-all **218 copied mod JARs**, JEI, and its shader renderer. The final probe
-exited cleanly. The disposable fixture retained the pack's 10 GB heap, limited
-active processors to eight, and disabled Distant Horizons background terrain
-generation after memory exhaustion during earlier startup attempts. All
-changes stayed in the ignored test copy; the original instance was untouched.
-Pack screenshots show the [rendered drums and cabinet](taiko-in-pack.png),
-[side artwork](taiko-side-in-pack.png), and
-[successful order alongside JEI](taiko-ordering-in-pack.png).
-
-The release package audit matched all 35 relevant resource files to source,
-verified Java 21 class versions, and preserved every existing translation.
-
-![Taiko cabinet in Minecraft](taiko-in-game.png)
-
 ## Geometry and editable sources
 
 - `taiko.bbmodel`: editable Blockbench mesh project with embedded original art.
-- `taiko.blend`: editable Blender scene grouped into the cabinet, lanterns,
+- `taiko.blend` (generated locally): editable Blender scene grouped into the cabinet, lanterns,
   drums, cradles, podium, and tethered sticks, with packed textures and cameras.
 - `geometry.json`: all source faces, UV coordinates, materials, bounds, and
   the exact drum hit geometry used to match the runtime.
@@ -159,25 +125,3 @@ the previews and packed Blender project, run Blender in background mode with
 only the main three-quarter preview. `--samples 16` provides a faster preview;
 `--resolution-percent 75` also reduces its dimensions. Other cabinet assets are
 not modified.
-
-## Optimization client verification — 2026-10-07
-
-The integrated build and asset audit passed. All 18 texture PNGs across maimai,
-Taiko and Chrono Circle retain their original hashes; 68 relevant packaged assets
-match the current source files. The catalog optimizer reports zero pending changes.
-
-The disposable Minecraft client verified all **240 native block states** and
-the complete item model for this cabinet, with finite vertices/UVs and no missing
-textures. Placement and resource reload passed. Six fixed camera views were
-compared before and after with Sodium 0.8.13, Iris 1.8.14-beta.1 and Complementary
-Reimagined r5.9.3. No custom per-frame cabinet renderer was added.
-
-See the [optimized cabinet](taiko-optimized-quarter.png) and
-[control detail](taiko-optimized-controls.png). Reports are in the ignored
-`build/verification/top-three-audit.json` and
-`runs/top-three-after-visual-probe/native-report.json`. These are geometry and
-appearance checks, not an FPS benchmark. Gameplay Java did not change.
-
-Original files are preserved at Git tag
-`backup/top-three-before-optimization-20261007-104418` and in a verified external
-ZIP archive of all 121 original files. Rollback should revert only this optimization.

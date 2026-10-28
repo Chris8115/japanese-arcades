@@ -70,12 +70,11 @@ changes only.
 ## Files
 
 - `wacca.bbmodel`: editable Blockbench Generic Model with named groups and embedded textures.
-- `wacca.blend`: Blender preview scene with packed textures.
+- `wacca.blend` (generated locally): Blender preview scene with packed textures.
 - `wacca-front.png`, `wacca-back.png`, and `wacca-side.png`: complete cabinet renders.
 - `wacca-controls.png`: close-up of the sloped reader/headphone/coin fascia.
 - `wacca-ring.png`: close-up of the deep touch bowl and recessed screen.
 - `wacca-marquee.png`: upper rim and raised marquee close-up.
-- `wacca-native-cabinet.png` and `wacca-native-cone.png`: Minecraft views without shaders.
 - `wacca-shader-cabinet.png` and `wacca-shader-cone.png`: Minecraft views with Complementary Reimagined.
 - `geometry.json`: exported mesh faces and UVs, plus retained casing elements for auditing.
 - `display-artwork-source.png` and `marquee-artwork-source.png`: original source artwork made with the built-in imagegen tool.
@@ -117,45 +116,6 @@ From the repository root on this machine:
 ```powershell
 & 'python' scripts/make_wacca_model.py
 & 'python' scripts/test_wacca_surface_geometry.py --model
-& 'C:/Program Files/Blender Foundation/Blender 5.0/blender.exe' -b --python scripts/render_wacca_model.py
+blender -b --python scripts/render_wacca_model.py
 .\dev.cmd Build
 ```
-
-## Verification and rollback
-
-The smooth rebuild passed `dev.cmd Build` and the surface/model regressions on
-2026-10-07. Those checks cover face clipping, all six UV directions, quarter-turn
-UV rotations, fullbright data, rotated elements and 30 randomized box unions.
-The mesh audit checks the cone's shared boundaries, winding, recessed depth,
-palette margins and two-dimensional white-rim UV footprints. An independent audit
-also verified unchanged artwork hashes and sampled 6,735 positions across 1,347
-original casing/hardware faces: their positions and interpolated UVs are preserved.
-The catalog optimizer reports zero pending optimizations.
-
-A disposable native Minecraft client verified all 24 block states and the inventory
-model, then exercised kiosk purchase, survival placement, configured paid play,
-disc insertion/playback/ejection and independent cabinet removal. All checks passed
-again where applicable after a resource reload. Front, side, rear, inventory and
-close-up views were inspected. The report is
-`runs/wacca-smooth-native-visual-probe/native-report.json`.
-
-A second disposable client using Sodium 0.8.13, Iris 1.8.14-beta.1 and Complementary
-Reimagined r5.9.3 passed the same model/texture and resource-reload checks. Its
-cabinet and cone screenshots are saved here alongside the native views. Existing
-optional-mod and shader-uniform warnings remained, but there were no WACCA model
-loading errors. This verifies appearance with that shader configuration; it is
-not a full-modpack test or performance benchmark.
-
-The pre-rebuild source and assets are retained at Git tag
-`backup/wacca-before-smooth-20261007-100821`. A separately verified ZIP of all 33
-original WACCA files and a SHA-256 manifest are stored outside the repository in
-the local `source/backups/fun-pack-mods/wacca-before-smooth-20261007-100821` folder.
-Rollback should restore only the WACCA changes and remove the added WACCA mesh
-files; it should not reset unrelated cabinet work.
-
-The block/item ID is `japanesearcades:wacca`. Assets live under
-`src/main/resources/assets/japanesearcades`. `WaccaCabinetBlock.java` supplies the wider
-bounds and inherits placement and interactions from `NostalgiaCabinetBlock.java`.
-The cabinet uses `NostalgiaJukeboxBlockEntity.java` and Minecraft's native
-`JukeboxSongPlayer`; existing registry and saved-data IDs remain unchanged.
-No additional mod dependencies are required.

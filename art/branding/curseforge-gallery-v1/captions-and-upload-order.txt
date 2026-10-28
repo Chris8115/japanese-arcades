@@ -15,14 +15,13 @@ captions; keep those labels so viewers know the lighting uses a shader pack.
 Open index.html to browse the images and their captions. Full-resolution PNGs
 can be uploaded individually. Suggested titles and captions are also below.
 
-Every PNG is an unchanged copy of an existing project image. There are 42
+The gallery preserves the original image pixels. Unnecessary file metadata has
+been removed for publication. There are 42
 in-game screenshots and one clearly labeled jubeat studio model render.
 No AI restyling, retouching, cropping, resizing, or new screenshot capture was
 performed. The actual images and dimensions are recorded in manifest.json.
 UI captures use demonstration inventories and balances; configurable prices
 and stock can differ in players' worlds.
-
-This folder is prepared locally. Nothing has been uploaded to CurseForge.
 
 01-recommended-gallery/01-wacca-reverse.png
 Title: WACCA Reverse

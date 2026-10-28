@@ -54,7 +54,7 @@ changes only.
 ## Editable files and previews
 
 - `sound-voltex-valkyrie.bbmodel`: grouped Blockbench Generic Model with embedded textures.
-- `sound-voltex-valkyrie.blend`: Blender preview scene with packed textures.
+- `sound-voltex-valkyrie.blend` (generated locally): Blender preview scene with packed textures.
 - `sound-voltex-valkyrie-front.png`, `sound-voltex-valkyrie-back.png`, and `sound-voltex-valkyrie-side.png`: full cabinet renders.
 - `sound-voltex-valkyrie-controls.png`: control deck and lower speaker close-up.
 - `sound-voltex-valkyrie-footwell.png`: close-up of the recessed, sloping lower light assembly.
@@ -88,29 +88,6 @@ On this machine, from the repository root:
 
 ```powershell
 & 'python' scripts/make_valkyrie_model.py
-& 'C:/Program Files/Blender Foundation/Blender 5.0/blender.exe' -b --python scripts/render_valkyrie_model.py
+blender -b --python scripts/render_valkyrie_model.py
 .\dev.cmd Build
 ```
-
-## Runtime verification
-
-`dev.cmd GameTest` runs ten native integration tests in a disposable world: six for
-Nostalgia and four for Valkyrie. The Valkyrie tests exercise all-section insertion
-and ejection, non-disc rejection, ticking and saved playback, survival removal with
-exactly one disc and cabinet drop, creative removal beside a playing Nostalgia, and
-placement/ejection with saved disc data. All ten passed on 2026-10-05. These server
-tests do not verify the rendered appearance or full-pack client compatibility.
-
-The final build and small development-client resource load also passed on
-2026-10-05, with no missing cabinet models or textures. The export audit checks
-all 12 facing/part variants, local section reconstruction, vanilla model bounds
-and rotations, and matching Blockbench geometry/UVs and six embedded textures.
-The six studio views were inspected for silhouette, lettering, and control
-clearance. Full-pack gameplay compatibility has not been re-tested for Valkyrie.
-
-The block/item ID is `japanesearcades:sound_voltex_valkyrie`. Resources are under
-`src/main/resources/assets/japanesearcades`. `SoundVoltexCabinetBlock.java` supplies
-the wider bounds and inherits placement and interactions from `NostalgiaCabinetBlock.java`.
-Both cabinets use `NostalgiaJukeboxBlockEntity.java` and Minecraft's native
-`JukeboxSongPlayer`. The original Nostalgia registry and saved-data IDs are retained.
-No additional mod dependencies are required.

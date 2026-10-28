@@ -36,10 +36,9 @@ and [geometry.json](geometry.json).
 ## Editable sources and previews
 
 - [Blockbench model](popn_music.bbmodel)
-- [Packed Blender preview](popn_music.blend)
+- `popn_music.blend` (generated locally)
 - [Three-quarter view](popn_music.png)
 - [Front](popn_music-front.png), [side](popn_music-side.png), and [controls](popn_music-controls.png)
-- [Native Minecraft view](native-three-quarter.png), [controls](native-controls.png), [side](native-side.png), and [rear](native-rear.png)
 - [Minecraft with Complementary shaders](shader-three-quarter.png)
 - [Preserved generated artwork](sunny-park-artwork-source.png)
 - [Artwork prompt and provenance](imagegen-prompt.txt)
@@ -55,22 +54,6 @@ Geometry, textures and export settings are maintained in
 `scripts/popn_music_geometry.py`, `scripts/popn_music_textures.py`, and
 `scripts/make_popn_music_model.py`. The generator is authoritative; transfer
 manual modeling changes back into it before regenerating.
-
-## Verification
-
-`dev.cmd Build` succeeded and all **190 required GameTests** passed, including
-seven pop'n placement, persistence, removal, collision and ejection cases. The
-shared kiosk and Arcade Pass transaction tests also include the new cabinet.
-
-The native client verified all **24 block states**, the complete inventory model,
-correct textures, material-cost purchase, survival placement, paid play, music
-disc playback/ejection, independent neighboring cabinets and resource reload.
-The same final release passed a separate Sodium 0.8.13 + Iris 1.8.14-beta.1 +
-ComplementaryReimagined r5.9.3 visual run. These were disposable test instances.
-Native details: [standard report](native-report.json) and [shader report](shader-report.json).
-
-Verified release SHA256:
-`c7a81bb2bde9232a66e8b74a4335bac304493bf9563431230c18fee07af7598b`.
 
 ## References
 

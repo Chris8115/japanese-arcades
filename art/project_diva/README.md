@@ -46,7 +46,7 @@ models and textures.
 | File | Purpose |
 | --- | --- |
 | [project_diva.bbmodel](project_diva.bbmodel) | Complete editable Blockbench model with embedded textures and named groups |
-| [project_diva.blend](project_diva.blend) | Packed Blender studio preview scene |
+| `project_diva.blend` (generated locally) | Packed Blender studio preview scene |
 | [geometry.json](geometry.json) | Complete exported cuboids, face UVs, and surface-pass statistics |
 | [project_diva-front.png](project_diva-front.png) | Overall three-quarter preview |
 | [display-artwork-source.png](display-artwork-source.png) | Original Hatsune Miku attract-screen illustration |
@@ -103,31 +103,3 @@ The block/item ID is `japanesearcades:project_diva`. Registration begins in
 It inherits placement and interaction from `NostalgiaCabinetBlock.java`. All
 cabinets share `NostalgiaJukeboxBlockEntity.java` and Minecraft's native
 `JukeboxSongPlayer`, retaining the existing saved-data and block-entity IDs.
-
-## Runtime verification
-
-Four Project DIVA integration tests exercise actual placement and interaction
-through every section, single-drop removal, saved-disc placement and playback
-restoration, creative removal beside an independently playing MÚSECA, and rotated
-deck/topper selection, clearance under the shallow deck ledge, and the newly
-ejected disc's full bounding box clear of every cabinet section and world collision.
-
-The final release build succeeded and all **30 native integration tests passed
-on 2026-10-06**, including the four new Project DIVA tests and the existing
-twenty-six. Logs are `build/verification/project-diva-final-build.log` and
-`build/verification/project-diva-final-gametest.log`.
-
-The release-jar audit checked all seven cabinets' twelve blockstate variants,
-section and item models, textures, and loot. All **84 resource files** matched
-their source files, and all **23 compiled Java classes** matched their compiled
-output with Java 21 bytecode. Project DIVA's language entry and pickaxe tag are
-included. No authoring files or nested mod jars are packaged. The report is
-`build/verification/project-diva-package-audit.json`.
-
-These server and package checks do not verify in-world appearance or full-pack
-client compatibility. Studio views use the exported runtime geometry and UVs.
-The final studio views were reviewed for the visible touch slider, button order,
-sloped instruction panel, silhouette header, and connected side profile. Native
-geometry/UV checks pass with no same-facing coplanar overlaps involving rotated
-surfaces. The model contains 4,373 elements and 5,680 visible faces after the
-opaque surface pass.

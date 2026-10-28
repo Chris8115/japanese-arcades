@@ -27,29 +27,10 @@ the swords and shields beyond the physical collision hull.
 
 Run the generator with the configured Python/Pillow runtime. Run
 `blender --background --python scripts/render_mech_suit.py` to refresh the exact
-runtime-geometry previews and the editable `mech_suit.blend` scene. The scene has
+runtime-geometry previews and the editable `mech_suit.blend` scene generated locally by that script. The scene has
 named, parented mesh parts with matching articulation pivots. Studio images use
 different lighting from Minecraft; native captures verify the game renderer.
 
 The references guide the silhouette and palette; detail is deliberately made
 from efficient curved meshes and beveled plates rather than tiny mechanical
 subdivisions. Geometry remains below the project's roughly 10,000-face target.
-
-## Gameplay verification
-
-`dev.cmd Build` succeeds and all **197 required GameTests** pass, including seven
-mech tests. They cover deployment clearance and item consumption, ownership,
-flight and stale inputs, physical collisions, persistence and recovery, disabled
-hulls and iron repairs, both swords and their cooldowns, line of sight, pet
-protection, pilot damage absorption, and steering/aiming across angle wrapping.
-The existing kiosk transaction test redeems the mech at its configured point
-price and rejects unaffordable purchases and replayed requests.
-
-`export-verification.json` independently audits the final runtime mesh for finite
-vertices, nonzero face area, complete face count, bounds and its content hash.
-Native images under `native/` show the actual game renderer and control HUD.
-
-The final release also passes **24 native client checks**, covering deployment,
-mounting, flight, hover, each blade and combined attacks, movement and turning,
-menu input release, landing, dismounting, and the mounted third-person camera.
-`native/native-report.json` records the verified release hash and results.

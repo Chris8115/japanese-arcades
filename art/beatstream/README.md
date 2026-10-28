@@ -37,7 +37,7 @@ Y 0–47.65 and Z 0–15.355 model units, fitting inside a 1×1×3 block column.
 ## Editable source and artwork
 
 `beatstream.bbmodel` is the complete grouped Blockbench model with embedded textures.
-`beatstream.blend` contains the preview scene with packed textures. `geometry.json`
+The locally generated `beatstream.blend` contains the preview scene with packed textures. `geometry.json`
 is the complete exported cabinet geometry; the front/side/back/detail images render
 that same geometry and its UVs. Studio lighting is only for the previews.
 
@@ -57,7 +57,7 @@ combine these meshes with their native cuboids.
 
 ```powershell
 & 'python' scripts/make_beatstream_model.py
-& 'C:/Program Files/Blender Foundation/Blender 5.0/blender.exe' -b --python scripts/render_beatstream_model.py
+blender -b --python scripts/render_beatstream_model.py
 .\dev.cmd Build
 .\dev.cmd GameTest
 ```
@@ -66,33 +66,3 @@ The cabinet is decorative with simulated Arcade Pass results; it does not implem
 BeatStream rhythm gameplay. Illuminated faces remain bright, while bloom depends
 on the active shader. The exported model combines native Minecraft cuboids with
 the triangular speakers and connecting-panel meshes.
-
-## Verification
-
-All 112 GameTests passed on 2026-10-06, including four BeatStream-specific checks
-for all-section disc use, saved playback, all-facing neighboring cabinets, blocked
-placement and support loss. The catalog purchase and Arcade Pass tests also include
-BeatStream automatically.
-The export audit confirms all twelve facing/part variants, eight textures, valid
-native model bounds/rotations/UVs, and matching Blockbench geometry and embedded
-artwork. All 35 original Nostalgia art, resource and generator files are unchanged.
-The 36 lower-triangle cuboids match Nostalgia's positions, dimensions and rotations
-exactly. Both upper speaker housings have closed, planar geometry, with matching
-OBJ and Blockbench coordinates, UVs and material assignments.
-
-The corrected build also passes native small-client checks for all four facings,
-both composite children, render layers and inventory-item pass order. In-game
-closeups confirm the centered lower triangle and clean upper speaker edges.
-`native-front.png`, `native-triangles-close.png` and `native-kiosk.png` show this
-final geometry in Minecraft. The earlier complete kiosk/pass/disc/removal checks
-passed in both the small client and the copied 218-mod pack; this visual revision
-changes model resources only.
-
-The rigid speaker meshes also passed a resource-only check under the copied pack's
-shaders. `native-pack-*.png` captures that version, before the final white bridge
-and surround join. The final trim build passes the small-client visual check; its
-only differences from the pack-tested JAR are the console/item JSON and OBJ models.
-The original twelve speaker faces, Java classes and textures are identical; the
-OBJ additions are the two connecting panels. The full-pack check needed
-one unchanged retry after an NTGL 3.2.0 startup race; the retry exited successfully.
-Current `native-*.png` images without `pack` in the name show the final white trim.

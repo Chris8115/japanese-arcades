@@ -30,9 +30,7 @@ GuitarFreaks bounds in model pixels: X -1.9..17.9, Y 0..46.8, Z .555..15.5. Drum
 ## Editable assets and regeneration
 
 - `guitarfreaks/gitadora_guitarfreaks.bbmodel` and `drummania/gitadora_drummania.bbmodel`: grouped editable meshes with embedded textures.
-- The corresponding `.blend` files contain the actual exported runtime item meshes, packed textures, and a separate studio preview scene.
+- The corresponding `.blend` files, generated locally by the render script, contain the actual exported runtime item meshes, packed textures, and a separate studio preview scene.
 - Hero/front renders and DrumMania controls render come from the shipped OBJ geometry. No alternate high-detail render model is used.
 
 Run `python scripts/make_gitadora_models.py` with Pillow available to regenerate textures, runtime OBJ/MTL/JSON, blockstates and Blockbench sources. `scripts/gitadora_geometry.py` contains the geometry; `scripts/gitadora_textures.py` contains the printed panels. Run Blender with `--background --python scripts/render_gitadora_models.py` for packed Blender files and studio images. The generator's static full-item model is intended to be paired with the separately captured one-face GUI icon through the existing client wrapper.
-
-Native screenshots, GUI captures and integration results are recorded by the main implementation task after building the final jar. The initial native review caught mirrored rear/+X-side printing and a detached cymbal underside inherited from the pad profile. Final exports correct those UV orientations, orient pad logos toward the player, and close each cymbal at its actual lower rim without adding geometry.

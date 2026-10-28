@@ -214,10 +214,6 @@ are posed at angles. Face pixels stay flat and square. See the
 [reference construction notes](figure-reference-notes.md) for the supplied
 sheets and the visual details used during the rebuild.
 
-The prior model version is retained under Git tag
-`figures-before-voxel-rebuild-2026-10-06`. Its [saved preview and restore notes](rollback/pre-voxel/README.md)
-allow a later appearance rollback without undoing unrelated gameplay work.
-
 ## Files and rebuild
 
 - `scripts/miku_figure_geometry.py` and `scripts/teto_figure_geometry.py` author
@@ -251,69 +247,3 @@ The figure generator leaves the pass artwork unchanged.
 To update only the card preview and runtime texture, run
 `python scripts/prepare_arcade_pass.py`. This standalone command does not
 regenerate prizes, models, blockstates, or loot tables.
-
-## Verification
-
-On 2026-10-06, the Java 21 Build and all **103 dedicated-server GameTests**
-passed. The suite includes exact figure purchases with configurable prices,
-rejection of the four retired prize IDs, actual BlockItem placement in all four
-facings, oriented collision, independent adjacent figures, and exactly one
-self-drop from survival removal. The existing pass, transfer, credit-loading,
-simulated-play, and machine tests also passed.
-
-The models are generated from editable geometry, exported as NeoForge OBJ
-meshes and Blockbench files, and rendered directly for the previews. Facial
-features use flat pixel art to match the references, with compact chibi bodies,
-large heads, layered hair, and small display bases.
-
-The source meshes contain 4,230 Miku faces and 4,765 Teto faces. An isolated
-NeoForge OBJ bake verified all four placed facings and both item models:
-44,975 baked quads with finite coordinates, the expected UVs and ordinary
-world lighting. The final JAR matches every source resource, contains 107
-Java 21 classes, excludes retired assets and verification helpers, and leaves
-the pass artwork byte-identical to the previous version.
-
-Every exported figure surface is rectangular, including the posed sleeves.
-Miku's final hair surfaces have equal 0.375-unit edges. The subsequent eye and
-blush adjustment changed only 24 face-pixel palette assignments: every vertex
-and all other materials stayed identical. The last fringe adjustment extends
-the bangs by one hair cell and the inner side locks to the cheek line; its
-face pixels, headset, twin tails and body remain identical.
-The final eye layout uses one inner blue iris column, eye white outside it,
-and face color at the outer edge, with all geometry preserved.
-The upper crown was then shortened by four whole hair-cube courses, lowering
-its top from Y12.75 to Y11.25. Upper clips and tail roots follow that reduction;
-the painted face, lower fringe tips, cheek locks, earphones and body stay put.
-Teto now uses the same square-pixel face layout as Miku, with rose irises,
-outer eye whites, skin at the edges and one blush pixel per cheek. Her head
-skin matches the face palette. Her subsequent head revision matches Miku's
-skin width and height, narrows and shortens the cap, and rebuilds the curls
-from full-sized 0.375-unit cubes. Curl roots and bows sit lower, the rear hair
-covers the nape, and the painted face, body and outfit remain identical.
-
-The small native client verified real 2,500-point purchases of both figures,
-insufficient funds, physical pass-slot return, purchased-item placement,
-survival recovery, opposite facings, cabinet play, and the minimum GUI size.
-The native views below include the larger hair cubes and lowered face pixels,
-captured before the last bang/side-lock extension and single-column iris edit.
-They also precede the shorter upper crown and Teto's matching face update.
-Teto's compact head and larger hair cubes also postdate these native captures.
-The hair and Teto head/face changes passed Build, OBJ
-baking and direct model render checks; the
-Miku iris edit passed Build and a color-only mesh comparison. The studio views
-show the current models. The earlier full copied-pack check passed with the same gameplay
-code and the pre-voxel assets; its saved image is kept with that rollback.
-
-![Prizes in the kiosk](prize-shop-in-game.png)
-
-![Placed figures in Minecraft](earned-prizes-in-game.png)
-
-![Figures from behind in Minecraft](figures-rear-in-game.png)
-
-![Miku hair and face in Minecraft](miku-hair-face-in-game.png)
-
-![Miku and Teto prize figures](arcade-prizes.png)
-
-![Hatsune Miku figure](hatsune_miku_figure.png)
-
-![Kasane Teto figure](kasane_teto_figure.png)

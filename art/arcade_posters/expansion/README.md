@@ -49,15 +49,3 @@ The same frame appears on the inventory and held item models.
 Framed posters use **10 placed faces** and **14 item faces** each; original WACCA
 uses **6 placed / 6 item faces**. All retain the same wall support, selection
 bounds, placement, save/reload, and matching-item recovery behavior.
-
-## Verification
-
-`dev.cmd Build` and all **202 required GameTests** pass. Tests cover all nineteen
-shared variants and the original WACCA, including all wall facings, saved artwork,
-support loss, adjacent placement, recovery, and the 38-entry prize catalog.
-All **307 native checks** pass, including exact dimensions, visible black frames,
-artwork inset, zero coplanar overlap, all twenty atlas sprites and item models.
-Gallery, frame comparison, inventory captures and exact release provenance are
-recorded under `native/`.
-
-![WACCA and Nostalgia with visible black frames](native/04-original-wacca-nostalgia-frames.png)

@@ -41,31 +41,3 @@ The complete placed object has **314 faces** (192 lower + 122 upper);
 the inventory model has **288 faces**. Counts include the backing and
 support. These are static baked NeoForge OBJ models: no block entity,
 custom block-entity renderer or ticking. Outlines contain at most nine boxes.
-
-## Verification
-
-`dev.cmd Build` succeeded and **all 219 required GameTests passed**.
-Existing cutout tests now exercise all four characters, including every
-placement angle, persistence, support loss, either-half removal and all mixed
-character pairs. Reward tests redeem all 116 catalog entries and cover search.
-
-An isolated native client passed **900 checks** on the final release JAR.
-All 128 block states and four inventory models passed texture, UV, bounds,
-outline and face-count audits before and after resource reload. Both new rewards
-were purchased through the real kiosk: 5,000 points became 3,500 then 2,000,
-with one of each cutout delivered, credits unchanged and the pass returned.
-The reward browser also passed its 320×240 layout check.
-
-All 144 new packaged resources match source bytes. Existing Miku/Teto assets and
-the shared placement/exporter code are unchanged. See the shared
-[verification receipt](native-verification.json) for the release hash.
-
-- [Rin and Len together](verification/01-rin-and-len-front.png)
-- [All four characters](verification/02-four-character-lineup.png)
-- [Angled view](verification/03-rin-and-len-angle.png)
-- [Cardboard backs and supports](verification/04-cardboard-backs-and-feet.png)
-- [All 16 rotations of each](verification/05-sixteen-rotations-each.png)
-- [Inventory models](verification/07-cutout-inventory-models.png)
-- [Rin reward](verification/08-rin-cutout-reward.png)
-- [Len reward](verification/09-len-cutout-reward.png)
-- [Minimum reward browser](verification/10-minimum-cutout-rewards.png)

@@ -45,12 +45,8 @@ it. Each cabinet retains its own inventory and playback progress.
 - [Cabinet preview](ongeki.png), [front](ongeki-front.png), [side](ongeki-side.png),
   and [controls](ongeki-controls.png)
 - [Editable Blockbench model](ongeki.bbmodel) with named groups and embedded textures
-- [Editable Blender scene](ongeki.blend) with packed textures
+- `ongeki.blend` (generated locally) with packed textures
 - [Source geometry and export statistics](geometry.json)
-- Native Minecraft views: [front](native-front.png),
-  [three-quarter](native-three-quarter.png), [side](native-side.png),
-  [controls](native-controls.png), and
-  [ordering kiosk](native-kiosk.png)
 
 These reference-inspired illustrations were generated with the built-in imagegen
 tool. They are not extracted official game assets. Their original pixels remain
@@ -72,20 +68,3 @@ Regenerate with `python scripts/make_ongeki_model.py`, then run the repository's
 `scripts/optimize_models.py --write` export pass. The Blender preview script is
 `scripts/render_ongeki_model.py`. Normal builds use the checked-in assets and do
 not require Python or Blender.
-
-Build and all **130 server GameTests** passed on 2026-10-07. The five ONGEKI tests
-exercise rotated and obstructed placement, selection through the open arch,
-disc persistence, section removal, and adjacent cabinet isolation. Existing
-catalog-wide tests also exercise its material purchase and Arcade Pass play.
-The isolated native client additionally verified all 24 baked block states,
-complete textures, kiosk purchase, survival placement, paid pass rewards, disc
-insertion/ejection, and a resource reload. Native screenshots show the exported
-mesh in Minecraft; the studio previews use that same source geometry.
-A separate copied Sodium 0.8.13 / Iris 1.8.14-beta.1 client with Complementary
-Reimagined 5.9.3 passed the model, visual, and reload checks. Both test clients
-exited cleanly. Original pack files and saved worlds were not modified.
-
-After the six-degree forward-lean revision, the build and all 130 GameTests
-passed again. A fresh isolated native run verified all 24 block states, the
-updated front/side profiles, kiosk item, and resource reload; it exited cleanly.
-The native screenshots and editable models include this revision.

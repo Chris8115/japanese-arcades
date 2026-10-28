@@ -36,7 +36,7 @@ a claim about manufacturer dimensions.
 | File | Purpose |
 | --- | --- |
 | [groove_coaster.bbmodel](groove_coaster.bbmodel) | Editable Blockbench model with embedded textures and named groups |
-| [groove_coaster.blend](groove_coaster.blend) | Packed Blender preview scene |
+| `groove_coaster.blend` (generated locally) | Packed Blender preview scene |
 | [groove-coaster-front.png](groove-coaster-front.png) | Overall three-quarter preview |
 | [groove-coaster-controls.png](groove-coaster-controls.png) | Booster and controller detail |
 | [groove-coaster-side.png](groove-coaster-side.png) | Footprint and side profile |
@@ -106,27 +106,3 @@ generation prompts are saved in `imagegen-prompts.txt` in this directory. The
 generator is the canonical model source: save manual Blockbench changes separately
 or transfer them into the generator before regeneration, which replaces exported
 model files.
-
-## Runtime verification
-
-The runtime implementation built successfully, and all **22 native integration
-tests passed on 2026-10-06** using `dev.cmd GameTest` in a disposable world. Five
-tests exercise Groove Coaster: placement and disc interaction through every
-section followed by single-drop removal; saved-disc placement, ticking, restoration,
-and ejection; creative removal beside an independently playing Chunithm; front
-and side selection rays hitting the larger console and marquee in all four horizontal
-facings; and open footwell/support/floor collision with the newly ejected disc's
-full bounding box clear of every cabinet section and world collision in each facing.
-The other seventeen tests cover the existing cabinets.
-
-These server tests do not verify the rendered model or full-pack client
-compatibility. Logs are `build/verification/groove-coaster-footwell-build-final.log` and
-`build/verification/groove-coaster-footwell-gametest.log`. No additional mod dependencies
-are required.
-
-The final asset build also passed (`build/verification/groove-coaster-final-build.log`).
-The small development client reached the Minecraft title screen with no model or
-texture loading errors in `build/verification/groove-coaster-client.log`. Computer
-Use was stopped by the user before entering a world, so in-world visual behavior
-and full-pack compatibility have not been verified for this cabinet. Six studio
-views were inspected against the exported geometry and the supplied photos.

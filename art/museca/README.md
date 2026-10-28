@@ -55,7 +55,7 @@ matching the supplied white-background product reference.
 | File | Purpose |
 | --- | --- |
 | [museca.bbmodel](museca.bbmodel) | Complete editable Blockbench model with embedded textures and named groups |
-| [museca.blend](museca.blend) | Packed Blender studio preview scene |
+| `museca.blend` (generated locally) | Packed Blender studio preview scene |
 | [geometry.json](geometry.json) | Complete native mesh faces, UVs, retained source cuboids, and optimization statistics |
 | [museca-front.png](museca-front.png) | Overall three-quarter preview |
 | [display-artwork-source.png](display-artwork-source.png) | Original portrait display illustration |
@@ -119,75 +119,3 @@ defines the section bounds, compound pedal/base collision, and disc-ejection
 position. It inherits placement and interaction from `NostalgiaCabinetBlock.java`.
 All cabinets share `NostalgiaJukeboxBlockEntity.java` and Minecraft's native
 `JukeboxSongPlayer`, retaining the existing saved-data and block-entity IDs.
-
-## Runtime verification
-
-The 2026-10-07 planar-deck audit confirms the top's slope and original print UVs,
-a closed 22-face deck shell, outward spinner winding, and identical image hashes
-and full cabinet bounds. Source and native OBJ faces have no invalid UVs,
-degenerate/nonplanar/duplicate faces, or same-facing coplanar overlaps.
-An independent audit matched 25,630 retained body geometry/UV samples to the
-backup. Six refreshed studio views and the packed Blender scene show the new
-continuous controller surfaces. [optimization-audit.json](optimization-audit.json)
-records the asset checks.
-
-The final 2026-10-07 build, including the 24-segment controller reduction, passed. A disposable Minecraft client with Sodium
-0.8.13, Iris 1.8.14-beta.1 and Complementary Reimagined 5.9.3 verified placement,
-all 24 block states, the item model, seven cabinet/deck views, and resource
-reload. Its 59,400 state quads represent 7,425 faces per complete cabinet across
-four facings and two disc states; the item bakes to 7,349 quads. There is no
-per-frame cabinet renderer. The final control, edge and overall views were
-visually checked for a continuous deck surface and aligned spinner tiers.
-[In-game controls](museca-planar-controls.png) and
-[whole cabinet](museca-planar-cabinet.png) show the verified result.
-
-All 15 packaged MÚSECA assets match their sources, all five runtime texture
-files are byte-identical to the backup, and the four OBJ exports pass an
-optimizer idempotence check. Local reports are
-`build/verification/museca-plane-audit.json`,
-`build/verification/museca-planar-independent-audit.json`,
-`build/verification/museca-controller-reduction-audit.json`, and
-`runs/museca-plane-24-segment-visual-probe/native-report.json`.
-The original pack and saves were not modified. This is a geometry reduction,
-not a measured FPS improvement. The pre-change revision is tagged
-`backup/museca-before-planar-deck-20261007-110921`; a verified 31-file archive
-is also stored outside the repository under the matching backup name.
-
-The historical integration checks below predate this optimization.
-
-Four MÚSECA integration tests cover actual placement and interaction through
-every section, single-drop removal, saved-disc placement and playback
-restoration, creative removal beside an independently playing Groove Coaster,
-and rotated selection/pedal collision with the newly ejected disc's full
-bounding box clear of every cabinet section and world collision.
-
-The release build succeeded and all **26 native integration tests passed on
-2026-10-06**, including those four MÚSECA tests and the existing twenty-two.
-Logs are `build/verification/museca-runtime-build.log` and
-`build/verification/museca-gametest.log`. The final asset build also passed in
-`build/verification/museca-final-build.log`.
-
-The release-jar audit found all six cabinets' blockstate variants, section and
-item models, textures, and loot, with all 73 resource files identical to their
-source files and runtime classes matching the compiled output. MÚSECA's language
-entry and pickaxe tag are included. No third-party mod jars, art project files,
-or scripts are bundled. The report is
-`build/verification/museca-package-audit.json`.
-
-All six final studio views were inspected, including the side and rear mounting
-supports. The exported geometry passes native coordinate, UV, texture, and
-rotation checks; no positive-area coplanar overlaps were found between rotated
-and axis-aligned faces. The highest vertex is 47.854 model units, within three
-blocks.
-
-The small development client successfully loaded the final resources on
-2026-10-06 and created its texture atlases with no model or texture errors.
-The startup log is `build/verification/museca-client.log`. The later planar-deck
-verification above covers in-world appearance with the copied shader stack;
-full-pack compatibility has not been checked for this cabinet.
-
-The subsequent reference-color correction rebuilt successfully; its log is
-`build/verification/museca-reference-colors-build.log`. The studio previews and
-editable models were regenerated with the red paper cluster, red lower lights,
-and white spinners. Press F3+T in an already-open development client to load
-these updated model resources.

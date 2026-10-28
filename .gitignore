@@ -19,3 +19,32 @@ __pycache__/
 # Local launcher and generated gallery archive (the individual images are tracked).
 /Launch Game.bat
 /art/branding/curseforge-gallery-v1.zip
+
+# Private configuration and local recovery copies.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.bundle
+*.log
+
+# Generated Blender scenes embed local file paths; keep portable Blockbench sources.
+*.blend
+
+# Disposable captures, profiling output and appearance backups.
+art/**/rollback/
+art/**/versions/
+art/**/native*/
+art/**/verification/
+art/**/native-*.png
+art/**/*-in-game.png
+art/**/*-in-pack.png
+art/**/probe-build.json
+art/**/native-report.json
+art/**/*verification*.json
+art/performance/*.json
+art/performance/*.png
+art/performance/probe/

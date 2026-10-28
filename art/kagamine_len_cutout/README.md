@@ -41,31 +41,3 @@ The complete placed object has **349 faces** (191 lower + 158 upper);
 the inventory model has **323 faces**. Counts include the backing and
 support. These are static baked NeoForge OBJ models: no block entity,
 custom block-entity renderer or ticking. Outlines contain at most nine boxes.
-
-## Verification
-
-`dev.cmd Build` succeeded and **all 219 required GameTests passed**.
-Existing cutout tests now exercise all four characters, including every
-placement angle, persistence, support loss, either-half removal and all mixed
-character pairs. Reward tests redeem all 116 catalog entries and cover search.
-
-An isolated native client passed **900 checks** on the final release JAR.
-All 128 block states and four inventory models passed texture, UV, bounds,
-outline and face-count audits before and after resource reload. Both new rewards
-were purchased through the real kiosk: 5,000 points became 3,500 then 2,000,
-with one of each cutout delivered, credits unchanged and the pass returned.
-The reward browser also passed its 320×240 layout check.
-
-All 144 new packaged resources match source bytes. Existing Miku/Teto assets and
-the shared placement/exporter code are unchanged. See the shared
-[verification receipt](../kagamine_rin_cutout/native-verification.json) for the release hash.
-
-- [Rin and Len together](../kagamine_rin_cutout/verification/01-rin-and-len-front.png)
-- [All four characters](../kagamine_rin_cutout/verification/02-four-character-lineup.png)
-- [Angled view](../kagamine_rin_cutout/verification/03-rin-and-len-angle.png)
-- [Cardboard backs and supports](../kagamine_rin_cutout/verification/04-cardboard-backs-and-feet.png)
-- [All 16 rotations of each](../kagamine_rin_cutout/verification/05-sixteen-rotations-each.png)
-- [Inventory models](../kagamine_rin_cutout/verification/07-cutout-inventory-models.png)
-- [Rin reward](../kagamine_rin_cutout/verification/08-rin-cutout-reward.png)
-- [Len reward](../kagamine_rin_cutout/verification/09-len-cutout-reward.png)
-- [Minimum reward browser](../kagamine_rin_cutout/verification/10-minimum-cutout-rewards.png)

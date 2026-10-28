@@ -26,7 +26,7 @@ Every successful roll dispenses **one Gachapon Capsule containing the whole rewa
 
 The machine displays **amount X currency icon** beside the dial and up to nine live reward icons in its upper window. Empty prize slots disappear from the display. Breaking a unit as its owner or in creative returns its stocked items, physical price template and collected currency. Hoppers and item pipes cannot bypass operator access; pistons and explosions do not move or break a stocked unit. World-admin commands remain authoritative.
 
-`gachapon.bbmodel` contains the editable original meshes and embedded material/decal atlases. `gachapon.blend` contains the packed Blender studio scene with a single machine and a hidden 2×2 arrangement. All artwork is original procedural drawing; there are no downloaded logos or image-generation dependencies.
+`gachapon.bbmodel` contains the editable original meshes and embedded material/decal atlases. The locally generated `gachapon.blend` contains the packed Blender studio scene with a single machine and a hidden 2×2 arrangement. All artwork is original procedural drawing; there are no downloaded logos or image-generation dependencies.
 
 Rebuild the assets with `scripts/make_gachapon_model.py`. Render with Blender using `scripts/render_gachapon_model.py`. Add `-- --single-only` for the single view. The export uses NeoForge's built-in OBJ loader for genuine circular parts, rounded corner profiles and the independently rotating crank. There is no custom geometry loader.
 
@@ -35,8 +35,6 @@ Rebuild the assets with `scripts/make_gachapon_model.py`. Render with Blender us
 The price plaque and prize poster are intentionally blank in the static model. In game, the block entity renderer draws the configured amount and currency item on the plaque and up to nine actual reward-stack icons on the poster. It also rotates the separate crank model during a player's held interaction.
 
 The PNG previews demonstrate a **sample inventory**, not fixed machine contents: diamonds, emeralds, an ender pearl, a nether star, a golden apple, iron, amethyst, a heart of the sea and a totem, at a sample price of two emeralds. The preview script reads their icons from the locally cached Minecraft client jar into ignored `build/gachapon-preview/`. Those icons are not copied into the mod or packed into the editable Blender file. The displayed PNGs are model renders with sample overlays, not screenshots from a running game.
-
-Actual Minecraft screenshots are saved separately: [stacked machines with live displays](gachapon-in-game.png), [operator inventory](gachapon-inventory.png), [masked password setup](gachapon-password-setup.png), and [a dispensed capsule in hand](gachapon-capsule-in-game.png). The test machines use a different sample stock, including tools, a block and a spawn egg, to check several kinds of inventory icons.
 
 ## Model coordinates
 
@@ -54,9 +52,3 @@ Minecraft model coordinates use 16 units per block. North is the front (negative
 | Prize icon size | 1.55 model units |
 
 The transparent-looking chamber uses a clear opening, tinted perimeter facets and narrow highlights. This prevents translucent block sorting from obscuring or washing out the real prize icons. The capsule inventory item is a separate round two-color mesh with an equatorial seam.
-
-## Validation
-
-The Java 21 build and all 58 server GameTests passed on 2026-10-06. Eleven gachapon tests cover stack placement and setup, owner/creative/password access, stale packet rejection, password revocation, saved private data, hopper/mining protection, one-capsule contents, overflow, exact component-specific payments, full storage, changed quotes, refused item spawns, simultaneous buyers, and the 100-tick inactivity reset.
-
-An isolated NeoForge client verified real inventory/price icons, all four facings, masked password screens and the operator inventory. A real client hold/release/resume interaction produced exactly one capsule and deducted exactly one configured payment. Runtime geometry was also baked with NeoForge's OBJ loader for body/crank in all facings plus both inventory models; materials, UVs and packaged resource references were checked. Full modpack compatibility is a separate check; this build has not been installed into the original instance.

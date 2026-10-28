@@ -56,7 +56,7 @@ changes only.
 | File | Purpose |
 | --- | --- |
 | [maimai.bbmodel](maimai.bbmodel) | Complete editable Blockbench model with embedded textures |
-| [maimai.blend](maimai.blend) | Packed Blender studio preview scene |
+| `maimai.blend` (generated locally) | Packed Blender studio preview scene |
 | [geometry.json](geometry.json) | Complete exported surface mesh and processing statistics |
 | [maimai-front.png](maimai-front.png) | Overall three-quarter studio preview |
 | [display-artwork-source.png](display-artwork-source.png) | Original circular-screen maimai DX title artwork |
@@ -137,73 +137,3 @@ cabinet or affect an adjacent maimai. Loot is restricted to the primary base.
 
 The existing block-entity and saved-data IDs are unchanged. All cabinets use
 Minecraft's native `JukeboxSongPlayer`.
-
-## Verification
-
-Six maimai integration tests exercise actual six-cell placement and interaction:
-
-- Every section inserts into the same inventory and ejects through the opposite
-  column in all four facings, with the full dropped-item box clear of all six
-  collision shapes and world collision.
-- All six possible break points in all four facings remove both columns and
-  drop one cabinet item and one disc in survival.
-- The same break-point/facing combinations in creative return the disc once,
-  produce no cabinet item, and leave an adjacent maimai pair playing.
-- Saved-disc placement and a block-entity reload retain the disc and playback
-  progress; the disc can then eject through the secondary marquee.
-- Obstruction in either upper primary cell or any secondary cell blocks the
-  entire placement; a missing second support also leaves no fragments or item loss.
-- Removing either support in every facing removes the pair and drops its item
-  and disc once.
-
-**All 40 native integration tests passed on 2026-10-06**, including the existing
-thirty-four, after the collision bounds were applied. The leaning profile fits
-those same bounds, so the functional Java code and collision shapes did not
-change. Logs are `build/verification/maimai-final-build.log` and
-`build/verification/maimai-final-gametest.log`.
-
-The OBJ jar audit confirms that all **117 runtime resources** and **30 compiled
-Java 21 classes** match their source/build files. maimai's 24 blockstate variants,
-six section models, five texture atlases, language entry, pickaxe tag, and
-primary-base-only loot are present. No authoring files or nested jars are included.
-The report is `build/verification/maimai-profile-package-audit.json`.
-
-The final leaning-profile build passed; its log is
-`build/verification/maimai-profile-build.log`. The final mesh audit found no
-positive-area overlaps among 3,223 coplanar candidates and checked section
-reconstruction, winding, UVs, and the exact eight-degree face angle. Results are
-in `build/verification/maimai-mesh-audit.json`.
-
-A headless harness also exercised NeoForge 21.1.252's actual OBJ/MTL parsers and
-quad baker on all seven meshes, with all four rotations for each block section.
-All **181,921 baked quads** retained their expected face counts, finite positions,
-UVs, V-axis flip, and full-brightness values. The harness uses a unit sprite and
-supplies material bindings directly; it does not exercise client resource-manager
-startup or texture-atlas upload. Its report is
-`build/verification/maimai-obj-bake-audit.json`.
-
-The original profile preview was checked against the supplied references.
-The later optimization received the native checks recorded below. The original
-playable instance and its saves remain untouched.
-
-## Optimization client verification — 2026-10-07
-
-The integrated build and asset audit passed. All 18 texture PNGs across maimai,
-Taiko and Chrono Circle retain their original hashes; 68 relevant packaged assets
-match the current source files. The catalog optimizer reports zero pending changes.
-
-The disposable Minecraft client verified all **48 native block states** and
-the complete item model for this cabinet, with finite vertices/UVs and no missing
-textures. Placement and resource reload passed. Six fixed camera views were
-compared before and after with Sodium 0.8.13, Iris 1.8.14-beta.1 and Complementary
-Reimagined r5.9.3. No custom per-frame cabinet renderer was added.
-
-See the [optimized cabinet](maimai-optimized-quarter.png) and
-[control detail](maimai-optimized-controls.png). Reports are in the ignored
-`build/verification/top-three-audit.json` and
-`runs/top-three-after-visual-probe/native-report.json`. These are geometry and
-appearance checks, not an FPS benchmark. Gameplay Java did not change.
-
-Original files are preserved at Git tag
-`backup/top-three-before-optimization-20261007-104418` and in a verified external
-ZIP archive of all 121 original files. Rollback should revert only this optimization.

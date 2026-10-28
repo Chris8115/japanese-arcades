@@ -31,53 +31,10 @@ Use the rear cabinet to insert or eject a music disc. This is a decorative
 racing cabinet with a usable seat and music playback, rather than a driving
 minigame.
 
-## Sources and verification
-
-The Java 21 release build and all **80 dedicated-server GameTests** passed on
-2026-10-06. The seven Initial D tests cover every section in all four facings,
-adjacent-cabinet isolation, blocked placement and missing support, actual
-server-ray seating, seat occupancy, shift dismounts and a full row's rear exit,
-held-item/range/spectator/headroom rejection, removal/logout cleanup, and saved
-music-disc playback while seated. The kiosk tests also purchase this cabinet
-for its exact material costs.
-
-The release JAR was checked against all **28 relevant source resource files**,
-all 28 directional blockstate variants, Java 21 class versions, and the model's
-one-block width. Existing translations are preserved; editable art and the
-disposable client probe are excluded from the release.
-
-The disposable small client passed real mouse interaction and passenger sync,
-occupied-seat rejection with a second server player, Shift-key dismount into
-the rear aisle of three touching cabinets, removal of a neighboring machine
-while seated, and the kiosk's exact paid transaction. The driver view and
-seated avatar were inspected, and the client exited cleanly.
-
-The same checks passed in the copied **218-mod pack**, including its renderer,
-shaders, and JEI. Three adjacent single machines and the seated avatar rendered
-correctly, the order delivered one cabinet and charged the exact ingredients,
-and the pack client exited cleanly. The disposable fixture used the pack's
-10 GB heap, eight active processors, and disabled Distant Horizons background
-generation to keep the check within this host's memory. Original-instance
-files and saves were untouched.
-
-![Three machines in the copied pack](initial-d-in-pack.png)
-
-![Seat occupied in the copied pack](initial-d-seated-in-pack.png)
-
-![Completed order alongside JEI](initial-d-ordered-in-pack.png)
-
-![Three independent cabinets in Minecraft](initial-d-in-game.png)
-
-![Actual driver view](initial-d-driver-in-game.png)
-
-![Player occupying the middle seat](initial-d-seated-in-game.png)
-
-![Ordering materials](initial-d-ordering.png)
-
-### Editable geometry and rebuild
+## Editable geometry and rebuild
 
 The native source mesh is `geometry.json`, with editable embedded-texture
-`initial_d.bbmodel` and a packed `initial_d.blend` studio scene. Previews are
+`initial_d.bbmodel` and a locally generated `initial_d.blend` studio scene. Previews are
 `initial-d.png`, `initial-d-front.png`, `initial-d-seat.png`, and
 `initial-d-paired.png`. The pair preview places two independent single machines
 exactly one block apart, rather than creating a separate twin-cabinet asset.
@@ -101,10 +58,3 @@ The source contains **3,794 faces**. Seven runtime sections clip geometry at
 Y16/Y32 and Z−16/Z0 while interpolating UV coordinates, producing **4,039
 section faces**. Every section remains within its own block. The full item
 retains the complete connected machine as one scaled native OBJ.
-
-The isolated NeoForge 21.1.252 OBJ bake audit passed **19,950 baked quads**
-across all four facings of all seven sections plus the inventory item. It
-verified unchanged face counts, finite coordinates, UVs, texture V orientation,
-and fullbright screen/marquee lighting. Its report is
-`build/verification/initial-d-obj-bake-audit.json`; actual client atlas loading,
-placement, and seating require the separate runtime checks below.

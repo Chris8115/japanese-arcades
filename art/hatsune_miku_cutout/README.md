@@ -28,24 +28,3 @@ The standee measures **15.2 model units wide × 25.64449438 tall**, or **0.95 ×
 Placement uses lower and upper block sections and **16 yaw angles**, spaced 22.5° apart. The standing-sign rotation contract is `0=SOUTH`, `4=WEST`, `8=NORTH`, `12=EAST`. At rotation 0, the printed front faces south, along positive Z. The section boundary is at 16 model units; the upper section extends another 9.64449438 units.
 
 The complete placed object contains **279 faces**: 192 lower and 87 upper, including the cardboard support. The standalone inventory model contains **255 faces**. All geometry uses static baked NeoForge OBJ models and cutout textures; there is **no block entity, custom block-entity renderer, or ticking**. The inventory model includes its own complete mesh and front-facing display transform.
-
-## Verification
-
-`dev.cmd Build` succeeded and all **168 required GameTests passed**, including
-real placement at all 16 yaws, rounding boundaries, blocked placement, support
-loss, removal through either half, creative removal, neighbor isolation,
-rotation/mirroring, saved block states, and kiosk prize transactions.
-
-A disposable Minecraft 1.21.1 / NeoForge 21.1.252 client verified all 32 baked
-block states, the inventory model, native face counts, texture loading, paired
-rotation synchronization, and resource reload. The front, back, angled views,
-and kiosk preview were visually checked. All 72 packaged cutout resources match
-their source files byte-for-byte. The original pack and saves were untouched.
-See [native-verification.json](native-verification.json) for the release hash.
-
-- [Front view](01-miku-front.png)
-- [Angled view](02-miku-angle.png)
-- [Cardboard back and support](03-cardboard-back.png)
-- [All 16 placement angles](04-sixteen-angles.png)
-- [After resource reload](05-reloaded-miku.png)
-- [Kiosk prize and item preview](06-cutout-reward.png)

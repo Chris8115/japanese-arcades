@@ -66,19 +66,3 @@ The exporter checks decoded artwork pixels against the full-image downsample,
 immutable source hashes, atlas equality, mip divisibility, exported item dimensions,
 face counts, and nonoverlapping frame/print geometry.
 `contact-sheet.jpg` is a review-only composition of the framed prints.
-
-## Runtime verification
-
-`dev.cmd Build` and all **202 required GameTests** pass. The collection tests
-exercise each print in all four wall directions, save/reload, correct pick/drop
-items, support loss, rejected placement, and spacing beside other prints and
-the original WACCA poster. The kiosk transaction test redeems all 38 prizes,
-including every poster, at their configured prices and rejects stale requests.
-
-The original twelve-poster verification is archived under `native/`. Current
-twenty-poster verification and visible-frame comparisons are under
-`expansion/native/`, with exact release provenance. The block/item atlas retains
-four mip levels; runtime checks include rendered dimensions and nonoverlapping
-front-frame geometry.
-
-![All nineteen framed additions](contact-sheet.jpg)

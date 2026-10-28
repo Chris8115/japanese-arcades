@@ -9,7 +9,7 @@ Right-click opens a compact inventory. Each display slot holds one collectible. 
 
 All 246 mob collectible forms (loose figures, boxed figures and empty boxes), plus the Miku and Teto figures, fit the displays. Stored items retain their names and other components. Unrelated items and nested custom display boxes are rejected. No hopper access is exposed. Breaking a shelf, removing its support or an explosion releases its contents once; canceled item spawns use the existing persistent recovery queue.
 
-![Stackable and wall-mounted displays in Minecraft](shelf-showroom.png)
+![Stackable and wall-mounted displays in Minecraft](../branding/curseforge-gallery-v1/01-recommended-gallery/08-figure-shelves.png)
 
 Close views: [stacked display units](stacked-display-units.png), [wall displays](wall-displays.png), [two-row inventory](display-inventory.png), and [single-row inventory at minimum GUI size](wall-shelf-inventory.png).
 
@@ -45,10 +45,6 @@ Stick         Stick
 
 Any vanilla-compatible plank or wooden slab tag works. These are ordinary furniture recipes and do not add entries to the reward catalog. Both blocks are axe-mineable and drop their own block item. Stored collectibles are released by the block entity removal path, without duplicating them into the loot table.
 
-## Rendering and verification
+## Rendering
 
 Collectibles keep their proportions and face forward. The renderer measures each baked model once, fits it within a 3.15-by-5.7-by-6 model-unit cell, and reuses the existing shared display mesh cache. Fit caches clear on resource reload. Only occupied cells render, with a 24-block view distance, and neither shelf has a block-entity ticker. The static face counts above exclude the displayed collectible models; scaling a figure does not reduce its polygon count.
-
-On 2026-10-08, the release build and **219 required dedicated-server GameTests** passed, including eight shelf integration tests. The isolated native client passed **1,518 checks**, including all **248 supported collectible model fits**, shelf facings and textures, actual inventory transfers, invalid-item rejection, component preservation, client synchronization, reopening and both layouts at the minimum 320-by-240 GUI. The screenshots above are from that client, which exited cleanly. Full-pack FPS was not benchmarked. The original instance and its saves were not changed.
-
-The [verification receipt](verification.json) identifies the exact checked build.

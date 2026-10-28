@@ -34,18 +34,3 @@ py scripts/make_custom_display_box.py
 The generator writes only the custom box's texture, block and item models, blockstates, loot table, bitmap font, and editable preview files. It imports shared drawing helpers from `make_mob_figures.py` without regenerating the preset mob assets. It uses Arial Bold on Windows, with a DejaVu fallback where available; use the same font environment for byte-identical texture output.
 
 `custom_display_box.bbmodel` is the editable Blockbench model. `custom_display_box.geometry.json` contains the exported preview faces, including tint indices. The item model uses `minecraft:builtin/entity`, so a preview or renderer must draw the shell block model explicitly and honor both texture alpha and tint index `0`.
-
-## Verification
-
-The build and all **163 server GameTests** passed. Ten display-box tests exercise item
-components, packing and unpacking, held packages, all-facing placement and loot,
-save/reload, creative recovery, nesting rejection, canceled overflow delivery, native right-click dispatch,
-orientation persistence, and legacy-data compatibility.
-Native client checks verified actual world and inventory rendering, enchantment
-glint, shared appearance caching, synchronized retained-empty packaging, and
-resource reload. All eighteen preset mob models retain their original assets.
-The original feature check is recorded in `verification.json`. The updated
-orientation checks and build hash are in `orientation-verification.json`, with
-a comparison image in `orientation-comparison.png`.
-
-![Custom box examples](custom-box-examples.png)
