@@ -1,4 +1,5 @@
 {
+  "block.japanesearcades.sleeping_fox_plush": "Oversized Sleeping Fox Plush",
   "block.japanesearcades.nostalgia_op3": "Nostalgia Op.3 Arcade Cabinet",
   "block.japanesearcades.beatstream": "BeatStream Arcade Cabinet",
   "block.japanesearcades.sound_voltex_valkyrie": "Sound Voltex Valkyrie Arcade Cabinet",
@@ -12,6 +13,9 @@
   "block.japanesearcades.chrono_circle": "Chrono Circle Arcade Cabinet",
   "block.japanesearcades.music_diver": "MUSIC DIVER Arcade Cabinet",
   "block.japanesearcades.popn_music": "pop'n music Arcade Cabinet",
+  "block.japanesearcades.bombergirl": "Bombergirl Arcade Cabinet",
+  "block.japanesearcades.gitadora_guitarfreaks": "GITADORA GuitarFreaks Arcade Cabinet",
+  "block.japanesearcades.gitadora_drummania": "GITADORA DrumMania Arcade Cabinet",
   "block.japanesearcades.maimai": "maimai DX Twin Arcade Cabinet",
   "itemGroup.japanesearcades.japanese_arcades": "Japanese Arcades",
   "block.japanesearcades.ddr_supernova": "DDR SuperNOVA Arcade Cabinet",
@@ -483,6 +487,7 @@
   "claw.phase.slipping": "Slipping…",
   "claw.phase.delivering": "Prize chute",
   "block.japanesearcades.claw_machine": "Claw Machine",
+  "block.japanesearcades.compact_claw_machine": "Compact Claw Machine",
   "message.japanesearcades.claw_owner_break": "Only the owner or a creative player can remove this claw machine.",
   "message.japanesearcades.claw_machine.busy": "This claw machine is currently in use.",
   "message.japanesearcades.claw_machine.not_configured": "The operator needs to finish setting up this machine.",

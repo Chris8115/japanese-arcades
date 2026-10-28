@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "scope": "Final optimized inventory OBJ, every shell profile band and bottom cap for all seven drum controllers",
+  "controllers": {
+    "Left crash": {
+      "shell_faces": 160,
+      "bottom_shell_faces": 32,
+      "exported_bottom_cap_faces": 32
+    },
+    "Hi hat": {
+      "shell_faces": 160,
+      "bottom_shell_faces": 32,
+      "exported_bottom_cap_faces": 32
+    },
+    "Snare": {
+      "shell_faces": 128,
+      "bottom_shell_faces": 32,
+      "exported_bottom_cap_faces": 32
+    },
+    "High tom": {
+      "shell_faces": 128,
+      "bottom_shell_faces": 32,
+      "exported_bottom_cap_faces": 32
+    },
+    "Low tom": {
+      "shell_faces": 128,
+      "bottom_shell_faces": 32,
+      "exported_bottom_cap_faces": 32
+    },
+    "Floor tom": {
+      "shell_faces": 128,
+      "bottom_shell_faces": 32,
+      "exported_bottom_cap_faces": 32
+    },
+    "Right crash": {
+      "shell_faces": 160,
+      "bottom_shell_faces": 32,
+      "exported_bottom_cap_faces": 32
+    }
+  },
+  "total_shell_faces": 992,
+  "total_bottom_shell_faces": 224,
+  "total_bottom_cap_faces": 224
+}

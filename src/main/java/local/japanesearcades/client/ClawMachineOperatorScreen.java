@@ -23,8 +23,8 @@ public final class ClawMachineOperatorScreen extends AbstractContainerScreen<Cla
 
     public ClawMachineOperatorScreen(ClawMachineMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
-        imageWidth = 254; imageHeight = 240;
-        inventoryLabelX = 44; inventoryLabelY = 150;
+        imageWidth = 274; imageHeight = 240;
+        inventoryLabelX = 54; inventoryLabelY = 150;
     }
     @Override protected void init() {
         String oldChance = chance == null ? Integer.toString(menu.getBaseWinChance()) : chance.getValue();
@@ -39,14 +39,14 @@ public final class ClawMachineOperatorScreen extends AbstractContainerScreen<Cla
         }).bounds(leftPos + 52, topPos + 106, 79, 18).build());
         ramp.setTooltip(Tooltip.create(Component.translatable("claw.gui.ramp_hint")));
         addRenderableWidget(Button.builder(Component.translatable("gachapon.gui.save"), button -> save(false))
-            .bounds(leftPos + 184, topPos + 106, 60, 18).build());
-        password = new EditBox(font, leftPos + 68, topPos + 130, 108, 16, Component.translatable("gachapon.gui.new_password"));
+            .bounds(leftPos + imageWidth - 70, topPos + 106, 60, 18).build());
+        password = new EditBox(font, leftPos + 68, topPos + 130, 128, 16, Component.translatable("gachapon.gui.new_password"));
         password.setMaxLength(32);
         password.setFormatter((text, position) -> FormattedCharSequence.forward("*".repeat(text.length()), Style.EMPTY));
         password.setValue(oldPassword); password.setResponder(value -> localStatus = 0);
         addRenderableWidget(password);
         savePassword = addRenderableWidget(Button.builder(Component.translatable("gachapon.gui.set"), button -> save(true))
-            .bounds(leftPos + 184, topPos + 128, 60, 18).build());
+            .bounds(leftPos + imageWidth - 70, topPos + 128, 60, 18).build());
         updateRamp();
     }
     private EditBox numberField(int x, int y, int width, int length, String key, String value) {
@@ -106,16 +106,21 @@ public final class ClawMachineOperatorScreen extends AbstractContainerScreen<Cla
     }
     @Override protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
         graphics.drawString(font, title, 11, 8, GachaponScreen.INK, false);
-        label(graphics, "price", 12, 22); label(graphics, "rewards", 85, 22); label(graphics, "collected", 175, 22);
+        label(graphics, "price", 12, 22);
+        label(graphics, "rewards", menu.rewardGridX(), 22);
+        label(graphics, "collected", menu.paymentGridX(), 22);
         graphics.drawWordWrap(font, Component.translatable("claw.gui.price_hint"), 11, 54, 63, 0x657080);
-        label(graphics, "back", 141, 35); label(graphics, "front", 141, 72);
-        graphics.drawString(font, Component.translatable("claw.gui.current_chance", menu.getCurrentWinChance(), menu.getPlaysSinceWin()), 85, 88, 0x3E626F, false);
+        int rowLabelX = menu.rewardGridX() + menu.layout().columns() * 18 + 2;
+        label(graphics, "back", rowLabelX, menu.rewardGridY() + 3);
+        label(graphics, "front", rowLabelX, menu.rewardGridY() + (menu.layout().rows() - 1) * 18 + 4);
+        graphics.drawString(font, Component.translatable("claw.gui.current_chance", menu.getCurrentWinChance(), menu.getPlaysSinceWin()),
+            menu.rewardGridX(), menu.rewardGridY() + menu.layout().rows() * 18 + 2, 0x3E626F, false);
         label(graphics, "base_chance", 12, 97); label(graphics, "guarantee", 136, 97);
         if (menu.canChangePassword()) label(graphics, "new_password", 12, 133);
         else graphics.drawString(font, Component.translatable("claw.gui.owner_password"), 12, 133, 0x657080, false);
         graphics.drawString(font, playerInventoryTitle, inventoryLabelX, inventoryLabelY, GachaponScreen.INK, false);
         int status = localStatus == 0 ? menu.getStatus() : localStatus;
-        if (status != 0) graphics.drawString(font, font.plainSubstrByWidth(statusMessage(status).getString(), 138), 106, 150,
+        if (status != 0) graphics.drawString(font, font.plainSubstrByWidth(statusMessage(status).getString(), 148), 116, 150,
             status == 4 || status == 5 ? 0x287444 : 0xAD303C, false);
     }
     private void label(GuiGraphics graphics, String key, int x, int y) {

@@ -1,0 +1,21 @@
+{
+  "design": "Original single-play Minecraft adaptation of the SEGA UFO CATCHER TRIPLE TWIN family. Reference twin bays are simplified into one 2x2x2 playable chamber. Procedural lettering approximates branding; no official photographs are used as runtime textures.",
+  "official_pages": [
+    "https://www.sega.jp/arcade/detail/ufo-catcher-triple-twin-compact/",
+    "https://www.sega.jp/arcade/detail/ufo-triple/",
+    "https://segaplaza.jp/special/ufo/products/",
+    "https://www.segafave.co.jp/news/240711_1/"
+  ],
+  "downloaded_official_reference_images": {
+    "official-segafave.jpg": {
+      "source_url": "https://www.segafave.co.jp/ogp/news/240711_1.jpg",
+      "sha256": "ea005db5608dd023534226a5968362ce9fac3b73b063ab4b763af13c67065e52",
+      "bytes": 73881
+    },
+    "official-triple-twin.png": {
+      "source_url": "https://segaplaza.jp/images/ufo-catcher/products/sp/ufotripletwin.png",
+      "sha256": "4f56e36db4e6112f16935755fa6771ca9a5ea075903897acac100eff469856ba",
+      "bytes": 124908
+    }
+  }
+}

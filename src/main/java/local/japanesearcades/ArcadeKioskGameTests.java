@@ -159,6 +159,10 @@ public final class ArcadeKioskGameTests {
     public static void kioskEveryMachineOrdersExactlyOnceForItsMaterials(GameTestHelper helper) {
         ServerPlayer player = createPlayer(helper, "KioskCatalog", GameType.SURVIVAL);
         ArcadeKioskMenu menu = setup(helper, player);
+        helper.assertTrue(ArcadeOrderCatalog.entries(ArcadeOrderCatalog.MACHINES).size() == 25
+            && List.of("bombergirl", "gitadora_guitarfreaks", "gitadora_drummania", "compact_claw_machine").stream()
+                .allMatch(name -> ArcadeOrderCatalog.find(id(name)).isPresent()),
+            "The complete cabinet ordering catalog must include the new cabinets and compact claw machine");
         for (var entry : ArcadeOrderCatalog.entries(ArcadeOrderCatalog.MACHINES)) {
             materials(player, entry, 1);
             helper.assertTrue(ArcadeOrderCatalog.canAfford(player, entry), "An exact material set was marked unaffordable");

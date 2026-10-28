@@ -65,7 +65,11 @@ public final class MachineDisplaySyncGameTests {
     public static void clawPosePacketsPreserveHeldItemsAcrossPhasesEditsAndReload(GameTestHelper helper) {
         var player = createPlayer(helper, "ClawSync", GameType.SURVIVAL);
         var machine = ClawMachineTransactionGameTests.configure(helper, player, 100, 0);
-        fillPreviews(machine.operatorInventory());
+        for (int display = 0; display < machine.layout().rewardCount(); display++) {
+            ItemStack reward = new ItemStack(Items.DIAMOND, 17);
+            reward.set(DataComponents.CUSTOM_NAME, Component.literal("Arcade showcase reward " + display));
+            machine.operatorInventory().setItem(machine.layout().rewardSlot(display), reward);
+        }
         helper.assertTrue(machine.startSession(player), "Sync fixture could not start claw controls");
         var receiver = new ClawMachineBlockEntity(machine.getBlockPos(), machine.getBlockState());
         var aiming = capture(helper, machine);
@@ -77,6 +81,7 @@ public final class MachineDisplaySyncGameTests {
         helper.assertTrue((Float)clientField(receiver, "publicX") > aiming.tag().getFloat("X"), "Movement packet did not update the client pose");
         assertDisplays(helper, receiver, aiming.tag());
 
+        int selected = machine.getSelectedSlot();
         helper.assertTrue(machine.drop(player), "Sync fixture could not pay for its claw drop");
         var descending = capture(helper, machine);
         helper.assertFalse(descending.tag().getBoolean("AnimationOnly"), "Paid phase transition omitted its public snapshot");
@@ -91,7 +96,7 @@ public final class MachineDisplaySyncGameTests {
         ClawMachineTransactionGameTests.ticks(machine, 28);
         var grabbing = capture(helper, machine);
         helper.assertTrue(!grabbing.tag().getBoolean("AnimationOnly") && grabbing.tag().contains("Held")
-            && !grabbing.tag().contains("Preview4"), "Grab transition did not move the selected preview into the held display");
+            && !grabbing.tag().contains("Preview" + selected), "Grab transition did not move the selected preview into the held display");
         receive(helper, receiver, grabbing);
         ClawMachineTransactionGameTests.ticks(machine, 2);
         receive(helper, receiver, capture(helper, machine));
@@ -144,7 +149,7 @@ public final class MachineDisplaySyncGameTests {
         helper.assertTrue(pose.tag().getBoolean("AnimationOnly") && pose.bytes() * 2 < full.bytes(),
             label + " did not cut recurring packet bytes by at least half: " + full.bytes() + " -> " + pose.bytes());
         helper.assertFalse(pose.tag().contains("Price") || pose.tag().contains("Held"), label + " pose redundantly serialized display items");
-        for (int slot = 0; slot < 9; slot++) { helper.assertFalse(pose.tag().contains("Preview" + slot), label + " pose included preview items"); }
+        for (int slot = 0; slot < ClawMachineLayout.LARGE.rewardCount(); slot++) { helper.assertFalse(pose.tag().contains("Preview" + slot), label + " pose included preview items"); }
         LogUtils.getLogger().info("Machine sync wire check: {} full={} bytes, pose={} bytes", label, full.bytes(), pose.bytes());
     }
 
@@ -170,7 +175,7 @@ public final class MachineDisplaySyncGameTests {
     private static void assertDisplays(GameTestHelper helper, BlockEntity receiver, CompoundTag expected) {
         helper.assertTrue(ItemStack.matches((ItemStack)clientField(receiver, "publicPrice"), item(helper, expected, "Price")), "Price changed or lost components during client merge");
         var rewards = (ItemStack[])clientField(receiver, "publicRewards");
-        for (int slot = 0; slot < 9; slot++) {
+        for (int slot = 0; slot < rewards.length; slot++) {
             helper.assertTrue(ItemStack.matches(rewards[slot], item(helper, expected, "Preview" + slot)), "Client preview changed or failed to clear: " + slot);
         }
         if (receiver instanceof ClawMachineBlockEntity) {

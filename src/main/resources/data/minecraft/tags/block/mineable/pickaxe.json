@@ -14,6 +14,9 @@
     "japanesearcades:chrono_circle",
     "japanesearcades:music_diver",
     "japanesearcades:popn_music",
+    "japanesearcades:bombergirl",
+    "japanesearcades:gitadora_guitarfreaks",
+    "japanesearcades:gitadora_drummania",
     "japanesearcades:maimai",
     "japanesearcades:ddr_supernova",
     "japanesearcades:beatmania_iidx_lightning",
@@ -22,6 +25,7 @@
     "japanesearcades:jubeat",
     "japanesearcades:gachapon",
     "japanesearcades:claw_machine",
+    "japanesearcades:compact_claw_machine",
     "japanesearcades:arcade_kiosk"
   ]
 }

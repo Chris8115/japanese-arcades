@@ -1,0 +1,15 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "neoforge:obj",
+  "model": "japanesearcades:models/block/sleeping_fox_plush_part1.obj",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "emissive_ambient": true,
+  "ambientocclusion": true,
+  "render_type": "minecraft:solid",
+  "textures": {
+    "materials": "japanesearcades:block/sleeping_fox_plush",
+    "particle": "japanesearcades:block/sleeping_fox_plush"
+  }
+}

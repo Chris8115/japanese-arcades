@@ -63,7 +63,9 @@ public final class ClawMachinePlayScreen extends Screen implements MenuAccess<Cl
         if (minecraft.level == null || minecraft.player == null) return;
         var state = minecraft.level.getBlockState(menu.getBlockPos());
         if (!(state.getBlock() instanceof ClawMachineBlock)) return;
-        var target = ClawMachineBlock.localToWorld(menu.getBlockPos(), state.getValue(ClawMachineBlock.FACING), 24, 29, 16);
+        var layout = menu.layout();
+        var target = ClawMachineBlock.localToWorld(menu.getBlockPos(), state.getValue(ClawMachineBlock.FACING),
+            layout.modelWidth() / 2, (layout.modelY(0) + layout.prizeY()) / 2 + .5F, layout.modelZ(.5F));
         var direction = target.subtract(minecraft.player.getEyePosition());
         float yaw = (float)Math.toDegrees(Math.atan2(-direction.x, direction.z));
         float pitch = (float)-Math.toDegrees(Math.atan2(direction.y, Math.sqrt(direction.x * direction.x + direction.z * direction.z)));

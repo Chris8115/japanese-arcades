@@ -1,0 +1,99 @@
+{
+  "primary_pages": [
+    "https://www.konami.com/arcadegames/products/am_bombergirl/",
+    "https://p.eagate.573.jp/game/bombergirl/bg/p/index.html",
+    "https://p.eagate.573.jp/game/bombergirl/bg/p/howto.html"
+  ],
+  "edition": "Bombergirl Rainbow cabinet",
+  "artwork_rightsholder": "Konami",
+  "runtime_art_source": "official-title.png",
+  "image_generation_used": false,
+  "runtime_preparation": "Uniform resize of official transparent Rainbow key art for acrylic topper; same source cropped for printed logo and portrait attract-mode composition. Original controls and utility graphics drawn procedurally from official cabinet references. No texture pixels converted to geometry.",
+  "sources": [
+    {
+      "file": "official-product.jpg",
+      "url": "https://img.konami.com/products_master_kam/jp_publish/am_bombergirl/jp/ja/images/main.jpg",
+      "sha256": "bc67846f2c07a49a3c900d4e414560d362c8a43c201a72de3ea24f84b7d76dc8"
+    },
+    {
+      "file": "official-cabinet.jpg",
+      "url": "https://img.konami.com/products_master_kam/jp_publish/am_bombergirl/jp/ja/images/img_1.jpg",
+      "sha256": "298cef749eed2b224b3342eb4d9b8219ca89db634ff3ca9d4686f271416e2275"
+    },
+    {
+      "file": "official-detail.jpg",
+      "url": "https://www.konami.com/products_master_kam/jp_publish/am_bombergirl/jp/ja/images/img_2.jpg",
+      "sha256": "b32b34470119659eb8c4dc283d6104d35d444bee091993753f5e38cefc510bf1"
+    },
+    {
+      "file": "official-lineup.png",
+      "url": "https://eacache.s.konaminet.jp/game/bombergirl/bg/p/images/p/top/img_01_r.png",
+      "sha256": "4366f53d62f50cd0b018deb3b91fb9bf06d7c9c1acce10d2fea6a6823e5fb570"
+    },
+    {
+      "file": "location-front.jpg",
+      "url": "https://zenius-i-vanisher.com/pictures/1599625760.7311.jpg",
+      "sha256": "55c8c0e51f1800be3e69672cb23a69769210537ec64f004263cff7c75c320278"
+    },
+    {
+      "file": "location-angle.jpg",
+      "url": "https://zenius-i-vanisher.com/pictures/1599625775.1922.jpg",
+      "sha256": "e6d501243af3379e31f5a125d5939f5175cc55e8f4de46ec62f54b6fc01b61b9"
+    },
+    {
+      "file": "official-body.css",
+      "url": "https://eacache.s.konaminet.jp/game/bombergirl/bg/p/css/body.css",
+      "sha256": "4bfc353ab5f5c152fa608b491aca20e537f78e40f9d3b6c893635bdfd1863496"
+    },
+    {
+      "file": "official-title.png",
+      "url": "https://eacache.s.konaminet.jp/game/bombergirl/bg/p/images/p/top/title.png",
+      "sha256": "996c7dfe540531ad5953ccfd0abbbe3ef6cb21059f498ef3d63ba625e4c4e80a"
+    },
+    {
+      "file": "official-img_02_l.png",
+      "url": "https://eacache.s.konaminet.jp/game/bombergirl/bg/p/images/p/top/img_02_l.png",
+      "sha256": "108d1d3d74e5e272a1a7e69dd6186715ee7a840ff9d53c8038a32452df0fbb53"
+    },
+    {
+      "file": "official-img_02_r.png",
+      "url": "https://eacache.s.konaminet.jp/game/bombergirl/bg/p/images/p/top/img_02_r.png",
+      "sha256": "f92814ac67e2f837c212dd2b5f1c452b06e7d16e7ed6c9d29dea20e8728e349b"
+    },
+    {
+      "file": "official-img_03_l.png",
+      "url": "https://eacache.s.konaminet.jp/game/bombergirl/bg/p/images/p/top/img_03_l.png",
+      "sha256": "7baa3e7db7d3339f182633c64d404d846004dcae5920e764270da6f0bc855687"
+    },
+    {
+      "file": "official-img_04_r.png",
+      "url": "https://eacache.s.konaminet.jp/game/bombergirl/bg/p/images/p/top/img_04_r.png",
+      "sha256": "385922d9a064fbec46355ad36c9cedd26d57cd2076d138c544a3ebcac285930a"
+    },
+    {
+      "file": "official-bg.jpg",
+      "url": "https://eacache.s.konaminet.jp/game/bombergirl/bg/p/images/p/bg.jpg",
+      "sha256": "ac86596d25e76daef23322d26ec83f51536d478e9d0f5141336571e55dbdd799"
+    },
+    {
+      "file": "official-howto_img01_l.png",
+      "url": "https://eacache.s.konaminet.jp/game/bombergirl/bg/p/images/p/howto/howto_img01_l.png",
+      "sha256": "b3ab89617066124c8dafc1c3ae534aa75010f51df30a80dc1d47940719edb5e6"
+    },
+    {
+      "file": "official-howto_img03_l.png",
+      "url": "https://eacache.s.konaminet.jp/game/bombergirl/bg/p/images/p/howto/howto_img03_l.png",
+      "sha256": "c15c14789759d916ed7d000bda98ca3e38f7b61a940fdb14a0dbe069c5fa7b6d"
+    },
+    {
+      "file": "official-howto_img03_c.png",
+      "url": "https://eacache.s.konaminet.jp/game/bombergirl/bg/p/images/p/howto/howto_img03_c.png",
+      "sha256": "41b8ddd502d4c67d826fee0dca930d4c5111bc54bdd184fdc7381724b6c9cf2e"
+    },
+    {
+      "file": "official-howto_img03_r.png",
+      "url": "https://eacache.s.konaminet.jp/game/bombergirl/bg/p/images/p/howto/howto_img03_r.png",
+      "sha256": "835776cf18fb5a11c8ae83a3cd58d665e9832c65e8a12ad4ebc309390495d5ee"
+    }
+  ]
+}

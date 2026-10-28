@@ -2,11 +2,14 @@
 
 Japanese arcade cabinets, collectible prizes, and village game centers for
 **Minecraft 1.21.1 / NeoForge 21.1.252**.
+
+![All 22 Japanese Arcades cabinet designs in Minecraft](art/branding/japanese-arcades-all-games.png)
+
 The mod is **Japanese Arcades**, version `0.1.0`. Its mod ID is
 `japanesearcades`. All items, blocks, resources, and configuration files use this namespace.
 This pre-release rename does not migrate IDs or configuration from older development builds.
 It registers `/japanesearcadesdev`, a small command to confirm that the mod is loaded.
-The **Japanese Arcades** creative tab includes nineteen cabinets with music-disc playback:
+The **Japanese Arcades** creative tab includes twenty-two cabinets with music-disc playback:
 
 - [Nostalgia Op.3 Arcade Cabinet](art/nostalgia-op3/README.md)
 - [BeatStream Arcade Cabinet](art/beatstream/README.md)
@@ -27,6 +30,9 @@ The **Japanese Arcades** creative tab includes nineteen cabinets with music-disc
 - [Initial D Single Racing Cabinet](art/initial_d/README.md)
 - [Jubeat Arcade Cabinet](art/jubeat/README.md)
 - [ONGEKI bright Arcade Cabinet](art/ongeki/README.md)
+- Bombergirl Arcade Cabinet
+- [GITADORA GuitarFreaks Arcade Cabinet](art/gitadora/README.md)
+- [GITADORA DrumMania Arcade Cabinet](art/gitadora/README.md)
 
 Their model notes include editable files, previews, and use instructions. All are
 three blocks high. maimai uses **two connected columns** and requires a supported,
@@ -45,7 +51,8 @@ Initial D is a **one-wide, three-deep single-player cabinet** with a usable
 seat. Its shell and controls stay within one block of width so neighboring
 units can be placed flush in a row. Right-click its seat empty-handed to sit;
 sneak to get out. Each cabinet has its own music-disc inventory.
-The other cabinets occupy one vertical column.
+GITADORA DrumMania uses a **two-wide, two-deep** supported footprint with seven
+drum/cymbal pads and two pedals. The other cabinets occupy one vertical column.
 BeatStream uses a copy of Nostalgia's chassis, with triangular illuminated speaker
 grilles, a larger sloped touchscreen, a flat white control strip, and its own cutout topper.
 Jubeat keeps its entire shell, speakers and cube topper inside one block of
@@ -70,13 +77,20 @@ reward amount. Walking away pauses the crank and resets it after five seconds
 without payment. The price and prize item icons update on the machine itself.
 
 The [Claw Machine](art/claw_machine/README.md) occupies a supported **three-wide,
-two-deep, three-tall** space. Right-click for transparent bottom controls; use
-WASD/arrows to aim and Space to drop. Shift-right-click empty-handed for operator
-access, a physical currency price, the spatial 3×3 prize grid and payout settings.
+two-deep, three-tall** space and displays **15 prizes in five columns**. The
+[Compact Claw Machine](art/compact_claw_machine/README.md), styled after SEGA's
+UFO CATCHER family, fits **two-wide, two-deep, two-tall** and displays **12 prizes
+in four columns**. Both are available from the ordering kiosk and creative tab.
+Right-click for transparent bottom controls; use WASD/arrows to aim and Space to
+drop. Shift-right-click empty-handed for operator access, a physical currency
+price, the spatial prize grid and payout settings.
 Each slot offers its whole stack. The moving claw can slip a prize into an empty
 position or carry it to the chute. Operators can set a fixed win chance or ramp
 it to a guaranteed Nth attempt; a win resets the ramp. Only a stocked Drop costs
 currency, and paid attempts finish after the player leaves.
+Existing large machines keep their stock, payments and settings when upgraded;
+the six new prize slots start empty. Static mod prizes retain their proportions
+inside the cabinet. Both claw-machine inventory icons use one-face snapshots.
 
 [Arcade Ordering Kiosk](art/arcade_kiosk/README.md) provides a survival route to the
 machines. Craft the two-block-tall kiosk with iron, glass, gold and redstone, then
@@ -157,8 +171,20 @@ their original static models and behavior.
 
 ## Start here
 
-Open this folder in VS Code. The Java and Gradle extensions are already installed.
-Use **Terminal > Run Task** for the `Japanese Arcades:` tasks, or open a terminal here:
+Install JDK 21 and clone this repository. The checked-in Gradle wrapper can build
+the mod directly; Python and Blender are only needed when regenerating artwork.
+
+```powershell
+.\gradlew.bat build
+```
+
+On Linux or macOS, use `./gradlew build` with Java 21 selected.
+The regular mod JAR is written to `build/libs/`.
+
+For the Windows development helpers, copy `dev.local.example.json` to
+`dev.local.json` and set your JDK and modpack paths. In VS Code with the Java and
+Gradle extensions installed, use **Terminal > Run Task** for the `Japanese Arcades:`
+tasks, or open a terminal here:
 
 ```powershell
 .\dev.cmd Build
@@ -172,7 +198,7 @@ Use **Terminal > Run Task** for the `Japanese Arcades:` tasks, or open a termina
 - `SyncPack` refreshes the copied mods, configs, resource packs, and pack scripts from the live pack.
 - `Prepare` downloads game assets and prepares client/server launch files.
 - `Server` launches a small dedicated server for checking server compatibility.
-- `GameTest` runs 190 cabinet, claw machine, gachapon, figure, cutout, display box, poster, ordering and Arcade Pass economy integration tests in a disposable test world and exits.
+- `GameTest` runs 238 cabinet, claw machine, gachapon, figure, cutout, display box, poster, ordering and Arcade Pass economy integration tests in a disposable test world and exits.
 - `Data` runs our data generators once we add them.
 
 The script selects Java 21 locally. Your default Java installation remains available to other projects.
@@ -383,7 +409,8 @@ The Gradle wrapper is from the official
 [NeoForge 1.21.1 ModDevGradle MDK](https://github.com/NeoForgeMDKs/MDK-1.21.1-ModDevGradle),
 commit `7819b902a351b03fe71db00754d103b5a31c4ebf`.
 Its template license is retained in `TEMPLATE_LICENSE.txt`.
-Our mod starts with the All Rights Reserved metadata setting; choose a license before publishing.
+The mod's license metadata is **All Rights Reserved**. The template license applies
+to the retained MDK template; it does not grant rights to third-party names or artwork.
 
 Setup verified on 2026-10-05: the release jar built with Java 21 bytecode; the full pack
 client loaded our mod and completed startup; the small server started on 127.0.0.1:25575,

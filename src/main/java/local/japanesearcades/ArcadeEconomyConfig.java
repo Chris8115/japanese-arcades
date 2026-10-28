@@ -43,7 +43,10 @@ public final class ArcadeEconomyConfig {
                 "SOUND VOLTEX NEMSYS uses its own machine ID: japanesearcades:sound_voltex_nemsys|10|standard",
                 "beatmania IIDX LIGHTNING MODEL uses its own machine ID: japanesearcades:beatmania_iidx_lightning|10|standard",
                 "MUSIC DIVER uses its own machine ID: japanesearcades:music_diver|10|standard",
-                "pop'n music uses its own machine ID: japanesearcades:popn_music|10|standard")
+                "pop'n music uses its own machine ID: japanesearcades:popn_music|10|standard",
+                "Bombergirl uses its own machine ID: japanesearcades:bombergirl|10|standard",
+                "GITADORA GuitarFreaks uses its own machine ID: japanesearcades:gitadora_guitarfreaks|10|standard",
+                "GITADORA DrumMania uses its own machine ID: japanesearcades:gitadora_drummania|10|standard")
             .defineListAllowEmpty("machineOverrides", List.of(), ArcadeEconomyConfig::validMachine);
         builder.pop().comment("Prize Point costs; ordinary material recipes are intentionally absent.").push("prizes");
         PRICES.put("hatsune_miku_figure", builder.defineInRange("hatsune_miku_figure", 2500, 1, 1_000_000));
@@ -52,6 +55,7 @@ public final class ArcadeEconomyConfig {
         PRICES.put("kasane_teto_cutout", builder.defineInRange("kasane_teto_cutout", 1500, 1, 1_000_000));
         PRICES.put("kagamine_rin_cutout", builder.defineInRange("kagamine_rin_cutout", 1500, 1, 1_000_000));
         PRICES.put("kagamine_len_cutout", builder.defineInRange("kagamine_len_cutout", 1500, 1, 1_000_000));
+        PRICES.put("sleeping_fox_plush", builder.defineInRange("sleeping_fox_plush", 2000, 1, 1_000_000));
         PRICES.put("wacca_poster", builder.defineInRange("wacca_poster", 750, 1, 1_000_000));
         for (var poster : JapaneseArcades.ARCADE_POSTERS) {
             PRICES.put(poster.path(), builder.defineInRange(poster.path(), 750, 1, 1_000_000));

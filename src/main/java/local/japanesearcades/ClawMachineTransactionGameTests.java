@@ -67,7 +67,7 @@ public final class ClawMachineTransactionGameTests {
         helper.assertTrue(machine.setPassword(owner, "1234"), "Could not configure operator PIN");
         helper.assertTrue(machine.acquireOperator(owner) && machine.setWinSettings(owner, chance, guarantee), "Could not configure win odds");
         machine.operatorInventory().setItem(0, price(3));
-        machine.operatorInventory().setItem(5, prize(17));
+        machine.operatorInventory().setItem(centerStockSlot(machine), prize(17));
         machine.releaseOperator(owner);
         owner.getInventory().clearContent(); owner.getInventory().setItem(0, price(12));
         return machine;
@@ -84,8 +84,13 @@ public final class ClawMachineTransactionGameTests {
     }
     private static int stock(ClawMachineBlockEntity machine) {
         int result = 0;
-        for (int slot = 1; slot < 10; slot++) { result += machine.operatorInventory().getItem(slot).getCount(); }
+        for (int slot = 0; slot < machine.layout().rewardCount(); slot++) {
+            result += machine.operatorInventory().getItem(machine.layout().rewardSlot(slot)).getCount();
+        }
         return result;
+    }
+    private static int centerStockSlot(ClawMachineBlockEntity machine) {
+        return machine.layout().rewardSlot(machine.layout().selectedSlot(.5F, .5F));
     }
     private static int drops(GameTestHelper helper, Item item) {
         return helper.getEntities(EntityType.ITEM, BASE, 5).stream().filter(value -> value.getItem().is(item)).mapToInt(value -> value.getItem().getCount()).sum();
@@ -162,10 +167,10 @@ public final class ClawMachineTransactionGameTests {
     public static void clawEmptyTargetWrongComponentsAndFullCashboxNeverCharge(GameTestHelper helper) {
         ServerPlayer owner = createPlayer(helper, "ClawPayment", GameType.SURVIVAL);
         var machine = configure(helper, owner, 0, 0);
-        machine.operatorInventory().setItem(1, machine.operatorInventory().removeItemNoUpdate(5));
+        machine.operatorInventory().setItem(1, machine.operatorInventory().removeItemNoUpdate(centerStockSlot(machine)));
         helper.assertTrue(machine.startSession(owner) && !machine.drop(owner), "Empty target should reject Drop without charge");
         helper.assertTrue(paid(machine) == 0 && owner.getInventory().getItem(0).getCount() == 12, "Empty target charged currency");
-        machine.operatorInventory().setItem(5, machine.operatorInventory().removeItemNoUpdate(1));
+        machine.operatorInventory().setItem(centerStockSlot(machine), machine.operatorInventory().removeItemNoUpdate(1));
         helper.assertTrue(machine.startSession(owner), "Stock edit did not invalidate previous aim");
         owner.getInventory().setItem(0, new ItemStack(Items.EMERALD, 64));
         helper.assertFalse(machine.drop(owner), "Currency with the wrong components was accepted");
@@ -188,13 +193,14 @@ public final class ClawMachineTransactionGameTests {
         var machine = configure(helper, owner, 0, 2);
         helper.assertTrue(machine.getCurrentWinChance() == 0 && machine.startSession(owner) && machine.drop(owner), "First guaranteed-loss play did not start");
         ticks(machine, 180);
-        helper.assertTrue(stock(machine) == 17 && machine.operatorInventory().getItem(5).isEmpty()
+        helper.assertTrue(stock(machine) == 17 && machine.operatorInventory().getItem(centerStockSlot(machine)).isEmpty()
             && drops(helper, Items.DIAMOND) == 0 && machine.getPlaysSinceWin() == 1 && machine.getCurrentWinChance() == 100,
             "Loss did not relocate the stack or advance to the guaranteed second play");
-        for (int slot = 1; slot < 10; slot++) {
-            if (!machine.operatorInventory().getItem(slot).isEmpty()) {
-                helper.assertTrue(ItemStack.matches(machine.operatorInventory().getItem(slot), prize(17)), "Slipping changed the prize contents");
-                machine.operatorInventory().setItem(5, machine.operatorInventory().removeItemNoUpdate(slot));
+        for (int slot = 0; slot < machine.layout().rewardCount(); slot++) {
+            int physical = machine.layout().rewardSlot(slot);
+            if (!machine.operatorInventory().getItem(physical).isEmpty()) {
+                helper.assertTrue(ItemStack.matches(machine.operatorInventory().getItem(physical), prize(17)), "Slipping changed the prize contents");
+                machine.operatorInventory().setItem(centerStockSlot(machine), machine.operatorInventory().removeItemNoUpdate(physical));
                 break;
             }
         }

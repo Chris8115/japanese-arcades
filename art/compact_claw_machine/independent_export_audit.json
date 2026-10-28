@@ -1,0 +1,245 @@
+{
+  "large_texture_hashes_unchanged": {
+    "src\\main\\resources\\assets\\japanesearcades\\textures\\block\\claw_machine_controls.png": "f953c78d2e133c73ad905b6bc77cfe47197fcc7b7e9604a1fc748865f3a7a0a3",
+    "src\\main\\resources\\assets\\japanesearcades\\textures\\block\\claw_machine_glass.png": "c9e1f1041f487a441c18721b65a23d857478ae07bb0753e217be3bcf5f687a4d",
+    "src\\main\\resources\\assets\\japanesearcades\\textures\\block\\claw_machine_materials.png": "ef77af43ba6bdf280d80c6f77a0bb7fd254e278c5f8c1d340d9892e429245408",
+    "src\\main\\resources\\assets\\japanesearcades\\textures\\block\\claw_machine_prize_out.png": "b761eddde0b1406dc9992deacf5d9545867e1da670b829bbb3c35f0a26b09eb2",
+    "src\\main\\resources\\assets\\japanesearcades\\textures\\block\\claw_machine_sign.png": "c33e8b0292e35ab3b06c1b0b217378362ab8f4d693f21aacace0cdb32ffb74fa"
+  },
+  "files": {
+    "src\\main\\resources\\assets\\japanesearcades\\models\\block\\compact_claw_machine_0.obj": {
+      "faces": 298,
+      "triangles": 562,
+      "vertices": 430,
+      "bounds_blocks": [
+        [
+          0.03625,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.00875,
+          1.0
+        ]
+      ],
+      "max_planarity_error": 1.1419118236046172e-09,
+      "minimum_face_area": 2.9347647070809056e-05,
+      "sha256": "c3103bc762a83f222411132bfed25ee70d9102c19edcb5b06d5f44b2c869c3d4"
+    },
+    "src\\main\\resources\\assets\\japanesearcades\\models\\block\\compact_claw_machine_1.obj": {
+      "faces": 385,
+      "triangles": 718,
+      "vertices": 535,
+      "bounds_blocks": [
+        [
+          0.0,
+          0.96375
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.00875,
+          1.0
+        ]
+      ],
+      "max_planarity_error": 3.4421104139308555e-10,
+      "minimum_face_area": 8.865527648912363e-05,
+      "sha256": "e08ad677e77f72ac0cfe63e0619b47f02f4c1c56958d0906f4ec0251ad0c1b96"
+    },
+    "src\\main\\resources\\assets\\japanesearcades\\models\\block\\compact_claw_machine_2.obj": {
+      "faces": 109,
+      "triangles": 218,
+      "vertices": 194,
+      "bounds_blocks": [
+        [
+          0.03625,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.95125
+        ]
+      ],
+      "max_planarity_error": 3.690797376115968e-11,
+      "minimum_face_area": 0.0001112304689062503,
+      "sha256": "fe507efaf6a3905aac335c5c4e1a40cb550028ab9c3889b6ce7929cf077c015d"
+    },
+    "src\\main\\resources\\assets\\japanesearcades\\models\\block\\compact_claw_machine_3.obj": {
+      "faces": 109,
+      "triangles": 218,
+      "vertices": 194,
+      "bounds_blocks": [
+        [
+          0.0,
+          0.96375
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.95125
+        ]
+      ],
+      "max_planarity_error": 3.69079803087852e-11,
+      "minimum_face_area": 0.00011123046890624992,
+      "sha256": "497531f831cf8d34126addc9f0c53c5234df9332b05f6c7e91e7688be3462e40"
+    },
+    "src\\main\\resources\\assets\\japanesearcades\\models\\block\\compact_claw_machine_4.obj": {
+      "faces": 130,
+      "triangles": 195,
+      "vertices": 155,
+      "bounds_blocks": [
+        [
+          0.01625,
+          1.0
+        ],
+        [
+          0.0,
+          0.99875
+        ],
+        [
+          0.0284375,
+          1.0
+        ]
+      ],
+      "max_planarity_error": 0.0,
+      "minimum_face_area": 2.4386290094824878e-05,
+      "sha256": "f4f7cde7ba08c8ad5d21b4a3b30d1be89503cda7669d8ab8f2562f0ef663541d"
+    },
+    "src\\main\\resources\\assets\\japanesearcades\\models\\block\\compact_claw_machine_5.obj": {
+      "faces": 130,
+      "triangles": 195,
+      "vertices": 155,
+      "bounds_blocks": [
+        [
+          0.0,
+          0.98375
+        ],
+        [
+          0.0,
+          0.99875
+        ],
+        [
+          0.0284375,
+          1.0
+        ]
+      ],
+      "max_planarity_error": 0.0,
+      "minimum_face_area": 2.438629009482486e-05,
+      "sha256": "c09f44a92a1367d98d1c624e00e5ffdcc0b9d59527bfdd74ebcf970a4084ca8e"
+    },
+    "src\\main\\resources\\assets\\japanesearcades\\models\\block\\compact_claw_machine_6.obj": {
+      "faces": 63,
+      "triangles": 113,
+      "vertices": 122,
+      "bounds_blocks": [
+        [
+          0.024375,
+          1.0
+        ],
+        [
+          0.0,
+          0.998125
+        ],
+        [
+          0.0,
+          0.953125
+        ]
+      ],
+      "max_planarity_error": 2.42863303605749e-18,
+      "minimum_face_area": 0.00022499999999999983,
+      "sha256": "61c8c2ac1ca8dbccd0fb3b7b69a90307879accf1a543bf0f21ba22ca9a015c00"
+    },
+    "src\\main\\resources\\assets\\japanesearcades\\models\\block\\compact_claw_machine_7.obj": {
+      "faces": 63,
+      "triangles": 113,
+      "vertices": 122,
+      "bounds_blocks": [
+        [
+          0.0,
+          0.975625
+        ],
+        [
+          0.0,
+          0.998125
+        ],
+        [
+          0.0,
+          0.953125
+        ]
+      ],
+      "max_planarity_error": 1.2143165624274199e-18,
+      "minimum_face_area": 0.00022499999999999983,
+      "sha256": "2dac1fbb56c26b3f626c9a9fe9b16bd884ba0801750adf2a30202ebc8d8ec12c"
+    },
+    "src\\main\\resources\\assets\\japanesearcades\\models\\item\\compact_claw_machine.obj": {
+      "faces": 1161,
+      "triangles": 2092,
+      "vertices": 1465,
+      "bounds_blocks": [
+        [
+          0.0769875,
+          0.9230125
+        ],
+        [
+          0.03125,
+          0.8907125
+        ],
+        [
+          0.0737625,
+          0.90984375
+        ]
+      ],
+      "max_planarity_error": 9.79255188039733e-10,
+      "minimum_face_area": 4.509025021916442e-06,
+      "sha256": "16937a17b1075c97c8d61262df9b6d5a23c68cae054bf761094bc5eab3f424f8"
+    }
+  },
+  "checks": [
+    "Every exported compact OBJ face nondegenerate and planar",
+    "Every UV normalized and finite",
+    "Each compact part stays inside its own block",
+    "Large original texture hashes remain byte-identical",
+    "Compact full hardware count <2000; large <10000"
+  ],
+  "large": {
+    "section_faces": {
+      "claw_machine_0.json": 94,
+      "claw_machine_1.json": 100,
+      "claw_machine_10.json": 108,
+      "claw_machine_11.json": 104,
+      "claw_machine_12.json": 76,
+      "claw_machine_13.json": 44,
+      "claw_machine_14.json": 76,
+      "claw_machine_15.json": 82,
+      "claw_machine_16.json": 56,
+      "claw_machine_17.json": 82,
+      "claw_machine_2.json": 112,
+      "claw_machine_3.json": 34,
+      "claw_machine_4.json": 10,
+      "claw_machine_5.json": 34,
+      "claw_machine_6.json": 122,
+      "claw_machine_7.json": 150,
+      "claw_machine_8.json": 188,
+      "claw_machine_9.json": 104
+    },
+    "placed_static_faces": 1576,
+    "moving_rig_faces": 90,
+    "complete_with_rig_faces": 1666,
+    "item_faces": 810,
+    "slots": 15,
+    "active_selection_faces": 24,
+    "active_cabinet_only_faces": 1690
+  }
+}

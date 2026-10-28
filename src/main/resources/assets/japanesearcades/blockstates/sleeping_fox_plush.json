@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=north,part=0": {
+      "model": "japanesearcades:block/sleeping_fox_plush_part0"
+    },
+    "facing=north,part=1": {
+      "model": "japanesearcades:block/sleeping_fox_plush_part1"
+    },
+    "facing=north,part=2": {
+      "model": "japanesearcades:block/sleeping_fox_plush_part2"
+    },
+    "facing=north,part=3": {
+      "model": "japanesearcades:block/sleeping_fox_plush_part3"
+    },
+    "facing=east,part=0": {
+      "model": "japanesearcades:block/sleeping_fox_plush_part0",
+      "y": 90
+    },
+    "facing=east,part=1": {
+      "model": "japanesearcades:block/sleeping_fox_plush_part1",
+      "y": 90
+    },
+    "facing=east,part=2": {
+      "model": "japanesearcades:block/sleeping_fox_plush_part2",
+      "y": 90
+    },
+    "facing=east,part=3": {
+      "model": "japanesearcades:block/sleeping_fox_plush_part3",
+      "y": 90
+    },
+    "facing=south,part=0": {
+      "model": "japanesearcades:block/sleeping_fox_plush_part0",
+      "y": 180
+    },
+    "facing=south,part=1": {
+      "model": "japanesearcades:block/sleeping_fox_plush_part1",
+      "y": 180
+    },
+    "facing=south,part=2": {
+      "model": "japanesearcades:block/sleeping_fox_plush_part2",
+      "y": 180
+    },
+    "facing=south,part=3": {
+      "model": "japanesearcades:block/sleeping_fox_plush_part3",
+      "y": 180
+    },
+    "facing=west,part=0": {
+      "model": "japanesearcades:block/sleeping_fox_plush_part0",
+      "y": 270
+    },
+    "facing=west,part=1": {
+      "model": "japanesearcades:block/sleeping_fox_plush_part1",
+      "y": 270
+    },
+    "facing=west,part=2": {
+      "model": "japanesearcades:block/sleeping_fox_plush_part2",
+      "y": 270
+    },
+    "facing=west,part=3": {
+      "model": "japanesearcades:block/sleeping_fox_plush_part3",
+      "y": 270
+    }
+  }
+}

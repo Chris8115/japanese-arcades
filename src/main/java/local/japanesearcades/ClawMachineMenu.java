@@ -29,6 +29,7 @@ public final class ClawMachineMenu extends AbstractContainerMenu {
     private final boolean operator, authenticated;
     private final int passwordRevision;
     private final ContainerData data;
+    private final ClawMachineLayout layout;
 
     public ClawMachineMenu(int id, Inventory inventory, RegistryFriendlyByteBuf buffer) {
         this(JapaneseArcades.CLAW_MACHINE_MENU.get(), id, inventory, buffer);
@@ -45,18 +46,20 @@ public final class ClawMachineMenu extends AbstractContainerMenu {
         operator = buffer.readBoolean();
         boolean changePassword = buffer.readBoolean();
         sessionId = buffer.readUUID();
+        layout = buffer.readEnum(ClawMachineLayout.class);
         viewer = inventory.player.getUUID();
         authenticated = false;
         passwordRevision = 0;
         data = new SimpleContainerData(DATA_COUNT);
         data.set(0, changePassword ? 1 : 0);
-        addSlots(new SimpleContainer(ClawMachineBlockEntity.INVENTORY_SIZE), inventory);
+        addSlots(new SimpleContainer(layout.inventorySize()), inventory);
         addDataSlots(data);
     }
 
     ClawMachineMenu(int id, Inventory inventory, ClawMachineBlockEntity machine, boolean operator, boolean authenticated) {
         super(operator ? JapaneseArcades.CLAW_MACHINE_MENU.get() : JapaneseArcades.CLAW_MACHINE_PLAY_MENU.get(), id);
         this.machine = machine;
+        this.layout = machine.layout();
         this.blockPos = machine.getBlockPos();
         this.operator = operator;
         this.authenticated = authenticated;
@@ -82,7 +85,7 @@ public final class ClawMachineMenu extends AbstractContainerMenu {
         };
         if (operator) addSlots(machine.operatorInventory(), inventory);
         else {
-            var price = new SimpleContainer(ClawMachineBlockEntity.INVENTORY_SIZE);
+            var price = new SimpleContainer(layout.inventorySize());
             price.setItem(ClawMachineBlockEntity.PRICE_SLOT, machine.getPrice().copy());
             addSlots(price, inventory);
         }
@@ -95,7 +98,7 @@ public final class ClawMachineMenu extends AbstractContainerMenu {
         if (session == null) return false;
         var opened = player.openMenu(new SimpleMenuProvider((id, inv, viewer) ->
             new ClawMachineMenu(id, inv, machine, false, false), Component.translatable("claw.gui.play_title")),
-            buffer -> { buffer.writeBlockPos(machine.getBlockPos()); buffer.writeBoolean(false); buffer.writeBoolean(false); buffer.writeUUID(session); });
+            buffer -> { buffer.writeBlockPos(machine.getBlockPos()); buffer.writeBoolean(false); buffer.writeBoolean(false); buffer.writeUUID(session); buffer.writeEnum(machine.layout()); });
         if (opened.isEmpty()) { machine.cancelSession(player); return false; }
         return true;
     }
@@ -105,7 +108,7 @@ public final class ClawMachineMenu extends AbstractContainerMenu {
             || !machine.acquireOperator(player)) return false;
         var opened = player.openMenu(new SimpleMenuProvider((id, inv, viewer) ->
             new ClawMachineMenu(id, inv, machine, true, authenticated), Component.translatable("claw.gui.operator_title")),
-            buffer -> { buffer.writeBlockPos(machine.getBlockPos()); buffer.writeBoolean(true); buffer.writeBoolean(machine.isOwnerOrCreative(player)); buffer.writeUUID(NO_SESSION); });
+            buffer -> { buffer.writeBlockPos(machine.getBlockPos()); buffer.writeBoolean(true); buffer.writeBoolean(machine.isOwnerOrCreative(player)); buffer.writeUUID(NO_SESSION); buffer.writeEnum(machine.layout()); });
         if (opened.isEmpty()) { machine.releaseOperator(player); return false; }
         return true;
     }
@@ -117,18 +120,22 @@ public final class ClawMachineMenu extends AbstractContainerMenu {
             @Override public boolean mayPickup(Player player) { return operator && stillValid(player); }
         });
         if (!operator) return;
+        for (int row = 0; row < layout.rows(); row++) for (int column = 0; column < layout.columns(); column++)
+            addSlot(new Slot(contents, layout.rewardSlot(row * layout.columns() + column), rewardGridX() + column * 18, rewardGridY() + row * 18));
         for (int row = 0; row < 3; row++) for (int column = 0; column < 3; column++)
-            addSlot(new Slot(contents, ClawMachineBlockEntity.REWARD_START + row * 3 + column, 85 + column * 18, 32 + row * 18));
-        for (int row = 0; row < 3; row++) for (int column = 0; column < 3; column++)
-            addSlot(new Slot(contents, ClawMachineBlockEntity.PAYMENT_START + row * 3 + column, 175 + column * 18, 32 + row * 18) {
+            addSlot(new Slot(contents, ClawMachineBlockEntity.PAYMENT_START + row * 3 + column, paymentGridX() + column * 18, 32 + row * 18) {
                 @Override public boolean mayPlace(ItemStack stack) { return false; }
             });
         for (int row = 0; row < 3; row++) for (int column = 0; column < 9; column++)
-            addSlot(new Slot(inventory, 9 + row * 9 + column, 44 + column * 18, 162 + row * 18));
-        for (int column = 0; column < 9; column++) addSlot(new Slot(inventory, column, 44 + column * 18, 220));
+            addSlot(new Slot(inventory, 9 + row * 9 + column, 54 + column * 18, 162 + row * 18));
+        for (int column = 0; column < 9; column++) addSlot(new Slot(inventory, column, 54 + column * 18, 220));
     }
 
     public boolean isOperator() { return operator; }
+    public ClawMachineLayout layout() { return layout; }
+    public int rewardGridX() { return 76; }
+    public int rewardGridY() { return 32; }
+    public int paymentGridX() { return 201; }
     public BlockPos getBlockPos() { return blockPos; }
     public UUID getSessionId() { return sessionId; }
     public ItemStack getPrice() { return getSlot(0).getItem(); }
@@ -181,9 +188,9 @@ public final class ClawMachineMenu extends AbstractContainerMenu {
         Slot slot = slots.get(index);
         if (!slot.hasItem()) return ItemStack.EMPTY;
         ItemStack original = slot.getItem(), copy = original.copy();
-        if (index < ClawMachineBlockEntity.INVENTORY_SIZE) {
-            if (!moveItemStackTo(original, ClawMachineBlockEntity.INVENTORY_SIZE, slots.size(), true)) return ItemStack.EMPTY;
-        } else if (!moveItemStackTo(original, ClawMachineBlockEntity.REWARD_START, ClawMachineBlockEntity.PAYMENT_START, false)) return ItemStack.EMPTY;
+        if (index < layout.inventorySize()) {
+            if (!moveItemStackTo(original, layout.inventorySize(), slots.size(), true)) return ItemStack.EMPTY;
+        } else if (!moveItemStackTo(original, 1, 1 + layout.rewardCount(), false)) return ItemStack.EMPTY;
         if (original.isEmpty()) slot.setByPlayer(ItemStack.EMPTY); else slot.setChanged();
         slot.onTake(player, original);
         return copy;

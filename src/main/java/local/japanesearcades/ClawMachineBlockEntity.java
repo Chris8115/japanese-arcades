@@ -41,7 +41,10 @@ public final class ClawMachineBlockEntity extends BlockEntity {
     public static final int PRICE_SLOT = 0;
     public static final int REWARD_START = 1;
     public static final int PAYMENT_START = 10;
+    public static final int PAYMENT_COUNT = 9;
+    /** Legacy physical storage size, retained for callers addressing the unchanged cashbox. */
     public static final int INVENTORY_SIZE = 19;
+    private static final int REWARD_LAYOUT_VERSION = 2;
     public static final int SESSION_TIMEOUT = 1200;
     public static final int HEARTBEAT_TIMEOUT = 60;
     public static final float CHUTE_X = 1;
@@ -49,10 +52,9 @@ public final class ClawMachineBlockEntity extends BlockEntity {
     public enum Phase { IDLE, AIMING, DESCENDING, GRABBING, RAISING, RETURNING, SLIPPING, DELIVERING }
 
     private static final SecureRandom PASSWORD_RANDOM = new SecureRandom();
-    private final SimpleContainer inventory = new SimpleContainer(INVENTORY_SIZE) {
-        @Override public void setChanged() { super.setChanged(); inventoryChanged(); }
-    };
-    private final ItemStack[] publicRewards = new ItemStack[9];
+    private final ClawMachineLayout layout;
+    private final SimpleContainer inventory;
+    private final ItemStack[] publicRewards;
     private final Map<UUID, Attempt> attempts = new HashMap<>();
     @Nullable private UUID owner;
     private byte[] passwordSalt = new byte[0], passwordHash = new byte[0];
@@ -79,8 +81,15 @@ public final class ClawMachineBlockEntity extends BlockEntity {
 
     public ClawMachineBlockEntity(BlockPos pos, BlockState state) {
         super(JapaneseArcades.CLAW_MACHINE_ENTITY.get(), pos, state);
+        layout = ClawMachineBlock.layout(state);
+        inventory = new SimpleContainer(layout.inventorySize()) {
+            @Override public void setChanged() { super.setChanged(); inventoryChanged(); }
+        };
+        publicRewards = new ItemStack[layout.rewardCount()];
+        publicX = layout.chuteAimX(); publicZ = layout.chuteAimZ();
         Arrays.fill(publicRewards, ItemStack.EMPTY);
     }
+    public ClawMachineLayout layout() { return layout; }
 
     public void assignOwner(ServerPlayer player) {
         if (owner == null) { owner = player.getUUID(); setChanged(); }
@@ -108,13 +117,8 @@ public final class ClawMachineBlockEntity extends BlockEntity {
         if (level == null || isRemoved() || inventoryDrained || player.level() != level || !player.isAlive()
             || player.isSpectator() || level.getBlockEntity(worldPosition) != this) { return false; }
         Direction facing = getBlockState().getValue(ClawMachineBlock.FACING);
-        for (int y = 0; y < 3; y++) {
-            for (int z = 0; z < 2; z++) {
-                for (int x = 0; x < 3; x++) {
-                    BlockPos part = BlockPos.containing(ClawMachineBlock.localToWorld(worldPosition, facing, x * 16 + 8, y * 16 + 8, z * 16 + 8));
-                    if (player.canInteractWithBlock(part, 0)) { return true; }
-                }
-            }
+        for (int part = 0; part < layout.partCount(); part++) {
+            if (player.canInteractWithBlock(layout.partPosition(worldPosition, facing, part), 0)) { return true; }
         }
         return false;
     }
@@ -205,13 +209,13 @@ public final class ClawMachineBlockEntity extends BlockEntity {
     public void cancelSession(Player player) {
         if (phase == Phase.AIMING && hasSession(player)) { finishSession(); }
     }
-    public int getSelectedSlot() { return (2 - Math.round(aimZ * 2)) * 3 + (2 - Math.round(aimX * 2)); }
+    public int getSelectedSlot() { return layout.selectedSlot(aimX, aimZ); }
 
     /** No callbacks run between validating payment, reserving stock and writing the committed state. */
     public boolean drop(ServerPlayer player) {
         if (phase != Phase.AIMING || !hasSession(player) || !canReach(player)) { return false; }
         int selected = getSelectedSlot();
-        if (inventory.getItem(REWARD_START + selected).isEmpty()) { tell(player, "empty_cell"); return false; }
+        if (inventory.getItem(layout.rewardSlot(selected)).isEmpty()) { tell(player, "empty_cell"); return false; }
         ItemStack price = inventory.getItem(PRICE_SLOT).copy();
         if (price.isEmpty()) { tell(player, "no_price"); return false; }
         if (currencyCount(player, price) < price.getCount()) { tell(player, "insufficient_currency"); return false; }
@@ -227,12 +231,12 @@ public final class ClawMachineBlockEntity extends BlockEntity {
                     int count = Math.min(remaining, stack.getCount()); stack.shrink(count); remaining -= count;
                 }
             }
-            for (int slot = 0; slot < 9; slot++) { inventory.setItem(PAYMENT_START + slot, deposited.get(slot)); }
+            for (int slot = 0; slot < PAYMENT_COUNT; slot++) { inventory.setItem(PAYMENT_START + slot, deposited.get(slot)); }
             sourceSlot = selected;
-            held = inventory.removeItemNoUpdate(REWARD_START + selected);
+            held = inventory.removeItemNoUpdate(layout.rewardSlot(selected));
             plannedWin = level.random.nextFloat() * 100 < chance;
             playsSinceWin = Math.min(1_000_000, playsSinceWin + 1);
-            targetX = slotX(selected); targetZ = slotZ(selected);
+            targetX = layout.slotX(selected); targetZ = layout.slotZ(selected);
             planSlip();
             nextDeliveryAttempt = 0;
             phase = Phase.DESCENDING; phaseTicks = 0;
@@ -245,13 +249,13 @@ public final class ClawMachineBlockEntity extends BlockEntity {
 
     private void planSlip() {
         slipSlot = sourceSlot; slipReturnTick = 2;
-        float dx = CHUTE_X - targetX, dz = CHUTE_Z - targetZ, lengthSquared = dx * dx + dz * dz;
+        float dx = layout.chuteAimX() - targetX, dz = layout.chuteAimZ() - targetZ, lengthSquared = dx * dx + dz * dz;
         float best = Float.MAX_VALUE;
-        for (int slot = 0; slot < 9; slot++) {
-            if (slot == sourceSlot || !inventory.getItem(REWARD_START + slot).isEmpty()) { continue; }
-            float progress = ((slotX(slot) - targetX) * dx + (slotZ(slot) - targetZ) * dz) / lengthSquared;
+        for (int slot = 0; slot < layout.rewardCount(); slot++) {
+            if (slot == sourceSlot || !inventory.getItem(layout.rewardSlot(slot)).isEmpty()) { continue; }
+            float progress = ((layout.slotX(slot) - targetX) * dx + (layout.slotZ(slot) - targetZ) * dz) / lengthSquared;
             if (progress <= .1F || progress >= .95F) { continue; }
-            float offsetX = targetX + dx * progress - slotX(slot), offsetZ = targetZ + dz * progress - slotZ(slot);
+            float offsetX = targetX + dx * progress - layout.slotX(slot), offsetZ = targetZ + dz * progress - layout.slotZ(slot);
             float distance = offsetX * offsetX + offsetZ * offsetZ;
             if (distance <= .07F && distance < best) {
                 best = distance; slipSlot = slot;
@@ -260,7 +264,7 @@ public final class ClawMachineBlockEntity extends BlockEntity {
         }
     }
     private boolean hasRewards() {
-        for (int slot = REWARD_START; slot < PAYMENT_START; slot++) { if (!inventory.getItem(slot).isEmpty()) { return true; } }
+        for (int slot = 0; slot < layout.rewardCount(); slot++) { if (!inventory.getItem(layout.rewardSlot(slot)).isEmpty()) { return true; } }
         return false;
     }
     private static boolean currencySlot(int slot) { return slot < 36 || slot == 40; }
@@ -273,8 +277,8 @@ public final class ClawMachineBlockEntity extends BlockEntity {
         return count;
     }
     @Nullable private List<ItemStack> simulateDeposit(ItemStack price) {
-        List<ItemStack> result = new ArrayList<>(9);
-        for (int slot = PAYMENT_START; slot < INVENTORY_SIZE; slot++) { result.add(inventory.getItem(slot).copy()); }
+        List<ItemStack> result = new ArrayList<>(PAYMENT_COUNT);
+        for (int slot = PAYMENT_START; slot < PAYMENT_START + PAYMENT_COUNT; slot++) { result.add(inventory.getItem(slot).copy()); }
         int remaining = price.getCount();
         for (int pass = 0; pass < 2; pass++) {
             for (int slot = 0; slot < result.size() && remaining > 0; slot++) {
@@ -340,15 +344,15 @@ public final class ClawMachineBlockEntity extends BlockEntity {
 
     private void restoreSlippedPrize() {
         int destination = slipSlot;
-        if (destination < 0 || !inventory.getItem(REWARD_START + destination).isEmpty()) { destination = sourceSlot; }
-        if (destination < 0 || !inventory.getItem(REWARD_START + destination).isEmpty()) {
+        if (destination < 0 || !inventory.getItem(layout.rewardSlot(destination)).isEmpty()) { destination = sourceSlot; }
+        if (destination < 0 || !inventory.getItem(layout.rewardSlot(destination)).isEmpty()) {
             // Only external inventory tampering can fill the reserved source. Keep the prize until room exists.
             destination = -1;
-            for (int slot = 0; slot < 9; slot++) { if (inventory.getItem(REWARD_START + slot).isEmpty()) { destination = slot; break; } }
+            for (int slot = 0; slot < layout.rewardCount(); slot++) { if (inventory.getItem(layout.rewardSlot(slot)).isEmpty()) { destination = slot; break; } }
             if (destination < 0) { phaseTicks = phaseDuration(Phase.SLIPPING); return; }
         }
         suppressUpdates = true;
-        try { inventory.setItem(REWARD_START + destination, held); held = ItemStack.EMPTY; }
+        try { inventory.setItem(layout.rewardSlot(destination), held); held = ItemStack.EMPTY; }
         finally { suppressUpdates = false; }
         phase = Phase.RETURNING; phaseTicks = slipReturnTick;
         setChanged(); sendPublicUpdate();
@@ -377,7 +381,8 @@ public final class ClawMachineBlockEntity extends BlockEntity {
 
     private Vec3 chutePosition() {
         // Clear the front collider by more than the dropped item's 1/8-block half-width.
-        return ClawMachineBlock.localToWorld(worldPosition, getBlockState().getValue(ClawMachineBlock.FACING), 40, 7, -4);
+        return ClawMachineBlock.localToWorld(worldPosition, getBlockState().getValue(ClawMachineBlock.FACING),
+            layout.chuteX(), layout.chuteY(), layout.chuteZ());
     }
     private void setPhase(Phase value) { phase = value; phaseTicks = 0; setChanged(); sendPublicUpdate(); }
     private void finishSession() {
@@ -398,6 +403,7 @@ public final class ClawMachineBlockEntity extends BlockEntity {
     }
     private float progress() { return Math.clamp(phaseTicks / (float)Math.max(1, phaseDuration(phase)), 0, 1); }
     private static float lerp(float from, float to, float progress) { return from + (to - from) * progress; }
+    /** Legacy three-column coordinates. New rendering and gameplay must use layout(). */
     public static float slotX(int slot) { return (2 - slot % 3) * .5F; }
     public static float slotZ(int slot) { return (2 - slot / 3) * .5F; }
     private boolean client() { return level != null && level.isClientSide; }
@@ -406,9 +412,9 @@ public final class ClawMachineBlockEntity extends BlockEntity {
         return switch (phase) {
             case AIMING -> aimX;
             case DESCENDING, GRABBING, RAISING -> targetX;
-            case RETURNING -> lerp(targetX, CHUTE_X, progress());
+            case RETURNING -> lerp(targetX, layout.chuteAimX(), progress());
             case SLIPPING -> slipStartX;
-            default -> CHUTE_X;
+            default -> layout.chuteAimX();
         };
     }
     public float getClawZ() {
@@ -416,9 +422,9 @@ public final class ClawMachineBlockEntity extends BlockEntity {
         return switch (phase) {
             case AIMING -> aimZ;
             case DESCENDING, GRABBING, RAISING -> targetZ;
-            case RETURNING -> lerp(targetZ, CHUTE_Z, progress());
+            case RETURNING -> lerp(targetZ, layout.chuteAimZ(), progress());
             case SLIPPING -> slipStartZ;
-            default -> CHUTE_Z;
+            default -> layout.chuteAimZ();
         };
     }
     public float getClawY() {
@@ -435,31 +441,35 @@ public final class ClawMachineBlockEntity extends BlockEntity {
             default -> 0;
         };
     }
-    public float getHeldX() { return client() ? publicHeldX : phase == Phase.SLIPPING ? lerp(slipStartX, slotX(slipSlot), progress()) : getClawX(); }
-    public float getHeldZ() { return client() ? publicHeldZ : phase == Phase.SLIPPING ? lerp(slipStartZ, slotZ(slipSlot), progress()) : getClawZ(); }
+    public float getHeldX() { return client() ? publicHeldX : phase == Phase.SLIPPING ? lerp(slipStartX, layout.slotX(slipSlot), progress()) : getClawX(); }
+    public float getHeldZ() { return client() ? publicHeldZ : phase == Phase.SLIPPING ? lerp(slipStartZ, layout.slotZ(slipSlot), progress()) : getClawZ(); }
     public float getHeldY() {
         if (client()) { return publicHeldY; }
-        return phase == Phase.SLIPPING ? progress() : phase == Phase.DELIVERING ? progress() * 1.78125F : getClawY();
+        return phase == Phase.SLIPPING ? progress() : phase == Phase.DELIVERING ? progress() * layout.deliveryProgress() : getClawY();
     }
-    public ItemStack getPrice() { return (client() ? publicPrice : inventory.getItem(PRICE_SLOT)).copy(); }
-    public ItemStack getRewardDisplay(int slot) {
-        if (slot < 0 || slot >= 9) { return ItemStack.EMPTY; }
-        if (client()) { return publicRewards[slot].copy(); }
-        if (phase == Phase.DESCENDING && slot == sourceSlot) { return held.copy(); }
-        return inventory.getItem(REWARD_START + slot).copy();
+    public ItemStack getPrice() { return priceDisplayReference().copy(); }
+    public ItemStack getRewardDisplay(int slot) { return rewardDisplayReference(slot).copy(); }
+    public ItemStack getHeldDisplay() { return heldDisplayReference().copy(); }
+    /** Borrowed display stacks for rendering; callers must never modify these references. */
+    public ItemStack priceDisplayReference() { return client() ? publicPrice : inventory.getItem(PRICE_SLOT); }
+    public ItemStack rewardDisplayReference(int slot) {
+        if (slot < 0 || slot >= layout.rewardCount()) { return ItemStack.EMPTY; }
+        if (client()) { return publicRewards[slot]; }
+        if (phase == Phase.DESCENDING && slot == sourceSlot) { return held; }
+        return inventory.getItem(layout.rewardSlot(slot));
     }
-    public ItemStack getHeldDisplay() {
-        return client() ? publicHeld.copy() : phase.ordinal() >= Phase.GRABBING.ordinal() ? held.copy() : ItemStack.EMPTY;
+    public ItemStack heldDisplayReference() {
+        return client() ? publicHeld : phase.ordinal() >= Phase.GRABBING.ordinal() ? held : ItemStack.EMPTY;
     }
 
     public void dropInventory() {
         if (!(level instanceof ServerLevel serverLevel) || inventoryDrained) { return; }
         if (deliveryAttempt) { breakPending = true; return; }
         inventoryDrained = true; operator = null;
-        List<ItemStack> drops = new ArrayList<>(INVENTORY_SIZE + 1);
+        List<ItemStack> drops = new ArrayList<>(layout.inventorySize() + 1);
         suppressUpdates = true;
         try {
-            for (int slot = 0; slot < INVENTORY_SIZE; slot++) { drops.add(inventory.removeItemNoUpdate(slot)); }
+            for (int slot = 0; slot < layout.inventorySize(); slot++) { drops.add(inventory.removeItemNoUpdate(slot)); }
             drops.add(held); held = ItemStack.EMPTY;
         } finally { suppressUpdates = false; }
         finishSession();
@@ -488,8 +498,9 @@ public final class ClawMachineBlockEntity extends BlockEntity {
         if (owner != null) { tag.putUUID("Owner", owner); }
         tag.putByteArray("PasswordSalt", passwordSalt); tag.putByteArray("PasswordHash", passwordHash);
         tag.putInt("BaseWinChance", baseWinChance); tag.putInt("GuaranteePlay", guaranteePlay); tag.putInt("PlaysSinceWin", playsSinceWin);
-        NonNullList<ItemStack> items = NonNullList.withSize(INVENTORY_SIZE, ItemStack.EMPTY);
-        for (int slot = 0; slot < INVENTORY_SIZE; slot++) { items.set(slot, inventory.getItem(slot)); }
+        tag.putInt("RewardLayoutVersion", REWARD_LAYOUT_VERSION);
+        NonNullList<ItemStack> items = NonNullList.withSize(layout.inventorySize(), ItemStack.EMPTY);
+        for (int slot = 0; slot < layout.inventorySize(); slot++) { items.set(slot, inventory.getItem(slot)); }
         ContainerHelper.saveAllItems(tag, items, registries);
         if (isPaid()) {
             tag.putInt("PaidPhase", phase.ordinal()); tag.putInt("PhaseTicks", phaseTicks);
@@ -509,10 +520,10 @@ public final class ClawMachineBlockEntity extends BlockEntity {
         baseWinChance = tag.contains("BaseWinChance") ? Math.clamp(tag.getInt("BaseWinChance"), 0, 100) : 25;
         guaranteePlay = tag.contains("GuaranteePlay") ? Math.clamp(tag.getInt("GuaranteePlay"), 0, 1000) : 5;
         playsSinceWin = Math.clamp(tag.getInt("PlaysSinceWin"), 0, 1_000_000);
-        NonNullList<ItemStack> items = NonNullList.withSize(INVENTORY_SIZE, ItemStack.EMPTY);
+        NonNullList<ItemStack> items = NonNullList.withSize(layout.inventorySize(), ItemStack.EMPTY);
         ContainerHelper.loadAllItems(tag, items, registries);
         suppressUpdates = true;
-        try { for (int slot = 0; slot < INVENTORY_SIZE; slot++) { inventory.setItem(slot, items.get(slot)); } }
+        try { for (int slot = 0; slot < layout.inventorySize(); slot++) { inventory.setItem(slot, items.get(slot)); } }
         finally { suppressUpdates = false; }
         operator = null; sessionId = null; sessionPlayer = null; phase = Phase.IDLE; phaseTicks = 0;
         held = ItemStack.EMPTY; nextDeliveryAttempt = 0; inventoryDrained = deliveryAttempt = breakPending = false;
@@ -522,10 +533,16 @@ public final class ClawMachineBlockEntity extends BlockEntity {
             phaseTicks = Math.clamp(tag.getInt("PhaseTicks"), 0, phaseDuration(phase));
             held = tag.contains("HeldPrize") ? ItemStack.parse(registries, tag.getCompound("HeldPrize")).orElse(ItemStack.EMPTY) : ItemStack.EMPTY;
             sessionPlayer = tag.hasUUID("Buyer") ? tag.getUUID("Buyer") : null;
-            plannedWin = tag.getBoolean("PlannedWin"); sourceSlot = Math.clamp(tag.getInt("SourceSlot"), 0, 8);
-            slipSlot = Math.clamp(tag.getInt("SlipSlot"), 0, 8); slipReturnTick = Math.clamp(tag.getInt("SlipReturnTick"), 2, 33);
-            targetX = slotX(sourceSlot); targetZ = slotZ(sourceSlot);
-            slipStartX = tag.getFloat("SlipStartX"); slipStartZ = tag.getFloat("SlipStartZ");
+            plannedWin = tag.getBoolean("PlannedWin");
+            boolean legacy = tag.getInt("RewardLayoutVersion") < REWARD_LAYOUT_VERSION;
+            sourceSlot = legacy ? layout.migrateLegacyDisplaySlot(tag.getInt("SourceSlot"))
+                : Math.clamp(tag.getInt("SourceSlot"), 0, layout.rewardCount() - 1);
+            slipSlot = legacy ? layout.migrateLegacyDisplaySlot(tag.getInt("SlipSlot"))
+                : Math.clamp(tag.getInt("SlipSlot"), 0, layout.rewardCount() - 1);
+            slipReturnTick = Math.clamp(tag.getInt("SlipReturnTick"), 2, 33);
+            targetX = layout.slotX(sourceSlot); targetZ = layout.slotZ(sourceSlot);
+            slipStartX = legacy ? layout.migrateLegacyX(tag.getFloat("SlipStartX")) : tag.getFloat("SlipStartX");
+            slipStartZ = tag.getFloat("SlipStartZ");
             if (held.isEmpty() && phase != Phase.RETURNING) { phase = Phase.IDLE; phaseTicks = 0; }
         }
     }
@@ -537,7 +554,7 @@ public final class ClawMachineBlockEntity extends BlockEntity {
         ItemStack price = getPrice(), shownHeld = getHeldDisplay();
         if (!price.isEmpty()) { tag.put("Price", price.save(registries)); }
         if (!shownHeld.isEmpty()) { tag.put("Held", shownHeld.save(registries)); }
-        for (int slot = 0; slot < 9; slot++) {
+        for (int slot = 0; slot < layout.rewardCount(); slot++) {
             ItemStack reward = getRewardDisplay(slot);
             if (!reward.isEmpty()) { tag.put("Preview" + slot, reward.save(registries)); }
         }
@@ -567,7 +584,7 @@ public final class ClawMachineBlockEntity extends BlockEntity {
         if (!tag.getBoolean("AnimationOnly")) {
             publicPrice = tag.contains("Price") ? ItemStack.parse(registries, tag.getCompound("Price")).orElse(ItemStack.EMPTY) : ItemStack.EMPTY;
             publicHeld = tag.contains("Held") ? ItemStack.parse(registries, tag.getCompound("Held")).orElse(ItemStack.EMPTY) : ItemStack.EMPTY;
-            for (int slot = 0; slot < 9; slot++) {
+            for (int slot = 0; slot < layout.rewardCount(); slot++) {
                 publicRewards[slot] = tag.contains("Preview" + slot) ? ItemStack.parse(registries, tag.getCompound("Preview" + slot)).orElse(ItemStack.EMPTY) : ItemStack.EMPTY;
             }
         }

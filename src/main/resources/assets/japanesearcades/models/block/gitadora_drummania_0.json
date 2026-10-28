@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "neoforge:obj",
+  "model": "japanesearcades:models/block/gitadora_drummania_0.obj",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "emissive_ambient": true,
+  "ambientocclusion": true,
+  "render_type": "minecraft:cutout_mipped_all",
+  "textures": {
+    "bridge": "japanesearcades:block/gitadora_bridge",
+    "front": "japanesearcades:block/gitadora_front",
+    "marquee": "japanesearcades:block/gitadora_marquee",
+    "materials": "japanesearcades:block/gitadora_materials",
+    "pad": "japanesearcades:block/gitadora_pad",
+    "pedal": "japanesearcades:block/gitadora_pedal",
+    "reader": "japanesearcades:block/gitadora_reader",
+    "rear": "japanesearcades:block/gitadora_rear",
+    "screen_drummania": "japanesearcades:block/gitadora_screen_drummania",
+    "service": "japanesearcades:block/gitadora_service",
+    "side": "japanesearcades:block/gitadora_side",
+    "speaker": "japanesearcades:block/gitadora_speaker",
+    "title": "japanesearcades:block/gitadora_title",
+    "particle": "japanesearcades:block/gitadora_materials"
+  }
+}

@@ -79,6 +79,10 @@ public final class JapaneseArcades {
         "kagamine_len_cutout", KagamineLenCutoutBlock::new,
         BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(.5F).sound(SoundType.WOOD).noOcclusion());
     public static final DeferredItem<?> KAGAMINE_LEN_CUTOUT_ITEM = ITEMS.registerSimpleBlockItem("kagamine_len_cutout", KAGAMINE_LEN_CUTOUT);
+    public static final DeferredBlock<SleepingFoxPlushBlock> SLEEPING_FOX_PLUSH = BLOCKS.registerBlock(
+        "sleeping_fox_plush", SleepingFoxPlushBlock::new,
+        BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(.5F).sound(SoundType.WOOL).noOcclusion());
+    public static final DeferredItem<BlockItem> SLEEPING_FOX_PLUSH_ITEM = ITEMS.registerSimpleBlockItem("sleeping_fox_plush", SLEEPING_FOX_PLUSH);
     public record MobFigureSet(String mob, DeferredBlock<MobFigureBlock> figure,
             DeferredBlock<MobFigureBlock> emptyBox, DeferredBlock<MobFigureBlock> boxedFigure,
             DeferredItem<MobFigureItem> figureItem, DeferredItem<MobFigureItem> emptyBoxItem,
@@ -229,6 +233,22 @@ public final class JapaneseArcades {
         BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(2.0F, 6.0F)
             .sound(SoundType.METAL).noOcclusion().lightLevel(state ->
                 state.getValue(NostalgiaCabinetBlock.PART) == NostalgiaCabinetBlock.Part.BASE ? 4 : 13));
+    public static final DeferredBlock<BombergirlCabinetBlock> BOMBERGIRL = BLOCKS.registerBlock(
+        "bombergirl", BombergirlCabinetBlock::new,
+        BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(2.0F, 6.0F)
+            .sound(SoundType.METAL).noOcclusion().lightLevel(state ->
+                state.getValue(NostalgiaCabinetBlock.PART) == NostalgiaCabinetBlock.Part.BASE ? 4 : 13));
+    public static final DeferredBlock<GitadoraGuitarfreaksCabinetBlock> GITADORA_GUITARFREAKS = BLOCKS.registerBlock(
+        "gitadora_guitarfreaks", GitadoraGuitarfreaksCabinetBlock::new,
+        BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)
+            .sound(SoundType.METAL).noOcclusion().lightLevel(state ->
+                state.getValue(NostalgiaCabinetBlock.PART) == NostalgiaCabinetBlock.Part.BASE ? 4 : 13));
+    public static final DeferredBlock<GitadoraDrummaniaCabinetBlock> GITADORA_DRUMMANIA = BLOCKS.registerBlock(
+        "gitadora_drummania", GitadoraDrummaniaCabinetBlock::new,
+        BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)
+            .sound(SoundType.METAL).noOcclusion().lightLevel(state ->
+                state.getValue(GitadoraDrummaniaCabinetBlock.SECTION) >= 4
+                    && state.getValue(GitadoraDrummaniaCabinetBlock.SECTION) < 8 ? 12 : 0));
     public static final DeferredBlock<MaimaiCabinetBlock> MAIMAI = BLOCKS.registerBlock(
         "maimai", MaimaiCabinetBlock::new,
         BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(2.0F, 6.0F)
@@ -277,7 +297,8 @@ public final class JapaneseArcades {
         BLOCK_ENTITIES.register("nostalgia_jukebox", () -> BlockEntityType.Builder.of(
             NostalgiaJukeboxBlockEntity::new, NOSTALGIA_OP3.get(), BEATSTREAM.get(), SOUND_VOLTEX_VALKYRIE.get(), SOUND_VOLTEX_NEMSYS.get(),
             WACCA.get(), CHUNITHM.get(), ONGEKI.get(), GROOVE_COASTER.get(), MUSECA.get(), PROJECT_DIVA.get(),
-            CHRONO_CIRCLE.get(), MUSIC_DIVER.get(), POPN_MUSIC.get(), MAIMAI.get(), DDR_SUPERNOVA.get(), BEATMANIA_IIDX_LIGHTNING.get(), TAIKO.get(), INITIAL_D.get(), JUBEAT.get()).build(null));
+            CHRONO_CIRCLE.get(), MUSIC_DIVER.get(), POPN_MUSIC.get(), BOMBERGIRL.get(), GITADORA_GUITARFREAKS.get(),
+            GITADORA_DRUMMANIA.get(), MAIMAI.get(), DDR_SUPERNOVA.get(), BEATMANIA_IIDX_LIGHTNING.get(), TAIKO.get(), INITIAL_D.get(), JUBEAT.get()).build(null));
     public static final DeferredItem<?> NOSTALGIA_OP3_ITEM =
         ITEMS.registerSimpleBlockItem("nostalgia_op3", NOSTALGIA_OP3, new Item.Properties());
     public static final DeferredItem<?> BEATSTREAM_ITEM =
@@ -304,6 +325,12 @@ public final class JapaneseArcades {
         ITEMS.registerSimpleBlockItem("music_diver", MUSIC_DIVER, new Item.Properties());
     public static final DeferredItem<?> POPN_MUSIC_ITEM =
         ITEMS.registerSimpleBlockItem("popn_music", POPN_MUSIC, new Item.Properties());
+    public static final DeferredItem<?> BOMBERGIRL_ITEM =
+        ITEMS.registerSimpleBlockItem("bombergirl", BOMBERGIRL, new Item.Properties());
+    public static final DeferredItem<?> GITADORA_GUITARFREAKS_ITEM =
+        ITEMS.registerSimpleBlockItem("gitadora_guitarfreaks", GITADORA_GUITARFREAKS, new Item.Properties());
+    public static final DeferredItem<?> GITADORA_DRUMMANIA_ITEM =
+        ITEMS.registerSimpleBlockItem("gitadora_drummania", GITADORA_DRUMMANIA, new Item.Properties());
     public static final DeferredItem<?> MAIMAI_ITEM =
         ITEMS.registerSimpleBlockItem("maimai", MAIMAI, new Item.Properties());
     public static final DeferredItem<?> DDR_SUPERNOVA_ITEM =
@@ -334,8 +361,15 @@ public final class JapaneseArcades {
         BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(2.5F, 1200.0F)
             .sound(SoundType.METAL).noOcclusion().lightLevel(state -> state.getValue(ClawMachineBlock.PART) >= 12 ? 10 : 4));
     public static final DeferredItem<?> CLAW_MACHINE_ITEM = ITEMS.registerSimpleBlockItem("claw_machine", CLAW_MACHINE, new Item.Properties());
+    public static final DeferredBlock<CompactClawMachineBlock> COMPACT_CLAW_MACHINE = BLOCKS.registerBlock(
+        "compact_claw_machine", CompactClawMachineBlock::new,
+        BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(2.5F, 1200.0F)
+            .sound(SoundType.METAL).noOcclusion().lightLevel(state -> ClawMachineBlock.part(state) >= 4 ? 10 : 4));
+    public static final DeferredItem<?> COMPACT_CLAW_MACHINE_ITEM =
+        ITEMS.registerSimpleBlockItem("compact_claw_machine", COMPACT_CLAW_MACHINE, new Item.Properties());
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ClawMachineBlockEntity>> CLAW_MACHINE_ENTITY =
-        BLOCK_ENTITIES.register("claw_machine", () -> BlockEntityType.Builder.of(ClawMachineBlockEntity::new, CLAW_MACHINE.get()).build(null));
+        BLOCK_ENTITIES.register("claw_machine", () -> BlockEntityType.Builder.of(ClawMachineBlockEntity::new,
+            CLAW_MACHINE.get(), COMPACT_CLAW_MACHINE.get()).build(null));
     public static final DeferredHolder<MenuType<?>, MenuType<ClawMachineMenu>> CLAW_MACHINE_MENU =
         MENUS.register("claw_machine", () -> IMenuTypeExtension.create(ClawMachineMenu::new));
     public static final DeferredHolder<MenuType<?>, MenuType<ClawMachineMenu>> CLAW_MACHINE_PLAY_MENU =
@@ -368,6 +402,9 @@ public final class JapaneseArcades {
                 output.accept(CHRONO_CIRCLE_ITEM.get());
                 output.accept(MUSIC_DIVER_ITEM.get());
                 output.accept(POPN_MUSIC_ITEM.get());
+                output.accept(BOMBERGIRL_ITEM.get());
+                output.accept(GITADORA_GUITARFREAKS_ITEM.get());
+                output.accept(GITADORA_DRUMMANIA_ITEM.get());
                 output.accept(MAIMAI_ITEM.get());
                 output.accept(DDR_SUPERNOVA_ITEM.get());
                 output.accept(BEATMANIA_IIDX_LIGHTNING_ITEM.get());
@@ -376,6 +413,7 @@ public final class JapaneseArcades {
                 output.accept(JUBEAT_ITEM.get());
                 output.accept(GACHAPON_ITEM.get());
                 output.accept(CLAW_MACHINE_ITEM.get());
+                output.accept(COMPACT_CLAW_MACHINE_ITEM.get());
                 output.accept(ARCADE_KIOSK_ITEM.get());
                 output.accept(ARCADE_PASS.get());
                 output.accept(MECH_SUIT_ITEM.get());
@@ -388,6 +426,7 @@ public final class JapaneseArcades {
                 output.accept(KASANE_TETO_CUTOUT_ITEM.get());
                 output.accept(KAGAMINE_RIN_CUTOUT_ITEM.get());
                 output.accept(KAGAMINE_LEN_CUTOUT_ITEM.get());
+                output.accept(SLEEPING_FOX_PLUSH_ITEM.get());
                 output.accept(WACCA_POSTER.get());
                 for (ArcadePosterSet poster : ARCADE_POSTERS) { output.accept(poster.item().get()); }
                 for (MobFigureSet figures : MOB_FIGURES) {

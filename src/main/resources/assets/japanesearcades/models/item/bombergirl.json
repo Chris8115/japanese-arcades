@@ -1,0 +1,107 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "neoforge:obj",
+  "model": "japanesearcades:models/item/bombergirl.obj",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "emissive_ambient": true,
+  "ambientocclusion": false,
+  "render_type": "minecraft:cutout_mipped_all",
+  "textures": {
+    "materials": "japanesearcades:block/bombergirl_materials",
+    "topper": "japanesearcades:block/bombergirl_topper",
+    "topper_back": "japanesearcades:block/bombergirl_topper_back",
+    "marquee": "japanesearcades:block/bombergirl_marquee",
+    "screen": "japanesearcades:block/bombergirl_screen",
+    "front": "japanesearcades:block/bombergirl_front",
+    "rear": "japanesearcades:block/bombergirl_rear",
+    "side": "japanesearcades:block/bombergirl_side",
+    "deck": "japanesearcades:block/bombergirl_deck",
+    "touch": "japanesearcades:block/bombergirl_touch",
+    "details": "japanesearcades:block/bombergirl_details",
+    "button": "japanesearcades:block/bombergirl_button",
+    "speaker": "japanesearcades:block/bombergirl_speaker",
+    "bezel": "japanesearcades:block/bombergirl_bezel",
+    "lights": "japanesearcades:block/bombergirl_lights",
+    "particle": "japanesearcades:block/bombergirl_materials"
+  },
+  "gui_light": "front",
+  "display": {
+    "gui": {
+      "rotation": [
+        10,
+        225,
+        0
+      ],
+      "translation": [
+        0,
+        -5.2,
+        0
+      ],
+      "scale": [
+        0.37,
+        0.37,
+        0.37
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "translation": [
+        0,
+        -7,
+        0
+      ],
+      "scale": [
+        0.36,
+        0.36,
+        0.36
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        75,
+        45,
+        0
+      ],
+      "scale": [
+        0.27,
+        0.27,
+        0.27
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        45,
+        0
+      ],
+      "translation": [
+        0,
+        -3,
+        0
+      ],
+      "scale": [
+        0.35,
+        0.35,
+        0.35
+      ]
+    }
+  }
+}

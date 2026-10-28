@@ -1,0 +1,241 @@
+JAPANESE ARCADES - GALLERY SELECTION
+
+Start with 01-recommended-gallery: 16 actual Minecraft screenshots, numbered
+in a suggested upload order. For a shorter gallery, use 01, 02, 04, 05, 06,
+07, 08, 09, 11, and 14, then add your favorite cabinet close-ups.
+
+02-cabinet-closeups contains 21 optional views covering all 22 cabinet designs.
+Nostalgia and BeatStream share one image showing their corrected control panels.
+The jubeat image is a studio render showing its current gray pads; label it
+as a model render when uploading it.
+03-extra-views contains the building interior, murals, glow sticks, custom
+display boxes, and villager trades. Shader screenshots are identified in their
+captions; keep those labels so viewers know the lighting uses a shader pack.
+
+Open index.html to browse the images and their captions. Full-resolution PNGs
+can be uploaded individually. Suggested titles and captions are also below.
+
+Every PNG is an unchanged copy of an existing project image. There are 42
+in-game screenshots and one clearly labeled jubeat studio model render.
+No AI restyling, retouching, cropping, resizing, or new screenshot capture was
+performed. The actual images and dimensions are recorded in manifest.json.
+UI captures use demonstration inventories and balances; configurable prices
+and stock can differ in players' worlds.
+
+This folder is prepared locally. Nothing has been uploaded to CurseForge.
+
+01-recommended-gallery/01-wacca-reverse.png
+Title: WACCA Reverse
+Caption: Detailed WACCA Reverse cabinets, shown in Minecraft.
+Type: In-game screenshot | 1280 x 960
+
+01-recommended-gallery/02-japanese-game-center.png
+Title: Japanese Game Center
+Caption: A two-storey arcade with cherry planters, a gaming floor, an upstairs lounge, and an Arcade Operator workstation.
+Type: In-game screenshot | 1280 x 960
+
+01-recommended-gallery/03-gitadora-drummania.png
+Title: GITADORA DrumMania
+Caption: The GITADORA DrumMania cabinet and its full drum setup.
+Type: In-game screenshot | 1280 x 960
+
+01-recommended-gallery/04-compact-claw-machine.png
+Title: Play the Compact Claw Machine
+Caption: Aim with WASD or arrow keys and press Space to drop. The compact cabinet has 12 prize positions.
+Type: In-game screenshot | 1280 x 960
+
+01-recommended-gallery/05-large-claw-machine.png
+Title: Large Claw Machine
+Caption: Stock the larger claw machine with up to 15 prize selections, including figures, boxes, and other items.
+Type: In-game screenshot | 1280 x 960
+
+01-recommended-gallery/06-stackable-gachapon.png
+Title: Stackable Gachapon Machines
+Caption: Build a capsule corner with individually stocked machines and configurable prices.
+Type: In-game screenshot | 1280 x 900
+
+01-recommended-gallery/07-mob-figures.png
+Title: Collectible Mob Figures
+Caption: Collect boxed and loose mob figures, from familiar creatures to Minecraft bosses.
+Type: In-game screenshot | 1280 x 960
+
+01-recommended-gallery/08-figure-shelves.png
+Title: Display Your Collection
+Caption: Arrange boxed and loose collectibles on wall shelves and stackable display units.
+Type: In-game screenshot | 1280 x 960
+
+01-recommended-gallery/09-character-cutouts.png
+Title: Miku, Teto, Rin, and Len
+Caption: Four freestanding cardboard cutouts with flexible placement angles.
+Type: In-game screenshot | 1280 x 960
+
+01-recommended-gallery/10-framed-posters.png
+Title: Framed Arcade Posters
+Caption: Twenty collectible arcade posters, each with a matching black frame.
+Type: In-game screenshot | 1280 x 960
+
+01-recommended-gallery/11-sleeping-fox-plush.png
+Title: Oversized Sleeping Fox Plush
+Caption: A large Minecraft-style sleeping fox plush to redeem and display.
+Type: In-game screenshot | 1280 x 960
+
+01-recommended-gallery/12-ivory-mech-suit.png
+Title: Ivory Mech Suit
+Caption: A high-tier reward that players can board, fly, and use with two swords.
+Type: In-game screenshot | 1280 x 960
+
+01-recommended-gallery/13-taiko-no-tatsujin.png
+Title: Taiko no Tatsujin
+Caption: A festival-themed cabinet with two interactive drums. In-game screenshot with shaders enabled.
+Type: In-game screenshot with shaders | 1280 x 960
+
+01-recommended-gallery/14-reward-shop.png
+Title: Browse and Redeem Rewards
+Caption: Search and filter the Prize Exchange. This example shows the sleeping fox plush selected from 117 rewards; prices are configurable.
+Type: In-game screenshot | 1280 x 960
+
+01-recommended-gallery/15-nostalgia-and-beatstream.png
+Title: Nostalgia and BeatStream
+Caption: Two detailed cabinets with their own screens, artwork, and controls.
+Type: In-game screenshot | 1280 x 960
+
+01-recommended-gallery/16-ddr-supernova.png
+Title: DDR SuperNOVA
+Caption: A full cabinet with a dance stage and handrails. In-game screenshot with shaders enabled.
+Type: In-game screenshot with shaders | 1280 x 960
+
+02-cabinet-closeups/01-nostalgia-and-beatstream.png
+Title: Nostalgia Op.3 and BeatStream
+Caption: Nostalgia Op.3 and BeatStream, shown together with their finished control-panel trim.
+Type: In-game screenshot | 1280 x 960
+
+02-cabinet-closeups/02-sound-voltex-valkyrie.png
+Title: SOUND VOLTEX Valkyrie
+Caption: The SOUND VOLTEX Valkyrie cabinet, shown in Minecraft.
+Type: In-game screenshot | 1280 x 960
+
+02-cabinet-closeups/03-sound-voltex-nemsys.png
+Title: SOUND VOLTEX NEMSYS
+Caption: The original NEMSYS cabinet style with angular light wings and rotary knobs.
+Type: In-game screenshot | 1280 x 960
+
+02-cabinet-closeups/04-beatmania-iidx.png
+Title: beatmania IIDX LIGHTNING MODEL
+Caption: A wide cabinet with two turntables, two banks of keys, and a low standing platform.
+Type: In-game screenshot | 1280 x 960
+
+02-cabinet-closeups/05-wacca-reverse.png
+Title: WACCA Reverse
+Caption: WACCA Reverse with its large circular play surface.
+Type: In-game screenshot | 1280 x 960
+
+02-cabinet-closeups/06-chunithm.png
+Title: CHUNITHM Paradise Lost
+Caption: The CHUNITHM Paradise Lost cabinet, shown in Minecraft.
+Type: In-game screenshot | 1280 x 960
+
+02-cabinet-closeups/07-groove-coaster.png
+Title: Groove Coaster
+Caption: Groove Coaster with its tall display and twin controls.
+Type: In-game screenshot | 1280 x 960
+
+02-cabinet-closeups/08-museca.png
+Title: MÚSECA
+Caption: MÚSECA and its five circular controllers. In-game screenshot with shaders enabled.
+Type: In-game screenshot with shaders | 1280 x 960
+
+02-cabinet-closeups/09-project-diva.png
+Title: Hatsune Miku: Project DIVA Arcade Future Tone
+Caption: The Project DIVA Arcade Future Tone cabinet, shown in Minecraft.
+Type: In-game screenshot | 1280 x 960
+
+02-cabinet-closeups/10-chrono-circle.png
+Title: Chrono Circle
+Caption: Chrono Circle with its circular control surface and raised platform. In-game screenshot with shaders enabled.
+Type: In-game screenshot with shaders | 1280 x 960
+
+02-cabinet-closeups/11-music-diver.png
+Title: MUSIC DIVER
+Caption: MUSIC DIVER with its inclined circular play surface and illuminated marquee.
+Type: In-game screenshot | 1280 x 960
+
+02-cabinet-closeups/12-popn-music.png
+Title: pop’n music
+Caption: The pop’n music cabinet and its colorful button layout.
+Type: In-game screenshot | 1280 x 960
+
+02-cabinet-closeups/13-maimai-dx.png
+Title: maimai DX Twin
+Caption: A connected pair of maimai DX cabinets. In-game screenshot with shaders enabled.
+Type: In-game screenshot with shaders | 1280 x 960
+
+02-cabinet-closeups/14-ddr-supernova.png
+Title: DDR SuperNOVA
+Caption: The DDR SuperNOVA cabinet, dance stage, and handrails. In-game screenshot with shaders enabled.
+Type: In-game screenshot with shaders | 1280 x 960
+
+02-cabinet-closeups/15-taiko-no-tatsujin.png
+Title: Taiko no Tatsujin
+Caption: Taiko no Tatsujin with two interactive drums. In-game screenshot with shaders enabled.
+Type: In-game screenshot with shaders | 1280 x 960
+
+02-cabinet-closeups/16-initial-d.png
+Title: Initial D
+Caption: The Initial D cabinet includes a seat players can use.
+Type: In-game screenshot | 1280 x 960
+
+02-cabinet-closeups/17-jubeat-studio-render.png
+Title: jubeat — Studio Model Render
+Caption: Studio render of the jubeat model with its current gray pads. Lighting and background are rendered outside Minecraft.
+Type: Studio model render | 1300 x 1600
+Selection note: Selected instead of older native screenshots that still show the removed colored pads.
+
+02-cabinet-closeups/18-ongeki-bright.png
+Title: ONGEKI bright
+Caption: ONGEKI bright with its white outer arch, portrait display, and center lever.
+Type: In-game screenshot | 1280 x 960
+
+02-cabinet-closeups/19-gitadora-drummania.png
+Title: GITADORA DrumMania
+Caption: The GITADORA DrumMania cabinet with drums, cymbals, and pedals.
+Type: In-game screenshot | 1280 x 960
+
+02-cabinet-closeups/20-gitadora-guitarfreaks.png
+Title: GITADORA GuitarFreaks
+Caption: The GITADORA GuitarFreaks cabinet, shown in Minecraft.
+Type: In-game screenshot | 1280 x 960
+
+02-cabinet-closeups/21-bombergirl.png
+Title: Bombergirl
+Caption: The Bombergirl cabinet with its character topper and compact control deck.
+Type: In-game screenshot | 1280 x 960
+
+03-extra-views/01-arcade-interior.png
+Title: Inside the Arcade
+Caption: A view of the generated arcade's ground floor.
+Type: In-game screenshot | 1280 x 960
+
+03-extra-views/02-upstairs-lounge.png
+Title: Upstairs Lounge
+Caption: The arcade's upper lounge overlooks its open entrance and gaming floor.
+Type: In-game screenshot | 1280 x 960
+
+03-extra-views/03-arcade-rear-murals.png
+Title: Arcade Murals
+Caption: The arcade exterior includes Mount Fuji and arcade-themed wall paintings.
+Type: In-game screenshot | 1280 x 960
+
+03-extra-views/04-concert-glow-sticks.png
+Title: Concert Glow Sticks
+Caption: Seven colors with floor and wall placement. Placed glow sticks illuminate their surroundings.
+Type: In-game screenshot | 1280 x 960
+
+03-extra-views/05-custom-display-boxes.png
+Title: Custom Display Boxes
+Caption: Display your own items in packages with item names, automatic colors, and adjustable viewing orientation.
+Type: In-game screenshot | 1280 x 960
+
+03-extra-views/06-arcade-operator.png
+Title: Arcade Operator Trades
+Caption: The Arcade Operator uses an Arcade Ordering Kiosk as its workstation and offers arcade-related trades.
+Type: In-game screenshot | 1280 x 960

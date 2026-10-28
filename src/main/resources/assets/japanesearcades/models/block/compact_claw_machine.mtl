@@ -1,0 +1,44 @@
+newmtl controls_glow
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #controls
+
+newmtl glass_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #glass
+
+newmtl materials_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #materials
+
+newmtl materials_glow
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #materials
+
+newmtl prize_out_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #prize_out
+
+newmtl rear_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #rear
+
+newmtl service_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #service
+
+newmtl side_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #side
+
+newmtl sign_glow
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #sign

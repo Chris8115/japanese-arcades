@@ -1,0 +1,706 @@
+{
+  "cabinets": {
+    "bombergirl": {
+      "parts": {
+        "bombergirl_base": {
+          "faces": 548,
+          "triangles": 1026,
+          "vertices": 705,
+          "sha256": "5506e67c267f3177bf9e38ec8e6c9ef6cc0d0212179684c6b099921916190e50"
+        },
+        "bombergirl_console": {
+          "faces": 489,
+          "triangles": 814,
+          "vertices": 513,
+          "sha256": "4bb9542bd39b56ad5a1907facedcdc15c8a50d27e9b3cc1995d0f28da9deebac"
+        },
+        "bombergirl_marquee": {
+          "faces": 150,
+          "triangles": 250,
+          "vertices": 192,
+          "sha256": "9ec36a10ac3833a0194e5f09bcf1396aa0345843741193fe7aed4a50b61b2799"
+        }
+      },
+      "textures": {
+        "japanesearcades:block/bombergirl_bezel": {
+          "size": [
+            256,
+            512
+          ],
+          "rgba_bytes": 524288,
+          "file_bytes": 2333
+        },
+        "japanesearcades:block/bombergirl_materials": {
+          "size": [
+            64,
+            64
+          ],
+          "rgba_bytes": 16384,
+          "file_bytes": 243
+        },
+        "japanesearcades:block/bombergirl_screen": {
+          "size": [
+            384,
+            704
+          ],
+          "rgba_bytes": 1081344,
+          "file_bytes": 343367
+        },
+        "japanesearcades:block/bombergirl_topper": {
+          "size": [
+            768,
+            544
+          ],
+          "rgba_bytes": 1671168,
+          "file_bytes": 876440
+        },
+        "japanesearcades:block/bombergirl_topper_back": {
+          "size": [
+            768,
+            544
+          ],
+          "rgba_bytes": 1671168,
+          "file_bytes": 71362
+        },
+        "japanesearcades:block/bombergirl_rear": {
+          "size": [
+            256,
+            256
+          ],
+          "rgba_bytes": 262144,
+          "file_bytes": 2086
+        },
+        "japanesearcades:block/bombergirl_button": {
+          "size": [
+            256,
+            256
+          ],
+          "rgba_bytes": 262144,
+          "file_bytes": 6752
+        },
+        "japanesearcades:block/bombergirl_marquee": {
+          "size": [
+            768,
+            160
+          ],
+          "rgba_bytes": 491520,
+          "file_bytes": 125737
+        },
+        "japanesearcades:block/bombergirl_touch": {
+          "size": [
+            512,
+            320
+          ],
+          "rgba_bytes": 655360,
+          "file_bytes": 10499
+        },
+        "japanesearcades:block/bombergirl_deck": {
+          "size": [
+            512,
+            384
+          ],
+          "rgba_bytes": 786432,
+          "file_bytes": 4099
+        },
+        "japanesearcades:block/bombergirl_speaker": {
+          "size": [
+            128,
+            128
+          ],
+          "rgba_bytes": 65536,
+          "file_bytes": 342
+        },
+        "japanesearcades:block/bombergirl_details": {
+          "size": [
+            256,
+            144
+          ],
+          "rgba_bytes": 147456,
+          "file_bytes": 4136
+        },
+        "japanesearcades:block/bombergirl_lights": {
+          "size": [
+            32,
+            256
+          ],
+          "rgba_bytes": 32768,
+          "file_bytes": 333
+        },
+        "japanesearcades:block/bombergirl_front": {
+          "size": [
+            256,
+            256
+          ],
+          "rgba_bytes": 262144,
+          "file_bytes": 1531
+        },
+        "japanesearcades:block/bombergirl_side": {
+          "size": [
+            256,
+            512
+          ],
+          "rgba_bytes": 524288,
+          "file_bytes": 20996
+        }
+      },
+      "blockstate_variants": 12,
+      "full_item": {
+        "faces": 1066,
+        "triangles": 1854,
+        "vertices": 1166,
+        "sha256": "2a6816d0ed4ea7188460a092ab5c46f8c63d21669118e84c6f805a0b8c53008e"
+      },
+      "placed_faces": 1187,
+      "gui_faces": 1,
+      "gui_texture_size": [
+        256,
+        256
+      ]
+    },
+    "gitadora_guitarfreaks": {
+      "parts": {
+        "gitadora_guitarfreaks_base": {
+          "faces": 208,
+          "triangles": 412,
+          "vertices": 341,
+          "sha256": "d7a3dc51427f63245fabec7942de5031a888e2a564b4f4e2c59a5da456fe5911"
+        },
+        "gitadora_guitarfreaks_console": {
+          "faces": 617,
+          "triangles": 850,
+          "vertices": 534,
+          "sha256": "bfa86b5bbb3f82676a82d37a51113055b5a859236f38fca35c3e3df382f61c63"
+        },
+        "gitadora_guitarfreaks_marquee": {
+          "faces": 1229,
+          "triangles": 2002,
+          "vertices": 1292,
+          "sha256": "65689a3c54feb57123463380fec67815748936f054dcc10f8a4fa18dbf1e6def"
+        }
+      },
+      "textures": {
+        "japanesearcades:block/gitadora_speaker": {
+          "size": [
+            128,
+            128
+          ],
+          "rgba_bytes": 65536,
+          "file_bytes": 1634
+        },
+        "japanesearcades:block/gitadora_service": {
+          "size": [
+            128,
+            256
+          ],
+          "rgba_bytes": 131072,
+          "file_bytes": 1712
+        },
+        "japanesearcades:block/gitadora_side": {
+          "size": [
+            128,
+            512
+          ],
+          "rgba_bytes": 262144,
+          "file_bytes": 5779
+        },
+        "japanesearcades:block/gitadora_marquee": {
+          "size": [
+            512,
+            256
+          ],
+          "rgba_bytes": 524288,
+          "file_bytes": 20701
+        },
+        "japanesearcades:block/gitadora_materials": {
+          "size": [
+            128,
+            128
+          ],
+          "rgba_bytes": 65536,
+          "file_bytes": 364
+        },
+        "japanesearcades:block/gitadora_front": {
+          "size": [
+            256,
+            256
+          ],
+          "rgba_bytes": 262144,
+          "file_bytes": 2675
+        },
+        "japanesearcades:block/gitadora_rear": {
+          "size": [
+            128,
+            256
+          ],
+          "rgba_bytes": 131072,
+          "file_bytes": 2987
+        },
+        "japanesearcades:block/gitadora_screen_guitarfreaks": {
+          "size": [
+            512,
+            288
+          ],
+          "rgba_bytes": 589824,
+          "file_bytes": 59571
+        },
+        "japanesearcades:block/gitadora_bridge": {
+          "size": [
+            512,
+            96
+          ],
+          "rgba_bytes": 196608,
+          "file_bytes": 1309
+        },
+        "japanesearcades:block/gitadora_reader": {
+          "size": [
+            256,
+            256
+          ],
+          "rgba_bytes": 262144,
+          "file_bytes": 7078
+        },
+        "japanesearcades:block/gitadora_title": {
+          "size": [
+            256,
+            32
+          ],
+          "rgba_bytes": 32768,
+          "file_bytes": 2152
+        }
+      },
+      "blockstate_variants": 12,
+      "full_item": {
+        "faces": 1950,
+        "triangles": 3060,
+        "vertices": 1943,
+        "sha256": "5b7c1fa28b4cea296a9fbfabd48052053f8c04417292a7575b452711718e1b75"
+      },
+      "placed_faces": 2054,
+      "gui_faces": 1,
+      "gui_texture_size": [
+        256,
+        256
+      ]
+    },
+    "gitadora_drummania": {
+      "parts": {
+        "gitadora_drummania_0": {
+          "faces": 116,
+          "triangles": 230,
+          "vertices": 200,
+          "sha256": "b2ccbd302f28ff7ceb69b3d3dc0d4e17f57605abd0f36c10b4188193493aa4f7"
+        },
+        "gitadora_drummania_1": {
+          "faces": 110,
+          "triangles": 218,
+          "vertices": 188,
+          "sha256": "427b565e6d8d6f70460298a9014ab0f1b23d5a2d0f2cda954e3183a4c8523db1"
+        },
+        "gitadora_drummania_2": {
+          "faces": 98,
+          "triangles": 196,
+          "vertices": 179,
+          "sha256": "fcafa62f4b7cb3c9f75a6be887c5dc472bdc949685e166d9a59d9f79e1a65090"
+        },
+        "gitadora_drummania_3": {
+          "faces": 98,
+          "triangles": 196,
+          "vertices": 179,
+          "sha256": "0c10624af8a1f2125108261e70455f87bd70ef00d371f4024718d797cb071880"
+        },
+        "gitadora_drummania_4": {
+          "faces": 413,
+          "triangles": 629,
+          "vertices": 423,
+          "sha256": "0ebe1c97b64d7b278aaa290885a8067bbb61bca0fa89630461683f9bd5f1ac76"
+        },
+        "gitadora_drummania_5": {
+          "faces": 227,
+          "triangles": 383,
+          "vertices": 297,
+          "sha256": "c9c3cba521dfc860c37cf8e99a872c8aac04c89956975c5fad7d950c2e79236e"
+        },
+        "gitadora_drummania_6": {
+          "faces": 354,
+          "triangles": 650,
+          "vertices": 468,
+          "sha256": "290bcedd1da638d53ef77f3dd9352887f9a35bb6e3b9f1b8735e110b68c53276"
+        },
+        "gitadora_drummania_7": {
+          "faces": 354,
+          "triangles": 650,
+          "vertices": 468,
+          "sha256": "155a957f3f431837c861fbd1f82b42429b07c4a0e854aef4810ff0c7307dc416"
+        },
+        "gitadora_drummania_8": {
+          "faces": 595,
+          "triangles": 1056,
+          "vertices": 633,
+          "sha256": "81d5079b0ef55d7adb231fb58e4020130b7b8063aaf3cb03458a3dd26d768b3a"
+        },
+        "gitadora_drummania_9": {
+          "faces": 834,
+          "triangles": 1496,
+          "vertices": 865,
+          "sha256": "1a3f3b1cf3f364461dce00cccdc92c39fbb113c42c4fa409d541d8e6c993897f"
+        }
+      },
+      "textures": {
+        "japanesearcades:block/gitadora_pedal": {
+          "size": [
+            64,
+            128
+          ],
+          "rgba_bytes": 32768,
+          "file_bytes": 558
+        },
+        "japanesearcades:block/gitadora_speaker": {
+          "size": [
+            128,
+            128
+          ],
+          "rgba_bytes": 65536,
+          "file_bytes": 1634
+        },
+        "japanesearcades:block/gitadora_service": {
+          "size": [
+            128,
+            256
+          ],
+          "rgba_bytes": 131072,
+          "file_bytes": 1712
+        },
+        "japanesearcades:block/gitadora_side": {
+          "size": [
+            128,
+            512
+          ],
+          "rgba_bytes": 262144,
+          "file_bytes": 5779
+        },
+        "japanesearcades:block/gitadora_marquee": {
+          "size": [
+            512,
+            256
+          ],
+          "rgba_bytes": 524288,
+          "file_bytes": 20701
+        },
+        "japanesearcades:block/gitadora_materials": {
+          "size": [
+            128,
+            128
+          ],
+          "rgba_bytes": 65536,
+          "file_bytes": 364
+        },
+        "japanesearcades:block/gitadora_front": {
+          "size": [
+            256,
+            256
+          ],
+          "rgba_bytes": 262144,
+          "file_bytes": 2675
+        },
+        "japanesearcades:block/gitadora_rear": {
+          "size": [
+            128,
+            256
+          ],
+          "rgba_bytes": 131072,
+          "file_bytes": 2987
+        },
+        "japanesearcades:block/gitadora_bridge": {
+          "size": [
+            512,
+            96
+          ],
+          "rgba_bytes": 196608,
+          "file_bytes": 1309
+        },
+        "japanesearcades:block/gitadora_screen_drummania": {
+          "size": [
+            512,
+            288
+          ],
+          "rgba_bytes": 589824,
+          "file_bytes": 58665
+        },
+        "japanesearcades:block/gitadora_reader": {
+          "size": [
+            256,
+            256
+          ],
+          "rgba_bytes": 262144,
+          "file_bytes": 7078
+        },
+        "japanesearcades:block/gitadora_pad": {
+          "size": [
+            128,
+            128
+          ],
+          "rgba_bytes": 65536,
+          "file_bytes": 2008
+        },
+        "japanesearcades:block/gitadora_title": {
+          "size": [
+            256,
+            32
+          ],
+          "rgba_bytes": 32768,
+          "file_bytes": 2152
+        }
+      },
+      "blockstate_variants": 40,
+      "full_item": {
+        "faces": 2767,
+        "triangles": 4932,
+        "vertices": 3043,
+        "sha256": "de8e9668653c7f6d1782f0cfaf37dc9813312d6e7bc389239d20b6b839eced5b"
+      },
+      "placed_faces": 3199,
+      "gui_faces": 1,
+      "gui_texture_size": [
+        256,
+        256
+      ]
+    }
+  },
+  "unique_textures": {
+    "japanesearcades:block/bombergirl_bezel": {
+      "size": [
+        256,
+        512
+      ],
+      "rgba_bytes": 524288,
+      "file_bytes": 2333
+    },
+    "japanesearcades:block/bombergirl_materials": {
+      "size": [
+        64,
+        64
+      ],
+      "rgba_bytes": 16384,
+      "file_bytes": 243
+    },
+    "japanesearcades:block/bombergirl_screen": {
+      "size": [
+        384,
+        704
+      ],
+      "rgba_bytes": 1081344,
+      "file_bytes": 343367
+    },
+    "japanesearcades:block/bombergirl_topper": {
+      "size": [
+        768,
+        544
+      ],
+      "rgba_bytes": 1671168,
+      "file_bytes": 876440
+    },
+    "japanesearcades:block/bombergirl_topper_back": {
+      "size": [
+        768,
+        544
+      ],
+      "rgba_bytes": 1671168,
+      "file_bytes": 71362
+    },
+    "japanesearcades:block/bombergirl_rear": {
+      "size": [
+        256,
+        256
+      ],
+      "rgba_bytes": 262144,
+      "file_bytes": 2086
+    },
+    "japanesearcades:block/bombergirl_button": {
+      "size": [
+        256,
+        256
+      ],
+      "rgba_bytes": 262144,
+      "file_bytes": 6752
+    },
+    "japanesearcades:block/bombergirl_marquee": {
+      "size": [
+        768,
+        160
+      ],
+      "rgba_bytes": 491520,
+      "file_bytes": 125737
+    },
+    "japanesearcades:block/bombergirl_touch": {
+      "size": [
+        512,
+        320
+      ],
+      "rgba_bytes": 655360,
+      "file_bytes": 10499
+    },
+    "japanesearcades:block/bombergirl_deck": {
+      "size": [
+        512,
+        384
+      ],
+      "rgba_bytes": 786432,
+      "file_bytes": 4099
+    },
+    "japanesearcades:block/bombergirl_speaker": {
+      "size": [
+        128,
+        128
+      ],
+      "rgba_bytes": 65536,
+      "file_bytes": 342
+    },
+    "japanesearcades:block/bombergirl_details": {
+      "size": [
+        256,
+        144
+      ],
+      "rgba_bytes": 147456,
+      "file_bytes": 4136
+    },
+    "japanesearcades:block/bombergirl_lights": {
+      "size": [
+        32,
+        256
+      ],
+      "rgba_bytes": 32768,
+      "file_bytes": 333
+    },
+    "japanesearcades:block/bombergirl_front": {
+      "size": [
+        256,
+        256
+      ],
+      "rgba_bytes": 262144,
+      "file_bytes": 1531
+    },
+    "japanesearcades:block/bombergirl_side": {
+      "size": [
+        256,
+        512
+      ],
+      "rgba_bytes": 524288,
+      "file_bytes": 20996
+    },
+    "japanesearcades:block/gitadora_speaker": {
+      "size": [
+        128,
+        128
+      ],
+      "rgba_bytes": 65536,
+      "file_bytes": 1634
+    },
+    "japanesearcades:block/gitadora_service": {
+      "size": [
+        128,
+        256
+      ],
+      "rgba_bytes": 131072,
+      "file_bytes": 1712
+    },
+    "japanesearcades:block/gitadora_side": {
+      "size": [
+        128,
+        512
+      ],
+      "rgba_bytes": 262144,
+      "file_bytes": 5779
+    },
+    "japanesearcades:block/gitadora_marquee": {
+      "size": [
+        512,
+        256
+      ],
+      "rgba_bytes": 524288,
+      "file_bytes": 20701
+    },
+    "japanesearcades:block/gitadora_materials": {
+      "size": [
+        128,
+        128
+      ],
+      "rgba_bytes": 65536,
+      "file_bytes": 364
+    },
+    "japanesearcades:block/gitadora_front": {
+      "size": [
+        256,
+        256
+      ],
+      "rgba_bytes": 262144,
+      "file_bytes": 2675
+    },
+    "japanesearcades:block/gitadora_rear": {
+      "size": [
+        128,
+        256
+      ],
+      "rgba_bytes": 131072,
+      "file_bytes": 2987
+    },
+    "japanesearcades:block/gitadora_screen_guitarfreaks": {
+      "size": [
+        512,
+        288
+      ],
+      "rgba_bytes": 589824,
+      "file_bytes": 59571
+    },
+    "japanesearcades:block/gitadora_bridge": {
+      "size": [
+        512,
+        96
+      ],
+      "rgba_bytes": 196608,
+      "file_bytes": 1309
+    },
+    "japanesearcades:block/gitadora_reader": {
+      "size": [
+        256,
+        256
+      ],
+      "rgba_bytes": 262144,
+      "file_bytes": 7078
+    },
+    "japanesearcades:block/gitadora_title": {
+      "size": [
+        256,
+        32
+      ],
+      "rgba_bytes": 32768,
+      "file_bytes": 2152
+    },
+    "japanesearcades:block/gitadora_pedal": {
+      "size": [
+        64,
+        128
+      ],
+      "rgba_bytes": 32768,
+      "file_bytes": 558
+    },
+    "japanesearcades:block/gitadora_screen_drummania": {
+      "size": [
+        512,
+        288
+      ],
+      "rgba_bytes": 589824,
+      "file_bytes": 58665
+    },
+    "japanesearcades:block/gitadora_pad": {
+      "size": [
+        128,
+        128
+      ],
+      "rgba_bytes": 65536,
+      "file_bytes": 2008
+    }
+  },
+  "release_sha256": "fb3d7914ae503ad01ec23b1b59ad1a004a0339e15976595cf3ee4216c23e2026",
+  "total_unique_model_rgba_bytes": 11665408,
+  "notes": "Counts cover every placed part. Geometry, UVs, four-mip alignment, resource references and release asset equality verified. Texture byte estimates omit mipmaps and atlas padding; face counts are not FPS measurements."
+}

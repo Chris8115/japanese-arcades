@@ -1,0 +1,24 @@
+{
+  "compact_candidates": {
+    "nine": {
+      "columns": 3,
+      "x_spacing": 10,
+      "prize_gap_x": 5.4,
+      "claw_sweep_gap_x": 4.407
+    },
+    "twelve": {
+      "columns": 4,
+      "x_spacing": 6.666666666666667,
+      "prize_gap_x": 2.0666666666666673,
+      "claw_sweep_gap_x": 1.073666666666667
+    }
+  },
+  "selected_compact": 12,
+  "selected_large": 15,
+  "reason": "12 compact and 15 large retain positive clearance between neighboring prize envelopes and full open claw sweeps; an extra column beyond those counts eliminates comfortable claw clearance. Runtime uses uniform fitting, never flattened prize geometry.",
+  "depth_center_spacing": 8,
+  "max_prize_footprint": [
+    4.6,
+    3.4
+  ]
+}

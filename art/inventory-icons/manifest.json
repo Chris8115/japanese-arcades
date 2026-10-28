@@ -205,5 +205,59 @@
     ],
     "canvas_gui_pixels": 24,
     "sha256": "64ee6d18866376b67fbb6d3596bb6898dba18baa64b8fd946cab8b05d1395bfe"
+  },
+  "sleeping_fox_plush": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "fefcfbdddec5838b9ee03689c701faafae20c68deb5d68d1d141f12581485736"
+  },
+  "bombergirl": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "9ad8bcd648b9ebc364b9276e7f511057d46cf773c972c08eb311ca078b5c4d44"
+  },
+  "gitadora_guitarfreaks": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "fd7a0288c92d943f7e836c7e4160e3692c163a66effad53074a57f9270205032"
+  },
+  "gitadora_drummania": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "228fc420c1623dc5a949f16c999c9415460f93557dca996599edbaee347cdff7"
+  },
+  "claw_machine": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "c7edf15d30cbcbcd020feafc5a21659c69ebc355e6e21f60dc7dea20c46089ea"
+  },
+  "compact_claw_machine": {
+    "gui_faces": 1,
+    "size": [
+      256,
+      256
+    ],
+    "canvas_gui_pixels": 24,
+    "sha256": "d24a7853442943fb185fa008217cd4790a2edc48442d007355408936d67daaed"
   }
 }

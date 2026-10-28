@@ -54,6 +54,7 @@ public final class ArcadePrizeCatalog {
         new Entry(id("kagamine_rin_cutout"), JapaneseArcades.KAGAMINE_RIN_CUTOUT_ITEM, Category.CUTOUTS),
         new Entry(id("kagamine_len_cutout"), JapaneseArcades.KAGAMINE_LEN_CUTOUT_ITEM, Category.CUTOUTS),
         new Entry(id("wacca_poster"), JapaneseArcades.WACCA_POSTER, Category.POSTERS),
+        new Entry(id("sleeping_fox_plush"), JapaneseArcades.SLEEPING_FOX_PLUSH_ITEM, Category.SPECIAL),
         new Entry(id("mech_suit"), JapaneseArcades.MECH_SUIT_ITEM, Category.SPECIAL)),
         JapaneseArcades.ARCADE_POSTERS.stream().map(poster -> new Entry(id(poster.path()), poster.item(), Category.POSTERS)),
         JapaneseArcades.MOB_FIGURES.stream().map(figures -> new Entry(

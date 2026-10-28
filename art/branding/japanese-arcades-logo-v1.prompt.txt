@@ -1,0 +1,15 @@
+Generated with the built-in image generation tool.
+
+Use case: logo-brand.
+Create one finished, original square logo for a Minecraft mod named "Japanese Arcades", suitable as a CurseForge project avatar. Aim for a polished, distinctive game-mod identity that remains clear as a small icon, with the main silhouette readable at 64px and the full title readable at 400px.
+
+Design: a bold simplified Japanese candy-style arcade cabinet, seen from a restrained front three-quarter angle, with a chunky white/light-cream shell, a dark screen, cyan trim and magenta controls. Its screen contains one simple original glowing geometric emblem, not a character or a recognizable game symbol. The cabinet and lettering must feel like one cohesive badge, not separate clip art. Use a blocky voxel-inspired silhouette but clean vector-like graphic shapes and precise edges. Modest dimensional shading, thick dark outlines, minimal restrained neon highlights, no busy surface detail.
+
+Composition: square 1:1 canvas, 1024 by 1024 pixels. Deep midnight-navy background extending to all four edges, with subtle depth and a tidy cyan/magenta border framing the central badge. Arcade cabinet fills the upper central portion. Large strong custom angular arcade lettering fills the lower portion on exactly two lines:
+"JAPANESE"
+"ARCADES"
+Spell both words exactly, with no extra text. Excellent high-contrast typography, generous letter spacing appropriate for legibility, not a thin futuristic font. Use white/cream letters with restrained cyan and magenta edge accents. Keep all important content at least 7% inside the square canvas.
+
+Palette: midnight navy, warm white, electric cyan, vivid pink, a very small warm-yellow accent if useful. Friendly, energetic Japanese game-center mood. Professional, readable, compact brand mark.
+
+Constraints: wholly original illustration and typography treatment; no existing game logos, company logos, Minecraft logo, CurseForge logo, copyrighted poster art, anime characters, licensed mascots, or recognizable game-screen artwork. No photography, mockup, watermark, tagline, stray Japanese characters, small illegible writing, multiple options, contact sheet, or scenery. Produce only the finished logo image, opaque background.

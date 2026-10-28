@@ -59,25 +59,40 @@ final class DisplayItemMeshes {
 
     boolean render(ItemStack stack, PoseStack pose, MultiBufferSource buffers, int light, int overlay,
                    boolean cullFromEye, ItemDisplayContext context) {
+        Mesh mesh = mesh(stack, context);
+        if (mesh == null || !mesh.markSpritesActive()) { return false; }
+        mesh.render(stack, pose, buffers, light, overlay, cullFromEye);
+        return true;
+    }
+
+    /** Bounds include the native item transform and are captured with the cached mesh. */
+    Bounds bounds(ItemStack stack, ItemDisplayContext context) {
+        Mesh mesh = mesh(stack, context);
+        return mesh == null ? null : mesh.bounds;
+    }
+
+    record Bounds(float minX, float minY, float minZ, float maxX, float maxY, float maxZ) {}
+
+    private Mesh mesh(ItemStack stack, ItemDisplayContext context) {
         // Only our static block items are eligible. Vanilla/modded dynamic models, custom
         // renderers, item overrides and enchanted items retain their normal rendering path.
         if (!(stack.getItem() instanceof BlockItem) || stack.hasFoil()
             || !BuiltInRegistries.ITEM.getKey(stack.getItem()).getNamespace().equals(JapaneseArcades.MOD_ID)) {
-            return false;
+            return null;
         }
         ItemRenderer renderer = Minecraft.getInstance().getItemRenderer();
         BakedModel model = CabinetInventoryModels.full(renderer.getItemModelShaper().getItemModel(stack));
         ModelKey key = new ModelKey(model, context);
-        if (model.isCustomRenderer() || model.getOverrides() != ItemOverrides.EMPTY || nativeModels.contains(key)) { return false; }
+        if (model.isCustomRenderer() || model.getOverrides() != ItemOverrides.EMPTY || nativeModels.contains(key)) { return null; }
         Mesh mesh = meshes.get(key);
         if (mesh == null) {
             Capture capture = new Capture();
             // Capture the requested transform and render passes as ItemRenderer. Light is zero
             // here so baked emission can be combined with the current world light on replay.
             renderer.render(stack, context, false, new PoseStack(), capture, 0, 0, model);
-            if (!capture.supported()) { nativeModels.add(key); return false; }
+            if (!capture.supported()) { nativeModels.add(key); return null; }
             mesh = capture.finish(model);
-            if (mesh.vertices > MAX_VERTICES) { nativeModels.add(key); return false; }
+            if (mesh.vertices > MAX_VERTICES) { nativeModels.add(key); return null; }
             while (vertices + mesh.vertices > MAX_VERTICES && !meshes.isEmpty()) {
                 var oldest = meshes.entrySet().iterator();
                 vertices -= oldest.next().getValue().vertices;
@@ -86,12 +101,10 @@ final class DisplayItemMeshes {
             meshes.put(key, mesh);
             vertices += mesh.vertices;
         }
-        if (!mesh.markSpritesActive()) { return false; }
-        mesh.render(stack, pose, buffers, light, overlay, cullFromEye);
-        return true;
+        return mesh;
     }
 
-    private record Mesh(List<Part> parts, int vertices) {
+    private record Mesh(List<Part> parts, int vertices, Bounds bounds) {
         boolean markSpritesActive() {
             for (Part part : parts) {
                 for (TextureAtlasSprite sprite : part.sprites) {
@@ -183,8 +196,16 @@ final class DisplayItemMeshes {
         Mesh finish(BakedModel original) {
             List<Part> result = new ArrayList<>();
             int count = 0;
+            float minX = Float.POSITIVE_INFINITY, minY = minX, minZ = minX;
+            float maxX = Float.NEGATIVE_INFINITY, maxY = maxX, maxZ = maxX;
             for (var entry : parts.entrySet()) {
                 Collector c = entry.getValue();
+                for (int vertex = 0; vertex < c.size; vertex++) {
+                    int offset = vertex * 8;
+                    minX = Math.min(minX, c.data[offset]); maxX = Math.max(maxX, c.data[offset]);
+                    minY = Math.min(minY, c.data[offset + 1]); maxY = Math.max(maxY, c.data[offset + 1]);
+                    minZ = Math.min(minZ, c.data[offset + 2]); maxZ = Math.max(maxZ, c.data[offset + 2]);
+                }
                 RenderType type = entry.getKey();
                 // These exact native passes all enable back-face culling. Never cull a
                 // double-sided or unknown pass; preserve the same visible surface set.
@@ -215,7 +236,7 @@ final class DisplayItemMeshes {
                     List.copyOf(c.quads), c.transform, visible, List.copyOf(c.sprites), new FilteredModel(original, visible)));
                 count += c.size;
             }
-            return new Mesh(List.copyOf(result), count);
+            return new Mesh(List.copyOf(result), count, new Bounds(minX, minY, minZ, maxX, maxY, maxZ));
         }
     }
 

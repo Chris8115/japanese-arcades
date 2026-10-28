@@ -1,0 +1,134 @@
+{
+  "name": "Minecraft-style Sleeping Fox Plush",
+  "status": "optimized source model for the integrated sleeping_fox_plush arcade reward",
+  "generator": "scripts/make_sleeping_fox_plush.py",
+  "blender_version": "5.2.2 LTS",
+  "collection": "FOX_PLUSH",
+  "units": "1 Blender unit = 1 Minecraft block",
+  "axes": {
+    "blender_and_obj": "X width, -Y front, Z up",
+    "glb": "X width, +Z front, +Y up (standard glTF conversion)"
+  },
+  "bounds": {
+    "minimum": [
+      -0.8300000429153442,
+      -0.7300000190734863,
+      0.0
+    ],
+    "maximum": [
+      0.8100000023841858,
+      0.5949999690055847,
+      1.0100001096725464
+    ],
+    "dimensions": [
+      1.64000004529953,
+      1.324999988079071,
+      1.0100001096725464
+    ]
+  },
+  "faces": 272,
+  "triangles": 464,
+  "vertices": 256,
+  "mesh_objects": 12,
+  "material_count": 5,
+  "authoring_material_count": 13,
+  "geometry": "Vanilla-proportioned cuboids with tiny one-segment cloth bevels; rectangular folded tail; flat normals; no subdivision",
+  "textures": "Exact native 48x32 sleeping-fox pixels mapped onto cuboid faces in a 64x64 atlas, packed in Blender/GLB. Unchanged source retained as model.fox_sleep.png.",
+  "optimization": "Replaced per-pixel material geometry with UV-mapped flat faces; approved cuboid bounds and tiny edge bevels retained.",
+  "reference": {
+    "game": "Minecraft Java 1.21.1",
+    "geometry": "FoxModel.createBodyLayer",
+    "skin": "assets/minecraft/textures/entity/fox/fox_sleep.png",
+    "head_pixels": [
+      8,
+      6,
+      6
+    ],
+    "ears_pixels": [
+      2,
+      2,
+      1
+    ],
+    "muzzle_pixels": [
+      4,
+      2,
+      3
+    ],
+    "pose_note": "Cuboid sleeping toy reinterpretation; compressed rectangular tail and two tucked plush paws, not a literal vanilla pose export."
+  },
+  "grounded": true,
+  "parts": [
+    {
+      "name": "01 vanilla-proportioned sleeping head",
+      "vertices": 24,
+      "faces": 26,
+      "triangles": 44
+    },
+    {
+      "name": "02 protruding cuboid cream muzzle and nose",
+      "vertices": 24,
+      "faces": 26,
+      "triangles": 44
+    },
+    {
+      "name": "03 left small square ear",
+      "vertices": 24,
+      "faces": 26,
+      "triangles": 44
+    },
+    {
+      "name": "04 right small square ear",
+      "vertices": 24,
+      "faces": 26,
+      "triangles": 44
+    },
+    {
+      "name": "05 long sleeping cuboid body",
+      "vertices": 24,
+      "faces": 26,
+      "triangles": 44
+    },
+    {
+      "name": "06 rectangular tail with vanilla cream tip",
+      "vertices": 24,
+      "faces": 26,
+      "triangles": 44
+    },
+    {
+      "name": "07 square tail root fold",
+      "vertices": 24,
+      "faces": 26,
+      "triangles": 44
+    },
+    {
+      "name": "08 tucked dark front paw",
+      "vertices": 24,
+      "faces": 26,
+      "triangles": 44
+    },
+    {
+      "name": "09 tucked dark rear paw",
+      "vertices": 24,
+      "faces": 26,
+      "triangles": 44
+    },
+    {
+      "name": "10 small woven prize tag",
+      "vertices": 24,
+      "faces": 26,
+      "triangles": 44
+    },
+    {
+      "name": "11 prize tag stitch 0",
+      "vertices": 8,
+      "faces": 6,
+      "triangles": 12
+    },
+    {
+      "name": "11 prize tag stitch 1",
+      "vertices": 8,
+      "faces": 6,
+      "triangles": 12
+    }
+  ]
+}

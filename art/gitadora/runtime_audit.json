@@ -1,0 +1,287 @@
+{
+  "models/block/gitadora_drummania_0.obj": {
+    "faces": 116,
+    "triangles": 230,
+    "bounds": [
+      [
+        0.040625,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.96875
+      ]
+    ],
+    "errors": []
+  },
+  "models/block/gitadora_drummania_1.obj": {
+    "faces": 110,
+    "triangles": 218,
+    "bounds": [
+      [
+        0.0,
+        0.959375
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.96875
+      ]
+    ],
+    "errors": []
+  },
+  "models/block/gitadora_drummania_2.obj": {
+    "faces": 98,
+    "triangles": 196,
+    "bounds": [
+      [
+        0.040625,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.04375,
+        1.0
+      ]
+    ],
+    "errors": []
+  },
+  "models/block/gitadora_drummania_3.obj": {
+    "faces": 98,
+    "triangles": 196,
+    "bounds": [
+      [
+        0.0,
+        0.959375
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.04375,
+        1.0
+      ]
+    ],
+    "errors": []
+  },
+  "models/block/gitadora_drummania_4.obj": {
+    "faces": 413,
+    "triangles": 629,
+    "bounds": [
+      [
+        0.069124683,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.96
+      ]
+    ],
+    "errors": []
+  },
+  "models/block/gitadora_drummania_5.obj": {
+    "faces": 227,
+    "triangles": 383,
+    "bounds": [
+      [
+        0.0,
+        0.901033531
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.96
+      ]
+    ],
+    "errors": []
+  },
+  "models/block/gitadora_drummania_6.obj": {
+    "faces": 354,
+    "triangles": 650,
+    "bounds": [
+      [
+        0.25625,
+        1.0
+      ],
+      [
+        0.0,
+        0.925
+      ],
+      [
+        0.3965625,
+        0.930504261
+      ]
+    ],
+    "errors": []
+  },
+  "models/block/gitadora_drummania_7.obj": {
+    "faces": 354,
+    "triangles": 650,
+    "bounds": [
+      [
+        0.0,
+        0.74375
+      ],
+      [
+        0.0,
+        0.925
+      ],
+      [
+        0.3965625,
+        0.930504261
+      ]
+    ],
+    "errors": []
+  },
+  "models/block/gitadora_drummania_8.obj": {
+    "faces": 595,
+    "triangles": 1056,
+    "bounds": [
+      [
+        0.05625,
+        0.9375
+      ],
+      [
+        -0.0,
+        0.843324126
+      ],
+      [
+        0.26199186,
+        1.0
+      ]
+    ],
+    "errors": []
+  },
+  "models/block/gitadora_drummania_9.obj": {
+    "faces": 834,
+    "triangles": 1496,
+    "bounds": [
+      [
+        0.09375,
+        0.946875
+      ],
+      [
+        -0.0,
+        0.794792251
+      ],
+      [
+        0.166214123,
+        1.0
+      ]
+    ],
+    "errors": []
+  },
+  "models/block/gitadora_guitarfreaks_base.obj": {
+    "faces": 208,
+    "triangles": 412,
+    "bounds": [
+      [
+        -0.10625,
+        1.10625
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0346875,
+        0.96875
+      ]
+    ],
+    "errors": []
+  },
+  "models/block/gitadora_guitarfreaks_console.obj": {
+    "faces": 617,
+    "triangles": 850,
+    "bounds": [
+      [
+        -0.0646875,
+        1.0646875
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0346875,
+        0.96
+      ]
+    ],
+    "errors": []
+  },
+  "models/block/gitadora_guitarfreaks_marquee.obj": {
+    "faces": 1229,
+    "triangles": 2002,
+    "bounds": [
+      [
+        -0.11875,
+        1.11875
+      ],
+      [
+        0.0,
+        0.925
+      ],
+      [
+        0.061875,
+        0.930504261
+      ]
+    ],
+    "errors": []
+  },
+  "models/item/gitadora_drummania.obj": {
+    "faces": 2767,
+    "triangles": 4932,
+    "bounds": [
+      [
+        -0.459375,
+        1.459375
+      ],
+      [
+        0.0,
+        2.925
+      ],
+      [
+        -0.45625,
+        1.46875
+      ]
+    ],
+    "errors": []
+  },
+  "models/item/gitadora_guitarfreaks.obj": {
+    "faces": 1950,
+    "triangles": 3060,
+    "bounds": [
+      [
+        -0.11875,
+        1.11875
+      ],
+      [
+        0.0,
+        2.925
+      ],
+      [
+        0.0346875,
+        0.96875
+      ]
+    ],
+    "errors": []
+  }
+}

@@ -1,0 +1,74 @@
+newmtl bezel_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #bezel
+
+newmtl button_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #button
+
+newmtl deck_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #deck
+
+newmtl details_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #details
+
+newmtl front_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #front
+
+newmtl lights_glow
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #lights
+
+newmtl marquee_glow
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #marquee
+
+newmtl materials_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #materials
+
+newmtl rear_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #rear
+
+newmtl screen_glow
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #screen
+
+newmtl side_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #side
+
+newmtl speaker_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #speaker
+
+newmtl topper_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #topper
+
+newmtl topper_back_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #topper_back
+
+newmtl touch_glow
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #touch

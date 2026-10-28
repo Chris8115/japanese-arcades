@@ -54,6 +54,9 @@ public final class ArcadeOrderCatalog {
         machine("chrono_circle", JapaneseArcades.CHRONO_CIRCLE_ITEM, 18, 4, 1, 8, 8),
         machine("music_diver", JapaneseArcades.MUSIC_DIVER_ITEM, 18, 4, 1, 8, 8),
         machine("popn_music", JapaneseArcades.POPN_MUSIC_ITEM, 16, 4, 1, 6, 6),
+        machine("bombergirl", JapaneseArcades.BOMBERGIRL_ITEM, 16, 4, 1, 6, 6),
+        machine("gitadora_guitarfreaks", JapaneseArcades.GITADORA_GUITARFREAKS_ITEM, 18, 4, 1, 8, 8),
+        machine("gitadora_drummania", JapaneseArcades.GITADORA_DRUMMANIA_ITEM, 24, 6, 2, 8, 8),
         machine("maimai", JapaneseArcades.MAIMAI_ITEM, 24, 6, 2, 8, 8),
         machine("ddr_supernova", JapaneseArcades.DDR_SUPERNOVA_ITEM, 24, 6, 2, 8, 8),
         machine("beatmania_iidx_lightning", JapaneseArcades.BEATMANIA_IIDX_LIGHTNING_ITEM, 24, 6, 2, 8, 8),
@@ -61,6 +64,7 @@ public final class ArcadeOrderCatalog {
         machine("initial_d", JapaneseArcades.INITIAL_D_ITEM, 20, 4, 1, 6, 6),
         machine("jubeat", JapaneseArcades.JUBEAT_ITEM, 12, 2, 1, 4, 4),
         machine("claw_machine", JapaneseArcades.CLAW_MACHINE_ITEM, 24, 4, 1, 12, 8),
+        machine("compact_claw_machine", JapaneseArcades.COMPACT_CLAW_MACHINE_ITEM, 18, 3, 1, 8, 6),
         new Entry(id("gachapon"), MACHINES, JapaneseArcades.GACHAPON_ITEM, List.of(
             new Cost(Items.IRON_INGOT, 8), new Cost(Items.GOLD_INGOT, 2),
             new Cost(Items.GLASS, 4), new Cost(Items.REDSTONE, 2))));

@@ -1,0 +1,4 @@
+newmtl fox_cloth
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #materials

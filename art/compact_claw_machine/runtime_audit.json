@@ -1,0 +1,296 @@
+{
+  "profile": {
+    "dimensions": [
+      32,
+      32,
+      32
+    ],
+    "part_formula": "x+2*z+4*y",
+    "grid_columns": 4,
+    "grid_rows": 3,
+    "prize_centers": [
+      [
+        26.0,
+        13.5,
+        25
+      ],
+      [
+        19.333333333333332,
+        13.5,
+        25
+      ],
+      [
+        12.666666666666666,
+        13.5,
+        25
+      ],
+      [
+        6.0,
+        13.5,
+        25
+      ],
+      [
+        26.0,
+        13.5,
+        17
+      ],
+      [
+        19.333333333333332,
+        13.5,
+        17
+      ],
+      [
+        12.666666666666666,
+        13.5,
+        17
+      ],
+      [
+        6.0,
+        13.5,
+        17
+      ],
+      [
+        26.0,
+        13.5,
+        9
+      ],
+      [
+        19.333333333333332,
+        13.5,
+        9
+      ],
+      [
+        12.666666666666666,
+        13.5,
+        9
+      ],
+      [
+        6.0,
+        13.5,
+        9
+      ]
+    ],
+    "floor_y": 11,
+    "pad_top_y": 11.18,
+    "pad_width": 5.6,
+    "prize_max_uniform_envelope": [
+      4.6,
+      4.6,
+      3.4
+    ],
+    "prize_bottom_y": 11.2,
+    "claw_home_basis_y": 23,
+    "claw_lowered_basis_y": 13.5,
+    "claw_scale": 0.85,
+    "rail_y": 28.1,
+    "cable_top_y": 27.7,
+    "chute_home": [
+      26,
+      23,
+      3.6
+    ],
+    "chute_aperture": [
+      22.5,
+      2,
+      29.5,
+      5.5
+    ],
+    "payout": [
+      26,
+      5,
+      -4
+    ],
+    "price_icon": [
+      11.2,
+      8.65,
+      0.2
+    ],
+    "price_count": [
+      16.5,
+      8.65,
+      0.2
+    ]
+  },
+  "counts": {
+    "0": {
+      "input_bytes": 85542,
+      "input_faces": 298,
+      "merged_faces": 0,
+      "deduplicated_positions": 728,
+      "deduplicated_uvs": 1039,
+      "deduplicated_normals": 0,
+      "output_faces": 298,
+      "output_bytes": 28404,
+      "faces": 298,
+      "sha256": "7a2aba9545c3ee51560a3696dd7ea868cfa000c91a7c0e709b6da526bde073cc"
+    },
+    "1": {
+      "input_bytes": 110645,
+      "input_faces": 385,
+      "merged_faces": 0,
+      "deduplicated_positions": 953,
+      "deduplicated_uvs": 1373,
+      "deduplicated_normals": 0,
+      "output_faces": 385,
+      "output_bytes": 34305,
+      "faces": 385,
+      "sha256": "4ea07f6744e99029535952a1d12700d9f921032c15d74671ad73f948d99951e0"
+    },
+    "2": {
+      "input_bytes": 32095,
+      "input_faces": 109,
+      "merged_faces": 0,
+      "deduplicated_positions": 242,
+      "deduplicated_uvs": 357,
+      "deduplicated_normals": 0,
+      "output_faces": 109,
+      "output_bytes": 12554,
+      "faces": 109,
+      "sha256": "b4341c05cb21cf071fc86a5ed9c7d925fe23552428dde57c814368d5f2dadf86"
+    },
+    "3": {
+      "input_bytes": 32095,
+      "input_faces": 109,
+      "merged_faces": 0,
+      "deduplicated_positions": 242,
+      "deduplicated_uvs": 360,
+      "deduplicated_normals": 0,
+      "output_faces": 109,
+      "output_bytes": 12475,
+      "faces": 109,
+      "sha256": "5073c10fe91ca7859a5b224f4c6ff8b1700ba3ce6b9ee6b8d3c54e1a6e5e0092"
+    },
+    "4": {
+      "input_bytes": 33942,
+      "input_faces": 130,
+      "merged_faces": 0,
+      "deduplicated_positions": 300,
+      "deduplicated_uvs": 380,
+      "deduplicated_normals": 0,
+      "output_faces": 130,
+      "output_bytes": 11594,
+      "faces": 130,
+      "sha256": "d4b46b5d81f5544539204e47478fdabfa7af89854391d1756a1fb280c1f88473"
+    },
+    "5": {
+      "input_bytes": 33945,
+      "input_faces": 130,
+      "merged_faces": 0,
+      "deduplicated_positions": 300,
+      "deduplicated_uvs": 379,
+      "deduplicated_normals": 0,
+      "output_faces": 130,
+      "output_bytes": 11627,
+      "faces": 130,
+      "sha256": "f94c381aa37fad809e82d673570bd57e8c755e508183ac13e03409dfabaece31"
+    },
+    "6": {
+      "input_bytes": 17578,
+      "input_faces": 63,
+      "merged_faces": 0,
+      "deduplicated_positions": 117,
+      "deduplicated_uvs": 176,
+      "deduplicated_normals": 0,
+      "output_faces": 63,
+      "output_bytes": 8071,
+      "faces": 63,
+      "sha256": "a62abb7d7cfe88537c1843cc07af9cc771b8ce057b8a2d33c445e416f8cab759"
+    },
+    "7": {
+      "input_bytes": 17581,
+      "input_faces": 63,
+      "merged_faces": 0,
+      "deduplicated_positions": 117,
+      "deduplicated_uvs": 175,
+      "deduplicated_normals": 0,
+      "output_faces": 63,
+      "output_bytes": 8100,
+      "faces": 63,
+      "sha256": "dc481f04b022fa2f85f82600e6631aaac805ec47e4b92e4c53c0a9657fd937d5"
+    },
+    "item": {
+      "input_bytes": 332694,
+      "input_faces": 1161,
+      "merged_faces": 0,
+      "deduplicated_positions": 2949,
+      "deduplicated_uvs": 4353,
+      "deduplicated_normals": 0,
+      "output_faces": 1161,
+      "output_bytes": 91644,
+      "faces": 1161,
+      "sha256": "ca26261d9d051e82f25bf6701b041875e9d7838ee853c4eb6fc6c7197def3d2d"
+    },
+    "placed_static_faces": 1287,
+    "moving_hardware_faces": 90,
+    "placed_plus_hardware_faces": 1377,
+    "active_selection_faces": 24,
+    "active_cabinet_only_faces": 1401
+  },
+  "textures": {
+    "compact_claw_machine_materials.png": {
+      "size": [
+        64,
+        64
+      ],
+      "png_bytes": 242
+    },
+    "compact_claw_machine_sign.png": {
+      "size": [
+        512,
+        96
+      ],
+      "png_bytes": 10979
+    },
+    "compact_claw_machine_prize_out.png": {
+      "size": [
+        256,
+        128
+      ],
+      "png_bytes": 2482
+    },
+    "compact_claw_machine_controls.png": {
+      "size": [
+        256,
+        128
+      ],
+      "png_bytes": 5037
+    },
+    "compact_claw_machine_service.png": {
+      "size": [
+        256,
+        256
+      ],
+      "png_bytes": 2693
+    },
+    "compact_claw_machine_rear.png": {
+      "size": [
+        256,
+        256
+      ],
+      "png_bytes": 2629
+    },
+    "compact_claw_machine_side.png": {
+      "size": [
+        256,
+        128
+      ],
+      "png_bytes": 5452
+    },
+    "compact_claw_machine_glass.png": {
+      "size": [
+        128,
+        128
+      ],
+      "png_bytes": 383
+    }
+  },
+  "texture_pixels": 299008,
+  "estimated_texture_bytes_with_four_mips": 1593152,
+  "checks": [
+    "All twelve 4.6 x 4.6 x 3.4 prize envelopes separated",
+    "Every floor pad clears front chute",
+    "Final static face count below 2000",
+    "Complete geometry plus moving hardware below 10000",
+    "All textures <=512 and mip16 aligned"
+  ]
+}

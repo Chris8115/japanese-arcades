@@ -37,7 +37,8 @@ public final class ClawMachineNetwork {
         @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
     }
     public static void register(RegisterPayloadHandlersEvent event) {
-        var registrar = event.registrar("claw-1");
+        // Version two also requires layout-aware menu opening data and slot ordering.
+        var registrar = event.registrar("claw-2");
         registrar.playToServer(ActionPayload.TYPE, ActionPayload.CODEC, (data, context) -> {
             if (context.player() instanceof ServerPlayer player) handleAction(player, data);
         });

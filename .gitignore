@@ -15,3 +15,7 @@ src/generated/**/.cache/
 *.blend1
 *.blend2
 __pycache__/
+
+# Local launcher and generated gallery archive (the individual images are tracked).
+/Launch Game.bat
+/art/branding/curseforge-gallery-v1.zip

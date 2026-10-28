@@ -1,0 +1,50 @@
+{
+  "cabinet": "bombergirl",
+  "generator": "make_bombergirl_model.py",
+  "changed": true,
+  "method": "Integer pixel crop; remapped source-pixel UV coordinates; no resampling or geometry changes",
+  "pixels_saved": 28672,
+  "textures": {
+    "japanesearcades:block/bombergirl_details": {
+      "before_size": [
+        256,
+        256
+      ],
+      "after_size": [
+        256,
+        144
+      ],
+      "rectangle": [
+        0,
+        0,
+        256,
+        144
+      ],
+      "sampled_pixel_bounds": [
+        0.0,
+        0.0,
+        256.0,
+        128.0
+      ],
+      "source_rgba_sha256": "39795ef0e6cefc06d976cdf7dc943d0ee0985ee7fd5ef0daac2763979841d776",
+      "retained_rgba_sha256": "c39daa26ea39bcdb34c3e2cfb902491b852aa6d205fce058104b2669c5c26aa5",
+      "pixels_saved": 28672,
+      "mip_alignment": 16,
+      "sampling_guard_pixels": 16,
+      "has_fully_transparent_pixels": false,
+      "uv_points_checked": 20,
+      "max_pixel_coordinate_error": 0,
+      "model_references": [
+        "block/bombergirl_base.json",
+        "item/bombergirl.json"
+      ]
+    }
+  },
+  "files": [
+    "art/bombergirl/bombergirl.bbmodel",
+    "art/bombergirl/geometry.json",
+    "src/main/resources/assets/japanesearcades/models/block/bombergirl_base.obj",
+    "src/main/resources/assets/japanesearcades/models/item/bombergirl.obj",
+    "src/main/resources/assets/japanesearcades/textures/block/bombergirl_details.png"
+  ]
+}

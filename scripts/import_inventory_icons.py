@@ -17,6 +17,9 @@ IDS = (
     'museca', 'project_diva', 'chrono_circle', 'music_diver', 'popn_music',
     'maimai', 'ddr_supernova', 'taiko', 'initial_d', 'jubeat',
     'arcade_kiosk', 'gachapon', 'hatsune_miku_figure', 'kasane_teto_figure',
+    'sleeping_fox_plush',
+    'bombergirl', 'gitadora_guitarfreaks', 'gitadora_drummania',
+    'claw_machine', 'compact_claw_machine',
 )
 
 

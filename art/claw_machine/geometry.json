@@ -3768,7 +3768,7 @@
           ]
         }
       },
-      "_group": "Nine prize positions"
+      "_group": "Fifteen prize positions"
     },
     {
       "name": "Stock pad 0",
@@ -3838,17 +3838,17 @@
           ]
         }
       },
-      "_group": "Nine prize positions"
+      "_group": "Fifteen prize positions"
     },
     {
       "name": "Stock pad rim 1",
       "from": [
-        20.8,
+        28.8,
         18.0,
         20.9
       ],
       "to": [
-        27.2,
+        35.2,
         18.12,
         27.1
       ],
@@ -3908,11 +3908,151 @@
           ]
         }
       },
-      "_group": "Nine prize positions"
+      "_group": "Fifteen prize positions"
     },
     {
       "name": "Stock pad 1",
       "from": [
+        29.05,
+        18.115,
+        21.15
+      ],
+      "to": [
+        34.95,
+        18.18,
+        26.85
+      ],
+      "faces": {
+        "north": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "south": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "east": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "west": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "up": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "down": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        }
+      },
+      "_group": "Fifteen prize positions"
+    },
+    {
+      "name": "Stock pad rim 2",
+      "from": [
+        20.8,
+        18.0,
+        20.9
+      ],
+      "to": [
+        27.2,
+        18.12,
+        27.1
+      ],
+      "faces": {
+        "north": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "south": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "east": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "west": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "up": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "down": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        }
+      },
+      "_group": "Fifteen prize positions"
+    },
+    {
+      "name": "Stock pad 2",
+      "from": [
         21.05,
         18.115,
         21.15
@@ -3978,10 +4118,150 @@
           ]
         }
       },
-      "_group": "Nine prize positions"
+      "_group": "Fifteen prize positions"
     },
     {
-      "name": "Stock pad rim 2",
+      "name": "Stock pad rim 3",
+      "from": [
+        12.799999999999997,
+        18.0,
+        20.9
+      ],
+      "to": [
+        19.2,
+        18.12,
+        27.1
+      ],
+      "faces": {
+        "north": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "south": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "east": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "west": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "up": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "down": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        }
+      },
+      "_group": "Fifteen prize positions"
+    },
+    {
+      "name": "Stock pad 3",
+      "from": [
+        13.049999999999997,
+        18.115,
+        21.15
+      ],
+      "to": [
+        18.95,
+        18.18,
+        26.85
+      ],
+      "faces": {
+        "north": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "south": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "east": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "west": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "up": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "down": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        }
+      },
+      "_group": "Fifteen prize positions"
+    },
+    {
+      "name": "Stock pad rim 4",
       "from": [
         4.799999999999997,
         18.0,
@@ -4048,10 +4328,10 @@
           ]
         }
       },
-      "_group": "Nine prize positions"
+      "_group": "Fifteen prize positions"
     },
     {
-      "name": "Stock pad 2",
+      "name": "Stock pad 4",
       "from": [
         5.049999999999997,
         18.115,
@@ -4118,297 +4398,17 @@
           ]
         }
       },
-      "_group": "Nine prize positions"
-    },
-    {
-      "name": "Stock pad rim 3",
-      "from": [
-        36.8,
-        18.0,
-        12.9
-      ],
-      "to": [
-        43.2,
-        18.12,
-        19.1
-      ],
-      "faces": {
-        "north": {
-          "texture": "#materials",
-          "uv": [
-            12.125,
-            8.125,
-            15.875,
-            11.875
-          ]
-        },
-        "south": {
-          "texture": "#materials",
-          "uv": [
-            12.125,
-            8.125,
-            15.875,
-            11.875
-          ]
-        },
-        "east": {
-          "texture": "#materials",
-          "uv": [
-            12.125,
-            8.125,
-            15.875,
-            11.875
-          ]
-        },
-        "west": {
-          "texture": "#materials",
-          "uv": [
-            12.125,
-            8.125,
-            15.875,
-            11.875
-          ]
-        },
-        "up": {
-          "texture": "#materials",
-          "uv": [
-            12.125,
-            8.125,
-            15.875,
-            11.875
-          ]
-        },
-        "down": {
-          "texture": "#materials",
-          "uv": [
-            12.125,
-            8.125,
-            15.875,
-            11.875
-          ]
-        }
-      },
-      "_group": "Nine prize positions"
-    },
-    {
-      "name": "Stock pad 3",
-      "from": [
-        37.05,
-        18.115,
-        13.15
-      ],
-      "to": [
-        42.95,
-        18.18,
-        18.85
-      ],
-      "faces": {
-        "north": {
-          "texture": "#materials",
-          "uv": [
-            4.125,
-            8.125,
-            7.875,
-            11.875
-          ]
-        },
-        "south": {
-          "texture": "#materials",
-          "uv": [
-            4.125,
-            8.125,
-            7.875,
-            11.875
-          ]
-        },
-        "east": {
-          "texture": "#materials",
-          "uv": [
-            4.125,
-            8.125,
-            7.875,
-            11.875
-          ]
-        },
-        "west": {
-          "texture": "#materials",
-          "uv": [
-            4.125,
-            8.125,
-            7.875,
-            11.875
-          ]
-        },
-        "up": {
-          "texture": "#materials",
-          "uv": [
-            4.125,
-            8.125,
-            7.875,
-            11.875
-          ]
-        },
-        "down": {
-          "texture": "#materials",
-          "uv": [
-            4.125,
-            8.125,
-            7.875,
-            11.875
-          ]
-        }
-      },
-      "_group": "Nine prize positions"
-    },
-    {
-      "name": "Stock pad rim 4",
-      "from": [
-        20.8,
-        18.0,
-        12.9
-      ],
-      "to": [
-        27.2,
-        18.12,
-        19.1
-      ],
-      "faces": {
-        "north": {
-          "texture": "#materials",
-          "uv": [
-            12.125,
-            8.125,
-            15.875,
-            11.875
-          ]
-        },
-        "south": {
-          "texture": "#materials",
-          "uv": [
-            12.125,
-            8.125,
-            15.875,
-            11.875
-          ]
-        },
-        "east": {
-          "texture": "#materials",
-          "uv": [
-            12.125,
-            8.125,
-            15.875,
-            11.875
-          ]
-        },
-        "west": {
-          "texture": "#materials",
-          "uv": [
-            12.125,
-            8.125,
-            15.875,
-            11.875
-          ]
-        },
-        "up": {
-          "texture": "#materials",
-          "uv": [
-            12.125,
-            8.125,
-            15.875,
-            11.875
-          ]
-        },
-        "down": {
-          "texture": "#materials",
-          "uv": [
-            12.125,
-            8.125,
-            15.875,
-            11.875
-          ]
-        }
-      },
-      "_group": "Nine prize positions"
-    },
-    {
-      "name": "Stock pad 4",
-      "from": [
-        21.05,
-        18.115,
-        13.15
-      ],
-      "to": [
-        26.95,
-        18.18,
-        18.85
-      ],
-      "faces": {
-        "north": {
-          "texture": "#materials",
-          "uv": [
-            4.125,
-            8.125,
-            7.875,
-            11.875
-          ]
-        },
-        "south": {
-          "texture": "#materials",
-          "uv": [
-            4.125,
-            8.125,
-            7.875,
-            11.875
-          ]
-        },
-        "east": {
-          "texture": "#materials",
-          "uv": [
-            4.125,
-            8.125,
-            7.875,
-            11.875
-          ]
-        },
-        "west": {
-          "texture": "#materials",
-          "uv": [
-            4.125,
-            8.125,
-            7.875,
-            11.875
-          ]
-        },
-        "up": {
-          "texture": "#materials",
-          "uv": [
-            4.125,
-            8.125,
-            7.875,
-            11.875
-          ]
-        },
-        "down": {
-          "texture": "#materials",
-          "uv": [
-            4.125,
-            8.125,
-            7.875,
-            11.875
-          ]
-        }
-      },
-      "_group": "Nine prize positions"
+      "_group": "Fifteen prize positions"
     },
     {
       "name": "Stock pad rim 5",
       "from": [
-        4.799999999999997,
+        36.8,
         18.0,
         12.9
       ],
       "to": [
-        11.200000000000003,
+        43.2,
         18.12,
         19.1
       ],
@@ -4468,17 +4468,17 @@
           ]
         }
       },
-      "_group": "Nine prize positions"
+      "_group": "Fifteen prize positions"
     },
     {
       "name": "Stock pad 5",
       "from": [
-        5.049999999999997,
+        37.05,
         18.115,
         13.15
       ],
       "to": [
-        10.950000000000003,
+        42.95,
         18.18,
         18.85
       ],
@@ -4538,19 +4538,19 @@
           ]
         }
       },
-      "_group": "Nine prize positions"
+      "_group": "Fifteen prize positions"
     },
     {
       "name": "Stock pad rim 6",
       "from": [
-        36.8,
+        28.8,
         18.0,
-        4.9
+        12.9
       ],
       "to": [
-        43.2,
+        35.2,
         18.12,
-        11.1
+        19.1
       ],
       "faces": {
         "north": {
@@ -4608,19 +4608,19 @@
           ]
         }
       },
-      "_group": "Nine prize positions"
+      "_group": "Fifteen prize positions"
     },
     {
       "name": "Stock pad 6",
       "from": [
-        37.05,
+        29.05,
         18.115,
-        5.15
+        13.15
       ],
       "to": [
-        42.95,
+        34.95,
         18.18,
-        10.85
+        18.85
       ],
       "faces": {
         "north": {
@@ -4678,13 +4678,713 @@
           ]
         }
       },
-      "_group": "Nine prize positions"
+      "_group": "Fifteen prize positions"
     },
     {
       "name": "Stock pad rim 7",
       "from": [
         20.8,
         18.0,
+        12.9
+      ],
+      "to": [
+        27.2,
+        18.12,
+        19.1
+      ],
+      "faces": {
+        "north": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "south": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "east": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "west": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "up": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "down": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        }
+      },
+      "_group": "Fifteen prize positions"
+    },
+    {
+      "name": "Stock pad 7",
+      "from": [
+        21.05,
+        18.115,
+        13.15
+      ],
+      "to": [
+        26.95,
+        18.18,
+        18.85
+      ],
+      "faces": {
+        "north": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "south": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "east": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "west": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "up": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "down": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        }
+      },
+      "_group": "Fifteen prize positions"
+    },
+    {
+      "name": "Stock pad rim 8",
+      "from": [
+        12.799999999999997,
+        18.0,
+        12.9
+      ],
+      "to": [
+        19.2,
+        18.12,
+        19.1
+      ],
+      "faces": {
+        "north": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "south": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "east": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "west": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "up": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "down": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        }
+      },
+      "_group": "Fifteen prize positions"
+    },
+    {
+      "name": "Stock pad 8",
+      "from": [
+        13.049999999999997,
+        18.115,
+        13.15
+      ],
+      "to": [
+        18.95,
+        18.18,
+        18.85
+      ],
+      "faces": {
+        "north": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "south": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "east": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "west": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "up": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "down": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        }
+      },
+      "_group": "Fifteen prize positions"
+    },
+    {
+      "name": "Stock pad rim 9",
+      "from": [
+        4.799999999999997,
+        18.0,
+        12.9
+      ],
+      "to": [
+        11.200000000000003,
+        18.12,
+        19.1
+      ],
+      "faces": {
+        "north": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "south": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "east": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "west": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "up": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "down": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        }
+      },
+      "_group": "Fifteen prize positions"
+    },
+    {
+      "name": "Stock pad 9",
+      "from": [
+        5.049999999999997,
+        18.115,
+        13.15
+      ],
+      "to": [
+        10.950000000000003,
+        18.18,
+        18.85
+      ],
+      "faces": {
+        "north": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "south": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "east": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "west": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "up": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "down": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        }
+      },
+      "_group": "Fifteen prize positions"
+    },
+    {
+      "name": "Stock pad rim 10",
+      "from": [
+        36.8,
+        18.0,
+        4.9
+      ],
+      "to": [
+        43.2,
+        18.12,
+        11.1
+      ],
+      "faces": {
+        "north": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "south": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "east": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "west": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "up": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "down": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        }
+      },
+      "_group": "Fifteen prize positions"
+    },
+    {
+      "name": "Stock pad 10",
+      "from": [
+        37.05,
+        18.115,
+        5.15
+      ],
+      "to": [
+        42.95,
+        18.18,
+        10.85
+      ],
+      "faces": {
+        "north": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "south": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "east": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "west": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "up": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "down": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        }
+      },
+      "_group": "Fifteen prize positions"
+    },
+    {
+      "name": "Stock pad rim 11",
+      "from": [
+        28.8,
+        18.0,
+        4.9
+      ],
+      "to": [
+        35.2,
+        18.12,
+        11.1
+      ],
+      "faces": {
+        "north": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "south": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "east": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "west": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "up": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "down": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        }
+      },
+      "_group": "Fifteen prize positions"
+    },
+    {
+      "name": "Stock pad 11",
+      "from": [
+        29.05,
+        18.115,
+        5.15
+      ],
+      "to": [
+        34.95,
+        18.18,
+        10.85
+      ],
+      "faces": {
+        "north": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "south": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "east": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "west": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "up": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "down": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        }
+      },
+      "_group": "Fifteen prize positions"
+    },
+    {
+      "name": "Stock pad rim 12",
+      "from": [
+        20.8,
+        18.0,
         4.9
       ],
       "to": [
@@ -4748,10 +5448,10 @@
           ]
         }
       },
-      "_group": "Nine prize positions"
+      "_group": "Fifteen prize positions"
     },
     {
-      "name": "Stock pad 7",
+      "name": "Stock pad 12",
       "from": [
         21.05,
         18.115,
@@ -4818,10 +5518,150 @@
           ]
         }
       },
-      "_group": "Nine prize positions"
+      "_group": "Fifteen prize positions"
     },
     {
-      "name": "Stock pad rim 8",
+      "name": "Stock pad rim 13",
+      "from": [
+        12.799999999999997,
+        18.0,
+        4.9
+      ],
+      "to": [
+        19.2,
+        18.12,
+        11.1
+      ],
+      "faces": {
+        "north": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "south": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "east": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "west": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "up": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        },
+        "down": {
+          "texture": "#materials",
+          "uv": [
+            12.125,
+            8.125,
+            15.875,
+            11.875
+          ]
+        }
+      },
+      "_group": "Fifteen prize positions"
+    },
+    {
+      "name": "Stock pad 13",
+      "from": [
+        13.049999999999997,
+        18.115,
+        5.15
+      ],
+      "to": [
+        18.95,
+        18.18,
+        10.85
+      ],
+      "faces": {
+        "north": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "south": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "east": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "west": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "up": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        },
+        "down": {
+          "texture": "#materials",
+          "uv": [
+            4.125,
+            8.125,
+            7.875,
+            11.875
+          ]
+        }
+      },
+      "_group": "Fifteen prize positions"
+    },
+    {
+      "name": "Stock pad rim 14",
       "from": [
         4.799999999999997,
         18.0,
@@ -4888,10 +5728,10 @@
           ]
         }
       },
-      "_group": "Nine prize positions"
+      "_group": "Fifteen prize positions"
     },
     {
-      "name": "Stock pad 8",
+      "name": "Stock pad 14",
       "from": [
         5.049999999999997,
         18.115,
@@ -4958,7 +5798,7 @@
           ]
         }
       },
-      "_group": "Nine prize positions"
+      "_group": "Fifteen prize positions"
     },
     {
       "name": "Corner white upright (0.65, 1.15)",
@@ -10812,7 +11652,7 @@
       {
         "slot": 0,
         "center": [
-          40,
+          40.0,
           20.5,
           24
         ]
@@ -10820,7 +11660,7 @@
       {
         "slot": 1,
         "center": [
-          24,
+          32.0,
           20.5,
           24
         ]
@@ -10828,7 +11668,7 @@
       {
         "slot": 2,
         "center": [
-          8,
+          24.0,
           20.5,
           24
         ]
@@ -10836,23 +11676,23 @@
       {
         "slot": 3,
         "center": [
-          40,
+          16.0,
           20.5,
-          16
+          24
         ]
       },
       {
         "slot": 4,
         "center": [
-          24,
+          8.0,
           20.5,
-          16
+          24
         ]
       },
       {
         "slot": 5,
         "center": [
-          8,
+          40.0,
           20.5,
           16
         ]
@@ -10860,23 +11700,71 @@
       {
         "slot": 6,
         "center": [
-          40,
+          32.0,
           20.5,
-          8
+          16
         ]
       },
       {
         "slot": 7,
         "center": [
-          24,
+          24.0,
           20.5,
-          8
+          16
         ]
       },
       {
         "slot": 8,
         "center": [
-          8,
+          16.0,
+          20.5,
+          16
+        ]
+      },
+      {
+        "slot": 9,
+        "center": [
+          8.0,
+          20.5,
+          16
+        ]
+      },
+      {
+        "slot": 10,
+        "center": [
+          40.0,
+          20.5,
+          8
+        ]
+      },
+      {
+        "slot": 11,
+        "center": [
+          32.0,
+          20.5,
+          8
+        ]
+      },
+      {
+        "slot": 12,
+        "center": [
+          24.0,
+          20.5,
+          8
+        ]
+      },
+      {
+        "slot": 13,
+        "center": [
+          16.0,
+          20.5,
+          8
+        ]
+      },
+      {
+        "slot": 14,
+        "center": [
+          8.0,
           20.5,
           8
         ]
@@ -10895,7 +11783,7 @@
         3
       ]
     },
-    "static_elements": 114,
+    "static_elements": 126,
     "part_elements": {
       "0": 16,
       "1": 17,
@@ -10903,12 +11791,12 @@
       "3": 6,
       "4": 2,
       "5": 6,
-      "6": 18,
-      "7": 18,
-      "8": 29,
-      "9": 15,
-      "10": 11,
-      "11": 15,
+      "6": 22,
+      "7": 26,
+      "8": 33,
+      "9": 19,
+      "10": 19,
+      "11": 19,
       "12": 14,
       "13": 8,
       "14": 14,

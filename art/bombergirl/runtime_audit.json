@@ -1,0 +1,254 @@
+{
+  "models": {
+    "bombergirl_base": {
+      "faces": 548,
+      "triangles": 1026,
+      "bounds_blocks": [
+        [
+          0.0125,
+          0.9875
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.028125,
+          0.96875
+        ]
+      ],
+      "surface_area_blocks": 12.632162785938759,
+      "max_planarity_error": 1.415021891387078e-09,
+      "sha256": "5506e67c267f3177bf9e38ec8e6c9ef6cc0d0212179684c6b099921916190e50"
+    },
+    "bombergirl_console": {
+      "faces": 489,
+      "triangles": 814,
+      "bounds_blocks": [
+        [
+          0.046875,
+          0.953125
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.22875,
+          0.969375
+        ]
+      ],
+      "surface_area_blocks": 7.151449457524467,
+      "max_planarity_error": 1.3864995816232401e-09,
+      "sha256": "4bb9542bd39b56ad5a1907facedcdc15c8a50d27e9b3cc1995d0f28da9deebac"
+    },
+    "bombergirl_marquee": {
+      "faces": 150,
+      "triangles": 250,
+      "bounds_blocks": [
+        [
+          0.015625,
+          0.984375
+        ],
+        [
+          0.0,
+          0.96875
+        ],
+        [
+          0.58875,
+          0.969375
+        ]
+      ],
+      "surface_area_blocks": 3.4857685763825517,
+      "max_planarity_error": 9.38628111444047e-17,
+      "sha256": "9ec36a10ac3833a0194e5f09bcf1396aa0345843741193fe7aed4a50b61b2799"
+    },
+    "bombergirl": {
+      "faces": 1066,
+      "triangles": 1854,
+      "bounds_blocks": [
+        [
+          0.0125,
+          0.9875
+        ],
+        [
+          0.0,
+          2.96875
+        ],
+        [
+          0.028125,
+          0.969375
+        ]
+      ],
+      "surface_area_blocks": 23.26938081960202,
+      "max_planarity_error": 1.415021891387078e-09,
+      "sha256": "2a6816d0ed4ea7188460a092ab5c46f8c63d21669118e84c6f805a0b8c53008e"
+    }
+  },
+  "textures": {
+    "bombergirl_bezel.png": {
+      "size": [
+        256,
+        512
+      ],
+      "pixels": 131072,
+      "png_bytes": 2333,
+      "sha256": "ba22895c1f24167c3933efcde5bbd8ef29477fa834b84651ec18321be62be786"
+    },
+    "bombergirl_button.png": {
+      "size": [
+        256,
+        256
+      ],
+      "pixels": 65536,
+      "png_bytes": 6752,
+      "sha256": "c2904bb8d18777dbab911f365687fcace8cbdae4c64516788d44530a2a81a795"
+    },
+    "bombergirl_deck.png": {
+      "size": [
+        512,
+        384
+      ],
+      "pixels": 196608,
+      "png_bytes": 4099,
+      "sha256": "1b1e4214a669e18988ed4279f4c880e4d296b098a88703c197da6868a296769e"
+    },
+    "bombergirl_details.png": {
+      "size": [
+        256,
+        144
+      ],
+      "pixels": 36864,
+      "png_bytes": 4136,
+      "sha256": "400e0297d113a8601731ce4b56edc95e6f4d443ba22cb1375c745aaeb3da406d"
+    },
+    "bombergirl_front.png": {
+      "size": [
+        256,
+        256
+      ],
+      "pixels": 65536,
+      "png_bytes": 1531,
+      "sha256": "2e861017e4370e34ea17debe213a4a9afb3318fddeba43623b93b560b88e7c6c"
+    },
+    "bombergirl_lights.png": {
+      "size": [
+        32,
+        256
+      ],
+      "pixels": 8192,
+      "png_bytes": 333,
+      "sha256": "6501280b72d4edf486b9e6c3d58aee39c27b88d517574f6f76316956f33a6978"
+    },
+    "bombergirl_marquee.png": {
+      "size": [
+        768,
+        160
+      ],
+      "pixels": 122880,
+      "png_bytes": 125737,
+      "sha256": "4344f92a17602e5681275b220480d18619f15f9812a0606131be60dea8be6bd4"
+    },
+    "bombergirl_materials.png": {
+      "size": [
+        64,
+        64
+      ],
+      "pixels": 4096,
+      "png_bytes": 243,
+      "sha256": "670133bd09f9b5a4e54ec6331a3a287a5c03b54190768bea816640c1702d7386"
+    },
+    "bombergirl_rear.png": {
+      "size": [
+        256,
+        256
+      ],
+      "pixels": 65536,
+      "png_bytes": 2086,
+      "sha256": "377421d3cc43d7bf31ac31cc59a6244754ac4c66f48a188b2ec5c49eccc6a068"
+    },
+    "bombergirl_screen.png": {
+      "size": [
+        384,
+        704
+      ],
+      "pixels": 270336,
+      "png_bytes": 343367,
+      "sha256": "e0d3f42b2bf16f9adfa5b05dc2483bcaadf15338c2d33562c0c9b159327cc790"
+    },
+    "bombergirl_side.png": {
+      "size": [
+        256,
+        512
+      ],
+      "pixels": 131072,
+      "png_bytes": 20996,
+      "sha256": "cc7e37f8716c8deddf3ae7722fea0630875906af5a04ef44e487d172b5f3114d"
+    },
+    "bombergirl_speaker.png": {
+      "size": [
+        128,
+        128
+      ],
+      "pixels": 16384,
+      "png_bytes": 342,
+      "sha256": "b38da1f70c02ebb413dfd7cb8ae31fa9922f0ca7d00c42cee60760a9edd8a60a"
+    },
+    "bombergirl_topper.png": {
+      "size": [
+        768,
+        544
+      ],
+      "pixels": 417792,
+      "png_bytes": 876440,
+      "sha256": "a5f857d60997d0f7d596c9c015d900e59d2683be7981beaa6455904ba208af77"
+    },
+    "bombergirl_topper_back.png": {
+      "size": [
+        768,
+        544
+      ],
+      "pixels": 417792,
+      "png_bytes": 71362,
+      "sha256": "2dc719b6c83369dc2768cc1a5180427ecc89950b04eb161143611f1d2d7830cf"
+    },
+    "bombergirl_touch.png": {
+      "size": [
+        512,
+        320
+      ],
+      "pixels": 163840,
+      "png_bytes": 10499,
+      "sha256": "b18fac0ff87f231906a6128d5618f3675e5e42106e34ac9f38bc34a3b5fd85dd"
+    }
+  },
+  "checks": [
+    "Final shipped OBJ faces counted",
+    "All indices, UV ranges and finite coordinates valid",
+    "No degenerate or nonplanar faces",
+    "Three section areas equal complete item within 2.4375879092985997e-10",
+    "All textures retain four mip levels",
+    "Placed face total below10000"
+  ],
+  "placed_faces": 1187,
+  "item_faces": 1066,
+  "texture_pixels": 2113536,
+  "estimated_rgba8_bytes_with_mips_0_to_4": 11261184,
+  "visual_review": {
+    "renderer": "Blender5.2.2 Cycles; parses final optimized item OBJ positions, UVs and material assignments",
+    "reviewed_views": [
+      "bombergirl.png",
+      "bombergirl-front.png",
+      "bombergirl-side.png",
+      "bombergirl-controls.png"
+    ],
+    "result": "PASS",
+    "corrections": [
+      "Reversed lettering on right side corrected",
+      "Attract screen portrait enlarged",
+      "Printed detonator ring replaces hidden annulus",
+      "Touch LCD has a cut aperture in deck"
+    ],
+    "native_verification": "Parent agent owns Minecraft native validation and lightweight GUI icon capture"
+  }
+}

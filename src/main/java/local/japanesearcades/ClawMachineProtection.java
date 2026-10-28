@@ -48,6 +48,6 @@ public final class ClawMachineProtection {
 
     @SubscribeEvent
     public static void explosion(ExplosionEvent.Detonate event) {
-        event.getAffectedBlocks().removeIf(pos -> event.getLevel().getBlockState(pos).is(JapaneseArcades.CLAW_MACHINE.get()));
+        event.getAffectedBlocks().removeIf(pos -> event.getLevel().getBlockState(pos).getBlock() instanceof ClawMachineBlock);
     }
 }

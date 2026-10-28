@@ -1,0 +1,133 @@
+{
+  "textures": [
+    {
+      "name": "gitadora_materials.png",
+      "size": [
+        128,
+        128
+      ],
+      "bytes": 364,
+      "rgba_bytes": 65536
+    },
+    {
+      "name": "gitadora_marquee.png",
+      "size": [
+        512,
+        256
+      ],
+      "bytes": 20701,
+      "rgba_bytes": 524288
+    },
+    {
+      "name": "gitadora_screen_guitarfreaks.png",
+      "size": [
+        512,
+        288
+      ],
+      "bytes": 59571,
+      "rgba_bytes": 589824
+    },
+    {
+      "name": "gitadora_screen_drummania.png",
+      "size": [
+        512,
+        288
+      ],
+      "bytes": 58665,
+      "rgba_bytes": 589824
+    },
+    {
+      "name": "gitadora_front.png",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 2675,
+      "rgba_bytes": 262144
+    },
+    {
+      "name": "gitadora_side.png",
+      "size": [
+        128,
+        512
+      ],
+      "bytes": 5779,
+      "rgba_bytes": 262144
+    },
+    {
+      "name": "gitadora_bridge.png",
+      "size": [
+        512,
+        96
+      ],
+      "bytes": 1309,
+      "rgba_bytes": 196608
+    },
+    {
+      "name": "gitadora_title.png",
+      "size": [
+        256,
+        32
+      ],
+      "bytes": 2152,
+      "rgba_bytes": 32768
+    },
+    {
+      "name": "gitadora_speaker.png",
+      "size": [
+        128,
+        128
+      ],
+      "bytes": 1634,
+      "rgba_bytes": 65536
+    },
+    {
+      "name": "gitadora_pad.png",
+      "size": [
+        128,
+        128
+      ],
+      "bytes": 2008,
+      "rgba_bytes": 65536
+    },
+    {
+      "name": "gitadora_service.png",
+      "size": [
+        128,
+        256
+      ],
+      "bytes": 1712,
+      "rgba_bytes": 131072
+    },
+    {
+      "name": "gitadora_reader.png",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 7078,
+      "rgba_bytes": 262144
+    },
+    {
+      "name": "gitadora_rear.png",
+      "size": [
+        128,
+        256
+      ],
+      "bytes": 2987,
+      "rgba_bytes": 131072
+    },
+    {
+      "name": "gitadora_pedal.png",
+      "size": [
+        64,
+        128
+      ],
+      "bytes": 558,
+      "rgba_bytes": 32768
+    }
+  ],
+  "total_base_rgba_bytes": 3211264,
+  "shared": "All identical printed panels/materials are shared between both cabinets; only the screen subtitles differ.",
+  "provenance": "Original procedural interpretation of KONAMI OverDrive printed panels. Official cabinet photographs retained in references/ for geometry comparison."
+}

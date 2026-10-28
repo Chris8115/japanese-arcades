@@ -1,0 +1,103 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "neoforge:obj",
+  "model": "japanesearcades:models/item/gitadora_guitarfreaks.obj",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "emissive_ambient": true,
+  "ambientocclusion": false,
+  "render_type": "minecraft:cutout_mipped_all",
+  "textures": {
+    "bridge": "japanesearcades:block/gitadora_bridge",
+    "front": "japanesearcades:block/gitadora_front",
+    "marquee": "japanesearcades:block/gitadora_marquee",
+    "materials": "japanesearcades:block/gitadora_materials",
+    "reader": "japanesearcades:block/gitadora_reader",
+    "rear": "japanesearcades:block/gitadora_rear",
+    "screen_guitarfreaks": "japanesearcades:block/gitadora_screen_guitarfreaks",
+    "service": "japanesearcades:block/gitadora_service",
+    "side": "japanesearcades:block/gitadora_side",
+    "speaker": "japanesearcades:block/gitadora_speaker",
+    "title": "japanesearcades:block/gitadora_title",
+    "particle": "japanesearcades:block/gitadora_materials"
+  },
+  "gui_light": "front",
+  "display": {
+    "gui": {
+      "rotation": [
+        12,
+        225,
+        0
+      ],
+      "translation": [
+        0,
+        -5.2,
+        0
+      ],
+      "scale": [
+        0.34,
+        0.34,
+        0.34
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.19,
+        0.19,
+        0.19
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "translation": [
+        0,
+        -6,
+        0
+      ],
+      "scale": [
+        0.33,
+        0.33,
+        0.33
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        75,
+        45,
+        0
+      ],
+      "scale": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        45,
+        0
+      ],
+      "translation": [
+        0,
+        -3,
+        0
+      ],
+      "scale": [
+        0.33,
+        0.33,
+        0.33
+      ]
+    }
+  }
+}

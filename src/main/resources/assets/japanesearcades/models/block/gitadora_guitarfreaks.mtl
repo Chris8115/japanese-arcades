@@ -1,0 +1,54 @@
+newmtl bridge_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #bridge
+
+newmtl front_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #front
+
+newmtl marquee_glow
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #marquee
+
+newmtl materials_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #materials
+
+newmtl reader_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #reader
+
+newmtl rear_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #rear
+
+newmtl screen_guitarfreaks_glow
+Ka 1 1 1
+Kd 1 1 1
+map_Kd #screen_guitarfreaks
+
+newmtl service_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #service
+
+newmtl side_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #side
+
+newmtl speaker_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #speaker
+
+newmtl title_surface
+Ka 0 0 0
+Kd 1 1 1
+map_Kd #title

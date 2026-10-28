@@ -1,0 +1,318 @@
+{
+  "source": "art/sleeping_fox_plush/model.blend",
+  "source_sha256": "1b4bdf9d004f9c3b9d5b87a3374584dc90577932db16828d95cbdf9f10cfdcac",
+  "generator": "scripts/export_sleeping_fox_plush.py",
+  "source_faces": 272,
+  "prior_pixel_geometry_faces": 1262,
+  "removed_fully_enclosed_faces": 34,
+  "removed_faces": [
+    {
+      "part": "01 vanilla-proportioned sleeping head",
+      "face": 2
+    },
+    {
+      "part": "01 vanilla-proportioned sleeping head",
+      "face": 5
+    },
+    {
+      "part": "02 protruding cuboid cream muzzle and nose",
+      "face": 5
+    },
+    {
+      "part": "02 protruding cuboid cream muzzle and nose",
+      "face": 6
+    },
+    {
+      "part": "02 protruding cuboid cream muzzle and nose",
+      "face": 14
+    },
+    {
+      "part": "05 long sleeping cuboid body",
+      "face": 2
+    },
+    {
+      "part": "05 long sleeping cuboid body",
+      "face": 4
+    },
+    {
+      "part": "06 rectangular tail with vanilla cream tip",
+      "face": 5
+    },
+    {
+      "part": "07 square tail root fold",
+      "face": 3
+    },
+    {
+      "part": "08 tucked dark front paw",
+      "face": 0
+    },
+    {
+      "part": "08 tucked dark front paw",
+      "face": 1
+    },
+    {
+      "part": "08 tucked dark front paw",
+      "face": 3
+    },
+    {
+      "part": "08 tucked dark front paw",
+      "face": 4
+    },
+    {
+      "part": "08 tucked dark front paw",
+      "face": 5
+    },
+    {
+      "part": "08 tucked dark front paw",
+      "face": 9
+    },
+    {
+      "part": "08 tucked dark front paw",
+      "face": 10
+    },
+    {
+      "part": "08 tucked dark front paw",
+      "face": 17
+    },
+    {
+      "part": "08 tucked dark front paw",
+      "face": 18
+    },
+    {
+      "part": "08 tucked dark front paw",
+      "face": 19
+    },
+    {
+      "part": "08 tucked dark front paw",
+      "face": 22
+    },
+    {
+      "part": "09 tucked dark rear paw",
+      "face": 1
+    },
+    {
+      "part": "09 tucked dark rear paw",
+      "face": 5
+    },
+    {
+      "part": "09 tucked dark rear paw",
+      "face": 19
+    },
+    {
+      "part": "10 small woven prize tag",
+      "face": 0
+    },
+    {
+      "part": "10 small woven prize tag",
+      "face": 1
+    },
+    {
+      "part": "10 small woven prize tag",
+      "face": 2
+    },
+    {
+      "part": "10 small woven prize tag",
+      "face": 3
+    },
+    {
+      "part": "10 small woven prize tag",
+      "face": 8
+    },
+    {
+      "part": "10 small woven prize tag",
+      "face": 9
+    },
+    {
+      "part": "10 small woven prize tag",
+      "face": 10
+    },
+    {
+      "part": "10 small woven prize tag",
+      "face": 11
+    },
+    {
+      "part": "10 small woven prize tag",
+      "face": 21
+    },
+    {
+      "part": "11 prize tag stitch 0",
+      "face": 4
+    },
+    {
+      "part": "11 prize tag stitch 1",
+      "face": 4
+    }
+  ],
+  "internal_contact_patches_removed": [
+    {
+      "source_face": 18,
+      "contact_face": 70,
+      "removed_area": 0.01872000098093585
+    },
+    {
+      "source_face": 18,
+      "contact_face": 96,
+      "removed_area": 0.018720002535627993
+    },
+    {
+      "source_face": 19,
+      "contact_face": 46,
+      "removed_area": 0.07682751804111626
+    },
+    {
+      "source_face": 46,
+      "contact_face": 19,
+      "removed_area": 0.07682751955639819
+    },
+    {
+      "source_face": 70,
+      "contact_face": 18,
+      "removed_area": 0.01872000098093235
+    },
+    {
+      "source_face": 96,
+      "contact_face": 18,
+      "removed_area": 0.018720002535624003
+    },
+    {
+      "source_face": 146,
+      "contact_face": 169,
+      "removed_area": 0.0757760068220075
+    },
+    {
+      "source_face": 169,
+      "contact_face": 146,
+      "removed_area": 0.07577600374939053
+    }
+  ],
+  "item": {
+    "faces": 246,
+    "triangles": 431,
+    "vertices": 276,
+    "bounds": {
+      "minimum": [
+        -0.320000038,
+        0.0,
+        -0.162500024
+      ],
+      "maximum": [
+        1.320000052,
+        1.01000011,
+        1.162500024
+      ]
+    },
+    "sha256": "9c6ba2877bcfcc7038c94649c7515e406bb714913633a25939f7afccbf1c2ae7"
+  },
+  "parts": {
+    "0": {
+      "faces": 122,
+      "triangles": 215,
+      "vertices": 152,
+      "bounds": {
+        "minimum": [
+          0.179999962,
+          3e-08,
+          0.337499976
+        ],
+        "maximum": [
+          1.0,
+          1.01000011,
+          1.0
+        ]
+      },
+      "sha256": "74c0171549311e129aecc88b72e98d9ca4f3fcbd54398256d6964ff49e1b1bef"
+    },
+    "1": {
+      "faces": 47,
+      "triangles": 84,
+      "vertices": 65,
+      "bounds": {
+        "minimum": [
+          0.0,
+          0.0,
+          0.387499988
+        ],
+        "maximum": [
+          0.820000052,
+          0.300000042,
+          1.0
+        ]
+      },
+      "sha256": "85c3d3d6877dffcfed7f193db98657beb4867472d9d548b16021da2a2dc2eee0"
+    },
+    "2": {
+      "faces": 33,
+      "triangles": 60,
+      "vertices": 45,
+      "bounds": {
+        "minimum": [
+          0.179999962,
+          0.015000015,
+          0.0
+        ],
+        "maximum": [
+          1.0,
+          0.810000062,
+          0.642500043
+        ]
+      },
+      "sha256": "551f211f81f81a31180150bab7910b91341a36907b1789949d340af2a2387c0c"
+    },
+    "3": {
+      "faces": 82,
+      "triangles": 148,
+      "vertices": 100,
+      "bounds": {
+        "minimum": [
+          0.0,
+          3e-08,
+          0.0
+        ],
+        "maximum": [
+          0.820000052,
+          0.6450001,
+          0.662500024
+        ]
+      },
+      "sha256": "565a4f94b6f6f77c9560b8f4f68fc9edcec784d162c23e181f6d27735e86c0f5"
+    }
+  },
+  "complete_placed_faces": 284,
+  "complete_placed_triangles": 507,
+  "uv_texture": {
+    "path": "textures/block/sleeping_fox_plush.png",
+    "width": 64,
+    "height": 64,
+    "rgba_bytes": 16384,
+    "mip_levels": 4
+  },
+  "geometry": {
+    "static_chunk_model": true,
+    "block_entity": false,
+    "animated": false,
+    "no_partition_caps": true,
+    "front": "north (-Z)",
+    "part_offsets_north": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "transform": "Minecraft=(BlenderX+1.01, BlenderZ, BlenderY+1.0675)",
+    "source_surface_area": 10.15716519830676,
+    "clipped_surface_area": 10.157165135644089
+  },
+  "note": "Counts are final OBJ faces, not performance measurements. Native client verification is separate."
+}

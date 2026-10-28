@@ -1,0 +1,29 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "neoforge:obj",
+  "model": "japanesearcades:models/block/bombergirl_base.obj",
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": true,
+  "emissive_ambient": true,
+  "ambientocclusion": true,
+  "render_type": "minecraft:cutout_mipped_all",
+  "textures": {
+    "materials": "japanesearcades:block/bombergirl_materials",
+    "topper": "japanesearcades:block/bombergirl_topper",
+    "topper_back": "japanesearcades:block/bombergirl_topper_back",
+    "marquee": "japanesearcades:block/bombergirl_marquee",
+    "screen": "japanesearcades:block/bombergirl_screen",
+    "front": "japanesearcades:block/bombergirl_front",
+    "rear": "japanesearcades:block/bombergirl_rear",
+    "side": "japanesearcades:block/bombergirl_side",
+    "deck": "japanesearcades:block/bombergirl_deck",
+    "touch": "japanesearcades:block/bombergirl_touch",
+    "details": "japanesearcades:block/bombergirl_details",
+    "button": "japanesearcades:block/bombergirl_button",
+    "speaker": "japanesearcades:block/bombergirl_speaker",
+    "bezel": "japanesearcades:block/bombergirl_bezel",
+    "lights": "japanesearcades:block/bombergirl_lights",
+    "particle": "japanesearcades:block/bombergirl_materials"
+  }
+}

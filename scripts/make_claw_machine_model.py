@@ -50,7 +50,7 @@ d.text((256,40),'MOVE  •  DROP  •  WIN',font=font(26),anchor='mm',fill='whit
 d.text((256,87),'PRESS TO PLAY',font=font(29),anchor='mm',fill='#f8c6e0')
 controls.save(TEX/'claw_machine_controls.png')
 glass=Image.new('RGBA',(512,512),(0,0,0,0));d=ImageDraw.Draw(glass)
-# Sparse real edge catches preserve clear views of the nine live prizes.
+# Sparse real edge catches preserve clear views of the fifteen live prizes.
 d.line((5,18,5,492),fill=(191,239,250,170),width=2)
 d.line((506,18,506,492),fill=(229,251,255,140),width=2)
 d.line((18,6,490,6),fill=(205,247,255,140),width=2)
@@ -125,11 +125,12 @@ box('Prize floor front right',(12,17.45,1.8),(47.37,18,4.6),'paper',group='Glass
 # Side bars meet the rear bar edge-to-edge, avoiding overlapping top faces.
 for x in (4,11.75):box('Chute aperture side '+str(x),(x,17.8,2.3),(x+.25,18.13,4.4),'silver',group='Glass display floor')
 box('Chute aperture back',(4,17.8,4.4),(12,18.13,4.6),'silver',group='Glass display floor')
+GRID_COLUMNS=5
 for row in range(3):
-    for col in range(3):
-        x,z=8+16*col,24-8*row
-        box('Stock pad rim %d'%(row*3+col),(x-3.2,18.0,z-3.1),(x+3.2,18.12,z+3.1),'softcyan',group='Nine prize positions')
-        box('Stock pad %d'%(row*3+col),(x-2.95,18.115,z-2.85),(x+2.95,18.18,z+2.85),'paper',group='Nine prize positions')
+    for col in range(GRID_COLUMNS):
+        x,z=8+32*col/(GRID_COLUMNS-1),24-8*row
+        box('Stock pad rim %d'%(row*GRID_COLUMNS+col),(x-3.2,18.0,z-3.1),(x+3.2,18.12,z+3.1),'softcyan',group='Fifteen prize positions')
+        box('Stock pad %d'%(row*GRID_COLUMNS+col),(x-2.95,18.115,z-2.85),(x+2.95,18.18,z+2.85),'paper',group='Fifteen prize positions')
 
 # Thin structural posts carry cyan lighting without opaque glass walls.
 for x in (.65,46.1):
@@ -174,7 +175,7 @@ for e in elements:
     if e['_group'] in ('Front service and chute','Glass display floor'):
         e['from'][0],e['to'][0]=48-e['to'][0],48-e['from'][0]
 for e in elements:
-    if e['_group']=='Nine prize positions':
+    if e['_group']=='Fifteen prize positions':
         e['from'][0],e['to'][0]=48-e['to'][0],48-e['from'][0]
 
 # This parked rig is editable in Blockbench and present in the item preview only.
@@ -261,7 +262,7 @@ write_json(ASSETS/'models/item/claw_machine.json',{'gui_light':'front','ambiento
     'display':{'gui':{'rotation':[15,225,0],'scale':[.86,.86,.86]},'ground':{'translation':[0,2,0],'scale':[.6,.6,.6]},
                'fixed':{'rotation':[0,180,0],'scale':[.9,.9,.9]},'thirdperson_righthand':{'rotation':[75,45,0],'scale':[.45,.45,.45]}}})
 
-metadata={'dimensions':[48,48,32],'part_formula':'x+3*z+6*y','grid':[{'slot':r*3+c,'center':[40-16*c,20.5,24-8*r]}for r in range(3)for c in range(3)],
+metadata={'dimensions':[48,48,32],'part_formula':'x+3*z+6*y','grid':[{'slot':r*GRID_COLUMNS+c,'center':[40-32*c/(GRID_COLUMNS-1),20.5,24-8*r]}for r in range(3)for c in range(GRID_COLUMNS)],
           'claw':{'grip_parked_y':36.5,'grip_lowered_y':20.5,'x_origin':8,'x_span':32,'z_origin':8,'z_span':16,'chute':[40,8,3]},
           'static_elements':len(elements),'part_elements':{str(k):len(v) for k,v in parts.items()}}
 write_json(ART/'geometry.json',{'textures':textures,'elements':elements,'preview_elements':scene_preview_elements,'preview_meshes':preview_meshes,'metadata':metadata})

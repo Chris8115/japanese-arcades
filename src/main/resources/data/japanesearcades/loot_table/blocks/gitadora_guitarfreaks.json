@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:block",
+  "pools": [{
+    "rolls": 1,
+    "entries": [{ "type": "minecraft:item", "name": "japanesearcades:gitadora_guitarfreaks" }],
+    "conditions": [
+      { "condition": "minecraft:survives_explosion" },
+      {
+        "condition": "minecraft:block_state_property",
+        "block": "japanesearcades:gitadora_guitarfreaks",
+        "properties": { "part": "base" }
+      }
+    ]
+  }]
+}

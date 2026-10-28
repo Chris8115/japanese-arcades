@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:block",
+  "pools": [{
+    "rolls": 1,
+    "entries": [{ "type": "minecraft:item", "name": "japanesearcades:sleeping_fox_plush" }],
+    "conditions": [
+      { "condition": "minecraft:survives_explosion" },
+      { "condition": "minecraft:block_state_property", "block": "japanesearcades:sleeping_fox_plush", "properties": { "part": "0" } }
+    ]
+  }]
+}
